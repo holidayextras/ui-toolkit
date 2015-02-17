@@ -29,7 +29,7 @@ months and days are covered, well a month is an ordered list of year..
 </ol>
 ```
 
-but we already established month as an <ol> previously and semantically you can’t have a <ol> as a child of another <ol> without an <li>
+but we already established month as an `<ol>` previously and semantically you can’t have a `<ol>` as a child of another `<ol>` without an `<li>`
 
 so how about this...
 ```
@@ -59,11 +59,11 @@ each day, month, year and even century, should be labelled with it’s name, for
 ```
 
 There are inherit problems here, lets start with the semantic problem
-- The month label can not be a child of an <ol> without being and <li>
+- The month label can not be a child of an `<ol>` without being and `<li>`
 
 The other issue is around the “human” wording of the century and its subsequent year. Nobody really says “it’s the 15th year of the 20th century” they say its “2015”
 
-so the suggestion would be to label he month outside the <ol>
+so the suggestion would be to label he month outside the `<ol>`
 ```
 <ol class=“century”>
 	<h1>2015</h1>
