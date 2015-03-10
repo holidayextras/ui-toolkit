@@ -10,6 +10,7 @@
 # SublimeText
 *.sublime-project
 *.sublime-workspace
+.idea
 
 # CodeKit
 config.codekit
@@ -21,3 +22,8 @@ _site
 
 # Node
 node_modules/
+
+# Cordova
+/www
+/platform
+/plugins
