@@ -1,0 +1,23 @@
+# OSX
+.DS_Store
+.DS_Store?
+.log
+.sql
+
+# SASS
+.sass-cache
+
+# SublimeText
+*.sublime-project
+*.sublime-workspace
+
+# CodeKit
+config.codekit
+.codekit-config
+.codekit-config.json
+
+# Jekyll
+_site
+
+# Node
+node_modules/
