@@ -1,0 +1,28 @@
+{
+  "name": "ui-toolkit",
+  "version": "0.0.2",
+  "description": "Placeholder for ui-toolkit",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/holidayextras/ui-toolkit.git"
+  },
+  "scripts": {
+    "install": "napa"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/holidayextras/ui-toolkit/issues"
+  },
+  "homepage": "https://github.com/holidayextras/ui-toolkit",
+  "dependencies": {
+    "bootstrap": "3.3.2",
+    "flex-less": "^1.0.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-less": "^1.0.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-release": "^0.11.0"
+  }
+}
