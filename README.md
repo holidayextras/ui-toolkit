@@ -1,6 +1,9 @@
+<img src="http://react-bootstrap.github.io/assets/logo.png" height="100" align="left" style="margin-top: 10px">
+
 <img src="http://brand.holidayextras.com/img/hx-logo-2-spot-colours.png" height="100">
 
-Holiday Extras UI Toolkit
+
+ReactJS & Bootstrap UI Toolkit
 ---
 
 ##### Under Active Development
@@ -38,16 +41,34 @@ npm start
 The `ui-toolkit` app will open in your default browser at [http://127.0.0.1:8080](http://127.0.0.1:8080)
 
 
-Unit Tests:
+Generate & View Documentation
 ---
 
-You can use the following command in terminal to perform unit tests:
+You can view the React Components in your browser by generating and viewing the docs:
 
 ```bash
-npm test
+cd /path/to/ui-toolkit/docs
+npm install && npm start
+open http://localhost:4000
 ```
 
-A code coverage report will be saved in `./coverage/PhantomJS.../index.html`
+If you would like to build static HTML files of these docs, use:
+
+```bash
+cd /path/to/ui-toolkit/docs
+node build.js
+```
+
+This will create HTML files you can upload to a remote docs server that does not require Node.
+
+You will only need to upload the following static assets once generated:
+
++ assets/
++ vendor/
++ index.html
++ components.html
++ getting-started.html
+
 
 Grunt Terminal Commands:
 ---
@@ -62,62 +83,6 @@ This is the most common command you will want to use and is required to view any
 
 ```bash
 grunt build:dist
-```
-
-#### Build for iOS or Android:
-
-The following commands will build either iOS or Android versions of the app to their respective ./platorms folder.
-
-```bash
-grunt build:app_ios
-```
-
-```bash
-grunt build:app_android
-```
-
-#### Running iOS Simulator:
-
-The following commands will first Build for Distribution and run iOS Simulation for the respective device.
-
-```bash
-grunt emulate:iphone_4s
-```
-
-```bash
-grunt emulate:iphone_5
-```
-
-```bash
-grunt emulate:iphone_5s
-```
-
-```bash
-grunt emulate:iphone_6
-```
-
-```bash
-grunt emulate:iphone_6_plus
-```
-
-```bash
-grunt emulate:iphone_resizable
-```
-
-```bash
-grunt emulate:ipad_2
-```
-
-```bash
-grunt emulate:ipad_retina
-```
-
-```bash
-grunt emulate:ipad_air
-```
-
-```bash
-grunt emulate:ipad_resizable
 ```
 
 #### Compile Less files into CSS:

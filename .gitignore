@@ -23,7 +23,6 @@ _site
 # Node
 node_modules/
 
-# Cordova
-/www
-/platform
-/plugins
+# Ignore
+/dist
+/docs/*.html

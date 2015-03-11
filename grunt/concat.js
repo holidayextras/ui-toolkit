@@ -1,6 +1,7 @@
 module.exports = {
 	options: {
 		stripBanners: false,
+		separator: ';',
 		banner: '/*!\n' +
 		' * <%= package.author.name %>: <%= package.description %>\n' +
 		' * @author <%= package.author.email %>\n' +
@@ -11,11 +12,11 @@ module.exports = {
 		process: function(src, filepath) {
 			return '// Source: ' + filepath + '\n' +
 				src.replace(/(^|\n)[ \t]*('use strict'|"use strict");?\s*/g, '$1');
-		},
+		}
 	},
 	dist: {
 		files: {
-			'www/js/app.js': [
+			'dist/js/toolkit.js': [
 				"src/js/*.js"
 			]
 		}

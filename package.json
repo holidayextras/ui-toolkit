@@ -2,12 +2,16 @@
   "name": "ui-toolkit",
   "version": "0.0.1",
   "description": "Holiday Extras UI Toolkit",
+  "main": "./docs/server.js",
+  "browser": "./docs/client.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/holidayextras/ui-toolkit.git"
   },
   "scripts": {
-    "test": ""
+    "start": "cd docs; npm start",
+    "test": "",
+    "postinstall": "cd docs; npm install"
   },
   "keywords": [
     "ui",
@@ -24,20 +28,25 @@
   },
   "homepage": "https://github.com/holidayextras/ui-toolkit",
   "dependencies": {
-    "react": "^0.13.0",
-    "bootstrap": "^3.3.2",
     "flex-less": "^1.0.0",
-    "react-bootstrap": "git://github.com/react-bootstrap/react-bootstrap.git"
+    "react": "~0.12.0",
+    "react-async": "~2.0.0",
+    "react-bootstrap": "^0.16.1",
+    "react-router-component": "https://github.com/STRML/react-router-component/archive/v0.23.0.tar.gz",
+    "require-directory": "^2.0.0",
+    "requirejs": "~2.1.9"
   },
   "devDependencies": {
     "del": "^1.1.1",
     "grunt": "^0.4.5",
     "grunt-bump": "^0.0.15",
     "grunt-bump-cordova": "^0.1.3",
+    "grunt-cache-breaker": "^1.0.1",
     "grunt-changelog": "^0.2.2",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-concat": "^0.5.0",
     "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-jshint": "^0.11.0",
     "grunt-contrib-less": "^1.0.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-cordovacli": "^0.7.0",
@@ -45,7 +54,6 @@
     "grunt-shell": "^1.1.1",
     "gruntfile-gtx": "^0.3.0",
     "jshint-stylish": "^0.4.0",
-    "open": "^0.0.5",
-    "require-directory": "^2.0.0"
+    "open": "^0.0.5"
   }
 }

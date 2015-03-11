@@ -16,7 +16,7 @@ module.exports = {
 		}
 	},
 	www: {
-		files: ['www/**/*.*'],
+		files: ['dist/**/*.*'],
 		tasks: [], // @TODO: Run Custom Task on Rebuild
 		options: {
 			livereload: true,

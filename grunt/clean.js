@@ -1,5 +1,5 @@
 module.exports = {
 	dist: [
-		"www/**/*.*"
+		"dist/*"
 	]
 };

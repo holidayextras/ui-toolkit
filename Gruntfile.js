@@ -27,7 +27,7 @@ module.exports = function(grunt)
 
 	gtx.alias('prerelease', ['bump-only:prerelease', 'release']);
 
-	gtx.alias('release', ['build:dist', 'bump-commit', 'build:app_ios', 'build:app_android']);
+	gtx.alias('release', ['build:dist', 'cachebreaker:dist', 'bump-commit', 'build:app_ios', 'build:app_android']);
 	gtx.alias('release-major', ['bump-only:major', 'release']);
 	gtx.alias('release-minor', ['bump-only:minor', 'release']);
 	gtx.alias('release-patch', ['bump-only:patch', 'release']);

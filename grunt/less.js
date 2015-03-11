@@ -4,7 +4,7 @@ module.exports = {
 			compress: true
 		},
         files: {
-			"www/css/toolkit.min.css": "src/less/styles.less"
+			"dist/css/toolkit.min.css": "src/less/styles.less"
         }
     }
 };
