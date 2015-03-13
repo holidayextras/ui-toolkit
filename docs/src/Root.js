@@ -6,6 +6,7 @@ var Router = require('react-router-component');
 var HomePage = React.createFactory(require('./HomePage'));
 var GettingStartedPage = React.createFactory(require('./GettingStartedPage'));
 var ComponentsPage = React.createFactory(require('./ComponentsPage'));
+var CustomPage = React.createFactory(require('./CustomPage'));
 var NotFoundPage = React.createFactory(require('./NotFoundPage'));
 
 var Locations = Router.Locations;
@@ -20,6 +21,7 @@ var PagesHolder = React.createClass({
           <Location path="/index.html" handler={HomePage} />
           <Location path="/getting-started.html" handler={GettingStartedPage} />
           <Location path="/components.html" handler={ComponentsPage} />
+		  <Location path="/custom.html" handler={CustomPage} />
           <NotFound handler={NotFoundPage} />
         </Locations>
       );
@@ -87,7 +89,7 @@ var Root = React.createClass({
     };
 
     var head = {
-      __html: '<title>React Bootstrap</title>' +
+      __html: '<title>Holiday Extras UI Toolkit</title>' +
         '<meta http-equiv="X-UA-Compatible" content="IE=edge" />' +
         '<meta name="viewport" content="width=device-width, initial-scale=1.0" />' +
         '<link href="vendor/bootstrap/bootstrap.css" rel="stylesheet" />' +

@@ -85,20 +85,6 @@ This is the most common command you will want to use and is required to view any
 grunt build:dist
 ```
 
-#### Compile Less files into CSS:
-
-This will compile all the files in `src/less` and generate the `www/css/toolkit.min.css` file
-
-```bash
-grunt less:dist
-```
-
-#### Create a Release:
-
-```bash
-grunt release
-```
-
 #### Create a Major Release:
 
 The following will:
@@ -106,6 +92,7 @@ The following will:
 1. Increase the build's major number ( e.g. v __1__.2.3 => v __2__.0.0 )
 2. Build & Package Distribution Files
 3. Create Tag Branch & Perform a git commit
+4. Generated Documentation will be merged into `gh-pages`
 
 ```bash
 grunt release-major
@@ -118,6 +105,7 @@ The following will:
 1. Increase the build's minor number ( e.g. v 1.__2__.3 => v 1.__3__.0 )
 2. Build & Package Distribution Files
 3. Create Tag Branch & Perform a git commit
+4. Generated Documentation will be merged into `gh-pages`
 
 ```bash
 grunt release-minor
@@ -130,18 +118,8 @@ The following will:
 1. Increase the build's patch number ( e.g. v 1.2.__3__ => v 1.2.__4__ )
 2. Build & Package Distribution Files
 3. Create Tag Branch & Perform a git commit
+4. Generated Documentation will be merged into `gh-pages`
 
 ```bash
 grunt release-patch
-```
-
-#### Create a Pre-Release:
-
-The following will:
-
-1. Build & Package Distribution Files
-2. Perform a git commit
-
-```bash
-grunt prerelease
 ```

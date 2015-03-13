@@ -9,8 +9,6 @@
     "url": "https://github.com/holidayextras/ui-toolkit.git"
   },
   "scripts": {
-    "start": "cd docs; npm start",
-    "test": "",
     "postinstall": "cd docs; npm install"
   },
   "keywords": [
@@ -22,7 +20,6 @@
     "email": "webit@holidayextras.com",
     "url": "http://www.holidayextras.co.uk"
   },
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/holidayextras/ui-toolkit/issues"
   },
@@ -37,23 +34,13 @@
     "requirejs": "~2.1.9"
   },
   "devDependencies": {
-    "del": "^1.1.1",
     "grunt": "^0.4.5",
+    "grunt-build-control": "^0.3.0",
     "grunt-bump": "^0.0.15",
-    "grunt-bump-cordova": "^0.1.3",
-    "grunt-cache-breaker": "^1.0.1",
     "grunt-changelog": "^0.2.2",
-    "grunt-contrib-clean": "^0.6.0",
-    "grunt-contrib-concat": "^0.5.0",
-    "grunt-contrib-copy": "^0.5.0",
-    "grunt-contrib-jshint": "^0.11.0",
-    "grunt-contrib-less": "^1.0.0",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-cordovacli": "^0.7.0",
     "grunt-release": "^0.11.0",
     "grunt-shell": "^1.1.1",
-    "gruntfile-gtx": "^0.3.0",
-    "jshint-stylish": "^0.4.0",
-    "open": "^0.0.5"
+    "gruntfile-gtx": "^0.3.0"
   }
 }

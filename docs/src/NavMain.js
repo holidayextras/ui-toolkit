@@ -8,42 +8,48 @@ var Nav = require('react-bootstrap/lib/Nav');
 var InternalLink = Router.Link;
 
 var NAV_LINKS = {
-  'getting-started': {
-    link: 'getting-started.html',
-    title: 'Getting Started'
-  },
-  'components': {
-    link: 'components.html',
-    title: 'Components'
-  }
+	'getting-started': {
+		link: 'getting-started.html',
+		title: 'Getting Started'
+	},
+	'components': {
+		link: 'components.html',
+		title: 'Bootstrap Components'
+	},
+	'custom': {
+		link: 'custom.html',
+		title: 'Holiday Extras Components'
+	}
 };
 
 var NavMain = React.createClass({
-  propTypes: {
-    activePage: React.PropTypes.string
-  },
+	propTypes: {
+		activePage: React.PropTypes.string
+	},
 
-  render: function () {
-    var brand = <InternalLink href="/" className="navbar-brand">UI Toolkit</InternalLink>;
+	render: function ()
+	{
+		var brand = <InternalLink href="/" className="navbar-brand">UI Toolkit</InternalLink>;
 
-    return (
-      <Navbar componentClass='header' brand={brand} staticTop className="bs-docs-nav" role="banner" toggleNavKey={0}>
-        <Nav className="bs-navbar-collapse" role="navigation" eventKey={0} id="top">
+		return (
+			<Navbar componentClass='header' brand={brand} staticTop className="bs-docs-nav" role="banner" toggleNavKey={0}>
+				<Nav className="bs-navbar-collapse" role="navigation" eventKey={0} id="top">
           {Object.keys(NAV_LINKS).map(this.renderNavItem)}
-        </Nav>
-      </Navbar>
-    );
-  },
+				</Nav>
+			</Navbar>
+		);
+	},
 
-  renderNavItem: function (linkName) {
-    var link = NAV_LINKS[linkName];
+	renderNavItem: function (linkName)
+	{
+		var link = NAV_LINKS[linkName];
 
-    return (
-        <li className={this.props.activePage === linkName ? 'active' : null} key={linkName}>
-          <InternalLink href={link.link}>{link.title}</InternalLink>
-        </li>
-      );
-  }
+		return (
+			<li className={this.props.activePage === linkName ? 'active' : null} key={linkName}>
+				<InternalLink href={link.link}>{link.title}</InternalLink>
+			</li>
+		);
+	}
 });
 
 module.exports = NavMain;

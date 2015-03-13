@@ -14,6 +14,7 @@
   "devDependencies": {
     "express": "~3.4.8",
     "node-jsx": "~0.12.0",
+    "node-fs": "^0.1.7",
     "reactify": "~0.15.2",
     "brfs": "~1.0.0",
     "envify": "~1.2.0",
@@ -26,11 +27,12 @@
     "react-async": "~2.0.0",
     "react-router-component": "https://github.com/STRML/react-router-component/archive/v0.23.0.tar.gz",
     "requirejs": "~2.1.9",
-    "open": "^0.0.5"
+    "open": "^0.0.5",
+    "ui-component-button": "git+ssh://git@github.com:holidayextras/ui-component-button.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "supervisor -i node_modules server.js; open http://localhost:4000",
+    "start": "killall node; supervisor -q -i node_modules server.js  > /dev/null 2>&1 &",
     "build": "node build.js && browserify client.js | uglifyjs -cm 2>/dev/null > ./assets/bundle.js",
     "start-prod": "NODE_ENV=production node server.js"
   },
