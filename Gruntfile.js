@@ -1,30 +1,21 @@
-module.exports = function(grunt) {
+module.exports = function(grunt)
+{
+	var gtx = require('gruntfile-gtx').wrap(grunt);
+		gtx.loadAuto();
 
-  grunt.initConfig({
-    less: {
-      development: {
-        options: {
-          compress: true
-        },
-        files: {
-          "dist/toolkit.min.css": "src/less/styles.less"
-        }
-      }
-    },
-    watch: {
-      scripts: {
-        files: ['src/less/**/*.less'],
-        tasks: ['less'],
-        options: {
-          spawn: false,
-        },
-      },
-    },
-  });
+	var gruntConfig = require('./grunt');
+		gruntConfig.package = require('./package.json');
 
-  grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-contrib-watch');
+	gtx.config(gruntConfig);
 
-  grunt.registerTask('default', ['less', 'watch']);
+	gtx.alias('build', ['shell:docs']);
+	gtx.alias('docs-start', ['shell:start']);
+	gtx.alias('docs-view', ['shell:view']);
 
+	gtx.alias('release', ['build', 'buildcontrol']);
+	gtx.alias('release-major', ['bump-only:major', 'release']);
+	gtx.alias('release-minor', ['bump-only:minor', 'release']);
+	gtx.alias('release-patch', ['bump-only:patch', 'release']);
+
+	gtx.finalise();
 };
