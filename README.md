@@ -1,6 +1,4 @@
-<img src="http://react-bootstrap.github.io/assets/logo.png" height="100" align="left" style="margin-top: 10px">
-
-<img src="http://brand.holidayextras.com/img/hx-logo-2-spot-colours.png" height="100">
+<img src="http://react-bootstrap.github.io/assets/logo.png" height="100" style="margin-top: 10px">
 
 
 ReactJS & Bootstrap UI Toolkit
@@ -30,16 +28,6 @@ cd /path/to/ui-toolkit
 git clone git@github.com:holidayextras/ui-toolkit.git .
 npm install
 ```
-
-To view `ui-toolkit` in the browser:
-
-```bash
-cd /path/to/ui-toolkit
-npm start
-```
-
-The `ui-toolkit` app will open in your default browser at [http://127.0.0.1:8080](http://127.0.0.1:8080)
-
 
 Generate & View Documentation
 ---

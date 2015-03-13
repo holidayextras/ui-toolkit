@@ -1,7 +1,7 @@
 {
   "name": "ui-toolkit",
   "version": "0.0.1",
-  "description": "Holiday Extras UI Toolkit",
+  "description": "ReactJS & Bootstrap UI Toolkit",
   "main": "./docs/server.js",
   "browser": "./docs/client.js",
   "repository": {
@@ -9,7 +9,7 @@
     "url": "https://github.com/holidayextras/ui-toolkit.git"
   },
   "scripts": {
-    "postinstall": "cd docs; npm install"
+    "postinstall": "cd docs; npm install; cd -"
   },
   "keywords": [
     "ui",
@@ -31,7 +31,8 @@
     "react-bootstrap": "^0.16.1",
     "react-router-component": "https://github.com/STRML/react-router-component/archive/v0.23.0.tar.gz",
     "require-directory": "^2.0.0",
-    "requirejs": "~2.1.9"
+    "requirejs": "~2.1.9",
+    "ui-component-button": "git+ssh://git@github.com:holidayextras/ui-component-button.git"
   },
   "devDependencies": {
     "grunt": "^0.4.5",

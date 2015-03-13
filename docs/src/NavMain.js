@@ -18,7 +18,7 @@ var NAV_LINKS = {
 	},
 	'custom': {
 		link: 'custom.html',
-		title: 'Holiday Extras Components'
+		title: 'Custom Components'
 	}
 };
 

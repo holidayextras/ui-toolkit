@@ -90,8 +90,8 @@ body {
   background: url('./logo.png') 0 0 no-repeat;
   background-size: contain;
   border: 0;
-  width: 287px;
-  height: 160px;
+  width: 200px;
+  height: 200px;
 }
 
 .bs-example-scroll {

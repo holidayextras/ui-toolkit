@@ -51,7 +51,7 @@ var CustomPage = React.createClass({
 			<div>
 				<NavMain activePage="custom" ref="topNav" />
 
-				<PageHeader title="Holiday Extras" subTitle="Custom React Components for Holiday Extras" />
+				<PageHeader title="Custom" subTitle="React Components for Holiday Extras" />
 
 				<div className="container bs-docs-container">
 					<div className="row">
