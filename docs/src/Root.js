@@ -49,7 +49,8 @@ var Root = React.createClass({
       return [
         'index.html',
         'getting-started.html',
-        'components.html'
+        'components.html',
+		'custom.html'
       ];
     },
 

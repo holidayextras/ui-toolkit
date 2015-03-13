@@ -67,6 +67,7 @@ You will only need to upload the following static assets once generated:
 + vendor/
 + index.html
 + components.html
++ custom.html
 + getting-started.html
 
 
