@@ -2,8 +2,7 @@
   "name": "ui-toolkit",
   "version": "0.0.1",
   "description": "ReactJS & Bootstrap UI Toolkit",
-  "main": "./docs/server.js",
-  "browser": "./docs/client.js",
+  "main": "src/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/holidayextras/ui-toolkit.git"

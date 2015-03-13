@@ -11,13 +11,6 @@ Requirements:
 
 * [Node.js v10+](http://nodejs.org/) ( For Application Development )
 
-If you are using Cordova, you will also need:
-
-* [Cordova v3.8.0+](http://cordova.apache.org/)
-* [Xcode](http://docs.phonegap.com/en/3.5.0/guide_platforms_ios_index.md.html#iOS%20Platform%20Guide)
-* [Android SDK](http://docs.phonegap.com/en/3.5.0/guide_platforms_android_index.md.html#Android%20Platform%20Guide)
-
-
 Install:
 ---
 
@@ -29,7 +22,88 @@ git clone git@github.com:holidayextras/ui-toolkit.git .
 npm install
 ```
 
-Generate & View Documentation
+UI Toolkit Usage
+---
+
+All the available UI Toolkit Components are to be listed in the `src/index.js` so they can be accessed via:
+
+```
+var UIToolkit = require('ui-toolkit');
+
+// Custom Components
+<UIToolkit.Button />
+
+// Bootstrap Components
+<UIToolkit.BootstrapAccordion />
+<UIToolkit.BootstrapAffix />
+<UIToolkit.BootstrapAffixMixin />
+<UIToolkit.BootstrapAlert />
+<UIToolkit.BootstrapBadge />
+<UIToolkit.BootstrapBadge />
+<UIToolkit.BootstrapBootstrapMixin />
+<UIToolkit.BootstrapButton />
+<UIToolkit.BootstrapButtonGroup />
+<UIToolkit.BootstrapButtonToolbar />
+<UIToolkit.BootstrapCarousel />
+<UIToolkit.BootstrapCarouselItem />
+<UIToolkit.BootstrapCol />
+<UIToolkit.BootstrapCollapsableMixin />
+<UIToolkit.BootstrapDropdownButton />
+<UIToolkit.BootstrapDropdownMenu />
+<UIToolkit.BootstrapDropdownStateMixin />
+<UIToolkit.BootstrapFadeMixin />
+<UIToolkit.BootstrapGlyphicon />
+<UIToolkit.BootstrapGrid />
+<UIToolkit.BootstrapInput />
+<UIToolkit.BootstrapInterpolate />
+<UIToolkit.BootstrapJumbotron />
+<UIToolkit.BootstrapLabel />
+<UIToolkit.BootstrapListGroup />
+<UIToolkit.BootstrapListGroupItem />
+<UIToolkit.BootstrapMenuItem />
+<UIToolkit.BootstrapModal />
+<UIToolkit.BootstrapModalTrigger />
+<UIToolkit.BootstrapNav />
+<UIToolkit.BootstrapNavbar />
+<UIToolkit.BootstrapNavItem />
+<UIToolkit.BootstrapOverlayMixin />
+<UIToolkit.BootstrapOverlayTrigger />
+<UIToolkit.BootstrapPageHeader />
+<UIToolkit.BootstrapPageItem />
+<UIToolkit.BootstrapPager />
+<UIToolkit.BootstrapPanel />
+<UIToolkit.BootstrapPanelGroup />
+<UIToolkit.BootstrapPopover />
+<UIToolkit.BootstrapProgressBar />
+<UIToolkit.BootstrapRow />
+<UIToolkit.BootstrapSplitButton />
+<UIToolkit.BootstrapSubNav />
+<UIToolkit.BootstrapTabbedArea />
+<UIToolkit.BootstrapTable />
+<UIToolkit.BootstrapTabPane />
+<UIToolkit.BootstrapTooltip />
+<UIToolkit.BootstrapWell />
+```
+
+If you would like to cherry pick which components to include in your project, you can use this method:
+
+```
+var Button = require('ui-toolkit/ui-component-button');
+<Button />
+
+var BootstrapPanel = require('ui-toolkit/react-bootstrap/lib/Panel');
+<BootstrapPanel />
+
+```
+
+UI Toolkit Themes
+---
+A collection of custom themes for UI Toolkit are listed below:
+
+* [Holiday Extras](https://github.com/holidayextras/ui-brand-hx)
+* [Essential Travel](https://github.com/holidayextras/ui-brand-et)
+
+Component Documentation
 ---
 
 You can view the React Components in your browser by generating and viewing the docs:
