@@ -1,6 +1,6 @@
 {
   "name": "ui-toolkit",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "ReactJS & Bootstrap UI Toolkit",
   "main": "src/index.js",
   "repository": {
