@@ -21,7 +21,7 @@ var PagesHolder = React.createClass({
           <Location path="/index.html" handler={HomePage} />
           <Location path="/getting-started.html" handler={GettingStartedPage} />
           <Location path="/components.html" handler={ComponentsPage} />
-		  <Location path="/custom.html" handler={CustomPage} />
+          <Location path="/custom.html" handler={CustomPage} />
           <NotFound handler={NotFoundPage} />
         </Locations>
       );
@@ -50,7 +50,7 @@ var Root = React.createClass({
         'index.html',
         'getting-started.html',
         'components.html',
-		'custom.html'
+        'custom.html'
       ];
     },
 
