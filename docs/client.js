@@ -1,9 +1,9 @@
 'use strict';
 
 var React = require('react');
-var Root = require('./src/Root');
+var App = require('./src/App.jsx');
 
 // For React devtools
 window.React = React;
 
-React.render(React.createFactory(Root)(window.INITIAL_PROPS), document);
+React.render(<App />, document.getElementById('application'));

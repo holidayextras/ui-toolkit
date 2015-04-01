@@ -1,0 +1,47 @@
+var React = require('react');
+
+var HomePage = require('./HomePage.jsx');
+
+var App = React.createClass({
+  statics: {
+
+    /**
+     * Get the doctype the page expects to be rendered with
+     *
+     * @returns {string}
+     */
+    getDoctype: function () {
+      return '<!doctype html>';
+    },
+
+    renderToString: function (props) {
+      return App.getDoctype() +
+        React.renderToString(<App {...props} />);
+    },
+
+    /**
+     * Get the list of pages that are renderable
+     *
+     * @returns {Array}
+     */
+    getPages: function () {
+      return ['index.html'];
+    }
+
+  },
+
+  render: function () {
+
+    return (
+      <html>
+        <head />
+        <body>
+          <HomePage />
+          <script src="assets/bundle.js" />
+        </body>
+      </html>
+    );
+  }
+});
+
+module.exports = App;

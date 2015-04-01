@@ -1,7 +1,7 @@
 {
   "name": "ui-toolkit",
   "version": "0.0.1",
-  "description": "ReactJS & Bootstrap UI Toolkit",
+  "description": "Toolkit",
   "main": "src/index.js",
   "repository": {
     "type": "git",
@@ -28,7 +28,6 @@
     "react": "~0.12.0",
     "react-async": "~2.0.0",
     "react-bootstrap": "^0.16.1",
-    "react-router-component": "https://github.com/STRML/react-router-component/archive/v0.23.0.tar.gz",
     "require-directory": "^2.0.0",
     "requirejs": "~2.1.9",
     "ui-component-button": "git+ssh://git@github.com:holidayextras/ui-component-button.git"
