@@ -25,4 +25,3 @@ node_modules/
 
 # Ignore
 /dist
-/docs/*.html
