@@ -1,9 +1,9 @@
 module.exports = {
 	options: {
 		dir: 'docs',
-		commit: true,
-		push: true,
-		tag: true,
+		commit: false,
+		push: false,
+		tag: false,
 		message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
 	},
 	pages: {
