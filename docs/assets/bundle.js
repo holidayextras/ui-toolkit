@@ -19973,15 +19973,15 @@ var HomePage = React.createClass({displayName: "HomePage",
     return (
       React.createElement("div", null, 
 
-        React.createElement("div", {className: "jumbotron"}, 
+        React.createElement("header", null, 
           React.createElement("div", {className: "container"}, 
-            React.createElement("div", {className: "logo"}), 
-            React.createElement("p", {className: "lead"}, packageJSON.description)
+            React.createElement("img", {src: "./assets/toolkit-logo.svg", alt: "Toolkit"}), 
+            React.createElement("h1", null, packageJSON.description)
           )
         ), 
 
         React.createElement("div", {className: "container"}, 
-          React.createElement("h1", {id: "button", className: "page-header"}, "HX Button"), 
+          React.createElement("h2", {id: "button", className: "page-header"}, "HX Button"), 
           React.createElement(CustomComponent, {codeText: "var buttonInstance = (\n\t<UIToolkit.Button buttonText=\"HX Button\" />\n);\n\nReact.render(buttonInstance, mountNode);\n"})
         ), 
         React.createElement(PageFooter, null)

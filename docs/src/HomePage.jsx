@@ -14,15 +14,15 @@ var HomePage = React.createClass({
     return (
       <div>
 
-        <div className="jumbotron">
+        <header>
           <div className="container">
-            <div className="logo"></div>
-            <p className="lead">{packageJSON.description}</p>
+            <img src="./assets/toolkit-logo.svg" alt="Toolkit" />
+            <h1>{packageJSON.description}</h1>
           </div>
-        </div>
+        </header>
 
         <div className="container">
-          <h1 id="button" className="page-header">HX Button</h1>
+          <h2 id="button" className="page-header">HX Button</h2>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Button.js', 'utf8')} />
         </div>
         <PageFooter />
