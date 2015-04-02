@@ -1,6 +1,6 @@
 module.exports = {
   docs: {
-    command: 'node docs/build.js',
+    command: 'cd docs; npm run build; cd -',
   },
   start: {
     command: 'cd docs; npm start; cd -',

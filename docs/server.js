@@ -1,10 +1,8 @@
-'use strict';
-
 var express = require('express');
 var development = process.env.NODE_ENV !== 'production';
 var app = express();
 
-if (false) {
+if (false) { // don't need to run this server side yet
   var path = require('path');
   var url = require('url');
   var browserify = require('connect-browserify');

@@ -1,7 +1,7 @@
 {
-  "name": "react-bootstrap-docs",
+  "name": "ui-toolkit-docs",
   "version": "0.0.0",
-  "description": "React Bootstrap docs site",
+  "description": "UI Toolkit docs site",
   "main": "./server.js",
   "browser": "./client.js",
   "browserify": {
@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "brfs": "~1.0.0",
-    "browserify": "~3.26.0",
+    "browserify": "^9.0.4",
     "classnames": "^1.2.0",
     "connect-browserify": "~1.0.0",
     "envify": "~1.2.0",
@@ -23,15 +23,16 @@
     "open": "^0.0.5",
     "react": "~0.13.1",
     "react-async": "^2.1.0",
-    "reactify": "~0.15.2",
+    "reactify": "^1.1.0",
     "supervisor": "~0.5.7",
-    "uglify-js": "^2.3.6"
+    "uglify-js": "^2.3.6",
+    "watchify": "^3.1.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "supervisor -q -i node_modules server.js",
-    "build": "node build.js && browserify -g reactify --extension='.jsx' client.js > ./assets/bundle.js",
-    "start-prod": "NODE_ENV=production node server.js"
+    "test": "./scripts/test.sh",
+    "start": "./scripts/start.sh",
+    "build": "./scripts/build.sh",
+    "start-production": "./scripts/start-production.sh"
   },
   "author": "",
   "license": "MIT"
