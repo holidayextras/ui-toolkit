@@ -33,13 +33,10 @@ var App = React.createClass({
   render: function () {
 
     return (
-      <html>
-        <head />
-        <body>
-          <HomePage />
-          <script src="assets/bundle.js" />
-        </body>
-      </html>
+      <div className="wrapper">
+        <HomePage />
+        <script src="assets/bundle.js" />
+      </div>
     );
   }
 });
