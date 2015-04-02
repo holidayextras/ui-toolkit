@@ -24,6 +24,9 @@ var HomePage = React.createClass({
         <div className="container">
           <h2 id="button" className="page-header">HX Button</h2>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Button.js', 'utf8')} />
+
+          <h2 id="badge" className="page-header">Bootstrap badge</h2>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/BootstrapBadge.jsx', 'utf8')} />
         </div>
         <PageFooter />
       </div>
