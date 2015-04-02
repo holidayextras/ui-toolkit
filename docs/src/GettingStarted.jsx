@@ -3,10 +3,9 @@ var React = require('react');
 var GettingStarted = React.createClass({
   render: function () {
     return (
-      <section>
-        <h2 className="page-header">Getting started</h2>
-        <h2 id="setup" className="page-header">Installing UI Toolkit</h2>
-        <p className="lead">You can install UI Toolkit using npm.</p>
+      <section className="col-xs-12 col-md-9">
+        <h2 id="setup" className="page-header">Get started</h2>
+        <p>You can install UI Toolkit using npm.</p>
 
         <h3>Terminal</h3>
         <div className="highlight">
