@@ -1,11 +1,11 @@
 module.exports = {
-  docs: {
+  docsBuild: {
     command: 'cd docs; npm run build; cd -',
   },
-  start: {
+  docsStart: {
     command: 'cd docs; npm start; cd -',
   },
-  view: {
+  docsView: {
     command: 'open http://localhost:4000',
   }
 };

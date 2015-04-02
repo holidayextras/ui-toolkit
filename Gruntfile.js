@@ -7,9 +7,10 @@ module.exports = function(grunt) {
 
 	gtx.config(gruntConfig);
 
-	gtx.alias('build', ['shell:docs']);
-	gtx.alias('docs-start', ['shell:start']);
-	gtx.alias('docs-view', ['shell:view']);
+	gtx.alias('docs', ['concurrent:docs']);
+	gtx.alias('docs-build', ['shell:docsBuild']);
+	gtx.alias('docs-start', ['shell:docsStart']);
+	gtx.alias('docs-view', ['shell:docsView']);
 
 	gtx.alias('release', ['build', 'buildcontrol']);
 	gtx.alias('release-major', ['bump-only:major', 'release']);

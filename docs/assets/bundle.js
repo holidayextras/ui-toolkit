@@ -63137,6 +63137,7 @@ module.exports={
     "grunt-build-control": "^0.3.0",
     "grunt-bump": "^0.0.15",
     "grunt-changelog": "^0.2.2",
+    "grunt-concurrent": "^1.0.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-release": "^0.11.0",
     "grunt-shell": "^1.1.1",

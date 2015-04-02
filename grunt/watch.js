@@ -1,7 +1,7 @@
 module.exports = {
 	development: {
 		files: ['docs/**/*.jsx'],
-		tasks: ['build'],
+		tasks: ['docs-build'],
 		options: {
 			livereload: true
 		}
