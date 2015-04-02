@@ -1,7 +1,7 @@
 {
   "name": "ui-toolkit",
   "version": "0.0.1",
-  "description": "Toolkit",
+  "description": "UI Toolkit",
   "main": "src/index.js",
   "repository": {
     "type": "git",

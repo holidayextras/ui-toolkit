@@ -130,7 +130,7 @@ var CustomComponent = React.createClass({
 
   render: function() {
     var classes = {
-      'bs-example': true
+      'toolkit-example': true
     };
     var toggleClasses = {
       'code-toggle': true

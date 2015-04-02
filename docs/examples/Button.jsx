@@ -1,5 +1,5 @@
 var buttonInstance = (
-	<UIToolkit.Button buttonText="HX Button" />
+	<UIToolkit.Button buttonText="Ultimate Button" />
 );
 
 React.render(buttonInstance, mountNode);

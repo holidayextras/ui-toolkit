@@ -20,10 +20,11 @@ var HomePage = React.createClass({
             <h1>{packageJSON.description}</h1>
           </div>
         </header>
-
         <div className="container">
-          <h2 id="button" className="page-header">HX Button</h2>
-          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Button.js', 'utf8')} />
+          <p className="lead">This UI toolkit comprises of extensions we feel are necessary to make bootstrap better</p>
+          
+          <h2 id="button" className="page-header">Ultimate Button</h2>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Button.jsx', 'utf8')} />
 
           <h2 id="badge" className="page-header">Bootstrap badge</h2>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/BootstrapBadge.jsx', 'utf8')} />
