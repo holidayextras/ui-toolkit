@@ -1,17 +1,18 @@
-'use strict';
-
 var React = require('react');
+
+var packageJSON = require('../../package.json');
 
 var PageHeader = React.createClass({
   render: function () {
     return (
-      <div className="bs-docs-header" id="content">
+      <header>
         <div className="container">
-          <h1>{this.props.title}</h1>
-          <p>{this.props.subTitle}</p>
+          <img src="./assets/toolkit-logo.svg" alt="Toolkit" />
+          <h1>{packageJSON.description}</h1>
+          <p className="lead">A CSS Framework and a Set of React Components that extend from Bootstrap</p>
         </div>
-      </div>
-      );
+      </header>
+    );
   }
 });
 

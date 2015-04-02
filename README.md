@@ -17,8 +17,8 @@ Install:
 To install `ui-toolkit` locally for development:
 
 ```bash
-cd /path/to/ui-toolkit
-git clone git@github.com:holidayextras/ui-toolkit.git .
+git clone git@github.com:holidayextras/ui-toolkit.git
+cd ui-toolkit
 npm install
 ```
 
@@ -27,7 +27,7 @@ UI Toolkit Usage
 
 All the available UI Toolkit Components are to be listed in the `src/index.js` so they can be accessed via:
 
-```
+```jsx
 var UIToolkit = require('ui-toolkit');
 
 // Custom Components
@@ -87,13 +87,12 @@ var UIToolkit = require('ui-toolkit');
 
 If you would like to cherry pick which components to include in your project, you can use this method:
 
-```
+```jsx
 var Button = require('ui-toolkit/ui-component-button');
 <Button />
 
 var BootstrapPanel = require('ui-toolkit/react-bootstrap/lib/Panel');
 <BootstrapPanel />
-
 ```
 
 UI Toolkit Themes
@@ -108,33 +107,27 @@ Component Documentation
 
 You can view the React Components in your browser by generating and viewing the docs:
 
+Run & watch the documentation in development:
 ```bash
-cd /path/to/ui-toolkit/docs
-npm install && npm start
-open http://localhost:4000
+grunt docs 
 ```
 
-If you would like to build static HTML files of these docs, use:
-
+Building so you can upload to a remote docs server that does not require Node:
 ```bash
-cd /path/to/ui-toolkit/docs
-node build.js
+grunt docs-build
 ```
-
-This will create HTML files you can upload to a remote docs server that does not require Node.
 
 You will only need to upload the following static assets once generated:
 
 + assets/
 + vendor/
 + index.html
-+ components.html
-+ custom.html
-+ getting-started.html
 
 
 Grunt Terminal Commands:
 ---
+
+#### THIS SECTION IS A WORK IN PROGRESS
 
 You can use the following build commands via terminal:
 
@@ -145,7 +138,7 @@ The following command will compile Less Styles into a CSS and Concat JS files fo
 This is the most common command you will want to use and is required to view any changed you made in a browser or simulator.
 
 ```bash
-grunt build:dist
+grunt build
 ```
 
 #### Create a Major Release:

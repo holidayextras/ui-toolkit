@@ -2,7 +2,7 @@ var React = require('react');
 var classNames = require('classnames');
 var CodeMirror = global.CodeMirror;
 var JSXTransformer = global.JSXTransformer;
-var UIToolkit = require('../../src');
+var UIToolkit = require('../../'); // ui-toolkit root
 
 var IS_MOBILE = typeof navigator !== 'undefined' && (
   navigator.userAgent.match(/Android/i)

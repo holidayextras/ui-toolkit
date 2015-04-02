@@ -1,5 +1,8 @@
 var UIToolkit = {};
 
+// Custom Components
+UIToolkit.Button = require('ui-component-button');
+
 // Default Create Components
 UIToolkit.BootstrapAccordion = require('react-bootstrap/lib/Accordion');
 UIToolkit.BootstrapAffix = require('react-bootstrap/lib/Affix');
@@ -50,8 +53,5 @@ UIToolkit.BootstrapTable = require('react-bootstrap/lib/Table');
 UIToolkit.BootstrapTabPane = require('react-bootstrap/lib/TabPane');
 UIToolkit.BootstrapTooltip = require('react-bootstrap/lib/Tooltip');
 UIToolkit.BootstrapWell = require('react-bootstrap/lib/Well');
-
-// Custom Components
-UIToolkit.Button = require('ui-component-button');
 
 module.exports = UIToolkit;
