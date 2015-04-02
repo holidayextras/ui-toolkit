@@ -12,7 +12,7 @@ module.exports = function(grunt) {
 	gtx.alias('docs-start', ['shell:docsStart']);
 	gtx.alias('docs-view', ['shell:docsView']);
 
-	gtx.alias('release', ['build', 'buildcontrol']);
+	gtx.alias('release', ['docs-build', 'buildcontrol']);
 	gtx.alias('release-major', ['bump-only:major', 'release']);
 	gtx.alias('release-minor', ['bump-only:minor', 'release']);
 	gtx.alias('release-patch', ['bump-only:patch', 'release']);
