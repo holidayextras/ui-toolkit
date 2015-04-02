@@ -25,7 +25,6 @@ header {
   flex-direction: column;
   justify-content: center;
   padding: 5vh;
-  margin-bottom:2em;
 }
 header img {
   margin: 0px auto;
@@ -53,9 +52,8 @@ header img {
   border-top: none;
   border-radius: 0 0 0 4px;
 }
-
 .highlight, .highlight * {
-  background:#eff8ff;
+  background: #f6f6f6;
 }
 
 .code-toggle {
@@ -72,5 +70,5 @@ header img {
 }
 
 .code-toggle.open {
-  background: #eff8ff;
+  background: #f6f6f6;
 }
