@@ -1,5 +1,6 @@
-<img src="http://react-bootstrap.github.io/assets/logo.png" height="100" style="margin-top: 10px">
-
+<header style="background: rgb(222,75,149);padding:2em;text-align:center">
+  ![UIToolkit](docs/assets/toolkit-banner.png)
+</header>
 
 ReactJS & Bootstrap UI Toolkit
 ---

@@ -10,7 +10,7 @@ var Components = React.createClass({
         <h2 className="page-header">Components</h2>
         <article>
           <h3 id="button">Ultimate Button</h3>
-          <p>The ulimate button should be used as the highest button in the hirerachical structure of your page</p>
+          <p>The ulimate button should be used as the highest button in the hirerachical structure of your page.</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Button.jsx', 'utf8')} />
         </article>
 
