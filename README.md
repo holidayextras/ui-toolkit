@@ -2,9 +2,6 @@
   ![UIToolkit](docs/assets/toolkit-banner.png)
 </header>
 
-ReactJS & Bootstrap UI Toolkit
----
-
 ##### Under Active Development
 
 Requirements:
