@@ -19983,17 +19983,6 @@ var Components = React.createClass({displayName: "Components",
           React.createElement("h3", {id: "button"}, "Ultimate Button"), 
           React.createElement("p", null, "The ulimate button should be used as the highest button in the hirerachical structure of your page."), 
           React.createElement(CustomComponent, {codeText: "var buttonInstance = (\n\t<UIToolkit.Button buttonText=\"Ultimate Button\" />\n);\n\nReact.render(buttonInstance, mountNode);\n"})
-        ), 
-
-        React.createElement("article", null, 
-          React.createElement("h3", {id: "badge"}, "Bootstrap badge"), 
-          React.createElement("p", null, "Easily highlight new or unread items by adding a badge to links, navs, and more."), 
-          React.createElement(CustomComponent, {codeText: "var badgeInstance = (\n  <UIToolkit.BootstrapBadge>42</UIToolkit.BootstrapBadge>\n);\n\nReact.render(badgeInstance, mountNode);\n"})
-        ), 
-
-        React.createElement("article", null, 
-          React.createElement("h3", {id: "flag"}, "Flag"), 
-          React.createElement("p", null, "Flags are used to highlight taxonomy terms or 'tags' on elements. For example 'special offer' or 'limited time only'")
         )
       )
     );
