@@ -68,3 +68,7 @@ header img {
 .code-toggle.open {
   background: #f6f6f6;
 }
+
+.CodeMirror-scroll {
+  height: auto;
+}
