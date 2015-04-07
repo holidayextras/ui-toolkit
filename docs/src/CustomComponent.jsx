@@ -195,12 +195,12 @@ var CustomComponent = React.createClass({
         eval(compiledCode);
       }
     } catch (err) {
-      // this.setTimeout(function() {
-      //   React.render(
-      //     <UIToolkit.BootstrapAlert bsStyle="danger">{err.toString()}</UIToolkit.BootstrapAlert>,
-      //     mountNode
-      //   );
-      // }, 500);
+      this.setTimeout(function() {
+        React.render(
+          <UIToolkit.BootstrapAlert bsStyle="danger">{err.toString()}</UIToolkit.BootstrapAlert>,
+          mountNode
+        );
+      }, 500);
     }
   }
 });

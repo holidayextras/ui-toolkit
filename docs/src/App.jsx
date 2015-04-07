@@ -35,7 +35,6 @@ var App = React.createClass({
     return (
       <div className="wrapper">
         <HomePage />
-        <script src="assets/bundle.js" />
       </div>
     );
   }

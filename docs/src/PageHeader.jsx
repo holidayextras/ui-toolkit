@@ -9,7 +9,7 @@ var PageHeader = React.createClass({
         <div className="container">
           <img src="./assets/toolkit-logo.svg" alt="Toolkit" />
           <h1>{packageJSON.description}</h1>
-          <p className="lead">A CSS Framework and a Set of React Components that extend from Bootstrap</p>
+          <p className="lead">A CSS framework and a set of React components that are built on top of Bootstrap</p>
         </div>
       </header>
     );
