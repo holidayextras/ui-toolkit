@@ -1,5 +1,5 @@
 var buttonInstance = (
-	<UIToolkit.Button buttonText="A button" />
+  <UIToolkit.Button buttonText="A button" />
 );
 
 React.render(buttonInstance, mountNode);

@@ -10,7 +10,7 @@ var GettingStarted = React.createClass({
         <h3>Terminal</h3>
         <div className="highlight">
           <pre>
-            <code className="shell">{'$ npm install --save git+ssh://git@github.com:holidayextras/ui-toolkit.git\n'}</code>
+            <code className="shell">{'$ npm install --save holidayextras/ui-toolkit\n'}</code>
           </pre>
         </div>
 
