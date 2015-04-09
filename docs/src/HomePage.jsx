@@ -5,7 +5,6 @@ var GettingStarted = require('./GettingStarted.jsx');
 var Components = require('./Components.jsx');
 var Nav = require('./Nav.jsx');
 var PageFooter = require('./PageFooter.jsx');
-var packageJSON = require('../../package.json');
 
 var HomePage = React.createClass({
   render: function () {

@@ -31,8 +31,7 @@
   "scripts": {
     "test": "./scripts/test.sh",
     "start": "./scripts/start.sh",
-    "build": "./scripts/build.sh",
-    "start-production": "./scripts/start-production.sh"
+    "build": "./scripts/build.sh"
   },
   "author": "",
   "license": "MIT"
