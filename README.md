@@ -23,13 +23,14 @@ npm install
 UI Toolkit Usage
 ---
 
-All the available UI Toolkit Components are to be listed in the `src/index.js` so they can be accessed via:
+All the available UI Toolkit Components are to be listed in the `src/ui-toolkit.js` so they can be accessed via:
 
 ```jsx
 var UIToolkit = require('ui-toolkit');
 
 // Custom Components
 <UIToolkit.Button />
+<UIToolkit.Flag />
 
 // Bootstrap Components
 <UIToolkit.BootstrapAccordion />
