@@ -1,7 +1,7 @@
 {
-  "name": "react-bootstrap-docs",
+  "name": "ui-toolkit-docs",
   "version": "0.0.0",
-  "description": "React Bootstrap docs site",
+  "description": "UI Toolkit docs site",
   "main": "./server.js",
   "browser": "./client.js",
   "browserify": {
@@ -12,29 +12,26 @@
     ]
   },
   "devDependencies": {
-    "express": "~3.4.8",
-    "node-jsx": "~0.12.0",
-    "node-fs": "^0.1.7",
-    "reactify": "~0.15.2",
     "brfs": "~1.0.0",
-    "envify": "~1.2.0",
-    "browserify": "~3.26.0",
+    "browserify": "^9.0.4",
+    "classnames": "^1.2.0",
     "connect-browserify": "~1.0.0",
-    "uglify-js": "^2.3.6",
-    "supervisor": "~0.5.7",
-    "react-bootstrap": "~0.16.0",
-    "react": "~0.12.0",
-    "react-async": "~2.0.0",
-    "react-router-component": "https://github.com/STRML/react-router-component/archive/v0.23.0.tar.gz",
-    "requirejs": "~2.1.9",
+    "envify": "~1.2.0",
+    "express": "~3.4.8",
+    "node-fs": "^0.1.7",
+    "node-jsx": "~0.12.0",
     "open": "^0.0.5",
-    "ui-component-button": "git+ssh://git@github.com:holidayextras/ui-component-button.git"
+    "react": "~0.13.1",
+    "react-async": "^2.1.0",
+    "reactify": "^1.1.0",
+    "supervisor": "~0.5.7",
+    "uglify-js": "^2.3.6",
+    "watchify": "^3.1.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "killall node; supervisor -q -i node_modules server.js  > /dev/null 2>&1 &",
-    "build": "node build.js && browserify client.js | uglifyjs -cm 2>/dev/null > ./assets/bundle.js",
-    "start-prod": "NODE_ENV=production node server.js"
+    "test": "./scripts/test.sh",
+    "start": "./scripts/start.sh",
+    "build": "./scripts/build.sh"
   },
   "author": "",
   "license": "MIT"

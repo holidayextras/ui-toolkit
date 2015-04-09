@@ -1,7 +1,7 @@
 {
   "name": "ui-toolkit",
   "version": "0.0.1",
-  "description": "ReactJS & Bootstrap UI Toolkit",
+  "description": "UI Toolkit",
   "main": "src/index.js",
   "repository": {
     "type": "git",
@@ -25,10 +25,8 @@
   "homepage": "https://github.com/holidayextras/ui-toolkit",
   "dependencies": {
     "flex-less": "^1.0.0",
-    "react": "~0.12.0",
-    "react-async": "~2.0.0",
-    "react-bootstrap": "^0.16.1",
-    "react-router-component": "https://github.com/STRML/react-router-component/archive/v0.23.0.tar.gz",
+    "react": "^0.13.1",
+    "react-bootstrap": "^0.20.0",
     "require-directory": "^2.0.0",
     "requirejs": "~2.1.9",
     "ui-component-button": "git+ssh://git@github.com:holidayextras/ui-component-button.git"
@@ -38,6 +36,7 @@
     "grunt-build-control": "^0.3.0",
     "grunt-bump": "^0.0.15",
     "grunt-changelog": "^0.2.2",
+    "grunt-concurrent": "^1.0.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-release": "^0.11.0",
     "grunt-shell": "^1.1.1",

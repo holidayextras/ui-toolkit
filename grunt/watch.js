@@ -1,7 +1,7 @@
 module.exports = {
-	less: {
-		files: ['docs/**/*.js'],
-		tasks: ['build'],
+	development: {
+		files: ['docs/**/*.jsx'],
+		tasks: ['docs-build'],
 		options: {
 			livereload: true
 		}

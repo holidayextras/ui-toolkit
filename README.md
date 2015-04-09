@@ -1,8 +1,6 @@
-<img src="http://react-bootstrap.github.io/assets/logo.png" height="100" style="margin-top: 10px">
-
-
-ReactJS & Bootstrap UI Toolkit
----
+<header style="background: rgb(222,75,149);padding:2em;text-align:center">
+  ![UIToolkit](docs/assets/toolkit-banner.png)
+</header>
 
 ##### Under Active Development
 
@@ -17,8 +15,8 @@ Install:
 To install `ui-toolkit` locally for development:
 
 ```bash
-cd /path/to/ui-toolkit
-git clone git@github.com:holidayextras/ui-toolkit.git .
+git clone git@github.com:holidayextras/ui-toolkit.git
+cd ui-toolkit
 npm install
 ```
 
@@ -27,7 +25,7 @@ UI Toolkit Usage
 
 All the available UI Toolkit Components are to be listed in the `src/index.js` so they can be accessed via:
 
-```
+```jsx
 var UIToolkit = require('ui-toolkit');
 
 // Custom Components
@@ -87,14 +85,42 @@ var UIToolkit = require('ui-toolkit');
 
 If you would like to cherry pick which components to include in your project, you can use this method:
 
-```
-var Button = require('ui-toolkit/ui-component-button');
+```jsx
+var Button = require('ui-toolkit').Button;
 <Button />
 
-var BootstrapPanel = require('ui-toolkit/react-bootstrap/lib/Panel');
+var BootstrapPanel = require('ui-toolkit').BootstrapPanel;
 <BootstrapPanel />
-
 ```
+
+Adding a new component
+---
+#### Adding a component to ui-toolkit
+1. Firstly (if you haven't already), create a new component using our [yeoman generator](https://github.com/holidayextras/generator-ui-component)
+2. Install your new component e.g. `npm install --save ui-component-foo`
+3. Open `./src/ui-toolkit.js`
+4. Add `UIToolkit.YourComponent = require('ui-component-foo');` to the `Custom Components` section
+
+#### Updating the docs (todo, simplify this step)
+1. In `./docs/examples/`, create a new jsx file that describes your component. e.g.
+```jsx
+// docs/examples/MyComponent.jsx
+var myComponentInstance = (
+  <UIToolkit.MyComponent foo="bar" />
+);
+React.render(myComponentInstance, mountNode);
+```
+
+2. In `./docs/src/Components.jsx`, add a new `<article>`, similar to the existing ones e.g.
+```jsx
+<article>
+  <h3 id="my-component">My component</h3>
+  <p>My component description</p>
+  <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/MyComponent.jsx', 'utf8')} />
+</article>
+```
+
+3. You should now be able to see your component when running `grunt docs`
 
 UI Toolkit Themes
 ---
@@ -108,33 +134,26 @@ Component Documentation
 
 You can view the React Components in your browser by generating and viewing the docs:
 
+Run & watch the documentation in development:
 ```bash
-cd /path/to/ui-toolkit/docs
-npm install && npm start
-open http://localhost:4000
+grunt docs 
 ```
 
-If you would like to build static HTML files of these docs, use:
-
+Building so you can upload to a remote docs server that does not require Node:
 ```bash
-cd /path/to/ui-toolkit/docs
-node build.js
+grunt docs-build
 ```
-
-This will create HTML files you can upload to a remote docs server that does not require Node.
 
 You will only need to upload the following static assets once generated:
 
 + assets/
 + vendor/
 + index.html
-+ components.html
-+ custom.html
-+ getting-started.html
-
 
 Grunt Terminal Commands:
 ---
+
+#### THIS SECTION IS A WORK IN PROGRESS
 
 You can use the following build commands via terminal:
 
@@ -145,7 +164,7 @@ The following command will compile Less Styles into a CSS and Concat JS files fo
 This is the most common command you will want to use and is required to view any changed you made in a browser or simulator.
 
 ```bash
-grunt build:dist
+grunt build
 ```
 
 #### Create a Major Release:

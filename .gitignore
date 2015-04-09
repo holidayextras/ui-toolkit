@@ -17,12 +17,9 @@ config.codekit
 .codekit-config
 .codekit-config.json
 
-# Jekyll
-_site
-
 # Node
 node_modules/
 
 # Ignore
 /dist
-/docs/*.html
+docs/assets/bundle.js
