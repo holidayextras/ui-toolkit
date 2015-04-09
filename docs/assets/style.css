@@ -114,4 +114,5 @@ nav ul ul li a {
   border-radius: 4px;
   margin:1%;
   float:left;
+  z-index: 1;
 }

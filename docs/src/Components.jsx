@@ -23,7 +23,7 @@ var Components = React.createClass({
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/FlagSize.jsx', 'utf8')} />
           <h4>Position</h4>
           <p>Need to position your flag? You can position the flag anywhere in a container using <code>top</code> (default), <code>bottom</code>, <code>left</code> or <code>right</code>.</p>
-          <p>The container must have a <code>relative:position</code> applied.</p>
+          <p>The container must have a <code>relative:position</code> and a <code>z-index:x</code> applied.</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/FlagPosition.jsx', 'utf8')} />
         </article>        
       </section>
