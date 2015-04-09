@@ -1,5 +1,5 @@
 var flagInstance = (
-	<div>
+  <div>
     <UIToolkit.Flag>Default</UIToolkit.Flag>
     <UIToolkit.Flag primary>Primary</UIToolkit.Flag>
     <UIToolkit.Flag secondary>Secondary</UIToolkit.Flag>
