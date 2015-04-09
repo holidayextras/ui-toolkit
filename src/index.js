@@ -2,6 +2,7 @@ var UIToolkit = {};
 
 // Custom Components
 UIToolkit.Button = require('ui-component-button');
+UIToolkit.Flag = require('ui-component-flag');
 
 // Default Create Components
 UIToolkit.BootstrapAccordion = require('react-bootstrap/lib/Accordion');

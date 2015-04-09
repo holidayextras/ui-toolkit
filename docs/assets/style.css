@@ -10,9 +10,13 @@
 body {
   font-family: 'Roboto', sans-serif;
   line-height: 1.61em;
+  box-sizing: border-box;
+  font-size:16px;
 }
+
 h1, h2, h3, h4, h5 {
-  font-weight: 300;
+  font-weight: 400;
+  clear:both;
 }
 header {
   background:rgb(222,75,149);
@@ -30,10 +34,36 @@ header img {
   width:auto;
 }
 
+/* Nav */
+nav {
+  padding:2em 1em;
+}
+nav ul {
+  list-style:none;
+}
+nav ul li a {
+  display:block;
+  padding:.5em 1em;
+  border-left:2px solid transparent;
+  text-decoration:none;
+  font-size:1em;
+}
+nav ul li a:hover {
+  border-left:2px solid rgb(222,75,149);
+  text-decoration:none;
+}
+nav ul ul li a {
+  font-size:0.85em;
+  padding: 0 2em;
+}
+
+
 .toolkit-example {
   border:1px solid #e1e1e8;
   padding: 9px 14px;
   border-radius: 4px;
+  position:relative;
+  overflow:hidden;
 }
 .toolkit-example:before {
   content:"Example";
@@ -71,4 +101,17 @@ header img {
 
 .CodeMirror-scroll {
   height: auto;
+}
+
+/* Demo box */
+.demo-box {
+  position:relative;
+  width:98%;
+  height:150px;
+  background:#fbfbfb;
+  border:1px solid #e1e1e8;
+  padding: 4px;
+  border-radius: 4px;
+  margin:1%;
+  float:left;
 }

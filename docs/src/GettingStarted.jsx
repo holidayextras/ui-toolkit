@@ -3,18 +3,18 @@ var React = require('react');
 var GettingStarted = React.createClass({
   render: function () {
     return (
-      <section className="col-xs-12 col-md-9">
+      <section>
         <h2 id="setup" className="page-header">Get started</h2>
         <p>You can install UI Toolkit using npm.</p>
 
-        <h3>Terminal</h3>
+        <h3 id="terminal">Terminal</h3>
         <div className="highlight">
           <pre>
             <code className="shell">{'$ npm install --save git+ssh://git@github.com:holidayextras/ui-toolkit.git\n'}</code>
           </pre>
         </div>
 
-        <h3>Sample Usage</h3>
+        <h3 id="usage">Sample Usage</h3>
         <p>You can then use <a href="#components">UI Toolkit's Custom Components</a> via:</p>
         <div className="highlight">
           <pre>

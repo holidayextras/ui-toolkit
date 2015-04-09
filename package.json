@@ -40,6 +40,7 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-release": "^0.11.0",
     "grunt-shell": "^1.1.1",
-    "gruntfile-gtx": "^0.3.0"
+    "gruntfile-gtx": "^0.3.0",
+    "grunt-contrib-less": "~1.0.0"
   }
 }
