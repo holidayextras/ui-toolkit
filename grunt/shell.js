@@ -1,6 +1,6 @@
 module.exports = {
   buildDist: {
-    command: "browserify -g [ reactify --extension '.jsx' ] ./index.js --standalone ui-toolkit > ./dist/ui-toolkit-standalone.js"
+    command: "./node_modules/.bin/browserify -g [ ./node_modules/reactify --extension '.jsx' ] ./index.js --standalone ui-toolkit > ./dist/ui-toolkit-standalone.js"
   },
   docsBuild: {
     command: 'cd docs; npm run build; cd -',

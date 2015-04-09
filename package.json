@@ -41,6 +41,9 @@
     "grunt-release": "^0.11.0",
     "grunt-shell": "^1.1.1",
     "gruntfile-gtx": "^0.3.0",
-    "grunt-contrib-less": "~1.0.0"
+    "grunt-contrib-less": "~1.0.0",
+    "grunt-contrib-copy": "~0.8.0",
+    "reactify": "~1.1.0",
+    "browserify": "~9.0.8"
   }
 }
