@@ -18,11 +18,13 @@
     "connect-browserify": "~1.0.0",
     "envify": "~1.2.0",
     "express": "~3.4.8",
+    "jest-cli": "^0.4.0",
     "node-fs": "^0.1.7",
     "node-jsx": "~0.12.0",
     "open": "^0.0.5",
     "react": "~0.13.1",
     "react-async": "^2.1.0",
+    "react-tools": "^0.13.1",
     "reactify": "^1.1.0",
     "supervisor": "~0.5.7",
     "uglify-js": "^2.3.6",
@@ -32,6 +34,12 @@
     "test": "./scripts/test.sh",
     "start": "./scripts/start.sh",
     "build": "./scripts/build.sh"
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/preprocessor.js",
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react"
+    ]
   },
   "author": "",
   "license": "MIT"
