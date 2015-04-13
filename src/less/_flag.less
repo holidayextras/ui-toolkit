@@ -1,0 +1,219 @@
+.ui-component-flag {
+  background: rgb(225,225,225);
+  display: inline-block;
+  font-size: 16px;
+  line-height: 1em;
+  padding: .25em 1em;
+  position: relative;
+  margin: .25em 1em .5em 1em;
+  border-color: rgb(225,225,225);
+
+  &:after, &:before {
+    content: "";
+    display: block;
+    top:   1.5em;
+    width:  0;
+    height: 0;
+    position: absolute;
+    border-width: .75em .5em;
+    border-style: solid;
+    border-color: darken(rgb(225,225,225), 5%);
+    z-index:-1;
+  }
+
+  &:after {
+    top:  .25em;
+    right: 0;
+    margin-right: -.75em;
+    border-right-color: transparent;
+  }
+
+  &:before {
+    top:   .25em;
+    left: 0;
+    margin-left: -.75em;
+    border-left-color: transparent;
+  }
+}
+
+//== Functional Colours
+//
+//
+
+.flag-primary {
+  background:   rgb(153,51,204);
+  border-color: rgb(153,51,204);
+  color:rgb(255,255,255);
+  &:after {
+    border-color: darken(rgb(153,51,204), 5%);
+    border-right-color: transparent;
+  }
+  &:before {
+    border-color: darken(rgb(153,51,204), 5%);
+    border-left-color: transparent;
+  }
+}
+.flag-secondary {
+  background:   rgb(0,153,219);
+  border-color: rgb(0,153,219);
+  color:rgb(255,255,255);
+  &:after {
+    border-color: darken(rgb(0,153,219), 5%);
+    border-right-color: transparent;
+  }
+  &:before {
+    border-color: darken(rgb(0,153,219), 5%);
+    border-left-color: transparent;
+  }
+}
+.flag-success {
+  background:   rgb(136,186,56);
+  border-color: rgb(136,186,56);
+  color:rgb(255,255,255);
+  &:after {
+    border-color: darken(rgb(136,186,56), 5%);
+    border-right-color: transparent;
+  }
+  &:before {
+    border-color: darken(rgb(136,186,56), 5%);
+    border-left-color: transparent;
+  }
+}
+.flag-info {
+  background:   rgb(91,199,222);
+  border-color: rgb(91,199,222);
+  color:rgb(255,255,255);
+  &:after {
+    border-color: darken(rgb(91,199,222), 5%);
+    border-right-color: transparent;
+  }
+  &:before {
+    border-color: darken(rgb(91,199,222), 5%);
+    border-left-color: transparent;
+  }
+}
+.flag-warning {
+  background:   rgb(240,173,78);
+  border-color: rgb(240,173,78);
+  color:rgb(255,255,255);
+  &:after {
+    border-color: darken(rgb(240,173,78), 5%);
+    border-right-color: transparent;
+  }
+  &:before {
+    border-color: darken(rgb(240,173,78), 5%);
+    border-left-color: transparent;
+  }
+}
+.flag-danger {
+  background:   rgb(216,43,38);
+  border-color: rgb(216,43,38);
+  color:rgb(255,255,255);
+  &:after {
+    border-color: darken(rgb(216,43,38), 5%);
+    border-right-color: transparent;
+  }
+  &:before {
+    border-color: darken(rgb(216,43,38), 5%);
+    border-left-color: transparent;
+  }
+}
+
+
+//== Size
+//
+//
+
+.flag-sm {
+  font-size: 12px; //0.75em
+}
+.flag-md {
+  font-size: 16px; //1em
+}
+.flag-lg {
+  font-size: 20px; //1.25em
+}
+
+
+//== Position
+//
+//
+
+// Flag-Right
+.flag-right {
+  position: absolute;
+  top:   1em;
+  right: 0;
+  margin-right: -.5em;
+  -webkit-border-radius:0 2px 2px 0;
+     -moz-border-radius:0 2px 2px 0;
+      -ms-border-radius:0 2px 2px 0;
+       -o-border-radius:0 2px 2px 0;
+          border-radius:0 2px 2px 0;
+  &:after {
+    content: "";
+    display: block;
+    width:  0;
+    height: 0;
+    position: absolute;
+    z-index: -1;
+    border-width: .25em;
+    top:   1.5em;
+    right: 0;
+    margin-top:  -1px;
+    margin-right: 0;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+  }
+  &:before {
+    top:0;
+    z-index:0;
+    border-color: inherit;
+    border-left-color: transparent;
+  }
+}
+
+// Flag-Left
+.flag-left {
+  position: absolute;
+  top:  1em;
+  left: 0;
+  margin-left: -.5em;
+  -webkit-border-radius:2px 0 0 2px;
+     -moz-border-radius:2px 0 0 2px;
+      -ms-border-radius:2px 0 0 2px;
+       -o-border-radius:2px 0 0 2px;
+          border-radius:2px 0 0 2px;
+  &:before {
+    content: "";
+    display: block;
+    width:  0;
+    height: 0;
+    position: absolute;
+    z-index: -1;
+    border-width: .25em;
+    top:   1.5em;
+    left:  0;
+    margin-top:  -1px;
+    margin-left: 0;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+  }
+  &:after {
+    top:0;
+    z-index:0;
+    border-color: inherit;
+    border-right-color: transparent;
+  }
+}
+
+.flag-top {
+  top:    1em;
+  bottom: auto;
+}
+.flag-bottom {
+  top:    auto;
+  bottom: 1em;
+}
+
+

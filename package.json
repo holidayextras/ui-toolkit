@@ -29,7 +29,8 @@
     "react-bootstrap": "^0.20.0",
     "require-directory": "^2.0.0",
     "requirejs": "~2.1.9",
-    "ui-component-button": "git+ssh://git@github.com:holidayextras/ui-component-button.git"
+    "ui-component-button": "git+ssh://git@github.com:holidayextras/ui-component-button.git",
+    "ui-component-flag": "git+ssh://git@github.com:holidayextras/ui-component-flag.git"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
@@ -40,6 +41,10 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-release": "^0.11.0",
     "grunt-shell": "^1.1.1",
-    "gruntfile-gtx": "^0.3.0"
+    "gruntfile-gtx": "^0.3.0",
+    "grunt-contrib-less": "~1.0.0",
+    "grunt-contrib-copy": "~0.8.0",
+    "reactify": "~1.1.0",
+    "browserify": "~9.0.8"
   }
 }

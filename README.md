@@ -30,6 +30,7 @@ var UIToolkit = require('ui-toolkit');
 
 // Custom Components
 <UIToolkit.Button />
+<UIToolkit.Flag />
 
 // Bootstrap Components
 <UIToolkit.BootstrapAccordion />
