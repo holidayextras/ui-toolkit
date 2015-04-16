@@ -3,13 +3,13 @@ var UIToolkit = {};
 // Custom Components
 UIToolkit.Button = require('ui-component-button');
 UIToolkit.Flag = require('ui-component-flag');
+UIToolkit.Rating = require('ui-component-rating');
 
 // Default Create Components
 UIToolkit.BootstrapAccordion = require('react-bootstrap/lib/Accordion');
 UIToolkit.BootstrapAffix = require('react-bootstrap/lib/Affix');
 UIToolkit.BootstrapAffixMixin = require('react-bootstrap/lib/AffixMixin');
 UIToolkit.BootstrapAlert = require('react-bootstrap/lib/Alert');
-UIToolkit.BootstrapBadge = require('react-bootstrap/lib/Badge');
 UIToolkit.BootstrapBadge = require('react-bootstrap/lib/Badge');
 UIToolkit.BootstrapBootstrapMixin = require('react-bootstrap/lib/BootstrapMixin');
 UIToolkit.BootstrapButton = require('react-bootstrap/lib/Button');

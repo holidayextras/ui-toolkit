@@ -30,7 +30,8 @@
     "require-directory": "^2.0.0",
     "requirejs": "~2.1.9",
     "ui-component-button": "git+ssh://git@github.com:holidayextras/ui-component-button.git",
-    "ui-component-flag": "git+ssh://git@github.com:holidayextras/ui-component-flag.git"
+    "ui-component-flag": "git+ssh://git@github.com:holidayextras/ui-component-flag.git",
+    "ui-component-rating": "git://github.com/holidayextras/ui-component-rating"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
