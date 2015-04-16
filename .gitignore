@@ -21,6 +21,5 @@ config.codekit
 node_modules/
 
 # Ignore
-/dist
 docs/assets/bundle.js
 .grunt/
