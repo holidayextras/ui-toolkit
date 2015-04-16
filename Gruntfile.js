@@ -1,23 +1,23 @@
 module.exports = function(grunt) {
-	var gtx = require('gruntfile-gtx').wrap(grunt);
-		gtx.loadAuto();
+  var gtx = require('gruntfile-gtx').wrap(grunt);
+  gtx.loadAuto();
 
-	var gruntConfig = require('./grunt');
-		gruntConfig.package = require('./package.json');
+  var gruntConfig = require('./grunt');
+  gruntConfig.package = require('./package.json');
 
-	gtx.config(gruntConfig);
+  gtx.config(gruntConfig);
 
-	gtx.alias('build', ['shell:buildDist', 'less', 'copy']);
+  gtx.alias('build', ['shell:buildDist', 'less', 'copy']);
 
-	gtx.alias('docs', ['docs-build', 'concurrent:docs']);
-	gtx.alias('docs-build', ['shell:docsBuild']);
-	gtx.alias('docs-start', ['shell:docsStart']);
-	gtx.alias('docs-view', ['shell:docsView']);
+  gtx.alias('docs', ['docs-build', 'concurrent:docs']);
+  gtx.alias('docs-build', ['shell:docsBuild']);
+  gtx.alias('docs-start', ['shell:docsStart']);
+  gtx.alias('docs-view', ['shell:docsView']);
 
-	gtx.alias('release', ['build', 'docs-build', 'buildcontrol']);
-	gtx.alias('release-major', ['bump-only:major', 'release']);
-	gtx.alias('release-minor', ['bump-only:minor', 'release']);
-	gtx.alias('release-patch', ['bump-only:patch', 'release']);
+  gtx.alias('release-docs', ['build', 'docs-build', 'gh-pages']);
+  gtx.alias('release-major', ['release:major', 'release-docs']);
+  gtx.alias('release-minor', ['release:minor', 'release-docs']);
+  gtx.alias('release-patch', ['release:patch', 'release-docs']);
 
-	gtx.finalise();
+  gtx.finalise();
 };
