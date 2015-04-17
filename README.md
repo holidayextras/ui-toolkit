@@ -121,7 +121,9 @@ React.render(myComponentInstance, mountNode);
 </article>
 ```
 
-3. You should now be able to see your component when running `grunt docs`
+3. Add a link to the navigation in `.docs/src/Nav.jsx`.
+
+4. You should now be able to see your component when running `grunt docs`
 
 UI Toolkit Themes
 ---
