@@ -29,7 +29,7 @@ var Components = React.createClass({
 
         <article>
           <h3 id="tile">Tile</h3>
-          <p>lorem lamb ipsum dolor sit amet</p>
+          <p>A tile for displaying an image with a title. The width of a tile is 100% of a container.</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Tile.jsx', 'utf8')} />
         </article>
       </section>
