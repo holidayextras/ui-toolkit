@@ -29,7 +29,7 @@ var Components = React.createClass({
 
         <article>
           <h3 id="rating">Rating</h3>
-          <p>Ratings can be use to display a series of icons intended to represent a score.</p>
+          <p>Ratings can be used to display a series of icons intended to represent a score.</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Rating.jsx', 'utf8')} />
           <h4>Attributes</h4>
           <ul>

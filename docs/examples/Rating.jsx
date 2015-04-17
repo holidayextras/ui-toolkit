@@ -1,4 +1,4 @@
-var myComponentInstance = (
+var ratingInstance = (
   <UIToolkit.Rating rating={4} outOf={5} blankIcon="☆" >★</UIToolkit.Rating>
 );
-React.render(myComponentInstance, mountNode);
+React.render(ratingInstance, mountNode);
