@@ -25,7 +25,21 @@ var Components = React.createClass({
           <p>Need to position your flag? You can position the flag anywhere in a container using <code>top</code> (default), <code>bottom</code>, <code>left</code> or <code>right</code>.</p>
           <p>The container must have a <code>relative:position</code> and a <code>z-index:x</code> applied.</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/FlagPosition.jsx', 'utf8')} />
-        </article>        
+        </article>
+
+        <article>
+          <h3 id="rating">Rating</h3>
+          <p>Ratings can be used to display a series of icons intended to represent a score.</p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Rating.jsx', 'utf8')} />
+          <h4>Attributes</h4>
+          <ul>
+            <li><code>rating</code> Number - The count of positive icons to display.</li>
+            <li><code>outOf</code> [optional] Number - The total count the rating value is out of.</li>
+            <li><code>blankIcon</code> [optional] Node (any displayable item) - the icon to display for empty ratings.</li>
+          </ul>
+          
+          The <code>outOf</code> and <code>blankIcon</code> attributes are optional and dependent upon each other.
+        </article>  
       </section>
     );
   }
