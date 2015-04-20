@@ -31,7 +31,8 @@
     "requirejs": "~2.1.9",
     "ui-component-button": "git+ssh://git@github.com:holidayextras/ui-component-button.git",
     "ui-component-flag": "git+ssh://git@github.com:holidayextras/ui-component-flag.git",
-    "ui-component-rating": "git+ssh://git@github.com:holidayextras/ui-component-rating.git"
+    "ui-component-rating": "git+ssh://git@github.com:holidayextras/ui-component-rating.git",
+    "ui-component-tile": "git+ssh://git@github.com:holidayextras/ui-component-tile"
   },
   "devDependencies": {
     "browserify": "~9.0.8",

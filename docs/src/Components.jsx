@@ -37,9 +37,20 @@ var Components = React.createClass({
             <li><code>outOf</code> [optional] Number - The total count the rating value is out of.</li>
             <li><code>blankIcon</code> [optional] Node (any displayable item) - the icon to display for empty ratings.</li>
           </ul>
-          
+
           The <code>outOf</code> and <code>blankIcon</code> attributes are optional and dependent upon each other.
-        </article>  
+        </article>
+
+        <article>
+          <h3 id="tile">Tile</h3>
+          <p>A tile for displaying an image with a title. The width of a tile is 100% of a container.</p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Tile.jsx', 'utf8')} />
+          <h4>Attributes</h4>
+          <ul>
+            <li><code>image</code> Object - Containing <code>src</code> and <code>alt</code> keys</li>
+            <li><code>title</code> String - The title of the tile</li>
+          </ul>
+        </article>
       </section>
     );
   }
