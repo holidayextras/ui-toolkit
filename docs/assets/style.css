@@ -18,6 +18,7 @@ h1, h2, h3, h4, h5 {
   font-weight: 400;
   clear:both;
 }
+
 header {
   background:rgb(222,75,149);
   color:rgb(255,255,255);
@@ -57,6 +58,9 @@ nav ul ul li a {
   padding: 0 2em;
 }
 
+section ul {
+  margin-left: 1.5em;
+}
 
 .toolkit-example {
   border:1px solid #e1e1e8;
