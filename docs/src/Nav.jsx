@@ -19,6 +19,7 @@ var Nav = React.createClass({
             <ul>
               <li><a href="#button">Ultimate Button</a></li>
               <li><a href="#flags">Flags</a></li>
+              <li><a href="#tile">Tile</a></li>
             </ul>
           </li>
         </ul>
