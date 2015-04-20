@@ -1,6 +1,6 @@
 {
   "name": "ui-toolkit",
-  "version": "0.0.1",
+  "version": "0.4.0",
   "description": "UI Toolkit",
   "main": "src/index.js",
   "repository": {
@@ -31,21 +31,21 @@
     "requirejs": "~2.1.9",
     "ui-component-button": "git+ssh://git@github.com:holidayextras/ui-component-button.git",
     "ui-component-flag": "git+ssh://git@github.com:holidayextras/ui-component-flag.git",
+    "ui-component-rating": "git+ssh://git@github.com:holidayextras/ui-component-rating.git",
     "ui-component-tile": "git+ssh://git@github.com:holidayextras/ui-component-tile"
   },
   "devDependencies": {
+    "browserify": "~9.0.8",
     "grunt": "^0.4.5",
-    "grunt-build-control": "^0.3.0",
-    "grunt-bump": "^0.0.15",
     "grunt-changelog": "^0.2.2",
     "grunt-concurrent": "^1.0.0",
+    "grunt-contrib-copy": "~0.8.0",
+    "grunt-contrib-less": "~1.0.0",
     "grunt-contrib-watch": "^0.6.1",
+    "grunt-gh-pages": "^0.10.0",
     "grunt-release": "^0.11.0",
     "grunt-shell": "^1.1.1",
     "gruntfile-gtx": "^0.3.0",
-    "grunt-contrib-less": "~1.0.0",
-    "grunt-contrib-copy": "~0.8.0",
-    "reactify": "~1.1.0",
-    "browserify": "~9.0.8"
+    "reactify": "~1.1.0"
   }
 }
