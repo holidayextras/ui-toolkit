@@ -1,12 +1,16 @@
+/*------------------------------------*\
+    #Flag
+\*------------------------------------*/
+
 .ui-component-flag {
-  background: rgb(225,225,225);
+  background: @default;
+  border-color: @default;
   display: inline-block;
   font-size: 16px;
   line-height: 1em;
   padding: .25em 1em;
   position: relative;
   margin: .25em 1em .5em 1em;
-  border-color: rgb(225,225,225);
 
   &:after, &:before {
     content: "";
@@ -17,7 +21,7 @@
     position: absolute;
     border-width: .75em .5em;
     border-style: solid;
-    border-color: darken(rgb(225,225,225), 5%);
+    border-color: darken(@default, 5%);
     z-index:-1;
   }
 
@@ -41,67 +45,67 @@
 //
 
 .flag-primary {
-  background:   rgb(153,51,204);
-  border-color: rgb(153,51,204);
+  background:   @primary;
+  border-color: @primary;
   color:rgb(255,255,255);
   &:after {
-    border-color: darken(rgb(153,51,204), 5%);
+    border-color: darken(@primary, 5%);
     border-right-color: transparent;
   }
   &:before {
-    border-color: darken(rgb(153,51,204), 5%);
+    border-color: darken(@primary, 5%);
     border-left-color: transparent;
   }
 }
 .flag-secondary {
-  background:   rgb(0,153,219);
-  border-color: rgb(0,153,219);
+  background:   @secondary;
+  border-color: @secondary;
   color:rgb(255,255,255);
   &:after {
-    border-color: darken(rgb(0,153,219), 5%);
+    border-color: darken(@secondary, 5%);
     border-right-color: transparent;
   }
   &:before {
-    border-color: darken(rgb(0,153,219), 5%);
+    border-color: darken(@secondary, 5%);
     border-left-color: transparent;
   }
 }
 .flag-success {
-  background:   rgb(136,186,56);
-  border-color: rgb(136,186,56);
+  background:   @success;
+  border-color: @success;
   color:rgb(255,255,255);
   &:after {
-    border-color: darken(rgb(136,186,56), 5%);
+    border-color: darken(@success, 5%);
     border-right-color: transparent;
   }
   &:before {
-    border-color: darken(rgb(136,186,56), 5%);
+    border-color: darken(@success, 5%);
     border-left-color: transparent;
   }
 }
 .flag-info {
-  background:   rgb(91,199,222);
-  border-color: rgb(91,199,222);
+  background:   @info;
+  border-color: @info;
   color:rgb(255,255,255);
   &:after {
-    border-color: darken(rgb(91,199,222), 5%);
+    border-color: darken(@info, 5%);
     border-right-color: transparent;
   }
   &:before {
-    border-color: darken(rgb(91,199,222), 5%);
+    border-color: darken(@info, 5%);
     border-left-color: transparent;
   }
 }
 .flag-warning {
-  background:   rgb(240,173,78);
-  border-color: rgb(240,173,78);
+  background:   @warning;
+  border-color: @warning;
   color:rgb(255,255,255);
   &:after {
-    border-color: darken(rgb(240,173,78), 5%);
+    border-color: darken(@warning, 5%);
     border-right-color: transparent;
   }
   &:before {
-    border-color: darken(rgb(240,173,78), 5%);
+    border-color: darken(@warning, 5%);
     border-left-color: transparent;
   }
 }
@@ -110,11 +114,11 @@
   border-color: rgb(216,43,38);
   color:rgb(255,255,255);
   &:after {
-    border-color: darken(rgb(216,43,38), 5%);
+    border-color: darken(@danger, 5%);
     border-right-color: transparent;
   }
   &:before {
-    border-color: darken(rgb(216,43,38), 5%);
+    border-color: darken(@danger, 5%);
     border-left-color: transparent;
   }
 }
@@ -207,10 +211,13 @@
   }
 }
 
+// Flag-Top
 .flag-top {
   top:    1em;
   bottom: auto;
 }
+
+// Flag-Bottom
 .flag-bottom {
   top:    auto;
   bottom: 1em;
