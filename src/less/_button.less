@@ -1,0 +1,131 @@
+/*------------------------------------*\
+    #Button
+\*------------------------------------*/
+
+//== Default Button
+//
+//
+
+.btn {
+  font-size:1em;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding:.5em 1em;
+  border-radius:.25em;
+
+  &,
+  &:active,
+  &.active {
+    &:focus,
+    &.focus {
+      outline: thin dotted;
+      outline: 5px auto -webkit-focus-ring-color;
+      outline-offset: -2px;
+    }
+  }
+
+  &:hover,
+  &:focus,
+  &.focus {
+    color: @default;
+    text-decoration: none;
+  }
+
+  &:active,
+  &.active {
+    outline: 0;
+    background-image: none;
+  }
+
+  &.disabled,
+  &[disabled] {
+    cursor: disabled;
+    pointer-events: none;
+    opacity:.65;
+  }
+}
+
+//== Size
+//
+//
+
+.btn-sm {
+  .small;
+}
+.btn-lg {
+  .large;
+}
+.btn-xl {
+  .extra-large;
+}
+
+//== Block
+//
+//
+
+.btn-block {
+  display:block;
+  width: 100%;
+}
+
+//== Functional Colours
+//
+//
+
+.button-variant(@background; @border) {
+  color: contrast(@background, #000000, #ffffff, 60%);
+  background-color: @background;
+  border-color: @border;
+
+  &:hover,
+  &:focus,
+  &.focus,
+  &:active,
+  &.active {
+    color: contrast(@background, #000000, #ffffff, 60%);
+    background-color: darken(@background, 10%);
+        border-color: darken(@border, 12%);
+  }
+  &:active,
+  &.active,
+  &.disabled,
+  &[disabled]{
+    &,
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+      background-color: @background;
+          border-color: @border;
+    }
+  }
+}
+
+.btn {
+  .button-variant(@default; darken(@default, 5%));
+}
+.btn-primary {
+  .button-variant(@primary; darken(@primary, 5%));
+}
+.btn-secondary {
+  .button-variant(@secondary; darken(@secondary, 5%));
+}
+.btn-success {
+  .button-variant(@success; darken(@success, 5%));
+}
+.btn-info {
+  .button-variant(@info; darken(@info, 5%));
+}
+.btn-warning {
+  .button-variant(@warning; darken(@warning, 5%));
+}
+.btn-danger {
+  .button-variant(@danger; darken(@danger, 5%));
+}

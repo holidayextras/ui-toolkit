@@ -9,9 +9,16 @@ var Components = React.createClass({
       <section id="components">
         <h2 className="page-header">Components</h2>
         <article>
-          <h3 id="button">Ultimate Button</h3>
-          <p>The ulimate button should be used as the highest button in the hierarchical structure of your page.</p>
+          <h3 id="button">Buttons</h3>
+          <p>Here be buttons</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Button.jsx', 'utf8')} />
+          <h4>Size</h4>
+          <p>Here be button Sizes</p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/ButtonSize.jsx', 'utf8')} />
+          <h4>Size</h4>
+          <p>Here be buttons</p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/ButtonBlock.jsx', 'utf8')} />
+
         </article>
 
         <article>
