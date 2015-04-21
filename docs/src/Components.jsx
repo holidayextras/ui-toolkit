@@ -10,13 +10,12 @@ var Components = React.createClass({
         <h2 className="page-header">Components</h2>
         <article>
           <h3 id="button">Buttons</h3>
-          <p>Here be buttons</p>
+          <p>A clickable/tappable button element</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Button.jsx', 'utf8')} />
           <h4>Size</h4>
-          <p>Here be button Sizes</p>
+          <p>Fancy larger or smaller buttons? Add <code>small</code>, <code>large</code>, or <code>extraLarge</code> for additional sizes.</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/ButtonSize.jsx', 'utf8')} />
-          <h4>Size</h4>
-          <p>Here be buttons</p>
+          <p>Create block level buttons by adding <code>block</code>.</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/ButtonBlock.jsx', 'utf8')} />
 
         </article>
