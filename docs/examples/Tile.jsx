@@ -3,8 +3,8 @@ var image = {
   alt: 'Two course meal'
 }
 
-var tileInstance = (
+var example = (
   <UIToolkit.Tile image={image} title='Two course dinner' />
 );
 
-React.render(tileInstance, mountNode);
+React.render(example, mountNode);

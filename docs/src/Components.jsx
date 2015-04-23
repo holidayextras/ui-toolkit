@@ -15,6 +15,7 @@ var Components = React.createClass({
           <h4>Size</h4>
           <p>Fancy larger or smaller buttons? Add <code>small</code>, <code>large</code>, or <code>extraLarge</code> for additional sizes.</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/ButtonSize.jsx', 'utf8')} />
+          <h4>Block</h4>
           <p>Create block level buttons by adding <code>block</code>.</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/ButtonBlock.jsx', 'utf8')} />
 

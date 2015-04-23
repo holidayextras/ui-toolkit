@@ -1,4 +1,4 @@
-var buttonInstance = (
+var example = (
   <div>
     <UIToolkit.Button small>Small</UIToolkit.Button>
     <UIToolkit.Button>Default</UIToolkit.Button>
@@ -7,4 +7,4 @@ var buttonInstance = (
   </div>
 );
 
-React.render(buttonInstance, mountNode);
+React.render(example, mountNode);
