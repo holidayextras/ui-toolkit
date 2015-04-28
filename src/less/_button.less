@@ -6,7 +6,7 @@
 //
 //
 
-.btn {
+.component-button {
   display: inline-block;
   text-align: center;
   vertical-align: middle;
@@ -53,9 +53,11 @@
 //
 //
 
-.btn-block {
-  display:block;
-  width: 100%;
+.component-button {
+  &.block {
+    display:block;
+    width: 100%;
+  }
 }
 
 //== Functional Colours
@@ -92,24 +94,24 @@
   }
 }
 
-.btn {
+.component-button {
   .button-variant(@default; darken(@default, 5%));
-}
-.btn-primary {
-  .button-variant(@primary; darken(@primary, 5%));
-}
-.btn-secondary {
-  .button-variant(@secondary; darken(@secondary, 5%));
-}
-.btn-success {
-  .button-variant(@success; darken(@success, 5%));
-}
-.btn-info {
-  .button-variant(@info; darken(@info, 5%));
-}
-.btn-warning {
-  .button-variant(@warning; darken(@warning, 5%));
-}
-.btn-danger {
-  .button-variant(@danger; darken(@danger, 5%));
+  &.primary {
+    .button-variant(@primary; darken(@primary, 5%));
+  }
+  &.secondary {
+    .button-variant(@secondary; darken(@secondary, 5%));
+  }
+  &.success {
+    .button-variant(@success; darken(@success, 5%));
+  }
+  &.info {
+    .button-variant(@info; darken(@info, 5%));
+  }
+  &.warning {
+    .button-variant(@warning; darken(@warning, 5%));
+  }
+  &.danger {
+    .button-variant(@danger; darken(@danger, 5%));
+  }
 }
