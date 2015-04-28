@@ -26,7 +26,6 @@
   "dependencies": {
     "flex-less": "^1.0.0",
     "react": "^0.13.1",
-    "react-bootstrap": "^0.20.0",
     "require-directory": "^2.0.0",
     "requirejs": "~2.1.9",
     "ui-component-button": "git+ssh://git@github.com:holidayextras/ui-component-button.git",
@@ -46,6 +45,7 @@
     "grunt-release": "^0.11.0",
     "grunt-shell": "^1.1.1",
     "gruntfile-gtx": "^0.3.0",
-    "reactify": "~1.1.0"
+    "reactify": "~1.1.0",
+    "time-grunt": "^1.1.1"
   }
 }
