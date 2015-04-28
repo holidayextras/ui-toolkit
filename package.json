@@ -8,7 +8,7 @@
     "url": "https://github.com/holidayextras/ui-toolkit.git"
   },
   "scripts": {
-    "postinstall": "cd docs; npm install; cd -"
+    "postinstall": "./scripts/subinstall.sh"
   },
   "keywords": [
     "ui",
@@ -24,15 +24,13 @@
   },
   "homepage": "https://github.com/holidayextras/ui-toolkit",
   "dependencies": {
+    "classnames": "~1.2.0",
     "flex-less": "^1.0.0",
     "react": "^0.13.1",
     "react-bootstrap": "^0.20.0",
+    "require-all": "^1.0.0",
     "require-directory": "^2.0.0",
-    "requirejs": "~2.1.9",
-    "ui-component-button": "git+ssh://git@github.com:holidayextras/ui-component-button.git",
-    "ui-component-flag": "git+ssh://git@github.com:holidayextras/ui-component-flag.git",
-    "ui-component-rating": "git+ssh://git@github.com:holidayextras/ui-component-rating.git",
-    "ui-component-tile": "git+ssh://git@github.com:holidayextras/ui-component-tile"
+    "requirejs": "~2.1.9"
   },
   "devDependencies": {
     "browserify": "~9.0.8",

@@ -1,0 +1,31 @@
+{
+  "name": "ui-component-button",
+  "version": "1.0.0",
+  "description": "Our main button component.",
+  "main": "index.js",
+  "scripts": {
+    "build-dev": "./scripts/build-dev.sh",
+    "build-dist": "./scripts/build-dist.sh",
+    "test": "jest"
+  },
+  "browserify": {
+    "transform": ["reactify"]
+  },
+  "dependencies": {
+    "browserify": "^9.0.3",
+    "react": "^0.13.0",
+    "react-tools": "^0.13.0",
+    "reactify": "^1.0.0",
+    "redirectify": "^1.2.0",
+    "classnames": "~1.2.0"
+  },
+  "devDependencies": {
+    "jest-cli": "^0.4.0"
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/preprocessor.js",
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react"
+    ]
+  }
+}
