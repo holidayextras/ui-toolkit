@@ -38,7 +38,7 @@ Tests are written using [Jest](https://facebook.github.io/jest/).
 
 ## Example
 
-```
+```jsx
 var React = require('react');
 var UiComponentProductTileComponent = require('ui-component-product-tile');
 

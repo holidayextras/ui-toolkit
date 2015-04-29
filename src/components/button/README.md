@@ -33,7 +33,7 @@ To build a distributable version of the component:
 
 ## Example
 
-```
+```jsx
 var React = require('react');
 var Button = require('ui-component-button');
 
