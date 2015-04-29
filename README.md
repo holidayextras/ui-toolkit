@@ -9,17 +9,6 @@ Requirements:
 
 * [Node.js v10+](http://nodejs.org/) ( For Application Development )
 
-Install:
----
-
-To install `ui-toolkit` locally for development:
-
-```bash
-git clone git@github.com:holidayextras/ui-toolkit.git
-cd ui-toolkit
-npm install
-```
-
 UI Toolkit Usage
 ---
 
@@ -41,6 +30,17 @@ If you would like to cherry pick which components to include in your project, yo
 ```jsx
 var Button = require('ui-toolkit').Button;
 <Button />
+```
+
+Install for development
+---
+
+To install `ui-toolkit` locally for development:
+
+```bash
+git clone git@github.com:holidayextras/ui-toolkit.git
+cd ui-toolkit
+npm install
 ```
 
 Adding a new component
