@@ -47,7 +47,7 @@ Adding a new component
 ---
 #### Install our [yeoman component generator](https://github.com/holidayextras/generator-ui-component)
 ```bash
-npm install -g holidayextras/generator-ui-component`
+npm install -g holidayextras/generator-ui-component
 ```
 
 #### Creating the component
