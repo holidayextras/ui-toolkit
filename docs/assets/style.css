@@ -120,3 +120,8 @@ section ul {
   float:left;
   z-index: 1;
 }
+
+/* Components */
+.toolkit-example .btn {
+  margin:.25em;
+}
