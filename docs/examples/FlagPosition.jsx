@@ -1,4 +1,4 @@
-var flagInstance = (
+var example = (
   <div className="demo-box">
     <UIToolkit.Flag left>Left</UIToolkit.Flag>
     <UIToolkit.Flag right>Right</UIToolkit.Flag>
@@ -7,4 +7,4 @@ var flagInstance = (
   </div>
 );
 
-React.render(flagInstance, mountNode);
+React.render(example, mountNode);
