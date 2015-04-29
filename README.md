@@ -122,7 +122,7 @@ React.render(example, mountNode);
 cd src/components/your-new-component
 npm run build-dev
 ```
-Browserify bundles from the example.jsx. Loading the index.html in your browser will display the component.
+Browserify bundles from the `dev/example.jsx`. Loading the `dev/index.html` in your browser will display the component.
 
 UI Toolkit Themes
 ---
