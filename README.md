@@ -31,99 +31,97 @@ var UIToolkit = require('ui-toolkit');
 // Custom Components
 <UIToolkit.Button />
 <UIToolkit.Flag />
-
-// Bootstrap Components
-<UIToolkit.BootstrapAccordion />
-<UIToolkit.BootstrapAffix />
-<UIToolkit.BootstrapAffixMixin />
-<UIToolkit.BootstrapAlert />
-<UIToolkit.BootstrapBadge />
-<UIToolkit.BootstrapBadge />
-<UIToolkit.BootstrapBootstrapMixin />
-<UIToolkit.BootstrapButton />
-<UIToolkit.BootstrapButtonGroup />
-<UIToolkit.BootstrapButtonToolbar />
-<UIToolkit.BootstrapCarousel />
-<UIToolkit.BootstrapCarouselItem />
-<UIToolkit.BootstrapCol />
-<UIToolkit.BootstrapCollapsableMixin />
-<UIToolkit.BootstrapDropdownButton />
-<UIToolkit.BootstrapDropdownMenu />
-<UIToolkit.BootstrapDropdownStateMixin />
-<UIToolkit.BootstrapFadeMixin />
-<UIToolkit.BootstrapGlyphicon />
-<UIToolkit.BootstrapGrid />
-<UIToolkit.BootstrapInput />
-<UIToolkit.BootstrapInterpolate />
-<UIToolkit.BootstrapJumbotron />
-<UIToolkit.BootstrapLabel />
-<UIToolkit.BootstrapListGroup />
-<UIToolkit.BootstrapListGroupItem />
-<UIToolkit.BootstrapMenuItem />
-<UIToolkit.BootstrapModal />
-<UIToolkit.BootstrapModalTrigger />
-<UIToolkit.BootstrapNav />
-<UIToolkit.BootstrapNavbar />
-<UIToolkit.BootstrapNavItem />
-<UIToolkit.BootstrapOverlayMixin />
-<UIToolkit.BootstrapOverlayTrigger />
-<UIToolkit.BootstrapPageHeader />
-<UIToolkit.BootstrapPageItem />
-<UIToolkit.BootstrapPager />
-<UIToolkit.BootstrapPanel />
-<UIToolkit.BootstrapPanelGroup />
-<UIToolkit.BootstrapPopover />
-<UIToolkit.BootstrapProgressBar />
-<UIToolkit.BootstrapRow />
-<UIToolkit.BootstrapSplitButton />
-<UIToolkit.BootstrapSubNav />
-<UIToolkit.BootstrapTabbedArea />
-<UIToolkit.BootstrapTable />
-<UIToolkit.BootstrapTabPane />
-<UIToolkit.BootstrapTooltip />
-<UIToolkit.BootstrapWell />
-```
+<UIToolkit.Rating />
+<UIToolkit.Reviews />
+<UIToolkit.Tile />
 
 If you would like to cherry pick which components to include in your project, you can use this method:
 
 ```jsx
 var Button = require('ui-toolkit').Button;
 <Button />
-
-var BootstrapPanel = require('ui-toolkit').BootstrapPanel;
-<BootstrapPanel />
 ```
 
 Adding a new component
 ---
-#### Adding a component to ui-toolkit
-1. Firstly (if you haven't already), create a new component using our [yeoman generator](https://github.com/holidayextras/generator-ui-component)
-2. Install your new component e.g. `npm install --save ui-component-foo`
-3. Open `./src/ui-toolkit.js`
-4. Add `UIToolkit.YourComponent = require('ui-component-foo');` to the `Custom Components` section
-
-#### Updating the docs (todo, simplify this step)
-1. In `./docs/examples/`, create a new jsx file that describes your component. e.g.
-```jsx
-// docs/examples/MyComponent.jsx
-var myComponentInstance = (
-  <UIToolkit.MyComponent foo="bar" />
-);
-React.render(myComponentInstance, mountNode);
+#### Install our [yeoman component generator](https://github.com/holidayextras/generator-ui-component)
+```bash
+npm install -g holidayextras/generator-ui-component`
 ```
 
-2. In `./docs/src/Components.jsx`, add a new `<article>`, similar to the existing ones e.g.
+#### Creating the component
+Generate a component & follow the prompts
+```bash
+cd src/components
+mkdir your-new-component
+cd your-new-component
+yo ui-component:external
+```
+
+Then require this file in `src/ui-toolkit.js`
+```javascript
+// src/ui-toolkit.js
+UIToolkit.YourNewComponent = require('./components/your-new-component');
+```
+
+#### Adding functionality
+Add the functionality to your component in `your-new-component/code/`. For more information on this directory structure, view [the component generator documentation](https://github.com/holidayextras/generator-ui-component)
+
+#### Adding styles
+The styles are currently written in [LESS](http://lesscss.org/) and live in the `src/` directory.
+
+You will need to create a new file for your component
+```bash
+cd src/less
+touch _your-new-component.less
+open _your-new-component.less
+```
+
+Then import this file in `src/less/toolkit.less`
+```less
+// src/less/toolkit.less
+@import "_your-new-component";
+```
+
+Running `grunt less` will compile this to `dist/toolkit.css`
+
+#### Viewing your component in the browser
+There are two ways you can view your component:
+
+1. In the documentation
+2. Standalone (currently doesn't bring in ui-toolkit styles)
+
+##### In the documentation
+_Note: This needs to and will be be simplified_
+
+1. In `./docs/examples/`, create a new jsx file that describes your component. e.g.
+```jsx
+// docs/examples/YourNewComponent.jsx
+var example = (
+  <UIToolkit.YourNewComponent foo="bar" />
+);
+React.render(example, mountNode);
+```
+
+2. Then add a link to the navigation in `.docs/src/Nav.jsx`.
+3. In `./docs/src/Components.jsx`, add a new `<article>`, similar to the existing ones e.g.
+
 ```jsx
 <article>
-  <h3 id="my-component">My component</h3>
-  <p>My component description</p>
-  <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/MyComponent.jsx', 'utf8')} />
+  <h3 id="your-new-component">Your new component</h3>
+  <p>Your new component description</p>
+  <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/YourNewComponent.jsx', 'utf8')} />
 </article>
 ```
 
-3. Add a link to the navigation in `.docs/src/Nav.jsx`.
+4. You should now be able to see your component when running `grunt docs` from the root of `ui-toolkit`
 
-4. You should now be able to see your component when running `grunt docs`
+##### Standalone (currently doesn't bring in ui-toolkit styles)
+```bash
+cd src/components/your-new-component
+npm run build-dev
+```
+Browserify bundles from the example.jsx. Loading the index.html in your browser will display the component.
 
 UI Toolkit Themes
 ---
@@ -139,7 +137,7 @@ You can view the React Components in your browser by generating and viewing the 
 
 Run & watch the documentation in development:
 ```bash
-grunt docs 
+grunt docs
 ```
 
 Building so you can upload to a remote docs server that does not require Node:
