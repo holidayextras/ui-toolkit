@@ -121,6 +121,7 @@ section ul {
   z-index: 1;
 }
 
-button {
-  margin-right:0.5em;
+/* Components */
+.toolkit-example button {
+  margin:.25em;
 }

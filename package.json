@@ -1,6 +1,6 @@
 {
   "name": "ui-toolkit",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "UI Toolkit",
   "main": "src/index.js",
   "repository": {
@@ -8,7 +8,7 @@
     "url": "https://github.com/holidayextras/ui-toolkit.git"
   },
   "scripts": {
-    "postinstall": "./scripts/subinstall.sh"
+    "postinstall": "./scripts/postinstall.sh"
   },
   "keywords": [
     "ui",
@@ -27,8 +27,6 @@
     "classnames": "~1.2.0",
     "flex-less": "^1.0.0",
     "react": "^0.13.1",
-    "react-bootstrap": "^0.20.0",
-    "require-all": "^1.0.0",
     "require-directory": "^2.0.0",
     "requirejs": "~2.1.9"
   },
