@@ -39,108 +39,61 @@
   }
 }
 
-//== Functional Colours
 //
+// == Functional Colours ==
 //
 
+// Mixin
+.flag-variant(@background) {
+  color: contrast(@background, #000000, #ffffff, 60%);
+  background-color: @background;
+  border: @background;
+  &:after {
+    border-color: darken(@background, 5%);
+    border-right-color: transparent;
+  }
+  &:before {
+    border-color: darken(@background, 5%);
+    border-left-color: transparent;
+  }
+}
+
 .component-flag {
+  .flag-variant(@default);
   &.primary {
-    background:   @primary;
-    border-color: @primary;
-    color:rgb(255,255,255);
-    &:after {
-      border-color: darken(@primary, 5%);
-      border-right-color: transparent;
-    }
-    &:before {
-      border-color: darken(@primary, 5%);
-      border-left-color: transparent;
-    }
+    .flag-variant(@primary);
   }
   &.secondary {
-    background:   @secondary;
-    border-color: @secondary;
-    color:rgb(255,255,255);
-    &:after {
-      border-color: darken(@secondary, 5%);
-      border-right-color: transparent;
-    }
-    &:before {
-      border-color: darken(@secondary, 5%);
-      border-left-color: transparent;
-    }
+    .flag-variant(@secondary);
   }
   &.success {
-    background:   @success;
-    border-color: @success;
-    color:rgb(255,255,255);
-    &:after {
-      border-color: darken(@success, 5%);
-      border-right-color: transparent;
-    }
-    &:before {
-      border-color: darken(@success, 5%);
-      border-left-color: transparent;
-    }
+    .flag-variant(@success);
   }
   &.info {
-    background:   @info;
-    border-color: @info;
-    color:rgb(255,255,255);
-    &:after {
-      border-color: darken(@info, 5%);
-      border-right-color: transparent;
-    }
-    &:before {
-      border-color: darken(@info, 5%);
-      border-left-color: transparent;
-    }
+    .flag-variant(@info);
   }
   &.warning {
-    background:   @warning;
-    border-color: @warning;
-    color:rgb(255,255,255);
-    &:after {
-      border-color: darken(@warning, 5%);
-      border-right-color: transparent;
-    }
-    &:before {
-      border-color: darken(@warning, 5%);
-      border-left-color: transparent;
-    }
+    .flag-variant(@warning);
   }
   &.danger {
-    background:   rgb(216,43,38);
-    border-color: rgb(216,43,38);
-    color:rgb(255,255,255);
-    &:after {
-      border-color: darken(@danger, 5%);
-      border-right-color: transparent;
-    }
-    &:before {
-      border-color: darken(@danger, 5%);
-      border-left-color: transparent;
-    }
+    .flag-variant(@danger);
   }
 }
 
 
-//== Position
 //
+// == Position ==
 //
 
-// Flag-Right
 .component-flag {
+
+  // Right
   &.right {
     position: absolute;
     top:   1em;
     right: 0;
     margin-right: -.5em;
-    -webkit-border-radius:0 2px 2px 0;
-       -moz-border-radius:0 2px 2px 0;
-        -ms-border-radius:0 2px 2px 0;
-         -o-border-radius:0 2px 2px 0;
-            border-radius:0 2px 2px 0;
+    border-radius:0 2px 2px 0;
     &:after {
       content: "";
       display: block;
@@ -164,17 +117,13 @@
     }
   }
 
-  // Flag-Left
+  // Left
   &.left {
     position: absolute;
     top:  1em;
     left: 0;
     margin-left: -.5em;
-    -webkit-border-radius:2px 0 0 2px;
-       -moz-border-radius:2px 0 0 2px;
-        -ms-border-radius:2px 0 0 2px;
-         -o-border-radius:2px 0 0 2px;
-            border-radius:2px 0 0 2px;
+    border-radius:2px 0 0 2px;
     &:before {
       content: "";
       display: block;
@@ -198,17 +147,15 @@
     }
   }
 
-  // Flag-Top
+  // Top
   &.top {
     top:    1em;
     bottom: auto;
   }
 
-  // Flag-Bottom
+  // Bottom
   &.bottom {
     top:    auto;
     bottom: 1em;
   }
 }
-
-

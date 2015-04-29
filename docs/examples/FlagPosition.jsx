@@ -1,10 +1,10 @@
-var flagInstance = (
+var example = (
   <div className="demo-box">
-    <UIToolkit.Flag left>Left</UIToolkit.Flag>
-    <UIToolkit.Flag right>Right</UIToolkit.Flag>
-    <UIToolkit.Flag bottom left>Bottom Left</UIToolkit.Flag>
-    <UIToolkit.Flag bottom right>Bottom Right</UIToolkit.Flag>
+    <UIToolkit.Flag position="left">Left</UIToolkit.Flag>
+    <UIToolkit.Flag position="right">Right</UIToolkit.Flag>
+    <UIToolkit.Flag position="bottom left">Bottom Left</UIToolkit.Flag>
+    <UIToolkit.Flag position="bottom right">Bottom Right</UIToolkit.Flag>
   </div>
 );
 
-React.render(flagInstance, mountNode);
+React.render(example, mountNode);

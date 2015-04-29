@@ -107,7 +107,7 @@ section ul {
   height: auto;
 }
 
-/* Demo box */
+/* Demos */
 .demo-box {
   position:relative;
   width:98%;
@@ -119,4 +119,8 @@ section ul {
   margin:1%;
   float:left;
   z-index: 1;
+}
+
+button {
+  margin-right:0.5em;
 }
