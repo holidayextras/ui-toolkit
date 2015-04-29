@@ -2,7 +2,7 @@
     #Flag
 \*------------------------------------*/
 
-.component-flag {
+.ui-component-flag {
   background: @default;
   border-color: @default;
   display: inline-block;
@@ -43,172 +43,167 @@
 //
 //
 
-.component-flag {
-  &.primary {
-    background:   @primary;
-    border-color: @primary;
-    color:rgb(255,255,255);
-    &:after {
-      border-color: darken(@primary, 5%);
-      border-right-color: transparent;
-    }
-    &:before {
-      border-color: darken(@primary, 5%);
-      border-left-color: transparent;
-    }
+.flag-primary {
+  background:   @primary;
+  border-color: @primary;
+  color:rgb(255,255,255);
+  &:after {
+    border-color: darken(@primary, 5%);
+    border-right-color: transparent;
   }
-  &.secondary {
-    background:   @secondary;
-    border-color: @secondary;
-    color:rgb(255,255,255);
-    &:after {
-      border-color: darken(@secondary, 5%);
-      border-right-color: transparent;
-    }
-    &:before {
-      border-color: darken(@secondary, 5%);
-      border-left-color: transparent;
-    }
-  }
-  &.success {
-    background:   @success;
-    border-color: @success;
-    color:rgb(255,255,255);
-    &:after {
-      border-color: darken(@success, 5%);
-      border-right-color: transparent;
-    }
-    &:before {
-      border-color: darken(@success, 5%);
-      border-left-color: transparent;
-    }
-  }
-  &.info {
-    background:   @info;
-    border-color: @info;
-    color:rgb(255,255,255);
-    &:after {
-      border-color: darken(@info, 5%);
-      border-right-color: transparent;
-    }
-    &:before {
-      border-color: darken(@info, 5%);
-      border-left-color: transparent;
-    }
-  }
-  &.warning {
-    background:   @warning;
-    border-color: @warning;
-    color:rgb(255,255,255);
-    &:after {
-      border-color: darken(@warning, 5%);
-      border-right-color: transparent;
-    }
-    &:before {
-      border-color: darken(@warning, 5%);
-      border-left-color: transparent;
-    }
-  }
-  &.danger {
-    background:   rgb(216,43,38);
-    border-color: rgb(216,43,38);
-    color:rgb(255,255,255);
-    &:after {
-      border-color: darken(@danger, 5%);
-      border-right-color: transparent;
-    }
-    &:before {
-      border-color: darken(@danger, 5%);
-      border-left-color: transparent;
-    }
+  &:before {
+    border-color: darken(@primary, 5%);
+    border-left-color: transparent;
   }
 }
-
+.flag-secondary {
+  background:   @secondary;
+  border-color: @secondary;
+  color:rgb(255,255,255);
+  &:after {
+    border-color: darken(@secondary, 5%);
+    border-right-color: transparent;
+  }
+  &:before {
+    border-color: darken(@secondary, 5%);
+    border-left-color: transparent;
+  }
+}
+.flag-success {
+  background:   @success;
+  border-color: @success;
+  color:rgb(255,255,255);
+  &:after {
+    border-color: darken(@success, 5%);
+    border-right-color: transparent;
+  }
+  &:before {
+    border-color: darken(@success, 5%);
+    border-left-color: transparent;
+  }
+}
+.flag-info {
+  background:   @info;
+  border-color: @info;
+  color:rgb(255,255,255);
+  &:after {
+    border-color: darken(@info, 5%);
+    border-right-color: transparent;
+  }
+  &:before {
+    border-color: darken(@info, 5%);
+    border-left-color: transparent;
+  }
+}
+.flag-warning {
+  background:   @warning;
+  border-color: @warning;
+  color:rgb(255,255,255);
+  &:after {
+    border-color: darken(@warning, 5%);
+    border-right-color: transparent;
+  }
+  &:before {
+    border-color: darken(@warning, 5%);
+    border-left-color: transparent;
+  }
+}
+.flag-danger {
+  background:   rgb(216,43,38);
+  border-color: rgb(216,43,38);
+  color:rgb(255,255,255);
+  &:after {
+    border-color: darken(@danger, 5%);
+    border-right-color: transparent;
+  }
+  &:before {
+    border-color: darken(@danger, 5%);
+    border-left-color: transparent;
+  }
+}
 
 //== Position
 //
 //
 
 // Flag-Right
-.component-flag {
-  &.right {
+.flag-right {
+  position: absolute;
+  top:   1em;
+  right: 0;
+  margin-right: -.5em;
+  -webkit-border-radius:0 2px 2px 0;
+     -moz-border-radius:0 2px 2px 0;
+      -ms-border-radius:0 2px 2px 0;
+       -o-border-radius:0 2px 2px 0;
+          border-radius:0 2px 2px 0;
+  &:after {
+    content: "";
+    display: block;
+    width:  0;
+    height: 0;
     position: absolute;
-    top:   1em;
+    z-index: -1;
+    border-width: .25em;
+    top:   1.5em;
     right: 0;
-    margin-right: -.5em;
-    -webkit-border-radius:0 2px 2px 0;
-       -moz-border-radius:0 2px 2px 0;
-        -ms-border-radius:0 2px 2px 0;
-         -o-border-radius:0 2px 2px 0;
-            border-radius:0 2px 2px 0;
-    &:after {
-      content: "";
-      display: block;
-      width:  0;
-      height: 0;
-      position: absolute;
-      z-index: -1;
-      border-width: .25em;
-      top:   1.5em;
-      right: 0;
-      margin-top:  -1px;
-      margin-right: 0;
-      border-right-color: transparent;
-      border-bottom-color: transparent;
-    }
-    &:before {
-      top:0;
-      z-index:0;
-      border-color: inherit;
-      border-left-color: transparent;
-    }
+    margin-top:  -1px;
+    margin-right: 0;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
   }
+  &:before {
+    top:0;
+    z-index:0;
+    border-color: inherit;
+    border-left-color: transparent;
+  }
+}
 
-  // Flag-Left
-  &.left {
+// Flag-Left
+.flag-left {
+  position: absolute;
+  top:  1em;
+  left: 0;
+  margin-left: -.5em;
+  -webkit-border-radius:2px 0 0 2px;
+     -moz-border-radius:2px 0 0 2px;
+      -ms-border-radius:2px 0 0 2px;
+       -o-border-radius:2px 0 0 2px;
+          border-radius:2px 0 0 2px;
+  &:before {
+    content: "";
+    display: block;
+    width:  0;
+    height: 0;
     position: absolute;
-    top:  1em;
-    left: 0;
-    margin-left: -.5em;
-    -webkit-border-radius:2px 0 0 2px;
-       -moz-border-radius:2px 0 0 2px;
-        -ms-border-radius:2px 0 0 2px;
-         -o-border-radius:2px 0 0 2px;
-            border-radius:2px 0 0 2px;
-    &:before {
-      content: "";
-      display: block;
-      width:  0;
-      height: 0;
-      position: absolute;
-      z-index: -1;
-      border-width: .25em;
-      top:   1.5em;
-      left:  0;
-      margin-top:  -1px;
-      margin-left: 0;
-      border-left-color: transparent;
-      border-bottom-color: transparent;
-    }
-    &:after {
-      top:0;
-      z-index:0;
-      border-color: inherit;
-      border-right-color: transparent;
-    }
+    z-index: -1;
+    border-width: .25em;
+    top:   1.5em;
+    left:  0;
+    margin-top:  -1px;
+    margin-left: 0;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
   }
+  &:after {
+    top:0;
+    z-index:0;
+    border-color: inherit;
+    border-right-color: transparent;
+  }
+}
 
-  // Flag-Top
-  &.top {
-    top:    1em;
-    bottom: auto;
-  }
+// Flag-Top
+.flag-top {
+  top:    1em;
+  bottom: auto;
+}
 
-  // Flag-Bottom
-  &.bottom {
-    top:    auto;
-    bottom: 1em;
-  }
+// Flag-Bottom
+.flag-bottom {
+  top:    auto;
+  bottom: 1em;
 }
 
 

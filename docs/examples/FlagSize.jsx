@@ -1,9 +1,9 @@
 var example = (
   <div>
-    <UIToolkit.Flag size="small">Small</UIToolkit.Flag>
+    <UIToolkit.Flag small>Small</UIToolkit.Flag>
     <UIToolkit.Flag>Default</UIToolkit.Flag>
-    <UIToolkit.Flag size="large">Large</UIToolkit.Flag>
-    <UIToolkit.Flag size="extra-large">Extra Large</UIToolkit.Flag>    
+    <UIToolkit.Flag large>Large</UIToolkit.Flag>
+    <UIToolkit.Flag extraLarge>Extra Large</UIToolkit.Flag>    
   </div>
 );
 
