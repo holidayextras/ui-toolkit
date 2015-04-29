@@ -3,8 +3,8 @@
 \*------------------------------------*/
 
 .component-flag {
-  background: @default;
-  border-color: @default;
+  background: $default;
+  border-color: $default;
   display: inline-block;
   line-height: 1em;
   padding: .25em 1em;
@@ -20,7 +20,7 @@
     position: absolute;
     border-width: .75em .5em;
     border-style: solid;
-    border-color: darken(@default, 5%);
+    border-color: darken($default, 5%);
     z-index:-1;
   }
 
@@ -44,39 +44,39 @@
 //
 
 // Mixin
-.flag-variant(@background) {
-  color: contrast(@background, #414141, #ffffff, 60%);
-  background-color: @background;
-  border: @background;
+@mixin flag-variant($background) {
+  background-color: $background;
+      border-color: $background;
+             color: set-color($background);
   &:after {
-    border-color: darken(@background, 5%);
+    border-color: darken($background, 5%);
     border-right-color: transparent;
   }
   &:before {
-    border-color: darken(@background, 5%);
+    border-color: darken($background, 5%);
     border-left-color: transparent;
   }
 }
 
 .component-flag {
-  .flag-variant(@default);
+  @include flag-variant($default);
   &.primary {
-    .flag-variant(@primary);
+    @include flag-variant($primary);
   }
   &.secondary {
-    .flag-variant(@secondary);
+    @include flag-variant($secondary);
   }
   &.success {
-    .flag-variant(@success);
+    @include flag-variant($success);
   }
   &.info {
-    .flag-variant(@info);
+    @include flag-variant($info);
   }
   &.warning {
-    .flag-variant(@warning);
+    @include flag-variant($warning);
   }
   &.danger {
-    .flag-variant(@danger);
+    @include flag-variant($danger);
   }
 }
 

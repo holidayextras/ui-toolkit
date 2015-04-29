@@ -60,10 +60,12 @@
 // == Functional Colours ==
 //
 
+// Mixin
 @mixin button-variant($background, $border) {
+
   background-color: $background;
       border-color: $border;
-             color: contrast($background, #000000, #ffffff, 60%);
+             color: set-color($background);
 
   &:hover,
   &:focus,
@@ -72,7 +74,7 @@
   &.active {
     background-color: darken($background, 10%);
         border-color: darken($border, 12%);
-               color: contrast($background, #000000, #ffffff, 60%);
+               color: set-color($background)
   }
   &:active,
   &.active,

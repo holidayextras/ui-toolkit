@@ -1,0 +1,12 @@
+/*------------------------------------*\
+    #Functions
+\*------------------------------------*/
+
+@function set-color($color) {
+  @if (lightness( $color ) > 65) {
+    @return #414141; // Lighter color, return black
+  }
+  @else {
+    @return #FFFFFF; // Darker color, return white
+  }
+}

@@ -61,18 +61,18 @@
 //
 
 .button-variant(@background; @border) {
-  color: contrast(@background, #000000, #ffffff, 60%);
   background-color: @background;
-  border-color: @border;
+      border-color: @border;
+             color: contrast(@background, #414141, #ffffff, 60%);
 
   &:hover,
   &:focus,
   &.focus,
   &:active,
   &.active {
-    color: contrast(@background, #000000, #ffffff, 60%);
     background-color: darken(@background, 10%);
         border-color: darken(@border, 12%);
+               color: contrast(@background, #414141, #ffffff, 60%);
   }
   &:active,
   &.active,
