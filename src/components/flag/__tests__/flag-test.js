@@ -1,9 +1,9 @@
 /** @jsx React.DOM */
 
-jest.dontMock('../code/views/FlagComponentView.jsx');
+jest.dontMock('../code/views/flagView.jsx');
 
 var React = require('react/addons');
-var FlagComponent = require('../code/views/FlagComponentView.jsx');
+var FlagComponent = require('../code/views/flagView.jsx');
 var TestUtils = React.addons.TestUtils;
 
 describe('FlagComponent', function() {

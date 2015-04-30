@@ -1,9 +1,9 @@
 /** @jsx React.DOM */
 
-jest.dontMock('../code/views/ui_component_product_tile_component_view.jsx');
+jest.dontMock('../code/views/tileView.jsx');
 
 var React = require('react/addons');
-var UiComponentProductTileComponent = require('../code/views/ui_component_product_tile_component_view.jsx');
+var UiComponentProductTileComponent = require('../code/views/tileView.jsx');
 var TestUtils = React.addons.TestUtils;
 
 describe('UiComponentProductTileComponent', function() {

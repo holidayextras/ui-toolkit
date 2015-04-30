@@ -6,6 +6,6 @@ module.exports = React.createClass({
     reviewCount: React.PropTypes.number.isRequired
   },
   render: function() {
-    return require('../templates/ReviewsComponentTemplate.jsx')(this.props);
+    return require('../templates/reviewsTemplate.jsx')(this.props);
   }
 });

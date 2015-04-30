@@ -1,9 +1,9 @@
 /** @jsx React.DOM */
 
-jest.dontMock('../code/views/rating_component_view.jsx');
+jest.dontMock('../code/views/ratingView.jsx');
 
 var React = require('react/addons');
-var RatingComponent = require('../code/views/rating_component_view.jsx');
+var RatingComponent = require('../code/views/ratingView.jsx');
 var TestUtils = React.addons.TestUtils;
 
 describe('RatingComponent', function() {
