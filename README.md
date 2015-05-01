@@ -1,4 +1,4 @@
-[![Build Status](https://magnum.travis-ci.com/holidayextras/aws-team-2.svg?token=fvAUso2CQvimr9pnSsdq)](https://magnum.travis-ci.com/holidayextras/aws-team-2)
+[![Build Status](https://travis-ci.org/holidayextras/ui-toolkit.svg)](https://travis-ci.org/holidayextras/ui-toolkit)
 
 <header style="background: rgb(222,75,149);padding:2em;text-align:center">
   ![UIToolkit](docs/assets/toolkit-banner.png)
