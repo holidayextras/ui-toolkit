@@ -9,7 +9,7 @@ var TestUtils = React.addons.TestUtils;
 describe('RatingComponent', function() {
 
   it('is an element', function() {
-    expect(TestUtils.isElement(<RatingComponent />)).toBeTruthy();
+    expect(TestUtils.isElement(<RatingComponent rating={4} />)).toBeTruthy();
   });
 
 });
