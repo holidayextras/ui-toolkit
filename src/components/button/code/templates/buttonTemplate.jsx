@@ -2,16 +2,14 @@ var React = require('react');
 var classNames = require('classnames');
 
 module.exports = function(props) {
-  var classes = {
-    'component-button': true,   
-  };
+  var classes = ['component-button'];
 
   if(props.size) {
-    classes[props.size] = true;
+    classes.push(props.size);
   }
 
   if(props.purpose) {
-    classes[props.purpose] = true;
+    classes.push(props.purpose);
   }
 
   return (

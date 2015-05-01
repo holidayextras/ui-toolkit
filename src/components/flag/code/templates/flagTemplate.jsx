@@ -2,20 +2,18 @@ var React = require('react');
 var classNames = require('classnames');
 
 module.exports = function(props) {
-  var classes = {
-    'component-flag': true,
-  };
+  var classes = ['component-flag'];
 
   if(props.size) {
-    classes[props.size] = true;
+    classes.push(props.size);
   }
 
   if(props.purpose) {
-    classes[props.purpose] = true;
+    classes.push(props.purpose);
   }
 
   if(props.position) {
-    classes[props.position] = true;
+    classes.push(props.position);
   }
 
   return (
