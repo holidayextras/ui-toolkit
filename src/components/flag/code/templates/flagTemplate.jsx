@@ -6,15 +6,15 @@ module.exports = function(props) {
     'component-flag': true,
   };
 
-  if(props.size){
+  if(props.size) {
     classes[props.size] = true;
   }
 
-  if(props.purpose){
+  if(props.purpose) {
     classes[props.purpose] = true;
   }
 
-  if(props.position){
+  if(props.position) {
     classes[props.position] = true;
   }
 
