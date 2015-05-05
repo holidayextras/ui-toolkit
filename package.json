@@ -29,7 +29,7 @@
     "flex-less": "^1.0.0",
     "grunt": "^0.4.5",
     "gruntfile-gtx": "^0.3.0",
-    "grunt-shell": "^1.1.1"
+    "grunt-shell": "^1.1.1",
     "react": "^0.13.1",
     "reactify": "~1.1.0",
     "require-directory": "^2.0.0",
