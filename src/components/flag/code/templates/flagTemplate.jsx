@@ -1,20 +1,11 @@
 var React = require('react');
 var classNames = require('classnames');
+var getComponentClasses = require('../../../../utils/getComponentClasses');
 
 module.exports = function(props) {
-  var classes = ['component-flag'];
-
-  if(props.size) {
-    classes.push(props.size);
-  }
-
-  if(props.purpose) {
-    classes.push(props.purpose);
-  }
-
-  if(props.position) {
-    classes.push(props.position);
-  }
+  
+  var propClasses = ['size', 'purpose', 'position'];
+  var classes = getComponentClasses('component-flag', propClasses, props);
 
   return (
     <span className={classNames(classes)}>

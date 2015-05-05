@@ -28,7 +28,8 @@
     "flex-less": "^1.0.0",
     "react": "^0.13.1",
     "require-directory": "^2.0.0",
-    "requirejs": "~2.1.9"
+    "requirejs": "~2.1.9",
+    "underscore": "~1.8.3"
   },
   "devDependencies": {
     "browserify": "~9.0.8",

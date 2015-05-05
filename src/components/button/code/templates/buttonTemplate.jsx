@@ -1,16 +1,11 @@
 var React = require('react');
 var classNames = require('classnames');
+var getComponentClasses = require('../../../../utils/getComponentClasses');
 
 module.exports = function(props) {
-  var classes = ['component-button'];
 
-  if(props.size) {
-    classes.push(props.size);
-  }
-
-  if(props.purpose) {
-    classes.push(props.purpose);
-  }
+  var propClasses = ['size', 'purpose'];
+  var classes = getComponentClasses('component-button', propClasses, props);
 
   return (
     <button className={classNames(classes)} disabled={props.disabled} type={props.type}>
