@@ -16,7 +16,7 @@ module.exports = function(props) {
     'extra-large': props.extraLarge
   };
   return (
-    <button className={classNames(classes)} disabled={props.disabled} type={props.type}>
+    <button className={classNames(classes)} disabled={props.disabled} type={props.type} onClick={props.handleClick}>
       {props.children}
     </button>
   );
