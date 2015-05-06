@@ -7,9 +7,7 @@ var UiComponentProductTileComponent = require('../code/views/ui_component_produc
 var TestUtils = React.addons.TestUtils;
 
 describe('UiComponentProductTileComponent', function() {
-
   it('is an element', function() {
     expect(TestUtils.isElement(<UiComponentProductTileComponent />)).toBeTruthy();
   });
-
 });

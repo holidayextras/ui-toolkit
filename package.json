@@ -8,7 +8,19 @@
     "url": "https://github.com/holidayextras/ui-toolkit.git"
   },
   "scripts": {
-    "postinstall": "./scripts/postinstall.sh"
+    "postinstall": "./scripts/postinstall.sh",
+    "test": "./node_modules/jest-cli/bin/jest.js",
+    "lint": "./node_modules/eslint/bin/eslint.js src/"
+  },
+  "jest": {
+    "scriptPreprocessor": "./preprocessor.js",
+    "unmockedModulePathPatterns": [
+      "node_modules/react",
+      "node_modules/react/addons"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ]
   },
   "keywords": [
     "ui",
@@ -36,12 +48,17 @@
     "requirejs": "~2.1.9"
   },
   "devDependencies": {
+    "eslint": "^0.20.0",
+    "eslint-plugin-react": "^2.2.0",
     "grunt-changelog": "^0.2.2",
     "grunt-concurrent": "^1.0.0",
     "grunt-contrib-copy": "~0.8.0",
     "grunt-contrib-less": "~1.0.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-gh-pages": "^0.10.0",
+    "grunt-release": "^0.11.0",
+    "jest-cli": "^0.4.0",
+    "react-tools": "^0.13.2",
     "grunt-release": "^0.11.0"
   }
 }
