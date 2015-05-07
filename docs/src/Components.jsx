@@ -11,12 +11,13 @@ var Components = React.createClass({
         <article>
           <h3 id="button">Buttons</h3>
           <p>A clickable/tappable button element</p>
+          <p>To give the button a purpose, add <code>purpose="primary"</code> etc.</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Button.jsx', 'utf8')} />
           <h4>Size</h4>
-          <p>Fancy larger or smaller buttons? Add <code>small</code>, <code>large</code>, or <code>extraLarge</code> for additional sizes.</p>
+          <p>Fancy larger or smaller buttons? Add <code>size="small"</code>, <code>size="large"</code>, or <code>size="extra-large"</code> for additional sizes.</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/ButtonSize.jsx', 'utf8')} />
           <h4>Block</h4>
-          <p>Create block level buttons by adding <code>block</code>.</p>
+          <p>Create block level buttons by adding <code>size='block'</code>.</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/ButtonBlock.jsx', 'utf8')} />
 
         </article>
@@ -24,12 +25,13 @@ var Components = React.createClass({
         <article>
           <h3 id="flags">Flags</h3>
           <p>Flags are used to highlight taxonomy terms or 'tags' on elements. For example 'special offer' or 'limited time only'</p>
+          <p>To give the flag a purpose, add <code>purpose="primary"</code> etc.</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Flag.jsx', 'utf8')} />
           <h4>Size</h4>
-          <p>Fancy larger or smaller flags? Add <code>small</code>, <code>medium</code> or <code>large</code> for additional sizes.</p>
+          <p>Fancy larger or smaller flags? Add <code>size="small"</code>, <code>size="large"</code> or <code>size="extra-large"</code> for additional sizes.</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/FlagSize.jsx', 'utf8')} />
           <h4>Position</h4>
-          <p>Need to position your flag? You can position the flag anywhere in a container using <code>top</code> (default), <code>bottom</code>, <code>left</code> or <code>right</code>.</p>
+          <p>Need to position your flag? You can position the flag anywhere in a container using <code>position="top"</code> (default), <code>position="bottom"</code>, <code>position="left"</code> or <code>position="right"</code>.</p>
           <p>The container must have a <code>relative:position</code> and a <code>z-index:x</code> applied.</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/FlagPosition.jsx', 'utf8')} />
         </article>
