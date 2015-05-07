@@ -15,11 +15,10 @@
   "jest": {
     "scriptPreprocessor": "./preprocessor.js",
     "unmockedModulePathPatterns": [
-      "node_modules/react",
-      "node_modules/react/addons"
+      "./node_modules/"
     ],
     "testPathIgnorePatterns": [
-      "/node_modules/"
+      "./node_modules/"
     ]
   },
   "keywords": [
@@ -42,10 +41,11 @@
     "grunt": "^0.4.5",
     "gruntfile-gtx": "^0.3.0",
     "grunt-shell": "^1.1.1",
-    "react": "^0.13.1",
+    "react": "^0.13.2",
     "reactify": "~1.1.0",
     "require-directory": "^2.0.0",
-    "requirejs": "~2.1.9"
+    "requirejs": "~2.1.9",
+    "underscore": "~1.8.3"
   },
   "devDependencies": {
     "eslint": "^0.20.0",
@@ -57,8 +57,7 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-gh-pages": "^0.10.0",
     "grunt-release": "^0.11.0",
-    "jest-cli": "^0.4.0",
-    "react-tools": "^0.13.2",
-    "grunt-release": "^0.11.0"
+    "jest-cli": "~0.4.1",
+    "react-tools": "^0.13.2"
   }
 }

@@ -8,6 +8,6 @@ module.exports = React.createClass({
   },
   
   render: function() {
-    return require('../templates/rating_component_template.jsx')(this.props);
+    return require('../templates/ratingTemplate.jsx')(this.props);
   }
 });

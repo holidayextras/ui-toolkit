@@ -11,6 +11,6 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    return require('../templates/ui_component_product_tile_component_template.jsx')(this.props);
+    return require('../templates/tileTemplate.jsx')(this.props);
   }
 });

@@ -107,7 +107,7 @@ section ul {
   height: auto;
 }
 
-/* Demo box */
+/* Demos */
 .demo-box {
   position:relative;
   width:98%;
@@ -122,6 +122,6 @@ section ul {
 }
 
 /* Components */
-.toolkit-example .btn {
+.toolkit-example button {
   margin:.25em;
 }

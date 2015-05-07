@@ -4,12 +4,12 @@ var getComponentClasses = require('../../../../utils/getComponentClasses');
 
 module.exports = function(props) {
 
-  var propClasses = ['size', 'purpose'];
-  var classes = getComponentClasses('component-button', propClasses, props);
+  var propClasses = ['size', 'purpose', 'position'];
+  var classes = getComponentClasses('component-flag', propClasses, props);
 
   return (
-    <button className={classNames(classes)} disabled={props.disabled} type={props.type}>
+    <span className={classNames(classes)}>
       {props.children}
-    </button>
+    </span>
   );
 };

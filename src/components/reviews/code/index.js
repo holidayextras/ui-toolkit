@@ -1,1 +1,1 @@
-module.exports = require('./views/ReviewsComponentView.jsx');
+module.exports = require('./views/reviewsView.jsx');
