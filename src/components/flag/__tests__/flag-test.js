@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 
 jest.dontMock('../code/views/flagView.jsx');
-jest.dontMock('classnames');
+jest.dontMock('../../../utils/getComponentClasses');
 
 var React = require('react/addons');
 var FlagComponent = require('../code/views/flagView.jsx');

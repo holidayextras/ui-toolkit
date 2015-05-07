@@ -1,6 +1,6 @@
 {
   "name": "ui-toolkit",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "UI Toolkit",
   "main": "src/index.js",
   "repository": {
@@ -8,7 +8,18 @@
     "url": "https://github.com/holidayextras/ui-toolkit.git"
   },
   "scripts": {
-    "postinstall": "./scripts/postinstall.sh"
+    "postinstall": "./scripts/postinstall.sh",
+    "test": "./node_modules/jest-cli/bin/jest.js",
+    "lint": "./node_modules/eslint/bin/eslint.js src/"
+  },
+  "jest": {
+    "scriptPreprocessor": "./preprocessor.js",
+    "unmockedModulePathPatterns": [
+      "./node_modules/"
+    ],
+    "testPathIgnorePatterns": [
+      "./node_modules/"
+    ]
   },
   "keywords": [
     "ui",
@@ -24,16 +35,21 @@
   },
   "homepage": "https://github.com/holidayextras/ui-toolkit",
   "dependencies": {
+    "browserify": "~9.0.8",
     "classnames": "~1.2.0",
     "flex-less": "^1.0.0",
-    "react": "^0.13.1",
+    "grunt": "^0.4.5",
+    "gruntfile-gtx": "^0.3.0",
+    "grunt-shell": "^1.1.1",
+    "react": "^0.13.2",
+    "reactify": "~1.1.0",
     "require-directory": "^2.0.0",
     "requirejs": "~2.1.9",
     "underscore": "~1.8.3"
   },
   "devDependencies": {
-    "browserify": "~9.0.8",
-    "grunt": "^0.4.5",
+    "eslint": "^0.20.0",
+    "eslint-plugin-react": "^2.2.0",
     "grunt-changelog": "^0.2.2",
     "grunt-concurrent": "^1.0.0",
     "grunt-contrib-copy": "~0.8.0",
@@ -41,8 +57,7 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-gh-pages": "^0.10.0",
     "grunt-release": "^0.11.0",
-    "grunt-shell": "^1.1.1",
-    "gruntfile-gtx": "^0.3.0",
-    "reactify": "~1.1.0"
+    "jest-cli": "~0.4.1",
+    "react-tools": "^0.13.2"
   }
 }

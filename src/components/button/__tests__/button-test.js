@@ -1,13 +1,14 @@
 /** @jsx React.DOM */
 
 jest.dontMock('../code/views/buttonView.jsx');
-jest.dontMock('classnames');
+jest.dontMock('../../../utils/getComponentClasses');
 
 var React = require('react/addons');
 var ButtonView = require('../code/views/buttonView.jsx');
 var TestUtils = React.addons.TestUtils;
 
 describe('ButtonComponent', function() {
+
 
   it('should render button', function() {
     var button = TestUtils.renderIntoDocument(

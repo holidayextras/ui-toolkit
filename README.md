@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/holidayextras/ui-toolkit.svg)](https://travis-ci.org/holidayextras/ui-toolkit)
+
 <header style="background: rgb(222,75,149);padding:2em;text-align:center">
   ![UIToolkit](docs/assets/toolkit-banner.png)
 </header>
