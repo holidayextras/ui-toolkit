@@ -14,7 +14,7 @@ To build the dev site run:
 ## Usage
 In the javascript file you wish to use it in:
 
-`var FlagComponent = require('ui-component-flag');`
+`var FlagComponent = require('component-flag');`
 
 Then in your React view add the tags:
 

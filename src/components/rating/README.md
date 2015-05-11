@@ -14,7 +14,7 @@ To build the dev site run:
 ## Usage
 In the javascript file you wish to use it in:
 
-`var RatingComponent = require('ui-component-rating');`
+`var RatingComponent = require('component-rating');`
 
 Then in your React view add the tags:
 

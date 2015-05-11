@@ -14,7 +14,7 @@ To build the dev site run:
 ## Usage
 In the javascript file you wish to use it in:
 
-`var Button = require('ui-component-button');`
+`var Button = require('component-button');`
 
 Then in your React view add the tags:
 

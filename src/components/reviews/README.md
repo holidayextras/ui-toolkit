@@ -14,7 +14,7 @@ To build the dev site run:
 ## Usage
 In the javascript file you wish to use it in:
 
-`var ReviewsComponent = require('ui-component-reviews');`
+`var ReviewsComponent = require('component-reviews');`
 
 Then in your React view add the tags:
 

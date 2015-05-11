@@ -14,7 +14,7 @@ To build the dev site run:
 ## Usage
 In the javascript file you wish to use it in:
 
-`var UiComponentProductTileComponent = require('ui-component-product-tile');`
+`var UiComponentProductTileComponent = require('component-tile');`
 
 Then in your React view add the tags:
 

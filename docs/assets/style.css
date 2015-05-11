@@ -62,6 +62,11 @@ section ul {
   margin-left: 1.5em;
 }
 
+article {
+  clear:both;
+  overflow:hidden;
+}
+
 .toolkit-example {
   border:1px solid #e1e1e8;
   padding: 9px 14px;
