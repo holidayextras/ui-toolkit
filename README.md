@@ -49,7 +49,7 @@ Troubleshooting
 ---
 If you have any problems installing the ui-toolkit then please view the
 [troubleshooting guide](https://github.com/holidayextras/ui-toolkit/TROUBLESHOOTING.md) which contains common errors and
-solutions. If your cannot find your specific problem then please create a
+solutions. If you cannot find your specific problem then please create a
 [github issue](https://github.com/holidayextras/ui-toolkit/issues)
 
 Adding a new component
