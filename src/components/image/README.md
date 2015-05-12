@@ -14,7 +14,7 @@ To build the dev site run:
 ## Usage
 In the javascript file you wish to use it in:
 
-`var ImageComponent = require('ui-component-image');`
+`var ImageComponent = require('component-image');`
 
 Then in your React view add the tags:
 
@@ -38,14 +38,18 @@ Tests are written using [Jest](https://facebook.github.io/jest/).
 
 ## Example
 
-```
+```jsx
 var React = require('react');
-var ImageComponent = require('ui-component-image');
+var ImageComponent = require('component-image');
 
 module.exports = React.createClass({
   render: function() {
+    
+    var src = 'http://www.vegetarian-shoes.co.uk/Portals/42/product/images/prd0683d04d-faaf-4826-a692-45d2e5cfbe3b.jpg';
+    var alt = 'Shoes';
+    
     return(
-      <ImageComponent />
+      <ImageComponent src={src} alt={alt} />
     );
   }
 });
