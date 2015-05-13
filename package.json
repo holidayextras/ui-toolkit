@@ -13,12 +13,18 @@
     "lint": "./node_modules/eslint/bin/eslint.js src/"
   },
   "jest": {
-    "scriptPreprocessor": "./preprocessor.js",
+    "rootDir": "./src",
+    "collectCoverage": true,
+    "scriptPreprocessor": "../preprocessor.js",
     "unmockedModulePathPatterns": [
       "./node_modules/"
     ],
     "testPathIgnorePatterns": [
       "./node_modules/"
+    ],
+    "testFileExtensions": [
+      "js",
+      "jsx"
     ]
   },
   "keywords": [
