@@ -48,7 +48,7 @@ npm install
 Troubleshooting
 ---
 If you have any problems installing the ui-toolkit then please view the
-[troubleshooting guide](https://github.com/holidayextras/ui-toolkit/TROUBLESHOOTING.md) which contains common errors and
+[troubleshooting guide](https://github.com/holidayextras/ui-toolkit/blob/master/TROUBLESHOOTING.md) which contains common errors and
 solutions. If you cannot find your specific problem then please create a
 [github issue](https://github.com/holidayextras/ui-toolkit/issues)
 
