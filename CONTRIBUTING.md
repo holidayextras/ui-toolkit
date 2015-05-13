@@ -7,10 +7,10 @@ which are hosted in the [Holiday Extras Organization](https://github.com/holiday
 These are just guidelines, not rules, use your best judgment and feel free to
 propose changes to this document in a pull request.
 
-This guide will be constently updated.
+This guide will be constantly updated.
 
 ## New Components
-* You can creat new components easily using the
+* You can create new components easily using the
 [Component Generator](https://github.com/holidayextras/generator-ui-component)
 * Please choose a name that decribes the component i.e `button`
 * When adding a class to the template, please prefix with `component-` so when in use it doesn't conflict with existing
