@@ -28,14 +28,14 @@
     top:  .25em;
     right: 0;
     margin-right: -.75em;
-    border-right-color: transparent;
+    border-right-color: rgba(255,255,255,0);
   }
 
   &:before {
     top:   .25em;
     left: 0;
     margin-left: -.75em;
-    border-left-color: transparent;
+    border-left-color: rgba(255,255,255,0);
   }
 }
 
@@ -50,11 +50,11 @@
   border: @background;
   &:after {
     border-color: darken(@background, 5%);
-    border-right-color: transparent;
+    border-right-color: rgba(255,255,255,0);
   }
   &:before {
     border-color: darken(@background, 5%);
-    border-left-color: transparent;
+    border-left-color: rgba(255,255,255,0);
   }
 }
 
@@ -122,16 +122,16 @@
       right: 0;
       margin-top:  -1px;
       margin-right: 0;
-      border-right-color: transparent;
-      border-bottom-color: transparent;
+      border-right-color: rgba(255,255,255,0);
+      border-bottom-color: rgba(255,255,255,0);
     }
     &:before {
       .flag-end;
-      border-left-color: transparent;
+      border-left-color: rgba(255,255,255,0);
     }
   }
 
-  // Left
+  // Lefts
   &.left {
     .position-variant;
     left: 0;
@@ -142,12 +142,12 @@
       left:  0;
       margin-top:  -1px;
       margin-left: 0;
-      border-left-color: transparent;
-      border-bottom-color: transparent;
+      border-left-color: rgba(255,255,255,0);
+      border-bottom-color: rgba(255,255,255,0);
     }
     &:after {
       .flag-end;
-      border-right-color: transparent;
+      border-right-color: rgba(255,255,255,0);
     }
   }
 
