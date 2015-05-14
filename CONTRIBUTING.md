@@ -38,7 +38,7 @@ This guide will be constantly updated.
 We use [ESLint](http://eslint.org/) to ensure consistency in our repo.
 Please ensure you:
 
-* Illiminate excess white space.
+* Eliminate excess white space.
 * End files with a newline.
 
 ## Git Commit Messages
