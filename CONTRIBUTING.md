@@ -23,7 +23,7 @@ This guide will be constantly updated.
 * Include screenshots, animated GIFs or [screencasts](http://quickcast.io/) whenever possible; they are immensely
   helpful.
 * Include the behavior you expected and other places you've seen that behavior
-* Perform a [cursory search](https://github.com/holidayextras/ui-toolkit/issues)
+* Perform a [cursory search](/../../issues)
   to see if a similar issue has already been submitted.
 * Please setup a [profile picture](https://help.github.com/articles/how-do-i-set-up-my-profile-picture)
   to make yourself recognizable and so we can all get to know each other better.
