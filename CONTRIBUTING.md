@@ -10,7 +10,7 @@ This guide will be constantly updated.
 
 ## New Components
 * You can create new components easily using the
-[Component Generator](https://github.com/holidayextras/generator-ui-component)
+[Component Generator](/holidayextras/generator-ui-component)
 * Please choose a name that describes the component i.e `button`
 * When adding a class to the template, please prefix with `component-` so when in use it doesn't conflict with existing
   components
