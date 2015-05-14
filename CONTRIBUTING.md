@@ -3,7 +3,6 @@
 A BIG thank you from everyone using the UI-Toolkit for taking the time to contribute! :clap:
 
 The following is a set of guidelines for contributing to the UI-Toolkit and its components,
-which are hosted in the [Holiday Extras Organization](https://github.com/holidayextras) on GitHub.
 These are just guidelines, not rules, use your best judgment and feel free to
 propose changes to this document in a pull request.
 
@@ -21,7 +20,7 @@ This guide will be constantly updated.
 * You can create a [new issue](https://github.com/holidayextras/ui-toolkit/issues/new), but
   before doing that please read the notes below on submitting issues,
   and include as many details as possible with your report.
-* Include screenshots and animated GIFs whenever possible; they are immensely
+* Include screenshots, animated GIFs or [screencasts](http://quickcast.io/) whenever possible; they are immensely
   helpful.
 * Include the behavior you expected and other places you've seen that behavior
 * Perform a [cursory search](https://github.com/holidayextras/ui-toolkit/issues)
@@ -33,8 +32,7 @@ This guide will be constantly updated.
 
 * Include screenshots and animated GIFs in your pull request whenever possible.
 * Include thoughtfully-worded, well-structured
-  [Jest](https://facebook.github.io/jest/) specs in the `__tests__` folder in area for developement, if the directory
-  doesn't exist, please add one. Run them using `jest`. See the [Specs Styleguide](#specs-styleguide) below.
+  [Jest](https://facebook.github.io/jest/) specs. See the [Specs Styleguide](#specs-styleguide) below.
 
 ### Linting
 We use [ESLint](http://eslint.org/) to ensure consistency in our repo.
@@ -59,19 +57,25 @@ Please ensure you:
 ## Specs Styleguide
 
 - Include thoughtfully-worded, well-structured
-  [Jest](https://facebook.github.io/jest/) specs in the `__test__` folder.
+  [Jest](https://facebook.github.io/jest/) specs in the `__test__` folder in area for developement, if the directory
+  doesn't exist, please add one.
+- Run test using `jest`
 - treat `describe` as a noun or situation.
 - treat `it` as a statement about state or how an operation changes state.
 
 ### Example
 
-```coffee
-describe 'a dog', ->
- it 'barks', ->
- # spec here
- describe 'when the dog is happy', ->
-  it 'wags its tail', ->
-  # spec here
+```javascript
+describe('a dog', function() {
+  it('barks', function() {
+    # spec here
+  });
+  describe('when the dog is happy', function() {
+    it('wags its tail', function() {
+      # spec here
+    });
+  });
+});
 ```
 
 --
