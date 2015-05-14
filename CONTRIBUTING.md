@@ -56,9 +56,8 @@ Please ensure you:
 
 ## Specs Styleguide
 
-- Include thoughtfully-worded, well-structured
-  [Jest](https://facebook.github.io/jest/) specs in the `__test__` folder in area for developement, if the directory
-  doesn't exist, please add one.
+- Include [Jest](https://facebook.github.io/jest/) specs in the `__test__` folder in area for developement, if the
+  directory doesn't exist, please add one.
 - Run test using `jest`
 - treat `describe` as a noun or situation.
 - treat `it` as a statement about state or how an operation changes state.
