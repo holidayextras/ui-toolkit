@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/holidayextras/ui-toolkit.svg)](https://travis-ci.org/holidayextras/ui-toolkit)
 
 <header style="background: rgb(222,75,149);padding:2em;text-align:center">
-  ![UIToolkit](docs/assets/toolkit-banner.png)
+	![UIToolkit](docs/assets/toolkit-banner.png)
 </header>
 
 ##### Under Active Development
@@ -48,9 +48,9 @@ npm install
 Troubleshooting
 ---
 If you have any problems installing the ui-toolkit then please view the
-[troubleshooting guide](https://github.com/holidayextras/ui-toolkit/blob/master/TROUBLESHOOTING.md) which contains common errors and
+[troubleshooting guide](/blob/master/TROUBLESHOOTING.md) which contains common errors and
 solutions. If you cannot find your specific problem then please create a
-[github issue](https://github.com/holidayextras/ui-toolkit/issues)
+[github issue](/../../issues)
 
 Adding a new component
 ---
@@ -108,7 +108,7 @@ _Note: This needs to and will be be simplified_
 ```jsx
 // docs/examples/YourNewComponent.jsx
 var example = (
-  <UIToolkit.YourNewComponent foo="bar" />
+	<UIToolkit.YourNewComponent foo="bar" />
 );
 React.render(example, mountNode);
 ```
@@ -118,9 +118,9 @@ React.render(example, mountNode);
 
 ```jsx
 <article>
-  <h3 id="your-new-component">Your new component</h3>
-  <p>Your new component description</p>
-  <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/YourNewComponent.jsx', 'utf8')} />
+	<h3 id="your-new-component">Your new component</h3>
+	<p>Your new component description</p>
+	<CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/YourNewComponent.jsx', 'utf8')} />
 </article>
 ```
 
