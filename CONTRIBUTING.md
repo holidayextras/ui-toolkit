@@ -17,7 +17,7 @@ This guide will be constantly updated.
 
 ## Submitting Issues
 
-* You can create a [new issue](https://github.com/holidayextras/ui-toolkit/issues/new), but
+* You can create a [new issue](/../../issues/new), but
   before doing that please read the notes below on submitting issues,
   and include as many details as possible with your report.
 * Include screenshots, animated GIFs or [screencasts](http://quickcast.io/) whenever possible; they are immensely
