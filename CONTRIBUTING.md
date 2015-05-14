@@ -46,6 +46,7 @@ Please ensure you:
 * Limit the first line to 72 characters or less
 * Reference issues and pull requests liberally
 * Consider starting the commit message with an applicable emoji:
+    * :new: `:new:` when fixing addign a new component
     * :bug: `:bug:` when fixing a bug
     * :racehorse: `:racehorse:` when improving performance
     * :memo: `:memo:` when writing docs
