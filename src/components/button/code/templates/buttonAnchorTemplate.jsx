@@ -8,8 +8,8 @@ module.exports = function(props) {
   var classes = getComponentClasses('component-button', propClasses, props);
 
   return (
-    <button className={classNames(classes)} disabled={props.disabled} type={props.type} onClick={props.handleClick}>
+    <a className={classNames(classes)} href={props.href} target={props.target} onClick={props.handleClick}>
       {props.children}
-    </button>
+    </a>
   );
 };
