@@ -12,21 +12,6 @@
     "test": "./node_modules/mocha/bin/mocha --require tests/bootstrap.js --compilers .:tests/compiler.js src/**/__tests__/*-test.js src/components/**/__tests__/*-test.js",
     "lint": "./node_modules/eslint/bin/eslint.js src/ && echo '🍻 All good!'"
   },
-  "jest": {
-    "rootDir": "./src",
-    "collectCoverage": true,
-    "scriptPreprocessor": "../preprocessor.js",
-    "unmockedModulePathPatterns": [
-      "./node_modules/"
-    ],
-    "testPathIgnorePatterns": [
-      "./node_modules/"
-    ],
-    "testFileExtensions": [
-      "js",
-      "jsx"
-    ]
-  },
   "keywords": [
     "ui",
     "toolkit"
@@ -55,6 +40,7 @@
   },
   "devDependencies": {
     "blanket": "^1.1.7",
+    "glob": "^5.0.6",
     "chai": "^2.3.0",
     "coveralls": "^2.11.2",
     "eslint": "^0.21.0",
