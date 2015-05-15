@@ -35,12 +35,12 @@
   },
   "homepage": "https://github.com/holidayextras/ui-toolkit",
   "dependencies": {
-    "browserify": "~9.0.8",
-    "classnames": "~1.2.0",
+    "browserify": "~10.2.0",
+    "classnames": "^2.1.0",
     "flex-less": "^1.0.0",
     "grunt": "^0.4.5",
-    "gruntfile-gtx": "^0.3.0",
     "grunt-shell": "^1.1.1",
+    "gruntfile-gtx": "^0.3.0",
     "react": "^0.13.2",
     "reactify": "~1.1.0",
     "require-directory": "^2.0.0",
@@ -48,15 +48,15 @@
     "underscore": "~1.8.3"
   },
   "devDependencies": {
-    "eslint": "^0.20.0",
+    "eslint": "^0.21.0",
     "eslint-plugin-react": "^2.2.0",
-    "grunt-changelog": "^0.2.2",
+    "grunt-changelog": "^0.3.0",
     "grunt-concurrent": "^1.0.0",
     "grunt-contrib-copy": "~0.8.0",
     "grunt-contrib-less": "~1.0.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-gh-pages": "^0.10.0",
-    "grunt-release": "^0.11.0",
+    "grunt-release": "^0.12.0",
     "jest-cli": "~0.4.1",
     "react-tools": "^0.13.2"
   }
