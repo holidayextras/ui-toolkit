@@ -12,15 +12,6 @@
     "test": "./node_modules/jest-cli/bin/jest.js",
     "lint": "./node_modules/eslint/bin/eslint.js src/"
   },
-  "jest": {
-    "scriptPreprocessor": "./preprocessor.js",
-    "unmockedModulePathPatterns": [
-      "./node_modules/"
-    ],
-    "testPathIgnorePatterns": [
-      "./node_modules/"
-    ]
-  },
   "keywords": [
     "ui",
     "toolkit"
@@ -48,8 +39,11 @@
     "underscore": "~1.8.3"
   },
   "devDependencies": {
+    "blanket": "^1.1.7",
+    "coveralls": "^2.11.2",
     "eslint": "^0.21.0",
     "eslint-plugin-react": "^2.2.0",
+    "glob": "^5.0.6",
     "grunt-changelog": "^0.3.0",
     "grunt-concurrent": "^1.0.0",
     "grunt-contrib-copy": "~0.8.0",
@@ -57,7 +51,10 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-gh-pages": "^0.10.0",
     "grunt-release": "^0.12.0",
-    "jest-cli": "~0.4.1",
+    "jsdom": "^5.4.1",
+    "mocha": "^2.2.5",
+    "mocha-jsdom": "^0.3.0",
+    "mocha-lcov-reporter": "0.0.2",
     "react-tools": "^0.13.2"
   }
 }
