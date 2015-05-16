@@ -12,9 +12,6 @@
 *.sublime-workspace
 .idea
 
-# Vim
-*.swp
-
 # CodeKit
 config.codekit
 .codekit-config
