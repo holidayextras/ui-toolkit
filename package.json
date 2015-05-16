@@ -9,8 +9,19 @@
   },
   "scripts": {
     "postinstall": "./scripts/postinstall.sh",
+    "coverage": "./node_modules/mocha/bin/mocha --require blanket --require tests/bootstrap.js --reporter mocha-lcov-reporter --compilers .:tests/compiler.js src/**/__tests__/*-test.js src/components/**/__tests__/*-test.js",
     "test": "./node_modules/mocha/bin/mocha --require tests/bootstrap.js --compilers .:tests/compiler.js src/**/__tests__/*-test.js src/components/**/__tests__/*-test.js",
     "lint": "./node_modules/eslint/bin/eslint.js src/ && echo '🍻 All good!'"
+  },
+  "config": {
+    "blanket": {
+      "pattern": "src",
+      "data-cover-never": [
+        "node_modules",
+        "__tests__"
+      ],
+      "loader": "../../../tests/blanket-stub-jsx.js"
+    }
   },
   "keywords": [
     "ui",
