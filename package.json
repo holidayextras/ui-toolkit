@@ -15,12 +15,12 @@
   },
   "config": {
     "blanket": {
-      "pattern": "src",
+      "data-cover-only": "src/",
       "data-cover-never": [
         "node_modules",
         "__tests__"
       ],
-      "loader": "../../../tests/blanket-stub-jsx.js"
+      "data-cover-loader": "../../../tests/blanket-stub-jsx.js"
     }
   },
   "keywords": [

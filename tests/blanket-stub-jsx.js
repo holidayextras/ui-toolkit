@@ -25,6 +25,15 @@ module.exports = function(blanket) {
     // Don't instrument code unless it passes the filter & is non-stubby.
     var pattern = blanket.options('filter');
     var normalizedFilename = blanket.normalizeBackslashes(filename);
+
+    // Don't instrument files that should be ignored.
+    var antifilters = blanket.options('antifilter');
+    for (var i = 0; i < antifilters.length; i++) {
+      if (blanket.matchPattern(normalizedFilename, antifilters[i])) { 
+        return;
+      } 
+    }
+
     if (transformer.shouldStub(filename) ||
         !blanket.matchPattern(normalizedFilename, pattern)) {
       localModule._compile(content, normalizedFilename);
@@ -56,7 +65,7 @@ module.exports = function(blanket) {
       var antifilter = antifilters[i];
       if (pathFromRoot.slice(0, antifilter.length) == antifilter) {
         return;
-      }
+      } 
     }
 
     require('../' + pathFromRoot);
