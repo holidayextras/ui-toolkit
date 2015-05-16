@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/holidayextras/ui-toolkit.svg)](https://travis-ci.org/holidayextras/ui-toolkit)
+[![Dependency Status](https://gemnasium.com/holidayextras/ui-toolkit.svg)](https://gemnasium.com/holidayextras/ui-toolkit)
+[![Coverage Status](https://coveralls.io/repos/holidayextras/ui-toolkit/badge.svg?branch=coveralls)](https://coveralls.io/r/holidayextras/ui-toolkit?branch=coveralls)
 
 <header style="background: rgb(222,75,149);padding:2em;text-align:center">
   ![UIToolkit](docs/assets/toolkit-banner.png)
@@ -48,9 +50,9 @@ npm install
 Troubleshooting
 ---
 If you have any problems installing the ui-toolkit then please view the
-[troubleshooting guide](https://github.com/holidayextras/ui-toolkit/TROUBLESHOOTING.md) which contains common errors and
+[troubleshooting guide](/blob/master/TROUBLESHOOTING.md) which contains common errors and
 solutions. If you cannot find your specific problem then please create a
-[github issue](https://github.com/holidayextras/ui-toolkit/issues)
+[github issue](/../../issues)
 
 Adding a new component
 ---
