@@ -1,9 +1,6 @@
 /** @jsx React.DOM */
 
-var assert = require('chai').assert;
-var React = require('react/addons');
 var ReviewsComponent = require('../code/views/reviewsView.jsx');
-var TestUtils = React.addons.TestUtils;
 
 describe('ReviewsComponent', function() {
 

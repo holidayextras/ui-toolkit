@@ -1,4 +1,3 @@
-var assert = require('chai').assert;
 var getComponentClasses = require('../getComponentClasses.js');
 
 describe('getComponentClasses', function() {

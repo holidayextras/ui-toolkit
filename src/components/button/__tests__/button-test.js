@@ -1,9 +1,6 @@
 /** @jsx React.DOM */
 
-var assert = require('chai').assert;
-var React = require('react/addons');
 var ButtonView = require('../code/views/buttonView.jsx');
-var TestUtils = React.addons.TestUtils;
 
 describe('ButtonComponent', function() {
 
