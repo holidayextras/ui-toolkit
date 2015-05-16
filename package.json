@@ -54,7 +54,10 @@
     "underscore": "~1.8.3"
   },
   "devDependencies": {
-    "eslint": "^0.20.0",
+    "blanket": "^1.1.7",
+    "chai": "^2.3.0",
+    "coveralls": "^2.11.2",
+    "eslint": "^0.21.0",
     "eslint-plugin-react": "^2.2.0",
     "grunt-changelog": "^0.2.2",
     "grunt-concurrent": "^1.0.0",
