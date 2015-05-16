@@ -6,4 +6,4 @@ env:
   matrix:
     - TEST_STEP=lint
     - TEST_STEP=test
-    - TEST_STEP=coverage
+    - TEST_STEP=coveralls
