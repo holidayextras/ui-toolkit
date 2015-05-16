@@ -9,8 +9,8 @@
   },
   "scripts": {
     "postinstall": "./scripts/postinstall.sh",
-    "test": "./node_modules/mocha/bin/mocha --compilers .:tests/compiler.js src/**/__tests__/*-test.js src/components/**/__tests__/*-test.js",
-    "lint": "./node_modules/eslint/bin/eslint.js src/ && echo '🍻 All good!'"
+    "test": "./node_modules/jest-cli/bin/jest.js",
+    "lint": "./node_modules/eslint/bin/eslint.js src/"
   },
   "keywords": [
     "ui",

@@ -1,6 +1,8 @@
 /** @jsx React.DOM */
 
-var assert = require('chai').assert;
+jest.dontMock('../code/views/buttonView.jsx');
+jest.dontMock('../../../utils/getComponentClasses');
+
 var React = require('react/addons');
 var ButtonView = require('../code/views/buttonView.jsx');
 var TestUtils = React.addons.TestUtils;
@@ -14,7 +16,7 @@ describe('ButtonComponent', function() {
     );
 
     var renderedButton = TestUtils.findRenderedDOMComponentWithClass(button, 'component-button');
-    assert.equal(renderedButton.getDOMNode().textContent, 'Book Now');
+    expect(renderedButton.getDOMNode().textContent).toEqual('Book Now');
 
   });
 
@@ -24,7 +26,7 @@ describe('ButtonComponent', function() {
     );
 
     var renderedButton = TestUtils.findRenderedDOMComponentWithClass(primaryButton, 'primary');
-    assert.isDefined(renderedButton);
+    expect(renderedButton).toBeDefined();
 
   });
 
@@ -34,7 +36,7 @@ describe('ButtonComponent', function() {
     );
 
     var renderedButton = TestUtils.findRenderedDOMComponentWithClass(largeButton, 'large');
-    assert.isDefined(renderedButton);
+    expect(renderedButton).toBeDefined();
 
   });
 
@@ -44,7 +46,7 @@ describe('ButtonComponent', function() {
     );
 
     var renderedButton = TestUtils.findRenderedDOMComponentWithClass(smallSecondaryButton, 'small secondary');
-    assert.isDefined(renderedButton);
+    expect(renderedButton).toBeDefined();
 
   });
 

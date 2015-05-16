@@ -1,6 +1,8 @@
 /** @jsx React.DOM */
 
-var assert = require('chai').assert;
+jest.dontMock('../code/views/flagView.jsx');
+jest.dontMock('../../../utils/getComponentClasses');
+
 var React = require('react/addons');
 var FlagComponent = require('../code/views/flagView.jsx');
 var TestUtils = React.addons.TestUtils;
@@ -13,7 +15,7 @@ describe('FlagComponent', function() {
     );
 
     var renderedFlag = TestUtils.findRenderedDOMComponentWithClass(flag, 'component-flag');
-    assert.equal(renderedFlag.getDOMNode().textContent, 'Special Offer');
+    expect(renderedFlag.getDOMNode().textContent).toEqual('Special Offer');
 
   });
 
@@ -23,7 +25,7 @@ describe('FlagComponent', function() {
     );
 
     var renderedFlag = TestUtils.findRenderedDOMComponentWithClass(dangerFlag, 'danger');
-    assert.isDefined(renderedFlag);
+    expect(renderedFlag).toBeDefined();
 
   });
 
@@ -33,7 +35,7 @@ describe('FlagComponent', function() {
     );
 
     var renderedFlag = TestUtils.findRenderedDOMComponentWithClass(largeFlag, 'large');
-    assert.isDefined(renderedFlag);
+    expect(renderedFlag).toBeDefined();
 
   });
 
@@ -43,7 +45,7 @@ describe('FlagComponent', function() {
     );
 
     var renderedFlag = TestUtils.findRenderedDOMComponentWithClass(rightFlag, 'right');
-    assert.isDefined(renderedFlag);
+    expect(renderedFlag).toBeDefined();
 
   });
 
@@ -53,7 +55,7 @@ describe('FlagComponent', function() {
     );
 
     var renderedFlag = TestUtils.findRenderedDOMComponentWithClass(smallSecondaryRightFlag, 'small secondary right');
-    assert.isDefined(renderedFlag);
+    expect(renderedFlag).toBeDefined();
 
   });
 });
