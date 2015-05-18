@@ -8,8 +8,16 @@ var TestUtils = React.addons.TestUtils;
 
 describe('InputComponent', function() {
 
-  it('is an element', function() {
-    expect(TestUtils.isElement(<InputComponent />)).toBeTruthy();
+  it('is a text input element', function() {
+    expect(TestUtils.isElement(<InputComponent type="text" />)).toBeTruthy();
+  });
+
+  it('is a password input element', function() {
+    expect(TestUtils.isElement(<InputComponent type="password" />)).toBeTruthy();
+  });
+
+  it('is an email input element', function() {
+    expect(TestUtils.isElement(<InputComponent type="email" />)).toBeTruthy();
   });
 
 });
