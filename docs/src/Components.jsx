@@ -60,6 +60,18 @@ var Components = React.createClass({
             <li><code>title</code> String - The title of the tile</li>
           </ul>
         </article>
+
+        <article>
+          <h3 id="tile">Image</h3>
+          <p>A standard Image Component.</p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Image.jsx', 'utf8')} />
+          <h4>Attributes</h4>
+          <ul>
+            <li><code>src</code> String - Image src attribute</li>
+            <li><code>alt</code> String - Image alt attribute</li>
+          </ul>
+        </article>
+
       </section>
     );
   }
