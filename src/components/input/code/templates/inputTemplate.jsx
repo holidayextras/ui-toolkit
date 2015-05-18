@@ -1,46 +1,48 @@
 var React = require('react');
+var classNames = require('classnames');
 
-module.exports = function (props){
+module.exports = function (component){
 
-	var classes = classNames('input-group', {
-		'input-group-error': this.props.error || false,
-		'input-group-disabled': this.props.disabled || false
-	});
+  var classes = classNames('input-group', {
+    'input-group-error': component.state.error || false,
+    'input-group-disabled': component.props.disabled || false
+  });
 
-	// the form label
-	var label;
+  // the form label
+  var label;
 
-	if (this.props.label){
-		label = ( <label className="input-group-label" for={this.props.name}>{this.props.label}</label > );
-	}
+  if (component.props.label){
+    label = ( <label className="input-group-label" for={component.props.name}>{component.props.label}</label > );
+  }
 
-	/**
-	 * Create the span element used for containing messages
-	 * related to the element.
-	 */
-	var span;
+  /**
+   * Create the span element used for containing messages
+   * related to the element.
+   */
+  var span;
 
-	if (this.props.error)
-	{
-		span = ( <span className="input-group-span">{this.props.error}</span> );
-	}
-	else if (this.props.message)
-	{
-		span = ( <span className="input-group-span">{this.props.message}</span> );
-	}
+  if (component.state.error)
+  {
+    span = ( <span className="input-group-span">{component.state.error}</span> );
+  }
 
-	return (
-		<div className={classes} ref={this.props.ref}>
-			{label}
-			<input
-				ref="input"
-				className="input-group-field"
-				type={this.props.type}
-				name={this.props.ref}
-				placeholder={this.props.placeholder}
-				value={this.state.value}
-				onChange={this._onChange}/>
-			{span}
-		</div>
-	);
+  return (
+    <div className={classes} ref={component.props.ref}>
+      {label}
+      <input
+        className="input-group-field"
+        type={component.props.type}
+        valid={component.state.valid}
+        name={component.props.name}
+        id={component.props.id}
+        placeholder={component.props.placeholder}
+        onChange={component.changeHandler}
+        defaultValue={component.props.defaultValue}
+        disabled={component.props.disabled}
+        readOnly={component.props.readOnly}
+        required={component.props.required}
+        />
+      {span}
+    </div>
+  );
 };

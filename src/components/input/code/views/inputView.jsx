@@ -2,81 +2,60 @@ var React = require('react');
 
 module.exports = React.createClass({
 
-	/**
-	 * @function focus
-	 * @description Focus on the element.
-	 */
-	focus: function() {
-		if (this.isMounted()) {
-			this.refs.input.getDOMNode().focus();
-		}
-	},
+  propTypes: {
+    label: React.PropTypes.string,
+    type: React.PropTypes.oneOf(['text', 'password', 'email']),
+    placeholder: React.PropTypes.string,
+    defaultValue: React.PropTypes.string,
+    name: React.PropTypes.string,
+    id: React.PropTypes.string,
+    error: React.PropTypes.string,
+    disabled: React.PropTypes.bool,
+    readOnly: React.PropTypes.bool,
+    required: React.PropTypes.bool,
+    valid: React.PropTypes.bool,
+    validator: React.PropTypes.string,
+    errorMessage: React.PropTypes.string,
+    onChange: React.PropTypes.func
+  },
 
-	/**
-	 * @function value
-	 * @returns {string} The value of the input.
-	 */
-	value: function() {
-		return this.state.value;
-	},
+  getInitialState: function() {
+    return {
+      value: this.props.defaultValue || '',
+      error: null,
+      valid: true
+    }
+  },
 
-	/**
-	 * @function clear
-	 * @description Clear the value of the element.
-	 */
-	clear: function() {
-		this.setState({
-			value: ''
-		});
-	},
+  getDefaultProps: function() {
+    return {
+      type: 'text',
+      disabled: false,
+      readOnly: false,
+      required: false,
+      onChange: this.changeHandler
+    }
+  },
 
-	/**
-	 * @private
-	 * @function onChange
-	 * @descriptin When the value of the input changes, update the state.
-	 */
-	_onChange: function(event) {
+  changeHandler: function(e) {
 
-		// Get the value from the input
-		var value = event.target.value;
+    var is_valid = true;
 
-		// Set the state
-		this.setState({
-			value: value
-		});
+    if(typeof this.props.validator !== 'undefined'){
+      is_valid = this.props.validator.test(e.target.value);
+    }
 
-		// Run the onChange function if it exists
-		if (this.props.onChange) {
-			this.props.onChange(event, value);
-		}
+    if( !is_valid && typeof this.props.errorMessage !== 'undefined'){
+      this.setState({ error : this.props.errorMessage });
+    }
+    else {
+      this.setState({ error : null });
+    }
 
-	},
+    this.setState({ valid : is_valid });
+  },
 
-	propTypes: {
-		label: React.PropTypes.string,
-		type: React.PropTypes.string,
-		placeholder: React.PropTypes.string,
-		defaultValue: React.PropTypes.string,
-		error: React.PropTypes.string,
-		disabled: React.PropTypes.bool,
-		onChange: React.PropTypes.func
-	},
-
-	getInitialState: function() {
-		return {
-			value: this.props.defaultValue || '',
-			validationStarted: false
-		}
-	},
-
-	getDefaultProps: function() {
-		return {
-			type: 'text',
-			onChange: this._onChange
-		}
-	},
-
-	render: function() {
-		return require('../templates/inputTemplate.jsx')(this.props);
-	}
+  render: function() {
+    return require('../templates/inputTemplate.jsx')(this);
+  }
 });
