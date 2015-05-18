@@ -22,6 +22,5 @@ node_modules/
 
 # Ignore
 docs/assets/bundle.js
-dist/
 .grunt/
 npm-debug.log

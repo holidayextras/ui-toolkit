@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/holidayextras/ui-toolkit.svg)](https://travis-ci.org/holidayextras/ui-toolkit)
+[![Dependency Status](https://gemnasium.com/holidayextras/ui-toolkit.svg)](https://gemnasium.com/holidayextras/ui-toolkit)
 
 <header style="background: rgb(222,75,149);padding:2em;text-align:center">
   ![UIToolkit](docs/assets/toolkit-banner.png)
@@ -45,6 +46,13 @@ git clone git@github.com:holidayextras/ui-toolkit.git
 cd ui-toolkit
 npm install
 ```
+
+Troubleshooting
+---
+If you have any problems installing the ui-toolkit then please view the
+[troubleshooting guide](/blob/master/TROUBLESHOOTING.md) which contains common errors and
+solutions. If you cannot find your specific problem then please create a
+[github issue](/../../issues)
 
 Adding a new component
 ---
