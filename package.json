@@ -41,11 +41,12 @@
     "grunt": "^0.4.5",
     "grunt-shell": "^1.1.1",
     "gruntfile-gtx": "^0.3.0",
+    "lodash": "~3.8.0",
     "react": "^0.13.2",
+    "react-data-attributes-mixin": "git://github.com/holidayextras/react-data-attributes-mixin",
     "reactify": "~1.1.0",
     "require-directory": "^2.0.0",
-    "requirejs": "~2.1.9",
-    "underscore": "~1.8.3"
+    "requirejs": "~2.1.9"
   },
   "devDependencies": {
     "eslint": "^0.21.0",

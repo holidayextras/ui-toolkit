@@ -1,4 +1,4 @@
-var _ = require('underscore');
+var _ = require('lodash');
 
 module.exports = function(defaultClass, propClasses, props) {
   if(!defaultClass || (typeof defaultClass !== 'string')) {
