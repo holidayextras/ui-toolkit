@@ -94,6 +94,9 @@
 
 .component-button {
   .button-variant(@default; darken(@default, 5%));
+  &.default {
+    .button-variant(@default; darken(@default, 5%));
+  }
   &.primary {
     .button-variant(@primary; darken(@primary, 5%));
   }
