@@ -72,6 +72,16 @@ var Components = React.createClass({
           </ul>
         </article>
 
+        <article>
+          <h3 id="credit-card-expire">Credit Card Expire</h3>
+          <p>Expiration Date for Credit Card.</p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/CreditCardExpire.jsx', 'utf8')} />
+          <h4>Attributes</h4>
+          <ul>
+            <li><code>defaultValue</code> [optional] String - MM/YY Expiration Date</li>
+          </ul>
+        </article>
+
       </section>
     );
   }
