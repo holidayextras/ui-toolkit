@@ -19,6 +19,16 @@ describe('FlagComponent', function() {
 
   });
 
+  it('should render a default flag', function() {
+    var defaultFlag = TestUtils.renderIntoDocument(
+      <FlagComponent size="default">Special Offer</FlagComponent>
+    );
+
+    var renderedFlag = TestUtils.findRenderedDOMComponentWithClass(defaultFlag, 'default');
+    expect(renderedFlag).toBeDefined();
+
+  });
+
   it('should render a danger flag', function() {
     var dangerFlag = TestUtils.renderIntoDocument(
       <FlagComponent purpose="danger">Special Offer</FlagComponent>
