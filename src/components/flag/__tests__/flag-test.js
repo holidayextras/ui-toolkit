@@ -39,6 +39,16 @@ describe('FlagComponent', function() {
 
   });
 
+  it('should render a medium flag', function() {
+    var mediumFlag = TestUtils.renderIntoDocument(
+      <FlagComponent size="medium">Special Offer</FlagComponent>
+    );
+
+    var renderedFlag = TestUtils.findRenderedDOMComponentWithClass(mediumFlag, 'medium');
+    expect(renderedFlag).toBeDefined();
+
+  });
+
   it('should render a large flag', function() {
     var largeFlag = TestUtils.renderIntoDocument(
       <FlagComponent size="large">Special Offer</FlagComponent>
