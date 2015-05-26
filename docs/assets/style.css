@@ -130,3 +130,32 @@ article {
 .toolkit-example button {
   margin:.25em;
 }
+
+/* Credit Card Number */
+.ui-component-credit-card-number .credit-card-images
+{
+  padding: 8px 0;
+}
+.ui-component-credit-card-number .card-image
+{
+  width: 48px;
+  margin-right: 5px;
+}
+.ui-component-credit-card-number .card-image.disabled
+{
+  opacity: 0.25;
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+.ui-component-credit-card-number .card-image.active
+{
+  opacity: 1;
+}
+.ui-component-credit-card-number .credit-card-number-input
+{
+  padding: 0 12px;
+  width: 206px;
+}

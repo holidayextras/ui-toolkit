@@ -72,6 +72,26 @@ var Components = React.createClass({
           </ul>
         </article>
 
+        <article>
+          <h3 id="credit_card_number">Credit Card Number</h3>
+          <p>Masked Credit Card Number input</p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/CreditCardNumber.jsx', 'utf8')} />
+          <h4>Attributes</h4>
+          <ul>
+            <li><code>formatInput</code> Boolean - ( default false ) Whether to Format Input for easier reading</li>
+            <li><code>showImages</code> Boolean - ( default false ) Whether to show Credit Card Images</li>
+            <li><code>defaultValue</code> String - ( default empty ) Initial Value of Credit Card Number</li>
+          </ul>
+          <h4>Sample Cards</h4>
+          <ul>
+            <li><code>4485148248332663</code> Visa</li>
+            <li><code>5330757227258832</code> Mastercard</li>
+            <li><code>375669917200734</code> American Express</li>
+            <li><code>6011948151581455</code> Discover</li>
+          </ul>
+
+        </article>
+
       </section>
     );
   }
