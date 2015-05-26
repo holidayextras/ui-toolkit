@@ -12,4 +12,13 @@ describe('CreditCardExpireComponent', function() {
     expect(TestUtils.isElement(<CreditCardExpireComponent />)).toBeTruthy();
   });
 
+  it('should render a label', function() {
+    var labelCheck = TestUtils.renderIntoDocument(
+      <CreditCardExpireComponent label="Expires" />
+    );
+
+    var renderedLabel = TestUtils.findRenderedDOMComponentWithClass(labelCheck, 'credit-card-expire-label');
+    expect(renderedLabel).toBeDefined();
+  });
+
 });

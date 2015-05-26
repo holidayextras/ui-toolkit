@@ -3,7 +3,11 @@ var React = require('react');
 module.exports = React.createClass({
 
   propTypes: {
-    expireDate: React.PropTypes.string
+    label: React.PropTypes.string,
+    expireDate: React.PropTypes.string,
+    defaultValue: React.PropTypes.string,
+    name: React.PropTypes.string,
+    id: React.PropTypes.string
   },
 
   getInitialState: function() {
@@ -16,7 +20,9 @@ module.exports = React.createClass({
   getDefaultProps: function() {
     return {
       formatInput: false,
-      placeHolder: 'MM/YY'
+      placeHolder: 'MM/YY',
+      name: 'credit-card-expire',
+      id: 'credit-card-expire'
     };
   },
 
