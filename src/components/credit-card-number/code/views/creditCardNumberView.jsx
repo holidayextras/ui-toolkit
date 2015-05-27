@@ -3,8 +3,13 @@ var React = require('react');
 module.exports = React.createClass({
 
   propTypes: {
+    accepted: React.PropTypes.array,
     cardNumber: React.PropTypes.string,
-    cardType: React.PropTypes.string
+    cardType: React.PropTypes.oneOf(['amex', 'discover', 'mastercard', 'visa']),
+    defaultValue: React.PropTypes.string,
+    id: React.PropTypes.string,
+    label: React.PropTypes.string,
+    name: React.PropTypes.string
   },
 
   getInitialState: function() {
@@ -19,9 +24,12 @@ module.exports = React.createClass({
 
   getDefaultProps: function() {
     return {
+      accepted: ['amex', 'discover', 'mastercard', 'visa'],
       formatInput: false,
-      showImages: false,
-      placeHolder: '• • • •   • • • •   • • • •   • • • •'
+      id: 'credit-card-number',
+      name: 'credit-card-number',
+      placeHolder: '• • • •   • • • •   • • • •   • • • •',
+      showImages: false
     };
   },
 
@@ -47,86 +55,36 @@ module.exports = React.createClass({
 
   getCard: function(cardNumber) {
 
-    var defaultFormat = /(\d{1,4})/g;
-
     var cards = [
-      {
-        type: 'maestro',
-        pattern: /^(5018|5020|5038|6304|6759|676[1-3]|6768|5612|5893|6304|6759|0604|6390)/,
-        format: defaultFormat,
-        length: [12, 13, 14, 15, 16, 17, 18, 19],
-        cvcLength: [3],
-        luhn: true
-      },
-      {
-        type: 'diners_club',
-        pattern: /^(36|38|30[0-5])/,
-        format: defaultFormat,
-        length: [14],
-        cvcLength: [3],
-        luhn: true
-      },
-      {
-        type: 'laser',
-        pattern: /^(6706|6771|6709)/,
-        format: defaultFormat,
-        length: [16, 17, 18, 19],
-        cvcLength: [3],
-        luhn: true
-      },
-      {
-        type: 'jcb',
-        pattern: /^35/,
-        format: defaultFormat,
-        length: [16],
-        cvcLength: [3],
-        luhn: true
-      },
-      {
-        type: 'china_union',
-        pattern: /^62/,
-        format: defaultFormat,
-        length: [16, 17, 18, 19],
-        cvcLength: [3],
-        luhn: false
-      },
-      {
-        type: 'discover',
-        pattern: /^(6011|65|64[4-9]|622)/,
-        format: defaultFormat,
-        length: [16],
-        cvcLength: [3],
-        luhn: true
-      },
-      {
-        type: 'mastercard',
-        pattern: /^5[1-5]/,
-        format: defaultFormat,
-        length: [16],
-        cvcLength: [3],
-        luhn: true
-      },
       {
         type: 'amex',
         pattern: /^3[47]/,
         format: /(\d{1,4})(\d{1,6})?(\d{1,5})?/,
-        length: [15],
-        cvcLength: [3, 4],
-        luhn: true
+        length: [15]
+      },
+      {
+        type: 'discover',
+        pattern: /^(6011|65|64[4-9]|622)/,
+        format: /(\d{1,4})/g,
+        length: [16]
+      },
+      {
+        type: 'mastercard',
+        pattern: /^5[1-5]/,
+        format: /(\d{1,4})/g,
+        length: [16]
       },
       {
         type: 'visa',
         pattern: /^4/,
-        format: defaultFormat,
-        length: [13, 14, 15, 16],
-        cvcLength: [3],
-        luhn: true
+        format: /(\d{1,4})/g,
+        length: [13, 14, 15, 16]
       }
     ];
 
     for (var i=0; i<cards.length; i++) {
       var card = cards[i];
-      if (card.pattern.test(cardNumber))
+      if (card.pattern.test(cardNumber) && this.props.accepted.indexOf(card.type) > -1)
       {
         return card;
       }

@@ -78,16 +78,19 @@ var Components = React.createClass({
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/CreditCardNumber.jsx', 'utf8')} />
           <h4>Attributes</h4>
           <ul>
+            <li><code>accepted</code> Array - Cards to accept ( 'amex', 'discover', 'mastercard' &amp; 'visa' ) .</li>
             <li><code>formatInput</code> Boolean - ( default false ) Whether to Format Input for easier reading</li>
             <li><code>showImages</code> Boolean - ( default false ) Whether to show Credit Card Images</li>
             <li><code>defaultValue</code> String - ( default empty ) Initial Value of Credit Card Number</li>
+            <li><code>name</code> String - ( default 'credit-card-number' ) Name of Input</li>
+            <li><code>id</code> String - ( default 'credit-card-number' ) ID for Input</li>
           </ul>
           <h4>Sample Cards</h4>
           <ul>
             <li><code>4485148248332663</code> Visa</li>
             <li><code>5330757227258832</code> Mastercard</li>
-            <li><code>375669917200734</code> American Express</li>
-            <li><code>6011948151581455</code> Discover</li>
+            <li><code>375669917200734</code> American Express ( not "accepted" for demo )</li>
+            <li><code>6011948151581455</code> Discover ( not "accepted" for demo )</li>
           </ul>
 
         </article>

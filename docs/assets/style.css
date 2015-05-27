@@ -135,6 +135,7 @@ article {
 .ui-component-credit-card-number .credit-card-images
 {
   padding: 8px 0;
+  margin-left: 90px;
 }
 .ui-component-credit-card-number .card-image
 {
@@ -158,4 +159,12 @@ article {
 {
   padding: 0 12px;
   width: 206px;
+}
+.ui-component-credit-card-number .credit-card-number-input.has-error
+{
+  color: #c7254e;
+}
+.ui-component-credit-card-number .credit-card-number-label
+{
+  width: 90px;
 }
