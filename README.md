@@ -136,10 +136,7 @@ Browserify bundles from the `dev/example.jsx`. Loading the `dev/index.html` in y
 
 UI Toolkit Themes
 ---
-A collection of custom themes for UI Toolkit are listed below:
-
-* [Holiday Extras](https://github.com/holidayextras/ui-brand-hx)
-* [Essential Travel](https://github.com/holidayextras/ui-brand-et)
+A collection of custom themes for UI Toolkit are coming soon.
 
 Component Documentation
 ---
