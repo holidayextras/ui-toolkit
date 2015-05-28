@@ -8,33 +8,12 @@ var TestUtils = React.addons.TestUtils;
 
 describe('TileComponent', function() {
 
-  it('should render a tile', function() {
+  it('is an element', function() {
     var img = {
       src: 'foo',
       alt: 'bar'
     };
-
-    var tile = TestUtils.renderIntoDocument(
-      <TileComponent image={img} title='baz' />
-    );
-
-    var renderedTile = TestUtils.findRenderedDOMComponentWithClass(tile, 'component-tile');
-    expect(renderedTile).toBeDefined();
+    expect(TestUtils.isElement(<TileComponent image={img} title='title' />)).toBeTruthy();
   });
-
-  it('should render an image', function() {
-    var img = {
-      src: 'foo',
-      alt: 'bar'
-    };
-
-    var tileImage = TestUtils.renderIntoDocument(
-      <TileComponent image={img} title='baz' />
-    );
-
-    var renderedTileImage = TestUtils.findRenderedDOMComponentWithClass(tileImage, 'component-image');
-    expect(renderedTileImage).toBeDefined();
-  });
-
 
 });
