@@ -1,6 +1,6 @@
 module.exports = {
 	docs: {
-		files: ['docs/**/*.jsx', 'docs/**/*.js', 'src/**/*.jsx', 'src/**/*.js'],
+		files: ['docs/**/*.jsx', 'docs/**/*.js', 'src/**/*.js*'],
 		tasks: ['docs-build'],
 		options: {
 			livereload: true
