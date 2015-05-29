@@ -31,7 +31,7 @@ describe('ButtonComponent', function() {
     );
 
     var renderedButton = TestUtils.findRenderedDOMComponentWithClass(defaultButton, 'default');
-    expect(renderedButton).toBeDefined();
+    assert.isDefined(renderedButton);
 
   });
 
@@ -41,7 +41,7 @@ describe('ButtonComponent', function() {
     );
 
     var renderedButton = TestUtils.findRenderedDOMComponentWithClass(mediumButton, 'medium');
-    expect(renderedButton).toBeDefined();
+    assert.isDefined(renderedButton);
 
   });
 
@@ -71,8 +71,7 @@ describe('ButtonComponent', function() {
     );
 
     var renderedButton = TestUtils.findRenderedDOMComponentWithTag(anchor, 'a');
-    expect(renderedButton).toBeDefined();
-
+    assert.isDefined(renderedButton);
   });
 
 });

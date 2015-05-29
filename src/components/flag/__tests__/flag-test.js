@@ -20,7 +20,7 @@ describe('FlagComponent', function() {
     );
 
     var renderedFlag = TestUtils.findRenderedDOMComponentWithClass(defaultFlag, 'default');
-    expect(renderedFlag).toBeDefined();
+    assert.isDefined(renderedFlag);
 
   });
 
@@ -40,7 +40,7 @@ describe('FlagComponent', function() {
     );
 
     var renderedFlag = TestUtils.findRenderedDOMComponentWithClass(mediumFlag, 'medium');
-    expect(renderedFlag).toBeDefined();
+    assert.isDefined(renderedFlag);
 
   });
 
