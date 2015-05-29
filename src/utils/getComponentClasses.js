@@ -1,7 +1,7 @@
 var _ = {
   values: require('lodash.values'),
   pick: require('lodash.pick')
-}
+};
 
 module.exports = function(defaultClass, propClasses, props) {
   if(!defaultClass || (typeof defaultClass !== 'string')) {
