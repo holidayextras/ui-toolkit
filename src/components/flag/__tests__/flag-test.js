@@ -14,12 +14,32 @@ describe('FlagComponent', function() {
 
   });
 
+  it('should render a default flag', function() {
+    var defaultFlag = TestUtils.renderIntoDocument(
+      <FlagComponent size="default">Special Offer</FlagComponent>
+    );
+
+    var renderedFlag = TestUtils.findRenderedDOMComponentWithClass(defaultFlag, 'default');
+    assert.isDefined(renderedFlag);
+
+  });
+
   it('should render a danger flag', function() {
     var dangerFlag = TestUtils.renderIntoDocument(
       <FlagComponent purpose="danger">Special Offer</FlagComponent>
     );
 
     var renderedFlag = TestUtils.findRenderedDOMComponentWithClass(dangerFlag, 'danger');
+    assert.isDefined(renderedFlag);
+
+  });
+
+  it('should render a medium flag', function() {
+    var mediumFlag = TestUtils.renderIntoDocument(
+      <FlagComponent size="medium">Special Offer</FlagComponent>
+    );
+
+    var renderedFlag = TestUtils.findRenderedDOMComponentWithClass(mediumFlag, 'medium');
     assert.isDefined(renderedFlag);
 
   });

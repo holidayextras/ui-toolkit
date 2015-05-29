@@ -9,8 +9,8 @@ module.exports = function() {
   var dataAttributes = this.getDataAttributesFromProps();
 
   return (
-    <button className={classNames(classes)} disabled={this.props.disabled} type={this.props.type} onClick={this.props.handleClick} {...dataAttributes}>
+    <a className={classNames(classes)} href={this.props.href} target={this.props.target} onClick={this.props.handleClick} {...dataAttributes}>
       {this.props.children}
-    </button>
+    </a>
   );
 };

@@ -25,6 +25,26 @@ describe('ButtonComponent', function() {
 
   });
 
+  it('should render a default button', function() {
+    var defaultButton = TestUtils.renderIntoDocument(
+      <ButtonView size="default">Book Now</ButtonView>
+    );
+
+    var renderedButton = TestUtils.findRenderedDOMComponentWithClass(defaultButton, 'default');
+    assert.isDefined(renderedButton);
+
+  });
+
+  it('should render a medium button', function() {
+    var mediumButton = TestUtils.renderIntoDocument(
+      <ButtonView size="medium">Book Now</ButtonView>
+    );
+
+    var renderedButton = TestUtils.findRenderedDOMComponentWithClass(mediumButton, 'medium');
+    assert.isDefined(renderedButton);
+
+  });
+
   it('should render a large button', function() {
     var largeButton = TestUtils.renderIntoDocument(
       <ButtonView size="large">Book Now</ButtonView>
@@ -43,6 +63,15 @@ describe('ButtonComponent', function() {
     var renderedButton = TestUtils.findRenderedDOMComponentWithClass(smallSecondaryButton, 'small secondary');
     assert.isDefined(renderedButton);
 
+  });
+
+  it('should render as an anchor if href is present', function() {
+    var anchor = TestUtils.renderIntoDocument(
+      <ButtonView href='http://www.ui-toolkit.com'>Go to Toolkit</ButtonView>
+    );
+
+    var renderedButton = TestUtils.findRenderedDOMComponentWithTag(anchor, 'a');
+    assert.isDefined(renderedButton);
   });
 
 });
