@@ -14,7 +14,7 @@ describe('ImageComponent', function() {
     );
 
     var renderedImage = TestUtils.findRenderedDOMComponentWithClass(image, 'component-image');
-    assert.ok(TestUtils.isElement(<ImageComponent src={src} alt={alt} />));
+    assert.isDefined(renderedImage);
   });
 
 });
