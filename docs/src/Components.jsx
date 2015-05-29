@@ -51,17 +51,6 @@ var Components = React.createClass({
         </article>
 
         <article>
-          <h3 id="tile">Tile</h3>
-          <p>A tile for displaying an image with a title. The width of a tile is 100% of a container.</p>
-          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Tile.jsx', 'utf8')} />
-          <h4>Attributes</h4>
-          <ul>
-            <li><code>image</code> Object - Containing <code>src</code> and <code>alt</code> keys</li>
-            <li><code>title</code> String - The title of the tile</li>
-          </ul>
-        </article>
-
-        <article>
           <h3 id="image">Image</h3>
           <p>A standard Image Component.</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Image.jsx', 'utf8')} />
@@ -69,6 +58,17 @@ var Components = React.createClass({
           <ul>
             <li><code>src</code> String - Image src attribute</li>
             <li><code>alt</code> String - Image alt attribute</li>
+          </ul>
+        </article>
+
+        <article>
+          <h3 id="tile">Tile</h3>
+          <p>A tile for displaying an image with a title. The width of a tile is 100% of a container.</p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Tile.jsx', 'utf8')} />
+          <h4>Attributes</h4>
+          <ul>
+            <li><code>image</code> Object - Containing <code>src</code> and <code>alt</code> keys</li>
+            <li><code>title</code> String - The title of the tile</li>
           </ul>
         </article>
 
