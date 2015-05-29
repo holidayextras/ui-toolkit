@@ -18,8 +18,9 @@ module.exports = React.createClass({
 
   render: function() {
     if(this.props.href) {
-      return require('../templates/buttonAnchorTemplate.jsx')(this);
+      return require('../templates/buttonAnchorTemplate.jsx').call(this);
     }
-    return require('../templates/buttonTemplate.jsx')(this);
+    return require('../templates/buttonTemplate.jsx').call(this);
   }
+
 });

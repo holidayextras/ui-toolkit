@@ -2,15 +2,15 @@ var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
 
-module.exports = function(context) {
+module.exports = function() {
 
   var propClasses = ['size', 'purpose'];
-  var classes = getComponentClasses('component-button', propClasses, context.props);
-  var dataAttributes = context.getDataAttributesFromProps();
+  var classes = getComponentClasses('component-button', propClasses, this.props);
+  var dataAttributes = this.getDataAttributesFromProps();
 
   return (
-    <a className={classNames(classes)} href={context.props.href} target={context.props.target} onClick={context.props.handleClick} {...dataAttributes}>
-      {context.props.children}
+    <a className={classNames(classes)} href={this.props.href} target={this.props.target} onClick={this.props.handleClick} {...dataAttributes}>
+      {this.props.children}
     </a>
   );
 };
