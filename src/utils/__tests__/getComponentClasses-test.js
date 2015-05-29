@@ -1,5 +1,3 @@
-jest.dontMock('../getComponentClasses.js');
-
 var getComponentClasses = require('../getComponentClasses.js');
 
 describe('getComponentClasses', function() {
@@ -7,27 +5,27 @@ describe('getComponentClasses', function() {
   describe('with invalid arguments', function() {
 
     it('display and error message when no arguments', function() {
-      expect(function() {
+      assert.throws(function() {
         getComponentClasses();
-      }).toThrow('Invalid default class');
+      }, 'Invalid default class');
     });
 
     it('display and error message when argument it not a strong', function() {
-      expect(function() {
+      assert.throws(function() {
         getComponentClasses(1);
-      }).toThrow('Invalid default class');
+      }, 'Invalid default class');
     });
 
     it('returns default class when propClasses is not an Array', function() {
       var result = getComponentClasses('component-button', 1);
       var expected = ['component-button'];
-      expect(result).toEqual(expected);
+      assert.deepEqual(result, expected);
     });
 
     it('returns default class when props is not an Object', function() {
       var result = getComponentClasses('component-button', ['foo'], 1);
       var expected = ['component-button'];
-      expect(result).toEqual(expected);
+      assert.deepEqual(result, expected);
     });
   });
 
@@ -42,13 +40,13 @@ describe('getComponentClasses', function() {
       };
       var result = getComponentClasses('component-button', propClasses, props);
       var expected = ['component-button', 'large', 'primary'];
-      expect(result).toEqual(expected);
+      assert.deepEqual(result, expected);
     });
 
     it('returns default class when propClasses and props are not provided', function() {
       var result = getComponentClasses('component-button');
       var expected = ['component-button'];
-      expect(result).toEqual(expected);
+      assert.deepEqual(result, expected);
     });
 
   });

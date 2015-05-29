@@ -1,10 +1,6 @@
 /** @jsx React.DOM */
 
-jest.dontMock('../code/views/reviewsView.jsx');
-
-var React = require('react/addons');
 var ReviewsComponent = require('../code/views/reviewsView.jsx');
-var TestUtils = React.addons.TestUtils;
 
 describe('ReviewsComponent', function() {
 
@@ -14,7 +10,7 @@ describe('ReviewsComponent', function() {
     );
 
     var reviewText = TestUtils.findRenderedDOMComponentWithClass(reviewView, 'ui-component-reviews');
-    expect(reviewText.getDOMNode().textContent).toEqual('98% would book again(123 Reviews)');
+    assert.equal(reviewText.getDOMNode().textContent, '98% would book again(123 Reviews)');
   });
 
 });
