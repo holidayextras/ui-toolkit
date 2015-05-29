@@ -1,10 +1,6 @@
 /** @jsx React.DOM */
 
-jest.dontMock('../code/views/imageView.jsx');
-
-var React = require('react/addons');
 var ImageComponent = require('../code/views/imageView.jsx');
-var TestUtils = React.addons.TestUtils;
 
 describe('ImageComponent', function() {
 
@@ -18,7 +14,7 @@ describe('ImageComponent', function() {
     );
 
     var renderedImage = TestUtils.findRenderedDOMComponentWithClass(image, 'component-image');
-    expect(renderedImage).toBeDefined();
+    assert.ok(TestUtils.isElement(<ImageComponent src={src} alt={alt} />));
   });
 
 });

@@ -1,6 +1,7 @@
 {
   "globals": {
-    "jest": true
+    "TestUtils": true,
+    "assert": true
   },
   "env": {
     "browser": true,

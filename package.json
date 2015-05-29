@@ -9,17 +9,19 @@
   },
   "scripts": {
     "postinstall": "./scripts/postinstall.sh",
-    "test": "./node_modules/jest-cli/bin/jest.js",
-    "lint": "./node_modules/eslint/bin/eslint.js src/"
+    "coveralls": "./node_modules/mocha/bin/mocha --require blanket --require tests/bootstrap.js --reporter mocha-lcov-reporter --compilers .:tests/compiler.js src/**/__tests__/*-test.js src/components/**/__tests__/*-test.js | ./node_modules/coveralls/bin/coveralls.js",
+    "test": "./node_modules/mocha/bin/mocha --require tests/bootstrap.js --compilers .:tests/compiler.js src/**/__tests__/*-test.js src/components/**/__tests__/*-test.js",
+    "lint": "./node_modules/eslint/bin/eslint.js src/ && echo '🍻 All good!'"
   },
-  "jest": {
-    "scriptPreprocessor": "./preprocessor.js",
-    "unmockedModulePathPatterns": [
-      "./node_modules/"
-    ],
-    "testPathIgnorePatterns": [
-      "./node_modules/"
-    ]
+  "config": {
+    "blanket": {
+      "data-cover-only": "src/",
+      "data-cover-never": [
+        "node_modules",
+        "__tests__"
+      ],
+      "data-cover-loader": "../../../tests/blanket-stub-jsx.js"
+    }
   },
   "keywords": [
     "ui",
@@ -48,6 +50,10 @@
     "underscore": "~1.8.3"
   },
   "devDependencies": {
+    "blanket": "^1.1.7",
+    "glob": "^5.0.6",
+    "chai": "^2.3.0",
+    "coveralls": "^2.11.2",
     "eslint": "^0.21.0",
     "eslint-plugin-react": "^2.2.0",
     "grunt-changelog": "^0.3.0",
@@ -57,7 +63,11 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-gh-pages": "^0.10.0",
     "grunt-release": "^0.12.0",
-    "jest-cli": "~0.4.1",
-    "react-tools": "^0.13.2"
+    "jsdom": "^1.0.0",
+    "mocha": "^2.2.5",
+    "mocha-jsdom": "^0.3.0",
+    "mocha-lcov-reporter": "0.0.2",
+    "react-tools": "^0.13.2",
+    "sinon": "^1.14.1"
   }
 }
