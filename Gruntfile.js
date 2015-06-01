@@ -11,7 +11,7 @@ module.exports = function(grunt) {
   gtx.alias('build-dist', ['shell:buildDist'])
 
   gtx.alias('docs', ['docs-build', 'concurrent:docs']);
-  gtx.alias('docs-build', ['shell:docsBuild']);
+  gtx.alias('docs-build', ['shell:ulimit', 'shell:docsBuild']);
   gtx.alias('docs-start', ['shell:docsStart']);
   gtx.alias('docs-view', ['shell:docsView']);
 
