@@ -35,8 +35,7 @@ module.exports = React.createClass({
 
   updateCard: function(cardNumber) {
 
-    if(typeof cardNumber === 'undefined')
-    {
+    if(typeof cardNumber === 'undefined'){
       return false;
     }
 

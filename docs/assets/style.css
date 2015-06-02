@@ -132,18 +132,15 @@ article {
 }
 
 /* Credit Card Number */
-.ui-component-credit-card-number .credit-card-images
-{
+.ui-component-credit-card-number .credit-card-images {
   padding: 8px 0;
   margin-left: 90px;
 }
-.ui-component-credit-card-number .card-image
-{
+.ui-component-credit-card-number .card-image {
   width: 48px;
   margin-right: 5px;
 }
-.ui-component-credit-card-number .card-image.disabled
-{
+.ui-component-credit-card-number .card-image.disabled {
   opacity: 0.25;
   -webkit-filter: grayscale(100%);
   -moz-filter: grayscale(100%);
@@ -151,20 +148,16 @@ article {
   -o-filter: grayscale(100%);
   filter: grayscale(100%);
 }
-.ui-component-credit-card-number .card-image.active
-{
+.ui-component-credit-card-number .card-image.active {
   opacity: 1;
 }
-.ui-component-credit-card-number .credit-card-number-input
-{
+.ui-component-credit-card-number .credit-card-number-input {
   padding: 0 12px;
   width: 206px;
 }
-.ui-component-credit-card-number .credit-card-number-input.has-error
-{
+.ui-component-credit-card-number .credit-card-number-input.has-error {
   color: #c7254e;
 }
-.ui-component-credit-card-number .credit-card-number-label
-{
+.ui-component-credit-card-number .credit-card-number-label {
   width: 90px;
 }
