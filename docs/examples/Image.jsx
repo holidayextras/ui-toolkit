@@ -1,6 +1,6 @@
 var image = {
-  src: 'http://brand.holidayextras.com/img/product-magazine.jpg',
-  alt: 'Magazine Reader'
+  src: 'http://brand.holidayextras.com/img/product-dessert.jpg',
+  alt: 'Delicious strawberry cheesecake'
 };
 
 var example = (

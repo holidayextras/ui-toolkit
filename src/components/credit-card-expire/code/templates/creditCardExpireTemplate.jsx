@@ -10,7 +10,7 @@ module.exports = function(component) {
   }
 
   return (
-    <div className="ui-component-credit-card-expire">
+    <div className="component-credit-card-expire">
       {label}
       <input
         className="credit-card-expire-input"

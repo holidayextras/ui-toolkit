@@ -1,11 +1,6 @@
 /** @jsx React.DOM */
 
-jest.dontMock('../code/views/buttonView.jsx');
-jest.dontMock('../../../utils/getComponentClasses');
-
-var React = require('react/addons');
 var ButtonView = require('../code/views/buttonView.jsx');
-var TestUtils = React.addons.TestUtils;
 
 describe('ButtonComponent', function() {
 
@@ -16,7 +11,7 @@ describe('ButtonComponent', function() {
     );
 
     var renderedButton = TestUtils.findRenderedDOMComponentWithClass(button, 'component-button');
-    expect(renderedButton.getDOMNode().textContent).toEqual('Book Now');
+    assert.equal(renderedButton.getDOMNode().textContent, 'Book Now');
 
   });
 
@@ -26,7 +21,27 @@ describe('ButtonComponent', function() {
     );
 
     var renderedButton = TestUtils.findRenderedDOMComponentWithClass(primaryButton, 'primary');
-    expect(renderedButton).toBeDefined();
+    assert.isDefined(renderedButton);
+
+  });
+
+  it('should render a default button', function() {
+    var defaultButton = TestUtils.renderIntoDocument(
+      <ButtonView size="default">Book Now</ButtonView>
+    );
+
+    var renderedButton = TestUtils.findRenderedDOMComponentWithClass(defaultButton, 'default');
+    assert.isDefined(renderedButton);
+
+  });
+
+  it('should render a medium button', function() {
+    var mediumButton = TestUtils.renderIntoDocument(
+      <ButtonView size="medium">Book Now</ButtonView>
+    );
+
+    var renderedButton = TestUtils.findRenderedDOMComponentWithClass(mediumButton, 'medium');
+    assert.isDefined(renderedButton);
 
   });
 
@@ -36,7 +51,7 @@ describe('ButtonComponent', function() {
     );
 
     var renderedButton = TestUtils.findRenderedDOMComponentWithClass(largeButton, 'large');
-    expect(renderedButton).toBeDefined();
+    assert.isDefined(renderedButton);
 
   });
 
@@ -46,8 +61,17 @@ describe('ButtonComponent', function() {
     );
 
     var renderedButton = TestUtils.findRenderedDOMComponentWithClass(smallSecondaryButton, 'small secondary');
-    expect(renderedButton).toBeDefined();
+    assert.isDefined(renderedButton);
 
+  });
+
+  it('should render as an anchor if href is present', function() {
+    var anchor = TestUtils.renderIntoDocument(
+      <ButtonView href='http://www.ui-toolkit.com'>Go to Toolkit</ButtonView>
+    );
+
+    var renderedButton = TestUtils.findRenderedDOMComponentWithTag(anchor, 'a');
+    assert.isDefined(renderedButton);
   });
 
 });

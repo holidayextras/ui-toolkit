@@ -8,6 +8,7 @@ var Components = React.createClass({
     return (
       <section id="components">
         <h2 className="page-header">Components</h2>
+
         <article>
           <h3 id="button">Buttons</h3>
           <p>A clickable/tappable button element</p>
@@ -19,7 +20,15 @@ var Components = React.createClass({
           <h4>Block</h4>
           <p>Create block level buttons by adding <code>size='block'</code>.</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/ButtonBlock.jsx', 'utf8')} />
-
+          <h4>Attributes</h4>
+          <ul>
+            <li><code>purpose</code> String - The purpose of the button</li>
+            <li><code>size</code> String - The size of the button</li>
+            <li><code>disabled</code> Boolean - Determines the state of the button</li>
+            <li><code>href</code> String - If an href is passed to a button, it changes to an anchor with button styling</li>
+            <li><code>target</code> String - Standard html traget attribute</li>
+            <li><code>data</code> Object - Where <code>keys</code> will be data attributes and <code>values</code> will be their values (uses <a href="https://github.com/holidayextras/react-data-attributes-mixin" alt="React Data Attributes Mixin">React Data Attributes Mixin</a>)</li>
+          </ul>
         </article>
 
         <article>
@@ -51,17 +60,6 @@ var Components = React.createClass({
         </article>
 
         <article>
-          <h3 id="tile">Tile</h3>
-          <p>A tile for displaying an image with a title. The width of a tile is 100% of a container.</p>
-          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Tile.jsx', 'utf8')} />
-          <h4>Attributes</h4>
-          <ul>
-            <li><code>image</code> Object - Containing <code>src</code> and <code>alt</code> keys</li>
-            <li><code>title</code> String - The title of the tile</li>
-          </ul>
-        </article>
-
-        <article>
           <h3 id="image">Image</h3>
           <p>A standard Image Component.</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Image.jsx', 'utf8')} />
@@ -69,6 +67,17 @@ var Components = React.createClass({
           <ul>
             <li><code>src</code> String - Image src attribute</li>
             <li><code>alt</code> String - Image alt attribute</li>
+          </ul>
+        </article>
+
+        <article>
+          <h3 id="tile">Tile</h3>
+          <p>A tile for displaying an image with a title. The width of a tile is 100% of a container.</p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Tile.jsx', 'utf8')} />
+          <h4>Attributes</h4>
+          <ul>
+            <li><code>image</code> Object - Containing <code>src</code> and <code>alt</code> keys</li>
+            <li><code>title</code> String - The title of the tile</li>
           </ul>
         </article>
 

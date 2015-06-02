@@ -28,30 +28,27 @@ module.exports = React.createClass({
 
   updateValue: function(expireDate) {
 
-    if(typeof expireDate === 'undefined')
-    {
+    if(typeof expireDate === 'undefined'){
       return false;
     }
 
     var formattedDate = expireDate.replace(/([0-9]{2})([0-9]{1,2})/g, '$1/$2').trim();
     var dateParts = formattedDate.split('/', 2);
 
-    if(dateParts.length == 2)
-    {
+    if(dateParts.length == 2){
       var month = parseInt(dateParts[0], 10) || '';
       var year = parseInt(dateParts[1], 10) || '';
 
-      if(month > 12)
-      {
-        month = 12;
+      if(month > 12){
+        year = parseInt(month.toString().charAt(1) + '' + year, 10);
+        month = parseInt(month.toString().charAt(0), 10);
       }
-      else if(month > 0 && month < 12)
-      {
+
+      if(month > 0 && month < 10){
         month = '0' + month;
       }
 
-      if(month && year)
-      {
+      if(month && year){
         formattedDate = month + '/' + year;
       }
     }

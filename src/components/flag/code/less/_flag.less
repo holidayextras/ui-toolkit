@@ -60,6 +60,9 @@
 
 .component-flag {
   .flag-variant(@default);
+  &.default {
+    .flag-variant(@default);
+  }
   &.primary {
     .flag-variant(@primary);
   }
