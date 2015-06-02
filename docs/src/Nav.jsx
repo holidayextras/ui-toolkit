@@ -20,6 +20,7 @@ var Nav = React.createClass({
               <li><a href="#button">Buttons</a></li>
               <li><a href="#flags">Flags</a></li>
               <li><a href="#rating">Rating</a></li>
+              <li><a href="#image">Image</a></li>
               <li><a href="#tile">Tile</a></li>
               <li><a href="#input">Input</a></li>
             </ul>

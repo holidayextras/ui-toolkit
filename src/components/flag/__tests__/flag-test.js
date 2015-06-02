@@ -1,11 +1,6 @@
 /** @jsx React.DOM */
 
-jest.dontMock('../code/views/flagView.jsx');
-jest.dontMock('../../../utils/getComponentClasses');
-
-var React = require('react/addons');
 var FlagComponent = require('../code/views/flagView.jsx');
-var TestUtils = React.addons.TestUtils;
 
 describe('FlagComponent', function() {
 
@@ -15,7 +10,17 @@ describe('FlagComponent', function() {
     );
 
     var renderedFlag = TestUtils.findRenderedDOMComponentWithClass(flag, 'component-flag');
-    expect(renderedFlag.getDOMNode().textContent).toEqual('Special Offer');
+    assert.equal(renderedFlag.getDOMNode().textContent, 'Special Offer');
+
+  });
+
+  it('should render a default flag', function() {
+    var defaultFlag = TestUtils.renderIntoDocument(
+      <FlagComponent size="default">Special Offer</FlagComponent>
+    );
+
+    var renderedFlag = TestUtils.findRenderedDOMComponentWithClass(defaultFlag, 'default');
+    assert.isDefined(renderedFlag);
 
   });
 
@@ -25,7 +30,17 @@ describe('FlagComponent', function() {
     );
 
     var renderedFlag = TestUtils.findRenderedDOMComponentWithClass(dangerFlag, 'danger');
-    expect(renderedFlag).toBeDefined();
+    assert.isDefined(renderedFlag);
+
+  });
+
+  it('should render a medium flag', function() {
+    var mediumFlag = TestUtils.renderIntoDocument(
+      <FlagComponent size="medium">Special Offer</FlagComponent>
+    );
+
+    var renderedFlag = TestUtils.findRenderedDOMComponentWithClass(mediumFlag, 'medium');
+    assert.isDefined(renderedFlag);
 
   });
 
@@ -35,7 +50,7 @@ describe('FlagComponent', function() {
     );
 
     var renderedFlag = TestUtils.findRenderedDOMComponentWithClass(largeFlag, 'large');
-    expect(renderedFlag).toBeDefined();
+    assert.isDefined(renderedFlag);
 
   });
 
@@ -45,7 +60,7 @@ describe('FlagComponent', function() {
     );
 
     var renderedFlag = TestUtils.findRenderedDOMComponentWithClass(rightFlag, 'right');
-    expect(renderedFlag).toBeDefined();
+    assert.isDefined(renderedFlag);
 
   });
 
@@ -55,7 +70,7 @@ describe('FlagComponent', function() {
     );
 
     var renderedFlag = TestUtils.findRenderedDOMComponentWithClass(smallSecondaryRightFlag, 'small secondary right');
-    expect(renderedFlag).toBeDefined();
+    assert.isDefined(renderedFlag);
 
   });
 });

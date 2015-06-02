@@ -32,7 +32,7 @@ This guide will be constantly updated.
 
 * Include screenshots and animated GIFs in your pull request whenever possible.
 * Include thoughtfully-worded, well-structured
-  [Jest](https://facebook.github.io/jest/) specs. See the [Specs Styleguide](#specs-styleguide) below.
+  [Mocha](http://mochajs.org/) specs. See the specs styleguide below.
 
 ### Linting
 We use [ESLint](http://eslint.org/) to ensure consistency in our repo.
@@ -57,9 +57,9 @@ Please ensure you:
 
 ## Specs Styleguide
 
-- Include [Jest](https://facebook.github.io/jest/) specs in the `__test__` folder in area for developement, if the
+- Include [Mocha](http://mochajs.org/) specs in the `__test__` folder in area for developement, if the
   directory doesn't exist, please add one.
-- Run test using `jest`
+- Run test using `npm test`
 - treat `describe` as a noun or situation.
 - treat `it` as a statement about state or how an operation changes state.
 

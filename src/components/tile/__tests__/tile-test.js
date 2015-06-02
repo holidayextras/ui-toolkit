@@ -1,10 +1,6 @@
 /** @jsx React.DOM */
 
-jest.dontMock('../code/views/tileView.jsx');
-
-var React = require('react/addons');
 var TileComponent = require('../code/views/tileView.jsx');
-var TestUtils = React.addons.TestUtils;
 
 describe('TileComponent', function() {
 
@@ -13,7 +9,8 @@ describe('TileComponent', function() {
       src: 'foo',
       alt: 'bar'
     };
-    expect(TestUtils.isElement(<TileComponent image={img} title='title' />)).toBeTruthy();
+
+    assert.ok(TestUtils.isElement(<TileComponent image={img} title='title' />));
   });
 
 });
