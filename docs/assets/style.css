@@ -65,6 +65,7 @@ section ul {
 article {
   clear:both;
   overflow:hidden;
+  margin-top:2em;
 }
 
 .toolkit-example {

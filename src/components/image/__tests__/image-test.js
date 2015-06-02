@@ -1,20 +1,20 @@
 /** @jsx React.DOM */
 
-jest.dontMock('../code/views/imageView.jsx');
-
-var React = require('react/addons');
 var ImageComponent = require('../code/views/imageView.jsx');
-var TestUtils = React.addons.TestUtils;
 
 describe('ImageComponent', function() {
 
-  it('is an element', function() {
+  it('should render an image', function() {
 
-    var src = 'http://www.vegetarian-shoes.co.uk/Portals/42/product/images/prd0683d04d-faaf-4826-a692-45d2e5cfbe3b.jpg';
-    var alt = 'Shoes';
+    var src = 'foo';
+    var alt = 'bar';
 
-    expect(TestUtils.isElement(<ImageComponent src={src} alt={alt} />)).toBeTruthy();
+    var image = TestUtils.renderIntoDocument(
+      <ImageComponent src={src} alt={alt} />
+    );
 
+    var renderedImage = TestUtils.findRenderedDOMComponentWithClass(image, 'component-image');
+    assert.isDefined(renderedImage);
   });
 
 });

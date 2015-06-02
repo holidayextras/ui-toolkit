@@ -13,6 +13,7 @@
   white-space: nowrap;
   padding:.5em 1em;
   border-radius:.25em;
+  text-decoration: none;
 
   &,
   &:active,
@@ -93,6 +94,9 @@
 
 .component-button {
   .button-variant(@default; darken(@default, 5%));
+  &.default {
+    .button-variant(@default; darken(@default, 5%));
+  }
   &.primary {
     .button-variant(@primary; darken(@primary, 5%));
   }

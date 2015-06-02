@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/holidayextras/ui-toolkit.svg)](https://travis-ci.org/holidayextras/ui-toolkit)
 [![Dependency Status](https://gemnasium.com/holidayextras/ui-toolkit.svg)](https://gemnasium.com/holidayextras/ui-toolkit)
+[![Coverage Status](https://coveralls.io/repos/holidayextras/ui-toolkit/badge.svg?branch=coveralls)](https://coveralls.io/r/holidayextras/ui-toolkit?branch=coveralls)
 
 <header style="background: rgb(222,75,149);padding:2em;text-align:center">
   ![UIToolkit](docs/assets/toolkit-banner.png)
@@ -137,10 +138,7 @@ Browserify bundles from the `dev/example.jsx`. Loading the `dev/index.html` in y
 
 UI Toolkit Themes
 ---
-A collection of custom themes for UI Toolkit are listed below:
-
-* [Holiday Extras](https://github.com/holidayextras/ui-brand-hx)
-* [Essential Travel](https://github.com/holidayextras/ui-brand-et)
+A collection of custom themes for UI Toolkit are coming soon.
 
 Component Documentation
 ---
