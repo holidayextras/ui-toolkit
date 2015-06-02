@@ -4,6 +4,7 @@ var classNames = require('classnames');
 module.exports = function (component){
 
   var classes = classNames('input-group', {
+    'component-input': true,
     'input-group-error': component.state.error || false,
     'input-group-disabled': component.props.disabled || false
   });
@@ -12,7 +13,7 @@ module.exports = function (component){
   var label;
 
   if (component.props.label){
-    label = ( <label className="input-group-label" for={component.props.name}>{component.props.label}</label > );
+    label = ( <label className="component-input-label input-group-label" htmlFor={component.props.id}>{component.props.label}</label > );
   }
 
   /**
@@ -23,14 +24,14 @@ module.exports = function (component){
 
   if (component.state.error)
   {
-    span = ( <span className="input-group-span">{component.state.error}</span> );
+    span = ( <span className="input-group-span component-input-error">{component.state.error}</span> );
   }
 
   return (
     <div className={classes} ref={component.props.ref}>
       {label}
       <input
-        className="input-group-field"
+        className="input-group-field component-input-field"
         type={component.props.type}
         valid={component.state.valid}
         name={component.props.name}

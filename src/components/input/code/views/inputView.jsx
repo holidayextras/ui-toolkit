@@ -14,7 +14,6 @@ module.exports = React.createClass({
     readOnly: React.PropTypes.bool,
     required: React.PropTypes.bool,
     valid: React.PropTypes.bool,
-    validator: React.PropTypes.string,
     errorMessage: React.PropTypes.string,
     onChange: React.PropTypes.func
   },
@@ -33,7 +32,8 @@ module.exports = React.createClass({
       disabled: false,
       readOnly: false,
       required: false,
-      onChange: this.changeHandler
+      onChange: this.changeHandler,
+      errorMessage: null
     }
   },
 
@@ -45,11 +45,8 @@ module.exports = React.createClass({
       is_valid = this.props.validator.test(e.target.value);
     }
 
-    if( !is_valid && typeof this.props.errorMessage !== 'undefined'){
+    if( !is_valid){
       this.setState({ error : this.props.errorMessage });
-    }
-    else {
-      this.setState({ error : null });
     }
 
     this.setState({ valid : is_valid });
