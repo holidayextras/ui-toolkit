@@ -1,24 +1,27 @@
 /** @jsx React.DOM */
 
-jest.dontMock('../code/views/creditCardNumberView.jsx');
-
-var React = require('react/addons');
 var CreditCardNumberComponent = require('../code/views/creditCardNumberView.jsx');
-var TestUtils = React.addons.TestUtils;
 
 describe('CreditCardNumberComponent', function() {
 
-  it('is an element', function() {
-    expect(TestUtils.isElement(<CreditCardNumberComponent />)).toBeTruthy();
+  it('should render a credit card number input', function() {
+    var creditCardNumberInput = TestUtils.renderIntoDocument(
+      <CreditCardNumberComponent />
+    );
+
+    var renderedCreditCardNumberInput = TestUtils.findRenderedDOMComponentWithClass(creditCardNumberInput, 'component-credit-card-number');
+    assert.isDefined(renderedCreditCardNumberInput);
+
   });
 
   it('should render a label', function() {
-    var labelCheck = TestUtils.renderIntoDocument(
+    var creditCardNumberInput = TestUtils.renderIntoDocument(
       <CreditCardNumberComponent label="Credit Card: " />
     );
 
-    var renderedLabel = TestUtils.findRenderedDOMComponentWithClass(labelCheck, 'credit-card-number-label');
-    expect(renderedLabel).toBeDefined();
+    var renderedCreditCardLabel = TestUtils.findRenderedDOMComponentWithClass(creditCardNumberInput, 'credit-card-number-label');
+    assert.isDefined(renderedCreditCardLabel);
+
   });
 
   it('should render credit card images', function() {
@@ -27,7 +30,7 @@ describe('CreditCardNumberComponent', function() {
     );
 
     var renderedImages = TestUtils.findRenderedDOMComponentWithClass(imagesCheck, 'credit-card-images');
-    expect(renderedImages).toBeDefined();
+    assert.isDefined(renderedImages);
   });
 
 });

@@ -30,7 +30,7 @@ module.exports = function(component) {
   }
 
   return (
-    <div className="ui-component-credit-card-number">
+    <div className="component-credit-card-number">
       {images}
       <div className="credit-card-number">
         {label}
