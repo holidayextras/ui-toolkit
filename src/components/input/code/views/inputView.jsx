@@ -2,6 +2,8 @@ var React = require('react');
 
 module.exports = React.createClass({
 
+  intent: null,
+
   propTypes: {
     label: React.PropTypes.string,
     type: React.PropTypes.oneOf(['text', 'password', 'email']),
@@ -14,6 +16,7 @@ module.exports = React.createClass({
     readOnly: React.PropTypes.bool,
     required: React.PropTypes.bool,
     valid: React.PropTypes.bool,
+    validator: React.PropTypes.string,
     errorMessage: React.PropTypes.string,
     onChange: React.PropTypes.func
   },
@@ -40,16 +43,25 @@ module.exports = React.createClass({
   changeHandler: function(e) {
 
     var is_valid = true;
+    var error = null;
+    var self = this;
+    var value = e.target.value
 
-    if(typeof this.props.validator !== 'undefined'){
-      is_valid = this.props.validator.test(e.target.value);
-    }
+    clearTimeout(this.intent);
+    this.intent = setTimeout(function(){
+      if(value !== '' && typeof self.props.validator !== 'undefined'){
+        is_valid = self.props.validator.test(value);
+      }
 
-    if( !is_valid){
-      this.setState({ error : this.props.errorMessage });
-    }
+      if( !is_valid){
+        error = self.props.errorMessage;
+      }
 
-    this.setState({ valid : is_valid });
+      self.setState({
+        valid: is_valid,
+        error: error
+      });
+    }, 500);
   },
 
   render: function() {
