@@ -1,11 +1,11 @@
 module.exports = {
-	docs: {
-		files: ['docs/**/*.jsx', 'docs/**/*.js', 'src/**/*.js*'],
-		tasks: ['docs-build'],
-		options: {
-			livereload: true
-		}
-	},
+  docs: {
+    files: ['docs/src/**/*.js*', 'src/**/*.js*'],
+    tasks: ['docs-build'],
+    options: {
+      livereload: true
+    }
+  },
   less: {
     files: ['src/less/**/*.less'],
     tasks: ['less', 'copy:css'],
