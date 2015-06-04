@@ -95,8 +95,13 @@ module.exports = React.createClass({
   },
 
   handleChange: function(e) {
+    var selectionStart = e.target.selectionStart;
+    var selectionEnd = e.target.selectionEnd;
+
     var cardNumber = e.target.value.replace(/\D/g, '');
     this.updateCard(cardNumber);
+
+    e.target.setSelectionRange(selectionStart, selectionEnd);
   },
 
   render: function() {
