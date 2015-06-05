@@ -4,7 +4,7 @@ module.exports = function(props) {
   var $blankRating = [];
 
   for(var i = 0; i < props.rating; i++) {
-    $rating.push( props.children ? <span className="rating-icon" /> : props.children);
+    $rating.push( props.children ? props.children : <span className="rating-icon" /> );
   }
 
   if(props.outOf && props.blankIcon){
