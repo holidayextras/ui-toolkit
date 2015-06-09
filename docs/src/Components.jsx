@@ -88,6 +88,11 @@ var Components = React.createClass({
           <h4>Attributes</h4>
           <ul>
             <li><code>defaultValue</code> [optional] String - MM/YY Expiration Date</li>
+            <li><code>formatInput</code> [optional] Boolean - Default false,</li>
+            <li><code>placeHolder</code> [optional] String - Default  'MM / YY',</li>
+            <li><code>name</code> [optional] String - Default 'credit-card-expire',</li>
+            <li><code>id</code> [optional] String - Default 'credit-card-expire',</li>
+            <li><code>errorMessage</code> [optional] String - Default 'Invalid Expiration Date'</li>
           </ul>
         </article>
 

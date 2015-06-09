@@ -12,7 +12,8 @@ module.exports = React.createClass({
     defaultValue: React.PropTypes.string,
     name: React.PropTypes.string,
     id: React.PropTypes.string,
-    valid: React.PropTypes.bool
+    valid: React.PropTypes.bool,
+    errorMessage: React.PropTypes.string
   },
 
   getInitialState: function() {
@@ -27,40 +28,34 @@ module.exports = React.createClass({
       formatInput: false,
       placeHolder: 'MM / YY',
       name: 'credit-card-expire',
-      id: 'credit-card-expire'
+      id: 'credit-card-expire',
+      errorMessage: 'Invalid Expiration Date'
     };
   },
 
   handleChange: function(elm){
 
-    if( !this.formatting)
-    {
+    if( !this.formatting){
       this.formatting = true;
       Payment.formatCardExpiry(document.querySelector('.credit-card-expire-input'));
     }
 
     var expires = elm.target.value;
-    var is_valid = false;
+    var is_valid = true;
     var self = this;
 
-    if(expires.length > 0)
-    {
+    if(expires.length > 0){
       var date = expires.split(' / ');
-      if(date.length === 2)
-      {
+      if(date.length === 2){
         is_valid = Payment.fns.validateCardExpiry(date[0], date[1]);
       }
-    }
-    else
-    {
-      is_valid = true;
     }
 
     clearTimeout(this.intent);
     this.intent = setTimeout(function(){
       self.setState({
         valid: is_valid,
-        error: (is_valid) ? null : 'Invalid Expiration Date'
+        error: (is_valid) ? null : self.props.errorMessage
       });
     }, 500);
   },
