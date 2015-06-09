@@ -1,29 +1,39 @@
 var React = require('react');
+var classNames = require('classnames');
 
 module.exports = function(component) {
 
-  // the form label
-  var label;
+  var classes = classNames('input-group', {
+    'component-input': true,
+    'component-credit-card-expire': true,
+    'input-group-error': component.state.error || false
+  });
+
+  var label, error;
 
   if (component.props.label){
     label = ( <label className="input-group-label credit-card-expire-label" htmlFor={component.props.id}>{component.props.label}</label> );
   }
 
+  if (component.state.error){
+    error = ( <span className="component-input-error">{component.state.error}</span> );
+  }
+
   return (
-    <div className="component-credit-card-expire">
+    <div className={classes}>
       {label}
       <input
-        className="credit-card-expire-input"
+        className="input-group-field component-input-field credit-card-expire-input"
         type="text"
         id={component.props.id}
         name={component.props.name}
         autoComplete="off"
-        maxLength="5"
-        minLength="5"
+        maxLength="7"
+        minLength="7"
         onChange={component.handleChange}
-        value={component.state.expireDate}
-        defaultValue={component.props.expireDate}
+        defaultValue={component.props.defaultValue}
         placeholder={component.props.placeHolder} />
+      {error}
     </div>
   );
 };
