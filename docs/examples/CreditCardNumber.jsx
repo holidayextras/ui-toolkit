@@ -1,7 +1,7 @@
 var cc = {
   images: true,
   format: true,
-  number: '4485148248332663',
+  number: '4485 1482 4833 2663',
   label: 'Credit Card: ',
   accepted: ['visa','mastercard']
 };

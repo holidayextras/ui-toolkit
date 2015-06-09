@@ -1,6 +1,10 @@
 var React = require('react');
+var Payment = require('payment');
 
 module.exports = React.createClass({
+
+  intent: null,
+  formatting: false,
 
   propTypes: {
     accepted: React.PropTypes.array,
@@ -9,16 +13,19 @@ module.exports = React.createClass({
     defaultValue: React.PropTypes.string,
     id: React.PropTypes.string,
     label: React.PropTypes.string,
-    name: React.PropTypes.string
+    name: React.PropTypes.string,
+    errorMessage: React.PropTypes.string
   },
 
   getInitialState: function() {
 
-    var card = this.updateCard(this.props.defaultValue);
+    var is_valid = Payment.fns.validateCardNumber(this.props.defaultValue);
+    var card_type = Payment.fns.cardType(this.props.defaultValue);
 
     return {
-      cardNumber: card.cardNumber || '',
-      cardType: card.cardType || ''
+      valid: is_valid,
+      error: (is_valid) ? null : this.props.errorMessage,
+      cardType: card_type
     };
   },
 
@@ -29,79 +36,40 @@ module.exports = React.createClass({
       id: 'credit-card-number',
       name: 'credit-card-number',
       placeHolder: '• • • •   • • • •   • • • •   • • • •',
-      showImages: false
+      showImages: false,
+      errorMessage: 'Invalid Card Number'
     };
   },
 
-  updateCard: function(cardNumber) {
+  handleChange: function(elm) {
 
-    if(typeof cardNumber === 'undefined'){
-      return false;
+    if( !this.formatting && this.props.formatInput) {
+      this.formatting = true;
+      Payment.formatCardNumber(document.querySelector('.credit-card-number-input'));
     }
 
-    var cardInfo = this.getCard(cardNumber);
-    var formattedCard = (this.props.formatInput) ? cardNumber.replace(/(.{4})/g, '$1 ').trim() : cardNumber;
+    var card_number = elm.target.value;
+    var card_type = null;
+    var is_valid = true;
+    var self = this;
 
-    var card = {
-      cardNumber: formattedCard,
-      cardType: cardInfo.type
-    };
+    if(card_number.length > 0) {
+      is_valid = Payment.fns.validateCardNumber(card_number);
+      card_type = Payment.fns.cardType(card_number);
 
-    this.setState(card);
-
-    return card;
-  },
-
-  getCard: function(cardNumber) {
-
-    var cards = [
-      {
-        type: 'amex',
-        pattern: /^3[47]/,
-        format: /(\d{1,4})(\d{1,6})?(\d{1,5})?/,
-        length: [15]
-      },
-      {
-        type: 'discover',
-        pattern: /^(6011|65|64[4-9]|622)/,
-        format: /(\d{1,4})/g,
-        length: [16]
-      },
-      {
-        type: 'mastercard',
-        pattern: /^5[1-5]/,
-        format: /(\d{1,4})/g,
-        length: [16]
-      },
-      {
-        type: 'visa',
-        pattern: /^4/,
-        format: /(\d{1,4})/g,
-        length: [13, 14, 15, 16]
-      }
-    ];
-
-    for (var i=0; i<cards.length; i++) {
-      var card = cards[i];
-      if (card.pattern.test(cardNumber) && this.props.accepted.indexOf(card.type) > -1)
-      {
-        return card;
+      if(this.props.accepted.indexOf(card_type) === -1){
+        is_valid = false;
       }
     }
 
-    return {
-      type: ''
-    };
-  },
-
-  handleChange: function(e) {
-    var selectionStart = e.target.selectionStart;
-    var selectionEnd = e.target.selectionEnd;
-
-    var cardNumber = e.target.value.replace(/\D/g, '');
-    this.updateCard(cardNumber);
-
-    e.target.setSelectionRange(selectionStart, selectionEnd);
+    clearTimeout(this.intent);
+    this.intent = setTimeout(function(){
+      self.setState({
+        valid: is_valid,
+        error: (is_valid) ? null : self.props.errorMessage,
+        cardType: card_type
+      });
+    }, 500);
   },
 
   render: function() {

@@ -1,8 +1,15 @@
 var React = require('react');
+var classNames = require('classnames');
 
 module.exports = function(component) {
 
-  var label, visa, mastercard, amex, discover, images;
+  var classes = classNames('input-group', {
+    'component-input': true,
+    'component-credit-card-number': true,
+    'input-group-error': component.state.error || false
+  });
+
+  var label, visa, mastercard, amex, discover, images, error;
 
   if (component.props.label){
     label = ( <label className="input-group-label credit-card-number-label" htmlFor={component.props.id}>{component.props.label}</label> );
@@ -29,13 +36,17 @@ module.exports = function(component) {
     images = ( <div className="credit-card-images">{visa} {mastercard} {amex} {discover}</div> );
   }
 
+  if (component.state.error){
+    error = ( <span className="component-input-error">{component.state.error}</span> );
+  }
+
   return (
-    <div className="component-credit-card-number">
+    <div className={classes}>
       {images}
       <div className="credit-card-number">
         {label}
         <input
-          className={( component.state.cardType == '' && component.state.cardNumber !== '' ) ? 'credit-card-number-input has-error' : 'credit-card-number-input' }
+          className={( !component.state.valid ) ? 'credit-card-number-input has-error' : 'credit-card-number-input' }
           type="text"
           id={component.props.id}
           name={component.props.name}
@@ -43,9 +54,9 @@ module.exports = function(component) {
           minLength="13"
           maxLength="19"
           onChange={component.handleChange}
-          value={component.state.cardNumber}
-          defaultValue={component.props.cardNumber}
+          defaultValue={component.props.defaultValue}
           placeholder={component.props.placeHolder} />
+        {error}
       </div>
     </div>
   );
