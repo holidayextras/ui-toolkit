@@ -126,8 +126,3 @@ article {
   float:left;
   z-index: 1;
 }
-
-/* Components */
-.toolkit-example button {
-  margin:.25em;
-}
