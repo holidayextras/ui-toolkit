@@ -79,9 +79,6 @@ var Components = React.createClass({
             <li><code>image</code> Object - Containing <code>src</code> and <code>alt</code> keys</li>
             <li><code>title</code> String - The title of the tile</li>
           </ul>
-          <h4>Product tile</h4>
-          <p>lorem</p>
-          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/ProductTile.jsx', 'utf8')} />
         </article>
 
         <article id="lists">
