@@ -84,6 +84,13 @@ var Components = React.createClass({
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/ProductTile.jsx', 'utf8')} />
         </article>
 
+        <article id="lists">
+          <h3>Lists</h3>
+          <h4>Icon list</h4>
+          <p>An unordered list that uses font awesome for the bullets</p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/IconList.jsx', 'utf8')} />
+        </article>
+
       </section>
     );
   }

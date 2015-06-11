@@ -8,5 +8,7 @@ UIToolkit.Reviews = require('./components/reviews');
 UIToolkit.ProductTile = require('./components/product-tile');
 UIToolkit.Tile = require('./components/tile');
 UIToolkit.Image = require('./components/image');
+UIToolkit.IconList = require('./components/icon-list');
+UIToolkit.IconListItem = require('./components/icon-list-item');
 
 module.exports = UIToolkit;
