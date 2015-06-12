@@ -47,7 +47,6 @@
     "lodash.pick": "~3.1.0",
     "lodash.values": "~3.0.0",
     "react": "^0.13.2",
-    "react-bootstrap": "^0.23.2",
     "react-data-attributes-mixin": "git://github.com/holidayextras/react-data-attributes-mixin",
     "reactify": "~1.1.0",
     "require-directory": "^2.0.0",
