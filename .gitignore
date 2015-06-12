@@ -29,3 +29,4 @@ docs/assets/bundle.js
 npm-debug.log
 coverage/*
 docs/npm-debug.log*
+docs/assets/toolkit.css
