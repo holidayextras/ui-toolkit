@@ -84,8 +84,12 @@ var Components = React.createClass({
         <article id="lists">
           <h3>Lists</h3>
           <h4>Icon list</h4>
-          <p>An unordered list that uses font awesome for the bullets</p>
+          <p>An unordered list that uses <a href="http://fortawesome.github.io/Font-Awesome/icons/">Font Awesome</a> for the bullets</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/IconList.jsx', 'utf8')} />
+          <h4>Attributes (for ListGroupItem)</h4>
+          <ul>
+            <li><code>icon</code> String - The name of the <a href="http://fortawesome.github.io/Font-Awesome/icons/">Font Awesome</a> icon that you want to display</li>
+          </ul>
         </article>
 
       </section>
