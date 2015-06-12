@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 
-var IconList = require('../code/views/iconListComponentView.jsx');
-var IconListItem = require('../../icon-list-item/code/views/iconListItemComponentView.jsx');
+var IconList = require('../code/views/IconListComponentView.jsx');
+var IconListItem = require('../../icon-list-item/code/views/IconListItemComponentView.jsx');
 
 describe('iconListComponent ', function() {
 
