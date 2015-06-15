@@ -1,6 +1,6 @@
 {
   "name": "ui-toolkit",
-  "version": "0.6.6",
+  "version": "0.6.7",
   "description": "UI Toolkit",
   "main": "src/index.js",
   "repository": {
