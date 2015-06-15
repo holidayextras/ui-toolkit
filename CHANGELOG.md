@@ -1,3 +1,4 @@
+### 0.6.8 - 2015-06-15
 ### 0.6.7 - 2015-06-15
 ### 0.6.6 - 2015-05-29
 - Adds default purpose and size to button (and flag)
