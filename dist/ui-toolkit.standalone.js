@@ -24237,7 +24237,6 @@ module.exports = require('./lib/React');
 module.exports = require('./views/buttonView.jsx');
 
 },{"./views/buttonView.jsx":200}],198:[function(require,module,exports){
-var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
 
@@ -24254,8 +24253,7 @@ module.exports = function() {
   );
 };
 
-},{"../../../../utils/getComponentClasses":231,"classnames":3,"react":196}],199:[function(require,module,exports){
-var React = require('react');
+},{"../../../../utils/getComponentClasses":231,"classnames":3}],199:[function(require,module,exports){
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
 
@@ -24272,7 +24270,7 @@ module.exports = function() {
   );
 };
 
-},{"../../../../utils/getComponentClasses":231,"classnames":3,"react":196}],200:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":231,"classnames":3}],200:[function(require,module,exports){
 /** @jsx React.DOM */
 
 var React = require('react');
@@ -24307,7 +24305,6 @@ module.exports = require('./code');
 module.exports = require('./views/flagView.jsx');
 
 },{"./views/flagView.jsx":204}],203:[function(require,module,exports){
-var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
 
@@ -24323,7 +24320,7 @@ module.exports = function(props) {
   );
 };
 
-},{"../../../../utils/getComponentClasses":231,"classnames":3,"react":196}],204:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":231,"classnames":3}],204:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -24401,15 +24398,13 @@ module.exports = require('./code/index');
 module.exports = require('./views/imageView.jsx');
 
 },{"./views/imageView.jsx":216}],215:[function(require,module,exports){
-var React = require('react');
-
 module.exports = function(props) {
   return (
     React.createElement("img", {alt: props.alt, src: props.src, className: "component-image"})
   );
 };
 
-},{"react":196}],216:[function(require,module,exports){
+},{}],216:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -24431,19 +24426,17 @@ module.exports = require('./code/index');
 module.exports = require('./views/ratingView.jsx');
 
 },{"./views/ratingView.jsx":220}],219:[function(require,module,exports){
-var React = require('react');
-
 module.exports = function(props) {
 
   var $rating = [];
   var $blankRating = [];
-  
+
   for(var i = 0; i < props.rating; i++) {
-    $rating.push( (!!props.children) ? props.children : React.createElement("span", {className: "rating-icon"}) );
+    $rating.push( props.children ? props.children : React.createElement("span", {className: "rating-icon"}) );
   }
-  
+
   if(props.outOf && props.blankIcon){
-    for(var j = 0; j < ( props.outOf-props.rating ); j++) {
+    for(var j = 0; j < ( props.outOf - props.rating ); j++) {
       $blankRating.push( props.blankIcon );
     }
   }
@@ -24456,7 +24449,7 @@ module.exports = function(props) {
   );
 };
 
-},{"react":196}],220:[function(require,module,exports){
+},{}],220:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -24465,7 +24458,7 @@ module.exports = React.createClass({displayName: "exports",
     outOf: React.PropTypes.number,
     blankIcon: React.PropTypes.node
   },
-  
+
   render: function() {
     return require('../templates/ratingTemplate.jsx')(this.props);
   }
@@ -24478,8 +24471,6 @@ module.exports = require('./code/index');
 module.exports = require('./views/reviewsView.jsx');
 
 },{"./views/reviewsView.jsx":224}],223:[function(require,module,exports){
-var React = require('react');
-
 module.exports = function(props) {
   return (
     React.createElement("div", {itemProp: "aggregateRating", itemScope: true, itemType: "http://schema.org/AggregateRating", className: "ui-component-reviews"}, 
@@ -24490,7 +24481,7 @@ module.exports = function(props) {
   );
 };
 
-},{"react":196}],224:[function(require,module,exports){
+},{}],224:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -24510,7 +24501,6 @@ module.exports = require('./code/index');
 module.exports = require('./views/tileView.jsx');
 
 },{"./views/tileView.jsx":228}],227:[function(require,module,exports){
-var React = require('react');
 var ImageComponent = require('../../../image');
 
 module.exports = function(props) {
@@ -24525,7 +24515,7 @@ module.exports = function(props) {
   );
 };
 
-},{"../../../image":217,"react":196}],228:[function(require,module,exports){
+},{"../../../image":217}],228:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -24533,7 +24523,7 @@ module.exports = React.createClass({displayName: "exports",
     image: React.PropTypes.object.isRequired,
     title: React.PropTypes.string.isRequired
   },
-  
+
   defaultProps: function() {
     return {};
   },

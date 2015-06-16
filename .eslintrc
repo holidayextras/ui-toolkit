@@ -16,7 +16,11 @@
     "jsx": true
   },
   "rules": {
-    "quotes": [2, 'single'],
-    "strict": [2, 'never']
+    "quotes": [2, "single"],
+    "strict": [2, "never"],
+    "brace-style": [2, "1tbs"],
+    "indent": [2, 2],
+    "linebreak-style": [2, "unix"],
+    "semi": [2, "always"]
   }
 }
