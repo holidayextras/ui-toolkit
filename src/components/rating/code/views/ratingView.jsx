@@ -6,7 +6,7 @@ module.exports = React.createClass({
     outOf: React.PropTypes.number,
     blankIcon: React.PropTypes.node
   },
-  
+
   render: function() {
     return require('../templates/ratingTemplate.jsx')(this.props);
   }
