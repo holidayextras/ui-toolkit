@@ -19,13 +19,13 @@ module.exports = React.createClass({
 
   getInitialState: function() {
 
-    var is_valid = Payment.fns.validateCardNumber(this.props.defaultValue);
-    var card_type = Payment.fns.cardType(this.props.defaultValue);
+    var isValid = Payment.fns.validateCardNumber(this.props.defaultValue);
+    var cardType = Payment.fns.cardType(this.props.defaultValue);
 
     return {
-      valid: is_valid,
-      error: (is_valid) ? null : this.props.errorMessage,
-      cardType: card_type
+      valid: isValid,
+      error: (isValid) ? null : this.props.errorMessage,
+      cardType: cardType
     };
   },
 
@@ -41,33 +41,33 @@ module.exports = React.createClass({
     };
   },
 
-  handleChange: function(elm) {
+  handleChange: function(e) {
 
     if( !this.formatting && this.props.formatInput) {
       this.formatting = true;
       Payment.formatCardNumber(document.querySelector('.credit-card-number-input'));
     }
 
-    var card_number = elm.target.value;
-    var card_type = null;
-    var is_valid = true;
+    var cardNumber = e.target.value;
+    var cardType = null;
+    var isValid = true;
     var self = this;
 
-    if(card_number.length > 0) {
-      is_valid = Payment.fns.validateCardNumber(card_number);
-      card_type = Payment.fns.cardType(card_number);
+    if(cardNumber.length > 0) {
+      isValid = Payment.fns.validateCardNumber(cardNumber);
+      cardType = Payment.fns.cardType(cardNumber);
 
-      if(this.props.accepted.indexOf(card_type) === -1){
-        is_valid = false;
+      if(this.props.accepted.indexOf(cardType) === -1){
+        isValid = false;
       }
     }
 
     clearTimeout(this.intent);
     this.intent = setTimeout(function(){
       self.setState({
-        valid: is_valid,
-        error: (is_valid) ? null : self.props.errorMessage,
-        cardType: card_type
+        valid: isValid,
+        error: (isValid) ? null : self.props.errorMessage,
+        cardType: cardType
       });
     }, 500);
   },
