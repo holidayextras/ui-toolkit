@@ -1,4 +1,3 @@
-var React = require('react');
 var ImageComponent = require('../../../image');
 
 module.exports = function(props) {
