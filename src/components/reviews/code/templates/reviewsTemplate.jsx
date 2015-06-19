@@ -1,5 +1,3 @@
-var React = require('react');
-
 module.exports = function(props) {
   return (
     <div itemProp="aggregateRating" itemScope itemType="http://schema.org/AggregateRating" className="ui-component-reviews">
