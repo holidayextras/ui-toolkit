@@ -5,7 +5,7 @@ module.exports = React.createClass({
     image: React.PropTypes.object.isRequired,
     title: React.PropTypes.string.isRequired
   },
-  
+
   defaultProps: function() {
     return {};
   },
