@@ -1,4 +1,3 @@
-var React = require('react');
 var classNames = require('classnames');
 
 module.exports = function (component){
@@ -22,8 +21,7 @@ module.exports = function (component){
    */
   var span;
 
-  if (component.state.error)
-  {
+  if (component.state.error){
     span = ( <span className="input-group-span component-input-error">{component.state.error}</span> );
   }
 
@@ -37,7 +35,7 @@ module.exports = function (component){
         name={component.props.name}
         id={component.props.id}
         placeholder={component.props.placeholder}
-        onChange={component.changeHandler}
+        onChange={component.handleChange}
         defaultValue={component.props.defaultValue}
         disabled={component.props.disabled}
         readOnly={component.props.readOnly}

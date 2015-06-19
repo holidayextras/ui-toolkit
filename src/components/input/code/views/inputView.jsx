@@ -17,8 +17,7 @@ module.exports = React.createClass({
     required: React.PropTypes.bool,
     valid: React.PropTypes.bool,
     validator: React.PropTypes.string,
-    errorMessage: React.PropTypes.string,
-    onChange: React.PropTypes.func
+    errorMessage: React.PropTypes.string
   },
 
   getInitialState: function() {
@@ -26,7 +25,7 @@ module.exports = React.createClass({
       value: this.props.defaultValue || '',
       error: null,
       valid: true
-    }
+    };
   },
 
   getDefaultProps: function() {
@@ -35,30 +34,29 @@ module.exports = React.createClass({
       disabled: false,
       readOnly: false,
       required: false,
-      onChange: this.changeHandler,
       errorMessage: null
-    }
+    };
   },
 
-  changeHandler: function(e) {
+  handleChange: function(e) {
 
-    var is_valid = true;
+    var isValid = true;
     var error = null;
     var self = this;
-    var value = e.target.value
+    var value = e.target.value;
 
     clearTimeout(this.intent);
     this.intent = setTimeout(function(){
       if(value !== '' && typeof self.props.validator !== 'undefined'){
-        is_valid = self.props.validator.test(value);
+        isValid = self.props.validator.test(value);
       }
 
-      if( !is_valid){
+      if( !isValid){
         error = self.props.errorMessage;
       }
 
       self.setState({
-        valid: is_valid,
+        valid: isValid,
         error: error
       });
     }, 500);
