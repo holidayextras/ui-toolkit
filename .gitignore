@@ -28,3 +28,4 @@ docs/assets/bundle.js
 .grunt/
 npm-debug.log
 coverage/*
+docs/npm-debug.log*
