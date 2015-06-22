@@ -18,7 +18,7 @@ module.exports = function(grunt) {
   gtx.alias('release-docs', ['docs-build', 'gh-pages']);
   gtx.alias('release-major', ['release:major']);
   gtx.alias('release-minor', ['release:minor']);
-  gtx.alias('release-patch', ['release-docs']);
+  gtx.alias('release-patch', ['release:patch']);
 
   gtx.finalise();
 };
