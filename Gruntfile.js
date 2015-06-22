@@ -15,10 +15,10 @@ module.exports = function(grunt) {
   gtx.alias('docs-start', ['shell:docsStart']);
   gtx.alias('docs-view', ['shell:docsView']);
 
-  gtx.alias('release-docs', ['build', 'docs-build', 'gh-pages']);
-  gtx.alias('release-major', ['release:major', 'release-docs']);
-  gtx.alias('release-minor', ['release:minor', 'release-docs']);
-  gtx.alias('release-patch', ['release-docs', 'release:patch']);
+  gtx.alias('release-docs', ['docs-build', 'gh-pages']);
+  gtx.alias('release-major', ['release:major']);
+  gtx.alias('release-minor', ['release:minor']);
+  gtx.alias('release-patch', ['release-docs']);
 
   gtx.finalise();
 };
