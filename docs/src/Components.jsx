@@ -9,8 +9,8 @@ var Components = React.createClass({
       <section id="components">
         <h2 className="page-header">Components</h2>
 
-        <article>
-          <h3 id="button">Buttons</h3>
+        <article id="button">
+          <h3>Buttons</h3>
           <p>A clickable/tappable button element</p>
           <p>To give the button a purpose, add <code>purpose="primary"</code> etc.</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Button.jsx', 'utf8')} />
@@ -31,8 +31,8 @@ var Components = React.createClass({
           </ul>
         </article>
 
-        <article>
-          <h3 id="flags">Flags</h3>
+        <article id="flags">
+          <h3>Flags</h3>
           <p>Flags are used to highlight taxonomy terms or 'tags' on elements. For example 'special offer' or 'limited time only'</p>
           <p>To give the flag a purpose, add <code>purpose="primary"</code> etc.</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Flag.jsx', 'utf8')} />
@@ -59,8 +59,8 @@ var Components = React.createClass({
           The <code>outOf</code> and <code>blankIcon</code> attributes are optional and dependent upon each other.
         </article>
 
-        <article>
-          <h3 id="image">Image</h3>
+        <article id="image">
+          <h3>Image</h3>
           <p>A standard Image Component.</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Image.jsx', 'utf8')} />
           <h4>Attributes</h4>
@@ -70,8 +70,8 @@ var Components = React.createClass({
           </ul>
         </article>
 
-        <article>
-          <h3 id="tile">Tile</h3>
+        <article id="tiles">
+          <h3>Tiles</h3>
           <p>A tile for displaying an image with a title. The width of a tile is 100% of a container.</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Tile.jsx', 'utf8')} />
           <h4>Attributes</h4>
@@ -101,7 +101,17 @@ var Components = React.createClass({
             <li><code>375669917200734</code> American Express ( not "accepted" for demo )</li>
             <li><code>6011948151581455</code> Discover ( not "accepted" for demo )</li>
           </ul>
+        </article>
 
+        <article id="lists">
+          <h3>Lists</h3>
+          <h4>Icon list</h4>
+          <p>An unordered list that uses <a href="http://fortawesome.github.io/Font-Awesome/icons/">Font Awesome</a> for the bullets</p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/IconList.jsx', 'utf8')} />
+          <h4>Attributes (for ListGroupItem)</h4>
+          <ul>
+            <li><code>icon</code> String - The name of the <a href="http://fortawesome.github.io/Font-Awesome/icons/">Font Awesome</a> icon that you want to display</li>
+          </ul>
         </article>
 
       </section>

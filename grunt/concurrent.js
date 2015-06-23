@@ -1,6 +1,6 @@
 module.exports = {
   docs: {
-    tasks: ['shell:docsStart', 'watch', 'shell:docsView'],
+    tasks: ['docs-start', 'watch', 'docs-view'],
     options: {
       logConcurrentOutput: true
     }
