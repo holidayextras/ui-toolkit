@@ -65,3 +65,41 @@ describe('InputComponent', function() {
   });
 
 });
+
+describe('InputComponent Error without Message', function() {
+  var input, renderedInput, val;
+  var email_validator = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+
+  beforeEach(function(){
+
+    input = TestUtils.renderIntoDocument(
+      <InputView type="text" validator={email_validator} />
+    );
+
+    renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field');
+  });
+
+  it('should change the value to be invalid and throw error state with null message', function() {
+    TestUtils.Simulate.change(renderedInput.getDOMNode(), { target: { value: 'invalid @ email . #$%' }});
+    assert.equal(input.state.unitTestError, null);
+  });
+});
+
+describe('InputComponent Error with Custom Message', function() {
+  var input, renderedInput, val;
+  var email_validator = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+  var email_error_message = 'Invalid Email';
+
+  beforeEach(function(){
+
+    input = TestUtils.renderIntoDocument(
+      <InputView type="text" validator={email_validator} errorMessage={email_error_message} />
+    );
+    renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field');
+  });
+
+  it('should change the value to be invalid and throw error state with custom message', function() {
+    TestUtils.Simulate.change(renderedInput.getDOMNode(), { target: { value: 'invalid @ email . #$%' }});
+    assert.equal(input.state.unitTestError, email_error_message);
+  });
+});

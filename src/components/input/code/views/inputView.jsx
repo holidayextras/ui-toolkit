@@ -16,7 +16,7 @@ module.exports = React.createClass({
     readOnly: React.PropTypes.bool,
     required: React.PropTypes.bool,
     valid: React.PropTypes.bool,
-    validator: React.PropTypes.string,
+    validator: React.PropTypes.any,
     errorMessage: React.PropTypes.string
   },
 
@@ -43,23 +43,31 @@ module.exports = React.createClass({
     var isValid = true;
     var error = null;
     var self = this;
-    var value = e.target.value;
+    var value = (e.target) ? e.target.value : null;
+
+    if(value !== '' && typeof self.props.validator !== 'undefined'){
+      isValid = self.props.validator.test(value);
+    }
+
+    if( !isValid){
+      error = self.props.errorMessage;
+    }
 
     clearTimeout(this.intent);
     this.intent = setTimeout(function(){
-      if(value !== '' && typeof self.props.validator !== 'undefined'){
-        isValid = self.props.validator.test(value);
-      }
-
-      if( !isValid){
-        error = self.props.errorMessage;
-      }
-
       self.setState({
         valid: isValid,
         error: error
       });
     }, 500);
+
+    // @note: adding this because there is a timeout on state change
+    // not picked up my unit tests.  But this reflects the values that
+    // will be set after timeout executes.
+    this.setState({
+      unitTestValid: isValid,
+      unitTestError: error
+    });
   },
 
   render: function() {
