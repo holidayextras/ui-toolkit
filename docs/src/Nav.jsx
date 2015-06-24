@@ -22,7 +22,7 @@ var Nav = React.createClass({
               <li><a href="#rating">Rating</a></li>
               <li><a href="#image">Image</a></li>
               <li><a href="#tile">Tile</a></li>
-              <li><a href="#credit-card-expire">Credit Card Expire</a></li>
+              <li><a href="#lists">Lists</a></li>
             </ul>
           </li>
         </ul>
