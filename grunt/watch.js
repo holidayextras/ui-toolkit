@@ -7,7 +7,7 @@ module.exports = {
     }
   },
   less: {
-    files: ['src/less/**/*.less'],
+    files: ['src/**/*.less'],
     tasks: ['less', 'copy:css'],
     options: {
       livereload: true
