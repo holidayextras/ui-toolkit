@@ -4,14 +4,14 @@ module.exports = function(component) {
 
   var classes = classNames('input-group', {
     'component-input': true,
-    'component-credit-card-expire': true,
+    'component-credit-card-date': true,
     'input-group-error': component.state.error || false
   });
 
   var label, error;
 
   if (component.props.label){
-    label = ( <label className="input-group-label credit-card-expire-label" htmlFor={component.props.id}>{component.props.label}</label> );
+    label = ( <label className="input-group-label credit-card-date-label" htmlFor={component.props.id}>{component.props.label}</label> );
   }
 
   if (component.state.error){

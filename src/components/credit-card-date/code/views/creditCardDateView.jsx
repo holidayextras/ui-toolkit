@@ -27,9 +27,9 @@ module.exports = React.createClass({
     return {
       formatInput: false,
       placeHolder: 'MM / YY',
-      name: 'credit-card-expire',
-      id: 'credit-card-expire',
-      errorMessage: 'Invalid Expiration Date'
+      name: 'credit-card-date',
+      id: 'credit-card-date',
+      errorMessage: 'Invalid Date'
     };
   },
 
@@ -37,7 +37,7 @@ module.exports = React.createClass({
 
     if( !this.formatting){
       this.formatting = true;
-      Payment.formatCardExpiry(document.querySelector('.credit-card-expire-input'));
+      Payment.formatCardExpiry(document.querySelector('.credit-card-date-input'));
     }
 
     var expires = e.target.value;
@@ -62,6 +62,6 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    return require('../templates/creditCardExpireTemplate.jsx')(this);
+    return require('../templates/creditCardDateTemplate.jsx')(this);
   }
 });

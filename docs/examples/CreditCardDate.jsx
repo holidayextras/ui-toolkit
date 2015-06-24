@@ -4,7 +4,7 @@ var cc = {
 };
 
 var example = (
-  <UIToolkit.CreditCardExpire defaultValue={cc.expires} label={cc.label} />
+  <UIToolkit.CreditCardDate defaultValue={cc.expires} label={cc.label} />
 );
 
 React.render(example, mountNode);
