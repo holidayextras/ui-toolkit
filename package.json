@@ -50,7 +50,11 @@
     "react-data-attributes-mixin": "git://github.com/holidayextras/react-data-attributes-mixin",
     "reactify": "~1.1.0",
     "require-directory": "^2.0.0",
-    "requirejs": "~2.1.9"
+    "requirejs": "~2.1.9",
+    "dom-align": "^1.0.1",
+    "gregorian-calendar": "3.x",
+    "gregorian-calendar-format": "3.x",
+    "rc-util": "^2.0.0"
   },
   "devDependencies": {
     "blanket": "^1.1.7",
@@ -71,6 +75,8 @@
     "mocha-jsdom": "^0.3.0",
     "mocha-lcov-reporter": "0.0.2",
     "react-tools": "^0.13.2",
-    "sinon": "^1.14.1"
+    "sinon": "^1.14.1",
+    "async": "~0.9.0",
+    "expect.js": "~0.3.1"
   }
 }
