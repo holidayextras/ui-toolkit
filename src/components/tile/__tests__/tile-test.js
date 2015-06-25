@@ -1,5 +1,6 @@
 /** @jsx React.DOM */
 
+var React = require('react');
 var TileComponent = require('../code/views/tileView.jsx');
 
 describe('TileComponent', function() {
@@ -10,7 +11,7 @@ describe('TileComponent', function() {
       alt: 'bar'
     };
 
-    assert.ok(TestUtils.isElement(<TileComponent image={img} title='title' />));
+    assert.ok(TestUtils.isElement(<TileComponent image={img} title="title" />));
   });
 
 });
