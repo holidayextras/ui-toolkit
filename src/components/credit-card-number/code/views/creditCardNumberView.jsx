@@ -45,12 +45,12 @@ module.exports = React.createClass({
 
   handleChange: function(e) {
 
-    if( !this.formatting && this.props.formatInput) {
+    if( !this.formatting && this.props.formatInput && e.target) {
       this.formatting = true;
-      Payment.formatCardNumber(document.querySelector('.credit-card-number-input'));
+      Payment.formatCardNumber(e.target);
     }
 
-    var cardNumber = e.target.value;
+    var cardNumber = (e.target) ? e.target.value : '';
     var cardType = null;
     var isValid = true;
     var self = this;
