@@ -1,5 +1,6 @@
 /** @jsx React.DOM */
 
+var React = require('React');
 var ImageComponent = require('../code/views/imageView.jsx');
 
 describe('ImageComponent', function() {
