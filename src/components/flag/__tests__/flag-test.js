@@ -1,5 +1,6 @@
 /** @jsx React.DOM */
 
+var React = require('react');
 var FlagComponent = require('../code/views/flagView.jsx');
 
 describe('FlagComponent', function() {

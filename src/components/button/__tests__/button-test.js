@@ -1,5 +1,6 @@
 /** @jsx React.DOM */
 
+var React = require('react');
 var ButtonView = require('../code/views/buttonView.jsx');
 
 describe('ButtonComponent', function() {
@@ -67,7 +68,7 @@ describe('ButtonComponent', function() {
 
   it('should render as an anchor if href is present', function() {
     var anchor = TestUtils.renderIntoDocument(
-      <ButtonView href='http://www.ui-toolkit.com'>Go to Toolkit</ButtonView>
+      <ButtonView href="http://www.ui-toolkit.com">Go to Toolkit</ButtonView>
     );
 
     var renderedButton = TestUtils.findRenderedDOMComponentWithTag(anchor, 'a');
