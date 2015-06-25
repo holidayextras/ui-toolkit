@@ -22,7 +22,7 @@ module.exports = function(component) {
     <div className={classes}>
       {label}
       <input
-        className="input-group-field component-input-field credit-card-expire-input"
+        className="input-group-field component-input-field credit-card-date-input"
         type="text"
         id={component.props.id}
         name={component.props.name}

@@ -18,6 +18,7 @@ module.exports = React.createClass({
 
   getInitialState: function() {
     return {
+      value: this.props.defaultValue || '',
       error: null,
       valid: true
     };
@@ -25,7 +26,6 @@ module.exports = React.createClass({
 
   getDefaultProps: function() {
     return {
-      formatInput: false,
       placeHolder: 'MM / YY',
       name: 'credit-card-date',
       id: 'credit-card-date',
@@ -35,12 +35,15 @@ module.exports = React.createClass({
 
   handleChange: function(e){
 
-    if( !this.formatting){
+    var elm = document.querySelector('.credit-card-date-input');
+
+    if( !this.formatting && elm){
       this.formatting = true;
-      Payment.formatCardExpiry(document.querySelector('.credit-card-date-input'));
+
+      Payment.formatCardExpiry(elm);
     }
 
-    var expires = e.target.value;
+    var expires = (e.target) ? e.target.value : null;
     var isValid = true;
     var self = this;
 
@@ -59,6 +62,14 @@ module.exports = React.createClass({
         error: (isValid) ? null : self.props.errorMessage
       });
     }, 500);
+
+    // @note: adding this because there is a timeout on state change
+    // not picked up my unit tests.  But this reflects the values that
+    // will be set after timeout executes.
+    this.setState({
+      unitTestValid: isValid,
+      unitTestError: (isValid) ? null : self.props.errorMessage
+    });
   },
 
   render: function() {
