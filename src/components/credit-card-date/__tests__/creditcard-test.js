@@ -1,5 +1,5 @@
 /** @jsx React.DOM */
-
+var React = require('react');
 var CreditCardDateView = require('../code/views/creditCardDateView.jsx');
 
 describe('CreditCardDateComponent', function() {
