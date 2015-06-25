@@ -35,23 +35,20 @@ module.exports = React.createClass({
 
   handleChange: function(e){
 
-    var elm = document.querySelector('.credit-card-date-input');
-
-    if( !this.formatting && elm){
+    if( !this.formatting && e.target){
       this.formatting = true;
-
-      Payment.formatCardExpiry(elm);
+      Payment.formatCardExpiry(e.target);
     }
 
     var expires = (e.target) ? e.target.value : null;
     var isValid = true;
     var self = this;
 
-    if(expires.length > 0){
+    if(expires && expires.length > 0){
       isValid = false;
-      var date = expires.split(' / ');
-      if(date.length === 2){
-        isValid = Payment.fns.validateCardExpiry(date[0], date[1]);
+      var date = expires.match(/(\d{1,2})\s?\/?\s?(\d{2})/);
+      if(date && date.length === 3){
+        isValid = Payment.fns.validateCardExpiry(date[1], date[2]);
       }
     }
 
