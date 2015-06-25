@@ -1,5 +1,6 @@
 /** @jsx React.DOM */
 
+var React = require('react');
 var RatingComponent = require('../code/views/ratingView.jsx');
 
 describe('RatingComponent', function() {
