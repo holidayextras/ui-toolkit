@@ -23,6 +23,7 @@ module.exports = React.createClass({
     var cardType = Payment.fns.cardType(this.props.defaultValue);
 
     return {
+      value: this.props.defaultValue || '',
       valid: isValid,
       error: (isValid) ? null : this.props.errorMessage,
       cardType: cardType
@@ -37,7 +38,8 @@ module.exports = React.createClass({
       name: 'credit-card-number',
       placeHolder: '• • • •   • • • •   • • • •   • • • •',
       showImages: false,
-      errorMessage: 'Invalid Card Number'
+      errorMessage: 'Invalid Card Number',
+      defaultValue: ''
     };
   },
 
@@ -70,6 +72,14 @@ module.exports = React.createClass({
         cardType: cardType
       });
     }, 500);
+
+    // @note: adding this because there is a timeout on state change
+    // not picked up my unit tests.  But this reflects the values that
+    // will be set after timeout executes.
+    this.setState({
+      unitTestValid: isValid,
+      unitTestError: (isValid) ? null : self.props.errorMessage
+    });
   },
 
   render: function() {
