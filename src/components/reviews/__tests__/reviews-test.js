@@ -1,5 +1,6 @@
 /** @jsx React.DOM */
 
+var React = require('react');
 var ReviewsComponent = require('../code/views/reviewsView.jsx');
 
 describe('ReviewsComponent', function() {
