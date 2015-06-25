@@ -1,3 +1,4 @@
+var React = require('react');
 var classNames = require('classnames');
 
 module.exports = function (component){
@@ -34,7 +35,7 @@ module.exports = function (component){
         valid={component.state.valid}
         name={component.props.name}
         id={component.props.id}
-        placeholder={component.props.placeholder}
+        placeholder={component.props.placeHolder}
         onChange={component.handleChange}
         defaultValue={component.props.defaultValue}
         disabled={component.props.disabled}

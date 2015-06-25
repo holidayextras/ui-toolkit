@@ -7,7 +7,7 @@ module.exports = React.createClass({
   propTypes: {
     label: React.PropTypes.string,
     type: React.PropTypes.oneOf(['text', 'password', 'email']),
-    placeholder: React.PropTypes.string,
+    placeHolder: React.PropTypes.string,
     defaultValue: React.PropTypes.string,
     name: React.PropTypes.string,
     id: React.PropTypes.string,
@@ -34,7 +34,11 @@ module.exports = React.createClass({
       disabled: false,
       readOnly: false,
       required: false,
-      errorMessage: null
+      errorMessage: 'Invalid Input',
+      id: 'component-input',
+      name: 'component-input',
+      placeHolder: '',
+      defaultValue: ''
     };
   },
 

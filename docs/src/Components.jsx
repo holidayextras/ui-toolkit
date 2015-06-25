@@ -102,7 +102,7 @@ var Components = React.createClass({
             <li><code>name</code> String - Optional Name for Input Field</li>
             <li><code>id</code> String - Optional ID for Input Field</li>
             <li><code>label</code> String - Optional Label in front of Input Field</li>
-            <li><code>placeholder</code> String - Optional Placeholder for Input Field</li>
+            <li><code>placeHolder</code> String - Optional Placeholder for Input Field</li>
             <li><code>defaultValue</code> String - Optional Default Value for Input Field</li>
             <li><code>validator</code> String - Optional Regular Expression to Validate Input</li>
             <li><code>errorMessage</code> String - Optional Error Message to show if <code>validator</code> returns false</li>
