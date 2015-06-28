@@ -4,7 +4,7 @@ module.exports = function () {
     return prefixCls;
   }
   var args = Array.prototype.slice.call(arguments, 0);
-  return args.map(s => {
+  return args.map(function(s){
     return prefixCls + '-' + s;
   }).join(' ');
 };

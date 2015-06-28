@@ -1,23 +1,6 @@
-'use strict';
-
 var React = require('react');
 var ROW = 4;
 var COL = 3;
-var cx = require('rc-util').classSet;
-var DecadePanel = require('../decade/decadePanelView');
-var staticPrefixClsFn = require('../util/prefixClsFn');
-
-function goYear(direction) {
-  var next = this.state.value.clone();
-  next.addYear(direction);
-  this.setState({value: next});
-}
-
-function chooseYear(year) {
-  var next = this.state.value.clone();
-  next.setYear(year);
-  this.props.onSelect(next);
-}
 
 module.exports = React.createClass({
 

@@ -3,9 +3,6 @@ var DateTimeFormat = require('gregorian-calendar-format');
 var GregorianCalendar = require('gregorian-calendar');
 var rcUtil = require('rc-util');
 var KeyCode = rcUtil.KeyCode;
-var DateTable = require('./date/dateTableView');
-var CalendarHeader = require('./calendar/calendarHeaderView');
-var CalendarFooter = require('./calendar/calendarFooterView');
 var staticPrefixClsFn = require('./util/prefixClsFn');
 
 function noop() {
@@ -20,18 +17,6 @@ function goStartMonth() {
 function goEndMonth() {
   var next = this.state.value.clone();
   next.setDayOfMonth(next.getActualMaximum(GregorianCalendar.MONTH));
-  this.setState({value: next});
-}
-
-function goMonth(direction) {
-  var next = this.state.value.clone();
-  next.addMonth(direction);
-  this.setState({value: next});
-}
-
-function goYear(direction) {
-  var next = this.state.value.clone();
-  next.addYear(direction);
   this.setState({value: next});
 }
 
@@ -61,6 +46,8 @@ function getNowByCurrentStateValue(value) {
 }
 
 module.exports = React.createClass({
+
+  blurTimer: null,
 
   propTypes: {
     value: React.PropTypes.object,
@@ -180,20 +167,22 @@ module.exports = React.createClass({
   },
 
   handleFocus: function() {
-    if (this._blurTimer) {
-      clearTimeout(this._blurTimer);
-      this._blurTimer = null;
+    if (this.blurTimer) {
+      clearTimeout(this.blurTimer);
+      this.blurTimer = null;
     } else {
       this.props.onFocus();
     }
   },
 
   handleBlur: function() {
-    if (this._blurTimer) {
-      clearTimeout(this._blurTimer);
+    if (this.blurTimer) {
+      clearTimeout(this.blurTimer);
     }
     var self = this;
-    this._blurTimer = setTimeout(function(){ self.props.onBlur(); }, 100);
+    this.blurTimer = setTimeout(function(){
+      self.props.onBlur();
+    }, 100);
   },
 
   shouldComponentUpdate: function() {

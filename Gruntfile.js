@@ -8,7 +8,7 @@ module.exports = function(grunt) {
   gtx.config(gruntConfig);
 
   gtx.alias('build', ['build-dist', 'less', 'copy']);
-  gtx.alias('build-dist', ['shell:buildDist'])
+  gtx.alias('build-dist', ['shell:buildDist', 'shell:lint'])
 
   gtx.alias('docs', ['docs-build', 'concurrent:docs']);
   gtx.alias('docs-build', ['shell:docsBuild']);

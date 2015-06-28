@@ -33,23 +33,32 @@ module.exports = React.createClass({
     var value = this.props.value;
     var monthBeforeYear = locale.monthBeforeYear;
     var selectClassName = prefixClsFn(monthBeforeYear ? 'my-select' : 'ym-select');
-    var year = <a className = {prefixClsFn('year-select')}
-      role="button"
-      onClick={this.showYearPanel}
-      title={locale.monthSelect}>{this.yearFormatter.format(value)}</a>;
-    var month = <a className ={prefixClsFn('month-select')}
-      role="button"
-      onClick={this.showMonthPanel}
-      title={locale.monthSelect}>{this.monthFormatter.format(value)}</a>;
+    var year = (
+      <a className={prefixClsFn('year-select')}
+        role="button"
+        onClick={this.showYearPanel}
+        title={locale.monthSelect}>
+          {this.yearFormatter.format(value)}
+      </a>
+    );
+    var month = (
+      <a className={prefixClsFn('month-select')}
+        role="button"
+        onClick={this.showMonthPanel}
+        title={locale.monthSelect}>
+          {this.monthFormatter.format(value)}
+      </a>);
     var my = [];
     if (monthBeforeYear) {
       my = [month, year];
     } else {
       my = [year, month];
     }
-    return <span className={selectClassName}>
-    {toFragment(my)}
-    </span>;
+    return (
+      <span className={selectClassName}>
+        {toFragment(my)}
+      </span>
+    );
   },
 
   handleSelect: function(value) {

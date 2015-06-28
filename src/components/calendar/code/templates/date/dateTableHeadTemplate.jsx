@@ -1,3 +1,4 @@
+var React = require('react');
 var DateConstants = require('./dateConstants');
 
 module.exports = function(props) {

@@ -1,14 +1,8 @@
+var React = require('react');
+
 var ROW = 4;
 var COL = 3;
 var cx = require('rc-util').classSet;
-
-function goYear(direction) {
-  var next = this.state.value.clone();
-  next.addYear(direction);
-  this.setState({
-    value: next
-  });
-}
 
 function chooseDecade(year, e) {
   var next = this.state.value.clone();
@@ -17,7 +11,7 @@ function chooseDecade(year, e) {
   e.preventDefault();
 }
 
-module.exports = function(props) {
+module.exports = function() {
   var value = this.state.value;
   var locale = this.props.locale;
   var currentYear = value.getYear();
@@ -97,7 +91,7 @@ module.exports = function(props) {
           »
         </a>
       </div>
-      <div className =  {prefixClsFn('body')}>
+      <div className = {prefixClsFn('body')}>
         <table className = {prefixClsFn('table')} cellSpacing="0" role="grid">
           <tbody className = {prefixClsFn('tbody')}>
           {decadesEls}

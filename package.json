@@ -11,7 +11,7 @@
     "postinstall": "./scripts/postinstall.sh",
     "coveralls": "./node_modules/mocha/bin/mocha --require blanket --require tests/bootstrap.js --reporter mocha-lcov-reporter --compilers .:tests/compiler.js src/**/__tests__/*-test.js src/components/**/__tests__/*-test.js | ./node_modules/coveralls/bin/coveralls.js",
     "test": "./node_modules/mocha/bin/mocha --require tests/bootstrap.js --compilers .:tests/compiler.js src/**/__tests__/*-test.js src/components/**/__tests__/*-test.js",
-    "lint": "node_modules/.bin/eslint src --ext .jsx --ext .js --quiet && echo '🍻  All good!'"
+    "lint": "node_modules/.bin/eslint src --ext .jsx --ext .js --quiet && echo '✓ All good!'"
   },
   "config": {
     "blanket": {

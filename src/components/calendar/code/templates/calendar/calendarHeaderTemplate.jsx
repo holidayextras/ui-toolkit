@@ -1,3 +1,4 @@
+var React = require('react');
 var MonthPanel = require('../month/monthPanelView');
 var YearPanel = require('../year/yearPanelView');
 

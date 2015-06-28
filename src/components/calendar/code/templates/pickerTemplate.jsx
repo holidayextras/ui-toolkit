@@ -1,10 +1,20 @@
+var React = require('react');
+var rcUtil = require('rc-util');
+var toFragment = rcUtil.Children.mapSelf;
+
+function prevent(e) {
+  e.preventDefault();
+}
+
 module.exports = function(props) {
 
   var renderCalendarToBody = props.renderCalendarToBody;
   var input = props.children;
   if (!React.isValidElement(input)) {
     var children = input;
-    React.Children.forEach(children, function(m){ input = m; });
+    React.Children.forEach(children, function(m){
+      input = m;
+    });
   }
   var state = this.state;
   var value = state.value;

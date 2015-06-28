@@ -1,7 +1,6 @@
 var React = require('react');
 var DateTimeFormat = require('gregorian-calendar-format');
 var rcUtil = require('rc-util');
-var toFragment = rcUtil.Children.mapSelf;
 var KeyCode = rcUtil.KeyCode;
 var domAlign = require('dom-align');
 var orientMap = {
@@ -12,10 +11,6 @@ var orientMap = {
 };
 var createChainedFunction = rcUtil.createChainedFunction;
 
-function prevent(e) {
-  e.preventDefault();
-}
-
 function getImmutableOrient(orient) {
   if (orient) {
     for (var i in orientMap) {
@@ -25,10 +20,6 @@ function getImmutableOrient(orient) {
       }
     }
   }
-}
-
-function refFn(field, component) {
-  this[field] = component;
 }
 
 function getContainerClassName(prefixCls, open) {
@@ -49,8 +40,7 @@ module.exports = React.createClass({
   defaultProps: {
     prefixCls: 'rc-calendar-picker',
     renderCalendarToBody: false,
-    onChange() {
-    },
+    onChange: function(){},
     formatter: new DateTimeFormat('yyyy-MM-dd')
   },
 
@@ -79,6 +69,7 @@ module.exports = React.createClass({
 
   componentDidUpdate: function(prevProps, prevState) {
     prevState = prevState || {};
+    var self = this;
     var prefixCls = this.props.prefixCls;
     if (this.props.renderCalendarToBody && !this.state.open && prevState.open) {
       this.getCalendarContainer().className = getContainerClassName(prefixCls);
@@ -86,8 +77,8 @@ module.exports = React.createClass({
     if (this.state.open && !prevState.open) {
       if (this.props.renderCalendarToBody) {
         this.getCalendarContainer().className = getContainerClassName(prefixCls, true);
-        React.render(this.getCalendarElement(), this.getCalendarContainer(), ()=> {
-          this.alignCalendar();
+        React.render(this.getCalendarElement(), this.getCalendarContainer(), function(){
+          self.alignCalendar();
         });
       } else {
         this.alignCalendar();

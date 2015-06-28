@@ -1,3 +1,13 @@
+var React = require('react');
+var cx = require('rc-util').classSet;
+var YearPanel = require('../year/yearPanelView');
+
+function chooseMonth(month) {
+  var next = this.state.value.clone();
+  next.setMonth(month);
+  this.props.onSelect(next);
+}
+
 module.exports = function(props) {
   var value = this.state.value;
   var locale = props.locale;
@@ -5,7 +15,7 @@ module.exports = function(props) {
   var year = value.getYear();
   var currentMonth = value.getMonth();
   var prefixClsFn = this.prefixClsFn;
-  var monthsEls = months.map((month, index)=> {
+  var monthsEls = months.map(function(month, index){
     var tds = month.map(function(m){
       var classNameMap = {};
       classNameMap[prefixClsFn('cell')] = 1;

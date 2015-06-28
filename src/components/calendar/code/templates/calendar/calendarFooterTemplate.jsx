@@ -1,3 +1,4 @@
+var React = require('react');
 var Time = require('../time/timeView');
 var toFragment = require('rc-util').Children.mapSelf;
 

@@ -1,8 +1,15 @@
-var rcUtil = require('rc-util');
+var React = require('react');
 var TimePanel = require('./timePanelView');
 var setHourOfDay = 'setHourOfDay';
 var setMinutes = 'setMinutes';
 var setSeconds = 'setSeconds';
+
+function padding(number) {
+  if (number < 10) {
+    number = '0' + number;
+  }
+  return number;
+}
 
 module.exports = function(props) {
 
@@ -21,19 +28,35 @@ module.exports = function(props) {
   };
 
   if (state.showHourPanel) {
-    panel = <TimePanel rowCount={6} colCount={4} getter="getHourOfDay" setter={setHourOfDay}
-                       title={locale.hourPanelTitle}
-      {...commonProps}/>;
-  }
-  else if (state.showMinutePanel) {
-    panel = <TimePanel rowCount={6} colCount={10} getter="getMinutes" setter={setMinutes}
-                       title={locale.minutePanelTitle}
-      {...commonProps}/>;
-  }
-  else if (state.showSecondPanel) {
-    panel = <TimePanel rowCount={6} colCount={10} getter="getSeconds" setter={setSeconds}
-                       title={locale.secondPanelTitle}
-      {...commonProps}/>;
+    panel = (
+      <TimePanel
+        rowCount={6}
+        colCount={4}
+        getter="getHourOfDay"
+        setter={setHourOfDay}
+        title={locale.hourPanelTitle}
+        {...commonProps}/>
+    );
+  } else if (state.showMinutePanel) {
+    panel = (
+      <TimePanel
+        rowCount={6}
+        colCount={10}
+        getter="getMinutes"
+        setter={setMinutes}
+        title={locale.minutePanelTitle}
+        {...commonProps}/>
+    );
+  } else if (state.showSecondPanel) {
+    panel = (
+      <TimePanel
+        rowCount={6}
+        colCount={10}
+        getter="getSeconds"
+        setter={setSeconds}
+        title={locale.secondPanelTitle}
+        {...commonProps}/>
+    );
   }
 
   return (

@@ -1,3 +1,13 @@
+var React = require('react');
+var cx = require('rc-util').classSet;
+var DecadePanel = require('../../views/decade/decadePanelView');
+
+function chooseYear(year) {
+  var next = this.state.value.clone();
+  next.setYear(year);
+  this.props.onSelect(next);
+}
+
 module.exports = function(props) {
 
   var value = this.state.value;
@@ -8,8 +18,9 @@ module.exports = function(props) {
   var endYear = startYear + 9;
   var prefixClsFn = this.prefixClsFn;
 
-  var yeasEls = years.map((row, index) => {
-    var tds = row.map(y => {
+  var self = this;
+  var yeasEls = years.map(function(row, index){
+    var tds = row.map(function(y){
       var classNameMap = {};
       classNameMap[prefixClsFn('cell')] = 1;
       classNameMap[prefixClsFn('selected-cell')] = y.year === currentYear;
@@ -17,11 +28,11 @@ module.exports = function(props) {
       classNameMap[prefixClsFn('next-decade-cell')] = y.year > endYear;
       var clickHandler;
       if (y.year < startYear) {
-        clickHandler = this.previousDecade;
+        clickHandler = self.previousDecade;
       } else if (y.year > endYear) {
-        clickHandler = this.nextDecade;
+        clickHandler = self.nextDecade;
       } else {
-        clickHandler = chooseYear.bind(this, y.year);
+        clickHandler = chooseYear.bind(self, y.year);
       }
       return (
         <td role="gridcell"

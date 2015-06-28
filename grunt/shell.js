@@ -10,5 +10,11 @@ module.exports = {
   },
   docsView: {
     command: 'open http://localhost:4000'
+  },
+  lint: {
+    command: 'npm run lint'
+  },
+  test: {
+    command: 'npm test'
   }
 };

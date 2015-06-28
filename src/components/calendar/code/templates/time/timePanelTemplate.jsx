@@ -1,3 +1,14 @@
+var React = require('react');
+var cx = require('rc-util').classSet;
+
+function choose(hour, e) {
+  var next = this.state.value.clone();
+  var method = this.props.setter;
+  next[method](hour);
+  this.props.onSelect(next, method);
+  e.preventDefault();
+}
+
 module.exports = function(props) {
   var value = this.state.value;
   var method = props.getter;
@@ -37,10 +48,10 @@ module.exports = function(props) {
     <div className={this.state.prefixCls}>
       <div className = {prefixClsFn('header')}>
         <div className = {prefixClsFn('title')}>
-              {props.title}
+          {props.title}
         </div>
       </div>
-      <div className =  {prefixClsFn('body')}>
+      <div className = {prefixClsFn('body')}>
         <table className = {prefixClsFn('table')} cellSpacing="0" role="grid">
           <tbody className = {prefixClsFn('tbody')}>
           {hoursEls}

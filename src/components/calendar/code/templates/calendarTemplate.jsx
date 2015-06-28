@@ -1,3 +1,9 @@
+var React = require('react');
+var rcUtil = require('rc-util');
+var DateTable = require('../views/date/dateTableView');
+var CalendarHeader = require('../view/calendar/calendarHeaderView');
+var CalendarFooter = require('../view/calendar/calendarFooterView');
+
 module.exports = function(props) {
 
   var locale = props.locale;
@@ -5,10 +11,9 @@ module.exports = function(props) {
   var value = state.value;
   var prefixClsFn = this.prefixClsFn;
 
-  var className = {
-    [prefixClsFn()]: 1,
-    [prefixClsFn('week-number')]: props.showWeekNumber
-  };
+  var className = {};
+  className[prefixClsFn()] = 1;
+  className[prefixClsFn('week-number')] = props.showWeekNumber;
 
   if (props.className) {
     className[props.className] = 1;
@@ -16,8 +21,8 @@ module.exports = function(props) {
 
   var orient = state.orient;
   if (orient) {
-    orient.forEach(o => {
-      className [prefixClsFn('orient-' + o)] = 1;
+    orient.forEach(function(o){
+      className[prefixClsFn('orient-' + o)] = 1;
     });
   }
 

@@ -1,36 +1,6 @@
 var React = require('react');
 var ROW = 4;
 var COL = 3;
-var cx = require('rc-util').classSet;
-var YearPanel = require('../year/yearPanelView');
-var staticPrefixClsFn = require('../util/prefixClsFn');
-
-function goYear(direction) {
-  var next = this.state.value.clone();
-  next.addYear(direction);
-  this.setState({
-    value: next
-  });
-}
-
-function showYearPanel() {
-  this.setState({
-    showYearPanel: 1
-  });
-}
-
-function chooseMonth(month) {
-  var next = this.state.value.clone();
-  next.setMonth(month);
-  this.props.onSelect(next);
-}
-
-function onYearPanelSelect(current) {
-  this.setState({
-    value: current,
-    showYearPanel: 0
-  });
-}
 
 module.exports = React.createClass({
 
@@ -53,7 +23,7 @@ module.exports = React.createClass({
         months[i][j] = {
           value: index,
           content: shortMonths[index],
-          title:shortMonths[index]
+          title: shortMonths[index]
         };
         index++;
       }
