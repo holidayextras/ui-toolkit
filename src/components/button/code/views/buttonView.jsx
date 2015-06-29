@@ -1,6 +1,3 @@
-/** @jsx React.DOM */
-
-var React = require('react');
 var DataAttributesMixin = require('react-data-attributes-mixin');
 module.exports = React.createClass({
 

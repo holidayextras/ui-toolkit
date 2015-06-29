@@ -1,5 +1,3 @@
-var React = require('react');
-
 module.exports = React.createClass({
   propTypes: {
     reviewPercentage: React.PropTypes.number.isRequired,

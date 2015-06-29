@@ -1,6 +1,3 @@
-var React = require('react');
-var ImageComponent = require('../../../image');
-
 module.exports = function(props) {
   return (
     <div className="component-tile">

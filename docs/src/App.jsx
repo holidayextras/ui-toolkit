@@ -1,5 +1,4 @@
 var React = require('react');
-
 var HomePage = require('./HomePage.jsx');
 
 var App = React.createClass({
