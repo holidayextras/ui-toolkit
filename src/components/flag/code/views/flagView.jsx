@@ -17,7 +17,9 @@ module.exports = React.createClass({
       'left top',
       'left bottom',
       'right top',
-      'right bottom'
+      'right bottom',
+      'left right',
+      'right left'
     ])
   },
 
