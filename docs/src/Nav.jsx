@@ -23,6 +23,7 @@ var Nav = React.createClass({
               <li><a href="#image">Image</a></li>
               <li><a href="#tile">Tile</a></li>
               <li><a href="#lists">Lists</a></li>
+              <li><a href="#alert">Alert</a></li>
             </ul>
           </li>
         </ul>

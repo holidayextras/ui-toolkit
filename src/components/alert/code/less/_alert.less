@@ -1,0 +1,62 @@
+/*------------------------------------*\
+    #Quote
+\*------------------------------------*/
+
+.component-alert {
+  padding: 1em;
+  border-radius:.25em;
+  overflow:hidden;
+  position:relative;
+  & + .component-alert {
+    margin-top:1em;
+  }
+  h4 {
+    font-weight:700;
+    margin-top:0;
+  }
+  a {
+    font-weight:700;
+  }
+  p:last-of-type {
+    margin:0;
+  }
+}
+
+//
+// == Functional Colours ==
+//
+
+// Mixin
+.alert-variant(@background) {
+  color: darken(@background, 30%);
+  background-color: lighten(@background, 30%);
+  border: @background solid 1px;
+  a {
+    color: darken(@background, 30%);
+  }
+}
+
+.component-alert {
+  .alert-variant(@default);
+  &.default {
+    .alert-variant(@default);
+  }
+  &.primary {
+    .alert-variant(@primary);
+  }
+  &.secondary {
+    .alert-variant(@secondary);
+  }
+  &.success {
+    .alert-variant(@success);
+  }
+  &.info {
+    .alert-variant(@info);
+  }
+  &.warning {
+    .alert-variant(@warning);
+  }
+  &.danger {
+    .alert-variant(@danger);
+  }
+}
