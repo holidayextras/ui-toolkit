@@ -67,7 +67,7 @@ describe('AlertComponent', function() {
 
   it('should render an alert with a header', function() {
     var alert = TestUtils.renderIntoDocument(
-      <AlertComponent title="Header"></AlertComponent>
+      <AlertComponent title="Header" />
     );
 
     var renderedAlert = TestUtils.findRenderedDOMComponentWithClass(alert, 'component-alert');
