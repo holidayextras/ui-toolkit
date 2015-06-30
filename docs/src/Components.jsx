@@ -92,6 +92,21 @@ var Components = React.createClass({
           </ul>
         </article>
 
+        <article>
+        <h3 id="credit-card-date">Credit Card Date</h3>
+        <p>Date for Credit Card.</p>
+        <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/CreditCardDate.jsx', 'utf8')} />
+        <h4>Attributes</h4>
+        <ul>
+          <li><code>label</code> [optional] String - Adds Form label</li>
+          <li><code>defaultValue</code> [optional] String - MM/YY Date</li>
+          <li><code>placeHolder</code> [optional] String - Default  'MM / YY'</li>
+          <li><code>name</code> [optional] String - Default 'credit-card-date'</li>
+          <li><code>id</code> [optional] String - Default 'credit-card-date'</li>
+          <li><code>errorMessage</code> [optional] String - Default 'Invalid Date'</li>
+        </ul>
+      </article>
+
       </section>
     );
   }

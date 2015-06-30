@@ -9,5 +9,6 @@ UIToolkit.Tile = require('./components/tile');
 UIToolkit.Image = require('./components/image');
 UIToolkit.IconList = require('./components/icon-list');
 UIToolkit.IconListItem = require('./components/icon-list-item');
+UIToolkit.CreditCardDate = require('./components/credit-card-date');
 
 module.exports = UIToolkit;
