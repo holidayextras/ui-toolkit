@@ -195,8 +195,12 @@ var CustomComponent = React.createClass({
       }
     } catch (err) {
       this.setTimeout(function() {
+        if(typeof console !== 'undefined')
+        {
+          console.error(err);
+        }
         React.render(
-          <UIToolkit.BootstrapAlert bsStyle="danger">{err.toString()}</UIToolkit.BootstrapAlert>,
+          <div className="alert alert-danger">{err.toString()}</div>,
           mountNode
         );
       }, 500);
