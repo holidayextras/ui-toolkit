@@ -92,6 +92,18 @@ var Components = React.createClass({
           </ul>
         </article>
 
+        <article id="alert">
+          <h3>Alert</h3>
+          <p>An alert is used to display helpful or factual information usually used as a prompt.</p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Alert.jsx', 'utf8')} />
+          <h4>Attributes</h4>
+          <ul>
+            <li><code>title</code> String - The title of the alert</li>
+            <li><code>purpose</code> String - The purpose of the alert</li>
+            <li><code>size</code> String - The size of the alert (default: medium)</li>
+          </ul>
+        </article>
+
       </section>
     );
   }
