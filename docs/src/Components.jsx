@@ -104,6 +104,21 @@ var Components = React.createClass({
           </ul>
         </article>
 
+         <article id="quote">
+          <h3>Quote</h3>
+          <p>A quote is used referencing blocks of content from another source within your document. They come as a <code>Block</code> (default) or <code>inline</code></p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Quote.jsx', 'utf8')} />
+          <h4>Attributes</h4>
+          <ul>
+            <li><code>type</code> String - Block (default) or Inline</li>
+            <li><code>cite</code> String - cited title of a work; for example, the title of a book mentioned within the main text flow of a document</li>
+            <li><code>author</code> String - The author of the quote</li>
+            <li><code>role</code> String - The role/job title of the author</li>
+            <li><code>purpose</code> String - The purpose of the quote</li>
+            <li><code>size</code> String - The size of the alert (default: medium)</li>
+          </ul>
+        </article>
+
       </section>
     );
   }
