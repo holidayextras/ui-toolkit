@@ -2,6 +2,7 @@
   "name": "ui-toolkit",
   "version": "0.8.2",
   "description": "UI Toolkit",
+  "license": "MIT",
   "main": "src/index.js",
   "repository": {
     "type": "git",
