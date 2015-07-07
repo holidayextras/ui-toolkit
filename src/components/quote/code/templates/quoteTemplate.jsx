@@ -3,7 +3,7 @@ var getComponentClasses = require('../../../../utils/getComponentClasses');
 
 module.exports = function() {
 
-  var propClasses = ['size', 'purpose', 'orientation'];
+  var propClasses = ['size', 'purpose', 'type'];
   var classes = getComponentClasses('component-quote', propClasses, this.props);
 
   return (
