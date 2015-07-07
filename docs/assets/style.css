@@ -126,3 +126,73 @@ article {
   float:left;
   z-index: 1;
 }
+
+/* Components */
+.toolkit-example button {
+  margin:.25em;
+}
+
+/* Credit Card Number */
+.component-credit-card-number .credit-card-images {
+  padding: 8px 0;
+  margin-left: 116px;
+}
+.component-credit-card-number .card-image {
+  width: 48px;
+  margin-right: 5px;
+}
+.component-credit-card-number .card-image.disabled {
+  opacity: 0.25;
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+.component-credit-card-number .card-image.active {
+  opacity: 1;
+}
+.component-credit-card-number .credit-card-number-input {
+  padding: 0 12px;
+  width: 206px;
+}
+.component-credit-card-number .credit-card-number-input.has-error {
+  color: #c7254e;
+}
+.component-credit-card-number .credit-card-number-label {
+  width: 90px;
+}
+
+
+.toolkit-example .input-group {
+  width: 100%;
+}
+
+.toolkit-example .input-group-label {
+  width: 18%;
+}
+
+.toolkit-example .input-group-field {
+  border: 1px solid #dddddd;
+  outline: none;
+  padding: 0 8px;
+  border-radius: 2px;
+}
+
+.toolkit-example .input-group-error .input-group-field {
+  border: 1px solid #c7254e;
+  color: #c7254e;
+  background-color: #f9f2f4;
+}
+
+.toolkit-example .input-group-error .input-group-span {
+  color: #c7254e;
+  display: inline-block;
+  margin-left: 15px;
+}
+.toolkit-example .component-input-error
+{
+  color: #c7254e;
+  display: inline-block;
+  margin-left: 15px;
+}
