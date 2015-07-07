@@ -45,7 +45,7 @@ describe('QuoteComponent', function() {
 
   });
 
-  it('should render a quote with a author', function() {
+  it('should render a quote with an author', function() {
     var authorQuote = TestUtils.renderIntoDocument(
       <QuoteComponent author="Timmy Test" />
     );
