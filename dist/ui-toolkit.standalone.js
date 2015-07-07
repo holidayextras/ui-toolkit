@@ -131,13 +131,13 @@ process.umask = function() { return 0; };
 		return classes.substr(1);
 	}
 
-	if (typeof define === 'function' && typeof define.amd === 'object' && define.amd) {
+	if (typeof module !== 'undefined' && module.exports) {
+		module.exports = classNames;
+	} else if (typeof define === 'function' && typeof define.amd === 'object' && define.amd){
 		// AMD. Register as an anonymous module.
 		define(function () {
 			return classNames;
 		});
-	} else if (typeof module !== 'undefined' && module.exports) {
-		module.exports = classNames;
 	} else {
 		window.classNames = classNames;
 	}
@@ -198,7 +198,7 @@ module.exports = pick;
 
 },{"lodash._baseflatten":5,"lodash._bindcallback":8,"lodash._pickbyarray":9,"lodash._pickbycallback":10,"lodash.restparam":15}],5:[function(require,module,exports){
 /**
- * lodash 3.1.3 (Custom Build) <https://lodash.com/>
+ * lodash 3.1.4 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
  * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
@@ -220,10 +220,29 @@ function isObjectLike(value) {
 }
 
 /**
- * Used as the [maximum length](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-number.max_safe_integer)
+ * Used as the [maximum length](http://ecma-international.org/ecma-262/6.0/#sec-number.max_safe_integer)
  * of an array-like value.
  */
 var MAX_SAFE_INTEGER = 9007199254740991;
+
+/**
+ * Appends the elements of `values` to `array`.
+ *
+ * @private
+ * @param {Array} array The array to modify.
+ * @param {Array} values The values to append.
+ * @returns {Array} Returns `array`.
+ */
+function arrayPush(array, values) {
+  var index = -1,
+      length = values.length,
+      offset = array.length;
+
+  while (++index < length) {
+    array[offset + index] = values[index];
+  }
+  return array;
+}
 
 /**
  * The base implementation of `_.flatten` with added support for restricting
@@ -233,13 +252,14 @@ var MAX_SAFE_INTEGER = 9007199254740991;
  * @param {Array} array The array to flatten.
  * @param {boolean} [isDeep] Specify a deep flatten.
  * @param {boolean} [isStrict] Restrict flattening to arrays-like objects.
+ * @param {Array} [result=[]] The initial result value.
  * @returns {Array} Returns the new flattened array.
  */
-function baseFlatten(array, isDeep, isStrict) {
+function baseFlatten(array, isDeep, isStrict, result) {
+  result || (result = []);
+
   var index = -1,
-      length = array.length,
-      resIndex = -1,
-      result = [];
+      length = array.length;
 
   while (++index < length) {
     var value = array[index];
@@ -247,16 +267,12 @@ function baseFlatten(array, isDeep, isStrict) {
         (isStrict || isArray(value) || isArguments(value))) {
       if (isDeep) {
         // Recursively flatten arrays (susceptible to call stack limits).
-        value = baseFlatten(value, isDeep, isStrict);
-      }
-      var valIndex = -1,
-          valLength = value.length;
-
-      while (++valIndex < valLength) {
-        result[++resIndex] = value[valIndex];
+        baseFlatten(value, isDeep, isStrict, result);
+      } else {
+        arrayPush(result, value);
       }
     } else if (!isStrict) {
-      result[++resIndex] = value;
+      result[result.length] = value;
     }
   }
   return result;
@@ -301,7 +317,7 @@ function isArrayLike(value) {
 /**
  * Checks if `value` is a valid array-like length.
  *
- * **Note:** This function is based on [`ToLength`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength).
+ * **Note:** This function is based on [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
  *
  * @private
  * @param {*} value The value to check.
@@ -315,16 +331,13 @@ module.exports = baseFlatten;
 
 },{"lodash.isarguments":6,"lodash.isarray":7}],6:[function(require,module,exports){
 /**
- * lodash 3.0.3 (Custom Build) <https://lodash.com/>
+ * lodash 3.0.4 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
  * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
  * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
  * Available under MIT license <https://lodash.com/license>
  */
-
-/** `Object#toString` result references. */
-var argsTag = '[object Arguments]';
 
 /**
  * Checks if `value` is object-like.
@@ -340,14 +353,14 @@ function isObjectLike(value) {
 /** Used for native method references. */
 var objectProto = Object.prototype;
 
-/**
- * Used to resolve the [`toStringTag`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-object.prototype.tostring)
- * of values.
- */
-var objToString = objectProto.toString;
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/** Native method references. */
+var propertyIsEnumerable = objectProto.propertyIsEnumerable;
 
 /**
- * Used as the [maximum length](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-number.max_safe_integer)
+ * Used as the [maximum length](http://ecma-international.org/ecma-262/6.0/#sec-number.max_safe_integer)
  * of an array-like value.
  */
 var MAX_SAFE_INTEGER = 9007199254740991;
@@ -391,7 +404,7 @@ function isArrayLike(value) {
 /**
  * Checks if `value` is a valid array-like length.
  *
- * **Note:** This function is based on [`ToLength`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength).
+ * **Note:** This function is based on [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
  *
  * @private
  * @param {*} value The value to check.
@@ -418,14 +431,15 @@ function isLength(value) {
  * // => false
  */
 function isArguments(value) {
-  return isObjectLike(value) && isArrayLike(value) && objToString.call(value) == argsTag;
+  return isObjectLike(value) && isArrayLike(value) &&
+    hasOwnProperty.call(value, 'callee') && !propertyIsEnumerable.call(value, 'callee');
 }
 
 module.exports = isArguments;
 
 },{}],7:[function(require,module,exports){
 /**
- * lodash 3.0.3 (Custom Build) <https://lodash.com/>
+ * lodash 3.0.4 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
  * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
@@ -437,31 +451,8 @@ module.exports = isArguments;
 var arrayTag = '[object Array]',
     funcTag = '[object Function]';
 
-/**
- * Used to match `RegExp` [special characters](http://www.regular-expressions.info/characters.html#special).
- * In addition to special characters the forward slash is escaped to allow for
- * easier `eval` use and `Function` compilation.
- */
-var reRegExpChars = /[.*+?^${}()|[\]\/\\]/g,
-    reHasRegExpChars = RegExp(reRegExpChars.source);
-
 /** Used to detect host constructors (Safari > 5). */
 var reIsHostCtor = /^\[object .+?Constructor\]$/;
-
-/**
- * Converts `value` to a string if it's not one. An empty string is returned
- * for `null` or `undefined` values.
- *
- * @private
- * @param {*} value The value to process.
- * @returns {string} Returns the string.
- */
-function baseToString(value) {
-  if (typeof value == 'string') {
-    return value;
-  }
-  return value == null ? '' : (value + '');
-}
 
 /**
  * Checks if `value` is object-like.
@@ -484,14 +475,14 @@ var fnToString = Function.prototype.toString;
 var hasOwnProperty = objectProto.hasOwnProperty;
 
 /**
- * Used to resolve the [`toStringTag`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-object.prototype.tostring)
+ * Used to resolve the [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
  * of values.
  */
 var objToString = objectProto.toString;
 
 /** Used to detect if a method is native. */
 var reIsNative = RegExp('^' +
-  escapeRegExp(fnToString.call(hasOwnProperty))
+  fnToString.call(hasOwnProperty).replace(/[\\^$.*+?()[\]{}|]/g, '\\$&')
   .replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '$'
 );
 
@@ -499,7 +490,7 @@ var reIsNative = RegExp('^' +
 var nativeIsArray = getNative(Array, 'isArray');
 
 /**
- * Used as the [maximum length](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-number.max_safe_integer)
+ * Used as the [maximum length](http://ecma-international.org/ecma-262/6.0/#sec-number.max_safe_integer)
  * of an array-like value.
  */
 var MAX_SAFE_INTEGER = 9007199254740991;
@@ -520,7 +511,7 @@ function getNative(object, key) {
 /**
  * Checks if `value` is a valid array-like length.
  *
- * **Note:** This function is based on [`ToLength`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength).
+ * **Note:** This function is based on [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
  *
  * @private
  * @param {*} value The value to check.
@@ -551,6 +542,56 @@ var isArray = nativeIsArray || function(value) {
 };
 
 /**
+ * Checks if `value` is classified as a `Function` object.
+ *
+ * @static
+ * @memberOf _
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
+ * @example
+ *
+ * _.isFunction(_);
+ * // => true
+ *
+ * _.isFunction(/abc/);
+ * // => false
+ */
+function isFunction(value) {
+  // The use of `Object#toString` avoids issues with the `typeof` operator
+  // in older versions of Chrome and Safari which return 'function' for regexes
+  // and Safari 8 equivalents which return 'object' for typed array constructors.
+  return isObject(value) && objToString.call(value) == funcTag;
+}
+
+/**
+ * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
+ * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+ *
+ * @static
+ * @memberOf _
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an object, else `false`.
+ * @example
+ *
+ * _.isObject({});
+ * // => true
+ *
+ * _.isObject([1, 2, 3]);
+ * // => true
+ *
+ * _.isObject(1);
+ * // => false
+ */
+function isObject(value) {
+  // Avoid a V8 JIT bug in Chrome 19-20.
+  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
+  var type = typeof value;
+  return !!value && (type == 'object' || type == 'function');
+}
+
+/**
  * Checks if `value` is a native function.
  *
  * @static
@@ -570,31 +611,10 @@ function isNative(value) {
   if (value == null) {
     return false;
   }
-  if (objToString.call(value) == funcTag) {
+  if (isFunction(value)) {
     return reIsNative.test(fnToString.call(value));
   }
   return isObjectLike(value) && reIsHostCtor.test(value);
-}
-
-/**
- * Escapes the `RegExp` special characters "\", "/", "^", "$", ".", "|", "?",
- * "*", "+", "(", ")", "[", "]", "{" and "}" in `string`.
- *
- * @static
- * @memberOf _
- * @category String
- * @param {string} [string=''] The string to escape.
- * @returns {string} Returns the escaped string.
- * @example
- *
- * _.escapeRegExp('[lodash](https://lodash.com/)');
- * // => '\[lodash\]\(https:\/\/lodash\.com\/\)'
- */
-function escapeRegExp(string) {
-  string = baseToString(string);
-  return (string && reHasRegExpChars.test(string))
-    ? string.replace(reRegExpChars, '\\$&')
-    : string;
 }
 
 module.exports = isArray;
@@ -1011,16 +1031,13 @@ module.exports = keysIn;
 
 },{"lodash.isarguments":13,"lodash.isarray":14}],13:[function(require,module,exports){
 /**
- * lodash 3.0.3 (Custom Build) <https://lodash.com/>
+ * lodash 3.0.4 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
  * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
  * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
  * Available under MIT license <https://lodash.com/license>
  */
-
-/** `Object#toString` result references. */
-var argsTag = '[object Arguments]';
 
 /**
  * Checks if `value` is object-like.
@@ -1036,14 +1053,14 @@ function isObjectLike(value) {
 /** Used for native method references. */
 var objectProto = Object.prototype;
 
-/**
- * Used to resolve the [`toStringTag`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-object.prototype.tostring)
- * of values.
- */
-var objToString = objectProto.toString;
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/** Native method references. */
+var propertyIsEnumerable = objectProto.propertyIsEnumerable;
 
 /**
- * Used as the [maximum length](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-number.max_safe_integer)
+ * Used as the [maximum length](http://ecma-international.org/ecma-262/6.0/#sec-number.max_safe_integer)
  * of an array-like value.
  */
 var MAX_SAFE_INTEGER = 9007199254740991;
@@ -1087,7 +1104,7 @@ function isArrayLike(value) {
 /**
  * Checks if `value` is a valid array-like length.
  *
- * **Note:** This function is based on [`ToLength`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength).
+ * **Note:** This function is based on [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
  *
  * @private
  * @param {*} value The value to check.
@@ -1114,14 +1131,15 @@ function isLength(value) {
  * // => false
  */
 function isArguments(value) {
-  return isObjectLike(value) && isArrayLike(value) && objToString.call(value) == argsTag;
+  return isObjectLike(value) && isArrayLike(value) &&
+    hasOwnProperty.call(value, 'callee') && !propertyIsEnumerable.call(value, 'callee');
 }
 
 module.exports = isArguments;
 
 },{}],14:[function(require,module,exports){
 /**
- * lodash 3.0.3 (Custom Build) <https://lodash.com/>
+ * lodash 3.0.4 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
  * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
@@ -1133,31 +1151,8 @@ module.exports = isArguments;
 var arrayTag = '[object Array]',
     funcTag = '[object Function]';
 
-/**
- * Used to match `RegExp` [special characters](http://www.regular-expressions.info/characters.html#special).
- * In addition to special characters the forward slash is escaped to allow for
- * easier `eval` use and `Function` compilation.
- */
-var reRegExpChars = /[.*+?^${}()|[\]\/\\]/g,
-    reHasRegExpChars = RegExp(reRegExpChars.source);
-
 /** Used to detect host constructors (Safari > 5). */
 var reIsHostCtor = /^\[object .+?Constructor\]$/;
-
-/**
- * Converts `value` to a string if it's not one. An empty string is returned
- * for `null` or `undefined` values.
- *
- * @private
- * @param {*} value The value to process.
- * @returns {string} Returns the string.
- */
-function baseToString(value) {
-  if (typeof value == 'string') {
-    return value;
-  }
-  return value == null ? '' : (value + '');
-}
 
 /**
  * Checks if `value` is object-like.
@@ -1180,14 +1175,14 @@ var fnToString = Function.prototype.toString;
 var hasOwnProperty = objectProto.hasOwnProperty;
 
 /**
- * Used to resolve the [`toStringTag`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-object.prototype.tostring)
+ * Used to resolve the [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
  * of values.
  */
 var objToString = objectProto.toString;
 
 /** Used to detect if a method is native. */
 var reIsNative = RegExp('^' +
-  escapeRegExp(fnToString.call(hasOwnProperty))
+  fnToString.call(hasOwnProperty).replace(/[\\^$.*+?()[\]{}|]/g, '\\$&')
   .replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '$'
 );
 
@@ -1195,7 +1190,7 @@ var reIsNative = RegExp('^' +
 var nativeIsArray = getNative(Array, 'isArray');
 
 /**
- * Used as the [maximum length](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-number.max_safe_integer)
+ * Used as the [maximum length](http://ecma-international.org/ecma-262/6.0/#sec-number.max_safe_integer)
  * of an array-like value.
  */
 var MAX_SAFE_INTEGER = 9007199254740991;
@@ -1216,7 +1211,7 @@ function getNative(object, key) {
 /**
  * Checks if `value` is a valid array-like length.
  *
- * **Note:** This function is based on [`ToLength`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength).
+ * **Note:** This function is based on [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
  *
  * @private
  * @param {*} value The value to check.
@@ -1247,6 +1242,56 @@ var isArray = nativeIsArray || function(value) {
 };
 
 /**
+ * Checks if `value` is classified as a `Function` object.
+ *
+ * @static
+ * @memberOf _
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
+ * @example
+ *
+ * _.isFunction(_);
+ * // => true
+ *
+ * _.isFunction(/abc/);
+ * // => false
+ */
+function isFunction(value) {
+  // The use of `Object#toString` avoids issues with the `typeof` operator
+  // in older versions of Chrome and Safari which return 'function' for regexes
+  // and Safari 8 equivalents which return 'object' for typed array constructors.
+  return isObject(value) && objToString.call(value) == funcTag;
+}
+
+/**
+ * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
+ * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+ *
+ * @static
+ * @memberOf _
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an object, else `false`.
+ * @example
+ *
+ * _.isObject({});
+ * // => true
+ *
+ * _.isObject([1, 2, 3]);
+ * // => true
+ *
+ * _.isObject(1);
+ * // => false
+ */
+function isObject(value) {
+  // Avoid a V8 JIT bug in Chrome 19-20.
+  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
+  var type = typeof value;
+  return !!value && (type == 'object' || type == 'function');
+}
+
+/**
  * Checks if `value` is a native function.
  *
  * @static
@@ -1266,31 +1311,10 @@ function isNative(value) {
   if (value == null) {
     return false;
   }
-  if (objToString.call(value) == funcTag) {
+  if (isFunction(value)) {
     return reIsNative.test(fnToString.call(value));
   }
   return isObjectLike(value) && reIsHostCtor.test(value);
-}
-
-/**
- * Escapes the `RegExp` special characters "\", "/", "^", "$", ".", "|", "?",
- * "*", "+", "(", ")", "[", "]", "{" and "}" in `string`.
- *
- * @static
- * @memberOf _
- * @category String
- * @param {string} [string=''] The string to escape.
- * @returns {string} Returns the escaped string.
- * @example
- *
- * _.escapeRegExp('[lodash](https://lodash.com/)');
- * // => '\[lodash\]\(https:\/\/lodash\.com\/\)'
- */
-function escapeRegExp(string) {
-  string = baseToString(string);
-  return (string && reHasRegExpChars.test(string))
-    ? string.replace(reRegExpChars, '\\$&')
-    : string;
 }
 
 module.exports = isArray;
@@ -1442,7 +1466,7 @@ module.exports = baseValues;
 
 },{}],18:[function(require,module,exports){
 /**
- * lodash 3.1.1 (Custom Build) <https://lodash.com/>
+ * lodash 3.1.2 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
  * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
@@ -1466,7 +1490,7 @@ var hasOwnProperty = objectProto.hasOwnProperty;
 var nativeKeys = getNative(Object, 'keys');
 
 /**
- * Used as the [maximum length](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-number.max_safe_integer)
+ * Used as the [maximum length](http://ecma-international.org/ecma-262/6.0/#sec-number.max_safe_integer)
  * of an array-like value.
  */
 var MAX_SAFE_INTEGER = 9007199254740991;
@@ -1524,7 +1548,7 @@ function isIndex(value, length) {
 /**
  * Checks if `value` is a valid array-like length.
  *
- * **Note:** This function is based on [`ToLength`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength).
+ * **Note:** This function is based on [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
  *
  * @private
  * @param {*} value The value to check.
@@ -1593,7 +1617,7 @@ function isObject(value) {
  * Creates an array of the own enumerable property names of `object`.
  *
  * **Note:** Non-object values are coerced to objects. See the
- * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-object.keys)
+ * [ES spec](http://ecma-international.org/ecma-262/6.0/#sec-object.keys)
  * for more details.
  *
  * @static
@@ -1617,7 +1641,7 @@ function isObject(value) {
  * // => ['0', '1']
  */
 var keys = !nativeKeys ? shimKeys : function(object) {
-  var Ctor = object == null ? null : object.constructor;
+  var Ctor = object == null ? undefined : object.constructor;
   if ((typeof Ctor == 'function' && Ctor.prototype === object) ||
       (typeof object != 'function' && isArrayLike(object))) {
     return shimKeys(object);
@@ -1680,7 +1704,7 @@ module.exports = keys;
 
 },{"lodash._getnative":19,"lodash.isarguments":20,"lodash.isarray":21}],19:[function(require,module,exports){
 /**
- * lodash 3.9.0 (Custom Build) <https://lodash.com/>
+ * lodash 3.9.1 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
  * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
@@ -1691,31 +1715,8 @@ module.exports = keys;
 /** `Object#toString` result references. */
 var funcTag = '[object Function]';
 
-/**
- * Used to match `RegExp` [special characters](http://www.regular-expressions.info/characters.html#special).
- * In addition to special characters the forward slash is escaped to allow for
- * easier `eval` use and `Function` compilation.
- */
-var reRegExpChars = /[.*+?^${}()|[\]\/\\]/g,
-    reHasRegExpChars = RegExp(reRegExpChars.source);
-
 /** Used to detect host constructors (Safari > 5). */
 var reIsHostCtor = /^\[object .+?Constructor\]$/;
-
-/**
- * Converts `value` to a string if it's not one. An empty string is returned
- * for `null` or `undefined` values.
- *
- * @private
- * @param {*} value The value to process.
- * @returns {string} Returns the string.
- */
-function baseToString(value) {
-  if (typeof value == 'string') {
-    return value;
-  }
-  return value == null ? '' : (value + '');
-}
 
 /**
  * Checks if `value` is object-like.
@@ -1738,14 +1739,14 @@ var fnToString = Function.prototype.toString;
 var hasOwnProperty = objectProto.hasOwnProperty;
 
 /**
- * Used to resolve the [`toStringTag`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-object.prototype.tostring)
+ * Used to resolve the [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
  * of values.
  */
 var objToString = objectProto.toString;
 
 /** Used to detect if a method is native. */
 var reIsNative = RegExp('^' +
-  escapeRegExp(fnToString.call(hasOwnProperty))
+  fnToString.call(hasOwnProperty).replace(/[\\^$.*+?()[\]{}|]/g, '\\$&')
   .replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '$'
 );
 
@@ -1760,6 +1761,56 @@ var reIsNative = RegExp('^' +
 function getNative(object, key) {
   var value = object == null ? undefined : object[key];
   return isNative(value) ? value : undefined;
+}
+
+/**
+ * Checks if `value` is classified as a `Function` object.
+ *
+ * @static
+ * @memberOf _
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
+ * @example
+ *
+ * _.isFunction(_);
+ * // => true
+ *
+ * _.isFunction(/abc/);
+ * // => false
+ */
+function isFunction(value) {
+  // The use of `Object#toString` avoids issues with the `typeof` operator
+  // in older versions of Chrome and Safari which return 'function' for regexes
+  // and Safari 8 equivalents which return 'object' for typed array constructors.
+  return isObject(value) && objToString.call(value) == funcTag;
+}
+
+/**
+ * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
+ * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+ *
+ * @static
+ * @memberOf _
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an object, else `false`.
+ * @example
+ *
+ * _.isObject({});
+ * // => true
+ *
+ * _.isObject([1, 2, 3]);
+ * // => true
+ *
+ * _.isObject(1);
+ * // => false
+ */
+function isObject(value) {
+  // Avoid a V8 JIT bug in Chrome 19-20.
+  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
+  var type = typeof value;
+  return !!value && (type == 'object' || type == 'function');
 }
 
 /**
@@ -1782,47 +1833,23 @@ function isNative(value) {
   if (value == null) {
     return false;
   }
-  if (objToString.call(value) == funcTag) {
+  if (isFunction(value)) {
     return reIsNative.test(fnToString.call(value));
   }
   return isObjectLike(value) && reIsHostCtor.test(value);
-}
-
-/**
- * Escapes the `RegExp` special characters "\", "/", "^", "$", ".", "|", "?",
- * "*", "+", "(", ")", "[", "]", "{" and "}" in `string`.
- *
- * @static
- * @memberOf _
- * @category String
- * @param {string} [string=''] The string to escape.
- * @returns {string} Returns the escaped string.
- * @example
- *
- * _.escapeRegExp('[lodash](https://lodash.com/)');
- * // => '\[lodash\]\(https:\/\/lodash\.com\/\)'
- */
-function escapeRegExp(string) {
-  string = baseToString(string);
-  return (string && reHasRegExpChars.test(string))
-    ? string.replace(reRegExpChars, '\\$&')
-    : string;
 }
 
 module.exports = getNative;
 
 },{}],20:[function(require,module,exports){
 /**
- * lodash 3.0.3 (Custom Build) <https://lodash.com/>
+ * lodash 3.0.4 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
  * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
  * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
  * Available under MIT license <https://lodash.com/license>
  */
-
-/** `Object#toString` result references. */
-var argsTag = '[object Arguments]';
 
 /**
  * Checks if `value` is object-like.
@@ -1838,14 +1865,14 @@ function isObjectLike(value) {
 /** Used for native method references. */
 var objectProto = Object.prototype;
 
-/**
- * Used to resolve the [`toStringTag`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-object.prototype.tostring)
- * of values.
- */
-var objToString = objectProto.toString;
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/** Native method references. */
+var propertyIsEnumerable = objectProto.propertyIsEnumerable;
 
 /**
- * Used as the [maximum length](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-number.max_safe_integer)
+ * Used as the [maximum length](http://ecma-international.org/ecma-262/6.0/#sec-number.max_safe_integer)
  * of an array-like value.
  */
 var MAX_SAFE_INTEGER = 9007199254740991;
@@ -1889,7 +1916,7 @@ function isArrayLike(value) {
 /**
  * Checks if `value` is a valid array-like length.
  *
- * **Note:** This function is based on [`ToLength`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength).
+ * **Note:** This function is based on [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
  *
  * @private
  * @param {*} value The value to check.
@@ -1916,14 +1943,15 @@ function isLength(value) {
  * // => false
  */
 function isArguments(value) {
-  return isObjectLike(value) && isArrayLike(value) && objToString.call(value) == argsTag;
+  return isObjectLike(value) && isArrayLike(value) &&
+    hasOwnProperty.call(value, 'callee') && !propertyIsEnumerable.call(value, 'callee');
 }
 
 module.exports = isArguments;
 
 },{}],21:[function(require,module,exports){
 /**
- * lodash 3.0.3 (Custom Build) <https://lodash.com/>
+ * lodash 3.0.4 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
  * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
@@ -1935,31 +1963,8 @@ module.exports = isArguments;
 var arrayTag = '[object Array]',
     funcTag = '[object Function]';
 
-/**
- * Used to match `RegExp` [special characters](http://www.regular-expressions.info/characters.html#special).
- * In addition to special characters the forward slash is escaped to allow for
- * easier `eval` use and `Function` compilation.
- */
-var reRegExpChars = /[.*+?^${}()|[\]\/\\]/g,
-    reHasRegExpChars = RegExp(reRegExpChars.source);
-
 /** Used to detect host constructors (Safari > 5). */
 var reIsHostCtor = /^\[object .+?Constructor\]$/;
-
-/**
- * Converts `value` to a string if it's not one. An empty string is returned
- * for `null` or `undefined` values.
- *
- * @private
- * @param {*} value The value to process.
- * @returns {string} Returns the string.
- */
-function baseToString(value) {
-  if (typeof value == 'string') {
-    return value;
-  }
-  return value == null ? '' : (value + '');
-}
 
 /**
  * Checks if `value` is object-like.
@@ -1982,14 +1987,14 @@ var fnToString = Function.prototype.toString;
 var hasOwnProperty = objectProto.hasOwnProperty;
 
 /**
- * Used to resolve the [`toStringTag`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-object.prototype.tostring)
+ * Used to resolve the [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
  * of values.
  */
 var objToString = objectProto.toString;
 
 /** Used to detect if a method is native. */
 var reIsNative = RegExp('^' +
-  escapeRegExp(fnToString.call(hasOwnProperty))
+  fnToString.call(hasOwnProperty).replace(/[\\^$.*+?()[\]{}|]/g, '\\$&')
   .replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '$'
 );
 
@@ -1997,7 +2002,7 @@ var reIsNative = RegExp('^' +
 var nativeIsArray = getNative(Array, 'isArray');
 
 /**
- * Used as the [maximum length](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-number.max_safe_integer)
+ * Used as the [maximum length](http://ecma-international.org/ecma-262/6.0/#sec-number.max_safe_integer)
  * of an array-like value.
  */
 var MAX_SAFE_INTEGER = 9007199254740991;
@@ -2018,7 +2023,7 @@ function getNative(object, key) {
 /**
  * Checks if `value` is a valid array-like length.
  *
- * **Note:** This function is based on [`ToLength`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength).
+ * **Note:** This function is based on [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
  *
  * @private
  * @param {*} value The value to check.
@@ -2049,6 +2054,56 @@ var isArray = nativeIsArray || function(value) {
 };
 
 /**
+ * Checks if `value` is classified as a `Function` object.
+ *
+ * @static
+ * @memberOf _
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
+ * @example
+ *
+ * _.isFunction(_);
+ * // => true
+ *
+ * _.isFunction(/abc/);
+ * // => false
+ */
+function isFunction(value) {
+  // The use of `Object#toString` avoids issues with the `typeof` operator
+  // in older versions of Chrome and Safari which return 'function' for regexes
+  // and Safari 8 equivalents which return 'object' for typed array constructors.
+  return isObject(value) && objToString.call(value) == funcTag;
+}
+
+/**
+ * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
+ * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+ *
+ * @static
+ * @memberOf _
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an object, else `false`.
+ * @example
+ *
+ * _.isObject({});
+ * // => true
+ *
+ * _.isObject([1, 2, 3]);
+ * // => true
+ *
+ * _.isObject(1);
+ * // => false
+ */
+function isObject(value) {
+  // Avoid a V8 JIT bug in Chrome 19-20.
+  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
+  var type = typeof value;
+  return !!value && (type == 'object' || type == 'function');
+}
+
+/**
  * Checks if `value` is a native function.
  *
  * @static
@@ -2068,31 +2123,10 @@ function isNative(value) {
   if (value == null) {
     return false;
   }
-  if (objToString.call(value) == funcTag) {
+  if (isFunction(value)) {
     return reIsNative.test(fnToString.call(value));
   }
   return isObjectLike(value) && reIsHostCtor.test(value);
-}
-
-/**
- * Escapes the `RegExp` special characters "\", "/", "^", "$", ".", "|", "?",
- * "*", "+", "(", ")", "[", "]", "{" and "}" in `string`.
- *
- * @static
- * @memberOf _
- * @category String
- * @param {string} [string=''] The string to escape.
- * @returns {string} Returns the escaped string.
- * @example
- *
- * _.escapeRegExp('[lodash](https://lodash.com/)');
- * // => '\[lodash\]\(https:\/\/lodash\.com\/\)'
- */
-function escapeRegExp(string) {
-  string = baseToString(string);
-  return (string && reHasRegExpChars.test(string))
-    ? string.replace(reRegExpChars, '\\$&')
-    : string;
 }
 
 module.exports = isArray;
@@ -2257,16 +2291,16 @@ module.exports = deburr;
 
 },{"lodash._basetostring":26}],26:[function(require,module,exports){
 /**
- * lodash 3.0.0 (Custom Build) <https://lodash.com/>
+ * lodash 3.0.1 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
  * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
- * Based on Underscore.js 1.7.0 <http://underscorejs.org/LICENSE>
+ * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
  * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
  * Available under MIT license <https://lodash.com/license>
  */
 
 /**
- * Converts `value` to a string if it is not one. An empty string is returned
+ * Converts `value` to a string if it's not one. An empty string is returned
  * for `null` or `undefined` values.
  *
  * @private
@@ -2274,9 +2308,6 @@ module.exports = deburr;
  * @returns {string} Returns the string.
  */
 function baseToString(value) {
-  if (typeof value == 'string') {
-    return value;
-  }
   return value == null ? '' : (value + '');
 }
 
@@ -2284,10 +2315,10 @@ module.exports = baseToString;
 
 },{}],27:[function(require,module,exports){
 /**
- * lodash 3.0.1 (Custom Build) <https://lodash.com/>
+ * lodash 3.0.2 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
  * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
- * Based on Underscore.js 1.8.2 <http://underscorejs.org/LICENSE>
+ * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
  * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
  * Available under MIT license <https://lodash.com/license>
  */
@@ -2322,7 +2353,7 @@ var reWords = (function() {
  */
 function words(string, pattern, guard) {
   if (guard && isIterateeCall(string, pattern, guard)) {
-    pattern = null;
+    pattern = undefined;
   }
   string = baseToString(string);
   return string.match(pattern || reWords) || [];
@@ -2332,16 +2363,16 @@ module.exports = words;
 
 },{"lodash._basetostring":28,"lodash._isiterateecall":29}],28:[function(require,module,exports){
 /**
- * lodash 3.0.0 (Custom Build) <https://lodash.com/>
+ * lodash 3.0.1 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
  * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
- * Based on Underscore.js 1.7.0 <http://underscorejs.org/LICENSE>
+ * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
  * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
  * Available under MIT license <https://lodash.com/license>
  */
 
 /**
- * Converts `value` to a string if it is not one. An empty string is returned
+ * Converts `value` to a string if it's not one. An empty string is returned
  * for `null` or `undefined` values.
  *
  * @private
@@ -2349,9 +2380,6 @@ module.exports = words;
  * @returns {string} Returns the string.
  */
 function baseToString(value) {
-  if (typeof value == 'string') {
-    return value;
-  }
   return value == null ? '' : (value + '');
 }
 
@@ -2565,7 +2593,7 @@ module.exports = mapKeys;
 
 },{"lodash._basecallback":31,"lodash._basefor":37,"lodash.keys":38}],31:[function(require,module,exports){
 /**
- * lodash 3.3.0 (Custom Build) <https://lodash.com/>
+ * lodash 3.3.1 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
  * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
@@ -2594,9 +2622,6 @@ var reEscapeChar = /\\(\\)?/g;
  * @returns {string} Returns the string.
  */
 function baseToString(value) {
-  if (typeof value == 'string') {
-    return value;
-  }
   return value == null ? '' : (value + '');
 }
 
@@ -2728,8 +2753,7 @@ function baseMatches(source) {
 }
 
 /**
- * The base implementation of `_.matchesProperty` which does not which does
- * not clone `value`.
+ * The base implementation of `_.matchesProperty` which does not clone `srcValue`.
  *
  * @private
  * @param {string} path The path of the property to get.
@@ -2964,7 +2988,7 @@ function identity(value) {
 }
 
 /**
- * Creates a function which returns the property value at `path` on a
+ * Creates a function that returns the property value at `path` on a
  * given object.
  *
  * @static
@@ -3516,7 +3540,7 @@ module.exports = bindCallback;
 
 },{}],35:[function(require,module,exports){
 /**
- * lodash 3.0.3 (Custom Build) <https://lodash.com/>
+ * lodash 3.0.4 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
  * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
@@ -3528,31 +3552,8 @@ module.exports = bindCallback;
 var arrayTag = '[object Array]',
     funcTag = '[object Function]';
 
-/**
- * Used to match `RegExp` [special characters](http://www.regular-expressions.info/characters.html#special).
- * In addition to special characters the forward slash is escaped to allow for
- * easier `eval` use and `Function` compilation.
- */
-var reRegExpChars = /[.*+?^${}()|[\]\/\\]/g,
-    reHasRegExpChars = RegExp(reRegExpChars.source);
-
 /** Used to detect host constructors (Safari > 5). */
 var reIsHostCtor = /^\[object .+?Constructor\]$/;
-
-/**
- * Converts `value` to a string if it's not one. An empty string is returned
- * for `null` or `undefined` values.
- *
- * @private
- * @param {*} value The value to process.
- * @returns {string} Returns the string.
- */
-function baseToString(value) {
-  if (typeof value == 'string') {
-    return value;
-  }
-  return value == null ? '' : (value + '');
-}
 
 /**
  * Checks if `value` is object-like.
@@ -3575,14 +3576,14 @@ var fnToString = Function.prototype.toString;
 var hasOwnProperty = objectProto.hasOwnProperty;
 
 /**
- * Used to resolve the [`toStringTag`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-object.prototype.tostring)
+ * Used to resolve the [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
  * of values.
  */
 var objToString = objectProto.toString;
 
 /** Used to detect if a method is native. */
 var reIsNative = RegExp('^' +
-  escapeRegExp(fnToString.call(hasOwnProperty))
+  fnToString.call(hasOwnProperty).replace(/[\\^$.*+?()[\]{}|]/g, '\\$&')
   .replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '$'
 );
 
@@ -3590,7 +3591,7 @@ var reIsNative = RegExp('^' +
 var nativeIsArray = getNative(Array, 'isArray');
 
 /**
- * Used as the [maximum length](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-number.max_safe_integer)
+ * Used as the [maximum length](http://ecma-international.org/ecma-262/6.0/#sec-number.max_safe_integer)
  * of an array-like value.
  */
 var MAX_SAFE_INTEGER = 9007199254740991;
@@ -3611,7 +3612,7 @@ function getNative(object, key) {
 /**
  * Checks if `value` is a valid array-like length.
  *
- * **Note:** This function is based on [`ToLength`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength).
+ * **Note:** This function is based on [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
  *
  * @private
  * @param {*} value The value to check.
@@ -3642,6 +3643,56 @@ var isArray = nativeIsArray || function(value) {
 };
 
 /**
+ * Checks if `value` is classified as a `Function` object.
+ *
+ * @static
+ * @memberOf _
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
+ * @example
+ *
+ * _.isFunction(_);
+ * // => true
+ *
+ * _.isFunction(/abc/);
+ * // => false
+ */
+function isFunction(value) {
+  // The use of `Object#toString` avoids issues with the `typeof` operator
+  // in older versions of Chrome and Safari which return 'function' for regexes
+  // and Safari 8 equivalents which return 'object' for typed array constructors.
+  return isObject(value) && objToString.call(value) == funcTag;
+}
+
+/**
+ * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
+ * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+ *
+ * @static
+ * @memberOf _
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an object, else `false`.
+ * @example
+ *
+ * _.isObject({});
+ * // => true
+ *
+ * _.isObject([1, 2, 3]);
+ * // => true
+ *
+ * _.isObject(1);
+ * // => false
+ */
+function isObject(value) {
+  // Avoid a V8 JIT bug in Chrome 19-20.
+  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
+  var type = typeof value;
+  return !!value && (type == 'object' || type == 'function');
+}
+
+/**
  * Checks if `value` is a native function.
  *
  * @static
@@ -3661,31 +3712,10 @@ function isNative(value) {
   if (value == null) {
     return false;
   }
-  if (objToString.call(value) == funcTag) {
+  if (isFunction(value)) {
     return reIsNative.test(fnToString.call(value));
   }
   return isObjectLike(value) && reIsHostCtor.test(value);
-}
-
-/**
- * Escapes the `RegExp` special characters "\", "/", "^", "$", ".", "|", "?",
- * "*", "+", "(", ")", "[", "]", "{" and "}" in `string`.
- *
- * @static
- * @memberOf _
- * @category String
- * @param {string} [string=''] The string to escape.
- * @returns {string} Returns the escaped string.
- * @example
- *
- * _.escapeRegExp('[lodash](https://lodash.com/)');
- * // => '\[lodash\]\(https:\/\/lodash\.com\/\)'
- */
-function escapeRegExp(string) {
-  string = baseToString(string);
-  return (string && reHasRegExpChars.test(string))
-    ? string.replace(reRegExpChars, '\\$&')
-    : string;
 }
 
 module.exports = isArray;
@@ -3860,7 +3890,7 @@ module.exports = baseFor;
 
 },{}],38:[function(require,module,exports){
 /**
- * lodash 3.1.1 (Custom Build) <https://lodash.com/>
+ * lodash 3.1.2 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
  * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
@@ -3884,7 +3914,7 @@ var hasOwnProperty = objectProto.hasOwnProperty;
 var nativeKeys = getNative(Object, 'keys');
 
 /**
- * Used as the [maximum length](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-number.max_safe_integer)
+ * Used as the [maximum length](http://ecma-international.org/ecma-262/6.0/#sec-number.max_safe_integer)
  * of an array-like value.
  */
 var MAX_SAFE_INTEGER = 9007199254740991;
@@ -3942,7 +3972,7 @@ function isIndex(value, length) {
 /**
  * Checks if `value` is a valid array-like length.
  *
- * **Note:** This function is based on [`ToLength`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength).
+ * **Note:** This function is based on [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
  *
  * @private
  * @param {*} value The value to check.
@@ -4011,7 +4041,7 @@ function isObject(value) {
  * Creates an array of the own enumerable property names of `object`.
  *
  * **Note:** Non-object values are coerced to objects. See the
- * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-object.keys)
+ * [ES spec](http://ecma-international.org/ecma-262/6.0/#sec-object.keys)
  * for more details.
  *
  * @static
@@ -4035,7 +4065,7 @@ function isObject(value) {
  * // => ['0', '1']
  */
 var keys = !nativeKeys ? shimKeys : function(object) {
-  var Ctor = object == null ? null : object.constructor;
+  var Ctor = object == null ? undefined : object.constructor;
   if ((typeof Ctor == 'function' && Ctor.prototype === object) ||
       (typeof object != 'function' && isArrayLike(object))) {
     return shimKeys(object);
@@ -4098,7 +4128,7 @@ module.exports = keys;
 
 },{"lodash._getnative":39,"lodash.isarguments":40,"lodash.isarray":41}],39:[function(require,module,exports){
 /**
- * lodash 3.9.0 (Custom Build) <https://lodash.com/>
+ * lodash 3.9.1 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
  * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
@@ -4109,31 +4139,8 @@ module.exports = keys;
 /** `Object#toString` result references. */
 var funcTag = '[object Function]';
 
-/**
- * Used to match `RegExp` [special characters](http://www.regular-expressions.info/characters.html#special).
- * In addition to special characters the forward slash is escaped to allow for
- * easier `eval` use and `Function` compilation.
- */
-var reRegExpChars = /[.*+?^${}()|[\]\/\\]/g,
-    reHasRegExpChars = RegExp(reRegExpChars.source);
-
 /** Used to detect host constructors (Safari > 5). */
 var reIsHostCtor = /^\[object .+?Constructor\]$/;
-
-/**
- * Converts `value` to a string if it's not one. An empty string is returned
- * for `null` or `undefined` values.
- *
- * @private
- * @param {*} value The value to process.
- * @returns {string} Returns the string.
- */
-function baseToString(value) {
-  if (typeof value == 'string') {
-    return value;
-  }
-  return value == null ? '' : (value + '');
-}
 
 /**
  * Checks if `value` is object-like.
@@ -4156,14 +4163,14 @@ var fnToString = Function.prototype.toString;
 var hasOwnProperty = objectProto.hasOwnProperty;
 
 /**
- * Used to resolve the [`toStringTag`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-object.prototype.tostring)
+ * Used to resolve the [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
  * of values.
  */
 var objToString = objectProto.toString;
 
 /** Used to detect if a method is native. */
 var reIsNative = RegExp('^' +
-  escapeRegExp(fnToString.call(hasOwnProperty))
+  fnToString.call(hasOwnProperty).replace(/[\\^$.*+?()[\]{}|]/g, '\\$&')
   .replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '$'
 );
 
@@ -4178,6 +4185,56 @@ var reIsNative = RegExp('^' +
 function getNative(object, key) {
   var value = object == null ? undefined : object[key];
   return isNative(value) ? value : undefined;
+}
+
+/**
+ * Checks if `value` is classified as a `Function` object.
+ *
+ * @static
+ * @memberOf _
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
+ * @example
+ *
+ * _.isFunction(_);
+ * // => true
+ *
+ * _.isFunction(/abc/);
+ * // => false
+ */
+function isFunction(value) {
+  // The use of `Object#toString` avoids issues with the `typeof` operator
+  // in older versions of Chrome and Safari which return 'function' for regexes
+  // and Safari 8 equivalents which return 'object' for typed array constructors.
+  return isObject(value) && objToString.call(value) == funcTag;
+}
+
+/**
+ * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
+ * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+ *
+ * @static
+ * @memberOf _
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an object, else `false`.
+ * @example
+ *
+ * _.isObject({});
+ * // => true
+ *
+ * _.isObject([1, 2, 3]);
+ * // => true
+ *
+ * _.isObject(1);
+ * // => false
+ */
+function isObject(value) {
+  // Avoid a V8 JIT bug in Chrome 19-20.
+  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
+  var type = typeof value;
+  return !!value && (type == 'object' || type == 'function');
 }
 
 /**
@@ -4200,47 +4257,23 @@ function isNative(value) {
   if (value == null) {
     return false;
   }
-  if (objToString.call(value) == funcTag) {
+  if (isFunction(value)) {
     return reIsNative.test(fnToString.call(value));
   }
   return isObjectLike(value) && reIsHostCtor.test(value);
-}
-
-/**
- * Escapes the `RegExp` special characters "\", "/", "^", "$", ".", "|", "?",
- * "*", "+", "(", ")", "[", "]", "{" and "}" in `string`.
- *
- * @static
- * @memberOf _
- * @category String
- * @param {string} [string=''] The string to escape.
- * @returns {string} Returns the escaped string.
- * @example
- *
- * _.escapeRegExp('[lodash](https://lodash.com/)');
- * // => '\[lodash\]\(https:\/\/lodash\.com\/\)'
- */
-function escapeRegExp(string) {
-  string = baseToString(string);
-  return (string && reHasRegExpChars.test(string))
-    ? string.replace(reRegExpChars, '\\$&')
-    : string;
 }
 
 module.exports = getNative;
 
 },{}],40:[function(require,module,exports){
 /**
- * lodash 3.0.3 (Custom Build) <https://lodash.com/>
+ * lodash 3.0.4 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
  * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
  * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
  * Available under MIT license <https://lodash.com/license>
  */
-
-/** `Object#toString` result references. */
-var argsTag = '[object Arguments]';
 
 /**
  * Checks if `value` is object-like.
@@ -4256,14 +4289,14 @@ function isObjectLike(value) {
 /** Used for native method references. */
 var objectProto = Object.prototype;
 
-/**
- * Used to resolve the [`toStringTag`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-object.prototype.tostring)
- * of values.
- */
-var objToString = objectProto.toString;
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/** Native method references. */
+var propertyIsEnumerable = objectProto.propertyIsEnumerable;
 
 /**
- * Used as the [maximum length](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-number.max_safe_integer)
+ * Used as the [maximum length](http://ecma-international.org/ecma-262/6.0/#sec-number.max_safe_integer)
  * of an array-like value.
  */
 var MAX_SAFE_INTEGER = 9007199254740991;
@@ -4307,7 +4340,7 @@ function isArrayLike(value) {
 /**
  * Checks if `value` is a valid array-like length.
  *
- * **Note:** This function is based on [`ToLength`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength).
+ * **Note:** This function is based on [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
  *
  * @private
  * @param {*} value The value to check.
@@ -4334,14 +4367,15 @@ function isLength(value) {
  * // => false
  */
 function isArguments(value) {
-  return isObjectLike(value) && isArrayLike(value) && objToString.call(value) == argsTag;
+  return isObjectLike(value) && isArrayLike(value) &&
+    hasOwnProperty.call(value, 'callee') && !propertyIsEnumerable.call(value, 'callee');
 }
 
 module.exports = isArguments;
 
 },{}],41:[function(require,module,exports){
 /**
- * lodash 3.0.3 (Custom Build) <https://lodash.com/>
+ * lodash 3.0.4 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
  * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
@@ -4353,31 +4387,8 @@ module.exports = isArguments;
 var arrayTag = '[object Array]',
     funcTag = '[object Function]';
 
-/**
- * Used to match `RegExp` [special characters](http://www.regular-expressions.info/characters.html#special).
- * In addition to special characters the forward slash is escaped to allow for
- * easier `eval` use and `Function` compilation.
- */
-var reRegExpChars = /[.*+?^${}()|[\]\/\\]/g,
-    reHasRegExpChars = RegExp(reRegExpChars.source);
-
 /** Used to detect host constructors (Safari > 5). */
 var reIsHostCtor = /^\[object .+?Constructor\]$/;
-
-/**
- * Converts `value` to a string if it's not one. An empty string is returned
- * for `null` or `undefined` values.
- *
- * @private
- * @param {*} value The value to process.
- * @returns {string} Returns the string.
- */
-function baseToString(value) {
-  if (typeof value == 'string') {
-    return value;
-  }
-  return value == null ? '' : (value + '');
-}
 
 /**
  * Checks if `value` is object-like.
@@ -4400,14 +4411,14 @@ var fnToString = Function.prototype.toString;
 var hasOwnProperty = objectProto.hasOwnProperty;
 
 /**
- * Used to resolve the [`toStringTag`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-object.prototype.tostring)
+ * Used to resolve the [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
  * of values.
  */
 var objToString = objectProto.toString;
 
 /** Used to detect if a method is native. */
 var reIsNative = RegExp('^' +
-  escapeRegExp(fnToString.call(hasOwnProperty))
+  fnToString.call(hasOwnProperty).replace(/[\\^$.*+?()[\]{}|]/g, '\\$&')
   .replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '$'
 );
 
@@ -4415,7 +4426,7 @@ var reIsNative = RegExp('^' +
 var nativeIsArray = getNative(Array, 'isArray');
 
 /**
- * Used as the [maximum length](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-number.max_safe_integer)
+ * Used as the [maximum length](http://ecma-international.org/ecma-262/6.0/#sec-number.max_safe_integer)
  * of an array-like value.
  */
 var MAX_SAFE_INTEGER = 9007199254740991;
@@ -4436,7 +4447,7 @@ function getNative(object, key) {
 /**
  * Checks if `value` is a valid array-like length.
  *
- * **Note:** This function is based on [`ToLength`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength).
+ * **Note:** This function is based on [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
  *
  * @private
  * @param {*} value The value to check.
@@ -4467,6 +4478,56 @@ var isArray = nativeIsArray || function(value) {
 };
 
 /**
+ * Checks if `value` is classified as a `Function` object.
+ *
+ * @static
+ * @memberOf _
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
+ * @example
+ *
+ * _.isFunction(_);
+ * // => true
+ *
+ * _.isFunction(/abc/);
+ * // => false
+ */
+function isFunction(value) {
+  // The use of `Object#toString` avoids issues with the `typeof` operator
+  // in older versions of Chrome and Safari which return 'function' for regexes
+  // and Safari 8 equivalents which return 'object' for typed array constructors.
+  return isObject(value) && objToString.call(value) == funcTag;
+}
+
+/**
+ * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
+ * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+ *
+ * @static
+ * @memberOf _
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an object, else `false`.
+ * @example
+ *
+ * _.isObject({});
+ * // => true
+ *
+ * _.isObject([1, 2, 3]);
+ * // => true
+ *
+ * _.isObject(1);
+ * // => false
+ */
+function isObject(value) {
+  // Avoid a V8 JIT bug in Chrome 19-20.
+  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
+  var type = typeof value;
+  return !!value && (type == 'object' || type == 'function');
+}
+
+/**
  * Checks if `value` is a native function.
  *
  * @static
@@ -4486,31 +4547,10 @@ function isNative(value) {
   if (value == null) {
     return false;
   }
-  if (objToString.call(value) == funcTag) {
+  if (isFunction(value)) {
     return reIsNative.test(fnToString.call(value));
   }
   return isObjectLike(value) && reIsHostCtor.test(value);
-}
-
-/**
- * Escapes the `RegExp` special characters "\", "/", "^", "$", ".", "|", "?",
- * "*", "+", "(", ")", "[", "]", "{" and "}" in `string`.
- *
- * @static
- * @memberOf _
- * @category String
- * @param {string} [string=''] The string to escape.
- * @returns {string} Returns the escaped string.
- * @example
- *
- * _.escapeRegExp('[lodash](https://lodash.com/)');
- * // => '\[lodash\]\(https:\/\/lodash\.com\/\)'
- */
-function escapeRegExp(string) {
-  string = baseToString(string);
-  return (string && reHasRegExpChars.test(string))
-    ? string.replace(reRegExpChars, '\\$&')
-    : string;
 }
 
 module.exports = isArray;
