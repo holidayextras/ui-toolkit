@@ -108,6 +108,9 @@ var Components = React.createClass({
           <h3>Quote</h3>
           <p>A quote is used referencing blocks of content from another source within your document. They come as a <code>Block</code> (default) or <code>inline</code></p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Quote.jsx', 'utf8')} />
+          <h4>Inline</h4>
+          <p>Inline quotes are for referencing something inline within a section of prose</p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/QuoteInline.jsx', 'utf8')} />
           <h4>Attributes</h4>
           <ul>
             <li><code>type</code> String - Block (default) or Inline</li>
