@@ -1,4 +1,6 @@
 ### 0.9.0 - 2015-07-08
+- Added Quote component
+- 
 ### 0.8.2 - 2015-07-02
 - Fixes missing `dist/uitoolkit-standalone.js` file
 
