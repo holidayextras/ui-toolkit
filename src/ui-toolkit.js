@@ -10,5 +10,6 @@ UIToolkit.Image = require('./components/image');
 UIToolkit.IconList = require('./components/icon-list');
 UIToolkit.IconListItem = require('./components/icon-list-item');
 UIToolkit.Alert = require('./components/alert');
+UIToolkit.Quote = require('./components/quote');
 
 module.exports = UIToolkit;

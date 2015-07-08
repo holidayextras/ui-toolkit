@@ -126,3 +126,12 @@ article {
   float:left;
   z-index: 1;
 }
+
+/* Quotes - Overwriting Bootstrap styling */
+blockquote footer, blockquote footer span, blockquote footer small {
+  font-size:1em;
+  color:inherit;
+}
+blockquote footer:before, blockquote footer span:before, blockquote footer small:before {
+  content:"";
+}
