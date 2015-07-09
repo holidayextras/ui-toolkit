@@ -131,13 +131,13 @@ process.umask = function() { return 0; };
 		return classes.substr(1);
 	}
 
-	if (typeof module !== 'undefined' && module.exports) {
-		module.exports = classNames;
-	} else if (typeof define === 'function' && typeof define.amd === 'object' && define.amd){
+	if (typeof define === 'function' && typeof define.amd === 'object' && define.amd) {
 		// AMD. Register as an anonymous module.
 		define(function () {
 			return classNames;
 		});
+	} else if (typeof module !== 'undefined' && module.exports) {
+		module.exports = classNames;
 	} else {
 		window.classNames = classNames;
 	}
@@ -24501,7 +24501,7 @@ var React = require('react');
 
 module.exports = function(props) {
   return (
-    React.createElement("img", {alt: props.alt, src: props.src, className: "component-image"})
+    React.createElement("img", {alt: props.alt, src: props.src, onClick: props.handleClick, className: "component-image"})
   );
 };
 
@@ -24512,7 +24512,8 @@ module.exports = React.createClass({displayName: "exports",
 
   propTypes: {
     src: React.PropTypes.string.isRequired,
-    alt: React.PropTypes.string.isRequired
+    alt: React.PropTypes.string.isRequired,
+    handleClick: React.PropTypes.func
   },
 
   render: function() {
@@ -24527,6 +24528,7 @@ module.exports = require('./code/index');
 module.exports = require('./views/quoteView.jsx');
 
 },{"./views/quoteView.jsx":225}],223:[function(require,module,exports){
+var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
 
@@ -24536,7 +24538,7 @@ module.exports = function() {
   var classes = getComponentClasses('component-quote', propClasses, this.props);
 
   return (
-      React.createElement("blockquote", {cite: this.props.cite, className: classNames(classes), itemScope: true, itemType: "http://schema.org/CreativeWork"}, 
+      React.createElement("blockquote", {className: classNames(classes), itemScope: true, itemType: "http://schema.org/CreativeWork"}, 
         React.createElement("p", {itemProp: "text"}, this.props.children), 
         React.createElement("footer", {itemProp: "author", itemScope: true, itemType: "http://schema.org/Person"}, 
           React.createElement("span", {itemProp: "name"}, this.props.author), 
@@ -24547,7 +24549,8 @@ module.exports = function() {
   );
 };
 
-},{"../../../../utils/getComponentClasses":240,"classnames":3}],224:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":240,"classnames":3,"react":196}],224:[function(require,module,exports){
+var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
 
@@ -24557,8 +24560,9 @@ module.exports = function() {
   var classes = getComponentClasses('component-quote', propClasses, this.props);
 
   return (
-      React.createElement("q", {cite: this.props.cite, className: classNames(classes), itemScope: true, itemType: "http://schema.org/CreativeWork", itemProp: "text"}, 
+      React.createElement("q", {className: classNames(classes), cite: this.props.cite, itemScope: true, itemType: "http://schema.org/CreativeWork", itemProp: "text"}, 
         this.props.children, 
+        (this.props.cite) ? React.createElement("meta", {itemProp: "citation", content: this.props.cite}) : null, 
         React.createElement("span", {itemProp: "author", itemScope: true, itemType: "http://schema.org/Person"}, 
           React.createElement("meta", {itemProp: "name", content: this.props.author}), 
           React.createElement("meta", {itemProp: "jobTitle", content: this.props.role})
@@ -24567,7 +24571,7 @@ module.exports = function() {
   );
 };
 
-},{"../../../../utils/getComponentClasses":240,"classnames":3}],225:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":240,"classnames":3,"react":196}],225:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",

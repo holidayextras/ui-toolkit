@@ -67,6 +67,7 @@ var Components = React.createClass({
           <ul>
             <li><code>src</code> String - Image src attribute</li>
             <li><code>alt</code> String - Image alt attribute</li>
+            <li><code>handleClick</code> Function - handle click events on the image</li>
           </ul>
         </article>
 
