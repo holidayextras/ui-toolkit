@@ -11,7 +11,7 @@ describe('ImageComponent', function() {
   var handleClick = null;
   var imageInstance = null;
   var renderedImage = null;
-  var buttonDOMNode = null;
+  var imageDOMNode = null;
 
   beforeEach(function() {
     src = 'foo';
