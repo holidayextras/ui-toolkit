@@ -14,9 +14,9 @@ describe('InputComponent', function() {
 
   });
 
-  it('should render password input', function() {
+  it('should render tel input', function() {
     var input = TestUtils.renderIntoDocument(
-      <InputView type="password" />
+      <InputView type="tel" />
     );
 
     var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input');
@@ -34,12 +34,22 @@ describe('InputComponent', function() {
 
   });
 
+  it('should render tel input', function() {
+    var input = TestUtils.renderIntoDocument(
+      <InputView type="number" />
+    );
+
+    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input');
+    assert.isDefined(renderedInput);
+
+  });
+
   it('should render input with label', function() {
     var input = TestUtils.renderIntoDocument(
       <InputView type="text" label="Full Name" />
     );
 
-    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'input-group-label');
+    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-label');
     assert.isDefined(renderedInput);
 
   });

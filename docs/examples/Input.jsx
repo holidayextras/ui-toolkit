@@ -5,6 +5,7 @@ var example = (
       name='full-name'
       label='Name'
       placeholder='Full Name'
+      required="yes"
       />
     <UIToolkit.Input
       type='email'
