@@ -6,7 +6,8 @@ module.exports = React.createClass({
 
   propTypes: {
     label: React.PropTypes.string,
-    type: React.PropTypes.oneOf(['text', 'password', 'email']),
+    type: React.PropTypes.oneOf(['text', 'email', 'number', 'tel']),
+    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large']),
     placeHolder: React.PropTypes.string,
     defaultValue: React.PropTypes.string,
     name: React.PropTypes.string,

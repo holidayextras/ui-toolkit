@@ -3,17 +3,17 @@ var classNames = require('classnames');
 
 module.exports = function (component){
 
-  var classes = classNames('input-group', {
+  var classes = classNames({
     'component-input': true,
-    'input-group-error': component.state.error || false,
-    'input-group-disabled': component.props.disabled || false
+    'error': component.state.error || false,
+    'disabled': component.props.disabled || false
   });
 
   // the form label
   var label;
 
   if (component.props.label){
-    label = ( <label className="component-input-label input-group-label" htmlFor={component.props.id}>{component.props.label}</label > );
+    label = ( <label className="component-input-label" htmlFor={component.props.id}>{component.props.label}</label > );
   }
 
   /**
@@ -23,14 +23,14 @@ module.exports = function (component){
   var span;
 
   if (component.state.error){
-    span = ( <span className="input-group-span component-input-error">{component.state.error}</span> );
+    span = ( <span className="component-input-error">{component.state.error}</span> );
   }
 
   return (
     <div className={classes} ref={component.props.ref}>
       {label}
       <input
-        className="input-group-field component-input-field"
+        className="component-input-field"
         type={component.props.type}
         valid={component.state.valid}
         name={component.props.name}

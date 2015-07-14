@@ -67,6 +67,7 @@ var Components = React.createClass({
           <ul>
             <li><code>src</code> String - Image src attribute</li>
             <li><code>alt</code> String - Image alt attribute</li>
+            <li><code>handleClick</code> Function - handle click events on the image</li>
           </ul>
         </article>
 
@@ -98,7 +99,7 @@ var Components = React.createClass({
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Input.jsx', 'utf8')} />
           <h4>Attributes</h4>
           <ul>
-            <li><code>type</code> String - Type of Input Field [ text | password  | email ]</li>
+            <li><code>type</code> String - Type of Input Field [ text | email | tel | number]</li>
             <li><code>name</code> String - Optional Name for Input Field</li>
             <li><code>id</code> String - Optional ID for Input Field</li>
             <li><code>label</code> String - Optional Label in front of Input Field</li>
@@ -109,6 +110,36 @@ var Components = React.createClass({
             <li><code>disabled</code> Boolean - Whether to Disable the Input Field</li>
             <li><code>readOnly</code> Boolean - Whether to set the Input Field to Read Only</li>
             <li><code>required</code> Boolean - Whether to set the Input Field to be Required</li>
+          </ul>
+        </article>
+
+        <article id="alert">
+          <h3>Alert</h3>
+          <p>An alert is used to display helpful or factual information usually used as a prompt.</p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Alert.jsx', 'utf8')} />
+          <h4>Attributes</h4>
+          <ul>
+            <li><code>title</code> String - The title of the alert</li>
+            <li><code>purpose</code> String - The purpose of the alert</li>
+            <li><code>size</code> String - The size of the alert (default: medium)</li>
+          </ul>
+        </article>
+
+         <article id="quote">
+          <h3>Quote</h3>
+          <p>A quote is used referencing blocks of content from another source within your document. They come as a <code>Block</code> (default) or <code>inline</code></p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Quote.jsx', 'utf8')} />
+          <h4>Inline</h4>
+          <p>Inline quotes are for referencing something inline within a section of prose</p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/QuoteInline.jsx', 'utf8')} />
+          <h4>Attributes</h4>
+          <ul>
+            <li><code>type</code> String - Block (default) or Inline</li>
+            <li><code>cite</code> String - cited title of a work; for example, the title of a book mentioned within the main text flow of a document</li>
+            <li><code>author</code> String - The author of the quote</li>
+            <li><code>role</code> String - The role/job title of the author</li>
+            <li><code>purpose</code> String - The purpose of the quote</li>
+            <li><code>size</code> String - The size of the alert (default: medium)</li>
           </ul>
         </article>
 
