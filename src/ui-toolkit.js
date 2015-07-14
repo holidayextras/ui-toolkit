@@ -9,6 +9,7 @@ UIToolkit.Tile = require('./components/tile');
 UIToolkit.Image = require('./components/image');
 UIToolkit.IconList = require('./components/icon-list');
 UIToolkit.IconListItem = require('./components/icon-list-item');
+UIToolkit.Input = require('./components/input');
 UIToolkit.Alert = require('./components/alert');
 UIToolkit.Quote = require('./components/quote');
 
