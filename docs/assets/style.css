@@ -127,11 +127,6 @@ article {
   z-index: 1;
 }
 
-/* Components */
-.toolkit-example button {
-  margin:.25em;
-}
-
 /* Quotes - Overwriting Bootstrap styling */
 blockquote footer, blockquote footer span, blockquote footer small {
   font-size:1em;
