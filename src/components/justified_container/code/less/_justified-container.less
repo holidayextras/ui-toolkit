@@ -9,4 +9,10 @@
   * {
     display: table-cell;
   }
+
+  .component-button {
+    & + .component-button.block {
+      margin: 0 1em; /* preventing the non-required top margin */
+    }
+  }
 }
