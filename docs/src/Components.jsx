@@ -122,7 +122,7 @@ var Components = React.createClass({
           The <code>outOf</code> and <code>blankIcon</code> attributes are optional and dependent upon each other.
         </article>
 
-        <article id="tiles">
+        <article id="tile">
           <h3>Tiles</h3>
           <p>A tile for displaying an image with a title. The width of a tile is 100% of a container.</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Tile.jsx', 'utf8')} />
