@@ -5,10 +5,10 @@ var TestUtils = React.addons.TestUtils;
 
 var JustifiedButtons = require('../code/views/JustifiedContainerComponentView.jsx');
 
-describe("JustifiedContainer", function() {
+describe('JustifiedContainer', function() {
   beforeEach(function(){
     this.instance = TestUtils.renderIntoDocument(<JustifiedButtons />);
-    renderedElement = TestUtils.findRenderedDOMComponentWithClass(this.instance, 'component-justified-container');
+    var renderedElement = TestUtils.findRenderedDOMComponentWithClass(this.instance, 'component-justified-container');
     this.domNode = renderedElement.getDOMNode();
   });
 

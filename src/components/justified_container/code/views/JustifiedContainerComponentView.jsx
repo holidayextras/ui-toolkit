@@ -11,7 +11,6 @@ module.exports = React.createClass({
       }
     };
   },
-  
   render: function(){
     return require('../templates/JustifiedContainerComponentTemplate.jsx')(this.props);
   }

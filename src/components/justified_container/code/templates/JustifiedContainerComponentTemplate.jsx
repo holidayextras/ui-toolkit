@@ -6,5 +6,4 @@ module.exports = function(props) {
       {props.children}
     </div>
   );
-}
-
+};
