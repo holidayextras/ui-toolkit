@@ -44,13 +44,14 @@ module.exports = React.createClass({
   },
 
   handleChange: function(e) {
+
     var isValid = true;
     var error = null;
     var self = this;
     var value = (e.target) ? e.target.value : null;
 
     if(value !== '' && typeof self.props.validator !== 'undefined'){
-      isValid = self.props.validator.test(value)
+      isValid = self.props.validator.test(value);
     }
 
     if( !isValid){
