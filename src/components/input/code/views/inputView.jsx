@@ -64,14 +64,6 @@ module.exports = React.createClass({
         error: error
       });
     }, 500);
-
-    // @note: adding this because there is a timeout on state change
-    // not picked up my unit tests.  But this reflects the values that
-    // will be set after timeout executes.
-    this.setState({
-      unitTestValid: isValid,
-      unitTestError: error
-    });
   },
 
   render: function() {
