@@ -17,7 +17,7 @@ module.exports = React.createClass({
     readOnly: React.PropTypes.bool,
     required: React.PropTypes.bool,
     valid: React.PropTypes.bool,
-    validator: React.PropTypes.any,
+    validator: React.PropTypes.instanceOf(RegExp),
     errorMessage: React.PropTypes.string
   },
 
@@ -65,14 +65,6 @@ module.exports = React.createClass({
         error: error
       });
     }, 500);
-
-    // @note: adding this because there is a timeout on state change
-    // not picked up my unit tests.  But this reflects the values that
-    // will be set after timeout executes.
-    this.setState({
-      unitTestValid: isValid,
-      unitTestError: error
-    });
   },
 
   render: function() {
