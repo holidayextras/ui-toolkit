@@ -49,12 +49,22 @@ module.exports = React.createClass({
     var self = this;
     var value = (e.target) ? e.target.value : null;
 
+    console.log(value);
+    console.log(typeof value);
+    // console.log(self.props.validator);
+
+
     if(value !== '' && typeof self.props.validator !== 'undefined'){
-      isValid = self.props.validator.test(value);
+      console.log('start');
+      console.log(RegExp(self.props.validator).test(value))
+      isValid = new RegExp(/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i).test('cameron.viner@gmail.com')
+      console.log(isValid);
+      console.log('end');
     }
 
     if( !isValid){
       error = self.props.errorMessage;
+      console.log("banana");
     }
 
     clearTimeout(this.intent);
