@@ -54,58 +54,6 @@ describe('Lozenge', function() {
     });
   });
 
-  describe('with purpose as attribute', function(){
-    describe('primary', function(){
-      beforeEach(function(){
-        this.instance = TestUtils.renderIntoDocument(<Lozenge primary>foo</Lozenge>);
-      });
-
-      it('renders label-primary class', function(){
-        assert.ok(TestUtils.findRenderedDOMComponentWithClass(this.instance, 'label-primary'));
-      });
-    });
-
-    describe('success', function(){
-      beforeEach(function(){
-        this.instance = TestUtils.renderIntoDocument(<Lozenge success>foo</Lozenge>);
-      });
-
-      it('renders label-success class', function(){
-        assert.ok(TestUtils.findRenderedDOMComponentWithClass(this.instance, 'label-success'));
-      });
-    });
-
-    describe('info', function(){
-      beforeEach(function(){
-        this.instance = TestUtils.renderIntoDocument(<Lozenge info>foo</Lozenge>);
-      });
-
-      it('renders label-info class', function(){
-        assert.ok(TestUtils.findRenderedDOMComponentWithClass(this.instance, 'label-info'));
-      });
-    });
-
-    describe('warning', function(){
-      beforeEach(function(){
-        this.instance = TestUtils.renderIntoDocument(<Lozenge warning>foo</Lozenge>);
-      });
-
-      it('renders label-warning class', function(){
-        assert.ok(TestUtils.findRenderedDOMComponentWithClass(this.instance, 'label-warning'));
-      });
-    });
-
-    describe('danger', function(){
-      beforeEach(function(){
-        this.instance = TestUtils.renderIntoDocument(<Lozenge danger>foo</Lozenge>);
-      });
-
-      it('renders label-danger class', function(){
-        assert.ok(TestUtils.findRenderedDOMComponentWithClass(this.instance, 'label-danger'));
-      });
-    });
-  });
-
   describe('with purpose attribute', function(){
     describe('primary', function(){
       beforeEach(function(){

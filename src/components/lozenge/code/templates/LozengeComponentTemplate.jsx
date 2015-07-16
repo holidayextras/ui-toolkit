@@ -6,12 +6,12 @@ module.exports = function(props) {
     'component-lozenge': true,
     'label': true,
     'has-tooltip': (props.tip),
-    'label-primary': (props.primary || props.purpose === 'primary'),
-    'label-success': (props.success || props.purpose === 'success'),
-    'label-info': (props.info || props.purpose === 'info'),
-    'label-warning': (props.warning || props.purpose === 'warning'),
-    'label-danger': (props.danger || props.purpose === 'danger'),
-    'label-default': (!props.primary && !props.success && !props.info && !props.warning && !props.danger && !props.purpose)
+    'label-primary': (props.purpose === 'primary'),
+    'label-success': (props.purpose === 'success'),
+    'label-info': (props.purpose === 'info'),
+    'label-warning': (props.purpose === 'warning'),
+    'label-danger': (props.purpose === 'danger'),
+    'label-default': (!props.purpose || ['primary', 'success', 'info', 'warning', 'danger'].indexOf(props.purpose) === -1)
   });
 
   return (

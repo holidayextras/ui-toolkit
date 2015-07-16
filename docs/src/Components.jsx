@@ -97,12 +97,7 @@ var Components = React.createClass({
           <h4>Attributes</h4>
           <ul>
             <li><code>tip</code> String - Tooltip text to display</li>
-            <li><code>purpose</code> String - Specifies purpose and adds relevant style</li>
-            <li><code>info</code> Boolean - Adds info style</li>
-            <li><code>primary</code> Boolean - Adds primary style</li>
-            <li><code>success</code> Boolean - Adds success style</li>
-            <li><code>warning</code> Boolean - Adds warning style</li>
-            <li><code>danger</code> Boolean - Adds danger style</li>
+            <li><code>purpose</code> String - the purpose of the lozenge</li>
           </ul>
         </article>
 
