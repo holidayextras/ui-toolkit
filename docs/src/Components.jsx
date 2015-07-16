@@ -9,6 +9,18 @@ var Components = React.createClass({
       <section id="components">
         <h2 className="page-header">Components</h2>
 
+        <article id="alert">
+          <h3>Alert</h3>
+          <p>An alert is used to display helpful or factual information usually used as a prompt.</p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Alert.jsx', 'utf8')} />
+          <h4>Attributes</h4>
+          <ul>
+            <li><code>title</code> String - The title of the alert</li>
+            <li><code>purpose</code> String - The purpose of the alert</li>
+            <li><code>size</code> String - The size of the alert (default: medium)</li>
+          </ul>
+        </article>
+
         <article id="button">
           <h3>Buttons</h3>
           <p>A clickable/tappable button element</p>
@@ -45,20 +57,6 @@ var Components = React.createClass({
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/FlagPosition.jsx', 'utf8')} />
         </article>
 
-        <article>
-          <h3 id="rating">Rating</h3>
-          <p>Ratings can be used to display a series of icons intended to represent a score.</p>
-          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Rating.jsx', 'utf8')} />
-          <h4>Attributes</h4>
-          <ul>
-            <li><code>rating</code> Number - The count of positive icons to display.</li>
-            <li><code>outOf</code> [optional] Number - The total count the rating value is out of.</li>
-            <li><code>blankIcon</code> [optional] Node (any displayable item) - the icon to display for empty ratings.</li>
-          </ul>
-
-          The <code>outOf</code> and <code>blankIcon</code> attributes are optional and dependent upon each other.
-        </article>
-
         <article id="image">
           <h3>Image</h3>
           <p>A standard Image Component.</p>
@@ -71,14 +69,13 @@ var Components = React.createClass({
           </ul>
         </article>
 
-        <article id="tiles">
-          <h3>Tiles</h3>
-          <p>A tile for displaying an image with a title. The width of a tile is 100% of a container.</p>
-          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Tile.jsx', 'utf8')} />
+        <article id="justified-container">
+          <h3>Justified Container</h3>
+          <p>A container which will spread components vertically across a page</p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/JustifiedContainer.jsx', 'utf8')} />
           <h4>Attributes</h4>
           <ul>
-            <li><code>image</code> Object - Containing <code>src</code> and <code>alt</code> keys</li>
-            <li><code>title</code> String - The title of the tile</li>
+            <li><code>style</code> Object - An object of styles (this will overwrite the default behavior of this component)</li>
           </ul>
         </article>
 
@@ -93,19 +90,7 @@ var Components = React.createClass({
           </ul>
         </article>
 
-        <article id="alert">
-          <h3>Alert</h3>
-          <p>An alert is used to display helpful or factual information usually used as a prompt.</p>
-          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Alert.jsx', 'utf8')} />
-          <h4>Attributes</h4>
-          <ul>
-            <li><code>title</code> String - The title of the alert</li>
-            <li><code>purpose</code> String - The purpose of the alert</li>
-            <li><code>size</code> String - The size of the alert (default: medium)</li>
-          </ul>
-        </article>
-
-         <article id="quote">
+        <article id="quote">
           <h3>Quote</h3>
           <p>A quote is used referencing blocks of content from another source within your document. They come as a <code>Block</code> (default) or <code>inline</code></p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Quote.jsx', 'utf8')} />
@@ -120,6 +105,31 @@ var Components = React.createClass({
             <li><code>role</code> String - The role/job title of the author</li>
             <li><code>purpose</code> String - The purpose of the quote</li>
             <li><code>size</code> String - The size of the alert (default: medium)</li>
+          </ul>
+        </article>
+
+        <article>
+          <h3 id="rating">Rating</h3>
+          <p>Ratings can be used to display a series of icons intended to represent a score.</p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Rating.jsx', 'utf8')} />
+          <h4>Attributes</h4>
+          <ul>
+            <li><code>rating</code> Number - The count of positive icons to display.</li>
+            <li><code>outOf</code> [optional] Number - The total count the rating value is out of.</li>
+            <li><code>blankIcon</code> [optional] Node (any displayable item) - the icon to display for empty ratings.</li>
+          </ul>
+
+          The <code>outOf</code> and <code>blankIcon</code> attributes are optional and dependent upon each other.
+        </article>
+
+        <article id="tile">
+          <h3>Tiles</h3>
+          <p>A tile for displaying an image with a title. The width of a tile is 100% of a container.</p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Tile.jsx', 'utf8')} />
+          <h4>Attributes</h4>
+          <ul>
+            <li><code>image</code> Object - Containing <code>src</code> and <code>alt</code> keys</li>
+            <li><code>title</code> String - The title of the tile</li>
           </ul>
         </article>
 
