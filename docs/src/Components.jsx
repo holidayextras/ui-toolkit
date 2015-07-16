@@ -90,6 +90,22 @@ var Components = React.createClass({
           </ul>
         </article>
 
+        <article id="lozenge">
+          <h3>Lozenge</h3>
+          <p>A small pill shaped item for displaying information</p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Lozenge.jsx', 'utf8')} />
+          <h4>Attributes</h4>
+          <ul>
+            <li><code>tip</code> String - Tooltip text to display</li>
+            <li><code>purpose</code> String - Specifies purpose and adds relevant style</li>
+            <li><code>info</code> Boolean - Adds info style</li>
+            <li><code>primary</code> Boolean - Adds primary style</li>
+            <li><code>success</code> Boolean - Adds success style</li>
+            <li><code>warning</code> Boolean - Adds warning style</li>
+            <li><code>danger</code> Boolean - Adds danger style</li>
+          </ul>
+        </article>
+
         <article id="quote">
           <h3>Quote</h3>
           <p>A quote is used referencing blocks of content from another source within your document. They come as a <code>Block</code> (default) or <code>inline</code></p>
