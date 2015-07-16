@@ -1,6 +1,6 @@
 {
   "name": "ui-toolkit",
-  "version": "0.9.1",
+  "version": "0.10.1",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "src/index.js",
@@ -75,6 +75,8 @@
     "sinon": "^1.14.1"
   },
   "browserify": {
-    "transform": [ "reactify" ]
+    "transform": [
+      "reactify"
+    ]
   }
 }
