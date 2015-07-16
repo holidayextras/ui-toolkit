@@ -69,6 +69,26 @@ var Components = React.createClass({
           </ul>
         </article>
 
+        <article id="input">
+          <h3>Input</h3>
+          <p>Custom Input for Text, Password &amp; Email Types</p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Input.jsx', 'utf8')} />
+          <h4>Attributes</h4>
+          <ul>
+            <li><code>type</code> String - Type of Input Field [ text | email | tel | number]</li>
+            <li><code>name</code> String - Optional Name for Input Field</li>
+            <li><code>id</code> String - Optional ID for Input Field</li>
+            <li><code>label</code> String - Optional Label in front of Input Field</li>
+            <li><code>placeHolder</code> String - Optional Placeholder for Input Field</li>
+            <li><code>defaultValue</code> String - Optional Default Value for Input Field</li>
+            <li><code>validator</code> String - Optional Regular Expression to Validate Input</li>
+            <li><code>errorMessage</code> String - Optional Error Message to show if <code>validator</code> returns false</li>
+            <li><code>disabled</code> Boolean - Whether to Disable the Input Field</li>
+            <li><code>readOnly</code> Boolean - Whether to set the Input Field to Read Only</li>
+            <li><code>required</code> Boolean - Whether to set the Input Field to be Required</li>
+          </ul>
+        </article>
+
         <article id="justified-container">
           <h3>Justified Container</h3>
           <p>A container which will spread components vertically across a page</p>

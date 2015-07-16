@@ -21,6 +21,7 @@ var Nav = React.createClass({
               <li><a href="#button">Buttons</a></li>
               <li><a href="#flags">Flags</a></li>
               <li><a href="#image">Image</a></li>
+              <li><a href="#input">Input</a></li>
               <li><a href="#justified-container">Justified Container</a></li>
               <li><a href="#lists">Lists</a></li>
               <li><a href="#lozenge">Lozenge</a></li>
