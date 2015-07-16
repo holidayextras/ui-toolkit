@@ -11,5 +11,6 @@ UIToolkit.IconList = require('./components/icon-list');
 UIToolkit.IconListItem = require('./components/icon-list-item');
 UIToolkit.Alert = require('./components/alert');
 UIToolkit.Quote = require('./components/quote');
+UIToolkit.PaymentCard = require('./components/payment-card');
 
 module.exports = UIToolkit;
