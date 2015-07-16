@@ -149,7 +149,8 @@ describe('InputComponent', function() {
 });
 
 describe('InputComponent Error with Default Message', function() {
-  var input, renderedInput;
+  var input
+  var renderedInput;
   var emailValidator = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 
   beforeEach(function(){
@@ -168,7 +169,8 @@ describe('InputComponent Error with Default Message', function() {
 });
 
 describe('InputComponent Error with Custom Message', function() {
-  var input, renderedInput;
+  var input
+  var renderedInput;
   var emailValidator = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
   var emailErrorMessage = 'Invalid Email';
 

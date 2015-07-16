@@ -44,7 +44,6 @@ module.exports = React.createClass({
   },
 
   handleChange: function(e) {
-
     var isValid = true;
     var error = null;
     var self = this;
