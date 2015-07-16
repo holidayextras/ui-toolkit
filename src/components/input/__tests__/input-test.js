@@ -155,9 +155,8 @@ describe('InputComponent Error with Default Message', function() {
 
   it('should change the value to be invalid and throw error state with null message', function() {
     TestUtils.Simulate.change(renderedInput.getDOMNode(), { target: { value: 'invalid @ email . #$%' }});
-    setTimeout (function(){
+    setTimeout(function(){
       assert.equal(input.state.error, 'Invalid Input');
-      done();
     }, 1000);
   });
 });
@@ -178,9 +177,8 @@ describe('InputComponent Error with Custom Message', function() {
 
   it('should change the value to be invalid and throw error state with custom message', function() {
     TestUtils.Simulate.change(renderedInput.getDOMNode(), { target: { value: 'invalid @ email . #$%' }});
-    setTimeout (function(){
+    setTimeout(function(){
       assert.equal(input.state.error, 'Invalid Input');
-      done();
     }, 1000);
   });
 });
