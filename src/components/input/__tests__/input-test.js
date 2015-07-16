@@ -74,13 +74,6 @@ describe('InputComponent', function() {
 
   });
 
-
-
-
-
-
-
-
   it('should not have default value', function() {
     var input = TestUtils.renderIntoDocument(
       <InputView />
