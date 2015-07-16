@@ -90,6 +90,17 @@ var Components = React.createClass({
           </ul>
         </article>
 
+        <article id="lozenge">
+          <h3>Lozenge</h3>
+          <p>A small pill shaped item for displaying information</p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Lozenge.jsx', 'utf8')} />
+          <h4>Attributes</h4>
+          <ul>
+            <li><code>tip</code> String - Tooltip text to display</li>
+            <li><code>purpose</code> String - the purpose of the lozenge</li>
+          </ul>
+        </article>
+
         <article id="quote">
           <h3>Quote</h3>
           <p>A quote is used referencing blocks of content from another source within your document. They come as a <code>Block</code> (default) or <code>inline</code></p>
