@@ -34,7 +34,7 @@ describe('InputComponent', function() {
 
   });
 
-  it('should render tel input', function() {
+  it('should render number input', function() {
     var input = TestUtils.renderIntoDocument(
       <InputView type="number" />
     );
