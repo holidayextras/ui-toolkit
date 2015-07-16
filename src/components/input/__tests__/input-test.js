@@ -83,15 +83,6 @@ describe('InputComponent', function() {
     assert.equal(renderedInput.getDOMNode().value, '');
   });
 
-  // it('should have default placeholder', function() {
-  //   var input = TestUtils.renderIntoDocument(
-  //     <InputView />
-  //   );
-
-  //   var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field');
-  //   assert.equal(renderedInput.getDOMNode().getAttribute('placeholder'), '');
-  // });
-
   it('should have default ID', function() {
     var input = TestUtils.renderIntoDocument(
       <InputView />
@@ -149,7 +140,8 @@ describe('InputComponent', function() {
 });
 
 describe('InputComponent Error with Default Message', function() {
-  var input, renderedInput;
+  var input;
+  var renderedInput;
   var emailValidator = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 
   beforeEach(function(){
@@ -163,7 +155,6 @@ describe('InputComponent Error with Default Message', function() {
 
   it('should change the value to be invalid and throw error state with null message', function() {
     TestUtils.Simulate.change(renderedInput.getDOMNode(), { target: { value: 'invalid @ email . #$%' }});
-    // assert.equal(input.state.unitTestError, 'Invalid Input');
     setTimeout (function(){
       assert.equal(input.state.error, 'Invalid Input');
       done();
@@ -172,7 +163,8 @@ describe('InputComponent Error with Default Message', function() {
 });
 
 describe('InputComponent Error with Custom Message', function() {
-  var input, renderedInput;
+  var input;
+  var renderedInput;
   var emailValidator = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
   var emailErrorMessage = 'Invalid Email';
 
@@ -190,6 +182,5 @@ describe('InputComponent Error with Custom Message', function() {
       assert.equal(input.state.error, 'Invalid Input');
       done();
     }, 1000);
-    // assert.equal(input.state.unitTestError, emailErrorMessage);
   });
 });
