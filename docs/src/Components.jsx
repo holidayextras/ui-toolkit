@@ -103,7 +103,7 @@ var Components = React.createClass({
 
         <article id="payment-card">
           <h3>Payment Cards</h3>
-          <p>Easy display what payment cards your website accepts</p>
+          <p>Easily display what payment cards your website accepts</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/PaymentCard.jsx', 'utf8')} />
           <h4>Attributes</h4>
           <ul>
