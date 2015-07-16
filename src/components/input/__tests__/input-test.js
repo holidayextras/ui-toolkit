@@ -83,15 +83,6 @@ describe('InputComponent', function() {
     assert.equal(renderedInput.getDOMNode().value, '');
   });
 
-  it('should have default placeholder', function() {
-    var input = TestUtils.renderIntoDocument(
-      <InputView />
-    );
-
-    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field');
-    assert.equal(renderedInput.getDOMNode().getAttribute('placeholder'), '');
-  });
-
   it('should have default ID', function() {
     var input = TestUtils.renderIntoDocument(
       <InputView />
@@ -121,7 +112,7 @@ describe('InputComponent', function() {
 
   it('should have custom placeholder', function() {
     var input = TestUtils.renderIntoDocument(
-      <InputView placeHolder="Enter Name" />
+      <InputView placeholder="Enter Name" />
     );
 
     var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field');
