@@ -90,6 +90,17 @@ var Components = React.createClass({
           </ul>
         </article>
 
+        <article id="lozenge">
+          <h3>Lozenge</h3>
+          <p>A small pill shaped item for displaying information</p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Lozenge.jsx', 'utf8')} />
+          <h4>Attributes</h4>
+          <ul>
+            <li><code>tip</code> String - Tooltip text to display</li>
+            <li><code>purpose</code> String - the purpose of the lozenge</li>
+          </ul>
+        </article>
+
         <article id="payment-card">
           <h3>Payment Cards</h3>
           <p>Easy display what payment cards your website accepts</p>
