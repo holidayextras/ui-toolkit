@@ -69,6 +69,16 @@ var Components = React.createClass({
           </ul>
         </article>
 
+        <article id="justified-container">
+          <h3>Justified Container</h3>
+          <p>A container which will spread components vertically across a page</p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/JustifiedContainer.jsx', 'utf8')} />
+          <h4>Attributes</h4>
+          <ul>
+            <li><code>style</code> Object - An object of styles (this will overwrite the default behavior of this component)</li>
+          </ul>
+        </article>
+
         <article id="lists">
           <h3>Lists</h3>
           <h4>Icon list</h4>
@@ -122,7 +132,7 @@ var Components = React.createClass({
           The <code>outOf</code> and <code>blankIcon</code> attributes are optional and dependent upon each other.
         </article>
 
-        <article id="tiles">
+        <article id="tile">
           <h3>Tiles</h3>
           <p>A tile for displaying an image with a title. The width of a tile is 100% of a container.</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Tile.jsx', 'utf8')} />

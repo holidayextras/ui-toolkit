@@ -1,7 +1,8 @@
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.uiToolkit = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 module.exports = require('./src/ui-toolkit');
 
-},{"./src/ui-toolkit":243}],2:[function(require,module,exports){
+
+},{"./src/ui-toolkit":247}],2:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -24276,6 +24277,7 @@ module.exports = require('./lib/React');
 },{"./lib/React":69}],197:[function(require,module,exports){
 module.exports = require('./views/alertView.jsx');
 
+
 },{"./views/alertView.jsx":199}],198:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
@@ -24294,7 +24296,8 @@ module.exports = function() {
   );
 };
 
-},{"../../../../utils/getComponentClasses":244,"classnames":3,"react":196}],199:[function(require,module,exports){
+
+},{"../../../../utils/getComponentClasses":248,"classnames":3,"react":196}],199:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -24309,11 +24312,14 @@ module.exports = React.createClass({displayName: "exports",
   }
 });
 
+
 },{"../templates/alertTemplate.jsx":198,"react":196}],200:[function(require,module,exports){
 module.exports = require('./code/index');
 
+
 },{"./code/index":197}],201:[function(require,module,exports){
 module.exports = require('./views/buttonView.jsx');
+
 
 },{"./views/buttonView.jsx":204}],202:[function(require,module,exports){
 var React = require('react');
@@ -24333,7 +24339,8 @@ module.exports = function() {
   );
 };
 
-},{"../../../../utils/getComponentClasses":244,"classnames":3,"react":196}],203:[function(require,module,exports){
+
+},{"../../../../utils/getComponentClasses":248,"classnames":3,"react":196}],203:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
@@ -24351,7 +24358,8 @@ module.exports = function() {
   );
 };
 
-},{"../../../../utils/getComponentClasses":244,"classnames":3,"react":196}],204:[function(require,module,exports){
+
+},{"../../../../utils/getComponentClasses":248,"classnames":3,"react":196}],204:[function(require,module,exports){
 /** @jsx React.DOM */
 
 var React = require('react');
@@ -24379,11 +24387,14 @@ module.exports = React.createClass({displayName: "exports",
 
 });
 
+
 },{"../templates/buttonAnchorTemplate.jsx":202,"../templates/buttonTemplate.jsx":203,"react":196,"react-data-attributes-mixin":22}],205:[function(require,module,exports){
 module.exports = require('./code');
 
+
 },{"./code":201}],206:[function(require,module,exports){
 module.exports = require('./views/flagView.jsx');
+
 
 },{"./views/flagView.jsx":208}],207:[function(require,module,exports){
 var React = require('react');
@@ -24402,7 +24413,8 @@ module.exports = function(props) {
   );
 };
 
-},{"../../../../utils/getComponentClasses":244,"classnames":3,"react":196}],208:[function(require,module,exports){
+
+},{"../../../../utils/getComponentClasses":248,"classnames":3,"react":196}],208:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -24433,11 +24445,14 @@ module.exports = React.createClass({displayName: "exports",
   }
 });
 
+
 },{"../templates/flagTemplate.jsx":207,"react":196}],209:[function(require,module,exports){
 module.exports = require('./code/index');
 
+
 },{"./code/index":206}],210:[function(require,module,exports){
 module.exports = require('./views/IconListItemComponentView.jsx');
+
 
 },{"./views/IconListItemComponentView.jsx":212}],211:[function(require,module,exports){
 var React = require('react');
@@ -24449,6 +24464,7 @@ module.exports = function(props) {
     )
   );
 };
+
 
 },{"react":196}],212:[function(require,module,exports){
 var React = require('react');
@@ -24464,11 +24480,14 @@ module.exports = React.createClass({displayName: "exports",
   }
 });
 
+
 },{"../templates/IconListItemComponentTemplate.jsx":211,"react":196}],213:[function(require,module,exports){
 module.exports = require('./code/index');
 
+
 },{"./code/index":210}],214:[function(require,module,exports){
 module.exports = require('./views/IconListComponentView.jsx');
+
 
 },{"./views/IconListComponentView.jsx":216}],215:[function(require,module,exports){
 var React = require('react');
@@ -24481,6 +24500,7 @@ module.exports = function(props) {
   );
 };
 
+
 },{"react":196}],216:[function(require,module,exports){
 var React = require('react');
 
@@ -24490,11 +24510,14 @@ module.exports = React.createClass({displayName: "exports",
   }
 });
 
+
 },{"../templates/IconListComponentTemplate.jsx":215,"react":196}],217:[function(require,module,exports){
 module.exports = require('./code/index');
 
+
 },{"./code/index":214}],218:[function(require,module,exports){
 module.exports = require('./views/imageView.jsx');
+
 
 },{"./views/imageView.jsx":220}],219:[function(require,module,exports){
 var React = require('react');
@@ -24504,6 +24527,7 @@ module.exports = function(props) {
     React.createElement("img", {alt: props.alt, src: props.src, onClick: props.handleClick, className: "component-image"})
   );
 };
+
 
 },{"react":196}],220:[function(require,module,exports){
 var React = require('react');
@@ -24521,13 +24545,56 @@ module.exports = React.createClass({displayName: "exports",
   }
 });
 
+
 },{"../templates/imageTemplate.jsx":219,"react":196}],221:[function(require,module,exports){
 module.exports = require('./code/index');
 
+
 },{"./code/index":218}],222:[function(require,module,exports){
+module.exports = require('./views/JustifiedContainerComponentView.jsx');
+
+
+},{"./views/JustifiedContainerComponentView.jsx":224}],223:[function(require,module,exports){
+var React = require('react');
+
+module.exports = function(props) {
+  return (
+    React.createElement("div", {style: props.styles, className: "component-justified-container"}, 
+      props.children
+    )
+  );
+};
+
+
+},{"react":196}],224:[function(require,module,exports){
+var React = require('react');
+
+module.exports = React.createClass({displayName: "exports",
+
+  getDefaultProps: function(){
+    return {
+      styles: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+      }
+    };
+  },
+  render: function(){
+    return require('../templates/JustifiedContainerComponentTemplate.jsx')(this.props);
+  }
+});
+
+
+},{"../templates/JustifiedContainerComponentTemplate.jsx":223,"react":196}],225:[function(require,module,exports){
+module.exports = require('./code/index');
+
+
+},{"./code/index":222}],226:[function(require,module,exports){
 module.exports = require('./views/paymentCardView.jsx');
 
-},{"./views/paymentCardView.jsx":224}],223:[function(require,module,exports){
+
+},{"./views/paymentCardView.jsx":228}],227:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
@@ -24542,26 +24609,31 @@ module.exports = function() {
   );
 };
 
-},{"../../../../utils/getComponentClasses":244,"classnames":3,"react":196}],224:[function(require,module,exports){
-var React = require('react');
 
+},{"../../../../utils/getComponentClasses":248,"classnames":3,"react":196}],228:[function(require,module,exports){
+/** @jsx React.DOM */
+
+var React = require('react');
 module.exports = React.createClass({displayName: "exports",
   propTypes: {
-    type: React.PropTypes.oneOf(['amazon','amex','apple','cirrus','delta','directdebit','discover','electron','google','maestro','mastercard','paym','paypal','sage','sepa','solo','switch','ukash','visa','visadebit','western union']),
-    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large']),
+    type: React.PropTypes.oneOf(['amazon','amex','apple','cirrus','delta','directdebit','discover','electron','google','maestro','mastercard','paym','paypal','sage','sepa','solo','switch','ukash','visa','visadebit','westernunion']),
   },
+
   render: function() {
-    return require('../templates/paymentCardTemplate.jsx')(this.props);
+    return require('../templates/paymentCardTemplate.jsx').call(this);
   }
 });
 
-},{"../templates/paymentCardTemplate.jsx":223,"react":196}],225:[function(require,module,exports){
+
+},{"../templates/paymentCardTemplate.jsx":227,"react":196}],229:[function(require,module,exports){
 module.exports = require('./code/index');
 
-},{"./code/index":222}],226:[function(require,module,exports){
+
+},{"./code/index":226}],230:[function(require,module,exports){
 module.exports = require('./views/quoteView.jsx');
 
-},{"./views/quoteView.jsx":229}],227:[function(require,module,exports){
+
+},{"./views/quoteView.jsx":233}],231:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
@@ -24583,7 +24655,8 @@ module.exports = function() {
   );
 };
 
-},{"../../../../utils/getComponentClasses":244,"classnames":3,"react":196}],228:[function(require,module,exports){
+
+},{"../../../../utils/getComponentClasses":248,"classnames":3,"react":196}],232:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
@@ -24605,7 +24678,8 @@ module.exports = function() {
   );
 };
 
-},{"../../../../utils/getComponentClasses":244,"classnames":3,"react":196}],229:[function(require,module,exports){
+
+},{"../../../../utils/getComponentClasses":248,"classnames":3,"react":196}],233:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -24625,13 +24699,16 @@ module.exports = React.createClass({displayName: "exports",
   }
 });
 
-},{"../templates/blockQuoteTemplate.jsx":227,"../templates/quoteTemplate.jsx":228,"react":196}],230:[function(require,module,exports){
+
+},{"../templates/blockQuoteTemplate.jsx":231,"../templates/quoteTemplate.jsx":232,"react":196}],234:[function(require,module,exports){
 module.exports = require('./code/index');
 
-},{"./code/index":226}],231:[function(require,module,exports){
+
+},{"./code/index":230}],235:[function(require,module,exports){
 module.exports = require('./views/ratingView.jsx');
 
-},{"./views/ratingView.jsx":233}],232:[function(require,module,exports){
+
+},{"./views/ratingView.jsx":237}],236:[function(require,module,exports){
 var React = require('react');
 
 module.exports = function(props) {
@@ -24657,7 +24734,8 @@ module.exports = function(props) {
   );
 };
 
-},{"react":196}],233:[function(require,module,exports){
+
+},{"react":196}],237:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -24672,13 +24750,16 @@ module.exports = React.createClass({displayName: "exports",
   }
 });
 
-},{"../templates/ratingTemplate.jsx":232,"react":196}],234:[function(require,module,exports){
+
+},{"../templates/ratingTemplate.jsx":236,"react":196}],238:[function(require,module,exports){
 module.exports = require('./code/index');
 
-},{"./code/index":231}],235:[function(require,module,exports){
+
+},{"./code/index":235}],239:[function(require,module,exports){
 module.exports = require('./views/reviewsView.jsx');
 
-},{"./views/reviewsView.jsx":237}],236:[function(require,module,exports){
+
+},{"./views/reviewsView.jsx":241}],240:[function(require,module,exports){
 var React = require('react');
 
 module.exports = function(props) {
@@ -24691,7 +24772,8 @@ module.exports = function(props) {
   );
 };
 
-},{"react":196}],237:[function(require,module,exports){
+
+},{"react":196}],241:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -24704,13 +24786,16 @@ module.exports = React.createClass({displayName: "exports",
   }
 });
 
-},{"../templates/reviewsTemplate.jsx":236,"react":196}],238:[function(require,module,exports){
+
+},{"../templates/reviewsTemplate.jsx":240,"react":196}],242:[function(require,module,exports){
 module.exports = require('./code/index');
 
-},{"./code/index":235}],239:[function(require,module,exports){
+
+},{"./code/index":239}],243:[function(require,module,exports){
 module.exports = require('./views/tileView.jsx');
 
-},{"./views/tileView.jsx":241}],240:[function(require,module,exports){
+
+},{"./views/tileView.jsx":245}],244:[function(require,module,exports){
 var React = require('react');
 var ImageComponent = require('../../../image');
 
@@ -24726,7 +24811,8 @@ module.exports = function(props) {
   );
 };
 
-},{"../../../image":221,"react":196}],241:[function(require,module,exports){
+
+},{"../../../image":221,"react":196}],245:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -24744,28 +24830,32 @@ module.exports = React.createClass({displayName: "exports",
   }
 });
 
-},{"../templates/tileTemplate.jsx":240,"react":196}],242:[function(require,module,exports){
+
+},{"../templates/tileTemplate.jsx":244,"react":196}],246:[function(require,module,exports){
 module.exports = require('./code/index');
 
-},{"./code/index":239}],243:[function(require,module,exports){
+
+},{"./code/index":243}],247:[function(require,module,exports){
 var UIToolkit = {};
 
 // Custom Components
+UIToolkit.Alert = require('./components/alert');
 UIToolkit.Button = require('./components/button');
 UIToolkit.Flag = require('./components/flag');
+UIToolkit.IconList = require('./components/icon-list');
+UIToolkit.IconListItem = require('./components/icon-list-item');
+UIToolkit.Image = require('./components/image');
+UIToolkit.JustifiedContainer = require('./components/justified_container');
+UIToolkit.PaymentCard = require('./components/payment-card');
+UIToolkit.Quote = require('./components/quote');
 UIToolkit.Rating = require('./components/rating');
 UIToolkit.Reviews = require('./components/reviews');
 UIToolkit.Tile = require('./components/tile');
-UIToolkit.Image = require('./components/image');
-UIToolkit.IconList = require('./components/icon-list');
-UIToolkit.IconListItem = require('./components/icon-list-item');
-UIToolkit.Alert = require('./components/alert');
-UIToolkit.Quote = require('./components/quote');
-UIToolkit.PaymentCard = require('./components/payment-card');
 
 module.exports = UIToolkit;
 
-},{"./components/alert":200,"./components/button":205,"./components/flag":209,"./components/icon-list":217,"./components/icon-list-item":213,"./components/image":221,"./components/payment-card":225,"./components/quote":230,"./components/rating":234,"./components/reviews":238,"./components/tile":242}],244:[function(require,module,exports){
+
+},{"./components/alert":200,"./components/button":205,"./components/flag":209,"./components/icon-list":217,"./components/icon-list-item":213,"./components/image":221,"./components/justified_container":225,"./components/payment-card":229,"./components/quote":234,"./components/rating":238,"./components/reviews":242,"./components/tile":246}],248:[function(require,module,exports){
 var _ = {
   values: require('lodash.values'),
   pick: require('lodash.pick')
@@ -24783,6 +24873,7 @@ module.exports = function(defaultClass, propClasses, props) {
 
   return classes;
 };
+
 
 },{"lodash.pick":4,"lodash.values":16}]},{},[1])(1)
 });

@@ -17,10 +17,11 @@ var Nav = React.createClass({
           <li>
             <a href="#components">Components</a>
             <ul>
-            <li><a href="#alert">Alert</a></li>
+              <li><a href="#alert">Alert</a></li>
               <li><a href="#button">Buttons</a></li>
               <li><a href="#flags">Flags</a></li>
               <li><a href="#image">Image</a></li>
+              <li><a href="#justified-container">Justified Container</a></li>
               <li><a href="#lists">Lists</a></li>
               <li><a href="#payment-card">Payment Card</a></li>
               <li><a href="#quote">Quote</a></li>
