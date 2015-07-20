@@ -10,6 +10,7 @@ UIToolkit.Image = require('./components/image');
 UIToolkit.Input = require('./components/input');
 UIToolkit.JustifiedContainer = require('./components/justified_container');
 UIToolkit.Lozenge = require('./components/lozenge');
+UIToolkit.PaymentCard = require('./components/payment-card');
 UIToolkit.Quote = require('./components/quote');
 UIToolkit.Rating = require('./components/rating');
 UIToolkit.Reviews = require('./components/reviews');

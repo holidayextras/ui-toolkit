@@ -121,6 +121,16 @@ var Components = React.createClass({
           </ul>
         </article>
 
+        <article id="payment-card">
+          <h3>Payment Cards</h3>
+          <p>Easily display what payment cards your website accepts</p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/PaymentCard.jsx', 'utf8')} />
+          <h4>Attributes</h4>
+          <ul>
+            <li><code>type</code></li> String - <code>amazon amex apple cirrus delta directdebit discover electron google maestro mastercard paym paypal sage sepa solo switch ukash visa visadebit westernunion</code>
+          </ul>
+        </article>
+
         <article id="quote">
           <h3>Quote</h3>
           <p>A quote is used referencing blocks of content from another source within your document. They come as a <code>Block</code> (default) or <code>inline</code></p>

@@ -2,7 +2,7 @@
 module.exports = require('./src/ui-toolkit');
 
 
-},{"./src/ui-toolkit":269}],2:[function(require,module,exports){
+},{"./src/ui-toolkit":273}],2:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -26352,7 +26352,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":270,"classnames":3,"react":214}],217:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":274,"classnames":3,"react":214}],217:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -26395,7 +26395,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":270,"classnames":3,"react":214}],221:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":274,"classnames":3,"react":214}],221:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
@@ -26414,7 +26414,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":270,"classnames":3,"react":214}],222:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":274,"classnames":3,"react":214}],222:[function(require,module,exports){
 /** @jsx React.DOM */
 
 var React = require('react');
@@ -26469,7 +26469,7 @@ module.exports = function(props) {
 };
 
 
-},{"../../../../utils/getComponentClasses":270,"classnames":3,"react":214}],226:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":274,"classnames":3,"react":214}],226:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -26707,13 +26707,14 @@ module.exports = React.createClass({displayName: "exports",
   },
 
   handleChange: function(e) {
+
     var isValid = true;
     var error = null;
     var self = this;
     var value = (e.target) ? e.target.value : null;
 
     if(value !== '' && typeof self.props.validator !== 'undefined'){
-      isValid = self.props.validator.test(value)
+      isValid = self.props.validator.test(value);
     }
 
     if( !isValid){
@@ -26829,10 +26830,49 @@ module.exports = require('./code/index');
 
 
 },{"./code/index":248}],252:[function(require,module,exports){
+module.exports = require('./views/paymentCardView.jsx');
+
+
+},{"./views/paymentCardView.jsx":254}],253:[function(require,module,exports){
+var React = require('react');
+var classNames = require('classnames');
+var getComponentClasses = require('../../../../utils/getComponentClasses');
+
+module.exports = function() {
+
+  var propClasses = ['type', 'size'];
+  var classes = getComponentClasses('component-payment-card', propClasses, this.props);
+
+  return (
+      React.createElement("div", {className: classNames(classes)})
+  );
+};
+
+
+},{"../../../../utils/getComponentClasses":274,"classnames":3,"react":214}],254:[function(require,module,exports){
+/** @jsx React.DOM */
+
+var React = require('react');
+module.exports = React.createClass({displayName: "exports",
+  propTypes: {
+    type: React.PropTypes.oneOf(['amazon', 'amex', 'apple', 'cirrus', 'delta', 'directdebit', 'discover', 'electron', 'google', 'maestro', 'mastercard', 'paym', 'paypal', 'sage', 'sepa', 'solo', 'switch', 'ukash', 'visa', 'visadebit', 'westernunion'])
+  },
+
+  render: function() {
+    return require('../templates/paymentCardTemplate.jsx').call(this);
+  }
+});
+
+
+},{"../templates/paymentCardTemplate.jsx":253,"react":214}],255:[function(require,module,exports){
+module.exports = require('./code/index');
+
+
+},{"./code/index":252}],256:[function(require,module,exports){
 module.exports = require('./views/quoteView.jsx');
 
 
-},{"./views/quoteView.jsx":255}],253:[function(require,module,exports){
+},{"./views/quoteView.jsx":259}],257:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
@@ -26855,7 +26895,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":270,"classnames":3,"react":214}],254:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":274,"classnames":3,"react":214}],258:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
@@ -26878,7 +26918,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":270,"classnames":3,"react":214}],255:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":274,"classnames":3,"react":214}],259:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -26899,15 +26939,15 @@ module.exports = React.createClass({displayName: "exports",
 });
 
 
-},{"../templates/blockQuoteTemplate.jsx":253,"../templates/quoteTemplate.jsx":254,"react":214}],256:[function(require,module,exports){
+},{"../templates/blockQuoteTemplate.jsx":257,"../templates/quoteTemplate.jsx":258,"react":214}],260:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
-},{"./code/index":252}],257:[function(require,module,exports){
+},{"./code/index":256}],261:[function(require,module,exports){
 module.exports = require('./views/ratingView.jsx');
 
 
-},{"./views/ratingView.jsx":259}],258:[function(require,module,exports){
+},{"./views/ratingView.jsx":263}],262:[function(require,module,exports){
 var React = require('react');
 
 module.exports = function(props) {
@@ -26934,7 +26974,7 @@ module.exports = function(props) {
 };
 
 
-},{"react":214}],259:[function(require,module,exports){
+},{"react":214}],263:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -26950,15 +26990,15 @@ module.exports = React.createClass({displayName: "exports",
 });
 
 
-},{"../templates/ratingTemplate.jsx":258,"react":214}],260:[function(require,module,exports){
+},{"../templates/ratingTemplate.jsx":262,"react":214}],264:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
-},{"./code/index":257}],261:[function(require,module,exports){
+},{"./code/index":261}],265:[function(require,module,exports){
 module.exports = require('./views/reviewsView.jsx');
 
 
-},{"./views/reviewsView.jsx":263}],262:[function(require,module,exports){
+},{"./views/reviewsView.jsx":267}],266:[function(require,module,exports){
 var React = require('react');
 
 module.exports = function(props) {
@@ -26972,7 +27012,7 @@ module.exports = function(props) {
 };
 
 
-},{"react":214}],263:[function(require,module,exports){
+},{"react":214}],267:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -26986,15 +27026,15 @@ module.exports = React.createClass({displayName: "exports",
 });
 
 
-},{"../templates/reviewsTemplate.jsx":262,"react":214}],264:[function(require,module,exports){
+},{"../templates/reviewsTemplate.jsx":266,"react":214}],268:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
-},{"./code/index":261}],265:[function(require,module,exports){
+},{"./code/index":265}],269:[function(require,module,exports){
 module.exports = require('./views/tileView.jsx');
 
 
-},{"./views/tileView.jsx":267}],266:[function(require,module,exports){
+},{"./views/tileView.jsx":271}],270:[function(require,module,exports){
 var React = require('react');
 var ImageComponent = require('../../../image');
 
@@ -27011,7 +27051,7 @@ module.exports = function(props) {
 };
 
 
-},{"../../../image":239,"react":214}],267:[function(require,module,exports){
+},{"../../../image":239,"react":214}],271:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -27030,11 +27070,11 @@ module.exports = React.createClass({displayName: "exports",
 });
 
 
-},{"../templates/tileTemplate.jsx":266,"react":214}],268:[function(require,module,exports){
+},{"../templates/tileTemplate.jsx":270,"react":214}],272:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
-},{"./code/index":265}],269:[function(require,module,exports){
+},{"./code/index":269}],273:[function(require,module,exports){
 var UIToolkit = {};
 
 // Custom Components
@@ -27047,6 +27087,7 @@ UIToolkit.Image = require('./components/image');
 UIToolkit.Input = require('./components/input');
 UIToolkit.JustifiedContainer = require('./components/justified_container');
 UIToolkit.Lozenge = require('./components/lozenge');
+UIToolkit.PaymentCard = require('./components/payment-card');
 UIToolkit.Quote = require('./components/quote');
 UIToolkit.Rating = require('./components/rating');
 UIToolkit.Reviews = require('./components/reviews');
@@ -27055,7 +27096,7 @@ UIToolkit.Tile = require('./components/tile');
 module.exports = UIToolkit;
 
 
-},{"./components/alert":218,"./components/button":223,"./components/flag":227,"./components/icon-list":235,"./components/icon-list-item":231,"./components/image":239,"./components/input":243,"./components/justified_container":247,"./components/lozenge":251,"./components/quote":256,"./components/rating":260,"./components/reviews":264,"./components/tile":268}],270:[function(require,module,exports){
+},{"./components/alert":218,"./components/button":223,"./components/flag":227,"./components/icon-list":235,"./components/icon-list-item":231,"./components/image":239,"./components/input":243,"./components/justified_container":247,"./components/lozenge":251,"./components/payment-card":255,"./components/quote":260,"./components/rating":264,"./components/reviews":268,"./components/tile":272}],274:[function(require,module,exports){
 var _ = {
   values: require('lodash.values'),
   pick: require('lodash.pick')
