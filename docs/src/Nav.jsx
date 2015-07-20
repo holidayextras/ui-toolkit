@@ -24,6 +24,7 @@ var Nav = React.createClass({
               <li><a href="#justified-container">Justified Container</a></li>
               <li><a href="#lists">Lists</a></li>
               <li><a href="#lozenge">Lozenge</a></li>
+              <li><a href="#payment-card">Payment Card</a></li>
               <li><a href="#quote">Quote</a></li>
               <li><a href="#rating">Rating</a></li>
               <li><a href="#tile">Tile</a></li>
