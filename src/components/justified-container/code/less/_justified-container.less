@@ -5,14 +5,8 @@
 .component-justified-container {
   /* backup for flex not supported */
   display: table;
-  
+
   * {
     display: table-cell;
-  }
-
-  .component-button {
-    & + .component-button.block {
-      margin: 0 1em; /* preventing the non-required top margin */
-    }
   }
 }
