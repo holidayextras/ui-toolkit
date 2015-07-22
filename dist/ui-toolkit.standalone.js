@@ -27085,7 +27085,7 @@ UIToolkit.IconList = require('./components/icon-list');
 UIToolkit.IconListItem = require('./components/icon-list-item');
 UIToolkit.Image = require('./components/image');
 UIToolkit.Input = require('./components/input');
-UIToolkit.JustifiedContainer = require('./components/justified_container');
+UIToolkit.JustifiedContainer = require('./components/justified-container');
 UIToolkit.Lozenge = require('./components/lozenge');
 UIToolkit.PaymentCard = require('./components/payment-card');
 UIToolkit.Quote = require('./components/quote');
@@ -27096,7 +27096,7 @@ UIToolkit.Tile = require('./components/tile');
 module.exports = UIToolkit;
 
 
-},{"./components/alert":218,"./components/button":223,"./components/flag":227,"./components/icon-list":235,"./components/icon-list-item":231,"./components/image":239,"./components/input":243,"./components/justified_container":247,"./components/lozenge":251,"./components/payment-card":255,"./components/quote":260,"./components/rating":264,"./components/reviews":268,"./components/tile":272}],274:[function(require,module,exports){
+},{"./components/alert":218,"./components/button":223,"./components/flag":227,"./components/icon-list":235,"./components/icon-list-item":231,"./components/image":239,"./components/input":243,"./components/justified-container":247,"./components/lozenge":251,"./components/payment-card":255,"./components/quote":260,"./components/rating":264,"./components/reviews":268,"./components/tile":272}],274:[function(require,module,exports){
 var _ = {
   values: require('lodash.values'),
   pick: require('lodash.pick')
