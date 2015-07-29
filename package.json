@@ -71,6 +71,7 @@
     "mocha": "^2.2.5",
     "mocha-jsdom": "^0.3.0",
     "mocha-lcov-reporter": "0.0.2",
+    "moment": "~2.10.6",
     "react-tools": "^0.13.2",
     "sinon": "^1.14.1"
   },
