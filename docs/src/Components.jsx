@@ -71,11 +71,11 @@ var Components = React.createClass({
 
         <article id="input">
           <h3>Input</h3>
-          <p>Custom Input for Text, Password &amp; Email Types</p>
+          <p>Custom Input for Text, Email, Telephone &amp; Number Types</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Input.jsx', 'utf8')} />
           <h4>Attributes</h4>
           <ul>
-            <li><code>type</code> String - Type of Input Field [ text | email | tel | number]</li>
+            <li><code>type</code> String - Type of Input Field can be `text` `email` `tel` or `number`</li>
             <li><code>name</code> String - Optional Name for Input Field</li>
             <li><code>id</code> String - Optional ID for Input Field</li>
             <li><code>label</code> String - Optional Label in front of Input Field</li>
