@@ -74,7 +74,7 @@ module.exports = React.createClass({
     }, 500);
 
     if(self.props.handleChange) {
-      self.props.handleChange.apply(this, arguments)
+      self.props.handleChange.apply(this, arguments);
     }
 
   },
