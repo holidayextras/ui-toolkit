@@ -32,8 +32,8 @@ module.exports = function (component){
       <input
         className="component-input-field"
         type={component.props.type}
-        valid={component.state.valid}
         name={component.props.name}
+        value={component.state.value}
         id={component.props.id}
         placeholder={component.props.placeholder}
         onChange={component.handleChange}

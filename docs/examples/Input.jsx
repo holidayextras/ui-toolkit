@@ -1,24 +1,8 @@
 var example = (
   <div>
-    <UIToolkit.Input
-      type='text'
-      name='full-name'
-      label='Name'
-      placeholder='Full Name'
-      required="yes"
-      />
-    <UIToolkit.Input
-      type='email'
-      name='email'
-      label='Email'
-      placeholder='me@email.com'
-      />
-    <UIToolkit.Input
-      type='tel'
-      name='telephone-number'
-      label='Tel No'
-      placeholder='01234 456789'
-      />
+    <UIToolkit.Input type='text' label='Text Only' validator={/^[a-zA-Z ]*$/g} />
+    <UIToolkit.Input type='text' label='With Default' >Default Value</UIToolkit.Input>
+    <UIToolkit.Input type='text' label='Required' placeholder='Full Name' required={true} />
   </div>
 
 );

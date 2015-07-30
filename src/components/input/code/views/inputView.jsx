@@ -9,24 +9,25 @@ module.exports = React.createClass({
     type: React.PropTypes.oneOf(['text', 'email', 'number', 'tel']),
     size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large']),
     placeHolder: React.PropTypes.string,
-    defaultValue: React.PropTypes.string,
     name: React.PropTypes.string,
     id: React.PropTypes.string,
-    error: React.PropTypes.string,
     disabled: React.PropTypes.bool,
     readOnly: React.PropTypes.bool,
     required: React.PropTypes.bool,
-    valid: React.PropTypes.bool,
     validator: React.PropTypes.instanceOf(RegExp),
     errorMessage: React.PropTypes.string
   },
 
   getInitialState: function() {
     return {
-      value: this.props.defaultValue || '',
+      value: '',
       error: null,
       valid: true
     };
+  },
+
+  componentDidMount: function() {
+    this.setState({value: this.props.children})
   },
 
   getDefaultProps: function() {
@@ -38,32 +39,40 @@ module.exports = React.createClass({
       errorMessage: 'Invalid Input',
       id: 'component-input',
       name: 'component-input',
-      placeHolder: '',
-      defaultValue: ''
+      placeHolder: ''
     };
   },
 
-  handleChange: function(e) {
-
+  validate: function(value) {
+    var self = this;
     var isValid = true;
     var error = null;
-    var self = this;
-    var value = (e.target) ? e.target.value : null;
 
     if(value !== '' && typeof self.props.validator !== 'undefined'){
       isValid = self.props.validator.test(value);
     }
 
-    if( !isValid){
+    if(!isValid){
       error = self.props.errorMessage;
     }
 
+    self.setState({
+      valid: isValid,
+      error: error
+    });
+  },
+
+  handleChange: function(e) {
+    var self = this;
+    var value = (e.target) ? e.target.value : null;
+
+    self.setState({
+      value: value
+    });
+
     clearTimeout(this.intent);
     this.intent = setTimeout(function(){
-      self.setState({
-        valid: isValid,
-        error: error
-      });
+      self.validate(value);
     }, 500);
   },
 
