@@ -15,19 +15,16 @@ module.exports = React.createClass({
     readOnly: React.PropTypes.bool,
     required: React.PropTypes.bool,
     validator: React.PropTypes.instanceOf(RegExp),
-    errorMessage: React.PropTypes.string
+    errorMessage: React.PropTypes.string,
+    children: React.PropTypes.string
   },
 
   getInitialState: function() {
     return {
-      value: '',
+      value: this.props.children,
       error: null,
       valid: true
     };
-  },
-
-  componentDidMount: function() {
-    this.setState({value: this.props.children})
   },
 
   getDefaultProps: function() {
