@@ -1,0 +1,44 @@
+/*------------------------------------*\
+    #Lozenge
+\*------------------------------------*/
+
+.component-lozenge {
+  padding:0 .5em;
+  border-radius:.25em;
+  display:inline-block;
+}
+
+//
+// == Functional Colours ==
+//
+
+// Mixin
+.lozenge-variant(@background) {
+  background-color: @background;
+  color: contrast(@background, #414141, #ffffff, 70%);
+}
+
+.component-lozenge {
+  .lozenge-variant(@default);
+  &.default {
+    .lozenge-variant(@default);
+  }
+  &.primary {
+    .lozenge-variant(@primary);
+  }
+  &.secondary {
+    .lozenge-variant(@secondary);
+  }
+  &.success {
+    .lozenge-variant(@success);
+  }
+  &.info {
+    .lozenge-variant(@info);
+  }
+  &.warning {
+    .lozenge-variant(@warning);
+  }
+  &.danger {
+    .lozenge-variant(@danger);
+  }
+}

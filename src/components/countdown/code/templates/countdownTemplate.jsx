@@ -1,11 +1,19 @@
 var React = require('react');
+var classNames = require('classnames');
+var getComponentClasses = require('../../../../utils/getComponentClasses');
 
-module.exports = function(props) {
+module.exports = function() {
 
-  countdown equals end date - start date
+  var propClasses = ['size', 'purpose'];
+  var classes = getComponentClasses('component-countdown', propClasses, this.props);
+
   return (
-    <div classname="component-countdown">
-
+    <div className={classNames(classes)}>
+      <div>{this.state.time.days} <small>Days</small></div>
+      <div>{this.state.time.hours} <small>Hours</small></div>
+      <div>{this.state.time.minutes} <small>Minutes</small></div>
+      <div>{this.state.time.seconds} <small>Seconds</small></div>
     </div>
   );
 };
+
