@@ -13,11 +13,31 @@
 @import "../components/icon-list-item/code/less/_icon-list-item";
 @import "../components/image/code/less/_image";
 @import "../components/justified_container/code/less/_justified-container";
+@import "../components/lozenge/code/less/_lozenge";
 @import "../components/quote/code/less/_quote";
 @import "../components/tile/code/less/_tile";
 
-/*------------------------------------*\
-  Font-Awesome
-\*------------------------------------*/
-@import "../../node_modules/font-awesome/less/font-awesome.less";
+
+//
+// == Font Awesome ==
+//
+@import "../../node_modules/font-awesome/less/font-awesome";
 @fa-font-path: "//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts"; // for referencing Bootstrap CDN font files directly
+
+//
+// == Flex-Less ==
+//
+@import "../../node_modules/flex-less/flex";
+
+//
+// == Defauls ==
+//
+body {
+  font-family: @font-family-body;
+  font-size:   @base-font-size;
+  line-height: @line-height-body;
+}
+h1, h2, h3 {
+  font-family: @font-family-headings;
+  line-height: @line-height-headings;
+}
