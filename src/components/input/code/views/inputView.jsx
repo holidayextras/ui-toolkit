@@ -16,7 +16,8 @@ module.exports = React.createClass({
     required: React.PropTypes.bool,
     validator: React.PropTypes.instanceOf(RegExp),
     errorMessage: React.PropTypes.string,
-    children: React.PropTypes.string
+    children: React.PropTypes.string,
+    handleChange: React.PropTypes.func
   },
 
   getInitialState: function() {
@@ -71,6 +72,11 @@ module.exports = React.createClass({
     this.intent = setTimeout(function(){
       self.validate(value);
     }, 500);
+
+    if(self.props.handleChange) {
+      self.props.handleChange.apply(this, arguments)
+    }
+
   },
 
   render: function() {

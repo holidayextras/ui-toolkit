@@ -37,7 +37,6 @@ module.exports = function (component){
         id={component.props.id}
         placeholder={component.props.placeholder}
         onChange={component.handleChange}
-        defaultValue={component.props.defaultValue}
         disabled={component.props.disabled}
         readOnly={component.props.readOnly}
         required={component.props.required}

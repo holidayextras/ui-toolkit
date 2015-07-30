@@ -1,5 +1,6 @@
 /** @jsx React.DOM */
 var React = require('react');
+var sinon = require('sinon');
 var InputView = require('../code/views/inputView.jsx');
 
 describe('InputComponent', function() {
@@ -41,6 +42,18 @@ describe('InputComponent', function() {
     var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field');
     assert.equal(renderedInput.getDOMNode().type, 'number');
 
+  });
+
+  it('should call handleChange prop when value changes', function() {
+    var handleChange = sinon.spy();
+    var input = TestUtils.renderIntoDocument(
+      <InputView type="text" label="Full Name" handleChange={handleChange} />
+    );
+
+    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field');
+
+    TestUtils.Simulate.change(renderedInput, {target: {value: 'changed value'}});
+    assert.ok(handleChange.calledOnce);
   });
 
   it('should render input with label', function() {
@@ -102,7 +115,7 @@ describe('InputComponent', function() {
 
   it('should have custom value', function() {
     var input = TestUtils.renderIntoDocument(
-      <InputView defaultValue="Jane Doe" />
+      <InputView >Jane Doe</InputView>
     );
 
     var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field');
