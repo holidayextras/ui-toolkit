@@ -9,8 +9,8 @@ describe('InputComponent', function() {
       <InputView type="text" />
     );
 
-    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input');
-    assert.isDefined(renderedInput);
+    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field');
+    assert.equal(renderedInput.getDOMNode().type, 'text');
 
   });
 
@@ -19,8 +19,8 @@ describe('InputComponent', function() {
       <InputView type="tel" />
     );
 
-    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input');
-    assert.isDefined(renderedInput);
+    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field');
+    assert.equal(renderedInput.getDOMNode().type, 'tel');
 
   });
 
@@ -29,9 +29,8 @@ describe('InputComponent', function() {
       <InputView type="email" />
     );
 
-    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input');
-    assert.isDefined(renderedInput);
-
+    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field');
+    assert.equal(renderedInput.getDOMNode().type, 'email');
   });
 
   it('should render number input', function() {
@@ -39,8 +38,8 @@ describe('InputComponent', function() {
       <InputView type="number" />
     );
 
-    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input');
-    assert.isDefined(renderedInput);
+    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field');
+    assert.equal(renderedInput.getDOMNode().type, 'number');
 
   });
 
