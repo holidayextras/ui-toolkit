@@ -85,7 +85,7 @@ var Components = React.createClass({
             <li><code>disabled</code> Boolean - Whether to Disable the Input Field</li>
             <li><code>readOnly</code> Boolean - Whether to set the Input Field to Read Only</li>
             <li><code>required</code> Boolean - Whether to set the Input Field to be Required</li>
-            <li><code>handleChange</code> Function - Pass in a function which is called onChange</li>
+            <li><code>handleChange</code> Function - Optional Function which is called onChange</li>
           </ul>
         </article>
 
