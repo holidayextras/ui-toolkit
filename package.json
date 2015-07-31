@@ -47,6 +47,7 @@
     "gruntfile-gtx": "^0.3.0",
     "lodash.pick": "~3.1.0",
     "lodash.values": "~3.0.0",
+    "moment": "~2.10.6",
     "react": "^0.13.2",
     "react-data-attributes-mixin": "git://github.com/holidayextras/react-data-attributes-mixin",
     "reactify": "~1.1.0",
@@ -71,7 +72,6 @@
     "mocha": "^2.2.5",
     "mocha-jsdom": "^0.3.0",
     "mocha-lcov-reporter": "0.0.2",
-    "moment": "~2.10.6",
     "react-tools": "^0.13.2",
     "sinon": "^1.14.1"
   },
