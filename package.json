@@ -1,6 +1,6 @@
 {
   "name": "ui-toolkit",
-  "version": "0.12.0",
+  "version": "0.13.0",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "src/index.js",
