@@ -1,0 +1,8 @@
+instrumentation:
+  root: ./src
+  extensions: 
+    - ".js"
+    - ".jsx"
+  excludes: 
+    - "**/node_modules/**"
+    - "**/__tests__/**"
