@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/holidayextras/ui-toolkit.svg)](https://travis-ci.org/holidayextras/ui-toolkit)
+[![Build Status](https://travis-ci.org/holidayextras/ui-toolkit.svg?branch=master)](https://travis-ci.org/holidayextras/ui-toolkit)
 [![Dependency Status](https://gemnasium.com/holidayextras/ui-toolkit.svg)](https://gemnasium.com/holidayextras/ui-toolkit)
 [![Coverage Status](https://coveralls.io/repos/holidayextras/ui-toolkit/badge.svg?branch=coveralls)](https://coveralls.io/r/holidayextras/ui-toolkit?branch=coveralls)
 
@@ -28,6 +28,7 @@ var UIToolkit = require('ui-toolkit');
 <UIToolkit.Reviews />
 <UIToolkit.Tile />
 <UIToolkit.Image />
+<UIToolkit.Input />
 ```
 
 If you would like to cherry pick which components to include in your project, you can use this method:

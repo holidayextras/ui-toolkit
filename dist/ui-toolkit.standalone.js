@@ -2,7 +2,7 @@
 module.exports = require('./src/ui-toolkit');
 
 
-},{"./src/ui-toolkit":265}],2:[function(require,module,exports){
+},{"./src/ui-toolkit":273}],2:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -26352,7 +26352,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":266,"classnames":3,"react":214}],217:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":274,"classnames":3,"react":214}],217:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -26395,7 +26395,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":266,"classnames":3,"react":214}],221:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":274,"classnames":3,"react":214}],221:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
@@ -26414,7 +26414,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":266,"classnames":3,"react":214}],222:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":274,"classnames":3,"react":214}],222:[function(require,module,exports){
 /** @jsx React.DOM */
 
 var React = require('react');
@@ -26469,7 +26469,7 @@ module.exports = function(props) {
 };
 
 
-},{"../../../../utils/getComponentClasses":266,"classnames":3,"react":214}],226:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":274,"classnames":3,"react":214}],226:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -26606,10 +26606,156 @@ module.exports = require('./code/index');
 
 
 },{"./code/index":236}],240:[function(require,module,exports){
+module.exports = require('./views/inputView.jsx');
+
+
+},{"./views/inputView.jsx":242}],241:[function(require,module,exports){
+var React = require('react');
+var classNames = require('classnames');
+
+module.exports = function (component){
+
+  var classes = classNames({
+    'component-input': true,
+    'error': component.state.error || false,
+    'disabled': component.props.disabled || false
+  });
+
+  // the form label
+  var label;
+
+  if (component.props.label){
+    label = ( React.createElement("label", {className: "component-input-label", htmlFor: component.props.id}, component.props.label) );
+  }
+
+  /**
+   * Create the span element used for containing messages
+   * related to the element.
+   */
+  var span;
+
+  if (component.state.error){
+    span = ( React.createElement("span", {className: "component-input-error"}, component.state.error) );
+  }
+
+  return (
+    React.createElement("div", {className: classes, ref: component.props.ref}, 
+      label, 
+      React.createElement("input", {
+        className: "component-input-field", 
+        type: component.props.type, 
+        name: component.props.name, 
+        value: component.state.value, 
+        id: component.props.id, 
+        placeholder: component.props.placeholder, 
+        onChange: component.handleChange, 
+        disabled: component.props.disabled, 
+        readOnly: component.props.readOnly, 
+        required: component.props.required}
+        ), 
+      span
+    )
+  );
+};
+
+
+},{"classnames":3,"react":214}],242:[function(require,module,exports){
+var React = require('react');
+
+module.exports = React.createClass({displayName: "exports",
+
+  intent: null,
+
+  propTypes: {
+    label: React.PropTypes.string,
+    type: React.PropTypes.oneOf(['text', 'email', 'number', 'tel']),
+    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large']),
+    placeHolder: React.PropTypes.string,
+    name: React.PropTypes.string,
+    id: React.PropTypes.string,
+    disabled: React.PropTypes.bool,
+    readOnly: React.PropTypes.bool,
+    required: React.PropTypes.bool,
+    validator: React.PropTypes.instanceOf(RegExp),
+    errorMessage: React.PropTypes.string,
+    children: React.PropTypes.string,
+    handleChange: React.PropTypes.func
+  },
+
+  getInitialState: function() {
+    return {
+      value: this.props.children,
+      error: null,
+      valid: true
+    };
+  },
+
+  getDefaultProps: function() {
+    return {
+      type: 'text',
+      disabled: false,
+      readOnly: false,
+      required: false,
+      errorMessage: 'Invalid Input',
+      id: 'component-input',
+      name: 'component-input',
+      placeHolder: ''
+    };
+  },
+
+  validate: function(value) {
+    var self = this;
+    var isValid = true;
+    var error = null;
+
+    if(value !== '' && typeof self.props.validator !== 'undefined'){
+      isValid = self.props.validator.test(value);
+    }
+
+    if(!isValid){
+      error = self.props.errorMessage;
+    }
+
+    self.setState({
+      valid: isValid,
+      error: error
+    });
+  },
+
+  handleChange: function(e) {
+    var self = this;
+    var value = (e.target) ? e.target.value : null;
+
+    self.setState({
+      value: value
+    });
+
+    clearTimeout(this.intent);
+    this.intent = setTimeout(function(){
+      self.validate(value);
+    }, 500);
+
+    if(self.props.handleChange) {
+      self.props.handleChange.apply(this, arguments);
+    }
+
+  },
+
+  render: function() {
+    return require('../templates/inputTemplate.jsx')(this);
+  }
+});
+
+
+},{"../templates/inputTemplate.jsx":241,"react":214}],243:[function(require,module,exports){
+module.exports = require('./code/index');
+
+
+},{"./code/index":240}],244:[function(require,module,exports){
 module.exports = require('./views/JustifiedContainerComponentView.jsx');
 
 
-},{"./views/JustifiedContainerComponentView.jsx":242}],241:[function(require,module,exports){
+},{"./views/JustifiedContainerComponentView.jsx":246}],245:[function(require,module,exports){
 var React = require('react');
 
 module.exports = function(props) {
@@ -26621,7 +26767,7 @@ module.exports = function(props) {
 };
 
 
-},{"react":214}],242:[function(require,module,exports){
+},{"react":214}],246:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -26641,15 +26787,15 @@ module.exports = React.createClass({displayName: "exports",
 });
 
 
-},{"../templates/JustifiedContainerComponentTemplate.jsx":241,"react":214}],243:[function(require,module,exports){
+},{"../templates/JustifiedContainerComponentTemplate.jsx":245,"react":214}],247:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
-},{"./code/index":240}],244:[function(require,module,exports){
+},{"./code/index":244}],248:[function(require,module,exports){
 module.exports = require('./views/LozengeComponentView.jsx');
 
 
-},{"./views/LozengeComponentView.jsx":246}],245:[function(require,module,exports){
+},{"./views/LozengeComponentView.jsx":250}],249:[function(require,module,exports){
 var React = require('react/addons');
 var classnames = require('classnames');
 
@@ -26674,7 +26820,7 @@ module.exports = function(props) {
 };
 
 
-},{"classnames":3,"react/addons":42}],246:[function(require,module,exports){
+},{"classnames":3,"react/addons":42}],250:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -26690,15 +26836,54 @@ module.exports = React.createClass({displayName: "exports",
 });
 
 
-},{"../templates/LozengeComponentTemplate.jsx":245,"react":214}],247:[function(require,module,exports){
+},{"../templates/LozengeComponentTemplate.jsx":249,"react":214}],251:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
-},{"./code/index":244}],248:[function(require,module,exports){
+},{"./code/index":248}],252:[function(require,module,exports){
+module.exports = require('./views/paymentCardView.jsx');
+
+
+},{"./views/paymentCardView.jsx":254}],253:[function(require,module,exports){
+var React = require('react');
+var classNames = require('classnames');
+var getComponentClasses = require('../../../../utils/getComponentClasses');
+
+module.exports = function() {
+
+  var propClasses = ['type', 'size'];
+  var classes = getComponentClasses('component-payment-card', propClasses, this.props);
+
+  return (
+      React.createElement("div", {className: classNames(classes)})
+  );
+};
+
+
+},{"../../../../utils/getComponentClasses":274,"classnames":3,"react":214}],254:[function(require,module,exports){
+/** @jsx React.DOM */
+
+var React = require('react');
+module.exports = React.createClass({displayName: "exports",
+  propTypes: {
+    type: React.PropTypes.oneOf(['amazon', 'amex', 'apple', 'cirrus', 'delta', 'directdebit', 'discover', 'electron', 'google', 'maestro', 'mastercard', 'paym', 'paypal', 'sage', 'sepa', 'solo', 'switch', 'ukash', 'visa', 'visadebit', 'westernunion'])
+  },
+
+  render: function() {
+    return require('../templates/paymentCardTemplate.jsx').call(this);
+  }
+});
+
+
+},{"../templates/paymentCardTemplate.jsx":253,"react":214}],255:[function(require,module,exports){
+module.exports = require('./code/index');
+
+
+},{"./code/index":252}],256:[function(require,module,exports){
 module.exports = require('./views/quoteView.jsx');
 
 
-},{"./views/quoteView.jsx":251}],249:[function(require,module,exports){
+},{"./views/quoteView.jsx":259}],257:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
@@ -26721,7 +26906,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":266,"classnames":3,"react":214}],250:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":274,"classnames":3,"react":214}],258:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
@@ -26744,7 +26929,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":266,"classnames":3,"react":214}],251:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":274,"classnames":3,"react":214}],259:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -26765,15 +26950,15 @@ module.exports = React.createClass({displayName: "exports",
 });
 
 
-},{"../templates/blockQuoteTemplate.jsx":249,"../templates/quoteTemplate.jsx":250,"react":214}],252:[function(require,module,exports){
+},{"../templates/blockQuoteTemplate.jsx":257,"../templates/quoteTemplate.jsx":258,"react":214}],260:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
-},{"./code/index":248}],253:[function(require,module,exports){
+},{"./code/index":256}],261:[function(require,module,exports){
 module.exports = require('./views/ratingView.jsx');
 
 
-},{"./views/ratingView.jsx":255}],254:[function(require,module,exports){
+},{"./views/ratingView.jsx":263}],262:[function(require,module,exports){
 var React = require('react');
 
 module.exports = function(props) {
@@ -26800,7 +26985,7 @@ module.exports = function(props) {
 };
 
 
-},{"react":214}],255:[function(require,module,exports){
+},{"react":214}],263:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -26816,15 +27001,15 @@ module.exports = React.createClass({displayName: "exports",
 });
 
 
-},{"../templates/ratingTemplate.jsx":254,"react":214}],256:[function(require,module,exports){
+},{"../templates/ratingTemplate.jsx":262,"react":214}],264:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
-},{"./code/index":253}],257:[function(require,module,exports){
+},{"./code/index":261}],265:[function(require,module,exports){
 module.exports = require('./views/reviewsView.jsx');
 
 
-},{"./views/reviewsView.jsx":259}],258:[function(require,module,exports){
+},{"./views/reviewsView.jsx":267}],266:[function(require,module,exports){
 var React = require('react');
 
 module.exports = function(props) {
@@ -26838,7 +27023,7 @@ module.exports = function(props) {
 };
 
 
-},{"react":214}],259:[function(require,module,exports){
+},{"react":214}],267:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -26852,15 +27037,15 @@ module.exports = React.createClass({displayName: "exports",
 });
 
 
-},{"../templates/reviewsTemplate.jsx":258,"react":214}],260:[function(require,module,exports){
+},{"../templates/reviewsTemplate.jsx":266,"react":214}],268:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
-},{"./code/index":257}],261:[function(require,module,exports){
+},{"./code/index":265}],269:[function(require,module,exports){
 module.exports = require('./views/tileView.jsx');
 
 
-},{"./views/tileView.jsx":263}],262:[function(require,module,exports){
+},{"./views/tileView.jsx":271}],270:[function(require,module,exports){
 var React = require('react');
 var ImageComponent = require('../../../image');
 
@@ -26877,7 +27062,7 @@ module.exports = function(props) {
 };
 
 
-},{"../../../image":239,"react":214}],263:[function(require,module,exports){
+},{"../../../image":239,"react":214}],271:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -26896,11 +27081,11 @@ module.exports = React.createClass({displayName: "exports",
 });
 
 
-},{"../templates/tileTemplate.jsx":262,"react":214}],264:[function(require,module,exports){
+},{"../templates/tileTemplate.jsx":270,"react":214}],272:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
-},{"./code/index":261}],265:[function(require,module,exports){
+},{"./code/index":269}],273:[function(require,module,exports){
 var UIToolkit = {};
 
 // Custom Components
@@ -26910,8 +27095,10 @@ UIToolkit.Flag = require('./components/flag');
 UIToolkit.IconList = require('./components/icon-list');
 UIToolkit.IconListItem = require('./components/icon-list-item');
 UIToolkit.Image = require('./components/image');
-UIToolkit.JustifiedContainer = require('./components/justified_container');
+UIToolkit.Input = require('./components/input');
+UIToolkit.JustifiedContainer = require('./components/justified-container');
 UIToolkit.Lozenge = require('./components/lozenge');
+UIToolkit.PaymentCard = require('./components/payment-card');
 UIToolkit.Quote = require('./components/quote');
 UIToolkit.Rating = require('./components/rating');
 UIToolkit.Reviews = require('./components/reviews');
@@ -26920,7 +27107,7 @@ UIToolkit.Tile = require('./components/tile');
 module.exports = UIToolkit;
 
 
-},{"./components/alert":218,"./components/button":223,"./components/flag":227,"./components/icon-list":235,"./components/icon-list-item":231,"./components/image":239,"./components/justified_container":243,"./components/lozenge":247,"./components/quote":252,"./components/rating":256,"./components/reviews":260,"./components/tile":264}],266:[function(require,module,exports){
+},{"./components/alert":218,"./components/button":223,"./components/flag":227,"./components/icon-list":235,"./components/icon-list-item":231,"./components/image":239,"./components/input":243,"./components/justified-container":247,"./components/lozenge":251,"./components/payment-card":255,"./components/quote":260,"./components/rating":264,"./components/reviews":268,"./components/tile":272}],274:[function(require,module,exports){
 var _ = {
   values: require('lodash.values'),
   pick: require('lodash.pick')
