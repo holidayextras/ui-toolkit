@@ -1,9 +1,10 @@
-var React = require('react/addons');
-var TestUtils = React.addons.TestUtils;
-var assert = require('chai').assert;
+/** @jsx React.DOM */
+
+var React = require('react');
 var ButtonView = require('../code/views/buttonView.jsx');
 
 describe('ButtonComponent', function() {
+
 
   it('should render button', function() {
     var button = TestUtils.renderIntoDocument(

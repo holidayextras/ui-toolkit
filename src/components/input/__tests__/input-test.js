@@ -1,6 +1,5 @@
-var React = require('react/addons');
-var TestUtils = React.addons.TestUtils;
-var assert = require('chai').assert;
+/** @jsx React.DOM */
+var React = require('react');
 var sinon = require('sinon');
 var InputView = require('../code/views/inputView.jsx');
 
