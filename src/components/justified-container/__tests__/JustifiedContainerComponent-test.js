@@ -1,8 +1,6 @@
-/** @jsx React.DOM */
-
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
-
+var assert = require('chai').assert;
 var JustifiedButtons = require('../code/views/JustifiedContainerComponentView.jsx');
 
 describe('JustifiedContainer', function() {
