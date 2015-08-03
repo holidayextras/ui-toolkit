@@ -6,6 +6,7 @@ module.exports = React.createClass({
   propTypes: {
     purpose: React.PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
     size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large']),
+    until: React.PropTypes.string
   },
 
   getInitialState: function(){
@@ -43,7 +44,6 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    // return require('../templates/countdownTemplate.jsx')(this.props, this.state);
     return require('../templates/countdownTemplate.jsx').call(this);
   }
 });

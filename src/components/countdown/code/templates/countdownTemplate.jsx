@@ -9,10 +9,10 @@ module.exports = function() {
 
   return (
     <div className={classNames(classes)}>
-      <div className='component-countdown-unit'>{this.state.time.days}<small>Days</small></div>
-      <div className='component-countdown-unit'>{this.state.time.hours}<small>Hours</small></div>
-      <div className='component-countdown-unit'>{this.state.time.minutes}<small>Minutes</small></div>
-      <div className='component-countdown-unit'>{this.state.time.seconds}<small>Seconds</small></div>
+      <div>{this.state.time.days}<small>Days</small></div>
+      <div>{this.state.time.hours}<small>Hours</small></div>
+      <div>{this.state.time.minutes}<small>Minutes</small></div>
+      <div>{this.state.time.seconds}<small>Seconds</small></div>
     </div>
   );
 };
