@@ -49,7 +49,6 @@ module.exports = React.createClass({
 
     if(!_.isEmpty(value) && !_.isUndefined(self.props.validator)) {
       isValid = self.props.validator.test(value);
-      console.log('isValid', isValid);
     }
 
     if(!isValid){
