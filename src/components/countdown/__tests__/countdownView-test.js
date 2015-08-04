@@ -25,7 +25,7 @@ describe('CountdownComponent', function() {
   });
 
   it('check the countdown mnagaer states time is set correctly', function() {
-    var date = "2016-07-27";
+    var date = '2016-07-27';
     var countdown = TestUtils.renderIntoDocument(
       <CountdownComponent until={date} />
     );
