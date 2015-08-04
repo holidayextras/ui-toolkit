@@ -1,4 +1,5 @@
 var React = require('react');
+var _ = require('lodash');
 
 module.exports = React.createClass({
 
@@ -46,8 +47,9 @@ module.exports = React.createClass({
     var isValid = true;
     var error = null;
 
-    if(value !== '' && typeof self.props.validator !== 'undefined'){
+    if(!_.isEmpty(value) && !_.isUndefined(self.props.validator)) {
       isValid = self.props.validator.test(value);
+      console.log('isValid', isValid);
     }
 
     if(!isValid){

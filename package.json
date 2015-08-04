@@ -45,6 +45,7 @@
     "grunt": "^0.4.5",
     "grunt-shell": "^1.1.1",
     "gruntfile-gtx": "^0.3.0",
+    "lodash": "^3.10.1",
     "lodash.pick": "~3.1.0",
     "lodash.values": "~3.0.0",
     "react": "^0.13.2",
