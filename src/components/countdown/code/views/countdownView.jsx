@@ -26,6 +26,10 @@ module.exports = React.createClass({
     this.startCountdownManager();
   },
 
+  componentWillUnmount: function() {
+    this.stopCountdownManager();
+  },
+
   componentWillReceiveProps: function(nextProps) {
     this.stopCountdownManager();
     this.setState(this.countdownManagerState(nextProps.date), this.startCountdownManager);

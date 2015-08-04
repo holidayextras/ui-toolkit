@@ -7,7 +7,7 @@
     "browser": true,
     "node": true,
     "amd": true,
-    "jasmine": true
+    "mocha": true
   },
   "plugins": [
     "react"

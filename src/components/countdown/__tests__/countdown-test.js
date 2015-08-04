@@ -1,6 +1,5 @@
 var countdown = require('../code/lib/countdown.js');
 var moment = require('moment');
-// var expect = require('expect.js');
 
 var dateFormat = 'YYYY-MM-DD';
 
@@ -19,7 +18,7 @@ describe('until', function() {
 
     it('has integer days', function() {
       var days = countdown.until(this.date).days;
-      assert.equal(days % 1, 0)
+      assert.equal(days % 1, 0);
     });
 
     it('pads hours, minutes, seconds', function() {
