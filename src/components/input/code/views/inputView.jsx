@@ -1,5 +1,4 @@
 var React = require('react');
-var _ = require('lodash');
 
 module.exports = React.createClass({
 
@@ -47,11 +46,11 @@ module.exports = React.createClass({
     var isValid = true;
     var error = null;
 
-    if(!_.isEmpty(value) && !_.isUndefined(self.props.validator)) {
+    if (value !== '' && typeof self.props.validator !== 'undefined') {
       isValid = self.props.validator.test(value);
     }
 
-    if(!isValid){
+    if (!isValid) {
       error = self.props.errorMessage;
     }
 
@@ -70,11 +69,11 @@ module.exports = React.createClass({
     });
 
     clearTimeout(this.intent);
-    this.intent = setTimeout(function(){
+    this.intent = setTimeout(function() {
       self.validate(value);
     }, 500);
 
-    if(self.props.handleChange) {
+    if (self.props.handleChange) {
       self.props.handleChange.apply(this, arguments);
     }
 
