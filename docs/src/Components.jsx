@@ -45,7 +45,7 @@ var Components = React.createClass({
 
         <article id="countdown">
           <h3>Countdown</h3>
-          <p>Countdowns allow you to find the time difference between the current date and a date in the future. To do this you pass in a <code>until</code> value ot any date format.</p>
+          <p>Countdowns allow you to find the time difference between the current date and a date in the future. To do this you pass in a <code>until</code> value of any date format.</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Countdown.jsx', 'utf8')} />
           <h4>Attributes</h4>
           <ul>
