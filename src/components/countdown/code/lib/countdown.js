@@ -23,15 +23,14 @@ var isSameDay = function(moment1, moment2) {
   return moment(moment1).isSame(moment2, 'day');
 };
 
-var MOMENT_DISTANCE_UNIT = 'seconds';
 var durationFromNow = function(untilDate) {
   var until = moment(untilDate);
   var now = moment();
   if(isSameDay(until, now)) {
     return moment.duration();
   } else {
-    var seconds = until.diff(now, MOMENT_DISTANCE_UNIT);
-    return moment.duration(seconds, MOMENT_DISTANCE_UNIT);
+    var seconds = until.diff(now, 'seconds');
+    return moment.duration(seconds, 'seconds');
   }
 };
 
