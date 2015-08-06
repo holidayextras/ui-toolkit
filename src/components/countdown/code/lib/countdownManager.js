@@ -1,33 +1,33 @@
 var countdown = require('./countdown.js');
 var moment = require('moment');
 
-var countdownManager = function(date) {
+var CountdownManager = function(date) {
   this.date = date;
 };
 
-module.exports = countdownManager;
+module.exports = CountdownManager;
 
-countdownManager.countdownInterval = 1000;
+CountdownManager.countdownInterval = 1000;
 
-countdownManager.prototype.start = function(callback) {
-  this.intervalId = setInterval(this.intervalCounter(callback), countdownManager.countdownInterval);
+CountdownManager.prototype.start = function(callback) {
+  this.intervalId = setInterval(this.intervalCounter(callback), CountdownManager.countdownInterval);
 };
 
-countdownManager.prototype.stop = function() {
+CountdownManager.prototype.stop = function() {
   clearInterval(this.intervalId);
   return moment();
 };
 
-countdownManager.prototype.intervalCounter = function(callback) {
+CountdownManager.prototype.intervalCounter = function(callback) {
   return function() {
     callback(this.time());
   }.bind(this);
 };
 
-countdownManager.prototype.countdownDate = function(callback) {
+CountdownManager.prototype.countdownDate = function(callback) {
   return (typeof callback === 'function') ? callback(this.date.startDate) : this.date.startDate;
 };
 
-countdownManager.prototype.time = function(currentMoment) {
+CountdownManager.prototype.time = function(currentMoment) {
   return countdown.until(this.countdownDate(), currentMoment);
 };

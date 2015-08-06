@@ -21,7 +21,6 @@ describe('Countdown Manager', function() {
     this.CountdownManager.start(this.callback);
     this.timer.tick(CountdownManager.countdownInterval);
     assert.equal(this.callback.called, true);
-    // expect(this.callback.called).to.be(true);
   });
 
   it('.stop clears interval countdown and returns moment', function() {
