@@ -60,10 +60,9 @@ describe('Countdown Manager', function() {
   describe('intervalCounter', function () {
 
     var intervalFunction = null;
-    var timeStub = null;
 
     beforeEach(function () {
-      timeStub = sinon.stub(countdownManager, 'time').returns('test');
+      sinon.stub(countdownManager, 'time').returns('test');
       intervalFunction = countdownManager.intervalCounter(callbackSpy);
       intervalFunction();
     });
@@ -110,21 +109,21 @@ describe('Countdown Manager', function() {
 
   describe('time', function () {
 
-      var countdownUntilStub = null;
-      var countdownDateValue = null;
-      var currentMoment = null;
+    var countdownUntilStub = null;
+    var countdownDateValue = null;
+    var currentMoment = null;
 
-      beforeEach(function() {
-        countdownUntilStub = sinon.stub(countdown, 'until');
-        sinon.stub(countdownManager, 'countdownDate').returns(countdownDateValue);
+    beforeEach(function() {
+      countdownUntilStub = sinon.stub(countdown, 'until');
+      sinon.stub(countdownManager, 'countdownDate').returns(countdownDateValue);
 
-        currentMoment = 'test';
-        countdownManager.time(currentMoment);
-      });
+      currentMoment = 'test';
+      countdownManager.time(currentMoment);
+    });
 
-      it('calls countdown until with countdownDate & currentMoment', function () {
-        assert.ok(countdownUntilStub.calledWith(countdownDateValue, currentMoment));
-      });
+    it('calls countdown until with countdownDate & currentMoment', function () {
+      assert.ok(countdownUntilStub.calledWith(countdownDateValue, currentMoment));
+    });
   });
 
 });
