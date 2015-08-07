@@ -1,7 +1,9 @@
 var React = require('react');
 
 module.exports = function(props) {
+  var dataAttributes = this.getDataAttributesFromProps();
+
   return (
-    <img alt={props.alt} src={props.src} onClick={props.handleClick} className="component-image" />
+    <img alt={this.props.alt} src={this.props.src} onClick={this.props.handleClick} className="component-image" {...dataAttributes} />
   );
 };
