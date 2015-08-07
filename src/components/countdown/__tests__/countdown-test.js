@@ -1,5 +1,6 @@
 var countdown = require('../code/lib/countdown.js');
 var moment = require('moment');
+var assert = require('chai').assert;
 
 var dateFormat = 'YYYY-MM-DD';
 
