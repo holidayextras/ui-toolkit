@@ -1,6 +1,6 @@
 var React = require('react');
 
-module.exports = function(props) {
+module.exports = function() {
 
   var dataAttributes = this.getDataAttributesFromProps();
 
