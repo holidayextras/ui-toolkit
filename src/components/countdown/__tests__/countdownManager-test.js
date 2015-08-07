@@ -4,30 +4,80 @@ var Moment = moment().constructor;
 var sinon = require('sinon');
 
 describe('Countdown Manager', function() {
+
+  var timer = null;
+  var countdownManager = null;
+  var callbackSpy = null;
+
   before(function() {
-    this.timer = sinon.useFakeTimers();
+    timer = sinon.useFakeTimers();
   });
 
   beforeEach(function() {
-    this.CountdownManager = new CountdownManager('2016-07-27');
-    this.callback = sinon.spy();
+    countdownManager = new CountdownManager('2016-07-27');
+    callbackSpy = sinon.spy();
   });
 
   after(function() {
-    this.timer.restore();
+    timer.restore();
   });
 
-  it('.start sets interval countdown', function() {
-    this.CountdownManager.start(this.callback);
-    this.timer.tick(CountdownManager.countdownInterval);
-    assert.equal(this.callback.called, true);
+  describe('start', function () {
+
+    beforeEach(function () {
+      countdownManager.start(callbackSpy);
+      timer.tick(CountdownManager.countdownInterval);
+    });
+
+    it('sets interval countdown', function () {
+      assert.ok(callbackSpy.called);
+    });
+
   });
 
-  it('.stop clears interval countdown and returns moment', function() {
-    this.CountdownManager.start(this.callback);
-    var stopMoment = this.CountdownManager.stop();
-    this.timer.tick(CountdownManager.countdownInterval);
-    assert.ok(stopMoment instanceof Moment);
-    assert.equal(this.callback.called, false);
+  describe('stop', function () {
+
+    beforeEach(function () {
+      countdownManager.stop(callbackSpy);
+      timer.tick(CountdownManager.countdownInterval);
+    });
+
+    it('clears interval countdown', function() {
+      assert.equal(callbackSpy.called, false);
+    });
+
+    it('returns an instance of moment', function() {
+      assert.ok(countdownManager.stop() instanceof Moment);
+    });
+
   });
+
+  describe('intervalCounter', function () {
+    beforeEach(function () {
+
+    });
+  });
+
+  describe('countdownDate', function () {
+
+  });
+
+  describe('time', function () {
+
+  });
+
+  // it('.start sets interval countdown', function() {
+  //   this.CountdownManager.start(this.callback);
+  //   this.timer.tick(CountdownManager.countdownInterval);
+  //   assert.equal(this.callback.called, true);
+  // });
+
+  // it('.stop clears interval countdown and returns moment', function() {
+  //   this.CountdownManager.start(this.callback);
+  //   var stopMoment = this.CountdownManager.stop();
+  //   this.timer.tick(CountdownManager.countdownInterval);
+  //   assert.ok(stopMoment instanceof Moment);
+  //   assert.equal(this.callback.called, false);
+  // });
+
 });
