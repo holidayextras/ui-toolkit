@@ -10,8 +10,8 @@
   },
   "scripts": {
     "postinstall": "./scripts/postinstall.sh",
-    "coveralls": "./node_modules/mocha/bin/mocha --require blanket --require tests/bootstrap.js --reporter mocha-lcov-reporter --compilers .:tests/compiler.js src/**/__tests__/*-test.js src/components/**/__tests__/*-test.js | ./node_modules/coveralls/bin/coveralls.js",
-    "test": "./node_modules/mocha/bin/mocha --require tests/bootstrap.js --compilers .:tests/compiler.js src/**/__tests__/*-test.js src/components/**/__tests__/*-test.js",
+    "coveralls": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --require tests/bootstrap.js --compilers js:babel/register --recursive src/**/*-test.js && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "test": "./node_modules/mocha/bin/mocha --require tests/bootstrap.js --compilers js:babel/register --recursive src/**/*-test.js",
     "lint": "node_modules/.bin/eslint src --ext .jsx --ext .js --quiet && echo '🍻  All good!'"
   },
   "config": {
@@ -54,12 +54,12 @@
     "requirejs": "~2.1.9"
   },
   "devDependencies": {
-    "blanket": "^1.1.7",
-    "glob": "^5.0.6",
+    "babel": "^5.8.20",
     "chai": "^2.3.0",
     "coveralls": "^2.11.2",
     "eslint": "^0.21.0",
     "eslint-plugin-react": "^2.2.0",
+    "glob": "^5.0.6",
     "grunt-changelog": "^0.3.0",
     "grunt-concurrent": "^1.0.0",
     "grunt-contrib-copy": "~0.8.0",
@@ -67,11 +67,11 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-gh-pages": "0.10.0",
     "grunt-release": "^0.12.0",
+    "istanbul": "^0.3.17",
     "jsdom": "^1.0.0",
     "mocha": "^2.2.5",
     "mocha-jsdom": "^0.3.0",
     "mocha-lcov-reporter": "0.0.2",
-    "react-tools": "^0.13.2",
     "sinon": "^1.14.1"
   },
   "browserify": {

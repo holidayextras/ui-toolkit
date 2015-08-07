@@ -1,8 +1,7 @@
-/** @jsx React.DOM */
-
 var React = require('react/addons');
-var IconListItem = require('../code/views/IconListItemComponentView.jsx');
 var TestUtils = React.addons.TestUtils;
+var assert = require('chai').assert;
+var IconListItem = require('../code/views/IconListItemComponentView.jsx');
 
 describe('IconListItemComponent', function() {
 
