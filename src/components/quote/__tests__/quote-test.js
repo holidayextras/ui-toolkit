@@ -1,6 +1,6 @@
-/** @jsx React.DOM */
-
-var React = require('react');
+var React = require('react/addons');
+var TestUtils = React.addons.TestUtils;
+var assert = require('chai').assert;
 var QuoteComponent = require('../code/views/quoteView.jsx');
 
 describe('QuoteComponent', function() {

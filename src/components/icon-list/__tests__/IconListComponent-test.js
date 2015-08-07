@@ -1,10 +1,10 @@
-/** @jsx React.DOM */
-
-var React = require('react');
+var React = require('react/addons');
+var TestUtils = React.addons.TestUtils;
+var assert = require('chai').assert;
 var IconList = require('../code/views/IconListComponentView.jsx');
 var IconListItem = require('../../icon-list-item/code/views/IconListItemComponentView.jsx');
 
-describe('iconListComponent ', function() {
+describe('IconListComponent ', function() {
 
   it('is an element', function() {
     assert.ok(TestUtils.isElement(<IconList />));

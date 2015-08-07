@@ -2,6 +2,10 @@
   "name": "ui-toolkit-docs",
   "version": "0.0.0",
   "description": "UI Toolkit docs site",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/holidayextras/ui-toolkit.git"
+  },
   "main": "./server.js",
   "browser": "./client.js",
   "browserify": {
