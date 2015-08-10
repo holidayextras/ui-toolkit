@@ -75,7 +75,7 @@ var Components = React.createClass({
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Input.jsx', 'utf8')} />
           <h4>Attributes</h4>
           <ul>
-            <li><code>type</code> String - Type of Input Field can be `text` `email` `tel` or `number`</li>
+            <li><code>type</code> String - Type of Input Field can be <code>text</code>, <code>email</code>, <code>tel</code> or <code>number</code></li>
             <li><code>name</code> String - Optional Name for Input Field</li>
             <li><code>id</code> String - Optional ID for Input Field</li>
             <li><code>label</code> String - Optional Label in front of Input Field</li>
