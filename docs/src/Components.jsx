@@ -82,6 +82,8 @@ var Components = React.createClass({
             <li><code>alt</code> String - Image alt attribute</li>
             <li><code>handleClick</code> Function - handle click events on the image</li>
             <li><code>src</code> String - Image src attribute</li>
+            <li><code>href</code> String - an href that wraps the image in an anchor</li>
+            <li><code>data</code> Object - Where <code>keys</code> will be data attributes and <code>values</code> will be their values (uses <a href="https://github.com/holidayextras/react-data-attributes-mixin" alt="React Data Attributes Mixin">React Data Attributes Mixin</a>)</li>
           </ul>
         </article>
 
