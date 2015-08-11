@@ -23,12 +23,8 @@ describe('Lozenge', function() {
       this.instance = TestUtils.renderIntoDocument(<Lozenge tip="foo">bar</Lozenge>);
     });
 
-    it('should include the has-tooltip class', function(){
-      assert.ok(TestUtils.findRenderedDOMComponentWithClass(this.instance, 'has-tooltip'));
-    });
-
     it('sets the tip as the title', function(){
-      var el = TestUtils.findRenderedDOMComponentWithClass(this.instance, 'has-tooltip').getDOMNode();
+      var el = TestUtils.findRenderedDOMComponentWithClass(this.instance, 'component-lozenge').getDOMNode();
       assert.equal(el.getAttribute('title'), 'foo');
     });
   });
@@ -38,17 +34,18 @@ describe('Lozenge', function() {
       this.instance = TestUtils.renderIntoDocument(<Lozenge>bar</Lozenge>);
     });
 
-    it('should not include the has-tooltip class', function(){
-      assert.equal(TestUtils.scryRenderedDOMComponentsWithClass(this.instance, 'has-tooltip').length, 0);
+    it('should not set a tip as the title', function(){
+      var el = TestUtils.findRenderedDOMComponentWithClass(this.instance, 'component-lozenge').getDOMNode();
+      assert.equal(el.getAttribute('title'), null);
     });
   });
 
   describe('without purpose atttribute or purpose as an attribute', function(){
     beforeEach(function(){
-      this.instance = TestUtils.renderIntoDocument(<Lozenge>foo</Lozenge>);
+      this.instance = TestUtils.renderIntoDocument(<Lozenge purpose="default">foo</Lozenge>);
     });
-    it('renders label-default class', function(){
-      assert.ok(TestUtils.findRenderedDOMComponentWithClass(this.instance, 'label-default'));
+    it('renders default class', function(){
+      assert.ok(TestUtils.findRenderedDOMComponentWithClass(this.instance, 'default'));
     });
   });
 
@@ -58,8 +55,8 @@ describe('Lozenge', function() {
         this.instance = TestUtils.renderIntoDocument(<Lozenge purpose="primary">foo</Lozenge>);
       });
 
-      it('renders label-primary class', function(){
-        assert.ok(TestUtils.findRenderedDOMComponentWithClass(this.instance, 'label-primary'));
+      it('renders primary class', function(){
+        assert.ok(TestUtils.findRenderedDOMComponentWithClass(this.instance, 'primary'));
       });
     });
 
@@ -68,8 +65,8 @@ describe('Lozenge', function() {
         this.instance = TestUtils.renderIntoDocument(<Lozenge purpose="success">foo</Lozenge>);
       });
 
-      it('renders label-success class', function(){
-        assert.ok(TestUtils.findRenderedDOMComponentWithClass(this.instance, 'label-success'));
+      it('renders success class', function(){
+        assert.ok(TestUtils.findRenderedDOMComponentWithClass(this.instance, 'success'));
       });
     });
 
@@ -78,8 +75,8 @@ describe('Lozenge', function() {
         this.instance = TestUtils.renderIntoDocument(<Lozenge purpose="info">foo</Lozenge>);
       });
 
-      it('renders label-info class', function(){
-        assert.ok(TestUtils.findRenderedDOMComponentWithClass(this.instance, 'label-info'));
+      it('renders info class', function(){
+        assert.ok(TestUtils.findRenderedDOMComponentWithClass(this.instance, 'info'));
       });
     });
 
@@ -88,8 +85,8 @@ describe('Lozenge', function() {
         this.instance = TestUtils.renderIntoDocument(<Lozenge purpose="warning">foo</Lozenge>);
       });
 
-      it('renders label-warning class', function(){
-        assert.ok(TestUtils.findRenderedDOMComponentWithClass(this.instance, 'label-warning'));
+      it('renders warning class', function(){
+        assert.ok(TestUtils.findRenderedDOMComponentWithClass(this.instance, 'warning'));
       });
     });
 
@@ -98,8 +95,55 @@ describe('Lozenge', function() {
         this.instance = TestUtils.renderIntoDocument(<Lozenge purpose="danger">foo</Lozenge>);
       });
 
-      it('renders label-danger class', function(){
-        assert.ok(TestUtils.findRenderedDOMComponentWithClass(this.instance, 'label-danger'));
+      it('renders danger class', function(){
+        assert.ok(TestUtils.findRenderedDOMComponentWithClass(this.instance, 'danger'));
+      });
+    });
+  });
+  describe('with size attribute', function(){
+    describe('small', function(){
+      beforeEach(function(){
+        this.instance = TestUtils.renderIntoDocument(<Lozenge purpose="small">foo</Lozenge>);
+      });
+
+      it('renders small class', function(){
+        assert.ok(TestUtils.findRenderedDOMComponentWithClass(this.instance, 'small'));
+      });
+    });
+    describe('medium', function(){
+      beforeEach(function(){
+        this.instance = TestUtils.renderIntoDocument(<Lozenge purpose="medium">foo</Lozenge>);
+      });
+
+      it('renders medium class', function(){
+        assert.ok(TestUtils.findRenderedDOMComponentWithClass(this.instance, 'medium'));
+      });
+    });
+    describe('large', function(){
+      beforeEach(function(){
+        this.instance = TestUtils.renderIntoDocument(<Lozenge purpose="large">foo</Lozenge>);
+      });
+
+      it('renders large class', function(){
+        assert.ok(TestUtils.findRenderedDOMComponentWithClass(this.instance, 'large'));
+      });
+    });
+    describe('extra-large', function(){
+      beforeEach(function(){
+        this.instance = TestUtils.renderIntoDocument(<Lozenge purpose="extra-large">foo</Lozenge>);
+      });
+
+      it('renders extra-large class', function(){
+        assert.ok(TestUtils.findRenderedDOMComponentWithClass(this.instance, 'extra-large'));
+      });
+    });
+    describe('block', function(){
+      beforeEach(function(){
+        this.instance = TestUtils.renderIntoDocument(<Lozenge purpose="block">foo</Lozenge>);
+      });
+
+      it('renders block class', function(){
+        assert.ok(TestUtils.findRenderedDOMComponentWithClass(this.instance, 'block'));
       });
     });
   });

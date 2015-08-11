@@ -135,6 +135,7 @@ var Components = React.createClass({
           <h4>Attributes</h4>
           <ul>
             <li><code>purpose</code> String - default, primary, secondary, success, info, warning, danger</li>
+            <li><code>size</code> String - small, medium (default), large, extra-large, block</li>
             <li><code>tip</code> String - Tooltip text to display</li>
           </ul>
         </article>
