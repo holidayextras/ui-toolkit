@@ -125,6 +125,7 @@ var Components = React.createClass({
           <h4>Attributes (for ListGroupItem)</h4>
           <ul>
             <li><code>icon</code> String - The name of the <a href="http://fortawesome.github.io/Font-Awesome/icons/">Font Awesome</a> icon that you want to display</li>
+            <li><code>purpose</code> String - default, primary, secondary, success, info, warning, danger</li>
           </ul>
         </article>
 

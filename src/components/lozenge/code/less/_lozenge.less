@@ -3,7 +3,7 @@
 \*------------------------------------*/
 
 .component-lozenge {
-  padding:.25em .5em;
+  padding:(@padding-horizontal-default / 2) (@padding-vertical-default / 2);
   border-radius:.25em;
   display:inline-block;
   font-size:0.75em;
@@ -26,7 +26,7 @@
 // Mixin
 .lozenge-variant(@background) {
   background-color: @background;
-  color: contrast(@background, #414141, #ffffff, 70%);
+  color: contrast(@background, @text-color, @text-color-inverted, 70%);
 }
 
 .component-lozenge {

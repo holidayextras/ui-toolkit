@@ -11,3 +11,32 @@
     line-height: inherit;
   }
 }
+
+//
+// == Functional Colours ==
+//
+
+.icon-list-item-variant(@color) {
+  color: @color;
+}
+
+.component-icon-list-item {
+  &.primary {
+    .icon-list-item-variant(@primary);
+  }
+  &.secondary {
+    .icon-list-item-variant(@secondary);
+  }
+  &.success {
+    .icon-list-item-variant(@success);
+  }
+  &.info {
+    .icon-list-item-variant(@info);
+  }
+  &.warning {
+    .icon-list-item-variant(@warning);
+  }
+  &.danger {
+    .icon-list-item-variant(@danger);
+  }
+}
