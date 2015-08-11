@@ -1,0 +1,52 @@
+/*------------------------------------*\
+    #Typography
+\*------------------------------------*/
+
+//
+// == Font Size ==
+//
+
+@base-font-size: 16px;
+
+h1, .h1 {
+  font-size:2.5em; //40px
+  line-height: @line-height-headings;
+}
+h2, .h2 {
+  font-size:1.875em; //30px
+  line-height: @line-height-headings;
+}
+h3, .h3 {
+  font-size: 1.5em; //24px
+  line-height: @line-height-headings;
+}
+h4, .h4 {
+  font-size: 1.25em; //20px
+  line-height: @line-height-headings;
+}
+h5, .h5 {
+  font-size:1em; //16px
+  line-height: @line-height-headings;
+}
+h6, .h6 {
+  font-size: 0.875em; //14px
+  text-transform: uppercase;
+  line-height: @line-height-headings;
+}
+
+//
+// == Fonts ==
+//
+
+@font-family-sans-serif: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+@font-family-serif:      'Roboto Slab', Georgia, 'Times New Roman', Times, serif;
+@font-family-monospaced: Menlo, Monaco, Consolas, 'Courier New', monospace;
+@font-family-headings:   @font-family-sans-serif;
+@font-family-body:       @font-family-sans-serif;
+
+//
+// == Line Height ==
+//
+
+@line-height-headings: 1em;
+@line-height-body: 1.61803398875em; // Golden Ratio
