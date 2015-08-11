@@ -40,15 +40,6 @@ describe('Lozenge', function() {
     });
   });
 
-  describe('without purpose atttribute or purpose as an attribute', function(){
-    beforeEach(function(){
-      this.instance = TestUtils.renderIntoDocument(<Lozenge purpose="default">foo</Lozenge>);
-    });
-    it('renders default class', function(){
-      assert.ok(TestUtils.findRenderedDOMComponentWithClass(this.instance, 'default'));
-    });
-  });
-
   describe('with purpose attribute', function(){
     describe('primary', function(){
       beforeEach(function(){
@@ -103,7 +94,7 @@ describe('Lozenge', function() {
   describe('with size attribute', function(){
     describe('small', function(){
       beforeEach(function(){
-        this.instance = TestUtils.renderIntoDocument(<Lozenge purpose="small">foo</Lozenge>);
+        this.instance = TestUtils.renderIntoDocument(<Lozenge size="small">foo</Lozenge>);
       });
 
       it('renders small class', function(){
@@ -112,7 +103,7 @@ describe('Lozenge', function() {
     });
     describe('medium', function(){
       beforeEach(function(){
-        this.instance = TestUtils.renderIntoDocument(<Lozenge purpose="medium">foo</Lozenge>);
+        this.instance = TestUtils.renderIntoDocument(<Lozenge size="medium">foo</Lozenge>);
       });
 
       it('renders medium class', function(){
@@ -121,7 +112,7 @@ describe('Lozenge', function() {
     });
     describe('large', function(){
       beforeEach(function(){
-        this.instance = TestUtils.renderIntoDocument(<Lozenge purpose="large">foo</Lozenge>);
+        this.instance = TestUtils.renderIntoDocument(<Lozenge size="large">foo</Lozenge>);
       });
 
       it('renders large class', function(){
@@ -130,7 +121,7 @@ describe('Lozenge', function() {
     });
     describe('extra-large', function(){
       beforeEach(function(){
-        this.instance = TestUtils.renderIntoDocument(<Lozenge purpose="extra-large">foo</Lozenge>);
+        this.instance = TestUtils.renderIntoDocument(<Lozenge size="extra-large">foo</Lozenge>);
       });
 
       it('renders extra-large class', function(){
@@ -139,7 +130,7 @@ describe('Lozenge', function() {
     });
     describe('block', function(){
       beforeEach(function(){
-        this.instance = TestUtils.renderIntoDocument(<Lozenge purpose="block">foo</Lozenge>);
+        this.instance = TestUtils.renderIntoDocument(<Lozenge size="block">foo</Lozenge>);
       });
 
       it('renders block class', function(){
