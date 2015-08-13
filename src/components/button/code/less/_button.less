@@ -9,7 +9,7 @@
   touch-action: manipulation;
   cursor: pointer;
   background-image: none;
-  border: 1px solid transparent;
+  border: @border-size-default @border-style-default @border-color-default;
   white-space: nowrap;
   padding: @padding-vertical-default @padding-horizontal-default;
   border-radius: @radius-default;
@@ -63,8 +63,6 @@
   background-color: @background;
       border-color: @border;
              color: contrast(@background, @text-color, @text-color-inverted, 70%);
-
-
   &:hover,
   &:focus,
   &.focus,
@@ -91,26 +89,26 @@
 }
 
 .component-button {
-  .button-variant(@default; darken(@default, 5%));
+  .button-variant(@default; @border-color-default);
   &.default {
-    .button-variant(@default; darken(@default, 5%));
+    .button-variant(@default; @border-color-default);
   }
   &.primary {
-    .button-variant(@primary; darken(@primary, 5%));
+    .button-variant(@primary; @border-color-primary);
   }
   &.secondary {
-    .button-variant(@secondary; darken(@secondary, 5%));
+    .button-variant(@secondary; @border-color-secondary);
   }
   &.success {
-    .button-variant(@success; darken(@success, 5%));
+    .button-variant(@success; @border-color-success);
   }
   &.info {
-    .button-variant(@info; darken(@info, 5%));
+    .button-variant(@info; @border-color-info);
   }
   &.warning {
-    .button-variant(@warning; darken(@warning, 5%));
+    .button-variant(@warning; @border-color-warning);
   }
   &.danger {
-    .button-variant(@danger; darken(@danger, 5%));
+    .button-variant(@danger; @border-color-danger);
   }
 }
