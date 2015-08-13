@@ -4,7 +4,7 @@
 
 .component-alert {
   padding: @padding-default;
-  border-radius: @radius-default;
+  border-radius: @alerts-border-radius;
   overflow:hidden;
   position:relative;
   & + .component-alert {
@@ -26,7 +26,7 @@
 .alert-variant(@background) {
   color: darken(@background, 30%);
   background-color: lighten(@background, 30%);
-  border: @background solid 1px;
+  border: @background @alerts-border-style @alerts-border-size;
 }
 
 .component-alert {

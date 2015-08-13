@@ -3,21 +3,22 @@
 \*------------------------------------*/
 
 //
-// == Font Sizes ==
+// == Sizes relative to font sizes ==
 //
 
 .small, small {
-  font-size: 0.75em; //12px
+  font-size: @font-size-small;
 }
 .medium, .default {
-  font-size: 1em; //16px
+  font-size: @font-size-medium;
 }
 .large {
-  font-size: 1.25em; //20px
+  font-size: @font-size-large;
 }
 .extra-large {
-  font-size: 1.5em; //24px
+  font-size: @font-size-extra-large;
 }
+
 
 //
 // == Padding Sizes ==
@@ -49,19 +50,3 @@
 @margin-default-small:      @margin-default;
 @margin-vertical-small:     @margin-vertical-default;
 @margin-horizontal-small:   @margin-horizontal-default;
-
-//
-// == Radius Sizes ==
-//
-
-@radius-default:            .25em;
-@radius-vertical-default:   @radius-default;
-@radius-horizontal-default: @radius-default;
-
-@radius-default-large:      @radius-default;
-@radius-vertical-large:     @radius-vertical-default;
-@radius-horizontal-large:   @radius-horizontal-default;
-
-@radius-default-small:      @radius-default;
-@radius-vertical-small:     @radius-vertical-default;
-@radius-horizontal-small:   @radius-horizontal-default;
