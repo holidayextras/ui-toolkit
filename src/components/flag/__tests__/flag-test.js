@@ -1,6 +1,6 @@
-var React = require('react/addons');
-var TestUtils = React.addons.TestUtils;
-var assert = require('chai').assert;
+/** @jsx React.DOM */
+
+var React = require('react');
 var FlagComponent = require('../code/views/flagView.jsx');
 
 describe('FlagComponent', function() {

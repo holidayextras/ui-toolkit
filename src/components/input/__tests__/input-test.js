@@ -1,6 +1,5 @@
-var React = require('react/addons');
-var TestUtils = React.addons.TestUtils;
-var assert = require('chai').assert;
+/** @jsx React.DOM */
+var React = require('react');
 var sinon = require('sinon');
 var InputView = require('../code/views/inputView.jsx');
 
@@ -150,6 +149,72 @@ describe('InputComponent', function() {
     assert.equal(renderedInput.getDOMNode().name, 'test-input-name');
   });
 
+  describe('getDefaultProps', function() {
+    var elem = TestUtils.renderIntoDocument(
+      <InputView />
+    );
+
+    it('sets type to text', function() {
+      assert.equal(elem.props.type, 'text');
+    });
+
+    it('sets disabled to false', function() {
+      assert.isFalse(elem.props.disabled);
+    });
+
+    it('sets readOnly to false', function() {
+      assert.isFalse(elem.props.readOnly);
+    });
+
+    it('sets required to false', function() {
+      assert.isFalse(elem.props.required);
+    });
+
+    it('sets errorMessage to "Invalid Input"', function() {
+      assert.equal(elem.props.errorMessage, 'Invalid Input');
+    });
+
+    it('sets id to "component-input"', function() {
+      assert.equal(elem.props.id, 'component-input');
+    });
+
+    it('sets name to "component-input"', function() {
+      assert.equal(elem.props.name, 'component-input');
+    });
+
+    it('sets placeHolder to empty string', function() {
+      assert.equal(elem.props.placeHolder, '');
+    });
+  });
+
+  describe('validate', function() {
+    it('sets state correctly when no validator is set', function() {
+      var elem = TestUtils.renderIntoDocument(
+        <InputView />
+      );
+
+      elem.setState = sinon.spy();
+      elem.validate('foo');
+
+      assert.isTrue(elem.setState.calledWith({
+        valid: true,
+        error: null
+      }));
+    });
+
+    it('sets error message when validator fails', function() {
+      var elem = TestUtils.renderIntoDocument(
+        <InputView validator={/[a-b]+/} errorMessage="Boom" />
+      );
+
+      elem.setState = sinon.spy();
+      elem.validate('1111');
+      assert.isTrue(elem.setState.calledWith({
+        valid: false,
+        error: 'Boom'
+      }));
+    });
+  });
 });
 
 describe('InputComponent Error with Default Message', function() {
