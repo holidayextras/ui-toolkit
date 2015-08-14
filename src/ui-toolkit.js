@@ -3,6 +3,7 @@ var UIToolkit = {};
 // Custom Components
 UIToolkit.Alert = require('./components/alert');
 UIToolkit.Button = require('./components/button');
+UIToolkit.Countdown = require('./components/countdown');
 UIToolkit.Flag = require('./components/flag');
 UIToolkit.IconList = require('./components/icon-list');
 UIToolkit.IconListItem = require('./components/icon-list-item');
