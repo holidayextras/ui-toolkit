@@ -109,7 +109,7 @@ var Components = React.createClass({
 
         <article id="justified-container">
           <h3>Justified Container</h3>
-          <p>A container which will spread components vertically across a page</p>
+          <p>A container which will spread components horizontally across a page</p>
           <p>This component uses <a href="http://caniuse.com/#search=flexbox">Flexbox</a> for modern browers with a
           fallback of <code>display:table</code>. Modern browsers with flexbox will accept any child element but older browsers do not accept <code>button</code> elements as children.</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/JustifiedContainer.jsx', 'utf8')} />
