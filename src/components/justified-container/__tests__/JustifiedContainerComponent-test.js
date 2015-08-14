@@ -14,10 +14,6 @@ describe('JustifiedContainer', function() {
     assert.isTrue(TestUtils.isElement(<JustifiedButtons/>));
   });
 
-  it('has styles for justifying content', function(){
-    assert.equal(this.domNode.getAttribute('style'), 'display:flex;flex-direction:row;justify-content:space-between;');
-  });
-
   describe('with children', function(){
     beforeEach(function(){
       this.instance = TestUtils.renderIntoDocument(
