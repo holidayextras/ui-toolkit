@@ -28053,11 +28053,11 @@ module.exports = React.createClass({displayName: "exports",
     var isValid = true;
     var error = null;
 
-    if(value !== '' && typeof self.props.validator !== 'undefined'){
+    if (value !== '' && typeof self.props.validator !== 'undefined') {
       isValid = self.props.validator.test(value);
     }
 
-    if(!isValid){
+    if (!isValid) {
       error = self.props.errorMessage;
     }
 
@@ -28076,11 +28076,11 @@ module.exports = React.createClass({displayName: "exports",
     });
 
     clearTimeout(this.intent);
-    this.intent = setTimeout(function(){
+    this.intent = setTimeout(function() {
       self.validate(value);
     }, 500);
 
-    if(self.props.handleChange) {
+    if (self.props.handleChange) {
       self.props.handleChange.apply(this, arguments);
     }
 
@@ -28102,32 +28102,28 @@ module.exports = require('./views/JustifiedContainerComponentView.jsx');
 
 },{"./views/JustifiedContainerComponentView.jsx":236}],235:[function(require,module,exports){
 var React = require('react');
+var classNames = require('classnames');
+var getComponentClasses = require('../../../../utils/getComponentClasses');
 
-module.exports = function(props) {
+module.exports = function() {
+
+  var classes = getComponentClasses('component-justified-container');
+
   return (
-    React.createElement("div", {style: props.styles, className: "component-justified-container"}, 
-      props.children
+    React.createElement("div", {style: this.props.styles, className: classNames(classes)}, 
+      this.props.children
     )
   );
 };
 
 
-},{"react":197}],236:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":264,"classnames":3,"react":197}],236:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
 
-  getDefaultProps: function(){
-    return {
-      styles: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between'
-      }
-    };
-  },
   render: function(){
-    return require('../templates/JustifiedContainerComponentTemplate.jsx')(this.props);
+    return require('../templates/JustifiedContainerComponentTemplate.jsx').call(this);
   }
 });
 

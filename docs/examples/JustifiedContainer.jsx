@@ -1,8 +1,8 @@
 var example = (
   <UIToolkit.JustifiedContainer>
-    <UIToolkit.Button size="block">foo</UIToolkit.Button>
-    <UIToolkit.Button size="block">bar</UIToolkit.Button>
-    <UIToolkit.Button size="block">baz</UIToolkit.Button>
+    <div><UIToolkit.Button size="block">foo</UIToolkit.Button></div>
+    <div><UIToolkit.Button size="block">bar</UIToolkit.Button></div>
+    <div><UIToolkit.Button size="block">baz</UIToolkit.Button></div>
   </UIToolkit.JustifiedContainer>
 );
 
