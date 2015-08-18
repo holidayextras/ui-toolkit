@@ -6,19 +6,19 @@ module.exports = React.createClass({
   mixins: [DataAttributesMixin],
 
   getDefaultProps: function() {
-   return {
+    return {
      href: '#'
    }
-  },
+ },
 
-  propTypes: {
+ propTypes: {
    data: React.PropTypes.object,
    title: React.PropTypes.string,
    href: React.PropTypes.string
-  },
+ },
 
-  render: function() {
+ render: function() {
    if(!this.props.children) return null;
    return require('../templates/anchorTemplate.jsx').call(this);
-  }
+ }
 });

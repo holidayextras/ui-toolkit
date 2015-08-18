@@ -5,7 +5,7 @@ var assert = require('chai').assert;
 
 var Anchor = require('../code/views/anchorView.jsx');
 
-describe("Anchor", function() {
+describe('Anchor', function() {
   beforeEach(function(){
     this.data = {
       'foo': 'bar',
@@ -16,7 +16,7 @@ describe("Anchor", function() {
     this.handleClick = sinon.spy();
 
     this.instance = TestUtils.renderIntoDocument(
-      <Anchor data={this.data} title={this.title} href={this.href} onClick={this.handleClick} foo="bar">test anchor</Anchor>
+      <Anchor data={this.data} title={this.title} href={this.href} onClick={this.handleClick} foo='bar'>test anchor</Anchor>
     );
 
     var renderedAnchor = TestUtils.findRenderedDOMComponentWithTag(this.instance, 'a');
