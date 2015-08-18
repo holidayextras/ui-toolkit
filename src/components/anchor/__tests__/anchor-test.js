@@ -13,10 +13,10 @@ describe('Anchor', function() {
     };
     this.title = 'test';
     this.href = 'google.com';
-    this.handleClick = sinon.spy();
+    this.clickHandler = sinon.spy();
 
     this.instance = TestUtils.renderIntoDocument(
-      <Anchor data={this.data} title={this.title} href={this.href} onClick={this.handleClick} foo="bar">test anchor</Anchor>
+      <Anchor data={this.data} title={this.title} href={this.href} handleClick={this.clickHandler} foo="bar">test anchor</Anchor>
     );
 
     var renderedAnchor = TestUtils.findRenderedDOMComponentWithTag(this.instance, 'a');
@@ -43,14 +43,14 @@ describe('Anchor', function() {
       assert.equal(this.anchorDomNode.getAttribute('title'), this.title);
     });
 
-    describe('with onClick handler', function(){
+    describe('with handleClick handler', function(){
       describe('on click', function(){
         beforeEach(function(){
           TestUtils.Simulate.click(this.anchorDomNode);
         });
 
         it('should call the handler', function(){
-          assert(this.handleClick.calledOnce);
+          assert(this.clickHandler.calledOnce);
         });
       });
     });
@@ -59,7 +59,7 @@ describe('Anchor', function() {
   describe('without content', function(){
     beforeEach(function(){
       this.instance = TestUtils.renderIntoDocument(
-        <Anchor data={this.data} title={this.title} href={this.href} onClick={this.handleClick} />
+        <Anchor data={this.data} title={this.title} href={this.href} handleClick={this.clickHandler} />
       );
     });
     it('does not render', function(){
@@ -70,7 +70,7 @@ describe('Anchor', function() {
   describe('without a href', function(){
     beforeEach(function(){
       this.instance = TestUtils.renderIntoDocument(
-        <Anchor data={this.data} title={this.title} onClick={this.handleClick} >Content</Anchor>
+        <Anchor data={this.data} title={this.title} handleClick={this.clickHandler} >Content</Anchor>
       );
       var renderedAnchor = TestUtils.findRenderedDOMComponentWithTag(this.instance, 'a');
       this.anchorDomNode = renderedAnchor.getDOMNode();

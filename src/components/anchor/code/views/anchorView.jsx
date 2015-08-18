@@ -18,6 +18,9 @@ module.exports = React.createClass({
   },
 
   render: function() {
+    if(!this.props.children) {
+      return null;
+    }
     return require('../templates/anchorTemplate.jsx').call(this);
   }
 });

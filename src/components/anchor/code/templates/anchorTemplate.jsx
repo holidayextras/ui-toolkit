@@ -2,14 +2,10 @@ var React = require('react');
 
 module.exports = function() {
 
-  if(!this.props.children) {
-    return null;
-  }
-
   var dataAttributes = this.getDataAttributesFromProps();
 
   return (
-    <a {...dataAttributes} title={this.props.title} href={this.props.href} onClick={this.props.onClick}>
+    <a {...dataAttributes} title={this.props.title} href={this.props.href} onClick={this.props.handleClick}>
      {this.props.children}
     </a>
   );
