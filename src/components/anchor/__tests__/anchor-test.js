@@ -16,7 +16,7 @@ describe('Anchor', function() {
     this.handleClick = sinon.spy();
 
     this.instance = TestUtils.renderIntoDocument(
-      <Anchor data={this.data} title={this.title} href={this.href} onClick={this.handleClick} foo='bar'>test anchor</Anchor>
+      <Anchor data={this.data} title={this.title} href={this.href} onClick={this.handleClick} foo="bar">test anchor</Anchor>
     );
 
     var renderedAnchor = TestUtils.findRenderedDOMComponentWithTag(this.instance, 'a');
@@ -59,7 +59,7 @@ describe('Anchor', function() {
   describe('without content', function(){
     beforeEach(function(){
       this.instance = TestUtils.renderIntoDocument(
-        <Anchor data={this.data} title={this.title} href={this.href} onClick={this.handleClick} ></Anchor>
+        <Anchor data={this.data} title={this.title} href={this.href} onClick={this.handleClick} />
       );
     });
     it('does not render', function(){
