@@ -3,18 +3,50 @@
 \*------------------------------------*/
 
 //
-// == Element Sizes ==
+// == Sizes relative to font sizes ==
 //
 
 .small, small {
-  font-size: 0.75em; //12px
+  font-size: @font-size-small;
 }
 .medium, .default {
-  font-size: 1em; //16px
+  font-size: @font-size-medium;
 }
 .large {
-  font-size: 1.25em; //20px
+  font-size: @font-size-large;
 }
 .extra-large {
-  font-size: 1.5em; //24px
+  font-size: @font-size-extra-large;
 }
+
+
+//
+// == Padding Sizes ==
+//
+@padding-default:            1em;
+@padding-vertical-default:   @padding-default / 2;
+@padding-horizontal-default: @padding-default;
+
+@padding-default-large:      @padding-default;
+@padding-vertical-large:     @padding-vertical-default;
+@padding-horizontal-large:   @padding-horizontal-default;
+
+@padding-default-small:      @padding-default;
+@padding-vertical-small:     @padding-vertical-default;
+@padding-horizontal-small:   @padding-horizontal-default;
+
+//
+// == Margin Sizes ==
+//
+
+@margin-default:            1em;
+@margin-vertical-default:   @margin-default / 2;
+@margin-horizontal-default: @margin-default;
+
+@margin-default-large:      @margin-default;
+@margin-vertical-large:     @margin-vertical-default;
+@margin-horizontal-large:   @margin-horizontal-default;
+
+@margin-default-small:      @margin-default;
+@margin-vertical-small:     @margin-vertical-default;
+@margin-horizontal-small:   @margin-horizontal-default;

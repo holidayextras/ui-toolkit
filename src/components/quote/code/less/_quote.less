@@ -3,10 +3,10 @@
 \*------------------------------------*/
 
 .component-quote {
-  border-left: solid .25em;
+  border-left: @quotes-border-style @quotes-border-size;
   margin:0;
-  padding:1em;
-  font-size:1em;
+  padding:@padding-default;
+  font-size:@font-size-base;
   quotes: "“" "”" "‘" "’";
   &.inline {
     border-left:none;
@@ -17,7 +17,7 @@
       margin-top:0;
     }
     font-style: italic;
-    font-size: 1em;
+    font-size: @font-size-base;
     &:before {
       content: open-quote;
     }
@@ -26,7 +26,7 @@
     }
   }
   footer {
-    font-size:1em;
+    font-size:@font-size-base;
   }
   small, cite {
     .small;
@@ -35,7 +35,7 @@
     content: "Source: "
   }
   & + .component-quote {
-    margin-top: .5em;
+    margin-top: @margin-vertical-default;
   }
 }
 

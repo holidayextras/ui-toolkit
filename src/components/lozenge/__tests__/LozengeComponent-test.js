@@ -40,15 +40,6 @@ describe('Lozenge', function() {
     });
   });
 
-  describe('without purpose atttribute or purpose as an attribute', function(){
-    beforeEach(function(){
-      this.instance = TestUtils.renderIntoDocument(<Lozenge purpose="default">foo</Lozenge>);
-    });
-    it('renders default class', function(){
-      assert.ok(TestUtils.findRenderedDOMComponentWithClass(this.instance, 'default'));
-    });
-  });
-
   describe('with purpose attribute', function(){
     describe('primary', function(){
       beforeEach(function(){

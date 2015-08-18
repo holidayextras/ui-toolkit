@@ -4,10 +4,39 @@
 
 .component-icon-list-item {
   position: relative;
-  min-height: 1.61em;
+  min-height: @line-height-body;
   i {
     position: absolute;
     left: -2em;
     line-height: inherit;
+  }
+}
+
+//
+// == Functional Colours ==
+//
+
+.icon-list-item-variant(@color) {
+  color: @color;
+}
+
+.component-icon-list-item {
+  &.primary {
+    .icon-list-item-variant(@primary);
+  }
+  &.secondary {
+    .icon-list-item-variant(@secondary);
+  }
+  &.success {
+    .icon-list-item-variant(@success);
+  }
+  &.info {
+    .icon-list-item-variant(@info);
+  }
+  &.warning {
+    .icon-list-item-variant(@warning);
+  }
+  &.danger {
+    .icon-list-item-variant(@danger);
   }
 }
