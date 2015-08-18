@@ -14,7 +14,8 @@ module.exports = React.createClass({
   propTypes: {
     data: React.PropTypes.object,
     title: React.PropTypes.string,
-    href: React.PropTypes.string
+    href: React.PropTypes.string,
+    children: React.PropTypes.node
   },
 
   render: function() {
