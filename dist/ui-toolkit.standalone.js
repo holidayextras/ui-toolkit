@@ -2,7 +2,7 @@
 module.exports = require('./src/ui-toolkit');
 
 
-},{"./src/ui-toolkit":263}],2:[function(require,module,exports){
+},{"./src/ui-toolkit":267}],2:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -27494,7 +27494,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":264,"classnames":3,"react":197}],200:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":268,"classnames":3,"react":197}],200:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -27515,10 +27515,64 @@ module.exports = require('./code/index');
 
 
 },{"./code/index":198}],202:[function(require,module,exports){
+module.exports = require('./views/anchorView.jsx');
+
+
+},{"./views/anchorView.jsx":204}],203:[function(require,module,exports){
+var React = require('react');
+
+module.exports = function() {
+
+  var dataAttributes = this.getDataAttributesFromProps();
+
+  return (
+    React.createElement("a", React.__spread({className: "component-anchor"},  dataAttributes, {title: this.props.title, href: this.props.href, onClick: this.props.handleClick, target: this.props.target}), 
+     this.props.children
+    )
+  );
+};
+
+
+},{"react":197}],204:[function(require,module,exports){
+var React = require('react');
+var DataAttributesMixin = require('react-data-attributes-mixin');
+
+module.exports = React.createClass({displayName: "exports",
+
+  mixins: [DataAttributesMixin],
+
+  getDefaultProps: function() {
+    return {
+      href: '#'
+    };
+  },
+
+  propTypes: {
+    children: React.PropTypes.node,
+    data: React.PropTypes.object,
+    href: React.PropTypes.string,
+    target: React.PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
+    title: React.PropTypes.string
+  },
+
+  render: function() {
+    if(!this.props.children) {
+      return null;
+    }
+    return require('../templates/anchorTemplate.jsx').call(this);
+  }
+});
+
+
+},{"../templates/anchorTemplate.jsx":203,"react":197,"react-data-attributes-mixin":23}],205:[function(require,module,exports){
+module.exports = require('./code/index');
+
+
+},{"./code/index":202}],206:[function(require,module,exports){
 module.exports = require('./views/buttonView.jsx');
 
 
-},{"./views/buttonView.jsx":205}],203:[function(require,module,exports){
+},{"./views/buttonView.jsx":209}],207:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
@@ -27537,7 +27591,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":264,"classnames":3,"react":197}],204:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":268,"classnames":3,"react":197}],208:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
@@ -27556,7 +27610,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":264,"classnames":3,"react":197}],205:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":268,"classnames":3,"react":197}],209:[function(require,module,exports){
 var React = require('react');
 var DataAttributesMixin = require('react-data-attributes-mixin');
 module.exports = React.createClass({displayName: "exports",
@@ -27583,15 +27637,15 @@ module.exports = React.createClass({displayName: "exports",
 });
 
 
-},{"../templates/buttonAnchorTemplate.jsx":203,"../templates/buttonTemplate.jsx":204,"react":197,"react-data-attributes-mixin":23}],206:[function(require,module,exports){
+},{"../templates/buttonAnchorTemplate.jsx":207,"../templates/buttonTemplate.jsx":208,"react":197,"react-data-attributes-mixin":23}],210:[function(require,module,exports){
 module.exports = require('./code');
 
 
-},{"./code":202}],207:[function(require,module,exports){
+},{"./code":206}],211:[function(require,module,exports){
 module.exports = require('./views/countdownView.jsx');
 
 
-},{"./views/countdownView.jsx":211}],208:[function(require,module,exports){
+},{"./views/countdownView.jsx":215}],212:[function(require,module,exports){
 var moment = require('moment');
 var countdown = {};
 module.exports = countdown;
@@ -27650,7 +27704,7 @@ countdown._durationFromNow = function(untilDate) {
 };
 
 
-},{"moment":22}],209:[function(require,module,exports){
+},{"moment":22}],213:[function(require,module,exports){
 var countdown = require('./countdown.js');
 var moment = require('moment');
 
@@ -27686,7 +27740,7 @@ CountdownManager.prototype.time = function(currentMoment) {
 };
 
 
-},{"./countdown.js":208,"moment":22}],210:[function(require,module,exports){
+},{"./countdown.js":212,"moment":22}],214:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
@@ -27707,7 +27761,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":264,"classnames":3,"react":197}],211:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":268,"classnames":3,"react":197}],215:[function(require,module,exports){
 var React = require('react');
 var CountdownManager = require('../lib/countdownManager');
 
@@ -27763,15 +27817,15 @@ module.exports = React.createClass({displayName: "exports",
 });
 
 
-},{"../lib/countdownManager":209,"../templates/countdownTemplate.jsx":210,"react":197}],212:[function(require,module,exports){
+},{"../lib/countdownManager":213,"../templates/countdownTemplate.jsx":214,"react":197}],216:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
-},{"./code/index":207}],213:[function(require,module,exports){
+},{"./code/index":211}],217:[function(require,module,exports){
 module.exports = require('./views/flagView.jsx');
 
 
-},{"./views/flagView.jsx":215}],214:[function(require,module,exports){
+},{"./views/flagView.jsx":219}],218:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
@@ -27789,7 +27843,7 @@ module.exports = function(props) {
 };
 
 
-},{"../../../../utils/getComponentClasses":264,"classnames":3,"react":197}],215:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":268,"classnames":3,"react":197}],219:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -27821,15 +27875,15 @@ module.exports = React.createClass({displayName: "exports",
 });
 
 
-},{"../templates/flagTemplate.jsx":214,"react":197}],216:[function(require,module,exports){
+},{"../templates/flagTemplate.jsx":218,"react":197}],220:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
-},{"./code/index":213}],217:[function(require,module,exports){
+},{"./code/index":217}],221:[function(require,module,exports){
 module.exports = require('./views/IconListItemComponentView.jsx');
 
 
-},{"./views/IconListItemComponentView.jsx":219}],218:[function(require,module,exports){
+},{"./views/IconListItemComponentView.jsx":223}],222:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
@@ -27846,7 +27900,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":264,"classnames":3,"react":197}],219:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":268,"classnames":3,"react":197}],223:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -27861,15 +27915,15 @@ module.exports = React.createClass({displayName: "exports",
 });
 
 
-},{"../templates/IconListItemComponentTemplate.jsx":218,"react":197}],220:[function(require,module,exports){
+},{"../templates/IconListItemComponentTemplate.jsx":222,"react":197}],224:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
-},{"./code/index":217}],221:[function(require,module,exports){
+},{"./code/index":221}],225:[function(require,module,exports){
 module.exports = require('./views/IconListComponentView.jsx');
 
 
-},{"./views/IconListComponentView.jsx":223}],222:[function(require,module,exports){
+},{"./views/IconListComponentView.jsx":227}],226:[function(require,module,exports){
 var React = require('react');
 
 module.exports = function(props) {
@@ -27881,7 +27935,7 @@ module.exports = function(props) {
 };
 
 
-},{"react":197}],223:[function(require,module,exports){
+},{"react":197}],227:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -27891,15 +27945,15 @@ module.exports = React.createClass({displayName: "exports",
 });
 
 
-},{"../templates/IconListComponentTemplate.jsx":222,"react":197}],224:[function(require,module,exports){
+},{"../templates/IconListComponentTemplate.jsx":226,"react":197}],228:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
-},{"./code/index":221}],225:[function(require,module,exports){
+},{"./code/index":225}],229:[function(require,module,exports){
 module.exports = require('./views/imageView.jsx');
 
 
-},{"./views/imageView.jsx":228}],226:[function(require,module,exports){
+},{"./views/imageView.jsx":232}],230:[function(require,module,exports){
 var React = require('react');
 
 module.exports = function() {
@@ -27914,7 +27968,7 @@ module.exports = function() {
 };
 
 
-},{"react":197}],227:[function(require,module,exports){
+},{"react":197}],231:[function(require,module,exports){
 var React = require('react');
 
 module.exports = function() {
@@ -27927,7 +27981,7 @@ module.exports = function() {
 };
 
 
-},{"react":197}],228:[function(require,module,exports){
+},{"react":197}],232:[function(require,module,exports){
 var React = require('react');
 var DataAttributesMixin = require('react-data-attributes-mixin');
 
@@ -27951,15 +28005,15 @@ module.exports = React.createClass({displayName: "exports",
 });
 
 
-},{"../templates/imageAnchorTemplate.jsx":226,"../templates/imageTemplate.jsx":227,"react":197,"react-data-attributes-mixin":23}],229:[function(require,module,exports){
+},{"../templates/imageAnchorTemplate.jsx":230,"../templates/imageTemplate.jsx":231,"react":197,"react-data-attributes-mixin":23}],233:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
-},{"./code/index":225}],230:[function(require,module,exports){
+},{"./code/index":229}],234:[function(require,module,exports){
 module.exports = require('./views/inputView.jsx');
 
 
-},{"./views/inputView.jsx":232}],231:[function(require,module,exports){
+},{"./views/inputView.jsx":236}],235:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
 
@@ -28009,7 +28063,7 @@ module.exports = function (component){
 };
 
 
-},{"classnames":3,"react":197}],232:[function(require,module,exports){
+},{"classnames":3,"react":197}],236:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -28097,15 +28151,15 @@ module.exports = React.createClass({displayName: "exports",
 });
 
 
-},{"../templates/inputTemplate.jsx":231,"react":197}],233:[function(require,module,exports){
+},{"../templates/inputTemplate.jsx":235,"react":197}],237:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
-},{"./code/index":230}],234:[function(require,module,exports){
+},{"./code/index":234}],238:[function(require,module,exports){
 module.exports = require('./views/JustifiedContainerComponentView.jsx');
 
 
-},{"./views/JustifiedContainerComponentView.jsx":236}],235:[function(require,module,exports){
+},{"./views/JustifiedContainerComponentView.jsx":240}],239:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
@@ -28122,7 +28176,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":264,"classnames":3,"react":197}],236:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":268,"classnames":3,"react":197}],240:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -28133,15 +28187,15 @@ module.exports = React.createClass({displayName: "exports",
 });
 
 
-},{"../templates/JustifiedContainerComponentTemplate.jsx":235,"react":197}],237:[function(require,module,exports){
+},{"../templates/JustifiedContainerComponentTemplate.jsx":239,"react":197}],241:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
-},{"./code/index":234}],238:[function(require,module,exports){
+},{"./code/index":238}],242:[function(require,module,exports){
 module.exports = require('./views/LozengeComponentView.jsx');
 
 
-},{"./views/LozengeComponentView.jsx":240}],239:[function(require,module,exports){
+},{"./views/LozengeComponentView.jsx":244}],243:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
@@ -28159,7 +28213,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":264,"classnames":3,"react":197}],240:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":268,"classnames":3,"react":197}],244:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -28175,15 +28229,15 @@ module.exports = React.createClass({displayName: "exports",
 });
 
 
-},{"../templates/LozengeComponentTemplate.jsx":239,"react":197}],241:[function(require,module,exports){
+},{"../templates/LozengeComponentTemplate.jsx":243,"react":197}],245:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
-},{"./code/index":238}],242:[function(require,module,exports){
+},{"./code/index":242}],246:[function(require,module,exports){
 module.exports = require('./views/paymentCardView.jsx');
 
 
-},{"./views/paymentCardView.jsx":244}],243:[function(require,module,exports){
+},{"./views/paymentCardView.jsx":248}],247:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
@@ -28199,7 +28253,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":264,"classnames":3,"react":197}],244:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":268,"classnames":3,"react":197}],248:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -28213,15 +28267,15 @@ module.exports = React.createClass({displayName: "exports",
 });
 
 
-},{"../templates/paymentCardTemplate.jsx":243,"react":197}],245:[function(require,module,exports){
+},{"../templates/paymentCardTemplate.jsx":247,"react":197}],249:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
-},{"./code/index":242}],246:[function(require,module,exports){
+},{"./code/index":246}],250:[function(require,module,exports){
 module.exports = require('./views/quoteView.jsx');
 
 
-},{"./views/quoteView.jsx":249}],247:[function(require,module,exports){
+},{"./views/quoteView.jsx":253}],251:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
@@ -28244,7 +28298,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":264,"classnames":3,"react":197}],248:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":268,"classnames":3,"react":197}],252:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
@@ -28267,7 +28321,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":264,"classnames":3,"react":197}],249:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":268,"classnames":3,"react":197}],253:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -28288,15 +28342,15 @@ module.exports = React.createClass({displayName: "exports",
 });
 
 
-},{"../templates/blockQuoteTemplate.jsx":247,"../templates/quoteTemplate.jsx":248,"react":197}],250:[function(require,module,exports){
+},{"../templates/blockQuoteTemplate.jsx":251,"../templates/quoteTemplate.jsx":252,"react":197}],254:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
-},{"./code/index":246}],251:[function(require,module,exports){
+},{"./code/index":250}],255:[function(require,module,exports){
 module.exports = require('./views/ratingView.jsx');
 
 
-},{"./views/ratingView.jsx":253}],252:[function(require,module,exports){
+},{"./views/ratingView.jsx":257}],256:[function(require,module,exports){
 var React = require('react');
 
 module.exports = function(props) {
@@ -28323,7 +28377,7 @@ module.exports = function(props) {
 };
 
 
-},{"react":197}],253:[function(require,module,exports){
+},{"react":197}],257:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -28339,15 +28393,15 @@ module.exports = React.createClass({displayName: "exports",
 });
 
 
-},{"../templates/ratingTemplate.jsx":252,"react":197}],254:[function(require,module,exports){
+},{"../templates/ratingTemplate.jsx":256,"react":197}],258:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
-},{"./code/index":251}],255:[function(require,module,exports){
+},{"./code/index":255}],259:[function(require,module,exports){
 module.exports = require('./views/reviewsView.jsx');
 
 
-},{"./views/reviewsView.jsx":257}],256:[function(require,module,exports){
+},{"./views/reviewsView.jsx":261}],260:[function(require,module,exports){
 var React = require('react');
 
 module.exports = function(props) {
@@ -28361,7 +28415,7 @@ module.exports = function(props) {
 };
 
 
-},{"react":197}],257:[function(require,module,exports){
+},{"react":197}],261:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -28375,15 +28429,15 @@ module.exports = React.createClass({displayName: "exports",
 });
 
 
-},{"../templates/reviewsTemplate.jsx":256,"react":197}],258:[function(require,module,exports){
+},{"../templates/reviewsTemplate.jsx":260,"react":197}],262:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
-},{"./code/index":255}],259:[function(require,module,exports){
+},{"./code/index":259}],263:[function(require,module,exports){
 module.exports = require('./views/tileView.jsx');
 
 
-},{"./views/tileView.jsx":261}],260:[function(require,module,exports){
+},{"./views/tileView.jsx":265}],264:[function(require,module,exports){
 var React = require('react');
 var ImageComponent = require('../../../image');
 
@@ -28400,7 +28454,7 @@ module.exports = function(props) {
 };
 
 
-},{"../../../image":229,"react":197}],261:[function(require,module,exports){
+},{"../../../image":233,"react":197}],265:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -28419,15 +28473,16 @@ module.exports = React.createClass({displayName: "exports",
 });
 
 
-},{"../templates/tileTemplate.jsx":260,"react":197}],262:[function(require,module,exports){
+},{"../templates/tileTemplate.jsx":264,"react":197}],266:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
-},{"./code/index":259}],263:[function(require,module,exports){
+},{"./code/index":263}],267:[function(require,module,exports){
 var UIToolkit = {};
 
 // Custom Components
 UIToolkit.Alert = require('./components/alert');
+UIToolkit.Anchor = require('./components/anchor');
 UIToolkit.Button = require('./components/button');
 UIToolkit.Countdown = require('./components/countdown');
 UIToolkit.Flag = require('./components/flag');
@@ -28446,7 +28501,7 @@ UIToolkit.Tile = require('./components/tile');
 module.exports = UIToolkit;
 
 
-},{"./components/alert":201,"./components/button":206,"./components/countdown":212,"./components/flag":216,"./components/icon-list":224,"./components/icon-list-item":220,"./components/image":229,"./components/input":233,"./components/justified-container":237,"./components/lozenge":241,"./components/payment-card":245,"./components/quote":250,"./components/rating":254,"./components/reviews":258,"./components/tile":262}],264:[function(require,module,exports){
+},{"./components/alert":201,"./components/anchor":205,"./components/button":210,"./components/countdown":216,"./components/flag":220,"./components/icon-list":228,"./components/icon-list-item":224,"./components/image":233,"./components/input":237,"./components/justified-container":241,"./components/lozenge":245,"./components/payment-card":249,"./components/quote":254,"./components/rating":258,"./components/reviews":262,"./components/tile":266}],268:[function(require,module,exports){
 var _ = {
   values: require('lodash.values'),
   pick: require('lodash.pick')
