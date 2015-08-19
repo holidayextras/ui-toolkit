@@ -30,7 +30,7 @@ var Components = React.createClass({
             <li><code>data</code> Object - Where <code>keys</code> will be data attributes and <code>values</code> will be their values (uses <a href="https://github.com/holidayextras/react-data-attributes-mixin" alt="React Data Attributes Mixin">React Data Attributes Mixin</a>)</li>
             <li><code>handleClick</code> Function - handle click events on the anchor</li>
             <li><code>href</code> String - The location you want to anchor to</li>
-            <li><code>target</code> String - This attribute specifies where to display the linked resource. In HTML4, this is the name of, or a keyword for, a frame. can be <code>self</code>, <code>blank</code>, <code>parent</code> or <code>top</code></li>
+            <li><code>target</code> String - This attribute specifies where to display the linked resource. Can be <code>_self</code>, <code>_blank</code>, <code>_parent</code> or <code>_top</code></li>
             <li><code>title</code> String - A well worded title for the anchor</li>
           </ul>
         </article>

@@ -66,7 +66,7 @@ describe('Anchor', function() {
     });
 
     it('should have the correct target from props', function(){
-      assert.equal(anchorDomNode.getAttribute('target'), '_' + target);
+      assert.equal(anchorDomNode.getAttribute('target'), target);
     });
 
   });
