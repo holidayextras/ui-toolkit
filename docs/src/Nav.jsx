@@ -18,6 +18,7 @@ var Nav = React.createClass({
             <a href="#components">Components</a>
             <ul>
               <li><a href="#alert">Alert</a></li>
+              <li><a href="#anchor">Anchor</a></li>
               <li><a href="#button">Buttons</a></li>
               <li><a href="#countdown">Countdown</a></li>
               <li><a href="#flags">Flags</a></li>
