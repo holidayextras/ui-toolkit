@@ -14,9 +14,10 @@ describe('Anchor', function() {
     this.title = 'test';
     this.href = 'google.com';
     this.clickHandler = sinon.spy();
+    this.target = 'blank';
 
     this.instance = TestUtils.renderIntoDocument(
-      <Anchor data={this.data} title={this.title} href={this.href} handleClick={this.clickHandler} foo="bar">test anchor</Anchor>
+      <Anchor data={this.data} title={this.title} href={this.href} handleClick={this.clickHandler} target={this.target} foo="bar">test anchor</Anchor>
     );
 
     var renderedAnchor = TestUtils.findRenderedDOMComponentWithTag(this.instance, 'a');
@@ -54,6 +55,11 @@ describe('Anchor', function() {
         });
       });
     });
+
+    it('should have the correct target from props', function(){
+      assert.equal(this.anchorDomNode.getAttribute('target'), '_' + this.target);
+    });
+
   });
 
   describe('without content', function(){
