@@ -21,6 +21,20 @@ var Components = React.createClass({
           </ul>
         </article>
 
+        <article id="anchor">
+          <h3>Anchor</h3>
+          <p>The Anchor defines a hyperlink to a location on the same page or any other page on the Web</p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Anchor.jsx', 'utf8')} />
+          <h4>Attributes</h4>
+          <ul>
+            <li><code>data</code> Object - Where <code>keys</code> will be data attributes and <code>values</code> will be their values (uses <a href="https://github.com/holidayextras/react-data-attributes-mixin" alt="React Data Attributes Mixin">React Data Attributes Mixin</a>)</li>
+            <li><code>handleClick</code> Function - handle click events on the anchor</li>
+            <li><code>href</code> String - The location you want to anchor to</li>
+            <li><code>target</code> String - This attribute specifies where to display the linked resource. In HTML4, this is the name of, or a keyword for, a frame. can be <code>self</code>, <code>blank</code>, <code>parent</code> or <code>top</code></li>
+            <li><code>title</code> String - A well worded title for the anchor</li>
+          </ul>
+        </article>
+
         <article id="button">
           <h3>Buttons</h3>
           <p>A clickable/tappable button element</p>

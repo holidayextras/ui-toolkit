@@ -12,10 +12,16 @@ module.exports = React.createClass({
   },
 
   propTypes: {
+    purpose: React.PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
+    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large'])
+  },
+
+  propTypes: {
+    children: React.PropTypes.node,
     data: React.PropTypes.object,
-    title: React.PropTypes.string,
     href: React.PropTypes.string,
-    children: React.PropTypes.node
+    target: React.PropTypes.oneOf(['self', 'blank', 'parent', 'top']),
+    title: React.PropTypes.string
   },
 
   render: function() {
