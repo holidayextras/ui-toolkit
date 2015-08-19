@@ -15,7 +15,7 @@ module.exports = React.createClass({
     children: React.PropTypes.node,
     data: React.PropTypes.object,
     href: React.PropTypes.string,
-    target: React.PropTypes.oneOf(['self', 'blank', 'parent', 'top']),
+    target: React.PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
     title: React.PropTypes.string
   },
 
