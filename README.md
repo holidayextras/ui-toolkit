@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/holidayextras/ui-toolkit.svg?branch=master)](https://travis-ci.org/holidayextras/ui-toolkit)
 [![Dependency Status](https://gemnasium.com/holidayextras/ui-toolkit.svg)](https://gemnasium.com/holidayextras/ui-toolkit)
 [![Coverage Status](https://coveralls.io/repos/holidayextras/ui-toolkit/badge.svg?branch=master)](https://coveralls.io/r/holidayextras/ui-toolkit?branch=coveralls)
+![Version](https://img.shields.io/github/tag/holidayextras/ui-toolkit.svg)
 
 <header style="background: rgb(222,75,149);padding:2em;text-align:center">
   ![UIToolkit](docs/assets/toolkit-banner.png)
