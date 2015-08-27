@@ -33,7 +33,7 @@ describe('CountdownComponent', function() {
     assert.equal(countdown.state.time, 123);
   });
 
-  describe('ARIA',function() {
+  describe('ARIA', function() {
     it('should include a timer role', function(){
       var date = '2016-07-27';
       var countdown = TestUtils.renderIntoDocument(
