@@ -33,4 +33,14 @@ describe('CountdownComponent', function() {
     assert.equal(countdown.state.time, 123);
   });
 
+  describe('ARIA',function() {
+    it('should include a timer role', function(){
+      var date = '2016-07-27';
+      var countdown = TestUtils.renderIntoDocument(
+        <CountdownComponent until={date} />
+      );
+      var renderedCountdown = TestUtils.findRenderedDOMComponentWithClass(countdown, 'component-countdown');
+      assert.equal(renderedCountdown.getDOMNode().getAttribute('role'), 'timer');
+    });
+  });
 });
