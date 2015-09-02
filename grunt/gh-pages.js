@@ -1,6 +1,6 @@
 module.exports = {
   options: {
-    base: 'docs',
+    base: 'docs/public',
   },
   src: ['**/*']
 };
