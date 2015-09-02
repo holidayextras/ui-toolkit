@@ -37,5 +37,9 @@
     "build": "./scripts/build.sh"
   },
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "grunt-lesslint": "^1.2.0"
+  }
 }

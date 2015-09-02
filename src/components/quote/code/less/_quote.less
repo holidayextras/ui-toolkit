@@ -6,7 +6,6 @@
   border-left: @quotes-border-style @quotes-border-size;
   margin:0;
   padding:@padding-default;
-  font-size:@font-size-base;
   quotes: "“" "”" "‘" "’";
   &.inline {
     border-left:none;
@@ -17,16 +16,12 @@
       margin-top:0;
     }
     font-style: italic;
-    font-size: @font-size-base;
     &:before {
       content: open-quote;
     }
     &:after {
       content: close-quote;
     }
-  }
-  footer {
-    font-size:@font-size-base;
   }
   small, cite {
     .small;
