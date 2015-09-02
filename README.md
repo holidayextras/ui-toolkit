@@ -4,7 +4,7 @@
 ![Version](https://img.shields.io/github/tag/holidayextras/ui-toolkit.svg)
 
 <header style="background: rgb(222,75,149);padding:2em;text-align:center">
-  ![UIToolkit](docs/assets/toolkit-banner.png)
+  ![UIToolkit](docs/public/assets/toolkit-banner.png)
 </header>
 
 ##### Under Active Development
