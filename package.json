@@ -13,7 +13,7 @@
     "coveralls": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --require tests/bootstrap.js --compilers js:babel/register --recursive src/**/*-test.js && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "test": "./node_modules/mocha/bin/mocha --require tests/bootstrap.js --compilers js:babel/register --recursive src/**/*-test.js",
     "lint": "node_modules/.bin/eslint src --ext .jsx --ext .js --quiet && echo '🍻 All good!'",
-    "CSSlint": "grunt less && grunt csslint --quiet && echo '🌈  CSS WINS!'"
+    "CSSlint": "./node_modules/grunt-contrib-csslint/node_modules/csslint/cli.js (<--WHAT FILE GOES HERE??) --quiet && echo '🌈  CSS for the WINS!'"
   },
   "config": {
     "blanket": {
@@ -31,7 +31,7 @@
   ],
   "author": {
     "name": "Holiday Extras",
-    "email": "webit@holidayextras.com",
+    "email": "uxui@holidayextras.com",
     "url": "http://www.holidayextras.co.uk"
   },
   "bugs": {
