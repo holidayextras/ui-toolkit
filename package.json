@@ -12,7 +12,8 @@
     "postinstall": "./scripts/postinstall.sh",
     "coveralls": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --require tests/bootstrap.js --compilers js:babel/register --recursive src/**/*-test.js && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "test": "./node_modules/mocha/bin/mocha --require tests/bootstrap.js --compilers js:babel/register --recursive src/**/*-test.js",
-    "lint": "node_modules/.bin/eslint src --ext .jsx --ext .js --quiet && echo '🍻  All good!'"
+    "lint": "node_modules/.bin/eslint src --ext .jsx --ext .js --quiet && echo '🍻 All good!'",
+    "CSSlint": "grunt less && grunt csslint --quiet && echo '🌈  CSS WINS!'"
   },
   "config": {
     "blanket": {

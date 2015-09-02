@@ -19,10 +19,9 @@
   "shorthand": 2,
   "star-property-hack": 2,
   "text-indent": 2,
-  "unqualified-attributes": false,
   "underscore-property-hack": 2,
   "unique-headings": 2,
-  "universal-selector": false,
+  "unqualified-attributes": false,
   "vendor-prefix": 2,
   "zero-units": 2
 }
