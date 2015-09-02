@@ -8,11 +8,11 @@ module.exports = function() {
   var classes = getComponentClasses('component-countdown', propClasses, this.props);
 
   return (
-    <div className={classNames(classes)}>
-      <div>{this.state.time.days}<small>Days</small></div>
-      <div>{this.state.time.hours}<small>Hours</small></div>
-      <div>{this.state.time.minutes}<small>Minutes</small></div>
-      <div>{this.state.time.seconds}<small>Seconds</small></div>
+    <div className={classNames(classes)} role="timer">
+      <div>{this.state.time.days} <small>Days</small></div>
+      <div>{this.state.time.hours} <small>Hours</small></div>
+      <div>{this.state.time.minutes} <small>Minutes</small></div>
+      <div>{this.state.time.seconds} <small>Seconds</small></div>
     </div>
   );
 };
