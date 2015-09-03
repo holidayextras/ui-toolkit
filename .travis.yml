@@ -5,6 +5,6 @@ script: "npm run $TEST_STEP"
 env:
   matrix:
     - TEST_STEP=lint
-    - TEST_STEP=CSSlint
+    - TEST_STEP=csslint
     - TEST_STEP=test
     - TEST_STEP=coveralls
