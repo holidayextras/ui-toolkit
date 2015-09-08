@@ -210,6 +210,19 @@ var Components = React.createClass({
           </ul>
         </article>
 
+        <article id="weather">
+          <h3>Weather</h3>
+          <p>Display the weather for a current day in a standard format. Combine a few to create a forcast i.e 5-day</p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Weather.jsx', 'utf8')} />
+          <h4>Attributes</h4>
+          <ul>
+            <li><code>weather</code> String - The type of weather that is occuring. Can be <code>cloudy</code>, <code>fog</code>, <code>hail</code>, <code>heavy-rain</code>, <code>heavy-snow</code>, <code>light-rain</code>, <code>light-snow</code>, <code>night-clear</code>, <code>night-partly-cloudy</code>, <code>partly-cloudy</code>, <code>storm</code>, <code>sunny</code> or <code>windy</code></li>
+            <li><code>temperature</code> Number - The current temperature</li>
+            <li><code>unit</code> String - The scale/unit of measurement for temperature <code>c</code> (Celsius/Centigrade) or <code>f</code> (Fahrenheit)</li>
+            <li><code>dayOfWeek</code> String - The current day of the week. Currently can be <code>Mon</code>, <code>Tue</code>, <code>Wed</code>, <code>Thu</code>, <code>Fri</code>, <code>Sat</code> or <code>Sun</code></li>
+          </ul>
+        </article>
+
       </section>
     );
   }
