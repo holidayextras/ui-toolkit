@@ -1,10 +1,10 @@
 var example = (
   <div className="example-weather">
-    <UIToolkit.Weather weather="sunny" temperature="22" unit="c" dayOfWeek="Mon" />
-    <UIToolkit.Weather weather="partly-cloudy" temperature="17" unit="c" dayOfWeek="Tue" />
-    <UIToolkit.Weather weather="cloudy" temperature="14" unit="c" dayOfWeek="Wed" />
-    <UIToolkit.Weather weather="light-rain" temperature="10" unit="c" dayOfWeek="Thu" />
-    <UIToolkit.Weather weather="heavy-rain" temperature="5" unit="c" dayOfWeek="Fri" />
+    <UIToolkit.Weather type="sunny" temperature={22} unit="c" date="2016-07-25" />
+    <UIToolkit.Weather type="partly-cloudy" temperature={17} unit="c" date="2016-07-26" />
+    <UIToolkit.Weather type="cloudy" temperature={14} unit="c" date="2016-07-27" />
+    <UIToolkit.Weather type="light-rain" temperature={10} unit="c" date="2016-07-28" format="dddd"/>
+    <UIToolkit.Weather type="heavy-rain" temperature={5} unit="c" date="2016-07-29" format="HH:mm" />
   </div>
 );
 
