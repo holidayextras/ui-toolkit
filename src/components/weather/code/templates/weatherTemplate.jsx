@@ -11,10 +11,18 @@ module.exports = function() {
     unit = '°' + unit;
   }
 
+  var unitNames = {
+    'C': 'Degrees Celsuis',
+    'F': 'Degrees Farenheit',
+    'K': 'Kelvin',
+    'R': 'Degrees Rankine'
+  };
+  var unitName = unitNames[this.props.unit];
+
   return (
     <div className="component-weather" itemScope itemType="http://schema.org/QuantitativeValue">
       <div className={this.props.type}>{this.props.type}</div>
-      {(this.props.temperature) ? <div>{this.props.temperature}<span>{unit}</span></div> : null}
+      {(this.props.temperature) ? <div>{this.props.temperature}<abbr title={unitName}>{unit}</abbr></div> : null}
       {(this.props.date) ? <div>{moment(date, expectedFormat, true).format(displayFormat)}</div> : null}
     </div>
   );
