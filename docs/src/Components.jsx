@@ -212,7 +212,7 @@ var Components = React.createClass({
 
         <article id="weather">
           <h3>Weather</h3>
-          <p>Display the weather for a current day in a standard format. Combine a few to create a forcast i.e 5-day</p>
+          <p>Display weather information in a standard format. Combine a few of these components to create weather patterns i.e a 5 day forecast</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Weather.jsx', 'utf8')} />
           <h4>Attributes</h4>
           <ul>
@@ -222,7 +222,7 @@ var Components = React.createClass({
             <li><code>date</code> String - The date of the weather you want displayed.</li>
             <li><code>format</code> String - Date format required i.e <code>dddd</code>, <code>HH:mm</code> (default) etc</li>
           </ul>
-          <small>We currently use a small sample of <a chref="http://www.alessioatzeni.com/meteocons/" title="Meteocons">Meteocons</a></small>
+          <small>We currently use a small sample of <a href="http://www.alessioatzeni.com/meteocons/" title="Meteocons">Meteocons</a></small>
         </article>
 
       </section>
