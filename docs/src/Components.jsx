@@ -218,8 +218,8 @@ var Components = React.createClass({
           <ul>
             <li><code>weather</code> String - The type of weather that is occuring. Can be <code>cloudy</code>, <code>fog</code>, <code>hail</code>, <code>heavy-rain</code>, <code>heavy-snow</code>, <code>light-rain</code>, <code>light-snow</code>, <code>night-clear</code>, <code>night-partly-cloudy</code>, <code>partly-cloudy</code>, <code>storm</code>, <code>sunny</code> or <code>windy</code> (more to come)</li>
             <li><code>temperature</code> Number - The current temperature</li>
-            <li><code>unit</code> String - The unit of measurement for temperature <code>C</code> (Celsius) or <code>F</code> (Fahrenheit)</li>
-            <li><code>date</code> String - The date of the weather you want displayed.</li>
+            <li><code>unit</code> String - The unit of measurement for temperature <code>C</code> (Celsius), <code>F</code> (Fahrenheit), <code>K</code> (Kelvin) or <code>R</code> (Rankine)</li>
+            <li><code>date</code> String - The date of the weather you want displayed passed in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601</a> format</li>
             <li><code>format</code> String - Date format required i.e <code>dddd</code>, <code>HH:mm</code> (default) etc</li>
           </ul>
           <small>We currently use a small sample of <a href="http://www.alessioatzeni.com/meteocons/" title="Meteocons">Meteocons</a></small>

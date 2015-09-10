@@ -212,6 +212,26 @@ describe('WeatherComponent', function() {
       var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherTemp, 'div')[2];
       assert.equal(renderedWeather.getDOMNode().textContent, '20°F');
     });
+
+    it('displays temperature in Rankine', function() {
+
+      var weatherTemp = TestUtils.renderIntoDocument(
+        <WeatherComponent type={type} temperature={temperature} unit="R"/>
+      );
+
+      var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherTemp, 'div')[2];
+      assert.equal(renderedWeather.getDOMNode().textContent, '20°R');
+    });
+
+    it('displays temperature in Kelvin', function() {
+
+      var weatherTemp = TestUtils.renderIntoDocument(
+        <WeatherComponent type={type} temperature={temperature} unit="K"/>
+      );
+
+      var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherTemp, 'div')[2];
+      assert.equal(renderedWeather.getDOMNode().textContent, '20K');
+    });
   });
 
 });

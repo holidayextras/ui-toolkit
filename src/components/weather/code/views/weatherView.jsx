@@ -5,7 +5,7 @@ module.exports = React.createClass({
     type: React.PropTypes.oneOf(['cloudy', 'fog', 'hail', 'heavy-rain', 'heavy-snow', 'light-rain', 'light-snow', 'night-clear', 'night-partly-cloudy', 'partly-cloudy', 'storm', 'sunny', 'windy']).isRequired,
     temperature: React.PropTypes.number,
     date: React.PropTypes.string,
-    unit: React.PropTypes.oneOf(['C', 'F'])
+    unit: React.PropTypes.oneOf(['C', 'F', 'K', 'R'])
   },
 
   render: function() {
