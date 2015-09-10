@@ -145,4 +145,5 @@ blockquote footer:before, blockquote footer span:before, blockquote footer small
 
 .example-weather {
   display:flex;
+  display: -webkit-flex;
 }
