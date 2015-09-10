@@ -192,25 +192,25 @@ describe('WeatherComponent', function() {
       type = 'sunny';
     });
 
-    it('displays temperature in centrigrade', function() {
+    it('displays temperature in Celsius', function() {
 
       var weatherTemp = TestUtils.renderIntoDocument(
-        <WeatherComponent type={type} temperature={temperature} unit="c"/>
+        <WeatherComponent type={type} temperature={temperature} unit="C"/>
       );
 
       var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherTemp, 'div')[2];
-      assert.equal(renderedWeather.getDOMNode().textContent, '20°c');
+      assert.equal(renderedWeather.getDOMNode().textContent, '20°C');
 
     });
 
-    it('displays temperature in ferenheit', function() {
+    it('displays temperature in Fahrenheit', function() {
 
       var weatherTemp = TestUtils.renderIntoDocument(
-        <WeatherComponent type={type} temperature={temperature} unit="f"/>
+        <WeatherComponent type={type} temperature={temperature} unit="F"/>
       );
 
       var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherTemp, 'div')[2];
-      assert.equal(renderedWeather.getDOMNode().textContent, '20°f');
+      assert.equal(renderedWeather.getDOMNode().textContent, '20°F');
     });
   });
 
