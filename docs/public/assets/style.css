@@ -140,3 +140,8 @@ blockquote footer, blockquote footer span, blockquote footer small {
 blockquote footer:before, blockquote footer span:before, blockquote footer small:before {
   content:"";
 }
+
+.example-weather {
+  display: -webkit-flex;
+  display: flex;
+}

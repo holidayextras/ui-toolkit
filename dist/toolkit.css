@@ -474,9 +474,6 @@ small {
 /*------------------------------------*\
     #Countdown
 \*------------------------------------*/
-.component-countdown small {
-  padding-left: 0.5em;
-}
 /*------------------------------------*\
     #Flag
 \*------------------------------------*/
@@ -997,6 +994,160 @@ img.component-image,
 }
 .component-tile img {
   width: 100%;
+}
+/*------------------------------------*\
+    #Weather
+\*------------------------------------*/
+.component-weather {
+  width: auto;
+  text-align: center;
+  width: 100px;
+}
+.component-weather div.cloudy {
+  background: url('http://brand.holidayextras.com/img/ui-toolkit/icons-weather/cloudy.svg') no-repeat;
+  background-size: 64px;
+  width: 64px;
+  height: 64px;
+  display: block;
+  margin: 0 auto;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.component-weather div.fog {
+  background: url('http://brand.holidayextras.com/img/ui-toolkit/icons-weather/fog.svg') no-repeat;
+  background-size: 64px;
+  width: 64px;
+  height: 64px;
+  display: block;
+  margin: 0 auto;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.component-weather div.hail {
+  background: url('http://brand.holidayextras.com/img/ui-toolkit/icons-weather/hail.svg') no-repeat;
+  background-size: 64px;
+  width: 64px;
+  height: 64px;
+  display: block;
+  margin: 0 auto;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.component-weather div.heavy-rain {
+  background: url('http://brand.holidayextras.com/img/ui-toolkit/icons-weather/heavy-rain.svg') no-repeat;
+  background-size: 64px;
+  width: 64px;
+  height: 64px;
+  display: block;
+  margin: 0 auto;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.component-weather div.heavy-snow {
+  background: url('http://brand.holidayextras.com/img/ui-toolkit/icons-weather/heavy-snow.svg') no-repeat;
+  background-size: 64px;
+  width: 64px;
+  height: 64px;
+  display: block;
+  margin: 0 auto;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.component-weather div.light-rain {
+  background: url('http://brand.holidayextras.com/img/ui-toolkit/icons-weather/light-rain.svg') no-repeat;
+  background-size: 64px;
+  width: 64px;
+  height: 64px;
+  display: block;
+  margin: 0 auto;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.component-weather div.light-snow {
+  background: url('http://brand.holidayextras.com/img/ui-toolkit/icons-weather/light-snow.svg') no-repeat;
+  background-size: 64px;
+  width: 64px;
+  height: 64px;
+  display: block;
+  margin: 0 auto;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.component-weather div.night-clear {
+  background: url('http://brand.holidayextras.com/img/ui-toolkit/icons-weather/night-clear.svg') no-repeat;
+  background-size: 64px;
+  width: 64px;
+  height: 64px;
+  display: block;
+  margin: 0 auto;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.component-weather div.night-partly-cloudy {
+  background: url('http://brand.holidayextras.com/img/ui-toolkit/icons-weather/night-partly-cloudy.svg') no-repeat;
+  background-size: 64px;
+  width: 64px;
+  height: 64px;
+  display: block;
+  margin: 0 auto;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.component-weather div.partly-cloudy {
+  background: url('http://brand.holidayextras.com/img/ui-toolkit/icons-weather/partly-cloudy.svg') no-repeat;
+  background-size: 64px;
+  width: 64px;
+  height: 64px;
+  display: block;
+  margin: 0 auto;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.component-weather div.storm {
+  background: url('http://brand.holidayextras.com/img/ui-toolkit/icons-weather/storm.svg') no-repeat;
+  background-size: 64px;
+  width: 64px;
+  height: 64px;
+  display: block;
+  margin: 0 auto;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.component-weather div.sunny {
+  background: url('http://brand.holidayextras.com/img/ui-toolkit/icons-weather/sunny.svg') no-repeat;
+  background-size: 64px;
+  width: 64px;
+  height: 64px;
+  display: block;
+  margin: 0 auto;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.component-weather div.windy {
+  background: url('http://brand.holidayextras.com/img/ui-toolkit/icons-weather/windy.svg') no-repeat;
+  background-size: 64px;
+  width: 64px;
+  height: 64px;
+  display: block;
+  margin: 0 auto;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.component-weather abbr {
+  border-bottom: 0;
 }
 body {
   font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
