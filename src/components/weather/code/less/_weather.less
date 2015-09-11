@@ -1,0 +1,36 @@
+/*------------------------------------*\
+    #Weather
+\*------------------------------------*/
+
+.component-weather {
+  width:auto;
+  text-align:center;
+  width:100px;
+  div {
+    &.cloudy {.weather-variant(cloudy);}
+    &.fog {.weather-variant(fog);}
+    &.hail {.weather-variant(hail);}
+    &.heavy-rain {.weather-variant(heavy-rain);}
+    &.heavy-snow {.weather-variant(heavy-snow);}
+    &.light-rain {.weather-variant(light-rain);}
+    &.light-snow {.weather-variant(light-snow);}
+    &.night-clear {.weather-variant(night-clear);}
+    &.night-partly-cloudy {.weather-variant(night-partly-cloudy);}
+    &.partly-cloudy {.weather-variant(partly-cloudy);}
+    &.storm {.weather-variant(storm);}
+    &.sunny {.weather-variant(sunny);}
+    &.windy {.weather-variant(windy);}
+  }
+}
+
+.weather-variant(@weather) {
+  background:url('http://brand.holidayextras.com/img/ui-toolkit/icons-weather/@{weather}.svg') no-repeat;
+  background-size: 64px;
+  width:64px;
+  height:64px;
+  display: block;
+  margin: 0 auto;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
