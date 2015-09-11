@@ -27,6 +27,3 @@ module.exports = function() {
     </div>
   );
 };
-
-
-<span><span class="icon-star" aria-hidden="true"></span>Favorite</span>
