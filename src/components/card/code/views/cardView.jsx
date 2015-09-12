@@ -11,6 +11,6 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    return require('../templates/tileTemplate.jsx')(this.props);
+    return require('../templates/cardTemplate.jsx')(this.props);
   }
 });

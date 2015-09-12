@@ -4,7 +4,7 @@ var image = {
 }
 
 var example = (
-  <UIToolkit.Tile image={image} title='Tender sirloin steak with blue cheese dressing' />
+  <UIToolkit.Card image={image} title='Tender sirloin steak with blue cheese dressing' />
 );
 
 React.render(example, mountNode);
