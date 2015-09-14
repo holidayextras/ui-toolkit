@@ -35,9 +35,6 @@ var Nav = React.createClass({
               <li><a href="#rating">Rating</a></li>
               <li><a href="#weather">Weather</a></li>
             </ul>
-            <a href="#organisms">Organisms</a>
-            <ul>
-            </ul>
           </li>
         </ul>
 
