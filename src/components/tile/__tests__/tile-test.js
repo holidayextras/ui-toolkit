@@ -1,7 +1,7 @@
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 var assert = require('chai').assert;
-var CardComponent = require('../code/views/cardView.jsx');
+var TileComponent = require('../code/views/tileView.jsx');
 
 describe('TileComponent', function() {
 
@@ -11,7 +11,7 @@ describe('TileComponent', function() {
       alt: 'bar'
     };
 
-    assert.ok(TestUtils.isElement(<CardComponent image={img} title="title" />));
+    assert.ok(TestUtils.isElement(<TileComponent image={img} title="title" />));
   });
 
 });

@@ -160,17 +160,6 @@ var Components = React.createClass({
             </ul>
           </article>
 
-          <article id="card">
-            <h3>Card</h3>
-            <p>A card for displaying an image with a title. The width of a tile is 100% of a container.</p>
-            <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Card.jsx', 'utf8')} />
-            <h4>Attributes</h4>
-            <ul>
-              <li><code>image</code> Object - Containing <code>src</code> and <code>alt</code> keys</li>
-              <li><code>title</code> String - The title of the tile</li>
-            </ul>
-          </article>
-
           <article id="countdown">
             <h3>Countdown</h3>
             <p>Countdowns allow you to find the time difference between the current date and a date in the future. To do this you pass in a <code>until</code> value of any date format.</p>
@@ -203,6 +192,17 @@ var Components = React.createClass({
             </ul>
 
             The <code>outOf</code> and <code>blankIcon</code> attributes are optional and dependent upon each other.
+          </article>
+
+          <article id="tile">
+            <h3>Tile</h3>
+            <p>A tile for displaying an image with a title. The width of a tile is 100% of a container.</p>
+            <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Tile.jsx', 'utf8')} />
+            <h4>Attributes</h4>
+            <ul>
+              <li><code>image</code> Object - Containing <code>src</code> and <code>alt</code> keys</li>
+              <li><code>title</code> String - The title of the tile</li>
+            </ul>
           </article>
 
           <article id="weather">
