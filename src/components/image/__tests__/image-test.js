@@ -12,10 +12,14 @@ describe('ImageComponent', function() {
   var imageInstance = null;
   var renderedImage = null;
   var imageDOMNode = null;
+  var srcSet = null;
+  var sizes = null;
 
   beforeEach(function(){
     src = 'foo';
     alt = 'bar';
+    srcSet = '2000w.jpg 2000w, 1500w.jpg 1500w, 1000w.jpg 1000w, 500w.jpg 500w';
+    sizes = '100vw';
     handleClick = sinon.spy();
   });
 
@@ -63,7 +67,7 @@ describe('ImageComponent', function() {
 
     beforeEach(function(){
       imageInstance = TestUtils.renderIntoDocument(
-        <ImageComponent src={src} alt={alt} handleClick={handleClick} />
+        <ImageComponent src={src} alt={alt} handleClick={handleClick} sizes={sizes} srcSet={srcSet} />
       );
       renderedImage = TestUtils.findRenderedDOMComponentWithClass(imageInstance, 'component-image');
       imageDOMNode = renderedImage.getDOMNode();
@@ -86,7 +90,13 @@ describe('ImageComponent', function() {
       assert.ok(handleClick.calledOnce);
     });
 
+    it('should render multiple responsive images', function() {
+      assert.equal(imageDOMNode.getAttribute('srcset'), '2000w.jpg 2000w, 1500w.jpg 1500w, 1000w.jpg 1000w, 500w.jpg 500w');
+    });
+
+    it('should render a sepcified start image size', function() {
+      assert.equal(imageDOMNode.getAttribute('sizes'), '100vw');
+    });
+
   });
-
-
 });
