@@ -1,6 +1,6 @@
 {
   "name": "ui-toolkit",
-  "version": "0.16.0",
+  "version": "0.16.3",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "src/index.js",
@@ -38,7 +38,7 @@
   },
   "homepage": "https://github.com/holidayextras/ui-toolkit",
   "dependencies": {
-    "browserify": "11.0.1",
+    "browserify": "11.1.0",
     "classnames": "^2.1.0",
     "font-awesome": "^4.3.0",
     "grunt": "^0.4.5",

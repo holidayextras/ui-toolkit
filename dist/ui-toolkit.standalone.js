@@ -28505,8 +28505,8 @@ module.exports = function() {
   var unitName = unitNames[this.props.unit];
 
   return (
-    React.createElement("div", {className: "component-weather", itemScope: true, itemType: "http://schema.org/QuantitativeValue"}, 
-      React.createElement("div", {className: this.props.type}, this.props.type), 
+    React.createElement("div", {className: "component-weather"}, 
+      React.createElement("div", {className: this.props.type}, React.createElement("span", null, this.props.type)), 
       (this.props.temperature) ? React.createElement("div", null, this.props.temperature, React.createElement("abbr", {title: unitName}, unit)) : null, 
       (this.props.date) ? React.createElement("div", null, moment(date, expectedFormat, true).format(displayFormat)) : null
     )
