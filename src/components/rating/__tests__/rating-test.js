@@ -1,7 +1,7 @@
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 var assert = require('chai').assert;
-var RatingComponent = require('../code/views/ratingView.jsx');
+var RatingComponent = require('../code/rating.jsx');
 
 describe('RatingComponent', function() {
 

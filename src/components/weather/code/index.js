@@ -1,1 +1,1 @@
-module.exports = require('./views/weatherView.jsx');
+module.exports = require('./weather.jsx');

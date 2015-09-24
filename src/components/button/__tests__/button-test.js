@@ -1,7 +1,7 @@
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 var assert = require('chai').assert;
-var ButtonView = require('../code/views/buttonView.jsx');
+var ButtonView = require('../code/button.jsx');
 
 describe('ButtonComponent', function() {
 

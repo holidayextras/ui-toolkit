@@ -1,1 +1,1 @@
-module.exports = require('./views/imageView.jsx');
+module.exports = require('./image.jsx');

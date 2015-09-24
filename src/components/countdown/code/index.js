@@ -1,1 +1,1 @@
-module.exports = require('./views/countdownView.jsx');
+module.exports = require('./countdown.jsx');

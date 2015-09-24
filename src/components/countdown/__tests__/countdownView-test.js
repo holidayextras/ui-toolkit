@@ -1,7 +1,7 @@
 var React = require('react');
 var sinon = require('sinon');
 var assert = require('chai').assert;
-var CountdownComponent = require('../code/views/countdownView.jsx');
+var CountdownComponent = require('../code/countdown.jsx');
 var CountdownManager = require('../code/lib/countdownManager');
 var TestUtils = React.addons.TestUtils;
 
