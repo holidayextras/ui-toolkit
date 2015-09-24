@@ -1,1 +1,1 @@
-module.exports = require('./views/IconListComponentView.jsx');
+module.exports = require('./iconList.jsx');

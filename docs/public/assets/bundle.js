@@ -19892,225 +19892,221 @@ var CustomComponent = require('./CustomComponent.jsx');
 var Components = React.createClass({displayName: "Components",
   render: function () {
     return (
-      React.createElement("section", {id: "components"}, 
-        React.createElement("h2", {className: "page-header"}, "Components"), 
+      React.createElement("main", {role: "main"}, 
+        React.createElement("section", {id: "atoms"}, 
+          React.createElement("h2", {className: "page-header"}, "Atoms"), 
+          React.createElement("p", null, "Atoms are the basic building blocks of matter. Applied to web interfaces, atoms are our HTML tags, such as a form label, an input or a button."), 
 
-        React.createElement("article", {id: "alert"}, 
-          React.createElement("h3", null, "Alert"), 
-          React.createElement("p", null, "An alert is used to display helpful or factual information usually used as a prompt."), 
-          React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Alert purpose=\"success\" title=\"Success\">This <UIToolkit.Anchor title=\"A fake link\">link</UIToolkit.Anchor> is a great thing</UIToolkit.Alert>\n    <UIToolkit.Alert purpose=\"warning\" title=\"Warning\">be careful</UIToolkit.Alert>\n    <UIToolkit.Alert purpose=\"info\" title=\"Information\">You should pay attention</UIToolkit.Alert>\n    <UIToolkit.Alert purpose=\"danger\" title=\"Danger\">Stranger danger</UIToolkit.Alert>\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
-          React.createElement("h4", null, "Attributes"), 
-          React.createElement("ul", null, 
-            React.createElement("li", null, React.createElement("code", null, "purpose"), " String - default, primary, secondary, success, info, warning, danger"), 
-            React.createElement("li", null, React.createElement("code", null, "size"), " String - small, medium (default), large, extra-large"), 
-            React.createElement("li", null, React.createElement("code", null, "title"), " String - The title of the alert")
-          )
-        ), 
-
-        React.createElement("article", {id: "anchor"}, 
-          React.createElement("h3", null, "Anchor"), 
-          React.createElement("p", null, "The Anchor defines a hyperlink to a location on the same page or any other page on the Web"), 
-          React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    Why not visit the <UIToolkit.Anchor title=\"The UI Tookit\" href=\"http://www.ui-toolkit.com/\" target=\"_blank\">UI Toolkit</UIToolkit.Anchor> for awesome react components\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
-          React.createElement("h4", null, "Attributes"), 
-          React.createElement("ul", null, 
-            React.createElement("li", null, React.createElement("code", null, "data"), " Object - Where ", React.createElement("code", null, "keys"), " will be data attributes and ", React.createElement("code", null, "values"), " will be their values (uses ", React.createElement("a", {href: "https://github.com/holidayextras/react-data-attributes-mixin", alt: "React Data Attributes Mixin"}, "React Data Attributes Mixin"), ")"), 
-            React.createElement("li", null, React.createElement("code", null, "handleClick"), " Function - handle click events on the anchor"), 
-            React.createElement("li", null, React.createElement("code", null, "href"), " String - The location you want to anchor to"), 
-            React.createElement("li", null, React.createElement("code", null, "target"), " String - This attribute specifies where to display the linked resource. Can be ", React.createElement("code", null, "_self"), ", ", React.createElement("code", null, "_blank"), ", ", React.createElement("code", null, "_parent"), " or ", React.createElement("code", null, "_top")), 
-            React.createElement("li", null, React.createElement("code", null, "title"), " String - A well worded title for the anchor")
-          )
-        ), 
-
-        React.createElement("article", {id: "button"}, 
-          React.createElement("h3", null, "Buttons"), 
-          React.createElement("p", null, "A clickable/tappable button element"), 
-          React.createElement("p", null, "To give the button a purpose, add ", React.createElement("code", null, "purpose"), " etc."), 
-          React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Button>Default</UIToolkit.Button>\n    <UIToolkit.Button purpose=\"primary\">Primary</UIToolkit.Button>\n    <UIToolkit.Button purpose=\"secondary\">Secondary</UIToolkit.Button>\n    <UIToolkit.Button purpose=\"success\">Success</UIToolkit.Button>\n    <UIToolkit.Button purpose=\"info\">Info</UIToolkit.Button>\n    <UIToolkit.Button purpose=\"warning\">Warning</UIToolkit.Button>\n    <UIToolkit.Button purpose=\"danger\">Danger</UIToolkit.Button>\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
-          React.createElement("h4", null, "Size"), 
-          React.createElement("p", null, "Fancy larger or smaller buttons? Add ", React.createElement("code", null, "size"), " for additional sizes."), 
-          React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Button size=\"small\">Small</UIToolkit.Button>\n    <UIToolkit.Button>Default</UIToolkit.Button>\n    <UIToolkit.Button size=\"large\">Large</UIToolkit.Button>\n    <UIToolkit.Button size=\"extra-large\">Extra Large</UIToolkit.Button>\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
-          React.createElement("h4", null, "Block"), 
-          React.createElement("p", null, "Create block level buttons by adding"), 
-          React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Button size=\"block\">Block default</UIToolkit.Button>\n    <UIToolkit.Button size=\"block\" purpose=\"primary\">Block primary</UIToolkit.Button>\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
-          React.createElement("h4", null, "Attributes"), 
-          React.createElement("ul", null, 
-            React.createElement("li", null, React.createElement("code", null, "data"), " Object - Where ", React.createElement("code", null, "keys"), " will be data attributes and ", React.createElement("code", null, "values"), " will be their values (uses ", React.createElement("a", {href: "https://github.com/holidayextras/react-data-attributes-mixin", alt: "React Data Attributes Mixin"}, "React Data Attributes Mixin"), ")"), 
-            React.createElement("li", null, React.createElement("code", null, "disabled"), " Boolean - Determines the state of the button"), 
-            React.createElement("li", null, React.createElement("code", null, "href"), " String - If an href is passed to a button, it changes to an anchor with button styling"), 
-            React.createElement("li", null, React.createElement("code", null, "purpose"), " String - default, primary, secondary, success, info, warning, danger"), 
-            React.createElement("li", null, React.createElement("code", null, "size"), " String - small, medium (default), large, extra-large, block"), 
-            React.createElement("li", null, React.createElement("code", null, "target"), " String - Standard html traget attribute")
-          )
-        ), 
-
-        React.createElement("article", {id: "countdown"}, 
-          React.createElement("h3", null, "Countdown"), 
-          React.createElement("p", null, "Countdowns allow you to find the time difference between the current date and a date in the future. To do this you pass in a ", React.createElement("code", null, "until"), " value of any date format."), 
-          React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Countdown until=\"2016-07-27\"></UIToolkit.Countdown>\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
-          React.createElement("h4", null, "Attributes"), 
-          React.createElement("ul", null, 
-            React.createElement("li", null, React.createElement("code", null, "until"), " String - Date in the future")
-          )
-        ), 
-
-        React.createElement("article", {id: "flags"}, 
-          React.createElement("h3", null, "Flags"), 
-          React.createElement("p", null, "Flags are used to highlight taxonomy terms or 'tags' on elements. For example 'special offer' or 'limited time only'"), 
-          React.createElement("p", null, "To give the flag a purpose, add ", React.createElement("code", null, "purpose"), " etc."), 
-          React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Flag>Default</UIToolkit.Flag>\n    <UIToolkit.Flag purpose=\"primary\">Primary</UIToolkit.Flag>\n    <UIToolkit.Flag purpose=\"secondary\">Secondary</UIToolkit.Flag>\n    <UIToolkit.Flag purpose=\"success\">Success</UIToolkit.Flag>\n    <UIToolkit.Flag purpose=\"warning\">Warning</UIToolkit.Flag>\n    <UIToolkit.Flag purpose=\"danger\">Danger</UIToolkit.Flag>\n    <UIToolkit.Flag purpose=\"info\">Info</UIToolkit.Flag>\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
-          React.createElement("h4", null, "Size"), 
-          React.createElement("p", null, "Fancy larger or smaller flags? Add ", React.createElement("code", null, "size"), " for additional sizes."), 
-          React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Flag size=\"small\">Small</UIToolkit.Flag>\n    <UIToolkit.Flag>Default</UIToolkit.Flag>\n    <UIToolkit.Flag size=\"large\">Large</UIToolkit.Flag>\n    <UIToolkit.Flag size=\"extra-large\">Extra Large</UIToolkit.Flag>    \n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
-          React.createElement("h4", null, "Position"), 
-          React.createElement("p", null, "Need to position your flag? You can position the flag anywhere in a container using ", React.createElement("code", null, "position")), 
-          React.createElement("p", null, "The container must have a ", React.createElement("code", null, "relative:position"), " and a ", React.createElement("code", null, "z-index:x"), " applied."), 
-          React.createElement(CustomComponent, {codeText: "var example = (\n  <div className=\"demo-box\">\n    <UIToolkit.Flag position=\"left\">Left</UIToolkit.Flag>\n    <UIToolkit.Flag position=\"right\">Right</UIToolkit.Flag>\n    <UIToolkit.Flag position=\"bottom left\">Bottom Left</UIToolkit.Flag>\n    <UIToolkit.Flag position=\"bottom right\">Bottom Right</UIToolkit.Flag>\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
-          React.createElement("h4", null, "Attributes"), 
-          React.createElement("ul", null, 
-            React.createElement("li", null, React.createElement("code", null, "position"), " String - top (default), bottom, left, right"), 
-            React.createElement("li", null, React.createElement("code", null, "purpose"), " String - default, primary, secondary, success, info, warning, danger"), 
-            React.createElement("li", null, React.createElement("code", null, "size"), " String - small, medium (default), large, extra-large")
-          )
-        ), 
-
-        React.createElement("article", {id: "image"}, 
-          React.createElement("h3", null, "Image"), 
-          React.createElement("p", null, "A standard Image Component."), 
-          React.createElement(CustomComponent, {codeText: "var image = {\n  src: 'http://brand.holidayextras.com/img/product-dessert.jpg',\n  alt: 'Delicious strawberry cheesecake'\n};\n\nvar example = (\n  <UIToolkit.Image src={image.src} alt={image.alt} className=\"component-image\" />\n);\n\nReact.render(example, mountNode);\n"}), 
-          React.createElement("h4", null, "Attributes"), 
-          React.createElement("ul", null, 
-            React.createElement("li", null, React.createElement("code", null, "alt"), " String - Image alt attribute"), 
-            React.createElement("li", null, React.createElement("code", null, "handleClick"), " Function - handle click events on the image"), 
-            React.createElement("li", null, React.createElement("code", null, "src"), " String - Image src attribute"), 
-            React.createElement("li", null, React.createElement("code", null, "href"), " String - an href that wraps the image in an anchor"), 
-            React.createElement("li", null, React.createElement("code", null, "data"), " Object - Where ", React.createElement("code", null, "keys"), " will be data attributes and ", React.createElement("code", null, "values"), " will be their values (uses ", React.createElement("a", {href: "https://github.com/holidayextras/react-data-attributes-mixin", alt: "React Data Attributes Mixin"}, "React Data Attributes Mixin"), ")")
-          )
-        ), 
-
-        React.createElement("article", {id: "input"}, 
-          React.createElement("h3", null, "Input"), 
-          React.createElement("p", null, "Custom Input for Text, Email, Telephone & Number Types"), 
-          React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Input type='text' label='Text Only' validator={/^[a-zA-Z ]*$/g} />\n    <UIToolkit.Input type='text' label='With Default' >Default Value</UIToolkit.Input>\n    <UIToolkit.Input type='text' label='Required' placeholder='Full Name' required={true} />\n  </div>\n\n);\n\nReact.render(example, mountNode);\n"}), 
-          React.createElement("h4", null, "Attributes"), 
-          React.createElement("ul", null, 
-            React.createElement("li", null, React.createElement("code", null, "type"), " String - Type of Input Field can be ", React.createElement("code", null, "text"), ", ", React.createElement("code", null, "email"), ", ", React.createElement("code", null, "tel"), " or ", React.createElement("code", null, "number")), 
-            React.createElement("li", null, React.createElement("code", null, "name"), " String - Optional Name for Input Field"), 
-            React.createElement("li", null, React.createElement("code", null, "id"), " String - Optional ID for Input Field"), 
-            React.createElement("li", null, React.createElement("code", null, "label"), " String - Optional Label in front of Input Field"), 
-            React.createElement("li", null, React.createElement("code", null, "placeHolder"), " String - Optional Placeholder for Input Field"), 
-            React.createElement("li", null, React.createElement("code", null, "validator"), " String - Optional Regular Expression to Validate Input"), 
-            React.createElement("li", null, React.createElement("code", null, "errorMessage"), " String - Optional Error Message to show if ", React.createElement("code", null, "validator"), " returns false"), 
-            React.createElement("li", null, React.createElement("code", null, "disabled"), " Boolean - Whether to Disable the Input Field"), 
-            React.createElement("li", null, React.createElement("code", null, "readOnly"), " Boolean - Whether to set the Input Field to Read Only"), 
-            React.createElement("li", null, React.createElement("code", null, "required"), " Boolean - Whether to set the Input Field to be Required"), 
-            React.createElement("li", null, React.createElement("code", null, "handleChange"), " Function - Optional Function which is called onChange")
-          )
-        ), 
-
-        React.createElement("article", {id: "justified-container"}, 
-          React.createElement("h3", null, "Justified Container"), 
-          React.createElement("p", null, "A container which will spread components horizontally across a page"), 
-          React.createElement("p", null, "This component uses ", React.createElement("a", {href: "http://caniuse.com/#search=flexbox"}, "Flexbox"), " for modern browers with a" + ' ' +
-          "fallback of ", React.createElement("code", null, "display:table"), ". Modern browsers with flexbox will accept any child element but older browsers do not accept ", React.createElement("code", null, "button"), " elements as children."), 
-          React.createElement(CustomComponent, {codeText: "var example = (\n  <UIToolkit.JustifiedContainer>\n    <div><UIToolkit.Button size=\"block\">foo</UIToolkit.Button></div>\n    <div><UIToolkit.Button size=\"block\">bar</UIToolkit.Button></div>\n    <div><UIToolkit.Button size=\"block\">baz</UIToolkit.Button></div>\n  </UIToolkit.JustifiedContainer>\n);\n\nReact.render(example, mountNode);\n"}), 
-          React.createElement("h4", null, "Attributes"), 
-          React.createElement("ul", null, 
-            React.createElement("li", null, React.createElement("code", null, "style"), " Object - An object of styles (this will overwrite the default behavior of this component)")
-          )
-        ), 
-
-        React.createElement("article", {id: "lists"}, 
-          React.createElement("h3", null, "Lists"), 
-          React.createElement("h4", null, "Icon list"), 
-          React.createElement("p", null, "An unordered list that uses ", React.createElement("a", {href: "http://fortawesome.github.io/Font-Awesome/icons/"}, "Font Awesome"), " for the bullets"), 
-          React.createElement(CustomComponent, {codeText: "var example = (\n  <UIToolkit.IconList>\n    <UIToolkit.IconListItem icon=\"plane\">Suitable for all terminals</UIToolkit.IconListItem>\n    <UIToolkit.IconListItem icon=\"bus\">Transfers run every 5 minutes</UIToolkit.IconListItem>\n    <UIToolkit.IconListItem icon=\"car\">Car parked for you</UIToolkit.IconListItem>\n    <UIToolkit.IconListItem icon=\"check\"><strong>Success!</strong></UIToolkit.IconListItem>\n  </UIToolkit.IconList>\n);\n\nReact.render(example, mountNode);\n"}), 
-          React.createElement("h4", null, "Attributes (for ListGroupItem)"), 
-          React.createElement("ul", null, 
-            React.createElement("li", null, React.createElement("code", null, "icon"), " String - The name of the ", React.createElement("a", {href: "http://fortawesome.github.io/Font-Awesome/icons/"}, "Font Awesome"), " icon that you want to display"), 
-            React.createElement("li", null, React.createElement("code", null, "purpose"), " String - default, primary, secondary, success, info, warning, danger")
-          )
-        ), 
-
-        React.createElement("article", {id: "lozenge"}, 
-          React.createElement("h3", null, "Lozenge"), 
-          React.createElement("p", null, "A small pill shaped item for displaying information"), 
-          React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Lozenge tip=\"default tip\">Default</UIToolkit.Lozenge>\n    <UIToolkit.Lozenge purpose=\"primary\" tip=\"primary tip\">Primary</UIToolkit.Lozenge>\n    <UIToolkit.Lozenge purpose=\"success\" tip=\"success tip\">Success</UIToolkit.Lozenge>\n    <UIToolkit.Lozenge purpose=\"info\" tip=\"info tip\">Info</UIToolkit.Lozenge>\n    <UIToolkit.Lozenge purpose=\"warning\" tip=\"warning tip\">Warning</UIToolkit.Lozenge>\n    <UIToolkit.Lozenge purpose=\"danger\" tip=\"danger tip\">Danger</UIToolkit.Lozenge>\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
-          React.createElement("h4", null, "Attributes"), 
-          React.createElement("ul", null, 
-            React.createElement("li", null, React.createElement("code", null, "purpose"), " String - default, primary, secondary, success, info, warning, danger"), 
-            React.createElement("li", null, React.createElement("code", null, "size"), " String - small, medium (default), large, extra-large, block"), 
-            React.createElement("li", null, React.createElement("code", null, "tip"), " String - Tooltip text to display")
-          )
-        ), 
-
-        React.createElement("article", {id: "payment-card"}, 
-          React.createElement("h3", null, "Payment Cards"), 
-          React.createElement("p", null, "Easily display what payment cards your website accepts"), 
-          React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.PaymentCard type=\"amex\"></UIToolkit.PaymentCard>\n    <UIToolkit.PaymentCard type=\"visa\"></UIToolkit.PaymentCard>\n    <UIToolkit.PaymentCard type=\"mastercard\"></UIToolkit.PaymentCard>\n    <UIToolkit.PaymentCard type=\"paym\"></UIToolkit.PaymentCard>\n    <UIToolkit.PaymentCard type=\"amazon\"></UIToolkit.PaymentCard>\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
-          React.createElement("h4", null, "Attributes"), 
-          React.createElement("ul", null, 
-            React.createElement("li", null, React.createElement("code", null, "type")), " String - ", React.createElement("code", null, "amazon amex apple cirrus delta directdebit discover electron google maestro mastercard paym paypal sage sepa solo switch ukash visa visadebit westernunion")
-          )
-        ), 
-
-        React.createElement("article", {id: "quote"}, 
-          React.createElement("h3", null, "Quote"), 
-          React.createElement("p", null, "A quote is used referencing blocks of content from another source within your document. They come as a ", React.createElement("code", null, "Block"), " (default) or ", React.createElement("code", null, "inline")), 
-          React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Quote author=\"Brad Frost\" role=\"Web Designer\">It's not about what we do, it's about what we enable other people to do</UIToolkit.Quote>\n    <UIToolkit.Quote author=\"Christian Heilmann\" role=\"Developer Evangelist\" cite=\"Twitter\" purpose=\"warning\">Fix the broken things before you build the shiney new broken things</UIToolkit.Quote>\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
-          React.createElement("h4", null, "Inline"), 
-          React.createElement("p", null, "Inline quotes are for referencing something inline within a section of prose"), 
-          React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <p>Gandalf, Captain of the Starship Enterprise said <UIToolkit.Quote type=\"inline\" author=\"Gandalf\" role=\"Captain of the Starship Enterprise\" cite=\"The Internet\" purpose=\"success\">Use The Force Harry</UIToolkit.Quote>\n    </p>\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
-          React.createElement("h4", null, "Attributes"), 
-          React.createElement("ul", null, 
-            React.createElement("li", null, React.createElement("code", null, "author"), " String - The author of the quote"), 
-            React.createElement("li", null, React.createElement("code", null, "cite"), " String - cited title of a work; for example, the title of a book mentioned within the main text flow of a document"), 
-            React.createElement("li", null, React.createElement("code", null, "purpose"), " String - default, primary, secondary, success, info, warning, danger"), 
-            React.createElement("li", null, React.createElement("code", null, "role"), " String - The role/job title of the author"), 
-            React.createElement("li", null, React.createElement("code", null, "size"), " String - small, medium (default), large, extra-large"), 
-            React.createElement("li", null, React.createElement("code", null, "type"), " String - Block (default) or Inline")
-          )
-        ), 
-
-        React.createElement("article", null, 
-          React.createElement("h3", {id: "rating"}, "Rating"), 
-          React.createElement("p", null, "Ratings can be used to display a series of icons intended to represent a score."), 
-          React.createElement(CustomComponent, {codeText: "var example = (\n  <UIToolkit.Rating rating={4} outOf={5} blankIcon=\"☆\" >★</UIToolkit.Rating>\n);\nReact.render(example, mountNode);"}), 
-          React.createElement("h4", null, "Attributes"), 
-          React.createElement("ul", null, 
-            React.createElement("li", null, React.createElement("code", null, "blankIcon"), " [optional] Node (any displayable item) - the icon to display for empty ratings."), 
-            React.createElement("li", null, React.createElement("code", null, "outOf"), " [optional] Number - The total count the rating value is out of."), 
-            React.createElement("li", null, React.createElement("code", null, "rating"), " Number - The count of positive icons to display.")
+          React.createElement("article", {id: "anchor"}, 
+            React.createElement("h3", null, "Anchor"), 
+            React.createElement("p", null, "The Anchor defines a hyperlink to a location on the same page or any other page on the Web"), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    Why not visit the <UIToolkit.Anchor title=\"The UI Tookit\" href=\"http://www.ui-toolkit.com/\" target=\"_blank\">UI Toolkit</UIToolkit.Anchor> for awesome react components\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "data"), " Object - Where ", React.createElement("code", null, "keys"), " will be data attributes and ", React.createElement("code", null, "values"), " will be their values (uses ", React.createElement("a", {href: "https://github.com/holidayextras/react-data-attributes-mixin", alt: "React Data Attributes Mixin"}, "React Data Attributes Mixin"), ")"), 
+              React.createElement("li", null, React.createElement("code", null, "handleClick"), " Function - handle click events on the anchor"), 
+              React.createElement("li", null, React.createElement("code", null, "href"), " String - The location you want to anchor to"), 
+              React.createElement("li", null, React.createElement("code", null, "target"), " String - This attribute specifies where to display the linked resource. Can be ", React.createElement("code", null, "_self"), ", ", React.createElement("code", null, "_blank"), ", ", React.createElement("code", null, "_parent"), " or ", React.createElement("code", null, "_top")), 
+              React.createElement("li", null, React.createElement("code", null, "title"), " String - A well worded title for the anchor")
+            )
           ), 
 
-          "The ", React.createElement("code", null, "outOf"), " and ", React.createElement("code", null, "blankIcon"), " attributes are optional and dependent upon each other."
-        ), 
+          React.createElement("article", {id: "button"}, 
+            React.createElement("h3", null, "Buttons"), 
+            React.createElement("p", null, "A clickable/tappable button element"), 
+            React.createElement("p", null, "To give the button a purpose, add ", React.createElement("code", null, "purpose"), " etc."), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Button>Default</UIToolkit.Button>\n    <UIToolkit.Button purpose=\"primary\">Primary</UIToolkit.Button>\n    <UIToolkit.Button purpose=\"secondary\">Secondary</UIToolkit.Button>\n    <UIToolkit.Button purpose=\"success\">Success</UIToolkit.Button>\n    <UIToolkit.Button purpose=\"info\">Info</UIToolkit.Button>\n    <UIToolkit.Button purpose=\"warning\">Warning</UIToolkit.Button>\n    <UIToolkit.Button purpose=\"danger\">Danger</UIToolkit.Button>\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Size"), 
+            React.createElement("p", null, "Fancy larger or smaller buttons? Add ", React.createElement("code", null, "size"), " for additional sizes."), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Button size=\"small\">Small</UIToolkit.Button>\n    <UIToolkit.Button>Default</UIToolkit.Button>\n    <UIToolkit.Button size=\"large\">Large</UIToolkit.Button>\n    <UIToolkit.Button size=\"extra-large\">Extra Large</UIToolkit.Button>\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Block"), 
+            React.createElement("p", null, "Create block level buttons by adding"), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Button size=\"block\">Block default</UIToolkit.Button>\n    <UIToolkit.Button size=\"block\" purpose=\"primary\">Block primary</UIToolkit.Button>\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "data"), " Object - Where ", React.createElement("code", null, "keys"), " will be data attributes and ", React.createElement("code", null, "values"), " will be their values (uses ", React.createElement("a", {href: "https://github.com/holidayextras/react-data-attributes-mixin", alt: "React Data Attributes Mixin"}, "React Data Attributes Mixin"), ")"), 
+              React.createElement("li", null, React.createElement("code", null, "disabled"), " Boolean - Determines the state of the button"), 
+              React.createElement("li", null, React.createElement("code", null, "href"), " String - If an href is passed to a button, it changes to an anchor with button styling"), 
+              React.createElement("li", null, React.createElement("code", null, "purpose"), " String - default, primary, secondary, success, info, warning, danger"), 
+              React.createElement("li", null, React.createElement("code", null, "size"), " String - small, medium (default), large, extra-large, block"), 
+              React.createElement("li", null, React.createElement("code", null, "target"), " String - Standard html traget attribute")
+            )
+          ), 
 
-        React.createElement("article", {id: "tile"}, 
-          React.createElement("h3", null, "Tiles"), 
-          React.createElement("p", null, "A tile for displaying an image with a title. The width of a tile is 100% of a container."), 
-          React.createElement(CustomComponent, {codeText: "var image = {\n  src: 'http://brand.holidayextras.com/img/product-main.jpg',\n  alt: 'Tender sirloin steak with blue cheese dressing'\n}\n\nvar example = (\n  <UIToolkit.Tile image={image} title='Tender sirloin steak with blue cheese dressing' />\n);\n\nReact.render(example, mountNode);\n"}), 
-          React.createElement("h4", null, "Attributes"), 
-          React.createElement("ul", null, 
-            React.createElement("li", null, React.createElement("code", null, "image"), " Object - Containing ", React.createElement("code", null, "src"), " and ", React.createElement("code", null, "alt"), " keys"), 
-            React.createElement("li", null, React.createElement("code", null, "title"), " String - The title of the tile")
+          React.createElement("article", {id: "flags"}, 
+            React.createElement("h3", null, "Flags"), 
+            React.createElement("p", null, "Flags are used to highlight taxonomy terms or 'tags' on elements. For example 'special offer' or 'limited time only'"), 
+            React.createElement("p", null, "To give the flag a purpose, add ", React.createElement("code", null, "purpose"), " etc."), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Flag>Default</UIToolkit.Flag>\n    <UIToolkit.Flag purpose=\"primary\">Primary</UIToolkit.Flag>\n    <UIToolkit.Flag purpose=\"secondary\">Secondary</UIToolkit.Flag>\n    <UIToolkit.Flag purpose=\"success\">Success</UIToolkit.Flag>\n    <UIToolkit.Flag purpose=\"warning\">Warning</UIToolkit.Flag>\n    <UIToolkit.Flag purpose=\"danger\">Danger</UIToolkit.Flag>\n    <UIToolkit.Flag purpose=\"info\">Info</UIToolkit.Flag>\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Size"), 
+            React.createElement("p", null, "Fancy larger or smaller flags? Add ", React.createElement("code", null, "size"), " for additional sizes."), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Flag size=\"small\">Small</UIToolkit.Flag>\n    <UIToolkit.Flag>Default</UIToolkit.Flag>\n    <UIToolkit.Flag size=\"large\">Large</UIToolkit.Flag>\n    <UIToolkit.Flag size=\"extra-large\">Extra Large</UIToolkit.Flag>    \n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Position"), 
+            React.createElement("p", null, "Need to position your flag? You can position the flag anywhere in a container using ", React.createElement("code", null, "position")), 
+            React.createElement("p", null, "The container must have a ", React.createElement("code", null, "relative:position"), " and a ", React.createElement("code", null, "z-index:x"), " applied."), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div className=\"demo-box\">\n    <UIToolkit.Flag position=\"left\">Left</UIToolkit.Flag>\n    <UIToolkit.Flag position=\"right\">Right</UIToolkit.Flag>\n    <UIToolkit.Flag position=\"bottom left\">Bottom Left</UIToolkit.Flag>\n    <UIToolkit.Flag position=\"bottom right\">Bottom Right</UIToolkit.Flag>\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "position"), " String - top (default), bottom, left, right"), 
+              React.createElement("li", null, React.createElement("code", null, "purpose"), " String - default, primary, secondary, success, info, warning, danger"), 
+              React.createElement("li", null, React.createElement("code", null, "size"), " String - small, medium (default), large, extra-large")
+            )
+          ), 
+
+          React.createElement("article", {id: "image"}, 
+            React.createElement("h3", null, "Image"), 
+            React.createElement("p", null, "A standard Image Component."), 
+            React.createElement(CustomComponent, {codeText: "var image = {\n  src: 'http://brand.holidayextras.com/img/product-dessert.jpg',\n  alt: 'Delicious strawberry cheesecake'\n};\n\nvar example = (\n  <UIToolkit.Image src={image.src} alt={image.alt} className=\"component-image\" />\n);\n\nReact.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "alt"), " String - Image alt attribute"), 
+              React.createElement("li", null, React.createElement("code", null, "handleClick"), " Function - handle click events on the image"), 
+              React.createElement("li", null, React.createElement("code", null, "src"), " String - Image src attribute"), 
+              React.createElement("li", null, React.createElement("code", null, "href"), " String - an href that wraps the image in an anchor"), 
+              React.createElement("li", null, React.createElement("code", null, "data"), " Object - Where ", React.createElement("code", null, "keys"), " will be data attributes and ", React.createElement("code", null, "values"), " will be their values (uses ", React.createElement("a", {href: "https://github.com/holidayextras/react-data-attributes-mixin", alt: "React Data Attributes Mixin"}, "React Data Attributes Mixin"), ")")
+            )
+          ), 
+
+          React.createElement("article", {id: "input"}, 
+            React.createElement("h3", null, "Input"), 
+            React.createElement("p", null, "Custom Input for Text, Email, Telephone & Number Types"), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Input type='text' label='Text Only' validator={/^[a-zA-Z ]*$/g} />\n    <UIToolkit.Input type='text' label='With Default' >Default Value</UIToolkit.Input>\n    <UIToolkit.Input type='text' label='Required' placeholder='Full Name' required={true} />\n  </div>\n\n);\n\nReact.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "type"), " String - Type of Input Field can be ", React.createElement("code", null, "text"), ", ", React.createElement("code", null, "email"), ", ", React.createElement("code", null, "tel"), " or ", React.createElement("code", null, "number")), 
+              React.createElement("li", null, React.createElement("code", null, "name"), " String - Optional Name for Input Field"), 
+              React.createElement("li", null, React.createElement("code", null, "id"), " String - Optional ID for Input Field"), 
+              React.createElement("li", null, React.createElement("code", null, "label"), " String - Optional Label in front of Input Field"), 
+              React.createElement("li", null, React.createElement("code", null, "placeHolder"), " String - Optional Placeholder for Input Field"), 
+              React.createElement("li", null, React.createElement("code", null, "validator"), " String - Optional Regular Expression to Validate Input"), 
+              React.createElement("li", null, React.createElement("code", null, "errorMessage"), " String - Optional Error Message to show if ", React.createElement("code", null, "validator"), " returns false"), 
+              React.createElement("li", null, React.createElement("code", null, "disabled"), " Boolean - Whether to Disable the Input Field"), 
+              React.createElement("li", null, React.createElement("code", null, "readOnly"), " Boolean - Whether to set the Input Field to Read Only"), 
+              React.createElement("li", null, React.createElement("code", null, "required"), " Boolean - Whether to set the Input Field to be Required"), 
+              React.createElement("li", null, React.createElement("code", null, "handleChange"), " Function - Optional Function which is called onChange")
+            )
+          ), 
+
+          React.createElement("article", {id: "lists"}, 
+            React.createElement("h3", null, "Lists"), 
+            React.createElement("h4", null, "Icon list"), 
+            React.createElement("p", null, "An unordered list that uses ", React.createElement("a", {href: "http://fortawesome.github.io/Font-Awesome/icons/"}, "Font Awesome"), " for the bullets"), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <UIToolkit.IconList>\n    <UIToolkit.IconListItem icon=\"plane\">Suitable for all terminals</UIToolkit.IconListItem>\n    <UIToolkit.IconListItem icon=\"bus\">Transfers run every 5 minutes</UIToolkit.IconListItem>\n    <UIToolkit.IconListItem icon=\"car\">Car parked for you</UIToolkit.IconListItem>\n    <UIToolkit.IconListItem icon=\"check\"><strong>Success!</strong></UIToolkit.IconListItem>\n  </UIToolkit.IconList>\n);\n\nReact.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Attributes (for ListGroupItem)"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "icon"), " String - The name of the ", React.createElement("a", {href: "http://fortawesome.github.io/Font-Awesome/icons/"}, "Font Awesome"), " icon that you want to display"), 
+              React.createElement("li", null, React.createElement("code", null, "purpose"), " String - default, primary, secondary, success, info, warning, danger")
+            )
+          ), 
+
+          React.createElement("article", {id: "lozenge"}, 
+            React.createElement("h3", null, "Lozenge"), 
+            React.createElement("p", null, "A small pill shaped item for displaying information"), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Lozenge tip=\"default tip\">Default</UIToolkit.Lozenge>\n    <UIToolkit.Lozenge purpose=\"primary\" tip=\"primary tip\">Primary</UIToolkit.Lozenge>\n    <UIToolkit.Lozenge purpose=\"success\" tip=\"success tip\">Success</UIToolkit.Lozenge>\n    <UIToolkit.Lozenge purpose=\"info\" tip=\"info tip\">Info</UIToolkit.Lozenge>\n    <UIToolkit.Lozenge purpose=\"warning\" tip=\"warning tip\">Warning</UIToolkit.Lozenge>\n    <UIToolkit.Lozenge purpose=\"danger\" tip=\"danger tip\">Danger</UIToolkit.Lozenge>\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "purpose"), " String - default, primary, secondary, success, info, warning, danger"), 
+              React.createElement("li", null, React.createElement("code", null, "size"), " String - small, medium (default), large, extra-large, block"), 
+              React.createElement("li", null, React.createElement("code", null, "tip"), " String - Tooltip text to display")
+            )
+          ), 
+
+          React.createElement("article", {id: "quote"}, 
+            React.createElement("h3", null, "Quote"), 
+            React.createElement("p", null, "A quote is used referencing blocks of content from another source within your document. They come as a ", React.createElement("code", null, "Block"), " (default) or ", React.createElement("code", null, "inline")), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Quote author=\"Brad Frost\" role=\"Web Designer\">It's not about what we do, it's about what we enable other people to do</UIToolkit.Quote>\n    <UIToolkit.Quote author=\"Christian Heilmann\" role=\"Developer Evangelist\" cite=\"Twitter\" purpose=\"warning\">Fix the broken things before you build the shiney new broken things</UIToolkit.Quote>\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Inline"), 
+            React.createElement("p", null, "Inline quotes are for referencing something inline within a section of prose"), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <p>Gandalf, Captain of the Starship Enterprise said <UIToolkit.Quote type=\"inline\" author=\"Gandalf\" role=\"Captain of the Starship Enterprise\" cite=\"The Internet\" purpose=\"success\">Use The Force Harry</UIToolkit.Quote>\n    </p>\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "author"), " String - The author of the quote"), 
+              React.createElement("li", null, React.createElement("code", null, "cite"), " String - cited title of a work; for example, the title of a book mentioned within the main text flow of a document"), 
+              React.createElement("li", null, React.createElement("code", null, "purpose"), " String - default, primary, secondary, success, info, warning, danger"), 
+              React.createElement("li", null, React.createElement("code", null, "role"), " String - The role/job title of the author"), 
+              React.createElement("li", null, React.createElement("code", null, "size"), " String - small, medium (default), large, extra-large"), 
+              React.createElement("li", null, React.createElement("code", null, "type"), " String - Block (default) or Inline")
+            )
           )
         ), 
 
-        React.createElement("article", {id: "weather"}, 
-          React.createElement("h3", null, "Weather"), 
-          React.createElement("p", null, "Display weather information in a standard format. Combine a few of these components to create weather patterns i.e a 5 day forecast"), 
-          React.createElement(CustomComponent, {codeText: "var example = (\n  <div className=\"example-weather\">\n    <UIToolkit.Weather type=\"sunny\" temperature={22} unit=\"C\" date=\"2016-07-25\" />\n    <UIToolkit.Weather type=\"partly-cloudy\" temperature={17} unit=\"C\" date=\"2016-07-26\" />\n    <UIToolkit.Weather type=\"cloudy\" temperature={14} unit=\"F\" date=\"2016-07-27\" />\n    <UIToolkit.Weather type=\"light-rain\" temperature={10} unit=\"C\" date=\"2016-07-28\" format=\"dddd\"/>\n    <UIToolkit.Weather type=\"heavy-rain\" temperature={5} unit=\"C\" date=\"2016-07-29T09:00\" format=\"HH:mm\" />\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
-          React.createElement("h4", null, "Attributes"), 
-          React.createElement("ul", null, 
-            React.createElement("li", null, React.createElement("code", null, "weather"), " String - The type of weather that is occuring. Can be ", React.createElement("code", null, "cloudy"), ", ", React.createElement("code", null, "fog"), ", ", React.createElement("code", null, "hail"), ", ", React.createElement("code", null, "heavy-rain"), ", ", React.createElement("code", null, "heavy-snow"), ", ", React.createElement("code", null, "light-rain"), ", ", React.createElement("code", null, "light-snow"), ", ", React.createElement("code", null, "night-clear"), ", ", React.createElement("code", null, "night-partly-cloudy"), ", ", React.createElement("code", null, "partly-cloudy"), ", ", React.createElement("code", null, "storm"), ", ", React.createElement("code", null, "sunny"), " or ", React.createElement("code", null, "windy"), " (more to come)"), 
-            React.createElement("li", null, React.createElement("code", null, "temperature"), " Number - The current temperature"), 
-            React.createElement("li", null, React.createElement("code", null, "unit"), " String - The unit of measurement for temperature ", React.createElement("code", null, "C"), " (Celsius), ", React.createElement("code", null, "F"), " (Fahrenheit), ", React.createElement("code", null, "K"), " (Kelvin) or ", React.createElement("code", null, "R"), " (Rankine)"), 
-            React.createElement("li", null, React.createElement("code", null, "date"), " String - The date of the weather you want displayed passed in ", React.createElement("a", {href: "https://en.wikipedia.org/wiki/ISO_8601"}, "ISO8601"), " format"), 
-            React.createElement("li", null, React.createElement("code", null, "format"), " String - Date format required i.e ", React.createElement("code", null, "dddd"), ", ", React.createElement("code", null, "HH:mm"), " (default) etc")
+        React.createElement("section", {id: "molecules"}, 
+          React.createElement("h2", {className: "page-header"}, "Molecules"), 
+          React.createElement("p", null, "Things start getting more interesting and tangible when we start combining atoms together. Molecules are groups of atoms bonded together and are the smallest fundamental units of a compound. These molecules take on their own properties and serve as the backbone of our design systems."), 
+
+          React.createElement("article", {id: "alert"}, 
+            React.createElement("h3", null, "Alert"), 
+            React.createElement("p", null, "An alert is used to display helpful or factual information usually used as a prompt."), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Alert purpose=\"success\" title=\"Success\">This <UIToolkit.Anchor title=\"A fake link\">link</UIToolkit.Anchor> is a great thing</UIToolkit.Alert>\n    <UIToolkit.Alert purpose=\"warning\" title=\"Warning\">be careful</UIToolkit.Alert>\n    <UIToolkit.Alert purpose=\"info\" title=\"Information\">You should pay attention</UIToolkit.Alert>\n    <UIToolkit.Alert purpose=\"danger\" title=\"Danger\">Stranger danger</UIToolkit.Alert>\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "purpose"), " String - default, primary, secondary, success, info, warning, danger"), 
+              React.createElement("li", null, React.createElement("code", null, "size"), " String - small, medium (default), large, extra-large"), 
+              React.createElement("li", null, React.createElement("code", null, "title"), " String - The title of the alert")
+            )
           ), 
-          React.createElement("small", null, "We currently use a small sample of ", React.createElement("a", {href: "http://www.alessioatzeni.com/meteocons/", title: "Meteocons"}, "Meteocons"))
+
+          React.createElement("article", {id: "countdown"}, 
+            React.createElement("h3", null, "Countdown"), 
+            React.createElement("p", null, "Countdowns allow you to find the time difference between the current date and a date in the future. To do this you pass in a ", React.createElement("code", null, "until"), " value of any date format."), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Countdown until=\"2016-07-27\"></UIToolkit.Countdown>\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "until"), " String - Date in the future")
+            )
+          ), 
+
+          React.createElement("article", {id: "payment-card"}, 
+            React.createElement("h3", null, "Payment Cards"), 
+            React.createElement("p", null, "Easily display what payment cards your website accepts"), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.PaymentCard type=\"amex\"></UIToolkit.PaymentCard>\n    <UIToolkit.PaymentCard type=\"visa\"></UIToolkit.PaymentCard>\n    <UIToolkit.PaymentCard type=\"mastercard\"></UIToolkit.PaymentCard>\n    <UIToolkit.PaymentCard type=\"paym\"></UIToolkit.PaymentCard>\n    <UIToolkit.PaymentCard type=\"amazon\"></UIToolkit.PaymentCard>\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "type")), " String - ", React.createElement("code", null, "amazon amex apple cirrus delta directdebit discover electron google maestro mastercard paym paypal sage sepa solo switch ukash visa visadebit westernunion")
+            )
+          ), 
+
+          React.createElement("article", null, 
+            React.createElement("h3", {id: "rating"}, "Rating"), 
+            React.createElement("p", null, "Ratings can be used to display a series of icons intended to represent a score."), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <UIToolkit.Rating rating={4} outOf={5} blankIcon=\"☆\" >★</UIToolkit.Rating>\n);\nReact.render(example, mountNode);"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "blankIcon"), " [optional] Node (any displayable item) - the icon to display for empty ratings."), 
+              React.createElement("li", null, React.createElement("code", null, "outOf"), " [optional] Number - The total count the rating value is out of."), 
+              React.createElement("li", null, React.createElement("code", null, "rating"), " Number - The count of positive icons to display.")
+            ), 
+
+            "The ", React.createElement("code", null, "outOf"), " and ", React.createElement("code", null, "blankIcon"), " attributes are optional and dependent upon each other."
+          ), 
+
+          React.createElement("article", {id: "tile"}, 
+            React.createElement("h3", null, "Tile"), 
+            React.createElement("p", null, "A tile for displaying an image with a title. The width of a tile is 100% of a container."), 
+            React.createElement(CustomComponent, {codeText: "var image = {\n  src: 'http://brand.holidayextras.com/img/product-main.jpg',\n  alt: 'Tender sirloin steak with blue cheese dressing'\n}\n\nvar example = (\n  <UIToolkit.Tile image={image} title='Tender sirloin steak with blue cheese dressing' />\n);\n\nReact.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "image"), " Object - Containing ", React.createElement("code", null, "src"), " and ", React.createElement("code", null, "alt"), " keys"), 
+              React.createElement("li", null, React.createElement("code", null, "title"), " String - The title of the tile")
+            )
+          ), 
+
+          React.createElement("article", {id: "weather"}, 
+            React.createElement("h3", null, "Weather"), 
+            React.createElement("p", null, "Display weather information in a standard format. Combine a few of these components to create weather patterns i.e a 5 day forecast"), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div className=\"example-weather\">\n    <UIToolkit.Weather type=\"sunny\" temperature={22} unit=\"C\" date=\"2016-07-25\" />\n    <UIToolkit.Weather type=\"partly-cloudy\" temperature={17} unit=\"C\" date=\"2016-07-26\" />\n    <UIToolkit.Weather type=\"cloudy\" temperature={14} unit=\"F\" date=\"2016-07-27\" />\n    <UIToolkit.Weather type=\"light-rain\" temperature={10} unit=\"C\" date=\"2016-07-28\" format=\"dddd\"/>\n    <UIToolkit.Weather type=\"heavy-rain\" temperature={5} unit=\"C\" date=\"2016-07-29T09:00\" format=\"HH:mm\" />\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "weather"), " String - The type of weather that is occuring. Can be ", React.createElement("code", null, "cloudy"), ", ", React.createElement("code", null, "fog"), ", ", React.createElement("code", null, "hail"), ", ", React.createElement("code", null, "heavy-rain"), ", ", React.createElement("code", null, "heavy-snow"), ", ", React.createElement("code", null, "light-rain"), ", ", React.createElement("code", null, "light-snow"), ", ", React.createElement("code", null, "night-clear"), ", ", React.createElement("code", null, "night-partly-cloudy"), ", ", React.createElement("code", null, "partly-cloudy"), ", ", React.createElement("code", null, "storm"), ", ", React.createElement("code", null, "sunny"), " or ", React.createElement("code", null, "windy"), " (more to come)"), 
+              React.createElement("li", null, React.createElement("code", null, "temperature"), " Number - The current temperature"), 
+              React.createElement("li", null, React.createElement("code", null, "unit"), " String - The unit of measurement for temperature ", React.createElement("code", null, "C"), " (Celsius), ", React.createElement("code", null, "F"), " (Fahrenheit), ", React.createElement("code", null, "K"), " (Kelvin) or ", React.createElement("code", null, "R"), " (Rankine)"), 
+              React.createElement("li", null, React.createElement("code", null, "date"), " String - The date of the weather you want displayed passed in ", React.createElement("a", {href: "https://en.wikipedia.org/wiki/ISO_8601"}, "ISO8601"), " format"), 
+              React.createElement("li", null, React.createElement("code", null, "format"), " String - Date format required i.e ", React.createElement("code", null, "dddd"), ", ", React.createElement("code", null, "HH:mm"), " (default) etc")
+            ), 
+            React.createElement("small", null, "We currently use a small sample of ", React.createElement("a", {href: "http://www.alessioatzeni.com/meteocons/", title: "Meteocons"}, "Meteocons"))
+          )
+
         )
-
       )
     );
   }
@@ -20421,20 +20417,22 @@ var Nav = React.createClass({displayName: "Nav",
           ), 
 
           React.createElement("li", null, 
-            React.createElement("a", {href: "#components"}, "Components"), 
+            React.createElement("a", {href: "#atoms"}, "Atoms"), 
             React.createElement("ul", null, 
-              React.createElement("li", null, React.createElement("a", {href: "#alert"}, "Alert")), 
               React.createElement("li", null, React.createElement("a", {href: "#anchor"}, "Anchor")), 
               React.createElement("li", null, React.createElement("a", {href: "#button"}, "Buttons")), 
-              React.createElement("li", null, React.createElement("a", {href: "#countdown"}, "Countdown")), 
               React.createElement("li", null, React.createElement("a", {href: "#flags"}, "Flags")), 
               React.createElement("li", null, React.createElement("a", {href: "#image"}, "Image")), 
               React.createElement("li", null, React.createElement("a", {href: "#input"}, "Input")), 
-              React.createElement("li", null, React.createElement("a", {href: "#justified-container"}, "Justified Container")), 
               React.createElement("li", null, React.createElement("a", {href: "#lists"}, "Lists")), 
               React.createElement("li", null, React.createElement("a", {href: "#lozenge"}, "Lozenge")), 
+              React.createElement("li", null, React.createElement("a", {href: "#quote"}, "Quote"))
+            ), 
+            React.createElement("a", {href: "#molecules"}, "Molecules"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("a", {href: "#alert"}, "Alert")), 
+              React.createElement("li", null, React.createElement("a", {href: "#countdown"}, "Countdown")), 
               React.createElement("li", null, React.createElement("a", {href: "#payment-card"}, "Payment Card")), 
-              React.createElement("li", null, React.createElement("a", {href: "#quote"}, "Quote")), 
               React.createElement("li", null, React.createElement("a", {href: "#rating"}, "Rating")), 
               React.createElement("li", null, React.createElement("a", {href: "#tile"}, "Tile")), 
               React.createElement("li", null, React.createElement("a", {href: "#weather"}, "Weather"))
@@ -20508,7 +20506,7 @@ module.exports = require('./src/ui-toolkit');
 
 
 
-},{"./src/ui-toolkit":438}],169:[function(require,module,exports){
+},{"./src/ui-toolkit":415}],169:[function(require,module,exports){
 /*!
   Copyright (c) 2015 Jed Watson.
   Licensed under the MIT License (MIT), see
@@ -26895,7 +26893,7 @@ arguments[4][159][0].apply(exports,arguments)
 },{"./lib/React":236,"dup":159}],364:[function(require,module,exports){
 module.exports={
   "name": "ui-toolkit",
-  "version": "0.16.2",
+  "version": "0.16.3",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "src/index.js",
@@ -26933,7 +26931,7 @@ module.exports={
   },
   "homepage": "https://github.com/holidayextras/ui-toolkit",
   "dependencies": {
-    "browserify": "11.0.1",
+    "browserify": "11.1.0",
     "classnames": "^2.1.0",
     "font-awesome": "^4.3.0",
     "grunt": "^0.4.5",
@@ -26977,74 +26975,45 @@ module.exports={
 }
 
 },{}],365:[function(require,module,exports){
-module.exports = require('./views/alertView.jsx');
-
-
-
-},{"./views/alertView.jsx":367}],366:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
-var getComponentClasses = require('../../../../utils/getComponentClasses');
-
-module.exports = function() {
-
-  var propClasses = ['size', 'purpose'];
-  var classes = getComponentClasses('component-alert', propClasses, this.props);
-
-  return (
-    React.createElement("div", {className: classNames(classes), role: "alert"}, 
-      React.createElement("h4", null, this.props.title), 
-      React.createElement("p", null, this.props.children)
-    )
-  );
-};
-
-
-
-},{"../../../../utils/getComponentClasses":439,"classnames":169,"react":363}],367:[function(require,module,exports){
-var React = require('react');
+var getComponentClasses = require('../../../utils/getComponentClasses');
 
 module.exports = React.createClass({displayName: "exports",
 
   propTypes: {
     purpose: React.PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
-    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large'])
+    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large']),
+    title: React.PropTypes.string,
+    children: React.PropTypes.node
   },
 
   render: function() {
-    return require('../templates/alertTemplate.jsx').call(this);
+    var propClasses = ['size', 'purpose'];
+    var classes = getComponentClasses('component-alert', propClasses, this.props);
+
+    return (
+      React.createElement("div", {className: classNames(classes), role: "alert"}, 
+        React.createElement("h4", null, this.props.title), 
+        React.createElement("p", null, this.props.children)
+      )
+    );
   }
 });
 
 
 
-},{"../templates/alertTemplate.jsx":366,"react":363}],368:[function(require,module,exports){
+},{"../../../utils/getComponentClasses":416,"classnames":169,"react":363}],366:[function(require,module,exports){
+module.exports = require('./alert.jsx');
+
+
+
+},{"./alert.jsx":365}],367:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
 
-},{"./code/index":365}],369:[function(require,module,exports){
-module.exports = require('./views/anchorView.jsx');
-
-
-
-},{"./views/anchorView.jsx":371}],370:[function(require,module,exports){
-var React = require('react');
-
-module.exports = function() {
-
-  var dataAttributes = this.getDataAttributesFromProps();
-
-  return (
-    React.createElement("a", React.__spread({className: "component-anchor"},  dataAttributes, {title: this.props.title, href: this.props.href, onClick: this.props.handleClick, target: this.props.target}), 
-     this.props.children
-    )
-  );
-};
-
-
-
-},{"react":363}],371:[function(require,module,exports){
+},{"./code/index":366}],368:[function(require,module,exports){
 var React = require('react');
 var DataAttributesMixin = require('react-data-attributes-mixin');
 
@@ -27063,72 +27032,42 @@ module.exports = React.createClass({displayName: "exports",
     data: React.PropTypes.object,
     href: React.PropTypes.string,
     target: React.PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
-    title: React.PropTypes.string
+    title: React.PropTypes.string,
+    handleClick: React.PropTypes.func
   },
 
   render: function() {
+    var dataAttributes = this.getDataAttributesFromProps();
     if(!this.props.children) {
       return null;
     }
-    return require('../templates/anchorTemplate.jsx').call(this);
+    return (
+      React.createElement("a", React.__spread({className: "component-anchor"},  dataAttributes, {title: this.props.title, href: this.props.href, onClick: this.props.handleClick, target: this.props.target}), 
+       this.props.children
+      )
+    );
   }
 });
 
 
 
-},{"../templates/anchorTemplate.jsx":370,"react":363,"react-data-attributes-mixin":189}],372:[function(require,module,exports){
+
+},{"react":363,"react-data-attributes-mixin":189}],369:[function(require,module,exports){
+module.exports = require('./anchor.jsx');
+
+
+
+},{"./anchor.jsx":368}],370:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
 
-},{"./code/index":369}],373:[function(require,module,exports){
-module.exports = require('./views/buttonView.jsx');
-
-
-
-},{"./views/buttonView.jsx":376}],374:[function(require,module,exports){
-var React = require('react');
-var classNames = require('classnames');
-var getComponentClasses = require('../../../../utils/getComponentClasses');
-
-module.exports = function() {
-
-  var propClasses = ['size', 'purpose'];
-  var classes = getComponentClasses('component-button', propClasses, this.props);
-  var dataAttributes = this.getDataAttributesFromProps();
-
-  return (
-    React.createElement("a", React.__spread({className: classNames(classes), href: this.props.href, target: this.props.target, onClick: this.props.handleClick},  dataAttributes), 
-      this.props.children
-    )
-  );
-};
-
-
-
-},{"../../../../utils/getComponentClasses":439,"classnames":169,"react":363}],375:[function(require,module,exports){
-var React = require('react');
-var classNames = require('classnames');
-var getComponentClasses = require('../../../../utils/getComponentClasses');
-
-module.exports = function() {
-
-  var propClasses = ['size', 'purpose'];
-  var classes = getComponentClasses('component-button', propClasses, this.props);
-  var dataAttributes = this.getDataAttributesFromProps();
-
-  return (
-    React.createElement("button", React.__spread({className: classNames(classes), disabled: this.props.disabled, type: this.props.type, onClick: this.props.handleClick},  dataAttributes), 
-      this.props.children
-    )
-  );
-};
-
-
-
-},{"../../../../utils/getComponentClasses":439,"classnames":169,"react":363}],376:[function(require,module,exports){
+},{"./code/index":369}],371:[function(require,module,exports){
 var React = require('react');
 var DataAttributesMixin = require('react-data-attributes-mixin');
+var classNames = require('classnames');
+var getComponentClasses = require('../../../utils/getComponentClasses');
+
 module.exports = React.createClass({displayName: "exports",
 
   mixins: [DataAttributesMixin],
@@ -27140,31 +27079,120 @@ module.exports = React.createClass({displayName: "exports",
     href: React.PropTypes.string,
     target: React.PropTypes.string,
     handleClick: React.PropTypes.func,
-    data: React.PropTypes.object
+    data: React.PropTypes.object,
+    children: React.PropTypes.node,
+    type: React.PropTypes.string
   },
 
   render: function() {
+
+    var propClasses = ['size', 'purpose'];
+    var classes = getComponentClasses('component-button', propClasses, this.props);
+    var dataAttributes = this.getDataAttributesFromProps();
+
     if(this.props.href) {
-      return require('../templates/buttonAnchorTemplate.jsx').call(this);
+      return (
+        React.createElement("a", React.__spread({className: classNames(classes), href: this.props.href, target: this.props.target, onClick: this.props.handleClick},  dataAttributes), 
+          this.props.children
+        )
+      );
     }
-    return require('../templates/buttonTemplate.jsx').call(this);
+    return (
+      React.createElement("button", React.__spread({className: classNames(classes), disabled: this.props.disabled, type: this.props.type, onClick: this.props.handleClick},  dataAttributes), 
+        this.props.children
+      )
+    );
   }
 
 });
 
 
 
-},{"../templates/buttonAnchorTemplate.jsx":374,"../templates/buttonTemplate.jsx":375,"react":363,"react-data-attributes-mixin":189}],377:[function(require,module,exports){
+},{"../../../utils/getComponentClasses":416,"classnames":169,"react":363,"react-data-attributes-mixin":189}],372:[function(require,module,exports){
+module.exports = require('./button.jsx');
+
+
+
+},{"./button.jsx":371}],373:[function(require,module,exports){
 module.exports = require('./code');
 
 
 
-},{"./code":373}],378:[function(require,module,exports){
-module.exports = require('./views/countdownView.jsx');
+},{"./code":372}],374:[function(require,module,exports){
+var React = require('react');
+var classNames = require('classnames');
+var getComponentClasses = require('../../../utils/getComponentClasses');
+var CountdownManager = require('./lib/countdownManager');
+
+module.exports = React.createClass({displayName: "exports",
+
+  propTypes: {
+    purpose: React.PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
+    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large']),
+    until: React.PropTypes.string
+  },
+
+  getInitialState: function(){
+    return this.countdownManagerState();
+  },
+
+  countdownManagerState: function(dateUpdate) {
+    var date = {startDate: (dateUpdate || this.props.until)};
+    var countdownManager = new CountdownManager(date);
+    return {
+      countdownManager: countdownManager,
+      time: countdownManager.time()
+    };
+  },
+
+  componentDidMount: function() {
+    this.startCountdownManager();
+  },
+
+  componentWillUnmount: function() {
+    this.stopCountdownManager();
+  },
+
+  componentWillReceiveProps: function(nextProps) {
+    this.stopCountdownManager();
+    this.setState(this.countdownManagerState(nextProps.date), this.startCountdownManager);
+  },
+
+  startCountdownManager: function() {
+    this.state.countdownManager.start(this.onCountdown);
+  },
+
+  onCountdown: function(time) {
+    this.setState({time: time});
+  },
+
+  stopCountdownManager: function() {
+    return this.state.countdownManager.stop();
+  },
+
+  render: function() {
+    var propClasses = ['size', 'purpose'];
+    var classes = getComponentClasses('component-countdown', propClasses, this.props);
+
+    return (
+      React.createElement("div", {className: classNames(classes), role: "timer"}, 
+        React.createElement("div", null, this.state.time.days, " ", React.createElement("small", null, "Days")), 
+        React.createElement("div", null, this.state.time.hours, " ", React.createElement("small", null, "Hours")), 
+        React.createElement("div", null, this.state.time.minutes, " ", React.createElement("small", null, "Minutes")), 
+        React.createElement("div", null, this.state.time.seconds, " ", React.createElement("small", null, "Seconds"))
+      )
+    );
+  }
+});
 
 
 
-},{"./views/countdownView.jsx":382}],379:[function(require,module,exports){
+},{"../../../utils/getComponentClasses":416,"./lib/countdownManager":377,"classnames":169,"react":363}],375:[function(require,module,exports){
+module.exports = require('./countdown.jsx');
+
+
+
+},{"./countdown.jsx":374}],376:[function(require,module,exports){
 var moment = require('moment');
 var countdown = {};
 module.exports = countdown;
@@ -27224,7 +27252,7 @@ countdown._durationFromNow = function(untilDate) {
 
 
 
-},{"moment":188}],380:[function(require,module,exports){
+},{"moment":188}],377:[function(require,module,exports){
 var countdown = require('./countdown.js');
 var moment = require('moment');
 
@@ -27261,123 +27289,21 @@ CountdownManager.prototype.time = function(currentMoment) {
 
 
 
-},{"./countdown.js":379,"moment":188}],381:[function(require,module,exports){
-var React = require('react');
-var classNames = require('classnames');
-var getComponentClasses = require('../../../../utils/getComponentClasses');
-
-module.exports = function() {
-
-  var propClasses = ['size', 'purpose'];
-  var classes = getComponentClasses('component-countdown', propClasses, this.props);
-
-  return (
-    React.createElement("div", {className: classNames(classes), role: "timer"}, 
-      React.createElement("div", null, this.state.time.days, " ", React.createElement("small", null, "Days")), 
-      React.createElement("div", null, this.state.time.hours, " ", React.createElement("small", null, "Hours")), 
-      React.createElement("div", null, this.state.time.minutes, " ", React.createElement("small", null, "Minutes")), 
-      React.createElement("div", null, this.state.time.seconds, " ", React.createElement("small", null, "Seconds"))
-    )
-  );
-};
-
-
-
-
-},{"../../../../utils/getComponentClasses":439,"classnames":169,"react":363}],382:[function(require,module,exports){
-var React = require('react');
-var CountdownManager = require('../lib/countdownManager');
-
-module.exports = React.createClass({displayName: "exports",
-
-  propTypes: {
-    purpose: React.PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
-    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large']),
-    until: React.PropTypes.string
-  },
-
-  getInitialState: function(){
-    return this.countdownManagerState();
-  },
-
-  countdownManagerState: function(dateUpdate) {
-    var date = {startDate: (dateUpdate || this.props.until)};
-    var countdownManager = new CountdownManager(date);
-    return {
-      countdownManager: countdownManager,
-      time: countdownManager.time()
-    };
-  },
-
-  componentDidMount: function() {
-    this.startCountdownManager();
-  },
-
-  componentWillUnmount: function() {
-    this.stopCountdownManager();
-  },
-
-  componentWillReceiveProps: function(nextProps) {
-    this.stopCountdownManager();
-    this.setState(this.countdownManagerState(nextProps.date), this.startCountdownManager);
-  },
-
-  startCountdownManager: function() {
-    this.state.countdownManager.start(this.onCountdown);
-  },
-
-  onCountdown: function(time) {
-    this.setState({time: time});
-  },
-
-  stopCountdownManager: function() {
-    return this.state.countdownManager.stop();
-  },
-
-  render: function() {
-    return require('../templates/countdownTemplate.jsx').call(this);
-  }
-});
-
-
-
-},{"../lib/countdownManager":380,"../templates/countdownTemplate.jsx":381,"react":363}],383:[function(require,module,exports){
+},{"./countdown.js":376,"moment":188}],378:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
 
-},{"./code/index":378}],384:[function(require,module,exports){
-module.exports = require('./views/flagView.jsx');
-
-
-
-},{"./views/flagView.jsx":386}],385:[function(require,module,exports){
+},{"./code/index":375}],379:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
-var getComponentClasses = require('../../../../utils/getComponentClasses');
-
-module.exports = function(props) {
-
-  var propClasses = ['size', 'purpose', 'position'];
-  var classes = getComponentClasses('component-flag', propClasses, props);
-
-  return (
-    React.createElement("span", {className: classNames(classes)}, 
-      props.children
-    )
-  );
-};
-
-
-
-},{"../../../../utils/getComponentClasses":439,"classnames":169,"react":363}],386:[function(require,module,exports){
-var React = require('react');
+var getComponentClasses = require('../../../utils/getComponentClasses');
 
 module.exports = React.createClass({displayName: "exports",
 
   propTypes: {
+    children: React.PropTypes.node,
     purpose: React.PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
-    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large']),
     position: React.PropTypes.oneOf([
       'top',
       'right',
@@ -27393,135 +27319,100 @@ module.exports = React.createClass({displayName: "exports",
       'right bottom',
       'left right',
       'right left'
-    ])
+    ]),
+    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large'])
   },
 
   render: function() {
-    return require('../templates/flagTemplate.jsx')(this.props);
+    var propClasses = ['size', 'purpose', 'position'];
+    var classes = getComponentClasses('component-flag', propClasses, this.props);
+
+    return (
+      React.createElement("span", {className: classNames(classes)}, 
+        this.props.children
+      )
+    );
   }
 });
 
 
 
-},{"../templates/flagTemplate.jsx":385,"react":363}],387:[function(require,module,exports){
+},{"../../../utils/getComponentClasses":416,"classnames":169,"react":363}],380:[function(require,module,exports){
+module.exports = require('./flag.jsx');
+
+
+
+},{"./flag.jsx":379}],381:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
 
-},{"./code/index":384}],388:[function(require,module,exports){
-module.exports = require('./views/IconListItemComponentView.jsx');
-
-
-
-},{"./views/IconListItemComponentView.jsx":390}],389:[function(require,module,exports){
+},{"./code/index":380}],382:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
-var getComponentClasses = require('../../../../utils/getComponentClasses');
+var getComponentClasses = require('../../../utils/getComponentClasses');
 
-module.exports = function() {
+module.exports = React.createClass({displayName: "exports",
 
-  var propClasses = ['size', 'purpose', 'type'];
-  var classes = getComponentClasses('component-icon-list-item', propClasses, this.props);
-  return (
-    React.createElement("li", {className: classNames(classes)}, 
-      React.createElement("i", {className: 'fa fa-fw fa-' + this.props.icon}), this.props.children
-    )
-  );
-};
+  propTypes: {
+    icon: React.PropTypes.string.isRequired,
+    children: React.PropTypes.node
+  },
+
+  render: function() {
+    var propClasses = ['size', 'purpose', 'type'];
+    var classes = getComponentClasses('component-icon-list-item', propClasses, this.props);
+    return (
+      React.createElement("li", {className: classNames(classes)}, 
+        React.createElement("i", {className: 'fa fa-fw fa-' + this.props.icon}), this.props.children
+      )
+    );
+  }
+});
 
 
 
-},{"../../../../utils/getComponentClasses":439,"classnames":169,"react":363}],390:[function(require,module,exports){
+},{"../../../utils/getComponentClasses":416,"classnames":169,"react":363}],383:[function(require,module,exports){
+module.exports = require('./iconListItem.jsx');
+
+
+
+},{"./iconListItem.jsx":382}],384:[function(require,module,exports){
+module.exports = require('./code/index');
+
+
+
+},{"./code/index":383}],385:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
 
   propTypes: {
-    icon: React.PropTypes.string.isRequired
+    children: React.PropTypes.node
   },
 
   render: function() {
-    return require('../templates/IconListItemComponentTemplate.jsx').call(this);
+    return (
+      React.createElement("ul", {className: "component-icon-list"}, 
+        this.props.children
+      )
+    );
   }
 });
 
 
 
-},{"../templates/IconListItemComponentTemplate.jsx":389,"react":363}],391:[function(require,module,exports){
+},{"react":363}],386:[function(require,module,exports){
+module.exports = require('./iconList.jsx');
+
+
+
+},{"./iconList.jsx":385}],387:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
 
-},{"./code/index":388}],392:[function(require,module,exports){
-module.exports = require('./views/IconListComponentView.jsx');
-
-
-
-},{"./views/IconListComponentView.jsx":394}],393:[function(require,module,exports){
-var React = require('react');
-
-module.exports = function(props) {
-  return (
-    React.createElement("ul", {className: "component-icon-list"}, 
-      props.children
-    )
-  );
-};
-
-
-
-},{"react":363}],394:[function(require,module,exports){
-var React = require('react');
-
-module.exports = React.createClass({displayName: "exports",
-  render: function() {
-    return require('../templates/IconListComponentTemplate.jsx')(this.props);
-  }
-});
-
-
-
-},{"../templates/IconListComponentTemplate.jsx":393,"react":363}],395:[function(require,module,exports){
-module.exports = require('./code/index');
-
-
-
-},{"./code/index":392}],396:[function(require,module,exports){
-module.exports = require('./views/imageView.jsx');
-
-
-
-},{"./views/imageView.jsx":399}],397:[function(require,module,exports){
-var React = require('react');
-
-module.exports = function() {
-
-  var dataAttributes = this.getDataAttributesFromProps();
-
-  return (
-    React.createElement("a", React.__spread({className: "component-image", href: this.props.href, onClick: this.props.handleClick},  dataAttributes), 
-      React.createElement("img", {alt: this.props.alt, src: this.props.src})
-    )
-  );
-};
-
-
-
-},{"react":363}],398:[function(require,module,exports){
-var React = require('react');
-
-module.exports = function() {
-
-  var dataAttributes = this.getDataAttributesFromProps();
-
-  return (
-    React.createElement("img", React.__spread({alt: this.props.alt, src: this.props.src, onClick: this.props.handleClick, className: "component-image"},  dataAttributes))
-  );
-};
-
-
-
-},{"react":363}],399:[function(require,module,exports){
+},{"./code/index":386}],388:[function(require,module,exports){
 var React = require('react');
 var DataAttributesMixin = require('react-data-attributes-mixin');
 
@@ -27537,78 +27428,40 @@ module.exports = React.createClass({displayName: "exports",
   },
 
   render: function() {
+    var dataAttributes = this.getDataAttributesFromProps();
     if(this.props.href) {
-      return require('../templates/imageAnchorTemplate.jsx').call(this);
+      return (
+        React.createElement("a", React.__spread({className: "component-image", href: this.props.href, onClick: this.props.handleClick},  dataAttributes), 
+          React.createElement("img", {alt: this.props.alt, src: this.props.src})
+        )
+      );
     }
-    return require('../templates/imageTemplate.jsx').call(this);
+    return (
+      React.createElement("img", React.__spread({alt: this.props.alt, src: this.props.src, onClick: this.props.handleClick, className: "component-image"},  dataAttributes))
+    );
   }
 });
 
 
 
-},{"../templates/imageAnchorTemplate.jsx":397,"../templates/imageTemplate.jsx":398,"react":363,"react-data-attributes-mixin":189}],400:[function(require,module,exports){
+},{"react":363,"react-data-attributes-mixin":189}],389:[function(require,module,exports){
+module.exports = require('./image.jsx');
+
+
+
+},{"./image.jsx":388}],390:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
 
-},{"./code/index":396}],401:[function(require,module,exports){
-module.exports = require('./views/inputView.jsx');
+},{"./code/index":389}],391:[function(require,module,exports){
+module.exports = require('./input.jsx');
 
 
 
-},{"./views/inputView.jsx":403}],402:[function(require,module,exports){
+},{"./input.jsx":392}],392:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
-
-module.exports = function (component){
-
-  var classes = classNames({
-    'component-input': true,
-    'error': component.state.error || false,
-    'disabled': component.props.disabled || false
-  });
-
-  // the form label
-  var label;
-
-  if (component.props.label){
-    label = ( React.createElement("label", {className: "component-input-label", htmlFor: component.props.id}, component.props.label) );
-  }
-
-  /**
-   * Create the span element used for containing messages
-   * related to the element.
-   */
-  var span;
-
-  if (component.state.error){
-    span = ( React.createElement("span", {className: "component-input-error"}, component.state.error) );
-  }
-
-  return (
-    React.createElement("div", {className: classes, ref: component.props.ref}, 
-      label, 
-      React.createElement("input", {
-        className: "component-input-field", 
-        type: component.props.type, 
-        name: component.props.name, 
-        value: component.state.value, 
-        id: component.props.id, 
-        placeholder: component.props.placeholder, 
-        onChange: component.handleChange, 
-        disabled: component.props.disabled, 
-        readOnly: component.props.readOnly, 
-        required: component.props.required}
-        ), 
-      span
-    )
-  );
-};
-
-
-
-},{"classnames":169,"react":363}],403:[function(require,module,exports){
-var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
 
@@ -27622,6 +27475,7 @@ module.exports = React.createClass({displayName: "exports",
     name: React.PropTypes.string,
     id: React.PropTypes.string,
     disabled: React.PropTypes.bool,
+    placeholder: React.PropTypes.string,
     readOnly: React.PropTypes.bool,
     required: React.PropTypes.bool,
     validator: React.PropTypes.instanceOf(RegExp),
@@ -27690,127 +27544,99 @@ module.exports = React.createClass({displayName: "exports",
   },
 
   render: function() {
-    return require('../templates/inputTemplate.jsx')(this);
+    var classes = classNames({
+      'component-input': true,
+      'error': this.state.error || false,
+      'disabled': this.props.disabled || false
+    });
+
+    var label;
+
+    if (this.props.label){
+      label = ( React.createElement("label", {className: "component-input-label", htmlFor: this.props.id}, this.props.label) );
+    }
+
+    var span;
+
+    if (this.state.error){
+      span = ( React.createElement("span", {className: "component-input-error"}, this.state.error) );
+    }
+
+    return (
+      React.createElement("div", {className: classes, ref: this.props.ref}, 
+        label, 
+        React.createElement("input", {
+          className: "component-input-field", 
+          type: this.props.type, 
+          name: this.props.name, 
+          value: this.state.value, 
+          id: this.props.id, 
+          placeholder: this.props.placeholder, 
+          onChange: this.handleChange, 
+          disabled: this.props.disabled, 
+          readOnly: this.props.readOnly, 
+          required: this.props.required}
+          ), 
+        span
+      )
+    );
   }
 });
 
 
 
-},{"../templates/inputTemplate.jsx":402,"react":363}],404:[function(require,module,exports){
+},{"classnames":169,"react":363}],393:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
 
-},{"./code/index":401}],405:[function(require,module,exports){
-module.exports = require('./views/JustifiedContainerComponentView.jsx');
+},{"./code/index":391}],394:[function(require,module,exports){
+module.exports = require('./lozenge.jsx');
 
 
 
-},{"./views/JustifiedContainerComponentView.jsx":407}],406:[function(require,module,exports){
+},{"./lozenge.jsx":395}],395:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
-var getComponentClasses = require('../../../../utils/getComponentClasses');
-
-module.exports = function() {
-
-  var classes = getComponentClasses('component-justified-container');
-
-  return (
-    React.createElement("div", {style: this.props.styles, className: classNames(classes)}, 
-      this.props.children
-    )
-  );
-};
-
-
-
-},{"../../../../utils/getComponentClasses":439,"classnames":169,"react":363}],407:[function(require,module,exports){
-var React = require('react');
-
-module.exports = React.createClass({displayName: "exports",
-
-  render: function(){
-    return require('../templates/JustifiedContainerComponentTemplate.jsx').call(this);
-  }
-});
-
-
-
-},{"../templates/JustifiedContainerComponentTemplate.jsx":406,"react":363}],408:[function(require,module,exports){
-module.exports = require('./code/index');
-
-
-
-},{"./code/index":405}],409:[function(require,module,exports){
-module.exports = require('./views/LozengeComponentView.jsx');
-
-
-
-},{"./views/LozengeComponentView.jsx":411}],410:[function(require,module,exports){
-var React = require('react');
-var classNames = require('classnames');
-var getComponentClasses = require('../../../../utils/getComponentClasses');
-
-module.exports = function() {
-
-  var propClasses = ['size', 'purpose'];
-  var classes = getComponentClasses('component-lozenge', propClasses, this.props);
-
-  return (
-    React.createElement("span", {className: classNames(classes), title: this.props.tip}, 
-      this.props.children
-    )
-  );
-};
-
-
-
-},{"../../../../utils/getComponentClasses":439,"classnames":169,"react":363}],411:[function(require,module,exports){
-var React = require('react');
+var getComponentClasses = require('../../../utils/getComponentClasses');
 
 module.exports = React.createClass({displayName: "exports",
 
   propTypes: {
+    children: React.PropTypes.node,
     purpose: React.PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
-    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large', 'block'])
+    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large', 'block']),
+    tip: React.PropTypes.string
   },
 
   render: function() {
-    return require('../templates/LozengeComponentTemplate.jsx').call(this);
+    var propClasses = ['size', 'purpose'];
+    var classes = getComponentClasses('component-lozenge', propClasses, this.props);
+
+    return (
+      React.createElement("span", {className: classNames(classes), title: this.props.tip}, 
+        this.props.children
+      )
+    );
   }
 });
 
 
 
-},{"../templates/LozengeComponentTemplate.jsx":410,"react":363}],412:[function(require,module,exports){
+},{"../../../utils/getComponentClasses":416,"classnames":169,"react":363}],396:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
 
-},{"./code/index":409}],413:[function(require,module,exports){
-module.exports = require('./views/paymentCardView.jsx');
+},{"./code/index":394}],397:[function(require,module,exports){
+module.exports = require('./paymentCard.jsx');
 
 
 
-},{"./views/paymentCardView.jsx":415}],414:[function(require,module,exports){
+},{"./paymentCard.jsx":398}],398:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
-var getComponentClasses = require('../../../../utils/getComponentClasses');
-
-module.exports = function() {
-
-  var propClasses = ['type', 'size'];
-  var classes = getComponentClasses('component-payment-card', propClasses, this.props);
-
-  return (
-      React.createElement("div", {className: classNames(classes)})
-  );
-};
-
-
-
-},{"../../../../utils/getComponentClasses":439,"classnames":169,"react":363}],415:[function(require,module,exports){
-var React = require('react');
+var getComponentClasses = require('../../../utils/getComponentClasses');
 
 module.exports = React.createClass({displayName: "exports",
   propTypes: {
@@ -27818,174 +27644,133 @@ module.exports = React.createClass({displayName: "exports",
   },
 
   render: function() {
-    return require('../templates/paymentCardTemplate.jsx').call(this);
+    var propClasses = ['type', 'size'];
+    var classes = getComponentClasses('component-payment-card', propClasses, this.props);
+
+    return (
+        React.createElement("div", {className: classNames(classes)})
+    );
   }
 });
 
 
 
-},{"../templates/paymentCardTemplate.jsx":414,"react":363}],416:[function(require,module,exports){
+},{"../../../utils/getComponentClasses":416,"classnames":169,"react":363}],399:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
 
-},{"./code/index":413}],417:[function(require,module,exports){
-module.exports = require('./views/quoteView.jsx');
+},{"./code/index":397}],400:[function(require,module,exports){
+module.exports = require('./quote.jsx');
 
 
 
-},{"./views/quoteView.jsx":420}],418:[function(require,module,exports){
+},{"./quote.jsx":401}],401:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
-var getComponentClasses = require('../../../../utils/getComponentClasses');
-
-module.exports = function() {
-
-  var propClasses = ['size', 'purpose', 'type'];
-  var classes = getComponentClasses('component-quote', propClasses, this.props);
-
-  return (
-      React.createElement("blockquote", {className: classNames(classes), itemScope: true, itemType: "http://schema.org/CreativeWork"}, 
-        React.createElement("p", {itemProp: "text"}, this.props.children), 
-        React.createElement("footer", {itemProp: "author", itemScope: true, itemType: "http://schema.org/Person"}, 
-          React.createElement("span", {itemProp: "name"}, this.props.author), 
-          React.createElement("small", {itemProp: "jobTitle"}, this.props.role), 
-          (this.props.cite) ? React.createElement("cite", {itemProp: "citation"}, this.props.cite) : null
-        )
-      )
-  );
-};
-
-
-
-},{"../../../../utils/getComponentClasses":439,"classnames":169,"react":363}],419:[function(require,module,exports){
-var React = require('react');
-var classNames = require('classnames');
-var getComponentClasses = require('../../../../utils/getComponentClasses');
-
-module.exports = function() {
-
-  var propClasses = ['size', 'purpose', 'type'];
-  var classes = getComponentClasses('component-quote', propClasses, this.props);
-
-  return (
-      React.createElement("q", {className: classNames(classes), cite: this.props.cite, itemScope: true, itemType: "http://schema.org/CreativeWork", itemProp: "text"}, 
-        this.props.children, 
-        (this.props.cite) ? React.createElement("meta", {itemProp: "citation", content: this.props.cite}) : null, 
-        React.createElement("span", {itemProp: "author", itemScope: true, itemType: "http://schema.org/Person"}, 
-          React.createElement("meta", {itemProp: "name", content: this.props.author}), 
-          React.createElement("meta", {itemProp: "jobTitle", content: this.props.role})
-        )
-      )
-  );
-};
-
-
-
-},{"../../../../utils/getComponentClasses":439,"classnames":169,"react":363}],420:[function(require,module,exports){
-var React = require('react');
+var getComponentClasses = require('../../../utils/getComponentClasses');
 
 module.exports = React.createClass({displayName: "exports",
 
   propTypes: {
-    purpose: React.PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
-    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large']),
+    author: React.PropTypes.string,
+    children: React.PropTypes.node,
+    cite: React.PropTypes.string,
     orientation: React.PropTypes.oneOf(['default', 'horizontal', 'vertical']),
+    purpose: React.PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
+    role: React.PropTypes.string,
+    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large']),
     type: React.PropTypes.oneOf(['block', 'inline'])
   },
 
   render: function() {
+    var propClasses = ['size', 'purpose', 'type'];
+    var classes = getComponentClasses('component-quote', propClasses, this.props);
     if(this.props.type === 'inline') {
-      return require('../templates/quoteTemplate.jsx').call(this);
+      return (
+        React.createElement("q", {className: classNames(classes), cite: this.props.cite, itemScope: true, itemType: "http://schema.org/CreativeWork", itemProp: "text"}, 
+          this.props.children, 
+          (this.props.cite) ? React.createElement("meta", {itemProp: "citation", content: this.props.cite}) : null, 
+          React.createElement("span", {itemProp: "author", itemScope: true, itemType: "http://schema.org/Person"}, 
+            React.createElement("meta", {itemProp: "name", content: this.props.author}), 
+            React.createElement("meta", {itemProp: "jobTitle", content: this.props.role})
+          )
+        )
+      );
     }
-    return require('../templates/blockQuoteTemplate.jsx').call(this);
+    return (
+        React.createElement("blockquote", {className: classNames(classes), itemScope: true, itemType: "http://schema.org/CreativeWork"}, 
+          React.createElement("p", {itemProp: "text"}, this.props.children), 
+          React.createElement("footer", {itemProp: "author", itemScope: true, itemType: "http://schema.org/Person"}, 
+            React.createElement("span", {itemProp: "name"}, this.props.author), 
+            React.createElement("small", {itemProp: "jobTitle"}, this.props.role), 
+            (this.props.cite) ? React.createElement("cite", {itemProp: "citation"}, this.props.cite) : null
+          )
+        )
+    );
   }
 });
 
 
 
 
-},{"../templates/blockQuoteTemplate.jsx":418,"../templates/quoteTemplate.jsx":419,"react":363}],421:[function(require,module,exports){
+},{"../../../utils/getComponentClasses":416,"classnames":169,"react":363}],402:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
 
-},{"./code/index":417}],422:[function(require,module,exports){
-module.exports = require('./views/ratingView.jsx');
+},{"./code/index":400}],403:[function(require,module,exports){
+module.exports = require('./rating.jsx');
 
 
 
-},{"./views/ratingView.jsx":424}],423:[function(require,module,exports){
-var React = require('react');
-
-module.exports = function(props) {
-
-  var $rating = [];
-  var $blankRating = [];
-
-  for(var i = 0; i < props.rating; i++) {
-    $rating.push( props.children ? props.children : React.createElement("span", {className: "rating-icon"}) );
-  }
-
-  if(props.outOf && props.blankIcon){
-    for(var j = 0; j < ( props.outOf - props.rating ); j++) {
-      $blankRating.push( props.blankIcon );
-    }
-  }
-
-  return (
-    React.createElement("div", {className: "ui-component-rating"}, 
-      $rating, 
-      $blankRating
-    )
-  );
-};
-
-
-
-},{"react":363}],424:[function(require,module,exports){
+},{"./rating.jsx":404}],404:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
   propTypes: {
-    rating: React.PropTypes.number.isRequired,
+    blankIcon: React.PropTypes.node,
+    children: React.PropTypes.node,
     outOf: React.PropTypes.number,
-    blankIcon: React.PropTypes.node
+    rating: React.PropTypes.number.isRequired
   },
 
   render: function() {
-    return require('../templates/ratingTemplate.jsx')(this.props);
+    var $rating = [];
+    var $blankRating = [];
+
+    for(var i = 0; i < this.props.rating; i++) {
+      $rating.push( this.props.children ? this.props.children : React.createElement("span", {className: "rating-icon"}) );
+    }
+
+    if(this.props.outOf && this.props.blankIcon){
+      for(var j = 0; j < ( this.props.outOf - this.props.rating ); j++) {
+        $blankRating.push( this.props.blankIcon );
+      }
+    }
+
+    return (
+      React.createElement("div", {className: "ui-component-rating"}, 
+        $rating, 
+        $blankRating
+      )
+    );
   }
 });
 
 
 
-},{"../templates/ratingTemplate.jsx":423,"react":363}],425:[function(require,module,exports){
+},{"react":363}],405:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
 
-},{"./code/index":422}],426:[function(require,module,exports){
-module.exports = require('./views/reviewsView.jsx');
+},{"./code/index":403}],406:[function(require,module,exports){
+module.exports = require('./reviews.jsx');
 
 
 
-},{"./views/reviewsView.jsx":428}],427:[function(require,module,exports){
-var React = require('react');
-
-module.exports = function(props) {
-  return (
-    React.createElement("div", {itemProp: "aggregateRating", itemScope: true, itemType: "http://schema.org/AggregateRating", className: "ui-component-reviews"}, 
-      React.createElement("meta", {itemProp: "bestRating", content: "100"}), 
-      React.createElement("div", null, React.createElement("span", {itemProp: "ratingValue"},  props.reviewPercentage), "% would book again"), 
-      React.createElement("div", null, React.createElement("span", {itemProp: "reviewCount"}, "(",  props.reviewCount), " ", React.createElement("a", {title: "Customer reviews"}, "Reviews"), ")")
-    )
-  );
-};
-
-
-
-},{"react":363}],428:[function(require,module,exports){
+},{"./reviews.jsx":407}],407:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -27993,46 +27778,37 @@ module.exports = React.createClass({displayName: "exports",
     reviewPercentage: React.PropTypes.number.isRequired,
     reviewCount: React.PropTypes.number.isRequired
   },
+
   render: function() {
-    return require('../templates/reviewsTemplate.jsx')(this.props);
+    return (
+      React.createElement("div", {itemProp: "aggregateRating", itemScope: true, itemType: "http://schema.org/AggregateRating", className: "ui-component-reviews"}, 
+        React.createElement("meta", {itemProp: "bestRating", content: "100"}), 
+        React.createElement("div", null, React.createElement("span", {itemProp: "ratingValue"},  this.props.reviewPercentage), "% would book again"), 
+        React.createElement("div", null, React.createElement("span", {itemProp: "reviewCount"}, "(",  this.props.reviewCount), " ", React.createElement("a", {title: "Customer reviews"}, "Reviews"), ")")
+      )
+    );
   }
 });
 
 
 
-},{"../templates/reviewsTemplate.jsx":427,"react":363}],429:[function(require,module,exports){
+},{"react":363}],408:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
 
-},{"./code/index":426}],430:[function(require,module,exports){
-module.exports = require('./views/tileView.jsx');
+},{"./code/index":406}],409:[function(require,module,exports){
+module.exports = require('./tile.jsx');
 
 
 
-},{"./views/tileView.jsx":432}],431:[function(require,module,exports){
+},{"./tile.jsx":410}],410:[function(require,module,exports){
 var React = require('react');
-var ImageComponent = require('../../../image');
-
-module.exports = function(props) {
-  return (
-    React.createElement("div", {className: "component-tile"}, 
-      React.createElement(ImageComponent, React.__spread({},  props.image)), 
-      React.createElement("div", {className: "caption"}, 
-        React.createElement("h4", null, props.title), 
-        props.children
-      )
-    )
-  );
-};
-
-
-
-},{"../../../image":400,"react":363}],432:[function(require,module,exports){
-var React = require('react');
+var ImageComponent = require('../../image');
 
 module.exports = React.createClass({displayName: "exports",
   propTypes: {
+    children: React.PropTypes.node,
     image: React.PropTypes.object.isRequired,
     title: React.PropTypes.string.isRequired
   },
@@ -28042,79 +27818,79 @@ module.exports = React.createClass({displayName: "exports",
   },
 
   render: function() {
-    return require('../templates/tileTemplate.jsx')(this.props);
+    return (
+      React.createElement("div", {className: "component-tile"}, 
+        React.createElement(ImageComponent, React.__spread({},  this.props.image)), 
+        React.createElement("div", {className: "caption"}, 
+          React.createElement("h4", null, this.props.title), 
+          this.props.children
+        )
+      )
+    );
   }
 });
 
 
 
-},{"../templates/tileTemplate.jsx":431,"react":363}],433:[function(require,module,exports){
+},{"../../image":390,"react":363}],411:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
 
-},{"./code/index":430}],434:[function(require,module,exports){
-module.exports = require('./views/weatherView.jsx');
+},{"./code/index":409}],412:[function(require,module,exports){
+module.exports = require('./weather.jsx');
 
 
 
-},{"./views/weatherView.jsx":436}],435:[function(require,module,exports){
+},{"./weather.jsx":413}],413:[function(require,module,exports){
 var moment = require('moment');
 var React = require('react');
 
-module.exports = function() {
-
-  var expectedFormat = ['YYYY-MM-DD', 'YYYY-MM-DDTHH:mm'];
-  var displayFormat = this.props.format || 'ddd';
-  var date = this.props.date;
-  var unit = this.props.unit;
-  if(this.props.unit !== 'K') {
-    unit = '°' + unit;
-  }
-
-  var unitNames = {
-    'C': 'Degrees Celsuis',
-    'F': 'Degrees Farenheit',
-    'K': 'Kelvin',
-    'R': 'Degrees Rankine'
-  };
-  var unitName = unitNames[this.props.unit];
-
-  return (
-    React.createElement("div", {className: "component-weather"}, 
-      React.createElement("div", {className: this.props.type}, React.createElement("span", null, this.props.type)), 
-      (this.props.temperature) ? React.createElement("div", null, this.props.temperature, React.createElement("abbr", {title: unitName}, unit)) : null, 
-      (this.props.date) ? React.createElement("div", null, moment(date, expectedFormat, true).format(displayFormat)) : null
-    )
-  );
-};
-
-
-
-},{"moment":188,"react":363}],436:[function(require,module,exports){
-var React = require('react');
 module.exports = React.createClass({displayName: "exports",
 
   propTypes: {
-    type: React.PropTypes.oneOf(['cloudy', 'fog', 'hail', 'heavy-rain', 'heavy-snow', 'light-rain', 'light-snow', 'night-clear', 'night-partly-cloudy', 'partly-cloudy', 'storm', 'sunny', 'windy']).isRequired,
-    temperature: React.PropTypes.number,
     date: React.PropTypes.string,
+    format: React.PropTypes.string,
+    temperature: React.PropTypes.number,
+    type: React.PropTypes.oneOf(['cloudy', 'fog', 'hail', 'heavy-rain', 'heavy-snow', 'light-rain', 'light-snow', 'night-clear', 'night-partly-cloudy', 'partly-cloudy', 'storm', 'sunny', 'windy']).isRequired,
     unit: React.PropTypes.oneOf(['C', 'F', 'K', 'R'])
   },
 
   render: function() {
-    return require('../templates/weatherTemplate.jsx').call(this);
+    var expectedFormat = ['YYYY-MM-DD', 'YYYY-MM-DDTHH:mm'];
+    var displayFormat = this.props.format || 'ddd';
+    var date = this.props.date;
+    var unit = this.props.unit;
+    if(this.props.unit !== 'K') {
+      unit = '°' + unit;
+    }
+
+    var unitNames = {
+      'C': 'Degrees Celsuis',
+      'F': 'Degrees Farenheit',
+      'K': 'Kelvin',
+      'R': 'Degrees Rankine'
+    };
+    var unitName = unitNames[this.props.unit];
+
+    return (
+      React.createElement("div", {className: "component-weather"}, 
+        React.createElement("div", {className: this.props.type}, React.createElement("span", null, this.props.type)), 
+        (this.props.temperature) ? React.createElement("div", null, this.props.temperature, React.createElement("abbr", {title: unitName}, unit)) : null, 
+        (this.props.date) ? React.createElement("div", null, moment(date, expectedFormat, true).format(displayFormat)) : null
+      )
+    );
   }
 });
 
 
 
-},{"../templates/weatherTemplate.jsx":435,"react":363}],437:[function(require,module,exports){
+},{"moment":188,"react":363}],414:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
 
-},{"./code/index":434}],438:[function(require,module,exports){
+},{"./code/index":412}],415:[function(require,module,exports){
 var UIToolkit = {};
 
 // Custom Components
@@ -28127,7 +27903,6 @@ UIToolkit.IconList = require('./components/icon-list');
 UIToolkit.IconListItem = require('./components/icon-list-item');
 UIToolkit.Image = require('./components/image');
 UIToolkit.Input = require('./components/input');
-UIToolkit.JustifiedContainer = require('./components/justified-container');
 UIToolkit.Lozenge = require('./components/lozenge');
 UIToolkit.PaymentCard = require('./components/payment-card');
 UIToolkit.Quote = require('./components/quote');
@@ -28140,7 +27915,7 @@ module.exports = UIToolkit;
 
 
 
-},{"./components/alert":368,"./components/anchor":372,"./components/button":377,"./components/countdown":383,"./components/flag":387,"./components/icon-list":395,"./components/icon-list-item":391,"./components/image":400,"./components/input":404,"./components/justified-container":408,"./components/lozenge":412,"./components/payment-card":416,"./components/quote":421,"./components/rating":425,"./components/reviews":429,"./components/tile":433,"./components/weather":437}],439:[function(require,module,exports){
+},{"./components/alert":367,"./components/anchor":370,"./components/button":373,"./components/countdown":378,"./components/flag":381,"./components/icon-list":387,"./components/icon-list-item":384,"./components/image":390,"./components/input":393,"./components/lozenge":396,"./components/payment-card":399,"./components/quote":402,"./components/rating":405,"./components/reviews":408,"./components/tile":411,"./components/weather":414}],416:[function(require,module,exports){
 var _ = {
   values: require('lodash.values'),
   pick: require('lodash.pick')

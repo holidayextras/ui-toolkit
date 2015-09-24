@@ -1,1 +1,1 @@
-module.exports = require('./views/quoteView.jsx');
+module.exports = require('./quote.jsx');

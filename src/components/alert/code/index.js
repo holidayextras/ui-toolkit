@@ -1,1 +1,1 @@
-module.exports = require('./views/alertView.jsx');
+module.exports = require('./alert.jsx');

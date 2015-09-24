@@ -1,1 +1,1 @@
-module.exports = require('./views/tileView.jsx');
+module.exports = require('./tile.jsx');

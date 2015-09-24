@@ -1,7 +1,7 @@
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 var assert = require('chai').assert;
-var ImageComponent = require('../code/views/imageView.jsx');
+var ImageComponent = require('../code/image.jsx');
 var sinon = require('sinon');
 
 describe('ImageComponent', function() {

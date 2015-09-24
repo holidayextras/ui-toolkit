@@ -1,1 +1,1 @@
-module.exports = require('./views/LozengeComponentView.jsx');
+module.exports = require('./lozenge.jsx');

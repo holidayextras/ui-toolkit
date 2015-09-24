@@ -1,1 +1,1 @@
-module.exports = require('./views/paymentCardView.jsx');
+module.exports = require('./paymentCard.jsx');
