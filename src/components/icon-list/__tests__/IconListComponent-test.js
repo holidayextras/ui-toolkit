@@ -1,7 +1,7 @@
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 var assert = require('chai').assert;
-var IconList = require('../code/IconList.jsx');
+var IconList = require('../code/iconList.jsx');
 var IconListItem = require('../../icon-list-item/code/iconListItem.jsx');
 
 describe('IconListComponent ', function() {
