@@ -1,1 +1,1 @@
-module.exports = require('./views/flagView.jsx');
+module.exports = require('./flag.jsx');

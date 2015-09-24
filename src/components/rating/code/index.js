@@ -1,1 +1,1 @@
-module.exports = require('./views/ratingView.jsx');
+module.exports = require('./rating.jsx');

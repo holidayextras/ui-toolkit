@@ -1,7 +1,7 @@
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 var assert = require('chai').assert;
-var FlagComponent = require('../code/views/flagView.jsx');
+var FlagComponent = require('../code/flag.jsx');
 
 describe('FlagComponent', function() {
 

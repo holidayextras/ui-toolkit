@@ -1,1 +1,1 @@
-module.exports = require('./views/anchorView.jsx');
+module.exports = require('./anchor.jsx');

@@ -1,1 +1,1 @@
-module.exports = require('./views/inputView.jsx');
+module.exports = require('./input.jsx');
