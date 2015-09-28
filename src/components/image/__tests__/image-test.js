@@ -94,7 +94,7 @@ describe('ImageComponent', function() {
       assert.equal(imageDOMNode.getAttribute('srcset'), '2000w.jpg 2000w, 1500w.jpg 1500w, 1000w.jpg 1000w, 500w.jpg 500w');
     });
 
-    it('should render a sepcified start image size', function() {
+    it('should render a specified start image size', function() {
       assert.equal(imageDOMNode.getAttribute('sizes'), '100vw');
     });
 

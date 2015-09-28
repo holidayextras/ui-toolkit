@@ -69,7 +69,7 @@ var Components = React.createClass({
 
           <article id="image">
             <h3>Image</h3>
-            <p>A standard Image Component which is set at 100% width by default to ensure the image works resposively.</p>
+            <p>A standard Image Component which is set at 100% width by default to ensure the image works responsively.</p>
             <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Image.jsx', 'utf8')} />
             <h4>Responsive Image</h4>
             <p>This component also utilises the <code>srcset</code> attribute, which helps if you are implementing responsive images (different images in HTML for different situations) and all you are doing is switching between different versions of the same image (the vast majority of usage). Historically for high resolution (2x) desktop screens we often use high-res, large dimension images. For smaller screens this means downloading a large file when not necessary. For more information visit <a href="https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/" title="CSS Tricks guide to srcset">CSS Tricks</a>.</p>
