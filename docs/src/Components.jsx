@@ -136,7 +136,7 @@ var Components = React.createClass({
         <article id="lists">
           <h3>Lists</h3>
           <h4>Icon list</h4>
-          <p>An unordered list that uses <a href="http://fortawesome.github.io/Font-Awesome/icons/">Font Awesome</a> for the bullets</p>
+          <p>An unordered list that uses <a href="http://fortawesome.github.io/Font-Awesome/icons/">Font Awesome</a> for the bullets. UI Toolkit doesn't load FontAwesome in by default, please include this yourself by following the steps on <a href="https://fortawesome.github.io/Font-Awesome/get-started/" title="Font Awesome">Font Awesome - Getting Started</a>.</p>
           <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/IconList.jsx', 'utf8')} />
           <h4>Attributes (for ListGroupItem)</h4>
           <ul>
