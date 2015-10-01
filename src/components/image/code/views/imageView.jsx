@@ -9,7 +9,9 @@ module.exports = React.createClass({
     src: React.PropTypes.string.isRequired,
     alt: React.PropTypes.string.isRequired,
     handleClick: React.PropTypes.func,
-    href: React.PropTypes.string
+    href: React.PropTypes.string,
+    srcset: React.PropTypes.string,
+    sizes: React.PropTypes.string
   },
 
   render: function() {

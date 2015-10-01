@@ -20,8 +20,8 @@ module.exports = function() {
   var unitName = unitNames[this.props.unit];
 
   return (
-    <div className="component-weather" itemScope itemType="http://schema.org/QuantitativeValue">
-      <div className={this.props.type}>{this.props.type}</div>
+    <div className="component-weather">
+      <div className={this.props.type}><span>{this.props.type}</span></div>
       {(this.props.temperature) ? <div>{this.props.temperature}<abbr title={unitName}>{unit}</abbr></div> : null}
       {(this.props.date) ? <div>{moment(date, expectedFormat, true).format(displayFormat)}</div> : null}
     </div>
