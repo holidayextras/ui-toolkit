@@ -1,0 +1,1205 @@
+/*------------------------------------*\
+    #UI-Toolkit
+\*------------------------------------*/
+/*------------------------------------*\
+    #Quote
+\*------------------------------------*/
+.component-alert {
+  padding: 1em;
+  border-radius: 0.25em;
+  overflow: hidden;
+  position: relative;
+}
+.component-alert + .component-alert {
+  margin-top: 0.5em;
+}
+.component-alert .alert-header {
+  margin-top: 0;
+}
+.component-alert p:last-of-type {
+  margin: 0;
+}
+.component-alert {
+  color: #949494;
+  background-color: #ffffff;
+  border: #e1e1e1 solid 1px;
+}
+.component-alert.default {
+  color: #949494;
+  background-color: #ffffff;
+  border: #e1e1e1 solid 1px;
+}
+.component-alert.primary {
+  color: #3d1452;
+  background-color: #d6adeb;
+  border: #9933cc solid 1px;
+}
+.component-alert.secondary {
+  color: #002e42;
+  background-color: #75d5ff;
+  border: #0099db solid 1px;
+}
+.component-alert.success {
+  color: #324415;
+  background-color: #cde4a7;
+  border: #88ba38 solid 1px;
+}
+.component-alert.info {
+  color: #1b7385;
+  background-color: #daf2f8;
+  border: #5bc7de solid 1px;
+}
+.component-alert.warning {
+  color: #985f0d;
+  background-color: #fceedb;
+  border: #f0ad4e solid 1px;
+}
+.component-alert.danger {
+  color: #56110f;
+  background-color: #f0a9a7;
+  border: #d82b26 solid 1px;
+}
+/*------------------------------------*\
+    #Button
+\*------------------------------------*/
+.component-button {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid #d4d4d4;
+  white-space: nowrap;
+  padding: 0.5em 1em;
+  border-radius: 0.25em;
+  text-decoration: none;
+}
+.component-button:focus,
+.component-button:active:focus,
+.component-button.active:focus,
+.component-button.focus,
+.component-button:active.focus,
+.component-button.active.focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.component-button:hover,
+.component-button:focus,
+.component-button.focus {
+  color: #e1e1e1;
+  text-decoration: none;
+}
+.component-button:active,
+.component-button.active {
+  background-image: none;
+}
+.component-button.disabled,
+.component-button[disabled] {
+  pointer-events: none;
+  opacity: .65;
+}
+.component-button.block {
+  display: block;
+  width: 100%;
+}
+.component-button {
+  background-color: #e1e1e1;
+  border-color: #d4d4d4;
+  color: #414141;
+}
+.component-button:hover,
+.component-button:focus,
+.component-button.focus,
+.component-button:active,
+.component-button.active {
+  background-color: #c8c8c8;
+  border-color: #b6b6b6;
+  color: #414141;
+}
+.component-button:active,
+.component-button.active,
+.component-button.disabled,
+.component-button[disabled],
+.component-button:active:hover,
+.component-button.active:hover,
+.component-button.disabled:hover,
+.component-button[disabled]:hover,
+.component-button:active:focus,
+.component-button.active:focus,
+.component-button.disabled:focus,
+.component-button[disabled]:focus,
+.component-button:active.focus,
+.component-button.active.focus,
+.component-button.disabled.focus,
+.component-button[disabled].focus,
+.component-button:active:active,
+.component-button.active:active,
+.component-button.disabled:active,
+.component-button[disabled]:active,
+.component-button:active.active,
+.component-button.active.active,
+.component-button.disabled.active,
+.component-button[disabled].active {
+  background-color: #e1e1e1;
+  border-color: #d4d4d4;
+}
+.component-button.default {
+  background-color: #e1e1e1;
+  border-color: #d4d4d4;
+  color: #414141;
+}
+.component-button.default:hover,
+.component-button.default:focus,
+.component-button.default.focus,
+.component-button.default:active,
+.component-button.default.active {
+  background-color: #c8c8c8;
+  border-color: #b6b6b6;
+  color: #414141;
+}
+.component-button.default:active,
+.component-button.default.active,
+.component-button.default.disabled,
+.component-button.default[disabled],
+.component-button.default:active:hover,
+.component-button.default.active:hover,
+.component-button.default.disabled:hover,
+.component-button.default[disabled]:hover,
+.component-button.default:active:focus,
+.component-button.default.active:focus,
+.component-button.default.disabled:focus,
+.component-button.default[disabled]:focus,
+.component-button.default:active.focus,
+.component-button.default.active.focus,
+.component-button.default.disabled.focus,
+.component-button.default[disabled].focus,
+.component-button.default:active:active,
+.component-button.default.active:active,
+.component-button.default.disabled:active,
+.component-button.default[disabled]:active,
+.component-button.default:active.active,
+.component-button.default.active.active,
+.component-button.default.disabled.active,
+.component-button.default[disabled].active {
+  background-color: #e1e1e1;
+  border-color: #d4d4d4;
+}
+.component-button.primary {
+  background-color: #9933cc;
+  border-color: #8a2eb8;
+  color: #ffffff;
+}
+.component-button.primary:hover,
+.component-button.primary:focus,
+.component-button.primary.focus,
+.component-button.primary:active,
+.component-button.primary.active {
+  background-color: #7a29a3;
+  border-color: #652287;
+  color: #ffffff;
+}
+.component-button.primary:active,
+.component-button.primary.active,
+.component-button.primary.disabled,
+.component-button.primary[disabled],
+.component-button.primary:active:hover,
+.component-button.primary.active:hover,
+.component-button.primary.disabled:hover,
+.component-button.primary[disabled]:hover,
+.component-button.primary:active:focus,
+.component-button.primary.active:focus,
+.component-button.primary.disabled:focus,
+.component-button.primary[disabled]:focus,
+.component-button.primary:active.focus,
+.component-button.primary.active.focus,
+.component-button.primary.disabled.focus,
+.component-button.primary[disabled].focus,
+.component-button.primary:active:active,
+.component-button.primary.active:active,
+.component-button.primary.disabled:active,
+.component-button.primary[disabled]:active,
+.component-button.primary:active.active,
+.component-button.primary.active.active,
+.component-button.primary.disabled.active,
+.component-button.primary[disabled].active {
+  background-color: #9933cc;
+  border-color: #8a2eb8;
+}
+.component-button.secondary {
+  background-color: #0099db;
+  border-color: #0087c2;
+  color: #ffffff;
+}
+.component-button.secondary:hover,
+.component-button.secondary:focus,
+.component-button.secondary.focus,
+.component-button.secondary:active,
+.component-button.secondary.active {
+  background-color: #0075a8;
+  border-color: #005c84;
+  color: #ffffff;
+}
+.component-button.secondary:active,
+.component-button.secondary.active,
+.component-button.secondary.disabled,
+.component-button.secondary[disabled],
+.component-button.secondary:active:hover,
+.component-button.secondary.active:hover,
+.component-button.secondary.disabled:hover,
+.component-button.secondary[disabled]:hover,
+.component-button.secondary:active:focus,
+.component-button.secondary.active:focus,
+.component-button.secondary.disabled:focus,
+.component-button.secondary[disabled]:focus,
+.component-button.secondary:active.focus,
+.component-button.secondary.active.focus,
+.component-button.secondary.disabled.focus,
+.component-button.secondary[disabled].focus,
+.component-button.secondary:active:active,
+.component-button.secondary.active:active,
+.component-button.secondary.disabled:active,
+.component-button.secondary[disabled]:active,
+.component-button.secondary:active.active,
+.component-button.secondary.active.active,
+.component-button.secondary.disabled.active,
+.component-button.secondary[disabled].active {
+  background-color: #0099db;
+  border-color: #0087c2;
+}
+.component-button.success {
+  background-color: #88ba38;
+  border-color: #7aa632;
+  color: #ffffff;
+}
+.component-button.success:hover,
+.component-button.success:focus,
+.component-button.success.focus,
+.component-button.success:active,
+.component-button.success.active {
+  background-color: #6b932c;
+  border-color: #577724;
+  color: #ffffff;
+}
+.component-button.success:active,
+.component-button.success.active,
+.component-button.success.disabled,
+.component-button.success[disabled],
+.component-button.success:active:hover,
+.component-button.success.active:hover,
+.component-button.success.disabled:hover,
+.component-button.success[disabled]:hover,
+.component-button.success:active:focus,
+.component-button.success.active:focus,
+.component-button.success.disabled:focus,
+.component-button.success[disabled]:focus,
+.component-button.success:active.focus,
+.component-button.success.active.focus,
+.component-button.success.disabled.focus,
+.component-button.success[disabled].focus,
+.component-button.success:active:active,
+.component-button.success.active:active,
+.component-button.success.disabled:active,
+.component-button.success[disabled]:active,
+.component-button.success:active.active,
+.component-button.success.active.active,
+.component-button.success.disabled.active,
+.component-button.success[disabled].active {
+  background-color: #88ba38;
+  border-color: #7aa632;
+}
+.component-button.info {
+  background-color: #5bc7de;
+  border-color: #46c0da;
+  color: #ffffff;
+}
+.component-button.info:hover,
+.component-button.info:focus,
+.component-button.info.focus,
+.component-button.info:active,
+.component-button.info.active {
+  background-color: #31b9d5;
+  border-color: #26a2bc;
+  color: #ffffff;
+}
+.component-button.info:active,
+.component-button.info.active,
+.component-button.info.disabled,
+.component-button.info[disabled],
+.component-button.info:active:hover,
+.component-button.info.active:hover,
+.component-button.info.disabled:hover,
+.component-button.info[disabled]:hover,
+.component-button.info:active:focus,
+.component-button.info.active:focus,
+.component-button.info.disabled:focus,
+.component-button.info[disabled]:focus,
+.component-button.info:active.focus,
+.component-button.info.active.focus,
+.component-button.info.disabled.focus,
+.component-button.info[disabled].focus,
+.component-button.info:active:active,
+.component-button.info.active:active,
+.component-button.info.disabled:active,
+.component-button.info[disabled]:active,
+.component-button.info:active.active,
+.component-button.info.active.active,
+.component-button.info.disabled.active,
+.component-button.info[disabled].active {
+  background-color: #5bc7de;
+  border-color: #46c0da;
+}
+.component-button.warning {
+  background-color: #f0ad4e;
+  border-color: #eea236;
+  color: #ffffff;
+}
+.component-button.warning:hover,
+.component-button.warning:focus,
+.component-button.warning.focus,
+.component-button.warning:active,
+.component-button.warning.active {
+  background-color: #ec971f;
+  border-color: #d58512;
+  color: #ffffff;
+}
+.component-button.warning:active,
+.component-button.warning.active,
+.component-button.warning.disabled,
+.component-button.warning[disabled],
+.component-button.warning:active:hover,
+.component-button.warning.active:hover,
+.component-button.warning.disabled:hover,
+.component-button.warning[disabled]:hover,
+.component-button.warning:active:focus,
+.component-button.warning.active:focus,
+.component-button.warning.disabled:focus,
+.component-button.warning[disabled]:focus,
+.component-button.warning:active.focus,
+.component-button.warning.active.focus,
+.component-button.warning.disabled.focus,
+.component-button.warning[disabled].focus,
+.component-button.warning:active:active,
+.component-button.warning.active:active,
+.component-button.warning.disabled:active,
+.component-button.warning[disabled]:active,
+.component-button.warning:active.active,
+.component-button.warning.active.active,
+.component-button.warning.disabled.active,
+.component-button.warning[disabled].active {
+  background-color: #f0ad4e;
+  border-color: #eea236;
+}
+.component-button.danger {
+  background-color: #d82b26;
+  border-color: #c22722;
+  color: #ffffff;
+}
+.component-button.danger:hover,
+.component-button.danger:focus,
+.component-button.danger.focus,
+.component-button.danger:active,
+.component-button.danger.active {
+  background-color: #ad221e;
+  border-color: #8e1c19;
+  color: #ffffff;
+}
+.component-button.danger:active,
+.component-button.danger.active,
+.component-button.danger.disabled,
+.component-button.danger[disabled],
+.component-button.danger:active:hover,
+.component-button.danger.active:hover,
+.component-button.danger.disabled:hover,
+.component-button.danger[disabled]:hover,
+.component-button.danger:active:focus,
+.component-button.danger.active:focus,
+.component-button.danger.disabled:focus,
+.component-button.danger[disabled]:focus,
+.component-button.danger:active.focus,
+.component-button.danger.active.focus,
+.component-button.danger.disabled.focus,
+.component-button.danger[disabled].focus,
+.component-button.danger:active:active,
+.component-button.danger.active:active,
+.component-button.danger.disabled:active,
+.component-button.danger[disabled]:active,
+.component-button.danger:active.active,
+.component-button.danger.active.active,
+.component-button.danger.disabled.active,
+.component-button.danger[disabled].active {
+  background-color: #d82b26;
+  border-color: #c22722;
+}
+/*------------------------------------*\
+    #Countdown
+\*------------------------------------*/
+/*------------------------------------*\
+    #Flag
+\*------------------------------------*/
+.component-flag {
+  background: #e1e1e1;
+  border-color: #e1e1e1;
+  display: inline-block;
+  line-height: 1em;
+  padding: 0.25em 1em;
+  position: relative;
+  margin: 0.5em 1em;
+}
+.component-flag:after,
+.component-flag:before {
+  content: "";
+  display: block;
+  top: 1.5em;
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-width: .75em .5em;
+  border-style: solid;
+  border-color: #d4d4d4;
+  z-index: -1;
+}
+.component-flag:after {
+  top: .25em;
+  right: 0;
+  margin-right: -0.75em;
+  border-right-color: transparent;
+}
+.component-flag:before {
+  top: .25em;
+  left: 0;
+  margin-left: -0.75em;
+  border-left-color: transparent;
+}
+.component-flag {
+  color: #414141;
+  background-color: #e1e1e1;
+  border: #e1e1e1;
+}
+.component-flag:after {
+  border-color: #d4d4d4;
+  border-right-color: transparent;
+}
+.component-flag:before {
+  border-color: #d4d4d4;
+  border-left-color: transparent;
+}
+.component-flag.default {
+  color: #414141;
+  background-color: #e1e1e1;
+  border: #e1e1e1;
+}
+.component-flag.default:after {
+  border-color: #d4d4d4;
+  border-right-color: transparent;
+}
+.component-flag.default:before {
+  border-color: #d4d4d4;
+  border-left-color: transparent;
+}
+.component-flag.primary {
+  color: #ffffff;
+  background-color: #9933cc;
+  border: #9933cc;
+}
+.component-flag.primary:after {
+  border-color: #8a2eb8;
+  border-right-color: transparent;
+}
+.component-flag.primary:before {
+  border-color: #8a2eb8;
+  border-left-color: transparent;
+}
+.component-flag.secondary {
+  color: #ffffff;
+  background-color: #0099db;
+  border: #0099db;
+}
+.component-flag.secondary:after {
+  border-color: #0087c2;
+  border-right-color: transparent;
+}
+.component-flag.secondary:before {
+  border-color: #0087c2;
+  border-left-color: transparent;
+}
+.component-flag.success {
+  color: #ffffff;
+  background-color: #88ba38;
+  border: #88ba38;
+}
+.component-flag.success:after {
+  border-color: #7aa632;
+  border-right-color: transparent;
+}
+.component-flag.success:before {
+  border-color: #7aa632;
+  border-left-color: transparent;
+}
+.component-flag.info {
+  color: #ffffff;
+  background-color: #5bc7de;
+  border: #5bc7de;
+}
+.component-flag.info:after {
+  border-color: #46c0da;
+  border-right-color: transparent;
+}
+.component-flag.info:before {
+  border-color: #46c0da;
+  border-left-color: transparent;
+}
+.component-flag.warning {
+  color: #ffffff;
+  background-color: #f0ad4e;
+  border: #f0ad4e;
+}
+.component-flag.warning:after {
+  border-color: #eea236;
+  border-right-color: transparent;
+}
+.component-flag.warning:before {
+  border-color: #eea236;
+  border-left-color: transparent;
+}
+.component-flag.danger {
+  color: #ffffff;
+  background-color: #d82b26;
+  border: #d82b26;
+}
+.component-flag.danger:after {
+  border-color: #c22722;
+  border-right-color: transparent;
+}
+.component-flag.danger:before {
+  border-color: #c22722;
+  border-left-color: transparent;
+}
+.component-flag .position-variant {
+  position: absolute;
+  top: 0;
+  bottom: auto;
+}
+.component-flag .flag-wrap {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  z-index: -1;
+  border-width: .25em;
+  top: 1.5em;
+}
+.component-flag .flag-end {
+  top: 0;
+  z-index: 0;
+  border-color: inherit;
+}
+.component-flag.right {
+  position: absolute;
+  top: 0;
+  bottom: auto;
+  right: 0;
+  margin-right: -0.5em;
+}
+.component-flag.right:after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  z-index: -1;
+  border-width: .25em;
+  top: 1.5em;
+  right: 0;
+  margin-top: -1px;
+  margin-right: 0;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+}
+.component-flag.right:before {
+  top: 0;
+  z-index: 0;
+  border-color: inherit;
+  border-left-color: transparent;
+}
+.component-flag.left {
+  position: absolute;
+  top: 0;
+  bottom: auto;
+  left: 0;
+  margin-left: -0.5em;
+}
+.component-flag.left:before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  z-index: -1;
+  border-width: .25em;
+  top: 1.5em;
+  left: 0;
+  margin-top: -1px;
+  margin-left: 0;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+}
+.component-flag.left:after {
+  top: 0;
+  z-index: 0;
+  border-color: inherit;
+  border-right-color: transparent;
+}
+.component-flag.bottom {
+  top: auto;
+  bottom: 0;
+}
+/*------------------------------------*\
+    # Icon list
+\*------------------------------------*/
+.component-icon-list {
+  list-style: none;
+  padding: 0 0 0 2em;
+  margin: 0;
+}
+/*------------------------------------*\
+    # Icon list item
+\*------------------------------------*/
+.component-icon-list-item {
+  position: relative;
+  min-height: 1.61803399em;
+}
+.component-icon-list-item i {
+  position: absolute;
+  left: -2em;
+  line-height: inherit;
+}
+.component-icon-list-item.primary {
+  color: #9933cc;
+}
+.component-icon-list-item.secondary {
+  color: #0099db;
+}
+.component-icon-list-item.success {
+  color: #88ba38;
+}
+.component-icon-list-item.info {
+  color: #5bc7de;
+}
+.component-icon-list-item.warning {
+  color: #f0ad4e;
+}
+.component-icon-list-item.danger {
+  color: #d82b26;
+}
+/*------------------------------------*\
+    #Image
+\*------------------------------------*/
+img.component-image,
+.component-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+/*------------------------------------*\
+    #Input
+\*------------------------------------*/
+.component-input .component-input-label {
+  margin-bottom: 0.5em;
+  font-weight: 400;
+  display: inline-block;
+  padding: 0.5em 0;
+}
+.component-input .component-input-field {
+  background: #fafafa;
+  border: solid 1px #d4d4d4;
+  border-radius: 0.25em;
+  line-height: 1.61803399em;
+  padding: 0.5em 1em;
+  margin-left: 1em;
+  margin-bottom: 0.5em;
+}
+/*------------------------------------*\
+    #Lozenge
+\*------------------------------------*/
+.component-lozenge {
+  padding: 0.5em 0.25em;
+  border-radius: 0.25em;
+  display: inline-block;
+  font-size: 0.75em;
+  line-height: 1em;
+  text-align: center;
+}
+.component-lozenge.block {
+  display: block;
+  width: 100%;
+}
+.component-lozenge {
+  background-color: #e1e1e1;
+  color: #414141;
+}
+.component-lozenge.default {
+  background-color: #e1e1e1;
+  color: #414141;
+}
+.component-lozenge.primary {
+  background-color: #9933cc;
+  color: #ffffff;
+}
+.component-lozenge.secondary {
+  background-color: #0099db;
+  color: #ffffff;
+}
+.component-lozenge.success {
+  background-color: #88ba38;
+  color: #ffffff;
+}
+.component-lozenge.info {
+  background-color: #5bc7de;
+  color: #ffffff;
+}
+.component-lozenge.warning {
+  background-color: #f0ad4e;
+  color: #ffffff;
+}
+.component-lozenge.danger {
+  background-color: #d82b26;
+  color: #ffffff;
+}
+/*------------------------------------*\
+    #Card
+\*------------------------------------*/
+.component-payment-card {
+  background: url('//d2r3bolva79zkl.cloudfront.net/assets/ui-toolkit/cards.png') no-repeat;
+  width: 52px;
+  height: 32px;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0;
+  margin: 0;
+  background-size: 52px auto;
+}
+.component-payment-card.amazon {
+  background-position: 0 0;
+}
+.component-payment-card.amex {
+  background-position: 0 -32px;
+}
+.component-payment-card.apple {
+  background-position: 0 -64px;
+}
+.component-payment-card.cirrus {
+  background-position: 0 -96px;
+}
+.component-payment-card.delta {
+  background-position: 0 -128px;
+}
+.component-payment-card.directdebit {
+  background-position: 0 -160px;
+}
+.component-payment-card.discover {
+  background-position: 0 -192px;
+}
+.component-payment-card.electron {
+  background-position: 0 -224px;
+}
+.component-payment-card.google {
+  background-position: 0 -256px;
+}
+.component-payment-card.maestro {
+  background-position: 0 -288px;
+}
+.component-payment-card.mastercard {
+  background-position: 0 -320px;
+}
+.component-payment-card.paym {
+  background-position: 0 -352px;
+}
+.component-payment-card.paypal {
+  background-position: 0 -384px;
+}
+.component-payment-card.sage {
+  background-position: 0 -416px;
+}
+.component-payment-card.sepa {
+  background-position: 0 -448px;
+}
+.component-payment-card.solo {
+  background-position: 0 -480px;
+}
+.component-payment-card.switch {
+  background-position: 0 -512px;
+}
+.component-payment-card.ukash {
+  background-position: 0 -544px;
+}
+.component-payment-card.visa {
+  background-position: 0 -576px;
+}
+.component-payment-card.visadebit {
+  background-position: 0 -608px;
+}
+.component-payment-card.westernunion {
+  background-position: 0 -640px;
+}
+/*------------------------------------*\
+    #Quote
+\*------------------------------------*/
+.component-quote {
+  border-left: solid 4px;
+  margin: 0;
+  padding: 1em;
+  quotes: "“" "”" "‘" "’";
+}
+.component-quote.inline {
+  border-left: none;
+  padding: 0;
+}
+.component-quote p {
+  font-style: italic;
+}
+.component-quote p:first-of-type {
+  margin-top: 0;
+}
+.component-quote p:before {
+  content: open-quote;
+}
+.component-quote p:after {
+  content: close-quote;
+}
+.component-quote small,
+.component-quote cite {
+  font-size: 0.75em;
+}
+.component-quote cite:before {
+  content: "Source: ";
+}
+.component-quote + .component-quote {
+  margin-top: 0.5em;
+}
+.component-quote.primary {
+  color: #9933cc;
+  border-color: #d6adeb;
+}
+.component-quote.primary small,
+.component-quote.primary cite {
+  color: #c285e0;
+}
+.component-quote.secondary {
+  color: #0099db;
+  border-color: #75d5ff;
+}
+.component-quote.secondary small,
+.component-quote.secondary cite {
+  color: #42c6ff;
+}
+.component-quote.success {
+  color: #88ba38;
+  border-color: #cde4a7;
+}
+.component-quote.success small,
+.component-quote.success cite {
+  color: #b6d97f;
+}
+.component-quote.info {
+  color: #5bc7de;
+  border-color: #daf2f8;
+}
+.component-quote.info small,
+.component-quote.info cite {
+  color: #b0e4ef;
+}
+.component-quote.warning {
+  color: #f0ad4e;
+  border-color: #fceedb;
+}
+.component-quote.warning small,
+.component-quote.warning cite {
+  color: #f8d9ac;
+}
+.component-quote.danger {
+  color: #d82b26;
+  border-color: #f0a9a7;
+}
+.component-quote.danger small,
+.component-quote.danger cite {
+  color: #e87f7c;
+}
+/*------------------------------------*\
+    #Tile
+\*------------------------------------*/
+.component-tile {
+  border-radius: 0.25em;
+  border: 1px solid #d4d4d4;
+}
+.component-tile .caption {
+  padding: 1em;
+}
+.component-tile img {
+  width: 100%;
+}
+/*------------------------------------*\
+    #Weather
+\*------------------------------------*/
+@font-face {
+  font-family: 'MeteoconsRegular';
+  src: url('//d2r3bolva79zkl.cloudfront.net/assets/ui-toolkit/fonts/meteocons-webfont.eot');
+  src: url('//d2r3bolva79zkl.cloudfront.net/assets/ui-toolkit/fonts/meteocons-webfont.eot?#iefix') format('embedded-opentype'), url('//d2r3bolva79zkl.cloudfront.net/assets/ui-toolkit/fonts/meteocons-webfont.woff') format('woff'), url('//d2r3bolva79zkl.cloudfront.net/assets/ui-toolkit/fonts/meteocons-webfont.ttf') format('truetype'), url('//d2r3bolva79zkl.cloudfront.net/assets/ui-toolkit/fonts/meteocons-webfont.svg#MeteoconsRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.component-weather {
+  text-align: center;
+  width: 100px;
+}
+.component-weather .cloudy {
+  padding-bottom: 0.5em;
+}
+.component-weather .cloudy:before {
+  font-family: 'MeteoconsRegular';
+  content: "N";
+  font-size: 3.5em;
+  visibility: visible;
+}
+.component-weather .cloudy span {
+  display: block;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 0;
+}
+.component-weather .fog {
+  padding-bottom: 0.5em;
+}
+.component-weather .fog:before {
+  font-family: 'MeteoconsRegular';
+  content: "M";
+  font-size: 3.5em;
+  visibility: visible;
+}
+.component-weather .fog span {
+  display: block;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 0;
+}
+.component-weather .hail {
+  padding-bottom: 0.5em;
+}
+.component-weather .hail:before {
+  font-family: 'MeteoconsRegular';
+  content: "X";
+  font-size: 3.5em;
+  visibility: visible;
+}
+.component-weather .hail span {
+  display: block;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 0;
+}
+.component-weather .heavy-rain {
+  padding-bottom: 0.5em;
+}
+.component-weather .heavy-rain:before {
+  font-family: 'MeteoconsRegular';
+  content: "R";
+  font-size: 3.5em;
+  visibility: visible;
+}
+.component-weather .heavy-rain span {
+  display: block;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 0;
+}
+.component-weather .heavy-snow {
+  padding-bottom: 0.5em;
+}
+.component-weather .heavy-snow:before {
+  font-family: 'MeteoconsRegular';
+  content: "W";
+  font-size: 3.5em;
+  visibility: visible;
+}
+.component-weather .heavy-snow span {
+  display: block;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 0;
+}
+.component-weather .light-rain {
+  padding-bottom: 0.5em;
+}
+.component-weather .light-rain:before {
+  font-family: 'MeteoconsRegular';
+  content: "Q";
+  font-size: 3.5em;
+  visibility: visible;
+}
+.component-weather .light-rain span {
+  display: block;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 0;
+}
+.component-weather .light-snow {
+  padding-bottom: 0.5em;
+}
+.component-weather .light-snow:before {
+  font-family: 'MeteoconsRegular';
+  content: "U";
+  font-size: 3.5em;
+  visibility: visible;
+}
+.component-weather .light-snow span {
+  display: block;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 0;
+}
+.component-weather .night-clear {
+  padding-bottom: 0.5em;
+}
+.component-weather .night-clear:before {
+  font-family: 'MeteoconsRegular';
+  content: "C";
+  font-size: 3.5em;
+  visibility: visible;
+}
+.component-weather .night-clear span {
+  display: block;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 0;
+}
+.component-weather .night-partly-cloudy {
+  padding-bottom: 0.5em;
+}
+.component-weather .night-partly-cloudy:before {
+  font-family: 'MeteoconsRegular';
+  content: "I";
+  font-size: 3.5em;
+  visibility: visible;
+}
+.component-weather .night-partly-cloudy span {
+  display: block;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 0;
+}
+.component-weather .partly-cloudy {
+  padding-bottom: 0.5em;
+}
+.component-weather .partly-cloudy:before {
+  font-family: 'MeteoconsRegular';
+  content: "H";
+  font-size: 3.5em;
+  visibility: visible;
+}
+.component-weather .partly-cloudy span {
+  display: block;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 0;
+}
+.component-weather .storm {
+  padding-bottom: 0.5em;
+}
+.component-weather .storm:before {
+  font-family: 'MeteoconsRegular';
+  content: "Z";
+  font-size: 3.5em;
+  visibility: visible;
+}
+.component-weather .storm span {
+  display: block;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 0;
+}
+.component-weather .sunny {
+  padding-bottom: 0.5em;
+}
+.component-weather .sunny:before {
+  font-family: 'MeteoconsRegular';
+  content: "B";
+  font-size: 3.5em;
+  visibility: visible;
+}
+.component-weather .sunny span {
+  display: block;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 0;
+}
+.component-weather .windy {
+  padding-bottom: 0.5em;
+}
+.component-weather .windy:before {
+  font-family: 'MeteoconsRegular';
+  content: "F";
+  font-size: 3.5em;
+  visibility: visible;
+}
+.component-weather .windy span {
+  display: block;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 0;
+}
+.component-weather abbr {
+  border-bottom: 0;
+}
+body {
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.61803399em;
+}
+h1,
+.h1 {
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 2.5em;
+  line-height: 1em;
+}
+h2,
+.h2 {
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.875em;
+  line-height: 1em;
+}
+h3,
+.h3 {
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.5em;
+  line-height: 1em;
+}
+h4,
+.h4 {
+  font-size: 1.25em;
+  line-height: 1em;
+}
+h5,
+.h5 {
+  font-size: 1em;
+  line-height: 1em;
+}
+h6,
+.h6 {
+  font-size: 0.875em;
+  line-height: 1em;
+  text-transform: uppercase;
+}
