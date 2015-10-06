@@ -1,0 +1,149 @@
+* {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.61em;
+  box-sizing: border-box;
+  font-size:16px;
+}
+
+h1, h2, h3, h4, h5 {
+  clear:both;
+}
+
+header {
+  background:rgb(222,75,149);
+  color:rgb(255,255,255);
+  text-align: center;
+  padding:3em;
+}
+header h1, header .lead {
+  font-weight:100;
+}
+header img {
+  margin: 0px auto;
+  display: block;
+  height: 30%;
+  width:auto;
+}
+
+/* Nav */
+nav {
+  padding:2em 1em;
+}
+nav ul {
+  list-style:none;
+}
+nav ul li a {
+  display:block;
+  padding:.5em 1em;
+  border-left:2px solid transparent;
+  text-decoration:none;
+  font-size:1em;
+}
+nav ul li a:hover {
+  border-left:2px solid rgb(222,75,149);
+  text-decoration:none;
+}
+nav ul ul li a {
+  font-size:0.85em;
+  padding: 0 2em;
+}
+
+section ul {
+  margin-left: 1.5em;
+}
+
+article {
+  clear:both;
+  overflow:hidden;
+  margin-top:2em;
+}
+
+.toolkit-example {
+  border:1px solid #e1e1e8;
+  padding: 9px 14px;
+  border-radius: 4px;
+  position:relative;
+  overflow:hidden;
+}
+.toolkit-example:before {
+  content:"Example";
+  color:#b1b1b1;
+  margin-bottom: 1em;
+  display: block;
+}
+
+.toolkit-example + .highlight {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-top: none;
+  border-radius: 0 0 0 4px;
+}
+.highlight, .highlight * {
+  background: #f6f6f6;
+}
+
+.code-toggle {
+  float: right;
+  display: inline-block;
+  position: relative;
+  top: -1px;
+  background: #ffffff;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border: 1px solid #e1e1e8;
+  border-top: none;
+  padding: 4px 8px;
+}
+
+.code-toggle.open {
+  background: #f6f6f6;
+}
+
+.CodeMirror-scroll {
+  height: auto;
+}
+
+/* Demos */
+.demo-box {
+  position:relative;
+  width:98%;
+  height:150px;
+  background:#fbfbfb;
+  border:1px solid #e1e1e8;
+  padding: 4px;
+  border-radius: 4px;
+  margin:1%;
+  float:left;
+  z-index: 1;
+}
+
+.component-button {
+  margin: .25em;
+}
+
+.component-flag {
+  margin: .25em .75em;
+}
+
+/* Quotes - Overwriting Bootstrap styling */
+blockquote footer, blockquote footer span, blockquote footer small {
+  font-size:1em;
+  color:inherit;
+}
+blockquote footer:before, blockquote footer span:before, blockquote footer small:before {
+  content:"";
+}
+
+.example-weather {
+  display: -webkit-flex;
+  display: flex;
+}

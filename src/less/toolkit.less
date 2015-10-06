@@ -3,21 +3,57 @@
 \*------------------------------------*/
 
 @import "_variables";
-@import "_input";
 
 @import "../components/alert/code/less/_alert";
 @import "../components/button/code/less/_button";
+@import "../components/countdown/code/less/_countdown";
 @import "../components/flag/code/less/_flag";
 @import "../components/icon-list/code/less/_icon-list";
 @import "../components/icon-list-item/code/less/_icon-list-item";
 @import "../components/image/code/less/_image";
-@import "../components/justified_container/code/less/_justified-container";
+@import "../components/input/code/less/_input";
+@import "../components/lozenge/code/less/_lozenge";
 @import "../components/payment-card/code/less/_payment-card";
 @import "../components/quote/code/less/_quote";
 @import "../components/tile/code/less/_tile";
+@import "../components/weather/code/less/_weather";
 
-/*------------------------------------*\
-  Font-Awesome
-\*------------------------------------*/
-@import "../../node_modules/font-awesome/less/font-awesome.less";
-@fa-font-path: "//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts"; // for referencing Bootstrap CDN font files directly
+//
+// == Default styling ==
+//
+
+body {
+  font-family: @font-family-body;
+  font-size:   @font-size-base;
+  line-height: @line-height-body;
+}
+h1, h2, h3 {
+  font-family: @font-family-headings;
+  line-height: @line-height-headings;
+}
+
+h1, .h1 {
+  font-size:   @font-size-h1; //40px
+  line-height: @line-height-headings;
+}
+h2, .h2 {
+  font-size:   @font-size-h2; //30px
+  line-height: @line-height-headings;
+}
+h3, .h3 {
+  font-size:   @font-size-h3; //24px
+  line-height: @line-height-headings;
+}
+h4, .h4 {
+  font-size:   @font-size-h4; //20px
+  line-height: @line-height-headings;
+}
+h5, .h5 {
+  font-size:   @font-size-h5; //16px
+  line-height: @line-height-headings;
+}
+h6, .h6 {
+  font-size:   @font-size-h6; //14px
+  line-height: @line-height-headings;
+  text-transform: uppercase;
+}

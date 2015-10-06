@@ -1,14 +1,23 @@
 var React = require('react');
+var DataAttributesMixin = require('react-data-attributes-mixin');
 
 module.exports = React.createClass({
+
+  mixins: [DataAttributesMixin],
 
   propTypes: {
     src: React.PropTypes.string.isRequired,
     alt: React.PropTypes.string.isRequired,
-    handleClick: React.PropTypes.func
+    handleClick: React.PropTypes.func,
+    href: React.PropTypes.string,
+    srcset: React.PropTypes.string,
+    sizes: React.PropTypes.string
   },
 
   render: function() {
-    return require('../templates/imageTemplate.jsx')(this.props);
+    if(this.props.href) {
+      return require('../templates/imageAnchorTemplate.jsx').call(this);
+    }
+    return require('../templates/imageTemplate.jsx').call(this);
   }
 });

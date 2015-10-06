@@ -7,6 +7,6 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    return require('../templates/IconListItemComponentTemplate.jsx')(this.props);
+    return require('../templates/IconListItemComponentTemplate.jsx').call(this);
   }
 });

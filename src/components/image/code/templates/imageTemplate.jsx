@@ -1,7 +1,11 @@
 var React = require('react');
 
-module.exports = function(props) {
+module.exports = function() {
+
+  var dataAttributes = this.getDataAttributesFromProps();
+  var sizes = this.props.sizes || '100vw';
+
   return (
-    <img alt={props.alt} src={props.src} onClick={props.handleClick} className="component-image" />
+    <img className="component-image" src={this.props.src} srcSet={this.props.srcSet} alt={this.props.alt} sizes={sizes} onClick={this.props.handleClick} {...dataAttributes} />
   );
 };

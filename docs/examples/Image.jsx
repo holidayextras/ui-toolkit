@@ -4,7 +4,7 @@ var image = {
 };
 
 var example = (
-  <UIToolkit.Image src={image.src} alt={image.alt} className="component-image" />
+  <UIToolkit.Image className="component-image" src={image.src} alt={image.alt} />
 );
 
 React.render(example, mountNode);

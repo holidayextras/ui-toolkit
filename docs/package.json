@@ -2,6 +2,10 @@
   "name": "ui-toolkit-docs",
   "version": "0.0.0",
   "description": "UI Toolkit docs site",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/holidayextras/ui-toolkit.git"
+  },
   "main": "./server.js",
   "browser": "./client.js",
   "browserify": {
@@ -13,9 +17,8 @@
   },
   "devDependencies": {
     "brfs": "~1.0.0",
-    "browserify": "^9.0.4",
+    "browserify": "11.0.1",
     "classnames": "^1.2.0",
-    "connect-browserify": "~1.0.0",
     "envify": "~1.2.0",
     "express": "~3.4.8",
     "node-fs": "^0.1.7",
