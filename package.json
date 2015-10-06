@@ -3,7 +3,7 @@
   "version": "0.17.0",
   "description": "UI Toolkit",
   "license": "MIT",
-  "main": "src/index.js",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/holidayextras/ui-toolkit.git"
