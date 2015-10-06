@@ -27488,7 +27488,7 @@ module.exports = function() {
 
   return (
     React.createElement("div", {className: classNames(classes), role: "alert"}, 
-      React.createElement("h4", null, this.props.title), 
+      React.createElement("h4", {className: "alert-header"}, this.props.title), 
       React.createElement("p", null, this.props.children)
     )
   );

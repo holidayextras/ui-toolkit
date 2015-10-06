@@ -4,7 +4,6 @@ var example = (
     <UIToolkit.Input type='text' label='With Default' >Default Value</UIToolkit.Input>
     <UIToolkit.Input type='text' label='Required' placeholder='Full Name' required={true} />
   </div>
-
 );
 
 React.render(example, mountNode);

@@ -9,7 +9,7 @@ module.exports = function() {
 
   return (
     <div className={classNames(classes)} role="alert">
-      <h4>{this.props.title}</h4>
+      <h4 className="alert-header">{this.props.title}</h4>
       <p>{this.props.children}</p>
     </div>
   );
