@@ -49,6 +49,7 @@
     "moment": "~2.10.6",
     "react": "^0.13.2",
     "react-data-attributes-mixin": "git://github.com/holidayextras/react-data-attributes-mixin",
+    "react-intl": "^1.2.0",
     "reactify": "~1.1.0",
     "require-directory": "^2.0.0",
     "requirejs": "~2.1.9"
