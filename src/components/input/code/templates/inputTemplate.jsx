@@ -1,7 +1,8 @@
+'use strict';
 var React = require('react');
 var classNames = require('classnames');
 
-module.exports = function (component){
+module.exports = function(component) {
 
   var classes = classNames({
     'component-input': true,
@@ -12,7 +13,7 @@ module.exports = function (component){
   // the form label
   var label;
 
-  if (component.props.label){
+  if (component.props.label) {
     label = ( <label className="component-input-label" htmlFor={component.props.id}>{component.props.label}</label > );
   }
 
@@ -22,7 +23,7 @@ module.exports = function (component){
    */
   var span;
 
-  if (component.state.error){
+  if (component.state.error) {
     span = ( <span className="component-input-error">{component.state.error}</span> );
   }
 

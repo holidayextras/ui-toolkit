@@ -1,3 +1,4 @@
+'use strict';
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 var assert = require('chai').assert;
@@ -17,7 +18,7 @@ describe('WeatherComponent', function() {
 
   describe('Can accept all types of weather', function() {
 
-    beforeEach(function(){
+    beforeEach(function() {
       temperature = 20;
     });
 
@@ -155,7 +156,7 @@ describe('WeatherComponent', function() {
   });
   describe('dates', function() {
 
-    beforeEach(function(){
+    beforeEach(function() {
       type = 'sunny';
     });
 
@@ -187,7 +188,7 @@ describe('WeatherComponent', function() {
   });
   describe('valid temperature', function() {
 
-    beforeEach(function(){
+    beforeEach(function() {
       temperature = 20;
       type = 'sunny';
     });

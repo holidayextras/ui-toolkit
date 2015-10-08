@@ -1,3 +1,4 @@
+'use strict';
 var React = require('react');
 var CountdownManager = require('../lib/countdownManager');
 
@@ -9,12 +10,12 @@ module.exports = React.createClass({
     until: React.PropTypes.string
   },
 
-  getInitialState: function(){
+  getInitialState: function() {
     return this.countdownManagerState();
   },
 
   countdownManagerState: function(dateUpdate) {
-    var date = {startDate: (dateUpdate || this.props.until)};
+    var date = { startDate: (dateUpdate || this.props.until) };
     var countdownManager = new CountdownManager(date);
     return {
       countdownManager: countdownManager,
@@ -40,7 +41,7 @@ module.exports = React.createClass({
   },
 
   onCountdown: function(time) {
-    this.setState({time: time});
+    this.setState({ time: time });
   },
 
   stopCountdownManager: function() {

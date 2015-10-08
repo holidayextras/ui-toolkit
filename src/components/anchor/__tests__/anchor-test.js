@@ -1,3 +1,4 @@
+'use strict';
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 var sinon = require('sinon');
@@ -15,7 +16,7 @@ describe('Anchor', function() {
   var instance = null;
   var anchorDomNode = null;
 
-  beforeEach(function(){
+  beforeEach(function() {
     data = {
       'foo': 'bar',
       'x-y-z': 'zyx'
@@ -33,64 +34,64 @@ describe('Anchor', function() {
     anchorDomNode = renderedAnchor.getDOMNode();
   });
 
-  it('is an element', function(){
+  it('is an element', function() {
     assert(TestUtils.isCompositeComponent(instance));
   });
 
-  describe('with content', function(){
-    it('should render an anchor', function(){
+  describe('with content', function() {
+    it('should render an anchor', function() {
       assert.equal(anchorDomNode.nodeName, 'A');
     });
 
     describe('with data attributes', function() {
-      it('spreads them and prefixes with \'data\'', function(){
+      it('spreads them and prefixes with \'data\'', function() {
         assert.equal(anchorDomNode.getAttribute('data-foo'), 'bar');
         assert.equal(anchorDomNode.getAttribute('data-x-y-z'), 'zyx');
       });
     });
 
-    it('should have the correct title from props', function(){
+    it('should have the correct title from props', function() {
       assert.equal(anchorDomNode.getAttribute('title'), title);
     });
 
-    describe('with handleClick handler', function(){
-      describe('on click', function(){
-        beforeEach(function(){
+    describe('with handleClick handler', function() {
+      describe('on click', function() {
+        beforeEach(function() {
           TestUtils.Simulate.click(anchorDomNode);
         });
 
-        it('should call the handler', function(){
+        it('should call the handler', function() {
           assert(clickHandler.calledOnce);
         });
       });
     });
 
-    it('should have the correct target from props', function(){
+    it('should have the correct target from props', function() {
       assert.equal(anchorDomNode.getAttribute('target'), target);
     });
 
   });
 
-  describe('without content', function(){
-    beforeEach(function(){
+  describe('without content', function() {
+    beforeEach(function() {
       instance = TestUtils.renderIntoDocument(
         <Anchor data={data} title={title} href={href} handleClick={clickHandler} />
       );
     });
-    it('does not render', function(){
+    it('does not render', function() {
       assert.equal(TestUtils.scryRenderedDOMComponentsWithTag(instance, 'a').length, 0);
     });
   });
 
-  describe('without a href', function(){
-    beforeEach(function(){
+  describe('without a href', function() {
+    beforeEach(function() {
       instance = TestUtils.renderIntoDocument(
         <Anchor data={data} title={title} handleClick={clickHandler} >Content</Anchor>
       );
       var renderedAnchor = TestUtils.findRenderedDOMComponentWithTag(instance, 'a');
       anchorDomNode = renderedAnchor.getDOMNode();
     });
-    it('defaults to #', function(){
+    it('defaults to #', function() {
       assert.equal(anchorDomNode.getAttribute('href'), '#');
     });
   });

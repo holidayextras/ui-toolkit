@@ -1,3 +1,4 @@
+'use strict';
 var moment = require('moment');
 var countdown = {};
 module.exports = countdown;
@@ -13,7 +14,7 @@ countdown.until = function(untilDate) {
   };
 };
 
-countdown.untilString = function(untilDate){
+countdown.untilString = function(untilDate) {
   var timeLeft = this.until(untilDate);
   var out = timeLeft.days + ' days';
   out += ', ' + ( timeLeft.hours / 1 ) + ' hours';
@@ -23,21 +24,19 @@ countdown.untilString = function(untilDate){
 };
 
 // Private functions from here
-countdown._pad = function (number) {
+countdown._pad = function(number) {
   number = Math.abs(Math.floor(number));
   if (number > 9) {
     return '' + number;
-  } else {
-    return '0' + number;
   }
+  return '0' + number;
 };
 
 countdown._roundTowardsZero = function(number) {
   if (number > 0) {
     return '' + Math.floor(number);
-  } else {
-    return '' + Math.ceil(number);
   }
+  return '' + Math.ceil(number);
 };
 
 countdown._isSameDay = function(moment1, moment2) {
@@ -47,10 +46,9 @@ countdown._isSameDay = function(moment1, moment2) {
 countdown._durationFromNow = function(untilDate) {
   var until = moment(untilDate);
   var now = moment();
-  if(this._isSameDay(until, now)) {
+  if (this._isSameDay(until, now)) {
     return moment.duration();
-  } else {
-    var seconds = until.diff(now, 'seconds');
-    return moment.duration(seconds, 'seconds');
   }
+  var seconds = until.diff(now, 'seconds');
+  return moment.duration(seconds, 'seconds');
 };

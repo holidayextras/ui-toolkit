@@ -1,3 +1,4 @@
+'use strict';
 var CountdownManager = require('../code/lib/countdownManager');
 var countdown = require('../code/lib/countdown');
 var assert = require('chai').assert;
@@ -28,22 +29,22 @@ describe('Countdown Manager', function() {
     timer.restore();
   });
 
-  describe('start', function () {
+  describe('start', function() {
 
-    beforeEach(function () {
+    beforeEach(function() {
       countdownManager.start(callbackSpy);
       timer.tick(CountdownManager.countdownInterval);
     });
 
-    it('sets interval countdown', function () {
+    it('sets interval countdown', function() {
       assert.ok(callbackSpy.called);
     });
 
   });
 
-  describe('stop', function () {
+  describe('stop', function() {
 
-    beforeEach(function () {
+    beforeEach(function() {
       countdownManager.stop(callbackSpy);
       timer.tick(CountdownManager.countdownInterval);
     });
@@ -58,11 +59,11 @@ describe('Countdown Manager', function() {
 
   });
 
-  describe('intervalCounter', function () {
+  describe('intervalCounter', function() {
 
     var intervalFunction = null;
 
-    beforeEach(function () {
+    beforeEach(function() {
       sinon.stub(countdownManager, 'time').returns('test');
       intervalFunction = countdownManager.intervalCounter(callbackSpy);
       intervalFunction();
@@ -78,11 +79,11 @@ describe('Countdown Manager', function() {
 
   });
 
-  describe('countdownDate', function () {
+  describe('countdownDate', function() {
 
-    describe('when a callback is provided', function () {
+    describe('when a callback is provided', function() {
 
-      beforeEach(function () {
+      beforeEach(function() {
         countdownManager.countdownDate(callbackSpy);
       });
 
@@ -92,11 +93,11 @@ describe('Countdown Manager', function() {
 
     });
 
-    describe('when no callback is provided', function () {
+    describe('when no callback is provided', function() {
 
       var result = null;
 
-      beforeEach(function () {
+      beforeEach(function() {
         result = countdownManager.countdownDate();
       });
 
@@ -108,7 +109,7 @@ describe('Countdown Manager', function() {
 
   });
 
-  describe('time', function () {
+  describe('time', function() {
 
     var countdownUntilStub = null;
     var countdownDateValue = null;
@@ -122,7 +123,7 @@ describe('Countdown Manager', function() {
       countdownManager.time(currentMoment);
     });
 
-    it('calls countdown until with countdownDate & currentMoment', function () {
+    it('calls countdown until with countdownDate & currentMoment', function() {
       assert.ok(countdownUntilStub.calledWith(countdownDateValue, currentMoment));
     });
   });

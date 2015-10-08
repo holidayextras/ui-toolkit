@@ -1,3 +1,4 @@
+'use strict';
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 var assert = require('chai').assert;
@@ -53,7 +54,7 @@ describe('InputComponent', function() {
 
     var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field');
 
-    TestUtils.Simulate.change(renderedInput, {target: {value: 'changed value'}});
+    TestUtils.Simulate.change(renderedInput, { target: { value: 'changed value' } });
     assert.ok(handleChange.calledOnce);
   });
 
@@ -223,7 +224,7 @@ describe('InputComponent Error with Default Message', function() {
   var renderedInput;
   var emailValidator = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 
-  beforeEach(function(){
+  beforeEach(function() {
 
     input = TestUtils.renderIntoDocument(
       <InputView type="text" validator={emailValidator} />
@@ -233,8 +234,8 @@ describe('InputComponent Error with Default Message', function() {
   });
 
   it('should change the value to be invalid and throw error state with null message', function() {
-    TestUtils.Simulate.change(renderedInput.getDOMNode(), { target: { value: 'invalid @ email . #$%' }});
-    setTimeout(function(){
+    TestUtils.Simulate.change(renderedInput.getDOMNode(), { target: { value: 'invalid @ email . #$%' } });
+    setTimeout(function() {
       assert.equal(input.state.error, 'Invalid Input');
     }, 1000);
   });
@@ -246,7 +247,7 @@ describe('InputComponent Error with Custom Message', function() {
   var emailValidator = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
   var emailErrorMessage = 'Invalid Email';
 
-  beforeEach(function(){
+  beforeEach(function() {
 
     input = TestUtils.renderIntoDocument(
       <InputView type="text" validator={emailValidator} errorMessage={emailErrorMessage} />
@@ -255,8 +256,8 @@ describe('InputComponent Error with Custom Message', function() {
   });
 
   it('should change the value to be invalid and throw error state with custom message', function() {
-    TestUtils.Simulate.change(renderedInput.getDOMNode(), { target: { value: 'invalid @ email . #$%' }});
-    setTimeout(function(){
+    TestUtils.Simulate.change(renderedInput.getDOMNode(), { target: { value: 'invalid @ email . #$%' } });
+    setTimeout(function() {
       assert.equal(input.state.error, 'Invalid Input');
     }, 1000);
   });
