@@ -1,6 +1,6 @@
 var image = {
   srcSet: 'https://open-source.holidayextras.com/ui-toolkit/images/panda2000.jpg 2000w, https://open-source.holidayextras.com/ui-toolkit/images/panda1500.jpg 1500w, https://open-source.holidayextras.com/ui-toolkit/images/panda1000.jpg 1000w, https://open-source.holidayextras.com/ui-toolkit/images/panda500.jpg 500w',
-  src: '/assets/component-image/panda.jpg',
+  src: 'https://open-source.holidayextras.com/ui-toolkit/images/panda500.jpg',
   alt: 'A cute panda'
 };
 
