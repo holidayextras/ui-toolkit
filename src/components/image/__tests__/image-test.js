@@ -1,3 +1,4 @@
+'use strict';
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 var assert = require('chai').assert;
@@ -15,7 +16,7 @@ describe('ImageComponent', function() {
   var srcSet = null;
   var sizes = null;
 
-  beforeEach(function(){
+  beforeEach(function() {
     src = 'foo';
     alt = 'bar';
     srcSet = '2000w.jpg 2000w, 1500w.jpg 1500w, 1000w.jpg 1000w, 500w.jpg 500w';
@@ -27,7 +28,7 @@ describe('ImageComponent', function() {
     assert.ok(TestUtils.isElement(<ImageComponent src={src} alt={alt} />));
   });
 
-  describe('when an href is passed in', function(){
+  describe('when an href is passed in', function() {
 
     var href = null;
 
@@ -63,9 +64,9 @@ describe('ImageComponent', function() {
 
   });
 
-  describe('when an href is not passed in', function(){
+  describe('when an href is not passed in', function() {
 
-    beforeEach(function(){
+    beforeEach(function() {
       imageInstance = TestUtils.renderIntoDocument(
         <ImageComponent src={src} alt={alt} handleClick={handleClick} sizes={sizes} srcSet={srcSet} />
       );

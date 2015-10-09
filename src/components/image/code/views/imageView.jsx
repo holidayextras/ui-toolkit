@@ -1,3 +1,4 @@
+'use strict';
 var React = require('react');
 var DataAttributesMixin = require('react-data-attributes-mixin');
 
@@ -15,7 +16,7 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    if(this.props.href) {
+    if (this.props.href) {
       return require('../templates/imageAnchorTemplate.jsx').call(this);
     }
     return require('../templates/imageTemplate.jsx').call(this);

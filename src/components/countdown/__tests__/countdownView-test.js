@@ -1,3 +1,4 @@
+'use strict';
 var React = require('react');
 var sinon = require('sinon');
 var assert = require('chai').assert;
@@ -34,7 +35,7 @@ describe('CountdownComponent', function() {
   });
 
   describe('ARIA', function() {
-    it('should include a timer role', function(){
+    it('should include a timer role', function() {
       var date = '2016-07-27';
       var countdown = TestUtils.renderIntoDocument(
         <CountdownComponent until={date} />

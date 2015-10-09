@@ -1,3 +1,4 @@
+'use strict';
 var countdown = require('../code/lib/countdown.js');
 var moment = require('moment');
 var assert = require('chai').assert;
@@ -87,9 +88,9 @@ describe('Countdown tests', function() {
 
     });
 
-    describe('when the number is less than 10', function () {
+    describe('when the number is less than 10', function() {
 
-      it('returns the number with a prefix of zero', function () {
+      it('returns the number with a prefix of zero', function() {
         assert.equal(countdown._pad(9), '09');
       });
 
@@ -101,13 +102,13 @@ describe('Countdown tests', function() {
 
     describe('when the number is greater than 0', function() {
 
-      it('floors the number', function () {
+      it('floors the number', function() {
         assert.equal(countdown._roundTowardsZero(1.9), 1);
       });
 
     });
 
-    describe('when the number is less than 1', function () {
+    describe('when the number is less than 1', function() {
 
       it('ceils the number', function() {
         assert.equal(countdown._roundTowardsZero(-1.9), -1);
@@ -124,7 +125,7 @@ describe('Countdown tests', function() {
 
     describe('when the two dates are not the same day', function() {
 
-      beforeEach(function () {
+      beforeEach(function() {
         moment1 = moment('2015-01-01');
         moment2 = moment('2015-01-02');
       });
@@ -135,9 +136,9 @@ describe('Countdown tests', function() {
 
     });
 
-    describe('when the two dates are the same day', function () {
+    describe('when the two dates are the same day', function() {
 
-      beforeEach(function () {
+      beforeEach(function() {
         moment1 = moment('2015-01-02');
         moment2 = moment('2015-01-02');
       });
@@ -155,40 +156,40 @@ describe('Countdown tests', function() {
     var untilDate = null;
     var duration = null;
 
-    describe('when the untilDate is before today', function () {
+    describe('when the untilDate is before today', function() {
 
       beforeEach(function() {
         untilDate = moment().subtract('10', 'days');
         duration = countdown._durationFromNow(untilDate);
       });
 
-      it('should return 10 days', function () {
+      it('should return 10 days', function() {
         assert.equal(duration.asDays(), -10);
       });
 
     });
 
-    describe('when the untilDate is today', function () {
+    describe('when the untilDate is today', function() {
 
       beforeEach(function() {
         untilDate = moment();
         duration = countdown._durationFromNow(untilDate);
       });
 
-      it('should return 0 days', function () {
+      it('should return 0 days', function() {
         assert.equal(duration.asDays(), 0);
       });
 
     });
 
-    describe('when the untilDate is after today', function () {
+    describe('when the untilDate is after today', function() {
 
       beforeEach(function() {
         untilDate = moment().add('10', 'days');
         duration = countdown._durationFromNow(untilDate);
       });
 
-      it('should return -10 days', function () {
+      it('should return -10 days', function() {
         assert.equal(duration.asDays(), 10);
       });
 

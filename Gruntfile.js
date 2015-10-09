@@ -1,3 +1,4 @@
+'use strict';
 module.exports = function(grunt) {
   var gtx = require('gruntfile-gtx').wrap(grunt);
   gtx.loadAuto();
@@ -8,7 +9,7 @@ module.exports = function(grunt) {
   gtx.config(gruntConfig);
 
   gtx.alias('build', ['build-dist', 'less', 'copy']);
-  gtx.alias('build-dist', ['shell:buildDist'])
+  gtx.alias('build-dist', ['shell:buildDist']);
 
   gtx.alias('docs', ['docs-build', 'concurrent:docs']);
   gtx.alias('docs-build', ['shell:docsBuild']);

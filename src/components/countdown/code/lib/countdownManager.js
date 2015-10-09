@@ -1,3 +1,4 @@
+'use strict';
 var countdown = require('./countdown.js');
 var moment = require('moment');
 

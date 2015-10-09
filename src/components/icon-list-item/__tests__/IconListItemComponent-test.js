@@ -1,3 +1,4 @@
+'use strict';
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 var assert = require('chai').assert;
@@ -47,53 +48,53 @@ describe('IconListItemComponent', function() {
     assert.equal(renderedIconListItem.getDOMNode().lastChild.textContent, 'this is a strong check');
   });
 
-  describe('with purpose attribute', function(){
-    describe('primary', function(){
-      beforeEach(function(){
+  describe('with purpose attribute', function() {
+    describe('primary', function() {
+      beforeEach(function() {
         this.instance = TestUtils.renderIntoDocument(<IconListItem icon="check" purpose="primary">foo</IconListItem>);
       });
 
-      it('renders primary class', function(){
+      it('renders primary class', function() {
         assert.ok(TestUtils.findRenderedDOMComponentWithClass(this.instance, 'primary'));
       });
     });
 
-    describe('success', function(){
-      beforeEach(function(){
+    describe('success', function() {
+      beforeEach(function() {
         this.instance = TestUtils.renderIntoDocument(<IconListItem icon="check" purpose="success">foo</IconListItem>);
       });
 
-      it('renders success class', function(){
+      it('renders success class', function() {
         assert.ok(TestUtils.findRenderedDOMComponentWithClass(this.instance, 'success'));
       });
     });
 
-    describe('info', function(){
-      beforeEach(function(){
+    describe('info', function() {
+      beforeEach(function() {
         this.instance = TestUtils.renderIntoDocument(<IconListItem icon="check" purpose="info">foo</IconListItem>);
       });
 
-      it('renders info class', function(){
+      it('renders info class', function() {
         assert.ok(TestUtils.findRenderedDOMComponentWithClass(this.instance, 'info'));
       });
     });
 
-    describe('warning', function(){
-      beforeEach(function(){
+    describe('warning', function() {
+      beforeEach(function() {
         this.instance = TestUtils.renderIntoDocument(<IconListItem icon="check" purpose="warning">foo</IconListItem>);
       });
 
-      it('renders warning class', function(){
+      it('renders warning class', function() {
         assert.ok(TestUtils.findRenderedDOMComponentWithClass(this.instance, 'warning'));
       });
     });
 
-    describe('danger', function(){
-      beforeEach(function(){
+    describe('danger', function() {
+      beforeEach(function() {
         this.instance = TestUtils.renderIntoDocument(<IconListItem icon="check" purpose="danger">foo</IconListItem>);
       });
 
-      it('renders danger class', function(){
+      it('renders danger class', function() {
         assert.ok(TestUtils.findRenderedDOMComponentWithClass(this.instance, 'danger'));
       });
     });

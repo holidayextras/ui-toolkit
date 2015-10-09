@@ -1,3 +1,4 @@
+'use strict';
 var moment = require('moment');
 var React = require('react');
 
@@ -7,7 +8,7 @@ module.exports = function() {
   var displayFormat = this.props.format || 'ddd';
   var date = this.props.date;
   var unit = this.props.unit;
-  if(this.props.unit !== 'K') {
+  if (this.props.unit !== 'K') {
     unit = '°' + unit;
   }
 

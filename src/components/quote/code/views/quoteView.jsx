@@ -1,3 +1,4 @@
+'use strict';
 var React = require('react');
 
 module.exports = React.createClass({
@@ -10,7 +11,7 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    if(this.props.type === 'inline') {
+    if (this.props.type === 'inline') {
       return require('../templates/quoteTemplate.jsx').call(this);
     }
     return require('../templates/blockQuoteTemplate.jsx').call(this);
