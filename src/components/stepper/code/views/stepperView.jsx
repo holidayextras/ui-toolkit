@@ -24,51 +24,32 @@ module.exports = React.createClass({
 
   getInitialState: function(){
     return {
-      value: this.props.value,
-      canIncrement: true,
-      canDecrement: true
+      value: this.props.value
     };
   },
 
   decrement: function() {
-    console.log('in decrement');
-    if (!this.state.canDecrement) return;
-    console.log('AFTER THE RETURN IN DECRMENT');
+    if (!this.canDecrement()) return;
     var value = this.state.value - 1;
     this.setState({ value: value });
     this.props.onChange(this.state.value);
-    this.incrementDecrementButtonState();
-  },
-
-  incrementDecrementButtonState: function() {
-    var canDecrement = true;
-    var canIncrement = true;
-
-    if( this.props.minValue !== undefined ) {
-      canDecrement = this.state.value > this.props.minValue;
-    }
-
-    if( this.props.maxValue !== undefined ) {
-      canIncrement = this.state.value < this.props.maxValue;
-    }
-
-    this.setState({
-      canIncrement: canIncrement,
-      canDecrement: canDecrement
-    });
-
-    console.log('canIncrement', this.state.canIncrement);
-    console.log('canDecrement', this.state.canDecrement);
-
-
   },
 
   increment: function() {
-    if (!this.state.canIncrement) return;
+    if (!this.canIncrement()) return;
     var value = this.state.value + 1;
     this.setState({ value: value });
     this.props.onChange(this.state.value);
-    this.incrementDecrementButtonState();
+  },
+
+  canIncrement: function(){
+    if (this.props.maxValue === undefined) return true;
+    return this.state.value < this.props.maxValue;
+  },
+
+  canDecrement: function(){
+    if (this.props.minValue === undefined) return true;
+    return this.state.value > this.props.minValue;
   },
 
   render: function() {

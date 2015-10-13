@@ -20145,7 +20145,7 @@ var Components = React.createClass({displayName: "Components",
           React.createElement("article", {id: "Stepper"}, 
             React.createElement("h3", null, "Stepper"), 
             React.createElement("p", null, "TEXT HERE"), 
-            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Stepper value={2}/>\n    <br/>\n    <UIToolkit.Stepper value={2} minValue={0} maxValue={5}/>\n  </div>\n);\nReact.render(example, mountNode);"}), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Stepper value={2} minValue={1} maxValue={9}/>\n  </div>\n);\nReact.render(example, mountNode);"}), 
             React.createElement("h4", null, "Attributes"), 
             React.createElement("ul", null, 
               React.createElement("li", null, React.createElement("code", null, "value"), " Number - TEST"), 
@@ -27992,8 +27992,6 @@ module.exports = require('./views/stepperView.jsx');
 },{"./views/stepperView.jsx":428}],427:[function(require,module,exports){
 'use strict';
 
-// var React = require('react');
-
 var Button = require('../../../button');
 var Input = require('../../../input');
 
@@ -28002,13 +28000,13 @@ module.exports = function(component) {
   return (
     React.createElement("div", {className: "component-stepper"}, 
       React.createElement("span", {className: "button-container"}, 
-        React.createElement(Button, {handleClick: this.decrement, disabled: !this.state.canDecrement}, this.props.decrementDisplayString)
+        React.createElement(Button, {handleClick: this.decrement, disabled: !this.canDecrement()}, this.props.decrementDisplayString)
       ), 
       
       React.createElement(Input, {type: "text", key: this.state.value, readOnly: true}, this.state.value.toString()), 
 
       React.createElement("span", {className: "button-container"}, 
-        React.createElement(Button, {handleClick: this.increment, disabled: !this.state.canIncrement}, this.props.incrementDisplayString)
+        React.createElement(Button, {handleClick: this.increment, disabled: !this.canIncrement()}, this.props.incrementDisplayString)
       )
     )
   );
@@ -28042,51 +28040,32 @@ module.exports = React.createClass({displayName: "exports",
 
   getInitialState: function(){
     return {
-      value: this.props.value,
-      canIncrement: true,
-      canDecrement: true
+      value: this.props.value
     };
   },
 
   decrement: function() {
-    console.log('in decrement');
-    if (!this.state.canDecrement) return;
-    console.log('AFTER THE RETURN IN DECRMENT');
+    if (!this.canDecrement()) return;
     var value = this.state.value - 1;
     this.setState({ value: value });
     this.props.onChange(this.state.value);
-    this.incrementDecrementButtonState();
-  },
-
-  incrementDecrementButtonState: function() {
-    var canDecrement = true;
-    var canIncrement = true;
-
-    if( this.props.minValue !== undefined ) {
-      canDecrement = this.state.value > this.props.minValue;
-    }
-
-    if( this.props.maxValue !== undefined ) {
-      canIncrement = this.state.value < this.props.maxValue;
-    }
-
-    this.setState({
-      canIncrement: canIncrement,
-      canDecrement: canDecrement
-    });
-
-    console.log('canIncrement', this.state.canIncrement);
-    console.log('canDecrement', this.state.canDecrement);
-
-
   },
 
   increment: function() {
-    if (!this.state.canIncrement) return;
+    if (!this.canIncrement()) return;
     var value = this.state.value + 1;
     this.setState({ value: value });
     this.props.onChange(this.state.value);
-    this.incrementDecrementButtonState();
+  },
+
+  canIncrement: function(){
+    if (this.props.maxValue === undefined) return true;
+    return this.state.value < this.props.maxValue;
+  },
+
+  canDecrement: function(){
+    if (this.props.minValue === undefined) return true;
+    return this.state.value > this.props.minValue;
   },
 
   render: function() {

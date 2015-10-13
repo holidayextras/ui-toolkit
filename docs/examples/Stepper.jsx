@@ -1,8 +1,6 @@
 var example = (
   <div>
-    <UIToolkit.Stepper value={2}/>
-    <br/>
-    <UIToolkit.Stepper value={2} minValue={0} maxValue={5}/>
+    <UIToolkit.Stepper value={2} minValue={1} maxValue={9}/>
   </div>
 );
 React.render(example, mountNode);
