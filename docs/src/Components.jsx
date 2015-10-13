@@ -225,6 +225,22 @@ var Components = React.createClass({
             <small>We currently use a small sample of <a href="http://www.alessioatzeni.com/meteocons/" title="Meteocons">Meteocons</a></small>
           </article>
 
+          <article id="Stepper">
+            <h3>Stepper</h3>
+            <p>TEXT HERE</p>
+            <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Stepper.jsx', 'utf8')} />
+            <h4>Attributes</h4>
+            <ul>
+              <li><code>value</code> Number - TEST</li>
+              <li><code>onChange</code> Function - TEST</li>
+              <li><code>minValue</code> Number - TEST</li>
+              <li><code>maxValue</code> Number - TEST</li>
+              <li><code>incrementDisplayString</code> String - TEST</li>
+              <li><code>decrementDisplayString</code> String - TEST</li>
+            </ul>
+          </article>
+
+
         </section>
       </main>
     );

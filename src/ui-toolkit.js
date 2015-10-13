@@ -17,5 +17,6 @@ UIToolkit.Rating = require('./components/rating');
 UIToolkit.Reviews = require('./components/reviews');
 UIToolkit.Tile = require('./components/tile');
 UIToolkit.Weather = require('./components/weather');
+UIToolkit.Stepper = require('./components/stepper');
 
 module.exports = UIToolkit;
