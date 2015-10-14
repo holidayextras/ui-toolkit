@@ -272,7 +272,7 @@ var Components = React.createClass({displayName: "Components",
             React.createElement(CustomComponent, {codeText: "var image = {\n  src: 'http://brand.holidayextras.com/img/product-dessert.jpg',\n  alt: 'Delicious strawberry cheesecake'\n};\n\nvar example = (\n  <UIToolkit.Image className=\"component-image\" src={image.src} alt={image.alt} />\n);\n\nReact.render(example, mountNode);\n"}), 
             React.createElement("h4", null, "Responsive Image"), 
             React.createElement("p", null, "This component also utilises the ", React.createElement("code", null, "srcset"), " attribute, which helps if you are implementing responsive images (different images in HTML for different situations) and all you are doing is switching between different versions of the same image (the vast majority of usage). Historically for high resolution (2x) desktop screens we often use high-res, large dimension images. For smaller screens this means downloading a large file when not necessary. For more information visit ", React.createElement("a", {href: "https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/", title: "CSS Tricks guide to srcset"}, "CSS Tricks"), "."), 
-            React.createElement(CustomComponent, {codeText: "var image = {\n  srcSet: '/assets/component-image/panda2000.jpg 2000w, /assets/component-image/panda1500.jpg 1500w, /assets/component-image/panda1000.jpg 1000w, /assets/component-image/panda500.jpg 500w',\n  src: '/assets/component-image/panda.jpg',\n  alt: 'Delicious strawberry cheesecake'\n};\n\nvar example = (\n  <UIToolkit.Image className=\"component-image\" src={image.src} sizes=\"100vw\" srcSet={image.srcSet}  alt={image.alt} />\n);\n\nReact.render(example, mountNode);\n"}), 
+            React.createElement(CustomComponent, {codeText: "var image = {\n  srcSet: 'https://open-source.holidayextras.com/ui-toolkit/images/panda2000.jpg 2000w, https://open-source.holidayextras.com/ui-toolkit/images/panda1500.jpg 1500w, https://open-source.holidayextras.com/ui-toolkit/images/panda1000.jpg 1000w, https://open-source.holidayextras.com/ui-toolkit/images/panda500.jpg 500w',\n  src: 'https://open-source.holidayextras.com/ui-toolkit/images/panda500.jpg',\n  alt: 'A cute panda'\n};\n\nvar example = (\n  <UIToolkit.Image className=\"component-image\" src={image.src} sizes=\"100vw\" srcSet={image.srcSet}  alt={image.alt} />\n);\n\nReact.render(example, mountNode);\n"}), 
             React.createElement("h4", null, "Attributes"), 
             React.createElement("ul", null, 
               React.createElement("li", null, React.createElement("code", null, "alt"), " String - Image alt attribute"), 
@@ -26626,7 +26626,7 @@ module.exports = require('./lib/React');
 },{"./lib/React":81}],209:[function(require,module,exports){
 module.exports={
   "name": "ui-toolkit",
-  "version": "0.17.0",
+  "version": "0.17.1",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "index.js",

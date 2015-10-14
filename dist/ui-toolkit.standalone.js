@@ -28445,14 +28445,14 @@ var React = require('react');
 var Button = require('../../../button');
 var Input = require('../../../input');
 
-module.exports = function(component) {
+module.exports = function() {
 
   return (
     React.createElement("div", {className: "component-stepper"}, 
       React.createElement("span", {className: "button-container"}, 
         React.createElement(Button, {handleClick: this.decrement, disabled: !this.canDecrement()}, this.props.decrementDisplayString)
       ), 
-      
+
       React.createElement(Input, {type: "text", key: this.state.value, readOnly: true}, this.state.value.toString()), 
 
       React.createElement("span", {className: "button-container"}, 
@@ -28484,11 +28484,11 @@ module.exports = React.createClass({displayName: "exports",
       value: 0,
       incrementDisplayString: '+',
       decrementDisplayString: '-',
-      onChange: function () {}
+      onChange: function() {}
     };
   },
 
-  getInitialState: function(){
+  getInitialState: function() {
     return {
       value: this.props.value
     };
@@ -28508,12 +28508,12 @@ module.exports = React.createClass({displayName: "exports",
     this.props.onChange(this.state.value);
   },
 
-  canIncrement: function(){
+  canIncrement: function() {
     if (this.props.maxValue === undefined) return true;
     return this.state.value < this.props.maxValue;
   },
 
-  canDecrement: function(){
+  canDecrement: function() {
     if (this.props.minValue === undefined) return true;
     return this.state.value > this.props.minValue;
   },
