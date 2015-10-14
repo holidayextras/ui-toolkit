@@ -225,7 +225,7 @@ var Components = React.createClass({
             <small>We currently use a small sample of <a href="http://www.alessioatzeni.com/meteocons/" title="Meteocons">Meteocons</a></small>
           </article>
 
-          <article id="Stepper">
+          <article id="stepper">
             <h3>Stepper</h3>
             <p>Display an input with a number value that is surrounded by decrement and increment buttons</p>
             <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Stepper.jsx', 'utf8')} />

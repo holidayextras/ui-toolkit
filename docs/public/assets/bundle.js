@@ -424,9 +424,9 @@ var Components = React.createClass({displayName: "Components",
             React.createElement("small", null, "We currently use a small sample of ", React.createElement("a", {href: "http://www.alessioatzeni.com/meteocons/", title: "Meteocons"}, "Meteocons"))
           ), 
 
-          React.createElement("article", {id: "Stepper"}, 
+          React.createElement("article", {id: "stepper"}, 
             React.createElement("h3", null, "Stepper"), 
-            React.createElement("p", null, "TEXT HERE"), 
+            React.createElement("p", null, "Display an input with a number value that is surrounded by decrement and increment buttons"), 
             React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Stepper value={2} minValue={1} maxValue={9}/>\n  </div>\n);\nReact.render(example, mountNode);"}), 
             React.createElement("h4", null, "Attributes"), 
             React.createElement("ul", null, 
@@ -438,8 +438,6 @@ var Components = React.createClass({displayName: "Components",
               React.createElement("li", null, React.createElement("code", null, "decrementDisplayString"), " String - The string to display in the increment button")
             )
           )
-
-
         )
       )
     );
@@ -765,7 +763,8 @@ var Nav = React.createClass({displayName: "Nav",
               React.createElement("li", null, React.createElement("a", {href: "#payment-card"}, "Payment Card")), 
               React.createElement("li", null, React.createElement("a", {href: "#rating"}, "Rating")), 
               React.createElement("li", null, React.createElement("a", {href: "#tile"}, "Tile")), 
-              React.createElement("li", null, React.createElement("a", {href: "#weather"}, "Weather"))
+              React.createElement("li", null, React.createElement("a", {href: "#weather"}, "Weather")), 
+              React.createElement("li", null, React.createElement("a", {href: "#stepper"}, "Stepper"))
             )
           )
         )
@@ -27686,14 +27685,14 @@ var React = require('react');
 var Button = require('../../../button');
 var Input = require('../../../input');
 
-module.exports = function(component) {
+module.exports = function() {
 
   return (
     React.createElement("div", {className: "component-stepper"}, 
       React.createElement("span", {className: "button-container"}, 
         React.createElement(Button, {handleClick: this.decrement, disabled: !this.canDecrement()}, this.props.decrementDisplayString)
       ), 
-      
+
       React.createElement(Input, {type: "text", key: this.state.value, readOnly: true}, this.state.value.toString()), 
 
       React.createElement("span", {className: "button-container"}, 
@@ -27725,11 +27724,11 @@ module.exports = React.createClass({displayName: "exports",
       value: 0,
       incrementDisplayString: '+',
       decrementDisplayString: '-',
-      onChange: function () {}
+      onChange: function() {}
     };
   },
 
-  getInitialState: function(){
+  getInitialState: function() {
     return {
       value: this.props.value
     };
@@ -27749,12 +27748,12 @@ module.exports = React.createClass({displayName: "exports",
     this.props.onChange(this.state.value);
   },
 
-  canIncrement: function(){
+  canIncrement: function() {
     if (this.props.maxValue === undefined) return true;
     return this.state.value < this.props.maxValue;
   },
 
-  canDecrement: function(){
+  canDecrement: function() {
     if (this.props.minValue === undefined) return true;
     return this.state.value > this.props.minValue;
   },
