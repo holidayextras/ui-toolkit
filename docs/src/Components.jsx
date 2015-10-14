@@ -231,12 +231,12 @@ var Components = React.createClass({
             <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Stepper.jsx', 'utf8')} />
             <h4>Attributes</h4>
             <ul>
-              <li><code>value</code> Number - TEST</li>
-              <li><code>onChange</code> Function - TEST</li>
-              <li><code>minValue</code> Number - TEST</li>
-              <li><code>maxValue</code> Number - TEST</li>
-              <li><code>incrementDisplayString</code> String - TEST</li>
-              <li><code>decrementDisplayString</code> String - TEST</li>
+              <li><code>value</code> Number - The value of the stepper</li>
+              <li><code>onChange</code> Function - The function to call when the value changes</li>
+              <li><code>minValue</code> Number - The minimum value the stepper can decrement to</li>
+              <li><code>maxValue</code> Number - The maximum value the stepper can increment to</li>
+              <li><code>incrementDisplayString</code> String - The string to display in the decrement button</li>
+              <li><code>decrementDisplayString</code> String - The string to display in the increment button</li>
             </ul>
           </article>
 

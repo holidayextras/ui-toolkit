@@ -430,12 +430,12 @@ var Components = React.createClass({displayName: "Components",
             React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Stepper value={2} minValue={1} maxValue={9}/>\n  </div>\n);\nReact.render(example, mountNode);"}), 
             React.createElement("h4", null, "Attributes"), 
             React.createElement("ul", null, 
-              React.createElement("li", null, React.createElement("code", null, "value"), " Number - TEST"), 
-              React.createElement("li", null, React.createElement("code", null, "onChange"), " Function - TEST"), 
-              React.createElement("li", null, React.createElement("code", null, "minValue"), " Number - TEST"), 
-              React.createElement("li", null, React.createElement("code", null, "maxValue"), " Number - TEST"), 
-              React.createElement("li", null, React.createElement("code", null, "incrementDisplayString"), " String - TEST"), 
-              React.createElement("li", null, React.createElement("code", null, "decrementDisplayString"), " String - TEST")
+              React.createElement("li", null, React.createElement("code", null, "value"), " Number - The value of the stepper"), 
+              React.createElement("li", null, React.createElement("code", null, "onChange"), " Function - The function to call when the value changes"), 
+              React.createElement("li", null, React.createElement("code", null, "minValue"), " Number - The minimum value the stepper can decrement to"), 
+              React.createElement("li", null, React.createElement("code", null, "maxValue"), " Number - The maximum value the stepper can increment to"), 
+              React.createElement("li", null, React.createElement("code", null, "incrementDisplayString"), " String - The string to display in the decrement button"), 
+              React.createElement("li", null, React.createElement("code", null, "decrementDisplayString"), " String - The string to display in the increment button")
             )
           )
 
