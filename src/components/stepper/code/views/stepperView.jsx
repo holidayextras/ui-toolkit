@@ -18,11 +18,11 @@ module.exports = React.createClass({
       value: 0,
       incrementDisplayString: '+',
       decrementDisplayString: '-',
-      onChange: function () {}
+      onChange: function() {}
     };
   },
 
-  getInitialState: function(){
+  getInitialState: function() {
     return {
       value: this.props.value
     };
@@ -42,12 +42,12 @@ module.exports = React.createClass({
     this.props.onChange(this.state.value);
   },
 
-  canIncrement: function(){
+  canIncrement: function() {
     if (this.props.maxValue === undefined) return true;
     return this.state.value < this.props.maxValue;
   },
 
-  canDecrement: function(){
+  canDecrement: function() {
     if (this.props.minValue === undefined) return true;
     return this.state.value > this.props.minValue;
   },
