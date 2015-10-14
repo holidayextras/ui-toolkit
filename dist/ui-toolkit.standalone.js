@@ -28441,6 +28441,7 @@ module.exports = require('./views/stepperView.jsx');
 },{"./views/stepperView.jsx":261}],260:[function(require,module,exports){
 'use strict';
 
+var React = require('react');
 var Button = require('../../../button');
 var Input = require('../../../input');
 
@@ -28462,7 +28463,7 @@ module.exports = function(component) {
 };
 
 
-},{"../../../button":210,"../../../input":237}],261:[function(require,module,exports){
+},{"../../../button":210,"../../../input":237,"react":197}],261:[function(require,module,exports){
 'use strict';
 
 var React = require('react');

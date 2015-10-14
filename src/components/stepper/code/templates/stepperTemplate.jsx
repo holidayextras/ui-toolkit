@@ -1,5 +1,6 @@
 'use strict';
 
+var React = require('react');
 var Button = require('../../../button');
 var Input = require('../../../input');
 
