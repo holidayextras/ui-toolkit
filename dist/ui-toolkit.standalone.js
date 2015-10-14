@@ -27477,6 +27477,7 @@ module.exports = require('./views/alertView.jsx');
 
 
 },{"./views/alertView.jsx":200}],199:[function(require,module,exports){
+'use strict';
 var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
@@ -27496,6 +27497,7 @@ module.exports = function() {
 
 
 },{"../../../../utils/getComponentClasses":268,"classnames":3,"react":197}],200:[function(require,module,exports){
+'use strict';
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -27516,10 +27518,12 @@ module.exports = require('./code/index');
 
 
 },{"./code/index":198}],202:[function(require,module,exports){
+'use strict';
 module.exports = require('./views/anchorView.jsx');
 
 
 },{"./views/anchorView.jsx":204}],203:[function(require,module,exports){
+'use strict';
 var React = require('react');
 
 module.exports = function() {
@@ -27535,6 +27539,7 @@ module.exports = function() {
 
 
 },{"react":197}],204:[function(require,module,exports){
+'use strict';
 var React = require('react');
 var DataAttributesMixin = require('react-data-attributes-mixin');
 
@@ -27557,7 +27562,7 @@ module.exports = React.createClass({displayName: "exports",
   },
 
   render: function() {
-    if(!this.props.children) {
+    if (!this.props.children) {
       return null;
     }
     return require('../templates/anchorTemplate.jsx').call(this);
@@ -27566,14 +27571,17 @@ module.exports = React.createClass({displayName: "exports",
 
 
 },{"../templates/anchorTemplate.jsx":203,"react":197,"react-data-attributes-mixin":23}],205:[function(require,module,exports){
+'use strict';
 module.exports = require('./code/index');
 
 
 },{"./code/index":202}],206:[function(require,module,exports){
+'use strict';
 module.exports = require('./views/buttonView.jsx');
 
 
 },{"./views/buttonView.jsx":209}],207:[function(require,module,exports){
+'use strict';
 var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
@@ -27593,6 +27601,7 @@ module.exports = function() {
 
 
 },{"../../../../utils/getComponentClasses":268,"classnames":3,"react":197}],208:[function(require,module,exports){
+'use strict';
 var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
@@ -27612,6 +27621,7 @@ module.exports = function() {
 
 
 },{"../../../../utils/getComponentClasses":268,"classnames":3,"react":197}],209:[function(require,module,exports){
+'use strict';
 var React = require('react');
 var DataAttributesMixin = require('react-data-attributes-mixin');
 module.exports = React.createClass({displayName: "exports",
@@ -27629,7 +27639,7 @@ module.exports = React.createClass({displayName: "exports",
   },
 
   render: function() {
-    if(this.props.href) {
+    if (this.props.href) {
       return require('../templates/buttonAnchorTemplate.jsx').call(this);
     }
     return require('../templates/buttonTemplate.jsx').call(this);
@@ -27647,6 +27657,7 @@ module.exports = require('./views/countdownView.jsx');
 
 
 },{"./views/countdownView.jsx":215}],212:[function(require,module,exports){
+'use strict';
 var moment = require('moment');
 var countdown = {};
 module.exports = countdown;
@@ -27662,7 +27673,7 @@ countdown.until = function(untilDate) {
   };
 };
 
-countdown.untilString = function(untilDate){
+countdown.untilString = function(untilDate) {
   var timeLeft = this.until(untilDate);
   var out = timeLeft.days + ' days';
   out += ', ' + ( timeLeft.hours / 1 ) + ' hours';
@@ -27672,21 +27683,19 @@ countdown.untilString = function(untilDate){
 };
 
 // Private functions from here
-countdown._pad = function (number) {
+countdown._pad = function(number) {
   number = Math.abs(Math.floor(number));
   if (number > 9) {
     return '' + number;
-  } else {
-    return '0' + number;
   }
+  return '0' + number;
 };
 
 countdown._roundTowardsZero = function(number) {
   if (number > 0) {
     return '' + Math.floor(number);
-  } else {
-    return '' + Math.ceil(number);
   }
+  return '' + Math.ceil(number);
 };
 
 countdown._isSameDay = function(moment1, moment2) {
@@ -27696,16 +27705,16 @@ countdown._isSameDay = function(moment1, moment2) {
 countdown._durationFromNow = function(untilDate) {
   var until = moment(untilDate);
   var now = moment();
-  if(this._isSameDay(until, now)) {
+  if (this._isSameDay(until, now)) {
     return moment.duration();
-  } else {
-    var seconds = until.diff(now, 'seconds');
-    return moment.duration(seconds, 'seconds');
   }
+  var seconds = until.diff(now, 'seconds');
+  return moment.duration(seconds, 'seconds');
 };
 
 
 },{"moment":22}],213:[function(require,module,exports){
+'use strict';
 var countdown = require('./countdown.js');
 var moment = require('moment');
 
@@ -27742,6 +27751,7 @@ CountdownManager.prototype.time = function(currentMoment) {
 
 
 },{"./countdown.js":212,"moment":22}],214:[function(require,module,exports){
+'use strict';
 var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
@@ -27763,6 +27773,7 @@ module.exports = function() {
 
 
 },{"../../../../utils/getComponentClasses":268,"classnames":3,"react":197}],215:[function(require,module,exports){
+'use strict';
 var React = require('react');
 var CountdownManager = require('../lib/countdownManager');
 
@@ -27774,12 +27785,12 @@ module.exports = React.createClass({displayName: "exports",
     until: React.PropTypes.string
   },
 
-  getInitialState: function(){
+  getInitialState: function() {
     return this.countdownManagerState();
   },
 
   countdownManagerState: function(dateUpdate) {
-    var date = {startDate: (dateUpdate || this.props.until)};
+    var date = { startDate: (dateUpdate || this.props.until) };
     var countdownManager = new CountdownManager(date);
     return {
       countdownManager: countdownManager,
@@ -27805,7 +27816,7 @@ module.exports = React.createClass({displayName: "exports",
   },
 
   onCountdown: function(time) {
-    this.setState({time: time});
+    this.setState({ time: time });
   },
 
   stopCountdownManager: function() {
@@ -27827,6 +27838,7 @@ module.exports = require('./views/flagView.jsx');
 
 
 },{"./views/flagView.jsx":219}],218:[function(require,module,exports){
+'use strict';
 var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
@@ -27845,6 +27857,7 @@ module.exports = function(props) {
 
 
 },{"../../../../utils/getComponentClasses":268,"classnames":3,"react":197}],219:[function(require,module,exports){
+'use strict';
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -27885,6 +27898,7 @@ module.exports = require('./views/IconListItemComponentView.jsx');
 
 
 },{"./views/IconListItemComponentView.jsx":223}],222:[function(require,module,exports){
+'use strict';
 var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
@@ -27902,6 +27916,7 @@ module.exports = function() {
 
 
 },{"../../../../utils/getComponentClasses":268,"classnames":3,"react":197}],223:[function(require,module,exports){
+'use strict';
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -27925,6 +27940,7 @@ module.exports = require('./views/IconListComponentView.jsx');
 
 
 },{"./views/IconListComponentView.jsx":227}],226:[function(require,module,exports){
+'use strict';
 var React = require('react');
 
 module.exports = function(props) {
@@ -27937,6 +27953,7 @@ module.exports = function(props) {
 
 
 },{"react":197}],227:[function(require,module,exports){
+'use strict';
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -27955,6 +27972,7 @@ module.exports = require('./views/imageView.jsx');
 
 
 },{"./views/imageView.jsx":232}],230:[function(require,module,exports){
+'use strict';
 var React = require('react');
 
 module.exports = function() {
@@ -27971,6 +27989,7 @@ module.exports = function() {
 
 
 },{"react":197}],231:[function(require,module,exports){
+'use strict';
 var React = require('react');
 
 module.exports = function() {
@@ -27985,6 +28004,7 @@ module.exports = function() {
 
 
 },{"react":197}],232:[function(require,module,exports){
+'use strict';
 var React = require('react');
 var DataAttributesMixin = require('react-data-attributes-mixin');
 
@@ -28002,7 +28022,7 @@ module.exports = React.createClass({displayName: "exports",
   },
 
   render: function() {
-    if(this.props.href) {
+    if (this.props.href) {
       return require('../templates/imageAnchorTemplate.jsx').call(this);
     }
     return require('../templates/imageTemplate.jsx').call(this);
@@ -28019,10 +28039,11 @@ module.exports = require('./views/inputView.jsx');
 
 
 },{"./views/inputView.jsx":236}],235:[function(require,module,exports){
+'use strict';
 var React = require('react');
 var classNames = require('classnames');
 
-module.exports = function (component){
+module.exports = function(component) {
 
   var classes = classNames({
     'component-input': true,
@@ -28033,7 +28054,7 @@ module.exports = function (component){
   // the form label
   var label;
 
-  if (component.props.label){
+  if (component.props.label) {
     label = ( React.createElement("label", {className: "component-input-label", htmlFor: component.props.id}, component.props.label) );
   }
 
@@ -28043,7 +28064,7 @@ module.exports = function (component){
    */
   var span;
 
-  if (component.state.error){
+  if (component.state.error) {
     span = ( React.createElement("span", {className: "component-input-error"}, component.state.error) );
   }
 
@@ -28069,6 +28090,7 @@ module.exports = function (component){
 
 
 },{"classnames":3,"react":197}],236:[function(require,module,exports){
+'use strict';
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -28165,6 +28187,7 @@ module.exports = require('./views/LozengeComponentView.jsx');
 
 
 },{"./views/LozengeComponentView.jsx":240}],239:[function(require,module,exports){
+'use strict';
 var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
@@ -28183,6 +28206,7 @@ module.exports = function() {
 
 
 },{"../../../../utils/getComponentClasses":268,"classnames":3,"react":197}],240:[function(require,module,exports){
+'use strict';
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -28207,6 +28231,7 @@ module.exports = require('./views/paymentCardView.jsx');
 
 
 },{"./views/paymentCardView.jsx":244}],243:[function(require,module,exports){
+'use strict';
 var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
@@ -28223,6 +28248,7 @@ module.exports = function() {
 
 
 },{"../../../../utils/getComponentClasses":268,"classnames":3,"react":197}],244:[function(require,module,exports){
+'use strict';
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -28245,6 +28271,7 @@ module.exports = require('./views/quoteView.jsx');
 
 
 },{"./views/quoteView.jsx":249}],247:[function(require,module,exports){
+'use strict';
 var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
@@ -28268,6 +28295,7 @@ module.exports = function() {
 
 
 },{"../../../../utils/getComponentClasses":268,"classnames":3,"react":197}],248:[function(require,module,exports){
+'use strict';
 var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
@@ -28291,6 +28319,7 @@ module.exports = function() {
 
 
 },{"../../../../utils/getComponentClasses":268,"classnames":3,"react":197}],249:[function(require,module,exports){
+'use strict';
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -28303,7 +28332,7 @@ module.exports = React.createClass({displayName: "exports",
   },
 
   render: function() {
-    if(this.props.type === 'inline') {
+    if (this.props.type === 'inline') {
       return require('../templates/quoteTemplate.jsx').call(this);
     }
     return require('../templates/blockQuoteTemplate.jsx').call(this);
@@ -28320,6 +28349,7 @@ module.exports = require('./views/ratingView.jsx');
 
 
 },{"./views/ratingView.jsx":253}],252:[function(require,module,exports){
+'use strict';
 var React = require('react');
 
 module.exports = function(props) {
@@ -28327,12 +28357,12 @@ module.exports = function(props) {
   var $rating = [];
   var $blankRating = [];
 
-  for(var i = 0; i < props.rating; i++) {
+  for (var i = 0; i < props.rating; i++) {
     $rating.push( props.children ? props.children : React.createElement("span", {className: "rating-icon"}) );
   }
 
-  if(props.outOf && props.blankIcon){
-    for(var j = 0; j < ( props.outOf - props.rating ); j++) {
+  if (props.outOf && props.blankIcon) {
+    for (var j = 0; j < ( props.outOf - props.rating ); j++) {
       $blankRating.push( props.blankIcon );
     }
   }
@@ -28347,6 +28377,7 @@ module.exports = function(props) {
 
 
 },{"react":197}],253:[function(require,module,exports){
+'use strict';
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -28371,6 +28402,7 @@ module.exports = require('./views/reviewsView.jsx');
 
 
 },{"./views/reviewsView.jsx":257}],256:[function(require,module,exports){
+'use strict';
 var React = require('react');
 
 module.exports = function(props) {
@@ -28385,6 +28417,7 @@ module.exports = function(props) {
 
 
 },{"react":197}],257:[function(require,module,exports){
+'use strict';
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -28407,6 +28440,7 @@ module.exports = require('./views/tileView.jsx');
 
 
 },{"./views/tileView.jsx":261}],260:[function(require,module,exports){
+'use strict';
 var React = require('react');
 var ImageComponent = require('../../../image');
 
@@ -28424,6 +28458,7 @@ module.exports = function(props) {
 
 
 },{"../../../image":233,"react":197}],261:[function(require,module,exports){
+'use strict';
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -28451,6 +28486,7 @@ module.exports = require('./views/weatherView.jsx');
 
 
 },{"./views/weatherView.jsx":265}],264:[function(require,module,exports){
+'use strict';
 var moment = require('moment');
 var React = require('react');
 
@@ -28460,7 +28496,7 @@ module.exports = function() {
   var displayFormat = this.props.format || 'ddd';
   var date = this.props.date;
   var unit = this.props.unit;
-  if(this.props.unit !== 'K') {
+  if (this.props.unit !== 'K') {
     unit = '°' + unit;
   }
 
@@ -28483,6 +28519,7 @@ module.exports = function() {
 
 
 },{"moment":22,"react":197}],265:[function(require,module,exports){
+'use strict';
 var React = require('react');
 module.exports = React.createClass({displayName: "exports",
 
@@ -28528,18 +28565,19 @@ module.exports = UIToolkit;
 
 
 },{"./components/alert":201,"./components/anchor":205,"./components/button":210,"./components/countdown":216,"./components/flag":220,"./components/icon-list":228,"./components/icon-list-item":224,"./components/image":233,"./components/input":237,"./components/lozenge":241,"./components/payment-card":245,"./components/quote":250,"./components/rating":254,"./components/reviews":258,"./components/tile":262,"./components/weather":266}],268:[function(require,module,exports){
+'use strict';
 var _ = {
   values: require('lodash.values'),
   pick: require('lodash.pick')
 };
 
 module.exports = function(defaultClass, propClasses, props) {
-  if(!defaultClass || (typeof defaultClass !== 'string')) {
+  if (!defaultClass || (typeof defaultClass !== 'string')) {
     throw new Error('Invalid default class');
   }
 
   var classes = [defaultClass];
-  if((propClasses && propClasses instanceof Array) && (props && props instanceof Object)) {
+  if ((propClasses && propClasses instanceof Array) && (props && props instanceof Object)) {
     classes = classes.concat(_.values(_.pick(props, propClasses)));
   }
 
