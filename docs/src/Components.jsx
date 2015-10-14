@@ -227,7 +227,7 @@ var Components = React.createClass({
 
           <article id="Stepper">
             <h3>Stepper</h3>
-            <p>TEXT HERE</p>
+            <p>Display an input with a number value that is surrounded by decrement and increment buttons</p>
             <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Stepper.jsx', 'utf8')} />
             <h4>Attributes</h4>
             <ul>
@@ -239,8 +239,6 @@ var Components = React.createClass({
               <li><code>decrementDisplayString</code> String - The string to display in the increment button</li>
             </ul>
           </article>
-
-
         </section>
       </main>
     );

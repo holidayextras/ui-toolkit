@@ -1,12 +1,10 @@
-/** @jsx React.DOM */
-
 'use strict';
 
 var assert = require('chai').assert;
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 var sinon = require('sinon');
-var Stepper = require('../code/views/stepperComponentView.jsx');
+var Stepper = require('../code/views/stepperView.jsx');
 
 describe('Stepper', function() {
 
