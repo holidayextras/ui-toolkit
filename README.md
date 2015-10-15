@@ -65,7 +65,7 @@ Generate a component & follow the prompts
 cd src/components
 mkdir your-new-component
 cd your-new-component
-~~yo ui-component:external~~
+~~yo ui-component:external # coming back soon new and improved~~
 ```
 
 Then require this file in `src/ui-toolkit.js`
