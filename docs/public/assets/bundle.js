@@ -26670,7 +26670,6 @@ module.exports={
     "grunt": "^0.4.5",
     "grunt-shell": "^1.1.1",
     "gruntfile-gtx": "^0.3.0",
-    "jest-cli": "^0.5.10",
     "lodash.pick": "~3.1.0",
     "lodash.values": "~3.0.0",
     "moment": "~2.10.6",
@@ -26710,7 +26709,6 @@ module.exports={
     ]
   }
 }
-
 },{}],210:[function(require,module,exports){
 module.exports = require('./views/alertView.jsx');
 
