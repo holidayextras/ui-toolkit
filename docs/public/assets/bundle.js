@@ -27689,13 +27689,13 @@ module.exports = function() {
   return (
     React.createElement("div", {className: "component-stepper"}, 
       React.createElement("span", {className: "button-container"}, 
-        React.createElement(Button, {handleClick: this.decrement, disabled: !this.canDecrement()}, this.props.decrementDisplayString)
+        React.createElement(Button, {handleClick: this.decrement, type: "button", disabled: !this.canDecrement()}, this.props.decrementDisplayString)
       ), 
 
       React.createElement(Input, {type: "text", key: this.props.value, readOnly: true}, this.props.value.toString()), 
 
       React.createElement("span", {className: "button-container"}, 
-        React.createElement(Button, {handleClick: this.increment, disabled: !this.canIncrement()}, this.props.incrementDisplayString)
+        React.createElement(Button, {handleClick: this.increment, type: "button", disabled: !this.canIncrement()}, this.props.incrementDisplayString)
       )
     )
   );
