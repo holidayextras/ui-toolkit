@@ -66,7 +66,10 @@ describe('Stepper', function() {
     });
 
     it('should not call onChange if we can not increment', function() {
-      //Cameron write test for this
+      props.value = 3;
+      var renderOutput = TestUtils.renderIntoDocument(<Stepper {... props} />);
+      renderOutput.increment();
+      assert(props.onChange.notCalled);
     });
 
   });
@@ -80,7 +83,10 @@ describe('Stepper', function() {
     });
 
     it('should not call onChange if we can not decrement', function() {
-      //Cameron write test for this
+      props.value = 1;
+      var renderOutput = TestUtils.renderIntoDocument(<Stepper {... props} />);
+      renderOutput.decrement();
+      assert(props.onChange.notCalled);
     });
 
   });
