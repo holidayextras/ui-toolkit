@@ -26636,7 +26636,8 @@ module.exports={
   },
   "scripts": {
     "coveralls": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --require tests/bootstrap.js --compilers js:babel/register --recursive src/**/*-test.js && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-    "docs": "cd docs && npm install && cd -",
+    "predocs": "cd docs && npm install && cd -",
+    "docs": "grunt docs",
     "test": "./node_modules/mocha/bin/mocha --require tests/bootstrap.js --compilers js:babel/register --recursive src/**/*-test.js",
     "lint": "node_modules/.bin/make-up grunt src && echo '🍻  All good!'"
   },
@@ -27691,7 +27692,7 @@ module.exports = function() {
         React.createElement(Button, {handleClick: this.decrement, disabled: !this.canDecrement()}, this.props.decrementDisplayString)
       ), 
 
-      React.createElement(Input, {type: "text", key: this.state.value, readOnly: true}, this.state.value.toString()), 
+      React.createElement(Input, {type: "text", key: this.props.value, readOnly: true}, this.props.value.toString()), 
 
       React.createElement("span", {className: "button-container"}, 
         React.createElement(Button, {handleClick: this.increment, disabled: !this.canIncrement()}, this.props.incrementDisplayString)
@@ -27726,34 +27727,26 @@ module.exports = React.createClass({displayName: "exports",
     };
   },
 
-  getInitialState: function() {
-    return {
-      value: this.props.value
-    };
-  },
-
   decrement: function() {
     if (!this.canDecrement()) return;
     var value = this.state.value - 1;
-    this.setState({ value: value });
     this.props.onChange(this.state.value);
   },
 
   increment: function() {
     if (!this.canIncrement()) return;
     var value = this.state.value + 1;
-    this.setState({ value: value });
     this.props.onChange(this.state.value);
   },
 
   canIncrement: function() {
     if (this.props.maxValue === undefined) return true;
-    return this.state.value < this.props.maxValue;
+    return this.props.value < this.props.maxValue;
   },
 
   canDecrement: function() {
     if (this.props.minValue === undefined) return true;
-    return this.state.value > this.props.minValue;
+    return this.props.value > this.props.minValue;
   },
 
   render: function() {

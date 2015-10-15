@@ -12,7 +12,7 @@ module.exports = function() {
         <Button handleClick={this.decrement} disabled={!this.canDecrement()}>{this.props.decrementDisplayString}</Button>
       </span>
 
-      <Input type="text" key={this.state.value} readOnly={true}>{this.state.value.toString()}</Input>
+      <Input type="text" key={this.props.value} readOnly={true}>{this.props.value.toString()}</Input>
 
       <span className="button-container">
         <Button handleClick={this.increment} disabled={!this.canIncrement()}>{this.props.incrementDisplayString}</Button>
