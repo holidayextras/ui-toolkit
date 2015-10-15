@@ -59,18 +59,13 @@ solutions. If you cannot find your specific problem then please create a
 
 Adding a new component
 ---
-#### Install our [yeoman component generator](https://github.com/holidayextras/generator-ui-component)
-```bash
-npm install -g holidayextras/generator-ui-component
-```
-
 #### Creating the component
 Generate a component & follow the prompts
 ```bash
 cd src/components
 mkdir your-new-component
 cd your-new-component
-yo ui-component:external
+~~yo ui-component:external # coming back soon new and improved~~
 ```
 
 Then require this file in `src/ui-toolkit.js`
@@ -129,7 +124,7 @@ React.render(example, mountNode);
 </article>
 ```
 
-4. You should now be able to see your component when running `grunt docs` from the root of `ui-toolkit`
+4. You should now be able to see your component when running `npm run docs` from the root of `ui-toolkit`
 
 ##### Standalone (currently doesn't bring in ui-toolkit styles)
 ```bash
@@ -149,7 +144,7 @@ You can view the React Components in your browser by generating and viewing the 
 
 Run & watch the documentation in development:
 ```bash
-grunt docs
+npm run docs
 ```
 
 Building so you can upload to a remote docs server that does not require Node:
