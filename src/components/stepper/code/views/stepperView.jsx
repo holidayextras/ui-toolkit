@@ -24,14 +24,12 @@ module.exports = React.createClass({
 
   decrement: function() {
     if (!this.canDecrement()) return;
-    var value = this.state.value - 1;
-    this.props.onChange(this.state.value);
+    this.props.onChange(this.props.value - 1);
   },
 
   increment: function() {
     if (!this.canIncrement()) return;
-    var value = this.state.value + 1;
-    this.props.onChange(this.state.value);
+    this.props.onChange(this.props.value + 1);
   },
 
   canIncrement: function() {
