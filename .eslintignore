@@ -1,3 +1,4 @@
 **/dev/*.js
 *.less
 **/*.less
+src/components/*.js

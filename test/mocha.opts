@@ -1,0 +1,3 @@
+--compilers .:babel/register
+--require react-tests-globals-setup
+--recursive

@@ -1,8 +1,8 @@
 instrumentation:
-  root: ./src
-  extensions: 
-    - ".js"
-    - ".jsx"
-  excludes: 
-    - "**/node_modules/**"
-    - "**/__tests__/**"
+  extensions: ['.js', '.jsx']
+check:
+  global:
+    statements: 95
+    lines: 95
+    branches: 95
+    functions: 95
