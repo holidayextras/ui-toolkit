@@ -2,7 +2,7 @@
 module.exports = require('./src/ui-toolkit');
 
 
-},{"./src/ui-toolkit":267}],2:[function(require,module,exports){
+},{"./src/ui-toolkit":271}],2:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -101,12 +101,14 @@ process.umask = function() { return 0; };
   Licensed under the MIT License (MIT), see
   http://jedwatson.github.io/classnames
 */
+/* global define */
 
 (function () {
 	'use strict';
 
-	function classNames () {
+	var hasOwn = {}.hasOwnProperty;
 
+	function classNames () {
 		var classes = '';
 
 		for (var i = 0; i < arguments.length; i++) {
@@ -115,15 +117,13 @@ process.umask = function() { return 0; };
 
 			var argType = typeof arg;
 
-			if ('string' === argType || 'number' === argType) {
+			if (argType === 'string' || argType === 'number') {
 				classes += ' ' + arg;
-
 			} else if (Array.isArray(arg)) {
 				classes += ' ' + classNames.apply(null, arg);
-
-			} else if ('object' === argType) {
+			} else if (argType === 'object') {
 				for (var key in arg) {
-					if (arg.hasOwnProperty(key) && arg[key]) {
+					if (hasOwn.call(arg, key) && arg[key]) {
 						classes += ' ' + key;
 					}
 				}
@@ -135,15 +135,14 @@ process.umask = function() { return 0; };
 
 	if (typeof module !== 'undefined' && module.exports) {
 		module.exports = classNames;
-	} else if (typeof define === 'function' && typeof define.amd === 'object' && define.amd){
-		// AMD. Register as an anonymous module.
-		define(function () {
+	} else if (typeof define === 'function' && typeof define.amd === 'object' && define.amd) {
+		// register as 'classnames', consistent with npm package name
+		define('classnames', function () {
 			return classNames;
 		});
 	} else {
 		window.classNames = classNames;
 	}
-
 }());
 
 },{}],4:[function(require,module,exports){
@@ -27496,7 +27495,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":268,"classnames":3,"react":197}],200:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":272,"classnames":3,"react":197}],200:[function(require,module,exports){
 'use strict';
 var React = require('react');
 
@@ -27600,7 +27599,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":268,"classnames":3,"react":197}],208:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":272,"classnames":3,"react":197}],208:[function(require,module,exports){
 'use strict';
 var React = require('react');
 var classNames = require('classnames');
@@ -27620,7 +27619,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":268,"classnames":3,"react":197}],209:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":272,"classnames":3,"react":197}],209:[function(require,module,exports){
 'use strict';
 var React = require('react');
 var DataAttributesMixin = require('react-data-attributes-mixin');
@@ -27772,7 +27771,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":268,"classnames":3,"react":197}],215:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":272,"classnames":3,"react":197}],215:[function(require,module,exports){
 'use strict';
 var React = require('react');
 var CountdownManager = require('../lib/countdownManager');
@@ -27856,7 +27855,7 @@ module.exports = function(props) {
 };
 
 
-},{"../../../../utils/getComponentClasses":268,"classnames":3,"react":197}],219:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":272,"classnames":3,"react":197}],219:[function(require,module,exports){
 'use strict';
 var React = require('react');
 
@@ -27915,7 +27914,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":268,"classnames":3,"react":197}],223:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":272,"classnames":3,"react":197}],223:[function(require,module,exports){
 'use strict';
 var React = require('react');
 
@@ -28205,7 +28204,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":268,"classnames":3,"react":197}],240:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":272,"classnames":3,"react":197}],240:[function(require,module,exports){
 'use strict';
 var React = require('react');
 
@@ -28247,7 +28246,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":268,"classnames":3,"react":197}],244:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":272,"classnames":3,"react":197}],244:[function(require,module,exports){
 'use strict';
 var React = require('react');
 
@@ -28294,7 +28293,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":268,"classnames":3,"react":197}],248:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":272,"classnames":3,"react":197}],248:[function(require,module,exports){
 'use strict';
 var React = require('react');
 var classNames = require('classnames');
@@ -28318,7 +28317,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":268,"classnames":3,"react":197}],249:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":272,"classnames":3,"react":197}],249:[function(require,module,exports){
 'use strict';
 var React = require('react');
 
@@ -28436,10 +28435,94 @@ module.exports = require('./code/index');
 
 
 },{"./code/index":255}],259:[function(require,module,exports){
+module.exports = require('./views/stepperView.jsx');
+
+
+},{"./views/stepperView.jsx":261}],260:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+var Button = require('../../../button');
+var Input = require('../../../input');
+
+module.exports = function() {
+
+  return (
+    React.createElement("div", {className: "component-stepper"}, 
+      React.createElement("span", {className: "button-container"}, 
+        React.createElement(Button, {handleClick: this.decrement, type: "button", disabled: !this.canDecrement()}, this.props.decrementDisplayString)
+      ), 
+
+      React.createElement(Input, {type: "text", key: this.props.value, readOnly: true}, this.props.value.toString()), 
+
+      React.createElement("span", {className: "button-container"}, 
+        React.createElement(Button, {handleClick: this.increment, type: "button", disabled: !this.canIncrement()}, this.props.incrementDisplayString)
+      )
+    )
+  );
+};
+
+
+},{"../../../button":210,"../../../input":237,"react":197}],261:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+
+module.exports = React.createClass({displayName: "exports",
+
+  propTypes: {
+    value: React.PropTypes.number,
+    onChange: React.PropTypes.func,
+    minValue: React.PropTypes.number,
+    maxValue: React.PropTypes.number,
+    incrementDisplayString: React.PropTypes.string,
+    decrementDisplayString: React.PropTypes.string
+  },
+
+  getDefaultProps: function() {
+    return {
+      value: 0,
+      incrementDisplayString: '+',
+      decrementDisplayString: '-',
+      onChange: function() {}
+    };
+  },
+
+  decrement: function() {
+    if (!this.canDecrement()) return;
+    this.props.onChange(this.props.value - 1);
+  },
+
+  increment: function() {
+    if (!this.canIncrement()) return;
+    this.props.onChange(this.props.value + 1);
+  },
+
+  canIncrement: function() {
+    if (this.props.maxValue === undefined) return true;
+    return this.props.value < this.props.maxValue;
+  },
+
+  canDecrement: function() {
+    if (this.props.minValue === undefined) return true;
+    return this.props.value > this.props.minValue;
+  },
+
+  render: function() {
+    return require('../templates/stepperTemplate.jsx').call(this);
+  }
+});
+
+
+},{"../templates/stepperTemplate.jsx":260,"react":197}],262:[function(require,module,exports){
+module.exports = require('./code/index');
+
+
+},{"./code/index":259}],263:[function(require,module,exports){
 module.exports = require('./views/tileView.jsx');
 
 
-},{"./views/tileView.jsx":261}],260:[function(require,module,exports){
+},{"./views/tileView.jsx":265}],264:[function(require,module,exports){
 'use strict';
 var React = require('react');
 var ImageComponent = require('../../../image');
@@ -28457,7 +28540,7 @@ module.exports = function(props) {
 };
 
 
-},{"../../../image":233,"react":197}],261:[function(require,module,exports){
+},{"../../../image":233,"react":197}],265:[function(require,module,exports){
 'use strict';
 var React = require('react');
 
@@ -28477,15 +28560,15 @@ module.exports = React.createClass({displayName: "exports",
 });
 
 
-},{"../templates/tileTemplate.jsx":260,"react":197}],262:[function(require,module,exports){
+},{"../templates/tileTemplate.jsx":264,"react":197}],266:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
-},{"./code/index":259}],263:[function(require,module,exports){
+},{"./code/index":263}],267:[function(require,module,exports){
 module.exports = require('./views/weatherView.jsx');
 
 
-},{"./views/weatherView.jsx":265}],264:[function(require,module,exports){
+},{"./views/weatherView.jsx":269}],268:[function(require,module,exports){
 'use strict';
 var moment = require('moment');
 var React = require('react');
@@ -28518,7 +28601,7 @@ module.exports = function() {
 };
 
 
-},{"moment":22,"react":197}],265:[function(require,module,exports){
+},{"moment":22,"react":197}],269:[function(require,module,exports){
 'use strict';
 var React = require('react');
 module.exports = React.createClass({displayName: "exports",
@@ -28536,11 +28619,11 @@ module.exports = React.createClass({displayName: "exports",
 });
 
 
-},{"../templates/weatherTemplate.jsx":264,"react":197}],266:[function(require,module,exports){
+},{"../templates/weatherTemplate.jsx":268,"react":197}],270:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
-},{"./code/index":263}],267:[function(require,module,exports){
+},{"./code/index":267}],271:[function(require,module,exports){
 var UIToolkit = {};
 
 // Custom Components
@@ -28560,11 +28643,12 @@ UIToolkit.Rating = require('./components/rating');
 UIToolkit.Reviews = require('./components/reviews');
 UIToolkit.Tile = require('./components/tile');
 UIToolkit.Weather = require('./components/weather');
+UIToolkit.Stepper = require('./components/stepper');
 
 module.exports = UIToolkit;
 
 
-},{"./components/alert":201,"./components/anchor":205,"./components/button":210,"./components/countdown":216,"./components/flag":220,"./components/icon-list":228,"./components/icon-list-item":224,"./components/image":233,"./components/input":237,"./components/lozenge":241,"./components/payment-card":245,"./components/quote":250,"./components/rating":254,"./components/reviews":258,"./components/tile":262,"./components/weather":266}],268:[function(require,module,exports){
+},{"./components/alert":201,"./components/anchor":205,"./components/button":210,"./components/countdown":216,"./components/flag":220,"./components/icon-list":228,"./components/icon-list-item":224,"./components/image":233,"./components/input":237,"./components/lozenge":241,"./components/payment-card":245,"./components/quote":250,"./components/rating":254,"./components/reviews":258,"./components/stepper":262,"./components/tile":266,"./components/weather":270}],272:[function(require,module,exports){
 'use strict';
 var _ = {
   values: require('lodash.values'),
