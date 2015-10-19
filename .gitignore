@@ -32,4 +32,4 @@ docs/npm-debug.log*
 .eslintrc
 
 # Built files
-src/components/*.js
+dist/components
