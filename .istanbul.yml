@@ -1,5 +1,8 @@
 instrumentation:
-  extensions: ['.js', '.jsx']
+  root: ./src
+  extensions:
+    - ".js"
+    - ".jsx"
 check:
   global:
     statements: 95
