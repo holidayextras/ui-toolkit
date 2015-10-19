@@ -2,7 +2,7 @@
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 var assert = require('chai').assert;
-var TileComponent = require('../../src/components/tile.jsx');
+var TileComponent = require('../../src/components/tile/tile.jsx');
 
 describe('TileComponent', function() {
 

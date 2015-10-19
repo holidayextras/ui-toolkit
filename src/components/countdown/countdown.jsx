@@ -1,6 +1,8 @@
 'use strict';
 var React = require('react');
-var CountdownManager = require('../lib/countdownManager');
+var CountdownManager = require('../../../src/components/countdown/lib/countdownManager');
+var classNames = require('classnames');
+var getComponentClasses = require('../../../src/utils/getComponentClasses');
 
 module.exports = React.createClass({
 
@@ -49,6 +51,16 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    return require('../templates/countdownTemplate.jsx').call(this);
+    var propClasses = ['size', 'purpose'];
+    var classes = getComponentClasses('component-countdown', propClasses, this.props);
+
+    return (
+      <div className={classNames(classes)} role="timer">
+        <div>{this.state.time.days} <small>Days</small></div>
+        <div>{this.state.time.hours} <small>Hours</small></div>
+        <div>{this.state.time.minutes} <small>Minutes</small></div>
+        <div>{this.state.time.seconds} <small>Seconds</small></div>
+      </div>
+    );
   }
 });

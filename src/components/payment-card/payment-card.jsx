@@ -1,7 +1,7 @@
 'use strict';
 var React = require('react');
 var classNames = require('classnames');
-var getComponentClasses = require('../utils/getComponentClasses');
+var getComponentClasses = require('../../../src/utils/getComponentClasses');
 
 module.exports = React.createClass({
   propTypes: {

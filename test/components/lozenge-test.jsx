@@ -2,7 +2,7 @@
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 var assert = require('chai').assert;
-var Lozenge = require('../../src/components/lozenge.jsx');
+var Lozenge = require('../../src/components/lozenge/lozenge.jsx');
 
 describe('Lozenge', function() {
   it('is an element', function() {

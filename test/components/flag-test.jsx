@@ -2,7 +2,7 @@
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 var assert = require('chai').assert;
-var FlagComponent = require('../../src/components/flag.jsx');
+var FlagComponent = require('../../src/components/flag/flag.jsx');
 
 describe('FlagComponent', function() {
 

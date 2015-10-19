@@ -2,7 +2,7 @@
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 var assert = require('chai').assert;
-var ReviewsComponent = require('../../src/components/reviews.jsx');
+var ReviewsComponent = require('../../src/components/reviews/reviews.jsx');
 
 describe('ReviewsComponent', function() {
 

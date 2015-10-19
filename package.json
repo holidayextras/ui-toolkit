@@ -3,13 +3,13 @@
   "version": "0.17.1",
   "description": "UI Toolkit",
   "license": "MIT",
-  "main": "index.js",
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/holidayextras/ui-toolkit.git"
   },
   "scripts": {
-    "build": "babel src/components/*.jsx --out-dir ./",
+    "build": "scripts/build.sh",
     "postinstall": "npm run build",
     "coverage": "istanbul cover -x dist _mocha -- test/*-test.*",
     "predocs": "cd docs && npm install && cd - && npm run build",

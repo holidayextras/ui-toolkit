@@ -2,7 +2,7 @@
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 var assert = require('chai').assert;
-var AlertComponent = require('../../src/components/alert.jsx');
+var AlertComponent = require('../../src/components/alert/alert.jsx');
 
 describe('AlertComponent', function() {
 

@@ -2,7 +2,7 @@
 var React = require('react');
 var DataAttributesMixin = require('react-data-attributes-mixin');
 var classNames = require('classnames');
-var getComponentClasses = require('../utils/getComponentClasses');
+var getComponentClasses = require('../../../src/utils/getComponentClasses');
 module.exports = React.createClass({
 
   mixins: [DataAttributesMixin],

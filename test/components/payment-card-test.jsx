@@ -2,7 +2,7 @@
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 var assert = require('chai').assert;
-var PaymentCardView = require('../../src/components/payment-card.jsx');
+var PaymentCardView = require('../../src/components/payment-card/payment-card.jsx');
 
 describe('PaymentCardComponent', function() {
 

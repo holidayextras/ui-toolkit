@@ -4,7 +4,7 @@ var TestUtils = React.addons.TestUtils;
 var sinon = require('sinon');
 var assert = require('chai').assert;
 
-var Anchor = require('../../src/components/anchor.jsx');
+var Anchor = require('../../src/components/anchor/anchor.jsx');
 
 describe('Anchor', function() {
 

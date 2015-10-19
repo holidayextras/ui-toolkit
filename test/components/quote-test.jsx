@@ -2,7 +2,7 @@
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 var assert = require('chai').assert;
-var QuoteComponent = require('../../src/components/quote.jsx');
+var QuoteComponent = require('../../src/components/quote/quote.jsx');
 
 describe('QuoteComponent', function() {
 

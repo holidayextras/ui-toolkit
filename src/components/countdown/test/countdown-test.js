@@ -1,7 +1,8 @@
 'use strict';
-var countdown = require('../code/lib/countdown.js');
+var countdown = require('../lib/countdown.js');
 var moment = require('moment');
 var assert = require('chai').assert;
+var sinon = require('sinon');
 
 var dateFormat = 'YYYY-MM-DD';
 
@@ -183,10 +184,14 @@ describe('Countdown tests', function() {
     });
 
     describe('when the untilDate is after today', function() {
-
+      var clock;
       beforeEach(function() {
+        clock = sinon.useFakeTimers(new Date(2015, 1, 1).getTime());
         untilDate = moment().add('10', 'days');
         duration = countdown._durationFromNow(untilDate);
+      });
+      afterEach(function() {
+        return clock.restore();
       });
 
       it('should return -10 days', function() {

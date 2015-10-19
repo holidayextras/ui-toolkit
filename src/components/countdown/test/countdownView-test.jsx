@@ -2,8 +2,8 @@
 var React = require('react/addons');
 var sinon = require('sinon');
 var assert = require('chai').assert;
-var CountdownComponent = require('../code/views/countdownView.jsx');
-var CountdownManager = require('../code/lib/countdownManager');
+var CountdownComponent = require('../countdown.jsx');
+var CountdownManager = require('../lib/countdownManager');
 var TestUtils = React.addons.TestUtils;
 
 

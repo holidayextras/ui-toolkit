@@ -3,7 +3,7 @@ var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 var assert = require('chai').assert;
 
-var WeatherComponent = require('../../src/components/weather.jsx');
+var WeatherComponent = require('../../src/components/weather/weather.jsx');
 
 var type = null;
 var temperature = null;

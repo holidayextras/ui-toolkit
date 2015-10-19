@@ -3,7 +3,7 @@ var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 var assert = require('chai').assert;
 var sinon = require('sinon');
-var InputView = require('../../src/components/input.jsx');
+var InputView = require('../../src/components/input/input.jsx');
 
 describe('InputComponent', function() {
 
