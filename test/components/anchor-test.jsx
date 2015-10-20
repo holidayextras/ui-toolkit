@@ -24,7 +24,7 @@ describe('Anchor', function() {
     title = 'test';
     href = 'google.com';
     clickHandler = sinon.spy();
-    target = 'blank';
+    target = '_blank';
 
     instance = TestUtils.renderIntoDocument(
       <Anchor data={data} title={title} href={href} handleClick={clickHandler} target={target} foo="bar">test anchor</Anchor>

@@ -13,7 +13,7 @@ module.exports = React.createClass({
   },
 
   propTypes: {
-    handleClick: React.PropTypes.function,
+    handleClick: React.PropTypes.func,
     children: React.PropTypes.node,
     data: React.PropTypes.object,
     href: React.PropTypes.string,
