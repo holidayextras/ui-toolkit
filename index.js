@@ -1,1 +1,1 @@
-module.exports = require('./src/ui-toolkit');
+module.exports = require('./dist');
