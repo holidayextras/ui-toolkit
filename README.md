@@ -17,7 +17,7 @@ Requirements:
 UI Toolkit Usage
 ---
 
-All the available UI Toolkit Components are to be listed in the `dist/ui-toolkit.js` so they can be accessed via:
+All the available UI Toolkit Components are to be listed in the `dist/index.js` so they can be accessed via:
 
 ```jsx
 var UIToolkit = require('ui-toolkit');
@@ -68,9 +68,9 @@ mkdir your-new-component
 cd your-new-component
 ```
 
-Then require this file in `dist/ui-toolkit.js`
+Then require this file in `dist/index.js`
 ```javascript
-// dist/ui-toolkit.js
+// dist/index.js
 UIToolkit.YourNewComponent = require('./components/your-new-component');
 ```
 
