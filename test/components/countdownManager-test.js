@@ -1,6 +1,6 @@
 'use strict';
-var CountdownManager = require('../lib/countdownManager');
-var countdown = require('../lib/countdown');
+var CountdownManager = require('../../src/components/countdown/lib/countdownManager');
+var countdown = require('../../src/components/countdown/lib/countdown');
 var assert = require('chai').assert;
 var moment = require('moment');
 var Moment = moment().constructor;

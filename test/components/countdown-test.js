@@ -1,5 +1,5 @@
 'use strict';
-var countdown = require('../lib/countdown.js');
+var countdown = require('../../src/components/countdown/lib/countdown');
 var moment = require('moment');
 var assert = require('chai').assert;
 var sinon = require('sinon');
