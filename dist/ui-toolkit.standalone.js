@@ -1,101 +1,907 @@
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.uiToolkit = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-module.exports = require('./src/ui-toolkit');
+'use strict';
+var React = require('react');
+var classNames = require('classnames');
+var getComponentClasses = require('../../../src/utils/getComponentClasses');
+
+module.exports = React.createClass({
+  displayName: 'exports',
+
+  propTypes: {
+    title: React.PropTypes.string,
+    children: React.PropTypes.any,
+    purpose: React.PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
+    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large'])
+  },
+
+  render: function render() {
+    var propClasses = ['size', 'purpose'];
+    var classes = getComponentClasses('component-alert', propClasses, this.props);
+
+    return React.createElement(
+      'div',
+      { className: classNames(classes), role: 'alert' },
+      React.createElement(
+        'h4',
+        null,
+        this.props.title
+      ),
+      React.createElement(
+        'p',
+        null,
+        this.props.children
+      )
+    );
+  }
+});
 
 
-},{"./src/ui-toolkit":271}],2:[function(require,module,exports){
-// shim for using process in browser
+},{"../../../src/utils/getComponentClasses":206,"classnames":20,"react":203}],2:[function(require,module,exports){
+'use strict';
 
-var process = module.exports = {};
-var queue = [];
-var draining = false;
-var currentQueue;
-var queueIndex = -1;
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-function cleanUpNextTick() {
-    draining = false;
-    if (currentQueue.length) {
-        queue = currentQueue.concat(queue);
-    } else {
-        queueIndex = -1;
+var React = require('react');
+var DataAttributesMixin = require('react-data-attributes-mixin');
+
+module.exports = React.createClass({
+  displayName: 'exports',
+
+  mixins: [DataAttributesMixin],
+
+  getDefaultProps: function getDefaultProps() {
+    return {
+      href: '#'
+    };
+  },
+
+  propTypes: {
+    handleClick: React.PropTypes['function'],
+    children: React.PropTypes.node,
+    data: React.PropTypes.object,
+    href: React.PropTypes.string,
+    target: React.PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
+    title: React.PropTypes.string
+  },
+
+  render: function render() {
+    if (!this.props.children) {
+      return null;
     }
-    if (queue.length) {
-        drainQueue();
+    var dataAttributes = this.getDataAttributesFromProps();
+    return React.createElement(
+      'a',
+      _extends({ className: 'component-anchor' }, dataAttributes, { title: this.props.title, href: this.props.href, onClick: this.props.handleClick, target: this.props.target }),
+      this.props.children
+    );
+  }
+});
+
+
+},{"react":203,"react-data-attributes-mixin":48}],3:[function(require,module,exports){
+'use strict';
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var React = require('react');
+var DataAttributesMixin = require('react-data-attributes-mixin');
+var classNames = require('classnames');
+var getComponentClasses = require('../../../src/utils/getComponentClasses');
+module.exports = React.createClass({
+  displayName: 'exports',
+
+  mixins: [DataAttributesMixin],
+
+  propTypes: {
+    children: React.PropTypes.any,
+    purpose: React.PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
+    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large', 'block']),
+    disabled: React.PropTypes.bool,
+    href: React.PropTypes.string,
+    type: React.PropTypes.string,
+    target: React.PropTypes.string,
+    handleClick: React.PropTypes.func,
+    data: React.PropTypes.object
+  },
+
+  render: function render() {
+    var propClasses = ['size', 'purpose'];
+    var classes = getComponentClasses('component-button', propClasses, this.props);
+    var dataAttributes = this.getDataAttributesFromProps();
+    if (this.props.href) {
+      return React.createElement(
+        'a',
+        _extends({ className: classNames(classes), href: this.props.href, target: this.props.target, onClick: this.props.handleClick }, dataAttributes),
+        this.props.children
+      );
     }
-}
+    return React.createElement(
+      'button',
+      _extends({ className: classNames(classes), disabled: this.props.disabled, type: this.props.type, onClick: this.props.handleClick }, dataAttributes),
+      this.props.children
+    );
+  }
+});
 
-function drainQueue() {
-    if (draining) {
-        return;
+
+},{"../../../src/utils/getComponentClasses":206,"classnames":20,"react":203,"react-data-attributes-mixin":48}],4:[function(require,module,exports){
+'use strict';
+var React = require('react');
+var CountdownManager = require('../../../src/components/countdown/lib/countdownManager');
+var classNames = require('classnames');
+var getComponentClasses = require('../../../src/utils/getComponentClasses');
+
+module.exports = React.createClass({
+  displayName: 'exports',
+
+  propTypes: {
+    purpose: React.PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
+    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large']),
+    until: React.PropTypes.string
+  },
+
+  getInitialState: function getInitialState() {
+    return this.countdownManagerState();
+  },
+
+  countdownManagerState: function countdownManagerState(dateUpdate) {
+    var date = { startDate: dateUpdate || this.props.until };
+    var countdownManager = new CountdownManager(date);
+    return {
+      countdownManager: countdownManager,
+      time: countdownManager.time()
+    };
+  },
+
+  componentDidMount: function componentDidMount() {
+    this.startCountdownManager();
+  },
+
+  componentWillUnmount: function componentWillUnmount() {
+    this.stopCountdownManager();
+  },
+
+  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+    this.stopCountdownManager();
+    this.setState(this.countdownManagerState(nextProps.date), this.startCountdownManager);
+  },
+
+  startCountdownManager: function startCountdownManager() {
+    this.state.countdownManager.start(this.onCountdown);
+  },
+
+  onCountdown: function onCountdown(time) {
+    this.setState({ time: time });
+  },
+
+  stopCountdownManager: function stopCountdownManager() {
+    return this.state.countdownManager.stop();
+  },
+
+  render: function render() {
+    var propClasses = ['size', 'purpose'];
+    var classes = getComponentClasses('component-countdown', propClasses, this.props);
+
+    return React.createElement(
+      'div',
+      { className: classNames(classes), role: 'timer' },
+      React.createElement(
+        'div',
+        null,
+        this.state.time.days,
+        ' ',
+        React.createElement(
+          'small',
+          null,
+          'Days'
+        )
+      ),
+      React.createElement(
+        'div',
+        null,
+        this.state.time.hours,
+        ' ',
+        React.createElement(
+          'small',
+          null,
+          'Hours'
+        )
+      ),
+      React.createElement(
+        'div',
+        null,
+        this.state.time.minutes,
+        ' ',
+        React.createElement(
+          'small',
+          null,
+          'Minutes'
+        )
+      ),
+      React.createElement(
+        'div',
+        null,
+        this.state.time.seconds,
+        ' ',
+        React.createElement(
+          'small',
+          null,
+          'Seconds'
+        )
+      )
+    );
+  }
+});
+
+
+},{"../../../src/components/countdown/lib/countdownManager":205,"../../../src/utils/getComponentClasses":206,"classnames":20,"react":203}],5:[function(require,module,exports){
+'use strict';
+var React = require('react');
+var classNames = require('classnames');
+var getComponentClasses = require('../../../src/utils/getComponentClasses');
+
+module.exports = React.createClass({
+  displayName: 'exports',
+
+  propTypes: {
+    children: React.PropTypes.any,
+    purpose: React.PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
+    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large']),
+    position: React.PropTypes.oneOf(['top', 'right', 'bottom', 'left', 'top left', 'bottom left', 'top right', 'bottom right', 'left top', 'left bottom', 'right top', 'right bottom', 'left right', 'right left'])
+  },
+
+  render: function render() {
+    var propClasses = ['size', 'purpose', 'position'];
+    var classes = getComponentClasses('component-flag', propClasses, this.props);
+
+    return React.createElement(
+      'span',
+      { className: classNames(classes) },
+      this.props.children
+    );
+  }
+});
+
+
+},{"../../../src/utils/getComponentClasses":206,"classnames":20,"react":203}],6:[function(require,module,exports){
+'use strict';
+var React = require('react');
+var classNames = require('classnames');
+var getComponentClasses = require('../../../src/utils/getComponentClasses');
+
+module.exports = React.createClass({
+  displayName: 'exports',
+
+  propTypes: {
+    children: React.PropTypes.any,
+    icon: React.PropTypes.string.isRequired
+  },
+
+  render: function render() {
+    var propClasses = ['size', 'purpose', 'type'];
+    var classes = getComponentClasses('component-icon-list-item', propClasses, this.props);
+    return React.createElement(
+      'li',
+      { className: classNames(classes) },
+      React.createElement('i', { className: 'fa fa-fw fa-' + this.props.icon }),
+      this.props.children
+    );
+  }
+});
+
+
+},{"../../../src/utils/getComponentClasses":206,"classnames":20,"react":203}],7:[function(require,module,exports){
+'use strict';
+var React = require('react');
+
+module.exports = React.createClass({
+  displayName: 'exports',
+
+  propTypes: {
+    children: React.PropTypes.any
+  },
+
+  render: function render() {
+    return React.createElement(
+      'ul',
+      { className: 'component-icon-list' },
+      this.props.children
+    );
+  }
+});
+
+
+},{"react":203}],8:[function(require,module,exports){
+'use strict';
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var React = require('react');
+var DataAttributesMixin = require('react-data-attributes-mixin');
+
+module.exports = React.createClass({
+  displayName: 'exports',
+
+  mixins: [DataAttributesMixin],
+
+  propTypes: {
+    src: React.PropTypes.string.isRequired,
+    alt: React.PropTypes.string.isRequired,
+    handleClick: React.PropTypes.func,
+    href: React.PropTypes.string,
+    srcSet: React.PropTypes.string,
+    sizes: React.PropTypes.string
+  },
+
+  render: function render() {
+    var dataAttributes = this.getDataAttributesFromProps();
+    var sizes = this.props.sizes || '100vw';
+    if (this.props.href) {
+      return React.createElement(
+        'a',
+        _extends({ className: 'component-image', href: this.props.href, onClick: this.props.handleClick }, dataAttributes),
+        React.createElement('img', { src: this.props.src, srcSet: this.props.srcSet, alt: this.props.alt, sizes: sizes })
+      );
     }
-    var timeout = setTimeout(cleanUpNextTick);
-    draining = true;
+    return React.createElement('img', _extends({ className: 'component-image', src: this.props.src, srcSet: this.props.srcSet, alt: this.props.alt, sizes: sizes, onClick: this.props.handleClick }, dataAttributes));
+  }
+});
 
-    var len = queue.length;
-    while(len) {
-        currentQueue = queue;
-        queue = [];
-        while (++queueIndex < len) {
-            if (currentQueue) {
-                currentQueue[queueIndex].run();
-            }
-        }
-        queueIndex = -1;
-        len = queue.length;
+
+},{"react":203,"react-data-attributes-mixin":48}],9:[function(require,module,exports){
+'use strict';
+var React = require('react');
+var classNames = require('classnames');
+
+module.exports = React.createClass({
+  displayName: 'exports',
+
+  intent: null,
+
+  propTypes: {
+    label: React.PropTypes.string,
+    type: React.PropTypes.oneOf(['text', 'email', 'number', 'tel']),
+    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large']),
+    placeHolder: React.PropTypes.string,
+    name: React.PropTypes.string,
+    id: React.PropTypes.string,
+    placeholder: React.PropTypes.string,
+    ref: React.PropTypes.string,
+    disabled: React.PropTypes.bool,
+    readOnly: React.PropTypes.bool,
+    required: React.PropTypes.bool,
+    validator: React.PropTypes.instanceOf(RegExp),
+    errorMessage: React.PropTypes.string,
+    children: React.PropTypes.string,
+    handleChange: React.PropTypes.func
+  },
+
+  getInitialState: function getInitialState() {
+    return {
+      value: this.props.children,
+      error: null,
+      valid: true
+    };
+  },
+
+  getDefaultProps: function getDefaultProps() {
+    return {
+      type: 'text',
+      disabled: false,
+      readOnly: false,
+      required: false,
+      errorMessage: 'Invalid Input',
+      id: 'component-input',
+      name: 'component-input',
+      placeHolder: ''
+    };
+  },
+
+  validate: function validate(value) {
+    var self = this;
+    var isValid = true;
+    var error = null;
+
+    if (value !== '' && typeof self.props.validator !== 'undefined') {
+      isValid = self.props.validator.test(value);
     }
-    currentQueue = null;
-    draining = false;
-    clearTimeout(timeout);
-}
 
-process.nextTick = function (fun) {
-    var args = new Array(arguments.length - 1);
-    if (arguments.length > 1) {
-        for (var i = 1; i < arguments.length; i++) {
-            args[i - 1] = arguments[i];
-        }
+    if (!isValid) {
+      error = self.props.errorMessage;
     }
-    queue.push(new Item(fun, args));
-    if (queue.length === 1 && !draining) {
-        setTimeout(drainQueue, 0);
+
+    self.setState({
+      valid: isValid,
+      error: error
+    });
+  },
+
+  handleChange: function handleChange(e) {
+    var self = this;
+    var value = e.target ? e.target.value : null;
+
+    self.setState({
+      value: value
+    });
+
+    clearTimeout(this.intent);
+    this.intent = setTimeout(function () {
+      self.validate(value);
+    }, 500);
+
+    if (self.props.handleChange) {
+      self.props.handleChange.apply(this, arguments);
     }
-};
+  },
 
-// v8 likes predictible objects
-function Item(fun, array) {
-    this.fun = fun;
-    this.array = array;
-}
-Item.prototype.run = function () {
-    this.fun.apply(null, this.array);
-};
-process.title = 'browser';
-process.browser = true;
-process.env = {};
-process.argv = [];
-process.version = ''; // empty string to avoid regexp issues
-process.versions = {};
+  render: function render() {
+    var classes = classNames({
+      'component-input': true,
+      'error': this.state.error || false,
+      'disabled': this.props.disabled || false
+    });
 
-function noop() {}
+    // the form label
+    var label;
 
-process.on = noop;
-process.addListener = noop;
-process.once = noop;
-process.off = noop;
-process.removeListener = noop;
-process.removeAllListeners = noop;
-process.emit = noop;
+    if (this.props.label) {
+      label = React.createElement(
+        'label',
+        { className: 'component-input-label', htmlFor: this.props.id },
+        this.props.label
+      );
+    }
 
-process.binding = function (name) {
-    throw new Error('process.binding is not supported');
-};
+    /**
+     * Create the span element used for containing messages
+     * related to the element.
+     */
+    var span;
 
-process.cwd = function () { return '/' };
-process.chdir = function (dir) {
-    throw new Error('process.chdir is not supported');
-};
-process.umask = function() { return 0; };
+    if (this.state.error) {
+      span = React.createElement(
+        'span',
+        { className: 'component-input-error' },
+        this.state.error
+      );
+    }
 
-},{}],3:[function(require,module,exports){
+    return React.createElement(
+      'div',
+      { className: classes, ref: this.props.ref },
+      label,
+      React.createElement('input', {
+        className: 'component-input-field',
+        type: this.props.type,
+        name: this.props.name,
+        value: this.state.value,
+        id: this.props.id,
+        placeholder: this.props.placeholder,
+        onChange: this.handleChange,
+        disabled: this.props.disabled,
+        readOnly: this.props.readOnly,
+        required: this.props.required
+      }),
+      span
+    );
+  }
+});
+
+
+},{"classnames":20,"react":203}],10:[function(require,module,exports){
+'use strict';
+var React = require('react');
+var classNames = require('classnames');
+var getComponentClasses = require('../../../src/utils/getComponentClasses');
+
+module.exports = React.createClass({
+  displayName: 'exports',
+
+  propTypes: {
+    tip: React.PropTypes.string,
+    children: React.PropTypes.any,
+    purpose: React.PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
+    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large', 'block'])
+  },
+
+  render: function render() {
+    var propClasses = ['size', 'purpose'];
+    var classes = getComponentClasses('component-lozenge', propClasses, this.props);
+
+    return React.createElement(
+      'span',
+      { className: classNames(classes), title: this.props.tip },
+      this.props.children
+    );
+  }
+});
+
+
+},{"../../../src/utils/getComponentClasses":206,"classnames":20,"react":203}],11:[function(require,module,exports){
+'use strict';
+var React = require('react');
+var classNames = require('classnames');
+var getComponentClasses = require('../../../src/utils/getComponentClasses');
+
+module.exports = React.createClass({
+  displayName: 'exports',
+
+  propTypes: {
+    type: React.PropTypes.oneOf(['amazon', 'amex', 'apple', 'cirrus', 'delta', 'directdebit', 'discover', 'electron', 'google', 'maestro', 'mastercard', 'paym', 'paypal', 'sage', 'sepa', 'solo', 'switch', 'ukash', 'visa', 'visadebit', 'westernunion'])
+  },
+
+  render: function render() {
+    var propClasses = ['type', 'size'];
+    var classes = getComponentClasses('component-payment-card', propClasses, this.props);
+
+    return React.createElement('div', { className: classNames(classes) });
+  }
+});
+
+
+},{"../../../src/utils/getComponentClasses":206,"classnames":20,"react":203}],12:[function(require,module,exports){
+'use strict';
+var React = require('react');
+var classNames = require('classnames');
+var getComponentClasses = require('../../../src/utils/getComponentClasses');
+
+module.exports = React.createClass({
+  displayName: 'exports',
+
+  propTypes: {
+    children: React.PropTypes.any,
+    cite: React.PropTypes.string,
+    author: React.PropTypes.string,
+    role: React.PropTypes.string,
+    purpose: React.PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
+    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large']),
+    orientation: React.PropTypes.oneOf(['default', 'horizontal', 'vertical']),
+    type: React.PropTypes.oneOf(['block', 'inline'])
+  },
+
+  render: function render() {
+    var propClasses = ['size', 'purpose', 'type'];
+    var classes = getComponentClasses('component-quote', propClasses, this.props);
+    if (this.props.type === 'inline') {
+      return React.createElement(
+        'q',
+        { className: classNames(classes), cite: this.props.cite, itemScope: true, itemType: 'http://schema.org/CreativeWork', itemProp: 'text' },
+        this.props.children,
+        this.props.cite ? React.createElement('meta', { itemProp: 'citation', content: this.props.cite }) : null,
+        React.createElement(
+          'span',
+          { itemProp: 'author', itemScope: true, itemType: 'http://schema.org/Person' },
+          React.createElement('meta', { itemProp: 'name', content: this.props.author }),
+          React.createElement('meta', { itemProp: 'jobTitle', content: this.props.role })
+        )
+      );
+    }
+    return React.createElement(
+      'blockquote',
+      { className: classNames(classes), itemScope: true, itemType: 'http://schema.org/CreativeWork' },
+      React.createElement(
+        'p',
+        { itemProp: 'text' },
+        this.props.children
+      ),
+      React.createElement(
+        'footer',
+        { itemProp: 'author', itemScope: true, itemType: 'http://schema.org/Person' },
+        React.createElement(
+          'span',
+          { itemProp: 'name' },
+          this.props.author
+        ),
+        React.createElement(
+          'small',
+          { itemProp: 'jobTitle' },
+          this.props.role
+        ),
+        this.props.cite ? React.createElement(
+          'cite',
+          { itemProp: 'citation' },
+          this.props.cite
+        ) : null
+      )
+    );
+  }
+});
+
+
+},{"../../../src/utils/getComponentClasses":206,"classnames":20,"react":203}],13:[function(require,module,exports){
+'use strict';
+var React = require('react');
+
+module.exports = React.createClass({
+  displayName: 'exports',
+
+  propTypes: {
+    children: React.PropTypes.any,
+    rating: React.PropTypes.number.isRequired,
+    outOf: React.PropTypes.number,
+    blankIcon: React.PropTypes.node
+  },
+
+  render: function render() {
+    var $rating = [];
+    var $blankRating = [];
+
+    for (var i = 0; i < this.props.rating; i++) {
+      $rating.push(this.props.children ? this.props.children : React.createElement('span', { className: 'rating-icon' }));
+    }
+
+    if (this.props.outOf && this.props.blankIcon) {
+      for (var j = 0; j < this.props.outOf - this.props.rating; j++) {
+        $blankRating.push(this.props.blankIcon);
+      }
+    }
+
+    return React.createElement(
+      'div',
+      { className: 'ui-component-rating' },
+      $rating,
+      $blankRating
+    );
+  }
+});
+
+
+},{"react":203}],14:[function(require,module,exports){
+'use strict';
+var React = require('react');
+
+module.exports = React.createClass({
+  displayName: 'exports',
+
+  propTypes: {
+    reviewPercentage: React.PropTypes.number.isRequired,
+    reviewCount: React.PropTypes.number.isRequired
+  },
+  render: function render() {
+    return React.createElement(
+      'div',
+      { itemProp: 'aggregateRating', itemScope: true, itemType: 'http://schema.org/AggregateRating', className: 'ui-component-reviews' },
+      React.createElement('meta', { itemProp: 'bestRating', content: '100' }),
+      React.createElement(
+        'div',
+        null,
+        React.createElement(
+          'span',
+          { itemProp: 'ratingValue' },
+          this.props.reviewPercentage
+        ),
+        '% would book again'
+      ),
+      React.createElement(
+        'div',
+        null,
+        React.createElement(
+          'span',
+          { itemProp: 'reviewCount' },
+          '(',
+          this.props.reviewCount
+        ),
+        ' ',
+        React.createElement(
+          'a',
+          { title: 'Customer reviews' },
+          'Reviews'
+        ),
+        ')'
+      )
+    );
+  }
+});
+
+
+},{"react":203}],15:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+var Button = require('../button');
+var Input = require('../input');
+
+module.exports = React.createClass({
+  displayName: 'exports',
+
+  propTypes: {
+    value: React.PropTypes.number,
+    onChange: React.PropTypes.func,
+    minValue: React.PropTypes.number,
+    maxValue: React.PropTypes.number,
+    incrementDisplayString: React.PropTypes.string,
+    decrementDisplayString: React.PropTypes.string
+  },
+
+  getDefaultProps: function getDefaultProps() {
+    return {
+      value: 0,
+      incrementDisplayString: '+',
+      decrementDisplayString: '-',
+      onChange: function onChange() {}
+    };
+  },
+
+  decrement: function decrement() {
+    if (!this.canDecrement()) return;
+    this.props.onChange(this.props.value - 1);
+  },
+
+  increment: function increment() {
+    if (!this.canIncrement()) return;
+    this.props.onChange(this.props.value + 1);
+  },
+
+  canIncrement: function canIncrement() {
+    if (this.props.maxValue === undefined) return true;
+    return this.props.value < this.props.maxValue;
+  },
+
+  canDecrement: function canDecrement() {
+    if (this.props.minValue === undefined) return true;
+    return this.props.value > this.props.minValue;
+  },
+
+  render: function render() {
+    return React.createElement(
+      'div',
+      { className: 'component-stepper' },
+      React.createElement(
+        'span',
+        { className: 'button-container' },
+        React.createElement(
+          Button,
+          { handleClick: this.decrement, type: 'button', disabled: !this.canDecrement() },
+          this.props.decrementDisplayString
+        )
+      ),
+      React.createElement(
+        Input,
+        { type: 'text', key: this.props.value, readOnly: true },
+        this.props.value.toString()
+      ),
+      React.createElement(
+        'span',
+        { className: 'button-container' },
+        React.createElement(
+          Button,
+          { handleClick: this.increment, type: 'button', disabled: !this.canIncrement() },
+          this.props.incrementDisplayString
+        )
+      )
+    );
+  }
+});
+
+
+},{"../button":3,"../input":9,"react":203}],16:[function(require,module,exports){
+'use strict';
+var React = require('react');
+var Image = require('../image');
+
+module.exports = React.createClass({
+  displayName: 'exports',
+
+  propTypes: {
+    children: React.PropTypes.any,
+    image: React.PropTypes.object.isRequired,
+    title: React.PropTypes.string.isRequired
+  },
+
+  render: function render() {
+    return React.createElement(
+      'div',
+      { className: 'component-tile' },
+      React.createElement(Image, this.props.image),
+      React.createElement(
+        'div',
+        { className: 'caption' },
+        React.createElement(
+          'h4',
+          null,
+          this.props.title
+        ),
+        this.props.children
+      )
+    );
+  }
+});
+
+
+},{"../image":8,"react":203}],17:[function(require,module,exports){
+'use strict';
+var React = require('react');
+var moment = require('moment');
+module.exports = React.createClass({
+  displayName: 'exports',
+
+  propTypes: {
+    format: React.PropTypes.string,
+    type: React.PropTypes.oneOf(['cloudy', 'fog', 'hail', 'heavy-rain', 'heavy-snow', 'light-rain', 'light-snow', 'night-clear', 'night-partly-cloudy', 'partly-cloudy', 'storm', 'sunny', 'windy']).isRequired,
+    temperature: React.PropTypes.number,
+    date: React.PropTypes.string,
+    unit: React.PropTypes.oneOf(['C', 'F', 'K', 'R'])
+  },
+
+  render: function render() {
+    var expectedFormat = ['YYYY-MM-DD', 'YYYY-MM-DDTHH:mm'];
+    var displayFormat = this.props.format || 'ddd';
+    var date = this.props.date;
+    var unit = this.props.unit;
+    if (this.props.unit !== 'K') {
+      unit = '°' + unit;
+    }
+
+    var unitNames = {
+      'C': 'Degrees Celsuis',
+      'F': 'Degrees Farenheit',
+      'K': 'Kelvin',
+      'R': 'Degrees Rankine'
+    };
+    var unitName = unitNames[this.props.unit];
+
+    return React.createElement(
+      'div',
+      { className: 'component-weather' },
+      React.createElement(
+        'div',
+        { className: this.props.type },
+        React.createElement(
+          'span',
+          null,
+          this.props.type
+        )
+      ),
+      this.props.temperature ? React.createElement(
+        'div',
+        null,
+        this.props.temperature,
+        React.createElement(
+          'abbr',
+          { title: unitName },
+          unit
+        )
+      ) : null,
+      this.props.date ? React.createElement(
+        'div',
+        null,
+        moment(date, expectedFormat, true).format(displayFormat)
+      ) : null
+    );
+  }
+});
+
+
+},{"moment":46,"react":203}],18:[function(require,module,exports){
+var UIToolkit = {};
+
+// Custom Components
+UIToolkit.Alert = require('./components/alert');
+UIToolkit.Anchor = require('./components/anchor');
+UIToolkit.Button = require('./components/button');
+UIToolkit.Countdown = require('./components/countdown');
+UIToolkit.Flag = require('./components/flag');
+UIToolkit.IconList = require('./components/icon-list');
+UIToolkit.IconListItem = require('./components/icon-list-item');
+UIToolkit.Image = require('./components/image');
+UIToolkit.Input = require('./components/input');
+UIToolkit.Lozenge = require('./components/lozenge');
+UIToolkit.PaymentCard = require('./components/payment-card');
+UIToolkit.Quote = require('./components/quote');
+UIToolkit.Rating = require('./components/rating');
+UIToolkit.Reviews = require('./components/reviews');
+UIToolkit.Tile = require('./components/tile');
+UIToolkit.Weather = require('./components/weather');
+UIToolkit.Stepper = require('./components/stepper');
+
+module.exports = UIToolkit;
+
+
+},{"./components/alert":1,"./components/anchor":2,"./components/button":3,"./components/countdown":4,"./components/flag":5,"./components/icon-list":7,"./components/icon-list-item":6,"./components/image":8,"./components/input":9,"./components/lozenge":10,"./components/payment-card":11,"./components/quote":12,"./components/rating":13,"./components/reviews":14,"./components/stepper":15,"./components/tile":16,"./components/weather":17}],19:[function(require,module,exports){
+module.exports = require('./dist');
+
+
+},{"./dist":18}],20:[function(require,module,exports){
 /*!
   Copyright (c) 2015 Jed Watson.
   Licensed under the MIT License (MIT), see
@@ -145,59 +951,431 @@ process.umask = function() { return 0; };
 	}
 }());
 
-},{}],4:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 /**
- * lodash 3.1.0 (Custom Build) <https://lodash.com/>
+ * lodash 3.3.1 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
  * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
- * Based on Underscore.js 1.8.2 <http://underscorejs.org/LICENSE>
+ * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
  * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
  * Available under MIT license <https://lodash.com/license>
  */
-var baseFlatten = require('lodash._baseflatten'),
+var baseIsEqual = require('lodash._baseisequal'),
     bindCallback = require('lodash._bindcallback'),
-    pickByArray = require('lodash._pickbyarray'),
-    pickByCallback = require('lodash._pickbycallback'),
-    restParam = require('lodash.restparam');
+    isArray = require('lodash.isarray'),
+    pairs = require('lodash.pairs');
+
+/** Used to match property names within property paths. */
+var reIsDeepProp = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\n\\]|\\.)*?\1)\]/,
+    reIsPlainProp = /^\w*$/,
+    rePropName = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\n\\]|\\.)*?)\2)\]/g;
+
+/** Used to match backslashes in property paths. */
+var reEscapeChar = /\\(\\)?/g;
 
 /**
- * Creates an object composed of the picked `object` properties. Property
- * names may be specified as individual arguments or as arrays of property
- * names. If `predicate` is provided it is invoked for each property of `object`
- * picking the properties `predicate` returns truthy for. The predicate is
- * bound to `thisArg` and invoked with three arguments: (value, key, object).
+ * Converts `value` to a string if it's not one. An empty string is returned
+ * for `null` or `undefined` values.
+ *
+ * @private
+ * @param {*} value The value to process.
+ * @returns {string} Returns the string.
+ */
+function baseToString(value) {
+  return value == null ? '' : (value + '');
+}
+
+/**
+ * The base implementation of `_.callback` which supports specifying the
+ * number of arguments to provide to `func`.
+ *
+ * @private
+ * @param {*} [func=_.identity] The value to convert to a callback.
+ * @param {*} [thisArg] The `this` binding of `func`.
+ * @param {number} [argCount] The number of arguments to provide to `func`.
+ * @returns {Function} Returns the callback.
+ */
+function baseCallback(func, thisArg, argCount) {
+  var type = typeof func;
+  if (type == 'function') {
+    return thisArg === undefined
+      ? func
+      : bindCallback(func, thisArg, argCount);
+  }
+  if (func == null) {
+    return identity;
+  }
+  if (type == 'object') {
+    return baseMatches(func);
+  }
+  return thisArg === undefined
+    ? property(func)
+    : baseMatchesProperty(func, thisArg);
+}
+
+/**
+ * The base implementation of `get` without support for string paths
+ * and default values.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @param {Array} path The path of the property to get.
+ * @param {string} [pathKey] The key representation of path.
+ * @returns {*} Returns the resolved value.
+ */
+function baseGet(object, path, pathKey) {
+  if (object == null) {
+    return;
+  }
+  if (pathKey !== undefined && pathKey in toObject(object)) {
+    path = [pathKey];
+  }
+  var index = 0,
+      length = path.length;
+
+  while (object != null && index < length) {
+    object = object[path[index++]];
+  }
+  return (index && index == length) ? object : undefined;
+}
+
+/**
+ * The base implementation of `_.isMatch` without support for callback
+ * shorthands and `this` binding.
+ *
+ * @private
+ * @param {Object} object The object to inspect.
+ * @param {Array} matchData The propery names, values, and compare flags to match.
+ * @param {Function} [customizer] The function to customize comparing objects.
+ * @returns {boolean} Returns `true` if `object` is a match, else `false`.
+ */
+function baseIsMatch(object, matchData, customizer) {
+  var index = matchData.length,
+      length = index,
+      noCustomizer = !customizer;
+
+  if (object == null) {
+    return !length;
+  }
+  object = toObject(object);
+  while (index--) {
+    var data = matchData[index];
+    if ((noCustomizer && data[2])
+          ? data[1] !== object[data[0]]
+          : !(data[0] in object)
+        ) {
+      return false;
+    }
+  }
+  while (++index < length) {
+    data = matchData[index];
+    var key = data[0],
+        objValue = object[key],
+        srcValue = data[1];
+
+    if (noCustomizer && data[2]) {
+      if (objValue === undefined && !(key in object)) {
+        return false;
+      }
+    } else {
+      var result = customizer ? customizer(objValue, srcValue, key) : undefined;
+      if (!(result === undefined ? baseIsEqual(srcValue, objValue, customizer, true) : result)) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
+/**
+ * The base implementation of `_.matches` which does not clone `source`.
+ *
+ * @private
+ * @param {Object} source The object of property values to match.
+ * @returns {Function} Returns the new function.
+ */
+function baseMatches(source) {
+  var matchData = getMatchData(source);
+  if (matchData.length == 1 && matchData[0][2]) {
+    var key = matchData[0][0],
+        value = matchData[0][1];
+
+    return function(object) {
+      if (object == null) {
+        return false;
+      }
+      return object[key] === value && (value !== undefined || (key in toObject(object)));
+    };
+  }
+  return function(object) {
+    return baseIsMatch(object, matchData);
+  };
+}
+
+/**
+ * The base implementation of `_.matchesProperty` which does not clone `srcValue`.
+ *
+ * @private
+ * @param {string} path The path of the property to get.
+ * @param {*} srcValue The value to compare.
+ * @returns {Function} Returns the new function.
+ */
+function baseMatchesProperty(path, srcValue) {
+  var isArr = isArray(path),
+      isCommon = isKey(path) && isStrictComparable(srcValue),
+      pathKey = (path + '');
+
+  path = toPath(path);
+  return function(object) {
+    if (object == null) {
+      return false;
+    }
+    var key = pathKey;
+    object = toObject(object);
+    if ((isArr || !isCommon) && !(key in object)) {
+      object = path.length == 1 ? object : baseGet(object, baseSlice(path, 0, -1));
+      if (object == null) {
+        return false;
+      }
+      key = last(path);
+      object = toObject(object);
+    }
+    return object[key] === srcValue
+      ? (srcValue !== undefined || (key in object))
+      : baseIsEqual(srcValue, object[key], undefined, true);
+  };
+}
+
+/**
+ * The base implementation of `_.property` without support for deep paths.
+ *
+ * @private
+ * @param {string} key The key of the property to get.
+ * @returns {Function} Returns the new function.
+ */
+function baseProperty(key) {
+  return function(object) {
+    return object == null ? undefined : object[key];
+  };
+}
+
+/**
+ * A specialized version of `baseProperty` which supports deep paths.
+ *
+ * @private
+ * @param {Array|string} path The path of the property to get.
+ * @returns {Function} Returns the new function.
+ */
+function basePropertyDeep(path) {
+  var pathKey = (path + '');
+  path = toPath(path);
+  return function(object) {
+    return baseGet(object, path, pathKey);
+  };
+}
+
+/**
+ * The base implementation of `_.slice` without an iteratee call guard.
+ *
+ * @private
+ * @param {Array} array The array to slice.
+ * @param {number} [start=0] The start position.
+ * @param {number} [end=array.length] The end position.
+ * @returns {Array} Returns the slice of `array`.
+ */
+function baseSlice(array, start, end) {
+  var index = -1,
+      length = array.length;
+
+  start = start == null ? 0 : (+start || 0);
+  if (start < 0) {
+    start = -start > length ? 0 : (length + start);
+  }
+  end = (end === undefined || end > length) ? length : (+end || 0);
+  if (end < 0) {
+    end += length;
+  }
+  length = start > end ? 0 : ((end - start) >>> 0);
+  start >>>= 0;
+
+  var result = Array(length);
+  while (++index < length) {
+    result[index] = array[index + start];
+  }
+  return result;
+}
+
+/**
+ * Gets the propery names, values, and compare flags of `object`.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @returns {Array} Returns the match data of `object`.
+ */
+function getMatchData(object) {
+  var result = pairs(object),
+      length = result.length;
+
+  while (length--) {
+    result[length][2] = isStrictComparable(result[length][1]);
+  }
+  return result;
+}
+
+/**
+ * Checks if `value` is a property name and not a property path.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @param {Object} [object] The object to query keys on.
+ * @returns {boolean} Returns `true` if `value` is a property name, else `false`.
+ */
+function isKey(value, object) {
+  var type = typeof value;
+  if ((type == 'string' && reIsPlainProp.test(value)) || type == 'number') {
+    return true;
+  }
+  if (isArray(value)) {
+    return false;
+  }
+  var result = !reIsDeepProp.test(value);
+  return result || (object != null && value in toObject(object));
+}
+
+/**
+ * Checks if `value` is suitable for strict equality comparisons, i.e. `===`.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` if suitable for strict
+ *  equality comparisons, else `false`.
+ */
+function isStrictComparable(value) {
+  return value === value && !isObject(value);
+}
+
+/**
+ * Converts `value` to an object if it's not one.
+ *
+ * @private
+ * @param {*} value The value to process.
+ * @returns {Object} Returns the object.
+ */
+function toObject(value) {
+  return isObject(value) ? value : Object(value);
+}
+
+/**
+ * Converts `value` to property path array if it's not one.
+ *
+ * @private
+ * @param {*} value The value to process.
+ * @returns {Array} Returns the property path array.
+ */
+function toPath(value) {
+  if (isArray(value)) {
+    return value;
+  }
+  var result = [];
+  baseToString(value).replace(rePropName, function(match, number, quote, string) {
+    result.push(quote ? string.replace(reEscapeChar, '$1') : (number || match));
+  });
+  return result;
+}
+
+/**
+ * Gets the last element of `array`.
  *
  * @static
  * @memberOf _
- * @category Object
- * @param {Object} object The source object.
- * @param {Function|...(string|string[])} [predicate] The function invoked per
- *  iteration or property names to pick, specified as individual property
- *  names or arrays of property names.
- * @param {*} [thisArg] The `this` binding of `predicate`.
- * @returns {Object} Returns the new object.
+ * @category Array
+ * @param {Array} array The array to query.
+ * @returns {*} Returns the last element of `array`.
  * @example
  *
- * var object = { 'user': 'fred', 'age': 40 };
- *
- * _.pick(object, 'user');
- * // => { 'user': 'fred' }
- *
- * _.pick(object, _.isString);
- * // => { 'user': 'fred' }
+ * _.last([1, 2, 3]);
+ * // => 3
  */
-var pick = restParam(function(object, props) {
-  if (object == null) {
-    return {};
-  }
-  return typeof props[0] == 'function'
-    ? pickByCallback(object, bindCallback(props[0], props[1], 3))
-    : pickByArray(object, baseFlatten(props));
-});
+function last(array) {
+  var length = array ? array.length : 0;
+  return length ? array[length - 1] : undefined;
+}
 
-module.exports = pick;
+/**
+ * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
+ * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+ *
+ * @static
+ * @memberOf _
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an object, else `false`.
+ * @example
+ *
+ * _.isObject({});
+ * // => true
+ *
+ * _.isObject([1, 2, 3]);
+ * // => true
+ *
+ * _.isObject(1);
+ * // => false
+ */
+function isObject(value) {
+  // Avoid a V8 JIT bug in Chrome 19-20.
+  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
+  var type = typeof value;
+  return !!value && (type == 'object' || type == 'function');
+}
 
-},{"lodash._baseflatten":5,"lodash._bindcallback":8,"lodash._pickbyarray":9,"lodash._pickbycallback":10,"lodash.restparam":15}],5:[function(require,module,exports){
+/**
+ * This method returns the first argument provided to it.
+ *
+ * @static
+ * @memberOf _
+ * @category Utility
+ * @param {*} value Any value.
+ * @returns {*} Returns `value`.
+ * @example
+ *
+ * var object = { 'user': 'fred' };
+ *
+ * _.identity(object) === object;
+ * // => true
+ */
+function identity(value) {
+  return value;
+}
+
+/**
+ * Creates a function that returns the property value at `path` on a
+ * given object.
+ *
+ * @static
+ * @memberOf _
+ * @category Utility
+ * @param {Array|string} path The path of the property to get.
+ * @returns {Function} Returns the new function.
+ * @example
+ *
+ * var objects = [
+ *   { 'a': { 'b': { 'c': 2 } } },
+ *   { 'a': { 'b': { 'c': 1 } } }
+ * ];
+ *
+ * _.map(objects, _.property('a.b.c'));
+ * // => [2, 1]
+ *
+ * _.pluck(_.sortBy(objects, _.property(['a', 'b', 'c'])), 'a.b.c');
+ * // => [1, 2]
+ */
+function property(path) {
+  return isKey(path) ? baseProperty(path) : basePropertyDeep(path);
+}
+
+module.exports = baseCallback;
+
+},{"lodash._baseisequal":24,"lodash._bindcallback":27,"lodash.isarray":35,"lodash.pairs":41}],22:[function(require,module,exports){
 /**
  * lodash 3.1.4 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
@@ -330,485 +1508,7 @@ function isLength(value) {
 
 module.exports = baseFlatten;
 
-},{"lodash.isarguments":6,"lodash.isarray":7}],6:[function(require,module,exports){
-/**
- * lodash 3.0.4 (Custom Build) <https://lodash.com/>
- * Build: `lodash modern modularize exports="npm" -o ./`
- * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
- * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
- * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- * Available under MIT license <https://lodash.com/license>
- */
-
-/**
- * Checks if `value` is object-like.
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
- */
-function isObjectLike(value) {
-  return !!value && typeof value == 'object';
-}
-
-/** Used for native method references. */
-var objectProto = Object.prototype;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/** Native method references. */
-var propertyIsEnumerable = objectProto.propertyIsEnumerable;
-
-/**
- * Used as the [maximum length](http://ecma-international.org/ecma-262/6.0/#sec-number.max_safe_integer)
- * of an array-like value.
- */
-var MAX_SAFE_INTEGER = 9007199254740991;
-
-/**
- * The base implementation of `_.property` without support for deep paths.
- *
- * @private
- * @param {string} key The key of the property to get.
- * @returns {Function} Returns the new function.
- */
-function baseProperty(key) {
-  return function(object) {
-    return object == null ? undefined : object[key];
-  };
-}
-
-/**
- * Gets the "length" property value of `object`.
- *
- * **Note:** This function is used to avoid a [JIT bug](https://bugs.webkit.org/show_bug.cgi?id=142792)
- * that affects Safari on at least iOS 8.1-8.3 ARM64.
- *
- * @private
- * @param {Object} object The object to query.
- * @returns {*} Returns the "length" value.
- */
-var getLength = baseProperty('length');
-
-/**
- * Checks if `value` is array-like.
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is array-like, else `false`.
- */
-function isArrayLike(value) {
-  return value != null && isLength(getLength(value));
-}
-
-/**
- * Checks if `value` is a valid array-like length.
- *
- * **Note:** This function is based on [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
- */
-function isLength(value) {
-  return typeof value == 'number' && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
-}
-
-/**
- * Checks if `value` is classified as an `arguments` object.
- *
- * @static
- * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
- * @example
- *
- * _.isArguments(function() { return arguments; }());
- * // => true
- *
- * _.isArguments([1, 2, 3]);
- * // => false
- */
-function isArguments(value) {
-  return isObjectLike(value) && isArrayLike(value) &&
-    hasOwnProperty.call(value, 'callee') && !propertyIsEnumerable.call(value, 'callee');
-}
-
-module.exports = isArguments;
-
-},{}],7:[function(require,module,exports){
-/**
- * lodash 3.0.4 (Custom Build) <https://lodash.com/>
- * Build: `lodash modern modularize exports="npm" -o ./`
- * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
- * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
- * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- * Available under MIT license <https://lodash.com/license>
- */
-
-/** `Object#toString` result references. */
-var arrayTag = '[object Array]',
-    funcTag = '[object Function]';
-
-/** Used to detect host constructors (Safari > 5). */
-var reIsHostCtor = /^\[object .+?Constructor\]$/;
-
-/**
- * Checks if `value` is object-like.
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
- */
-function isObjectLike(value) {
-  return !!value && typeof value == 'object';
-}
-
-/** Used for native method references. */
-var objectProto = Object.prototype;
-
-/** Used to resolve the decompiled source of functions. */
-var fnToString = Function.prototype.toString;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/**
- * Used to resolve the [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
- * of values.
- */
-var objToString = objectProto.toString;
-
-/** Used to detect if a method is native. */
-var reIsNative = RegExp('^' +
-  fnToString.call(hasOwnProperty).replace(/[\\^$.*+?()[\]{}|]/g, '\\$&')
-  .replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '$'
-);
-
-/* Native method references for those with the same name as other `lodash` methods. */
-var nativeIsArray = getNative(Array, 'isArray');
-
-/**
- * Used as the [maximum length](http://ecma-international.org/ecma-262/6.0/#sec-number.max_safe_integer)
- * of an array-like value.
- */
-var MAX_SAFE_INTEGER = 9007199254740991;
-
-/**
- * Gets the native function at `key` of `object`.
- *
- * @private
- * @param {Object} object The object to query.
- * @param {string} key The key of the method to get.
- * @returns {*} Returns the function if it's native, else `undefined`.
- */
-function getNative(object, key) {
-  var value = object == null ? undefined : object[key];
-  return isNative(value) ? value : undefined;
-}
-
-/**
- * Checks if `value` is a valid array-like length.
- *
- * **Note:** This function is based on [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
- */
-function isLength(value) {
-  return typeof value == 'number' && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
-}
-
-/**
- * Checks if `value` is classified as an `Array` object.
- *
- * @static
- * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
- * @example
- *
- * _.isArray([1, 2, 3]);
- * // => true
- *
- * _.isArray(function() { return arguments; }());
- * // => false
- */
-var isArray = nativeIsArray || function(value) {
-  return isObjectLike(value) && isLength(value.length) && objToString.call(value) == arrayTag;
-};
-
-/**
- * Checks if `value` is classified as a `Function` object.
- *
- * @static
- * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
- * @example
- *
- * _.isFunction(_);
- * // => true
- *
- * _.isFunction(/abc/);
- * // => false
- */
-function isFunction(value) {
-  // The use of `Object#toString` avoids issues with the `typeof` operator
-  // in older versions of Chrome and Safari which return 'function' for regexes
-  // and Safari 8 equivalents which return 'object' for typed array constructors.
-  return isObject(value) && objToString.call(value) == funcTag;
-}
-
-/**
- * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
- * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
- *
- * @static
- * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an object, else `false`.
- * @example
- *
- * _.isObject({});
- * // => true
- *
- * _.isObject([1, 2, 3]);
- * // => true
- *
- * _.isObject(1);
- * // => false
- */
-function isObject(value) {
-  // Avoid a V8 JIT bug in Chrome 19-20.
-  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
-  var type = typeof value;
-  return !!value && (type == 'object' || type == 'function');
-}
-
-/**
- * Checks if `value` is a native function.
- *
- * @static
- * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a native function, else `false`.
- * @example
- *
- * _.isNative(Array.prototype.push);
- * // => true
- *
- * _.isNative(_);
- * // => false
- */
-function isNative(value) {
-  if (value == null) {
-    return false;
-  }
-  if (isFunction(value)) {
-    return reIsNative.test(fnToString.call(value));
-  }
-  return isObjectLike(value) && reIsHostCtor.test(value);
-}
-
-module.exports = isArray;
-
-},{}],8:[function(require,module,exports){
-/**
- * lodash 3.0.1 (Custom Build) <https://lodash.com/>
- * Build: `lodash modern modularize exports="npm" -o ./`
- * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
- * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
- * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- * Available under MIT license <https://lodash.com/license>
- */
-
-/**
- * A specialized version of `baseCallback` which only supports `this` binding
- * and specifying the number of arguments to provide to `func`.
- *
- * @private
- * @param {Function} func The function to bind.
- * @param {*} thisArg The `this` binding of `func`.
- * @param {number} [argCount] The number of arguments to provide to `func`.
- * @returns {Function} Returns the callback.
- */
-function bindCallback(func, thisArg, argCount) {
-  if (typeof func != 'function') {
-    return identity;
-  }
-  if (thisArg === undefined) {
-    return func;
-  }
-  switch (argCount) {
-    case 1: return function(value) {
-      return func.call(thisArg, value);
-    };
-    case 3: return function(value, index, collection) {
-      return func.call(thisArg, value, index, collection);
-    };
-    case 4: return function(accumulator, value, index, collection) {
-      return func.call(thisArg, accumulator, value, index, collection);
-    };
-    case 5: return function(value, other, key, object, source) {
-      return func.call(thisArg, value, other, key, object, source);
-    };
-  }
-  return function() {
-    return func.apply(thisArg, arguments);
-  };
-}
-
-/**
- * This method returns the first argument provided to it.
- *
- * @static
- * @memberOf _
- * @category Utility
- * @param {*} value Any value.
- * @returns {*} Returns `value`.
- * @example
- *
- * var object = { 'user': 'fred' };
- *
- * _.identity(object) === object;
- * // => true
- */
-function identity(value) {
-  return value;
-}
-
-module.exports = bindCallback;
-
-},{}],9:[function(require,module,exports){
-/**
- * lodash 3.0.2 (Custom Build) <https://lodash.com/>
- * Build: `lodash modern modularize exports="npm" -o ./`
- * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
- * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
- * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- * Available under MIT license <https://lodash.com/license>
- */
-
-/**
- * A specialized version of `_.pick` which picks `object` properties specified
- * by `props`.
- *
- * @private
- * @param {Object} object The source object.
- * @param {string[]} props The property names to pick.
- * @returns {Object} Returns the new object.
- */
-function pickByArray(object, props) {
-  object = toObject(object);
-
-  var index = -1,
-      length = props.length,
-      result = {};
-
-  while (++index < length) {
-    var key = props[index];
-    if (key in object) {
-      result[key] = object[key];
-    }
-  }
-  return result;
-}
-
-/**
- * Converts `value` to an object if it's not one.
- *
- * @private
- * @param {*} value The value to process.
- * @returns {Object} Returns the object.
- */
-function toObject(value) {
-  return isObject(value) ? value : Object(value);
-}
-
-/**
- * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
- * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
- *
- * @static
- * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an object, else `false`.
- * @example
- *
- * _.isObject({});
- * // => true
- *
- * _.isObject([1, 2, 3]);
- * // => true
- *
- * _.isObject(1);
- * // => false
- */
-function isObject(value) {
-  // Avoid a V8 JIT bug in Chrome 19-20.
-  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
-  var type = typeof value;
-  return !!value && (type == 'object' || type == 'function');
-}
-
-module.exports = pickByArray;
-
-},{}],10:[function(require,module,exports){
-/**
- * lodash 3.0.0 (Custom Build) <https://lodash.com/>
- * Build: `lodash modern modularize exports="npm" -o ./`
- * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
- * Based on Underscore.js 1.7.0 <http://underscorejs.org/LICENSE>
- * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- * Available under MIT license <https://lodash.com/license>
- */
-var baseFor = require('lodash._basefor'),
-    keysIn = require('lodash.keysin');
-
-/**
- * The base implementation of `_.forIn` without support for callback
- * shorthands and `this` binding.
- *
- * @private
- * @param {Object} object The object to iterate over.
- * @param {Function} iteratee The function invoked per iteration.
- * @returns {Object} Returns `object`.
- */
-function baseForIn(object, iteratee) {
-  return baseFor(object, iteratee, keysIn);
-}
-
-/**
- * A specialized version of `_.pick` that picks `object` properties `predicate`
- * returns truthy for.
- *
- * @private
- * @param {Object} object The source object.
- * @param {Function} predicate The function invoked per iteration.
- * @returns {Object} Returns the new object.
- */
-function pickByCallback(object, predicate) {
-  var result = {};
-  baseForIn(object, function(value, key, object) {
-    if (predicate(value, key, object)) {
-      result[key] = value;
-    }
-  });
-  return result;
-}
-
-module.exports = pickByCallback;
-
-},{"lodash._basefor":11,"lodash.keysin":12}],11:[function(require,module,exports){
+},{"lodash.isarguments":34,"lodash.isarray":35}],23:[function(require,module,exports){
 /**
  * lodash 3.0.2 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
@@ -896,20 +1596,40 @@ function isObject(value) {
 
 module.exports = baseFor;
 
-},{}],12:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 /**
- * lodash 3.0.8 (Custom Build) <https://lodash.com/>
+ * lodash 3.0.7 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
  * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
  * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
  * Available under MIT license <https://lodash.com/license>
  */
-var isArguments = require('lodash.isarguments'),
-    isArray = require('lodash.isarray');
+var isArray = require('lodash.isarray'),
+    isTypedArray = require('lodash.istypedarray'),
+    keys = require('lodash.keys');
 
-/** Used to detect unsigned integer values. */
-var reIsUint = /^\d+$/;
+/** `Object#toString` result references. */
+var argsTag = '[object Arguments]',
+    arrayTag = '[object Array]',
+    boolTag = '[object Boolean]',
+    dateTag = '[object Date]',
+    errorTag = '[object Error]',
+    numberTag = '[object Number]',
+    objectTag = '[object Object]',
+    regexpTag = '[object RegExp]',
+    stringTag = '[object String]';
+
+/**
+ * Checks if `value` is object-like.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+ */
+function isObjectLike(value) {
+  return !!value && typeof value == 'object';
+}
 
 /** Used for native method references. */
 var objectProto = Object.prototype;
@@ -918,10 +1638,661 @@ var objectProto = Object.prototype;
 var hasOwnProperty = objectProto.hasOwnProperty;
 
 /**
+ * Used to resolve the [`toStringTag`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-object.prototype.tostring)
+ * of values.
+ */
+var objToString = objectProto.toString;
+
+/**
+ * A specialized version of `_.some` for arrays without support for callback
+ * shorthands and `this` binding.
+ *
+ * @private
+ * @param {Array} array The array to iterate over.
+ * @param {Function} predicate The function invoked per iteration.
+ * @returns {boolean} Returns `true` if any element passes the predicate check,
+ *  else `false`.
+ */
+function arraySome(array, predicate) {
+  var index = -1,
+      length = array.length;
+
+  while (++index < length) {
+    if (predicate(array[index], index, array)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+/**
+ * The base implementation of `_.isEqual` without support for `this` binding
+ * `customizer` functions.
+ *
+ * @private
+ * @param {*} value The value to compare.
+ * @param {*} other The other value to compare.
+ * @param {Function} [customizer] The function to customize comparing values.
+ * @param {boolean} [isLoose] Specify performing partial comparisons.
+ * @param {Array} [stackA] Tracks traversed `value` objects.
+ * @param {Array} [stackB] Tracks traversed `other` objects.
+ * @returns {boolean} Returns `true` if the values are equivalent, else `false`.
+ */
+function baseIsEqual(value, other, customizer, isLoose, stackA, stackB) {
+  if (value === other) {
+    return true;
+  }
+  if (value == null || other == null || (!isObject(value) && !isObjectLike(other))) {
+    return value !== value && other !== other;
+  }
+  return baseIsEqualDeep(value, other, baseIsEqual, customizer, isLoose, stackA, stackB);
+}
+
+/**
+ * A specialized version of `baseIsEqual` for arrays and objects which performs
+ * deep comparisons and tracks traversed objects enabling objects with circular
+ * references to be compared.
+ *
+ * @private
+ * @param {Object} object The object to compare.
+ * @param {Object} other The other object to compare.
+ * @param {Function} equalFunc The function to determine equivalents of values.
+ * @param {Function} [customizer] The function to customize comparing objects.
+ * @param {boolean} [isLoose] Specify performing partial comparisons.
+ * @param {Array} [stackA=[]] Tracks traversed `value` objects.
+ * @param {Array} [stackB=[]] Tracks traversed `other` objects.
+ * @returns {boolean} Returns `true` if the objects are equivalent, else `false`.
+ */
+function baseIsEqualDeep(object, other, equalFunc, customizer, isLoose, stackA, stackB) {
+  var objIsArr = isArray(object),
+      othIsArr = isArray(other),
+      objTag = arrayTag,
+      othTag = arrayTag;
+
+  if (!objIsArr) {
+    objTag = objToString.call(object);
+    if (objTag == argsTag) {
+      objTag = objectTag;
+    } else if (objTag != objectTag) {
+      objIsArr = isTypedArray(object);
+    }
+  }
+  if (!othIsArr) {
+    othTag = objToString.call(other);
+    if (othTag == argsTag) {
+      othTag = objectTag;
+    } else if (othTag != objectTag) {
+      othIsArr = isTypedArray(other);
+    }
+  }
+  var objIsObj = objTag == objectTag,
+      othIsObj = othTag == objectTag,
+      isSameTag = objTag == othTag;
+
+  if (isSameTag && !(objIsArr || objIsObj)) {
+    return equalByTag(object, other, objTag);
+  }
+  if (!isLoose) {
+    var objIsWrapped = objIsObj && hasOwnProperty.call(object, '__wrapped__'),
+        othIsWrapped = othIsObj && hasOwnProperty.call(other, '__wrapped__');
+
+    if (objIsWrapped || othIsWrapped) {
+      return equalFunc(objIsWrapped ? object.value() : object, othIsWrapped ? other.value() : other, customizer, isLoose, stackA, stackB);
+    }
+  }
+  if (!isSameTag) {
+    return false;
+  }
+  // Assume cyclic values are equal.
+  // For more information on detecting circular references see https://es5.github.io/#JO.
+  stackA || (stackA = []);
+  stackB || (stackB = []);
+
+  var length = stackA.length;
+  while (length--) {
+    if (stackA[length] == object) {
+      return stackB[length] == other;
+    }
+  }
+  // Add `object` and `other` to the stack of traversed objects.
+  stackA.push(object);
+  stackB.push(other);
+
+  var result = (objIsArr ? equalArrays : equalObjects)(object, other, equalFunc, customizer, isLoose, stackA, stackB);
+
+  stackA.pop();
+  stackB.pop();
+
+  return result;
+}
+
+/**
+ * A specialized version of `baseIsEqualDeep` for arrays with support for
+ * partial deep comparisons.
+ *
+ * @private
+ * @param {Array} array The array to compare.
+ * @param {Array} other The other array to compare.
+ * @param {Function} equalFunc The function to determine equivalents of values.
+ * @param {Function} [customizer] The function to customize comparing arrays.
+ * @param {boolean} [isLoose] Specify performing partial comparisons.
+ * @param {Array} [stackA] Tracks traversed `value` objects.
+ * @param {Array} [stackB] Tracks traversed `other` objects.
+ * @returns {boolean} Returns `true` if the arrays are equivalent, else `false`.
+ */
+function equalArrays(array, other, equalFunc, customizer, isLoose, stackA, stackB) {
+  var index = -1,
+      arrLength = array.length,
+      othLength = other.length;
+
+  if (arrLength != othLength && !(isLoose && othLength > arrLength)) {
+    return false;
+  }
+  // Ignore non-index properties.
+  while (++index < arrLength) {
+    var arrValue = array[index],
+        othValue = other[index],
+        result = customizer ? customizer(isLoose ? othValue : arrValue, isLoose ? arrValue : othValue, index) : undefined;
+
+    if (result !== undefined) {
+      if (result) {
+        continue;
+      }
+      return false;
+    }
+    // Recursively compare arrays (susceptible to call stack limits).
+    if (isLoose) {
+      if (!arraySome(other, function(othValue) {
+            return arrValue === othValue || equalFunc(arrValue, othValue, customizer, isLoose, stackA, stackB);
+          })) {
+        return false;
+      }
+    } else if (!(arrValue === othValue || equalFunc(arrValue, othValue, customizer, isLoose, stackA, stackB))) {
+      return false;
+    }
+  }
+  return true;
+}
+
+/**
+ * A specialized version of `baseIsEqualDeep` for comparing objects of
+ * the same `toStringTag`.
+ *
+ * **Note:** This function only supports comparing values with tags of
+ * `Boolean`, `Date`, `Error`, `Number`, `RegExp`, or `String`.
+ *
+ * @private
+ * @param {Object} value The object to compare.
+ * @param {Object} other The other object to compare.
+ * @param {string} tag The `toStringTag` of the objects to compare.
+ * @returns {boolean} Returns `true` if the objects are equivalent, else `false`.
+ */
+function equalByTag(object, other, tag) {
+  switch (tag) {
+    case boolTag:
+    case dateTag:
+      // Coerce dates and booleans to numbers, dates to milliseconds and booleans
+      // to `1` or `0` treating invalid dates coerced to `NaN` as not equal.
+      return +object == +other;
+
+    case errorTag:
+      return object.name == other.name && object.message == other.message;
+
+    case numberTag:
+      // Treat `NaN` vs. `NaN` as equal.
+      return (object != +object)
+        ? other != +other
+        : object == +other;
+
+    case regexpTag:
+    case stringTag:
+      // Coerce regexes to strings and treat strings primitives and string
+      // objects as equal. See https://es5.github.io/#x15.10.6.4 for more details.
+      return object == (other + '');
+  }
+  return false;
+}
+
+/**
+ * A specialized version of `baseIsEqualDeep` for objects with support for
+ * partial deep comparisons.
+ *
+ * @private
+ * @param {Object} object The object to compare.
+ * @param {Object} other The other object to compare.
+ * @param {Function} equalFunc The function to determine equivalents of values.
+ * @param {Function} [customizer] The function to customize comparing values.
+ * @param {boolean} [isLoose] Specify performing partial comparisons.
+ * @param {Array} [stackA] Tracks traversed `value` objects.
+ * @param {Array} [stackB] Tracks traversed `other` objects.
+ * @returns {boolean} Returns `true` if the objects are equivalent, else `false`.
+ */
+function equalObjects(object, other, equalFunc, customizer, isLoose, stackA, stackB) {
+  var objProps = keys(object),
+      objLength = objProps.length,
+      othProps = keys(other),
+      othLength = othProps.length;
+
+  if (objLength != othLength && !isLoose) {
+    return false;
+  }
+  var index = objLength;
+  while (index--) {
+    var key = objProps[index];
+    if (!(isLoose ? key in other : hasOwnProperty.call(other, key))) {
+      return false;
+    }
+  }
+  var skipCtor = isLoose;
+  while (++index < objLength) {
+    key = objProps[index];
+    var objValue = object[key],
+        othValue = other[key],
+        result = customizer ? customizer(isLoose ? othValue : objValue, isLoose? objValue : othValue, key) : undefined;
+
+    // Recursively compare objects (susceptible to call stack limits).
+    if (!(result === undefined ? equalFunc(objValue, othValue, customizer, isLoose, stackA, stackB) : result)) {
+      return false;
+    }
+    skipCtor || (skipCtor = key == 'constructor');
+  }
+  if (!skipCtor) {
+    var objCtor = object.constructor,
+        othCtor = other.constructor;
+
+    // Non `Object` object instances with different constructors are not equal.
+    if (objCtor != othCtor &&
+        ('constructor' in object && 'constructor' in other) &&
+        !(typeof objCtor == 'function' && objCtor instanceof objCtor &&
+          typeof othCtor == 'function' && othCtor instanceof othCtor)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+/**
+ * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
+ * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+ *
+ * @static
+ * @memberOf _
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an object, else `false`.
+ * @example
+ *
+ * _.isObject({});
+ * // => true
+ *
+ * _.isObject([1, 2, 3]);
+ * // => true
+ *
+ * _.isObject(1);
+ * // => false
+ */
+function isObject(value) {
+  // Avoid a V8 JIT bug in Chrome 19-20.
+  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
+  var type = typeof value;
+  return !!value && (type == 'object' || type == 'function');
+}
+
+module.exports = baseIsEqual;
+
+},{"lodash.isarray":35,"lodash.istypedarray":36,"lodash.keys":38}],25:[function(require,module,exports){
+/**
+ * lodash 3.0.1 (Custom Build) <https://lodash.com/>
+ * Build: `lodash modern modularize exports="npm" -o ./`
+ * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
+ * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
+ * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ * Available under MIT license <https://lodash.com/license>
+ */
+
+/**
+ * Converts `value` to a string if it's not one. An empty string is returned
+ * for `null` or `undefined` values.
+ *
+ * @private
+ * @param {*} value The value to process.
+ * @returns {string} Returns the string.
+ */
+function baseToString(value) {
+  return value == null ? '' : (value + '');
+}
+
+module.exports = baseToString;
+
+},{}],26:[function(require,module,exports){
+/**
+ * lodash 3.0.0 (Custom Build) <https://lodash.com/>
+ * Build: `lodash modern modularize exports="npm" -o ./`
+ * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
+ * Based on Underscore.js 1.7.0 <http://underscorejs.org/LICENSE>
+ * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ * Available under MIT license <https://lodash.com/license>
+ */
+
+/**
+ * The base implementation of `_.values` and `_.valuesIn` which creates an
+ * array of `object` property values corresponding to the property names
+ * returned by `keysFunc`.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @param {Array} props The property names to get values for.
+ * @returns {Object} Returns the array of property values.
+ */
+function baseValues(object, props) {
+  var index = -1,
+      length = props.length,
+      result = Array(length);
+
+  while (++index < length) {
+    result[index] = object[props[index]];
+  }
+  return result;
+}
+
+module.exports = baseValues;
+
+},{}],27:[function(require,module,exports){
+/**
+ * lodash 3.0.1 (Custom Build) <https://lodash.com/>
+ * Build: `lodash modern modularize exports="npm" -o ./`
+ * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
+ * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
+ * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ * Available under MIT license <https://lodash.com/license>
+ */
+
+/**
+ * A specialized version of `baseCallback` which only supports `this` binding
+ * and specifying the number of arguments to provide to `func`.
+ *
+ * @private
+ * @param {Function} func The function to bind.
+ * @param {*} thisArg The `this` binding of `func`.
+ * @param {number} [argCount] The number of arguments to provide to `func`.
+ * @returns {Function} Returns the callback.
+ */
+function bindCallback(func, thisArg, argCount) {
+  if (typeof func != 'function') {
+    return identity;
+  }
+  if (thisArg === undefined) {
+    return func;
+  }
+  switch (argCount) {
+    case 1: return function(value) {
+      return func.call(thisArg, value);
+    };
+    case 3: return function(value, index, collection) {
+      return func.call(thisArg, value, index, collection);
+    };
+    case 4: return function(accumulator, value, index, collection) {
+      return func.call(thisArg, accumulator, value, index, collection);
+    };
+    case 5: return function(value, other, key, object, source) {
+      return func.call(thisArg, value, other, key, object, source);
+    };
+  }
+  return function() {
+    return func.apply(thisArg, arguments);
+  };
+}
+
+/**
+ * This method returns the first argument provided to it.
+ *
+ * @static
+ * @memberOf _
+ * @category Utility
+ * @param {*} value Any value.
+ * @returns {*} Returns `value`.
+ * @example
+ *
+ * var object = { 'user': 'fred' };
+ *
+ * _.identity(object) === object;
+ * // => true
+ */
+function identity(value) {
+  return value;
+}
+
+module.exports = bindCallback;
+
+},{}],28:[function(require,module,exports){
+/**
+ * lodash 3.0.0 (Custom Build) <https://lodash.com/>
+ * Build: `lodash modern modularize exports="npm" -o ./`
+ * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
+ * Based on Underscore.js 1.7.0 <http://underscorejs.org/LICENSE>
+ * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ * Available under MIT license <https://lodash.com/license>
+ */
+var deburr = require('lodash.deburr'),
+    words = require('lodash.words');
+
+/**
+ * Creates a function that produces compound words out of the words in a
+ * given string.
+ *
+ * @private
+ * @param {Function} callback The function to combine each word.
+ * @returns {Function} Returns the new compounder function.
+ */
+function createCompounder(callback) {
+  return function(string) {
+    var index = -1,
+        array = words(deburr(string)),
+        length = array.length,
+        result = '';
+
+    while (++index < length) {
+      result = callback(result, array[index], index);
+    }
+    return result;
+  };
+}
+
+module.exports = createCompounder;
+
+},{"lodash.deburr":33,"lodash.words":45}],29:[function(require,module,exports){
+/**
+ * lodash 3.9.1 (Custom Build) <https://lodash.com/>
+ * Build: `lodash modern modularize exports="npm" -o ./`
+ * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
+ * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
+ * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ * Available under MIT license <https://lodash.com/license>
+ */
+
+/** `Object#toString` result references. */
+var funcTag = '[object Function]';
+
+/** Used to detect host constructors (Safari > 5). */
+var reIsHostCtor = /^\[object .+?Constructor\]$/;
+
+/**
+ * Checks if `value` is object-like.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+ */
+function isObjectLike(value) {
+  return !!value && typeof value == 'object';
+}
+
+/** Used for native method references. */
+var objectProto = Object.prototype;
+
+/** Used to resolve the decompiled source of functions. */
+var fnToString = Function.prototype.toString;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * Used to resolve the [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
+ * of values.
+ */
+var objToString = objectProto.toString;
+
+/** Used to detect if a method is native. */
+var reIsNative = RegExp('^' +
+  fnToString.call(hasOwnProperty).replace(/[\\^$.*+?()[\]{}|]/g, '\\$&')
+  .replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '$'
+);
+
+/**
+ * Gets the native function at `key` of `object`.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @param {string} key The key of the method to get.
+ * @returns {*} Returns the function if it's native, else `undefined`.
+ */
+function getNative(object, key) {
+  var value = object == null ? undefined : object[key];
+  return isNative(value) ? value : undefined;
+}
+
+/**
+ * Checks if `value` is classified as a `Function` object.
+ *
+ * @static
+ * @memberOf _
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
+ * @example
+ *
+ * _.isFunction(_);
+ * // => true
+ *
+ * _.isFunction(/abc/);
+ * // => false
+ */
+function isFunction(value) {
+  // The use of `Object#toString` avoids issues with the `typeof` operator
+  // in older versions of Chrome and Safari which return 'function' for regexes
+  // and Safari 8 equivalents which return 'object' for typed array constructors.
+  return isObject(value) && objToString.call(value) == funcTag;
+}
+
+/**
+ * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
+ * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+ *
+ * @static
+ * @memberOf _
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an object, else `false`.
+ * @example
+ *
+ * _.isObject({});
+ * // => true
+ *
+ * _.isObject([1, 2, 3]);
+ * // => true
+ *
+ * _.isObject(1);
+ * // => false
+ */
+function isObject(value) {
+  // Avoid a V8 JIT bug in Chrome 19-20.
+  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
+  var type = typeof value;
+  return !!value && (type == 'object' || type == 'function');
+}
+
+/**
+ * Checks if `value` is a native function.
+ *
+ * @static
+ * @memberOf _
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a native function, else `false`.
+ * @example
+ *
+ * _.isNative(Array.prototype.push);
+ * // => true
+ *
+ * _.isNative(_);
+ * // => false
+ */
+function isNative(value) {
+  if (value == null) {
+    return false;
+  }
+  if (isFunction(value)) {
+    return reIsNative.test(fnToString.call(value));
+  }
+  return isObjectLike(value) && reIsHostCtor.test(value);
+}
+
+module.exports = getNative;
+
+},{}],30:[function(require,module,exports){
+/**
+ * lodash 3.0.9 (Custom Build) <https://lodash.com/>
+ * Build: `lodash modern modularize exports="npm" -o ./`
+ * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
+ * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
+ * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ * Available under MIT license <https://lodash.com/license>
+ */
+
+/** Used to detect unsigned integer values. */
+var reIsUint = /^\d+$/;
+
+/**
  * Used as the [maximum length](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-number.max_safe_integer)
  * of an array-like value.
  */
 var MAX_SAFE_INTEGER = 9007199254740991;
+
+/**
+ * The base implementation of `_.property` without support for deep paths.
+ *
+ * @private
+ * @param {string} key The key of the property to get.
+ * @returns {Function} Returns the new function.
+ */
+function baseProperty(key) {
+  return function(object) {
+    return object == null ? undefined : object[key];
+  };
+}
+
+/**
+ * Gets the "length" property value of `object`.
+ *
+ * **Note:** This function is used to avoid a [JIT bug](https://bugs.webkit.org/show_bug.cgi?id=142792)
+ * that affects Safari on at least iOS 8.1-8.3 ARM64.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @returns {*} Returns the "length" value.
+ */
+var getLength = baseProperty('length');
+
+/**
+ * Checks if `value` is array-like.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is array-like, else `false`.
+ */
+function isArrayLike(value) {
+  return value != null && isLength(getLength(value));
+}
 
 /**
  * Checks if `value` is a valid array-like index.
@@ -935,6 +2306,29 @@ function isIndex(value, length) {
   value = (typeof value == 'number' || reIsUint.test(value)) ? +value : -1;
   length = length == null ? MAX_SAFE_INTEGER : length;
   return value > -1 && value % 1 == 0 && value < length;
+}
+
+/**
+ * Checks if the provided arguments are from an iteratee call.
+ *
+ * @private
+ * @param {*} value The potential iteratee value argument.
+ * @param {*} index The potential iteratee index or key argument.
+ * @param {*} object The potential iteratee object argument.
+ * @returns {boolean} Returns `true` if the arguments are from an iteratee call, else `false`.
+ */
+function isIterateeCall(value, index, object) {
+  if (!isObject(object)) {
+    return false;
+  }
+  var type = typeof index;
+  if (type == 'number'
+      ? (isArrayLike(object) && isIndex(index, object.length))
+      : (type == 'string' && index in object)) {
+    var other = object[index];
+    return value === value ? (value === other) : (other !== other);
+  }
+  return false;
 }
 
 /**
@@ -977,60 +2371,200 @@ function isObject(value) {
   return !!value && (type == 'object' || type == 'function');
 }
 
-/**
- * Creates an array of the own and inherited enumerable property names of `object`.
- *
- * **Note:** Non-object values are coerced to objects.
- *
- * @static
- * @memberOf _
- * @category Object
- * @param {Object} object The object to query.
- * @returns {Array} Returns the array of property names.
- * @example
- *
- * function Foo() {
- *   this.a = 1;
- *   this.b = 2;
- * }
- *
- * Foo.prototype.c = 3;
- *
- * _.keysIn(new Foo);
- * // => ['a', 'b', 'c'] (iteration order is not guaranteed)
- */
-function keysIn(object) {
-  if (object == null) {
-    return [];
-  }
-  if (!isObject(object)) {
-    object = Object(object);
-  }
-  var length = object.length;
-  length = (length && isLength(length) &&
-    (isArray(object) || isArguments(object)) && length) || 0;
+module.exports = isIterateeCall;
 
-  var Ctor = object.constructor,
-      index = -1,
-      isProto = typeof Ctor == 'function' && Ctor.prototype === object,
-      result = Array(length),
-      skipIndexes = length > 0;
+},{}],31:[function(require,module,exports){
+/**
+ * lodash 3.0.2 (Custom Build) <https://lodash.com/>
+ * Build: `lodash modern modularize exports="npm" -o ./`
+ * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
+ * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
+ * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ * Available under MIT license <https://lodash.com/license>
+ */
+
+/**
+ * A specialized version of `_.pick` which picks `object` properties specified
+ * by `props`.
+ *
+ * @private
+ * @param {Object} object The source object.
+ * @param {string[]} props The property names to pick.
+ * @returns {Object} Returns the new object.
+ */
+function pickByArray(object, props) {
+  object = toObject(object);
+
+  var index = -1,
+      length = props.length,
+      result = {};
 
   while (++index < length) {
-    result[index] = (index + '');
-  }
-  for (var key in object) {
-    if (!(skipIndexes && isIndex(key, length)) &&
-        !(key == 'constructor' && (isProto || !hasOwnProperty.call(object, key)))) {
-      result.push(key);
+    var key = props[index];
+    if (key in object) {
+      result[key] = object[key];
     }
   }
   return result;
 }
 
-module.exports = keysIn;
+/**
+ * Converts `value` to an object if it's not one.
+ *
+ * @private
+ * @param {*} value The value to process.
+ * @returns {Object} Returns the object.
+ */
+function toObject(value) {
+  return isObject(value) ? value : Object(value);
+}
 
-},{"lodash.isarguments":13,"lodash.isarray":14}],13:[function(require,module,exports){
+/**
+ * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
+ * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+ *
+ * @static
+ * @memberOf _
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an object, else `false`.
+ * @example
+ *
+ * _.isObject({});
+ * // => true
+ *
+ * _.isObject([1, 2, 3]);
+ * // => true
+ *
+ * _.isObject(1);
+ * // => false
+ */
+function isObject(value) {
+  // Avoid a V8 JIT bug in Chrome 19-20.
+  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
+  var type = typeof value;
+  return !!value && (type == 'object' || type == 'function');
+}
+
+module.exports = pickByArray;
+
+},{}],32:[function(require,module,exports){
+/**
+ * lodash 3.0.0 (Custom Build) <https://lodash.com/>
+ * Build: `lodash modern modularize exports="npm" -o ./`
+ * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
+ * Based on Underscore.js 1.7.0 <http://underscorejs.org/LICENSE>
+ * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ * Available under MIT license <https://lodash.com/license>
+ */
+var baseFor = require('lodash._basefor'),
+    keysIn = require('lodash.keysin');
+
+/**
+ * The base implementation of `_.forIn` without support for callback
+ * shorthands and `this` binding.
+ *
+ * @private
+ * @param {Object} object The object to iterate over.
+ * @param {Function} iteratee The function invoked per iteration.
+ * @returns {Object} Returns `object`.
+ */
+function baseForIn(object, iteratee) {
+  return baseFor(object, iteratee, keysIn);
+}
+
+/**
+ * A specialized version of `_.pick` that picks `object` properties `predicate`
+ * returns truthy for.
+ *
+ * @private
+ * @param {Object} object The source object.
+ * @param {Function} predicate The function invoked per iteration.
+ * @returns {Object} Returns the new object.
+ */
+function pickByCallback(object, predicate) {
+  var result = {};
+  baseForIn(object, function(value, key, object) {
+    if (predicate(value, key, object)) {
+      result[key] = value;
+    }
+  });
+  return result;
+}
+
+module.exports = pickByCallback;
+
+},{"lodash._basefor":23,"lodash.keysin":39}],33:[function(require,module,exports){
+/**
+ * lodash 3.0.2 (Custom Build) <https://lodash.com/>
+ * Build: `lodash modern modularize exports="npm" -o ./`
+ * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
+ * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
+ * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ * Available under MIT license <https://lodash.com/license>
+ */
+var baseToString = require('lodash._basetostring');
+
+/** Used to match [combining diacritical marks](https://en.wikipedia.org/wiki/Combining_Diacritical_Marks). */
+var reComboMark = /[\u0300-\u036f\ufe20-\ufe23]/g;
+
+/** Used to match latin-1 supplementary letters (excluding mathematical operators). */
+var reLatin1 = /[\xc0-\xd6\xd8-\xde\xdf-\xf6\xf8-\xff]/g;
+
+/** Used to map latin-1 supplementary letters to basic latin letters. */
+var deburredLetters = {
+  '\xc0': 'A',  '\xc1': 'A', '\xc2': 'A', '\xc3': 'A', '\xc4': 'A', '\xc5': 'A',
+  '\xe0': 'a',  '\xe1': 'a', '\xe2': 'a', '\xe3': 'a', '\xe4': 'a', '\xe5': 'a',
+  '\xc7': 'C',  '\xe7': 'c',
+  '\xd0': 'D',  '\xf0': 'd',
+  '\xc8': 'E',  '\xc9': 'E', '\xca': 'E', '\xcb': 'E',
+  '\xe8': 'e',  '\xe9': 'e', '\xea': 'e', '\xeb': 'e',
+  '\xcC': 'I',  '\xcd': 'I', '\xce': 'I', '\xcf': 'I',
+  '\xeC': 'i',  '\xed': 'i', '\xee': 'i', '\xef': 'i',
+  '\xd1': 'N',  '\xf1': 'n',
+  '\xd2': 'O',  '\xd3': 'O', '\xd4': 'O', '\xd5': 'O', '\xd6': 'O', '\xd8': 'O',
+  '\xf2': 'o',  '\xf3': 'o', '\xf4': 'o', '\xf5': 'o', '\xf6': 'o', '\xf8': 'o',
+  '\xd9': 'U',  '\xda': 'U', '\xdb': 'U', '\xdc': 'U',
+  '\xf9': 'u',  '\xfa': 'u', '\xfb': 'u', '\xfc': 'u',
+  '\xdd': 'Y',  '\xfd': 'y', '\xff': 'y',
+  '\xc6': 'Ae', '\xe6': 'ae',
+  '\xde': 'Th', '\xfe': 'th',
+  '\xdf': 'ss'
+};
+
+/**
+ * Used by `_.deburr` to convert latin-1 supplementary letters to basic latin letters.
+ *
+ * @private
+ * @param {string} letter The matched letter to deburr.
+ * @returns {string} Returns the deburred letter.
+ */
+function deburrLetter(letter) {
+  return deburredLetters[letter];
+}
+
+/**
+ * Deburrs `string` by converting [latin-1 supplementary letters](https://en.wikipedia.org/wiki/Latin-1_Supplement_(Unicode_block)#Character_table)
+ * to basic latin letters and removing [combining diacritical marks](https://en.wikipedia.org/wiki/Combining_Diacritical_Marks).
+ *
+ * @static
+ * @memberOf _
+ * @category String
+ * @param {string} [string=''] The string to deburr.
+ * @returns {string} Returns the deburred string.
+ * @example
+ *
+ * _.deburr('déjà vu');
+ * // => 'deja vu'
+ */
+function deburr(string) {
+  string = baseToString(string);
+  return string && string.replace(reLatin1, deburrLetter).replace(reComboMark, '');
+}
+
+module.exports = deburr;
+
+},{"lodash._basetostring":25}],34:[function(require,module,exports){
 /**
  * lodash 3.0.4 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
@@ -1138,7 +2672,7 @@ function isArguments(value) {
 
 module.exports = isArguments;
 
-},{}],14:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 /**
  * lodash 3.0.4 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
@@ -1320,9 +2854,9 @@ function isNative(value) {
 
 module.exports = isArray;
 
-},{}],15:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 /**
- * lodash 3.6.1 (Custom Build) <https://lodash.com/>
+ * lodash 3.0.2 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
  * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
@@ -1330,142 +2864,147 @@ module.exports = isArray;
  * Available under MIT license <https://lodash.com/license>
  */
 
-/** Used as the `TypeError` message for "Functions" methods. */
-var FUNC_ERROR_TEXT = 'Expected a function';
+/** `Object#toString` result references. */
+var argsTag = '[object Arguments]',
+    arrayTag = '[object Array]',
+    boolTag = '[object Boolean]',
+    dateTag = '[object Date]',
+    errorTag = '[object Error]',
+    funcTag = '[object Function]',
+    mapTag = '[object Map]',
+    numberTag = '[object Number]',
+    objectTag = '[object Object]',
+    regexpTag = '[object RegExp]',
+    setTag = '[object Set]',
+    stringTag = '[object String]',
+    weakMapTag = '[object WeakMap]';
 
-/* Native method references for those with the same name as other `lodash` methods. */
-var nativeMax = Math.max;
+var arrayBufferTag = '[object ArrayBuffer]',
+    float32Tag = '[object Float32Array]',
+    float64Tag = '[object Float64Array]',
+    int8Tag = '[object Int8Array]',
+    int16Tag = '[object Int16Array]',
+    int32Tag = '[object Int32Array]',
+    uint8Tag = '[object Uint8Array]',
+    uint8ClampedTag = '[object Uint8ClampedArray]',
+    uint16Tag = '[object Uint16Array]',
+    uint32Tag = '[object Uint32Array]';
 
-/**
- * Creates a function that invokes `func` with the `this` binding of the
- * created function and arguments from `start` and beyond provided as an array.
- *
- * **Note:** This method is based on the [rest parameter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters).
- *
- * @static
- * @memberOf _
- * @category Function
- * @param {Function} func The function to apply a rest parameter to.
- * @param {number} [start=func.length-1] The start position of the rest parameter.
- * @returns {Function} Returns the new function.
- * @example
- *
- * var say = _.restParam(function(what, names) {
- *   return what + ' ' + _.initial(names).join(', ') +
- *     (_.size(names) > 1 ? ', & ' : '') + _.last(names);
- * });
- *
- * say('hello', 'fred', 'barney', 'pebbles');
- * // => 'hello fred, barney, & pebbles'
- */
-function restParam(func, start) {
-  if (typeof func != 'function') {
-    throw new TypeError(FUNC_ERROR_TEXT);
-  }
-  start = nativeMax(start === undefined ? (func.length - 1) : (+start || 0), 0);
-  return function() {
-    var args = arguments,
-        index = -1,
-        length = nativeMax(args.length - start, 0),
-        rest = Array(length);
-
-    while (++index < length) {
-      rest[index] = args[start + index];
-    }
-    switch (start) {
-      case 0: return func.call(this, rest);
-      case 1: return func.call(this, args[0], rest);
-      case 2: return func.call(this, args[0], args[1], rest);
-    }
-    var otherArgs = Array(start + 1);
-    index = -1;
-    while (++index < start) {
-      otherArgs[index] = args[index];
-    }
-    otherArgs[start] = rest;
-    return func.apply(this, otherArgs);
-  };
-}
-
-module.exports = restParam;
-
-},{}],16:[function(require,module,exports){
-/**
- * lodash 3.0.0 (Custom Build) <https://lodash.com/>
- * Build: `lodash modern modularize exports="npm" -o ./`
- * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
- * Based on Underscore.js 1.7.0 <http://underscorejs.org/LICENSE>
- * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- * Available under MIT license <https://lodash.com/license>
- */
-var baseValues = require('lodash._basevalues'),
-    keys = require('lodash.keys');
+/** Used to identify `toStringTag` values of typed arrays. */
+var typedArrayTags = {};
+typedArrayTags[float32Tag] = typedArrayTags[float64Tag] =
+typedArrayTags[int8Tag] = typedArrayTags[int16Tag] =
+typedArrayTags[int32Tag] = typedArrayTags[uint8Tag] =
+typedArrayTags[uint8ClampedTag] = typedArrayTags[uint16Tag] =
+typedArrayTags[uint32Tag] = true;
+typedArrayTags[argsTag] = typedArrayTags[arrayTag] =
+typedArrayTags[arrayBufferTag] = typedArrayTags[boolTag] =
+typedArrayTags[dateTag] = typedArrayTags[errorTag] =
+typedArrayTags[funcTag] = typedArrayTags[mapTag] =
+typedArrayTags[numberTag] = typedArrayTags[objectTag] =
+typedArrayTags[regexpTag] = typedArrayTags[setTag] =
+typedArrayTags[stringTag] = typedArrayTags[weakMapTag] = false;
 
 /**
- * Creates an array of the own enumerable property values of `object`.
- *
- * **Note:** Non-object values are coerced to objects.
- *
- * @static
- * @memberOf _
- * @category Object
- * @param {Object} object The object to query.
- * @returns {Array} Returns the array of property values.
- * @example
- *
- * function Foo() {
- *   this.a = 1;
- *   this.b = 2;
- * }
- *
- * Foo.prototype.c = 3;
- *
- * _.values(new Foo);
- * // => [1, 2] (iteration order is not guaranteed)
- *
- * _.values('hi');
- * // => ['h', 'i']
- */
-function values(object) {
-  return baseValues(object, keys(object));
-}
-
-module.exports = values;
-
-},{"lodash._basevalues":17,"lodash.keys":18}],17:[function(require,module,exports){
-/**
- * lodash 3.0.0 (Custom Build) <https://lodash.com/>
- * Build: `lodash modern modularize exports="npm" -o ./`
- * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
- * Based on Underscore.js 1.7.0 <http://underscorejs.org/LICENSE>
- * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- * Available under MIT license <https://lodash.com/license>
- */
-
-/**
- * The base implementation of `_.values` and `_.valuesIn` which creates an
- * array of `object` property values corresponding to the property names
- * returned by `keysFunc`.
+ * Checks if `value` is object-like.
  *
  * @private
- * @param {Object} object The object to query.
- * @param {Array} props The property names to get values for.
- * @returns {Object} Returns the array of property values.
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
  */
-function baseValues(object, props) {
-  var index = -1,
-      length = props.length,
-      result = Array(length);
-
-  while (++index < length) {
-    result[index] = object[props[index]];
-  }
-  return result;
+function isObjectLike(value) {
+  return !!value && typeof value == 'object';
 }
 
-module.exports = baseValues;
+/** Used for native method references. */
+var objectProto = Object.prototype;
 
-},{}],18:[function(require,module,exports){
+/**
+ * Used to resolve the [`toStringTag`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-object.prototype.tostring)
+ * of values.
+ */
+var objToString = objectProto.toString;
+
+/**
+ * Used as the [maximum length](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-number.max_safe_integer)
+ * of an array-like value.
+ */
+var MAX_SAFE_INTEGER = 9007199254740991;
+
+/**
+ * Checks if `value` is a valid array-like length.
+ *
+ * **Note:** This function is based on [`ToLength`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength).
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
+ */
+function isLength(value) {
+  return typeof value == 'number' && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
+}
+
+/**
+ * Checks if `value` is classified as a typed array.
+ *
+ * @static
+ * @memberOf _
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
+ * @example
+ *
+ * _.isTypedArray(new Uint8Array);
+ * // => true
+ *
+ * _.isTypedArray([]);
+ * // => false
+ */
+function isTypedArray(value) {
+  return isObjectLike(value) && isLength(value.length) && !!typedArrayTags[objToString.call(value)];
+}
+
+module.exports = isTypedArray;
+
+},{}],37:[function(require,module,exports){
+/**
+ * lodash 3.0.0 (Custom Build) <https://lodash.com/>
+ * Build: `lodash modern modularize exports="npm" -o ./`
+ * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
+ * Based on Underscore.js 1.7.0 <http://underscorejs.org/LICENSE>
+ * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ * Available under MIT license <https://lodash.com/license>
+ */
+var createCompounder = require('lodash._createcompounder');
+
+/**
+ * Converts `string` to kebab case (a.k.a. spinal case).
+ * See [Wikipedia](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles) for
+ * more details.
+ *
+ * @static
+ * @memberOf _
+ * @category String
+ * @param {string} [string=''] The string to convert.
+ * @returns {string} Returns the kebab cased string.
+ * @example
+ *
+ * _.kebabCase('Foo Bar');
+ * // => 'foo-bar'
+ *
+ * _.kebabCase('fooBar');
+ * // => 'foo-bar'
+ *
+ * _.kebabCase('__foo_bar__');
+ * // => 'foo-bar'
+ */
+var kebabCase = createCompounder(function(result, word, index) {
+  return result + (index ? '-' : '') + word.toLowerCase();
+});
+
+module.exports = kebabCase;
+
+},{"lodash._createcompounder":28}],38:[function(require,module,exports){
 /**
  * lodash 3.1.2 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
@@ -1703,88 +3242,58 @@ function keysIn(object) {
 
 module.exports = keys;
 
-},{"lodash._getnative":19,"lodash.isarguments":20,"lodash.isarray":21}],19:[function(require,module,exports){
+},{"lodash._getnative":29,"lodash.isarguments":34,"lodash.isarray":35}],39:[function(require,module,exports){
 /**
- * lodash 3.9.1 (Custom Build) <https://lodash.com/>
+ * lodash 3.0.8 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
  * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
  * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
  * Available under MIT license <https://lodash.com/license>
  */
+var isArguments = require('lodash.isarguments'),
+    isArray = require('lodash.isarray');
 
-/** `Object#toString` result references. */
-var funcTag = '[object Function]';
-
-/** Used to detect host constructors (Safari > 5). */
-var reIsHostCtor = /^\[object .+?Constructor\]$/;
-
-/**
- * Checks if `value` is object-like.
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
- */
-function isObjectLike(value) {
-  return !!value && typeof value == 'object';
-}
+/** Used to detect unsigned integer values. */
+var reIsUint = /^\d+$/;
 
 /** Used for native method references. */
 var objectProto = Object.prototype;
-
-/** Used to resolve the decompiled source of functions. */
-var fnToString = Function.prototype.toString;
 
 /** Used to check objects for own properties. */
 var hasOwnProperty = objectProto.hasOwnProperty;
 
 /**
- * Used to resolve the [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
- * of values.
+ * Used as the [maximum length](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-number.max_safe_integer)
+ * of an array-like value.
  */
-var objToString = objectProto.toString;
-
-/** Used to detect if a method is native. */
-var reIsNative = RegExp('^' +
-  fnToString.call(hasOwnProperty).replace(/[\\^$.*+?()[\]{}|]/g, '\\$&')
-  .replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '$'
-);
+var MAX_SAFE_INTEGER = 9007199254740991;
 
 /**
- * Gets the native function at `key` of `object`.
+ * Checks if `value` is a valid array-like index.
  *
  * @private
- * @param {Object} object The object to query.
- * @param {string} key The key of the method to get.
- * @returns {*} Returns the function if it's native, else `undefined`.
+ * @param {*} value The value to check.
+ * @param {number} [length=MAX_SAFE_INTEGER] The upper bounds of a valid index.
+ * @returns {boolean} Returns `true` if `value` is a valid index, else `false`.
  */
-function getNative(object, key) {
-  var value = object == null ? undefined : object[key];
-  return isNative(value) ? value : undefined;
+function isIndex(value, length) {
+  value = (typeof value == 'number' || reIsUint.test(value)) ? +value : -1;
+  length = length == null ? MAX_SAFE_INTEGER : length;
+  return value > -1 && value % 1 == 0 && value < length;
 }
 
 /**
- * Checks if `value` is classified as a `Function` object.
+ * Checks if `value` is a valid array-like length.
  *
- * @static
- * @memberOf _
- * @category Lang
+ * **Note:** This function is based on [`ToLength`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength).
+ *
+ * @private
  * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
- * @example
- *
- * _.isFunction(_);
- * // => true
- *
- * _.isFunction(/abc/);
- * // => false
+ * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
  */
-function isFunction(value) {
-  // The use of `Object#toString` avoids issues with the `typeof` operator
-  // in older versions of Chrome and Safari which return 'function' for regexes
-  // and Safari 8 equivalents which return 'object' for typed array constructors.
-  return isObject(value) && objToString.call(value) == funcTag;
+function isLength(value) {
+  return typeof value == 'number' && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
 }
 
 /**
@@ -1815,266 +3324,150 @@ function isObject(value) {
 }
 
 /**
- * Checks if `value` is a native function.
+ * Creates an array of the own and inherited enumerable property names of `object`.
+ *
+ * **Note:** Non-object values are coerced to objects.
  *
  * @static
  * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a native function, else `false`.
+ * @category Object
+ * @param {Object} object The object to query.
+ * @returns {Array} Returns the array of property names.
  * @example
  *
- * _.isNative(Array.prototype.push);
- * // => true
+ * function Foo() {
+ *   this.a = 1;
+ *   this.b = 2;
+ * }
  *
- * _.isNative(_);
- * // => false
+ * Foo.prototype.c = 3;
+ *
+ * _.keysIn(new Foo);
+ * // => ['a', 'b', 'c'] (iteration order is not guaranteed)
  */
-function isNative(value) {
-  if (value == null) {
-    return false;
+function keysIn(object) {
+  if (object == null) {
+    return [];
   }
-  if (isFunction(value)) {
-    return reIsNative.test(fnToString.call(value));
+  if (!isObject(object)) {
+    object = Object(object);
   }
-  return isObjectLike(value) && reIsHostCtor.test(value);
+  var length = object.length;
+  length = (length && isLength(length) &&
+    (isArray(object) || isArguments(object)) && length) || 0;
+
+  var Ctor = object.constructor,
+      index = -1,
+      isProto = typeof Ctor == 'function' && Ctor.prototype === object,
+      result = Array(length),
+      skipIndexes = length > 0;
+
+  while (++index < length) {
+    result[index] = (index + '');
+  }
+  for (var key in object) {
+    if (!(skipIndexes && isIndex(key, length)) &&
+        !(key == 'constructor' && (isProto || !hasOwnProperty.call(object, key)))) {
+      result.push(key);
+    }
+  }
+  return result;
 }
 
-module.exports = getNative;
+module.exports = keysIn;
 
-},{}],20:[function(require,module,exports){
+},{"lodash.isarguments":34,"lodash.isarray":35}],40:[function(require,module,exports){
 /**
- * lodash 3.0.4 (Custom Build) <https://lodash.com/>
+ * lodash 3.8.0 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
  * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
  * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
  * Available under MIT license <https://lodash.com/license>
  */
+var baseCallback = require('lodash._basecallback'),
+    baseFor = require('lodash._basefor'),
+    keys = require('lodash.keys');
 
 /**
- * Checks if `value` is object-like.
+ * The base implementation of `_.forOwn` without support for callback
+ * shorthands and `this` binding.
  *
  * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+ * @param {Object} object The object to iterate over.
+ * @param {Function} iteratee The function invoked per iteration.
+ * @returns {Object} Returns `object`.
  */
-function isObjectLike(value) {
-  return !!value && typeof value == 'object';
+function baseForOwn(object, iteratee) {
+  return baseFor(object, iteratee, keys);
 }
 
-/** Used for native method references. */
-var objectProto = Object.prototype;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/** Native method references. */
-var propertyIsEnumerable = objectProto.propertyIsEnumerable;
-
 /**
- * Used as the [maximum length](http://ecma-international.org/ecma-262/6.0/#sec-number.max_safe_integer)
- * of an array-like value.
- */
-var MAX_SAFE_INTEGER = 9007199254740991;
-
-/**
- * The base implementation of `_.property` without support for deep paths.
+ * Creates a function for `_.mapKeys` or `_.mapValues`.
  *
  * @private
- * @param {string} key The key of the property to get.
- * @returns {Function} Returns the new function.
+ * @param {boolean} [isMapKeys] Specify mapping keys instead of values.
+ * @returns {Function} Returns the new map function.
  */
-function baseProperty(key) {
-  return function(object) {
-    return object == null ? undefined : object[key];
+function createObjectMapper(isMapKeys) {
+  return function(object, iteratee, thisArg) {
+    var result = {};
+    iteratee = baseCallback(iteratee, thisArg, 3);
+
+    baseForOwn(object, function(value, key, object) {
+      var mapped = iteratee(value, key, object);
+      key = isMapKeys ? mapped : key;
+      value = isMapKeys ? value : mapped;
+      result[key] = value;
+    });
+    return result;
   };
 }
 
 /**
- * Gets the "length" property value of `object`.
- *
- * **Note:** This function is used to avoid a [JIT bug](https://bugs.webkit.org/show_bug.cgi?id=142792)
- * that affects Safari on at least iOS 8.1-8.3 ARM64.
- *
- * @private
- * @param {Object} object The object to query.
- * @returns {*} Returns the "length" value.
- */
-var getLength = baseProperty('length');
-
-/**
- * Checks if `value` is array-like.
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is array-like, else `false`.
- */
-function isArrayLike(value) {
-  return value != null && isLength(getLength(value));
-}
-
-/**
- * Checks if `value` is a valid array-like length.
- *
- * **Note:** This function is based on [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
- */
-function isLength(value) {
-  return typeof value == 'number' && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
-}
-
-/**
- * Checks if `value` is classified as an `arguments` object.
+ * The opposite of `_.mapValues`; this method creates an object with the
+ * same values as `object` and keys generated by running each own enumerable
+ * property of `object` through `iteratee`.
  *
  * @static
  * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
+ * @category Object
+ * @param {Object} object The object to iterate over.
+ * @param {Function|Object|string} [iteratee=_.identity] The function invoked
+ *  per iteration.
+ * @param {*} [thisArg] The `this` binding of `iteratee`.
+ * @returns {Object} Returns the new mapped object.
  * @example
  *
- * _.isArguments(function() { return arguments; }());
- * // => true
- *
- * _.isArguments([1, 2, 3]);
- * // => false
+ * _.mapKeys({ 'a': 1, 'b': 2 }, function(value, key) {
+ *   return key + value;
+ * });
+ * // => { 'a1': 1, 'b2': 2 }
  */
-function isArguments(value) {
-  return isObjectLike(value) && isArrayLike(value) &&
-    hasOwnProperty.call(value, 'callee') && !propertyIsEnumerable.call(value, 'callee');
-}
+var mapKeys = createObjectMapper(true);
 
-module.exports = isArguments;
+module.exports = mapKeys;
 
-},{}],21:[function(require,module,exports){
+},{"lodash._basecallback":21,"lodash._basefor":23,"lodash.keys":38}],41:[function(require,module,exports){
 /**
- * lodash 3.0.4 (Custom Build) <https://lodash.com/>
+ * lodash 3.0.1 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
  * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
  * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
  * Available under MIT license <https://lodash.com/license>
  */
-
-/** `Object#toString` result references. */
-var arrayTag = '[object Array]',
-    funcTag = '[object Function]';
-
-/** Used to detect host constructors (Safari > 5). */
-var reIsHostCtor = /^\[object .+?Constructor\]$/;
+var keys = require('lodash.keys');
 
 /**
- * Checks if `value` is object-like.
+ * Converts `value` to an object if it's not one.
  *
  * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+ * @param {*} value The value to process.
+ * @returns {Object} Returns the object.
  */
-function isObjectLike(value) {
-  return !!value && typeof value == 'object';
-}
-
-/** Used for native method references. */
-var objectProto = Object.prototype;
-
-/** Used to resolve the decompiled source of functions. */
-var fnToString = Function.prototype.toString;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/**
- * Used to resolve the [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
- * of values.
- */
-var objToString = objectProto.toString;
-
-/** Used to detect if a method is native. */
-var reIsNative = RegExp('^' +
-  fnToString.call(hasOwnProperty).replace(/[\\^$.*+?()[\]{}|]/g, '\\$&')
-  .replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '$'
-);
-
-/* Native method references for those with the same name as other `lodash` methods. */
-var nativeIsArray = getNative(Array, 'isArray');
-
-/**
- * Used as the [maximum length](http://ecma-international.org/ecma-262/6.0/#sec-number.max_safe_integer)
- * of an array-like value.
- */
-var MAX_SAFE_INTEGER = 9007199254740991;
-
-/**
- * Gets the native function at `key` of `object`.
- *
- * @private
- * @param {Object} object The object to query.
- * @param {string} key The key of the method to get.
- * @returns {*} Returns the function if it's native, else `undefined`.
- */
-function getNative(object, key) {
-  var value = object == null ? undefined : object[key];
-  return isNative(value) ? value : undefined;
-}
-
-/**
- * Checks if `value` is a valid array-like length.
- *
- * **Note:** This function is based on [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
- */
-function isLength(value) {
-  return typeof value == 'number' && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
-}
-
-/**
- * Checks if `value` is classified as an `Array` object.
- *
- * @static
- * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
- * @example
- *
- * _.isArray([1, 2, 3]);
- * // => true
- *
- * _.isArray(function() { return arguments; }());
- * // => false
- */
-var isArray = nativeIsArray || function(value) {
-  return isObjectLike(value) && isLength(value.length) && objToString.call(value) == arrayTag;
-};
-
-/**
- * Checks if `value` is classified as a `Function` object.
- *
- * @static
- * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
- * @example
- *
- * _.isFunction(_);
- * // => true
- *
- * _.isFunction(/abc/);
- * // => false
- */
-function isFunction(value) {
-  // The use of `Object#toString` avoids issues with the `typeof` operator
-  // in older versions of Chrome and Safari which return 'function' for regexes
-  // and Safari 8 equivalents which return 'object' for typed array constructors.
-  return isObject(value) && objToString.call(value) == funcTag;
+function toObject(value) {
+  return isObject(value) ? value : Object(value);
 }
 
 /**
@@ -2105,34 +3498,249 @@ function isObject(value) {
 }
 
 /**
- * Checks if `value` is a native function.
+ * Creates a two dimensional array of the key-value pairs for `object`,
+ * e.g. `[[key1, value1], [key2, value2]]`.
  *
  * @static
  * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a native function, else `false`.
+ * @category Object
+ * @param {Object} object The object to query.
+ * @returns {Array} Returns the new array of key-value pairs.
  * @example
  *
- * _.isNative(Array.prototype.push);
- * // => true
- *
- * _.isNative(_);
- * // => false
+ * _.pairs({ 'barney': 36, 'fred': 40 });
+ * // => [['barney', 36], ['fred', 40]] (iteration order is not guaranteed)
  */
-function isNative(value) {
-  if (value == null) {
-    return false;
+function pairs(object) {
+  object = toObject(object);
+
+  var index = -1,
+      props = keys(object),
+      length = props.length,
+      result = Array(length);
+
+  while (++index < length) {
+    var key = props[index];
+    result[index] = [key, object[key]];
   }
-  if (isFunction(value)) {
-    return reIsNative.test(fnToString.call(value));
-  }
-  return isObjectLike(value) && reIsHostCtor.test(value);
+  return result;
 }
 
-module.exports = isArray;
+module.exports = pairs;
 
-},{}],22:[function(require,module,exports){
+},{"lodash.keys":38}],42:[function(require,module,exports){
+/**
+ * lodash 3.1.0 (Custom Build) <https://lodash.com/>
+ * Build: `lodash modern modularize exports="npm" -o ./`
+ * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
+ * Based on Underscore.js 1.8.2 <http://underscorejs.org/LICENSE>
+ * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ * Available under MIT license <https://lodash.com/license>
+ */
+var baseFlatten = require('lodash._baseflatten'),
+    bindCallback = require('lodash._bindcallback'),
+    pickByArray = require('lodash._pickbyarray'),
+    pickByCallback = require('lodash._pickbycallback'),
+    restParam = require('lodash.restparam');
+
+/**
+ * Creates an object composed of the picked `object` properties. Property
+ * names may be specified as individual arguments or as arrays of property
+ * names. If `predicate` is provided it is invoked for each property of `object`
+ * picking the properties `predicate` returns truthy for. The predicate is
+ * bound to `thisArg` and invoked with three arguments: (value, key, object).
+ *
+ * @static
+ * @memberOf _
+ * @category Object
+ * @param {Object} object The source object.
+ * @param {Function|...(string|string[])} [predicate] The function invoked per
+ *  iteration or property names to pick, specified as individual property
+ *  names or arrays of property names.
+ * @param {*} [thisArg] The `this` binding of `predicate`.
+ * @returns {Object} Returns the new object.
+ * @example
+ *
+ * var object = { 'user': 'fred', 'age': 40 };
+ *
+ * _.pick(object, 'user');
+ * // => { 'user': 'fred' }
+ *
+ * _.pick(object, _.isString);
+ * // => { 'user': 'fred' }
+ */
+var pick = restParam(function(object, props) {
+  if (object == null) {
+    return {};
+  }
+  return typeof props[0] == 'function'
+    ? pickByCallback(object, bindCallback(props[0], props[1], 3))
+    : pickByArray(object, baseFlatten(props));
+});
+
+module.exports = pick;
+
+},{"lodash._baseflatten":22,"lodash._bindcallback":27,"lodash._pickbyarray":31,"lodash._pickbycallback":32,"lodash.restparam":43}],43:[function(require,module,exports){
+/**
+ * lodash 3.6.1 (Custom Build) <https://lodash.com/>
+ * Build: `lodash modern modularize exports="npm" -o ./`
+ * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
+ * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
+ * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ * Available under MIT license <https://lodash.com/license>
+ */
+
+/** Used as the `TypeError` message for "Functions" methods. */
+var FUNC_ERROR_TEXT = 'Expected a function';
+
+/* Native method references for those with the same name as other `lodash` methods. */
+var nativeMax = Math.max;
+
+/**
+ * Creates a function that invokes `func` with the `this` binding of the
+ * created function and arguments from `start` and beyond provided as an array.
+ *
+ * **Note:** This method is based on the [rest parameter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters).
+ *
+ * @static
+ * @memberOf _
+ * @category Function
+ * @param {Function} func The function to apply a rest parameter to.
+ * @param {number} [start=func.length-1] The start position of the rest parameter.
+ * @returns {Function} Returns the new function.
+ * @example
+ *
+ * var say = _.restParam(function(what, names) {
+ *   return what + ' ' + _.initial(names).join(', ') +
+ *     (_.size(names) > 1 ? ', & ' : '') + _.last(names);
+ * });
+ *
+ * say('hello', 'fred', 'barney', 'pebbles');
+ * // => 'hello fred, barney, & pebbles'
+ */
+function restParam(func, start) {
+  if (typeof func != 'function') {
+    throw new TypeError(FUNC_ERROR_TEXT);
+  }
+  start = nativeMax(start === undefined ? (func.length - 1) : (+start || 0), 0);
+  return function() {
+    var args = arguments,
+        index = -1,
+        length = nativeMax(args.length - start, 0),
+        rest = Array(length);
+
+    while (++index < length) {
+      rest[index] = args[start + index];
+    }
+    switch (start) {
+      case 0: return func.call(this, rest);
+      case 1: return func.call(this, args[0], rest);
+      case 2: return func.call(this, args[0], args[1], rest);
+    }
+    var otherArgs = Array(start + 1);
+    index = -1;
+    while (++index < start) {
+      otherArgs[index] = args[index];
+    }
+    otherArgs[start] = rest;
+    return func.apply(this, otherArgs);
+  };
+}
+
+module.exports = restParam;
+
+},{}],44:[function(require,module,exports){
+/**
+ * lodash 3.0.0 (Custom Build) <https://lodash.com/>
+ * Build: `lodash modern modularize exports="npm" -o ./`
+ * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
+ * Based on Underscore.js 1.7.0 <http://underscorejs.org/LICENSE>
+ * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ * Available under MIT license <https://lodash.com/license>
+ */
+var baseValues = require('lodash._basevalues'),
+    keys = require('lodash.keys');
+
+/**
+ * Creates an array of the own enumerable property values of `object`.
+ *
+ * **Note:** Non-object values are coerced to objects.
+ *
+ * @static
+ * @memberOf _
+ * @category Object
+ * @param {Object} object The object to query.
+ * @returns {Array} Returns the array of property values.
+ * @example
+ *
+ * function Foo() {
+ *   this.a = 1;
+ *   this.b = 2;
+ * }
+ *
+ * Foo.prototype.c = 3;
+ *
+ * _.values(new Foo);
+ * // => [1, 2] (iteration order is not guaranteed)
+ *
+ * _.values('hi');
+ * // => ['h', 'i']
+ */
+function values(object) {
+  return baseValues(object, keys(object));
+}
+
+module.exports = values;
+
+},{"lodash._basevalues":26,"lodash.keys":38}],45:[function(require,module,exports){
+/**
+ * lodash 3.0.2 (Custom Build) <https://lodash.com/>
+ * Build: `lodash modern modularize exports="npm" -o ./`
+ * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
+ * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
+ * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ * Available under MIT license <https://lodash.com/license>
+ */
+var baseToString = require('lodash._basetostring'),
+    isIterateeCall = require('lodash._isiterateecall');
+
+/** Used to match words to create compound words. */
+var reWords = (function() {
+  var upper = '[A-Z\\xc0-\\xd6\\xd8-\\xde]',
+      lower = '[a-z\\xdf-\\xf6\\xf8-\\xff]+';
+
+  return RegExp(upper + '+(?=' + upper + lower + ')|' + upper + '?' + lower + '|' + upper + '+|[0-9]+', 'g');
+}());
+
+/**
+ * Splits `string` into an array of its words.
+ *
+ * @static
+ * @memberOf _
+ * @category String
+ * @param {string} [string=''] The string to inspect.
+ * @param {RegExp|string} [pattern] The pattern to match words.
+ * @param- {Object} [guard] Enables use as a callback for functions like `_.map`.
+ * @returns {Array} Returns the words of `string`.
+ * @example
+ *
+ * _.words('fred, barney, & pebbles');
+ * // => ['fred', 'barney', 'pebbles']
+ *
+ * _.words('fred, barney, & pebbles', /[^, ]+/g);
+ * // => ['fred', 'barney', '&', 'pebbles']
+ */
+function words(string, pattern, guard) {
+  if (guard && isIterateeCall(string, pattern, guard)) {
+    pattern = undefined;
+  }
+  string = baseToString(string);
+  return string.match(pattern || reWords) || [];
+}
+
+module.exports = words;
+
+},{"lodash._basetostring":25,"lodash._isiterateecall":30}],46:[function(require,module,exports){
 //! moment.js
 //! version : 2.10.6
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
@@ -5329,7 +6937,100 @@ module.exports = isArray;
 
 }));
 
-},{}],23:[function(require,module,exports){
+},{}],47:[function(require,module,exports){
+// shim for using process in browser
+
+var process = module.exports = {};
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = setTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    clearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        setTimeout(drainQueue, 0);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
+
+},{}],48:[function(require,module,exports){
 var _ = {
   mapKeys: require('lodash.mapkeys'),
   kebabCase: require('lodash.kebabcase')
@@ -5343,2417 +7044,7 @@ module.exports = {
   }
 };
 
-},{"lodash.kebabcase":24,"lodash.mapkeys":31}],24:[function(require,module,exports){
-/**
- * lodash 3.0.0 (Custom Build) <https://lodash.com/>
- * Build: `lodash modern modularize exports="npm" -o ./`
- * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
- * Based on Underscore.js 1.7.0 <http://underscorejs.org/LICENSE>
- * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- * Available under MIT license <https://lodash.com/license>
- */
-var createCompounder = require('lodash._createcompounder');
-
-/**
- * Converts `string` to kebab case (a.k.a. spinal case).
- * See [Wikipedia](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles) for
- * more details.
- *
- * @static
- * @memberOf _
- * @category String
- * @param {string} [string=''] The string to convert.
- * @returns {string} Returns the kebab cased string.
- * @example
- *
- * _.kebabCase('Foo Bar');
- * // => 'foo-bar'
- *
- * _.kebabCase('fooBar');
- * // => 'foo-bar'
- *
- * _.kebabCase('__foo_bar__');
- * // => 'foo-bar'
- */
-var kebabCase = createCompounder(function(result, word, index) {
-  return result + (index ? '-' : '') + word.toLowerCase();
-});
-
-module.exports = kebabCase;
-
-},{"lodash._createcompounder":25}],25:[function(require,module,exports){
-/**
- * lodash 3.0.0 (Custom Build) <https://lodash.com/>
- * Build: `lodash modern modularize exports="npm" -o ./`
- * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
- * Based on Underscore.js 1.7.0 <http://underscorejs.org/LICENSE>
- * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- * Available under MIT license <https://lodash.com/license>
- */
-var deburr = require('lodash.deburr'),
-    words = require('lodash.words');
-
-/**
- * Creates a function that produces compound words out of the words in a
- * given string.
- *
- * @private
- * @param {Function} callback The function to combine each word.
- * @returns {Function} Returns the new compounder function.
- */
-function createCompounder(callback) {
-  return function(string) {
-    var index = -1,
-        array = words(deburr(string)),
-        length = array.length,
-        result = '';
-
-    while (++index < length) {
-      result = callback(result, array[index], index);
-    }
-    return result;
-  };
-}
-
-module.exports = createCompounder;
-
-},{"lodash.deburr":26,"lodash.words":28}],26:[function(require,module,exports){
-/**
- * lodash 3.0.2 (Custom Build) <https://lodash.com/>
- * Build: `lodash modern modularize exports="npm" -o ./`
- * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
- * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
- * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- * Available under MIT license <https://lodash.com/license>
- */
-var baseToString = require('lodash._basetostring');
-
-/** Used to match [combining diacritical marks](https://en.wikipedia.org/wiki/Combining_Diacritical_Marks). */
-var reComboMark = /[\u0300-\u036f\ufe20-\ufe23]/g;
-
-/** Used to match latin-1 supplementary letters (excluding mathematical operators). */
-var reLatin1 = /[\xc0-\xd6\xd8-\xde\xdf-\xf6\xf8-\xff]/g;
-
-/** Used to map latin-1 supplementary letters to basic latin letters. */
-var deburredLetters = {
-  '\xc0': 'A',  '\xc1': 'A', '\xc2': 'A', '\xc3': 'A', '\xc4': 'A', '\xc5': 'A',
-  '\xe0': 'a',  '\xe1': 'a', '\xe2': 'a', '\xe3': 'a', '\xe4': 'a', '\xe5': 'a',
-  '\xc7': 'C',  '\xe7': 'c',
-  '\xd0': 'D',  '\xf0': 'd',
-  '\xc8': 'E',  '\xc9': 'E', '\xca': 'E', '\xcb': 'E',
-  '\xe8': 'e',  '\xe9': 'e', '\xea': 'e', '\xeb': 'e',
-  '\xcC': 'I',  '\xcd': 'I', '\xce': 'I', '\xcf': 'I',
-  '\xeC': 'i',  '\xed': 'i', '\xee': 'i', '\xef': 'i',
-  '\xd1': 'N',  '\xf1': 'n',
-  '\xd2': 'O',  '\xd3': 'O', '\xd4': 'O', '\xd5': 'O', '\xd6': 'O', '\xd8': 'O',
-  '\xf2': 'o',  '\xf3': 'o', '\xf4': 'o', '\xf5': 'o', '\xf6': 'o', '\xf8': 'o',
-  '\xd9': 'U',  '\xda': 'U', '\xdb': 'U', '\xdc': 'U',
-  '\xf9': 'u',  '\xfa': 'u', '\xfb': 'u', '\xfc': 'u',
-  '\xdd': 'Y',  '\xfd': 'y', '\xff': 'y',
-  '\xc6': 'Ae', '\xe6': 'ae',
-  '\xde': 'Th', '\xfe': 'th',
-  '\xdf': 'ss'
-};
-
-/**
- * Used by `_.deburr` to convert latin-1 supplementary letters to basic latin letters.
- *
- * @private
- * @param {string} letter The matched letter to deburr.
- * @returns {string} Returns the deburred letter.
- */
-function deburrLetter(letter) {
-  return deburredLetters[letter];
-}
-
-/**
- * Deburrs `string` by converting [latin-1 supplementary letters](https://en.wikipedia.org/wiki/Latin-1_Supplement_(Unicode_block)#Character_table)
- * to basic latin letters and removing [combining diacritical marks](https://en.wikipedia.org/wiki/Combining_Diacritical_Marks).
- *
- * @static
- * @memberOf _
- * @category String
- * @param {string} [string=''] The string to deburr.
- * @returns {string} Returns the deburred string.
- * @example
- *
- * _.deburr('déjà vu');
- * // => 'deja vu'
- */
-function deburr(string) {
-  string = baseToString(string);
-  return string && string.replace(reLatin1, deburrLetter).replace(reComboMark, '');
-}
-
-module.exports = deburr;
-
-},{"lodash._basetostring":27}],27:[function(require,module,exports){
-/**
- * lodash 3.0.1 (Custom Build) <https://lodash.com/>
- * Build: `lodash modern modularize exports="npm" -o ./`
- * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
- * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
- * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- * Available under MIT license <https://lodash.com/license>
- */
-
-/**
- * Converts `value` to a string if it's not one. An empty string is returned
- * for `null` or `undefined` values.
- *
- * @private
- * @param {*} value The value to process.
- * @returns {string} Returns the string.
- */
-function baseToString(value) {
-  return value == null ? '' : (value + '');
-}
-
-module.exports = baseToString;
-
-},{}],28:[function(require,module,exports){
-/**
- * lodash 3.0.2 (Custom Build) <https://lodash.com/>
- * Build: `lodash modern modularize exports="npm" -o ./`
- * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
- * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
- * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- * Available under MIT license <https://lodash.com/license>
- */
-var baseToString = require('lodash._basetostring'),
-    isIterateeCall = require('lodash._isiterateecall');
-
-/** Used to match words to create compound words. */
-var reWords = (function() {
-  var upper = '[A-Z\\xc0-\\xd6\\xd8-\\xde]',
-      lower = '[a-z\\xdf-\\xf6\\xf8-\\xff]+';
-
-  return RegExp(upper + '+(?=' + upper + lower + ')|' + upper + '?' + lower + '|' + upper + '+|[0-9]+', 'g');
-}());
-
-/**
- * Splits `string` into an array of its words.
- *
- * @static
- * @memberOf _
- * @category String
- * @param {string} [string=''] The string to inspect.
- * @param {RegExp|string} [pattern] The pattern to match words.
- * @param- {Object} [guard] Enables use as a callback for functions like `_.map`.
- * @returns {Array} Returns the words of `string`.
- * @example
- *
- * _.words('fred, barney, & pebbles');
- * // => ['fred', 'barney', 'pebbles']
- *
- * _.words('fred, barney, & pebbles', /[^, ]+/g);
- * // => ['fred', 'barney', '&', 'pebbles']
- */
-function words(string, pattern, guard) {
-  if (guard && isIterateeCall(string, pattern, guard)) {
-    pattern = undefined;
-  }
-  string = baseToString(string);
-  return string.match(pattern || reWords) || [];
-}
-
-module.exports = words;
-
-},{"lodash._basetostring":29,"lodash._isiterateecall":30}],29:[function(require,module,exports){
-/**
- * lodash 3.0.1 (Custom Build) <https://lodash.com/>
- * Build: `lodash modern modularize exports="npm" -o ./`
- * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
- * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
- * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- * Available under MIT license <https://lodash.com/license>
- */
-
-/**
- * Converts `value` to a string if it's not one. An empty string is returned
- * for `null` or `undefined` values.
- *
- * @private
- * @param {*} value The value to process.
- * @returns {string} Returns the string.
- */
-function baseToString(value) {
-  return value == null ? '' : (value + '');
-}
-
-module.exports = baseToString;
-
-},{}],30:[function(require,module,exports){
-/**
- * lodash 3.0.9 (Custom Build) <https://lodash.com/>
- * Build: `lodash modern modularize exports="npm" -o ./`
- * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
- * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
- * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- * Available under MIT license <https://lodash.com/license>
- */
-
-/** Used to detect unsigned integer values. */
-var reIsUint = /^\d+$/;
-
-/**
- * Used as the [maximum length](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-number.max_safe_integer)
- * of an array-like value.
- */
-var MAX_SAFE_INTEGER = 9007199254740991;
-
-/**
- * The base implementation of `_.property` without support for deep paths.
- *
- * @private
- * @param {string} key The key of the property to get.
- * @returns {Function} Returns the new function.
- */
-function baseProperty(key) {
-  return function(object) {
-    return object == null ? undefined : object[key];
-  };
-}
-
-/**
- * Gets the "length" property value of `object`.
- *
- * **Note:** This function is used to avoid a [JIT bug](https://bugs.webkit.org/show_bug.cgi?id=142792)
- * that affects Safari on at least iOS 8.1-8.3 ARM64.
- *
- * @private
- * @param {Object} object The object to query.
- * @returns {*} Returns the "length" value.
- */
-var getLength = baseProperty('length');
-
-/**
- * Checks if `value` is array-like.
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is array-like, else `false`.
- */
-function isArrayLike(value) {
-  return value != null && isLength(getLength(value));
-}
-
-/**
- * Checks if `value` is a valid array-like index.
- *
- * @private
- * @param {*} value The value to check.
- * @param {number} [length=MAX_SAFE_INTEGER] The upper bounds of a valid index.
- * @returns {boolean} Returns `true` if `value` is a valid index, else `false`.
- */
-function isIndex(value, length) {
-  value = (typeof value == 'number' || reIsUint.test(value)) ? +value : -1;
-  length = length == null ? MAX_SAFE_INTEGER : length;
-  return value > -1 && value % 1 == 0 && value < length;
-}
-
-/**
- * Checks if the provided arguments are from an iteratee call.
- *
- * @private
- * @param {*} value The potential iteratee value argument.
- * @param {*} index The potential iteratee index or key argument.
- * @param {*} object The potential iteratee object argument.
- * @returns {boolean} Returns `true` if the arguments are from an iteratee call, else `false`.
- */
-function isIterateeCall(value, index, object) {
-  if (!isObject(object)) {
-    return false;
-  }
-  var type = typeof index;
-  if (type == 'number'
-      ? (isArrayLike(object) && isIndex(index, object.length))
-      : (type == 'string' && index in object)) {
-    var other = object[index];
-    return value === value ? (value === other) : (other !== other);
-  }
-  return false;
-}
-
-/**
- * Checks if `value` is a valid array-like length.
- *
- * **Note:** This function is based on [`ToLength`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength).
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
- */
-function isLength(value) {
-  return typeof value == 'number' && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
-}
-
-/**
- * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
- * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
- *
- * @static
- * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an object, else `false`.
- * @example
- *
- * _.isObject({});
- * // => true
- *
- * _.isObject([1, 2, 3]);
- * // => true
- *
- * _.isObject(1);
- * // => false
- */
-function isObject(value) {
-  // Avoid a V8 JIT bug in Chrome 19-20.
-  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
-  var type = typeof value;
-  return !!value && (type == 'object' || type == 'function');
-}
-
-module.exports = isIterateeCall;
-
-},{}],31:[function(require,module,exports){
-/**
- * lodash 3.8.0 (Custom Build) <https://lodash.com/>
- * Build: `lodash modern modularize exports="npm" -o ./`
- * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
- * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
- * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- * Available under MIT license <https://lodash.com/license>
- */
-var baseCallback = require('lodash._basecallback'),
-    baseFor = require('lodash._basefor'),
-    keys = require('lodash.keys');
-
-/**
- * The base implementation of `_.forOwn` without support for callback
- * shorthands and `this` binding.
- *
- * @private
- * @param {Object} object The object to iterate over.
- * @param {Function} iteratee The function invoked per iteration.
- * @returns {Object} Returns `object`.
- */
-function baseForOwn(object, iteratee) {
-  return baseFor(object, iteratee, keys);
-}
-
-/**
- * Creates a function for `_.mapKeys` or `_.mapValues`.
- *
- * @private
- * @param {boolean} [isMapKeys] Specify mapping keys instead of values.
- * @returns {Function} Returns the new map function.
- */
-function createObjectMapper(isMapKeys) {
-  return function(object, iteratee, thisArg) {
-    var result = {};
-    iteratee = baseCallback(iteratee, thisArg, 3);
-
-    baseForOwn(object, function(value, key, object) {
-      var mapped = iteratee(value, key, object);
-      key = isMapKeys ? mapped : key;
-      value = isMapKeys ? value : mapped;
-      result[key] = value;
-    });
-    return result;
-  };
-}
-
-/**
- * The opposite of `_.mapValues`; this method creates an object with the
- * same values as `object` and keys generated by running each own enumerable
- * property of `object` through `iteratee`.
- *
- * @static
- * @memberOf _
- * @category Object
- * @param {Object} object The object to iterate over.
- * @param {Function|Object|string} [iteratee=_.identity] The function invoked
- *  per iteration.
- * @param {*} [thisArg] The `this` binding of `iteratee`.
- * @returns {Object} Returns the new mapped object.
- * @example
- *
- * _.mapKeys({ 'a': 1, 'b': 2 }, function(value, key) {
- *   return key + value;
- * });
- * // => { 'a1': 1, 'b2': 2 }
- */
-var mapKeys = createObjectMapper(true);
-
-module.exports = mapKeys;
-
-},{"lodash._basecallback":32,"lodash._basefor":38,"lodash.keys":39}],32:[function(require,module,exports){
-/**
- * lodash 3.3.1 (Custom Build) <https://lodash.com/>
- * Build: `lodash modern modularize exports="npm" -o ./`
- * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
- * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
- * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- * Available under MIT license <https://lodash.com/license>
- */
-var baseIsEqual = require('lodash._baseisequal'),
-    bindCallback = require('lodash._bindcallback'),
-    isArray = require('lodash.isarray'),
-    pairs = require('lodash.pairs');
-
-/** Used to match property names within property paths. */
-var reIsDeepProp = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\n\\]|\\.)*?\1)\]/,
-    reIsPlainProp = /^\w*$/,
-    rePropName = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\n\\]|\\.)*?)\2)\]/g;
-
-/** Used to match backslashes in property paths. */
-var reEscapeChar = /\\(\\)?/g;
-
-/**
- * Converts `value` to a string if it's not one. An empty string is returned
- * for `null` or `undefined` values.
- *
- * @private
- * @param {*} value The value to process.
- * @returns {string} Returns the string.
- */
-function baseToString(value) {
-  return value == null ? '' : (value + '');
-}
-
-/**
- * The base implementation of `_.callback` which supports specifying the
- * number of arguments to provide to `func`.
- *
- * @private
- * @param {*} [func=_.identity] The value to convert to a callback.
- * @param {*} [thisArg] The `this` binding of `func`.
- * @param {number} [argCount] The number of arguments to provide to `func`.
- * @returns {Function} Returns the callback.
- */
-function baseCallback(func, thisArg, argCount) {
-  var type = typeof func;
-  if (type == 'function') {
-    return thisArg === undefined
-      ? func
-      : bindCallback(func, thisArg, argCount);
-  }
-  if (func == null) {
-    return identity;
-  }
-  if (type == 'object') {
-    return baseMatches(func);
-  }
-  return thisArg === undefined
-    ? property(func)
-    : baseMatchesProperty(func, thisArg);
-}
-
-/**
- * The base implementation of `get` without support for string paths
- * and default values.
- *
- * @private
- * @param {Object} object The object to query.
- * @param {Array} path The path of the property to get.
- * @param {string} [pathKey] The key representation of path.
- * @returns {*} Returns the resolved value.
- */
-function baseGet(object, path, pathKey) {
-  if (object == null) {
-    return;
-  }
-  if (pathKey !== undefined && pathKey in toObject(object)) {
-    path = [pathKey];
-  }
-  var index = 0,
-      length = path.length;
-
-  while (object != null && index < length) {
-    object = object[path[index++]];
-  }
-  return (index && index == length) ? object : undefined;
-}
-
-/**
- * The base implementation of `_.isMatch` without support for callback
- * shorthands and `this` binding.
- *
- * @private
- * @param {Object} object The object to inspect.
- * @param {Array} matchData The propery names, values, and compare flags to match.
- * @param {Function} [customizer] The function to customize comparing objects.
- * @returns {boolean} Returns `true` if `object` is a match, else `false`.
- */
-function baseIsMatch(object, matchData, customizer) {
-  var index = matchData.length,
-      length = index,
-      noCustomizer = !customizer;
-
-  if (object == null) {
-    return !length;
-  }
-  object = toObject(object);
-  while (index--) {
-    var data = matchData[index];
-    if ((noCustomizer && data[2])
-          ? data[1] !== object[data[0]]
-          : !(data[0] in object)
-        ) {
-      return false;
-    }
-  }
-  while (++index < length) {
-    data = matchData[index];
-    var key = data[0],
-        objValue = object[key],
-        srcValue = data[1];
-
-    if (noCustomizer && data[2]) {
-      if (objValue === undefined && !(key in object)) {
-        return false;
-      }
-    } else {
-      var result = customizer ? customizer(objValue, srcValue, key) : undefined;
-      if (!(result === undefined ? baseIsEqual(srcValue, objValue, customizer, true) : result)) {
-        return false;
-      }
-    }
-  }
-  return true;
-}
-
-/**
- * The base implementation of `_.matches` which does not clone `source`.
- *
- * @private
- * @param {Object} source The object of property values to match.
- * @returns {Function} Returns the new function.
- */
-function baseMatches(source) {
-  var matchData = getMatchData(source);
-  if (matchData.length == 1 && matchData[0][2]) {
-    var key = matchData[0][0],
-        value = matchData[0][1];
-
-    return function(object) {
-      if (object == null) {
-        return false;
-      }
-      return object[key] === value && (value !== undefined || (key in toObject(object)));
-    };
-  }
-  return function(object) {
-    return baseIsMatch(object, matchData);
-  };
-}
-
-/**
- * The base implementation of `_.matchesProperty` which does not clone `srcValue`.
- *
- * @private
- * @param {string} path The path of the property to get.
- * @param {*} srcValue The value to compare.
- * @returns {Function} Returns the new function.
- */
-function baseMatchesProperty(path, srcValue) {
-  var isArr = isArray(path),
-      isCommon = isKey(path) && isStrictComparable(srcValue),
-      pathKey = (path + '');
-
-  path = toPath(path);
-  return function(object) {
-    if (object == null) {
-      return false;
-    }
-    var key = pathKey;
-    object = toObject(object);
-    if ((isArr || !isCommon) && !(key in object)) {
-      object = path.length == 1 ? object : baseGet(object, baseSlice(path, 0, -1));
-      if (object == null) {
-        return false;
-      }
-      key = last(path);
-      object = toObject(object);
-    }
-    return object[key] === srcValue
-      ? (srcValue !== undefined || (key in object))
-      : baseIsEqual(srcValue, object[key], undefined, true);
-  };
-}
-
-/**
- * The base implementation of `_.property` without support for deep paths.
- *
- * @private
- * @param {string} key The key of the property to get.
- * @returns {Function} Returns the new function.
- */
-function baseProperty(key) {
-  return function(object) {
-    return object == null ? undefined : object[key];
-  };
-}
-
-/**
- * A specialized version of `baseProperty` which supports deep paths.
- *
- * @private
- * @param {Array|string} path The path of the property to get.
- * @returns {Function} Returns the new function.
- */
-function basePropertyDeep(path) {
-  var pathKey = (path + '');
-  path = toPath(path);
-  return function(object) {
-    return baseGet(object, path, pathKey);
-  };
-}
-
-/**
- * The base implementation of `_.slice` without an iteratee call guard.
- *
- * @private
- * @param {Array} array The array to slice.
- * @param {number} [start=0] The start position.
- * @param {number} [end=array.length] The end position.
- * @returns {Array} Returns the slice of `array`.
- */
-function baseSlice(array, start, end) {
-  var index = -1,
-      length = array.length;
-
-  start = start == null ? 0 : (+start || 0);
-  if (start < 0) {
-    start = -start > length ? 0 : (length + start);
-  }
-  end = (end === undefined || end > length) ? length : (+end || 0);
-  if (end < 0) {
-    end += length;
-  }
-  length = start > end ? 0 : ((end - start) >>> 0);
-  start >>>= 0;
-
-  var result = Array(length);
-  while (++index < length) {
-    result[index] = array[index + start];
-  }
-  return result;
-}
-
-/**
- * Gets the propery names, values, and compare flags of `object`.
- *
- * @private
- * @param {Object} object The object to query.
- * @returns {Array} Returns the match data of `object`.
- */
-function getMatchData(object) {
-  var result = pairs(object),
-      length = result.length;
-
-  while (length--) {
-    result[length][2] = isStrictComparable(result[length][1]);
-  }
-  return result;
-}
-
-/**
- * Checks if `value` is a property name and not a property path.
- *
- * @private
- * @param {*} value The value to check.
- * @param {Object} [object] The object to query keys on.
- * @returns {boolean} Returns `true` if `value` is a property name, else `false`.
- */
-function isKey(value, object) {
-  var type = typeof value;
-  if ((type == 'string' && reIsPlainProp.test(value)) || type == 'number') {
-    return true;
-  }
-  if (isArray(value)) {
-    return false;
-  }
-  var result = !reIsDeepProp.test(value);
-  return result || (object != null && value in toObject(object));
-}
-
-/**
- * Checks if `value` is suitable for strict equality comparisons, i.e. `===`.
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` if suitable for strict
- *  equality comparisons, else `false`.
- */
-function isStrictComparable(value) {
-  return value === value && !isObject(value);
-}
-
-/**
- * Converts `value` to an object if it's not one.
- *
- * @private
- * @param {*} value The value to process.
- * @returns {Object} Returns the object.
- */
-function toObject(value) {
-  return isObject(value) ? value : Object(value);
-}
-
-/**
- * Converts `value` to property path array if it's not one.
- *
- * @private
- * @param {*} value The value to process.
- * @returns {Array} Returns the property path array.
- */
-function toPath(value) {
-  if (isArray(value)) {
-    return value;
-  }
-  var result = [];
-  baseToString(value).replace(rePropName, function(match, number, quote, string) {
-    result.push(quote ? string.replace(reEscapeChar, '$1') : (number || match));
-  });
-  return result;
-}
-
-/**
- * Gets the last element of `array`.
- *
- * @static
- * @memberOf _
- * @category Array
- * @param {Array} array The array to query.
- * @returns {*} Returns the last element of `array`.
- * @example
- *
- * _.last([1, 2, 3]);
- * // => 3
- */
-function last(array) {
-  var length = array ? array.length : 0;
-  return length ? array[length - 1] : undefined;
-}
-
-/**
- * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
- * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
- *
- * @static
- * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an object, else `false`.
- * @example
- *
- * _.isObject({});
- * // => true
- *
- * _.isObject([1, 2, 3]);
- * // => true
- *
- * _.isObject(1);
- * // => false
- */
-function isObject(value) {
-  // Avoid a V8 JIT bug in Chrome 19-20.
-  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
-  var type = typeof value;
-  return !!value && (type == 'object' || type == 'function');
-}
-
-/**
- * This method returns the first argument provided to it.
- *
- * @static
- * @memberOf _
- * @category Utility
- * @param {*} value Any value.
- * @returns {*} Returns `value`.
- * @example
- *
- * var object = { 'user': 'fred' };
- *
- * _.identity(object) === object;
- * // => true
- */
-function identity(value) {
-  return value;
-}
-
-/**
- * Creates a function that returns the property value at `path` on a
- * given object.
- *
- * @static
- * @memberOf _
- * @category Utility
- * @param {Array|string} path The path of the property to get.
- * @returns {Function} Returns the new function.
- * @example
- *
- * var objects = [
- *   { 'a': { 'b': { 'c': 2 } } },
- *   { 'a': { 'b': { 'c': 1 } } }
- * ];
- *
- * _.map(objects, _.property('a.b.c'));
- * // => [2, 1]
- *
- * _.pluck(_.sortBy(objects, _.property(['a', 'b', 'c'])), 'a.b.c');
- * // => [1, 2]
- */
-function property(path) {
-  return isKey(path) ? baseProperty(path) : basePropertyDeep(path);
-}
-
-module.exports = baseCallback;
-
-},{"lodash._baseisequal":33,"lodash._bindcallback":35,"lodash.isarray":36,"lodash.pairs":37}],33:[function(require,module,exports){
-/**
- * lodash 3.0.7 (Custom Build) <https://lodash.com/>
- * Build: `lodash modern modularize exports="npm" -o ./`
- * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
- * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
- * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- * Available under MIT license <https://lodash.com/license>
- */
-var isArray = require('lodash.isarray'),
-    isTypedArray = require('lodash.istypedarray'),
-    keys = require('lodash.keys');
-
-/** `Object#toString` result references. */
-var argsTag = '[object Arguments]',
-    arrayTag = '[object Array]',
-    boolTag = '[object Boolean]',
-    dateTag = '[object Date]',
-    errorTag = '[object Error]',
-    numberTag = '[object Number]',
-    objectTag = '[object Object]',
-    regexpTag = '[object RegExp]',
-    stringTag = '[object String]';
-
-/**
- * Checks if `value` is object-like.
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
- */
-function isObjectLike(value) {
-  return !!value && typeof value == 'object';
-}
-
-/** Used for native method references. */
-var objectProto = Object.prototype;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/**
- * Used to resolve the [`toStringTag`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-object.prototype.tostring)
- * of values.
- */
-var objToString = objectProto.toString;
-
-/**
- * A specialized version of `_.some` for arrays without support for callback
- * shorthands and `this` binding.
- *
- * @private
- * @param {Array} array The array to iterate over.
- * @param {Function} predicate The function invoked per iteration.
- * @returns {boolean} Returns `true` if any element passes the predicate check,
- *  else `false`.
- */
-function arraySome(array, predicate) {
-  var index = -1,
-      length = array.length;
-
-  while (++index < length) {
-    if (predicate(array[index], index, array)) {
-      return true;
-    }
-  }
-  return false;
-}
-
-/**
- * The base implementation of `_.isEqual` without support for `this` binding
- * `customizer` functions.
- *
- * @private
- * @param {*} value The value to compare.
- * @param {*} other The other value to compare.
- * @param {Function} [customizer] The function to customize comparing values.
- * @param {boolean} [isLoose] Specify performing partial comparisons.
- * @param {Array} [stackA] Tracks traversed `value` objects.
- * @param {Array} [stackB] Tracks traversed `other` objects.
- * @returns {boolean} Returns `true` if the values are equivalent, else `false`.
- */
-function baseIsEqual(value, other, customizer, isLoose, stackA, stackB) {
-  if (value === other) {
-    return true;
-  }
-  if (value == null || other == null || (!isObject(value) && !isObjectLike(other))) {
-    return value !== value && other !== other;
-  }
-  return baseIsEqualDeep(value, other, baseIsEqual, customizer, isLoose, stackA, stackB);
-}
-
-/**
- * A specialized version of `baseIsEqual` for arrays and objects which performs
- * deep comparisons and tracks traversed objects enabling objects with circular
- * references to be compared.
- *
- * @private
- * @param {Object} object The object to compare.
- * @param {Object} other The other object to compare.
- * @param {Function} equalFunc The function to determine equivalents of values.
- * @param {Function} [customizer] The function to customize comparing objects.
- * @param {boolean} [isLoose] Specify performing partial comparisons.
- * @param {Array} [stackA=[]] Tracks traversed `value` objects.
- * @param {Array} [stackB=[]] Tracks traversed `other` objects.
- * @returns {boolean} Returns `true` if the objects are equivalent, else `false`.
- */
-function baseIsEqualDeep(object, other, equalFunc, customizer, isLoose, stackA, stackB) {
-  var objIsArr = isArray(object),
-      othIsArr = isArray(other),
-      objTag = arrayTag,
-      othTag = arrayTag;
-
-  if (!objIsArr) {
-    objTag = objToString.call(object);
-    if (objTag == argsTag) {
-      objTag = objectTag;
-    } else if (objTag != objectTag) {
-      objIsArr = isTypedArray(object);
-    }
-  }
-  if (!othIsArr) {
-    othTag = objToString.call(other);
-    if (othTag == argsTag) {
-      othTag = objectTag;
-    } else if (othTag != objectTag) {
-      othIsArr = isTypedArray(other);
-    }
-  }
-  var objIsObj = objTag == objectTag,
-      othIsObj = othTag == objectTag,
-      isSameTag = objTag == othTag;
-
-  if (isSameTag && !(objIsArr || objIsObj)) {
-    return equalByTag(object, other, objTag);
-  }
-  if (!isLoose) {
-    var objIsWrapped = objIsObj && hasOwnProperty.call(object, '__wrapped__'),
-        othIsWrapped = othIsObj && hasOwnProperty.call(other, '__wrapped__');
-
-    if (objIsWrapped || othIsWrapped) {
-      return equalFunc(objIsWrapped ? object.value() : object, othIsWrapped ? other.value() : other, customizer, isLoose, stackA, stackB);
-    }
-  }
-  if (!isSameTag) {
-    return false;
-  }
-  // Assume cyclic values are equal.
-  // For more information on detecting circular references see https://es5.github.io/#JO.
-  stackA || (stackA = []);
-  stackB || (stackB = []);
-
-  var length = stackA.length;
-  while (length--) {
-    if (stackA[length] == object) {
-      return stackB[length] == other;
-    }
-  }
-  // Add `object` and `other` to the stack of traversed objects.
-  stackA.push(object);
-  stackB.push(other);
-
-  var result = (objIsArr ? equalArrays : equalObjects)(object, other, equalFunc, customizer, isLoose, stackA, stackB);
-
-  stackA.pop();
-  stackB.pop();
-
-  return result;
-}
-
-/**
- * A specialized version of `baseIsEqualDeep` for arrays with support for
- * partial deep comparisons.
- *
- * @private
- * @param {Array} array The array to compare.
- * @param {Array} other The other array to compare.
- * @param {Function} equalFunc The function to determine equivalents of values.
- * @param {Function} [customizer] The function to customize comparing arrays.
- * @param {boolean} [isLoose] Specify performing partial comparisons.
- * @param {Array} [stackA] Tracks traversed `value` objects.
- * @param {Array} [stackB] Tracks traversed `other` objects.
- * @returns {boolean} Returns `true` if the arrays are equivalent, else `false`.
- */
-function equalArrays(array, other, equalFunc, customizer, isLoose, stackA, stackB) {
-  var index = -1,
-      arrLength = array.length,
-      othLength = other.length;
-
-  if (arrLength != othLength && !(isLoose && othLength > arrLength)) {
-    return false;
-  }
-  // Ignore non-index properties.
-  while (++index < arrLength) {
-    var arrValue = array[index],
-        othValue = other[index],
-        result = customizer ? customizer(isLoose ? othValue : arrValue, isLoose ? arrValue : othValue, index) : undefined;
-
-    if (result !== undefined) {
-      if (result) {
-        continue;
-      }
-      return false;
-    }
-    // Recursively compare arrays (susceptible to call stack limits).
-    if (isLoose) {
-      if (!arraySome(other, function(othValue) {
-            return arrValue === othValue || equalFunc(arrValue, othValue, customizer, isLoose, stackA, stackB);
-          })) {
-        return false;
-      }
-    } else if (!(arrValue === othValue || equalFunc(arrValue, othValue, customizer, isLoose, stackA, stackB))) {
-      return false;
-    }
-  }
-  return true;
-}
-
-/**
- * A specialized version of `baseIsEqualDeep` for comparing objects of
- * the same `toStringTag`.
- *
- * **Note:** This function only supports comparing values with tags of
- * `Boolean`, `Date`, `Error`, `Number`, `RegExp`, or `String`.
- *
- * @private
- * @param {Object} value The object to compare.
- * @param {Object} other The other object to compare.
- * @param {string} tag The `toStringTag` of the objects to compare.
- * @returns {boolean} Returns `true` if the objects are equivalent, else `false`.
- */
-function equalByTag(object, other, tag) {
-  switch (tag) {
-    case boolTag:
-    case dateTag:
-      // Coerce dates and booleans to numbers, dates to milliseconds and booleans
-      // to `1` or `0` treating invalid dates coerced to `NaN` as not equal.
-      return +object == +other;
-
-    case errorTag:
-      return object.name == other.name && object.message == other.message;
-
-    case numberTag:
-      // Treat `NaN` vs. `NaN` as equal.
-      return (object != +object)
-        ? other != +other
-        : object == +other;
-
-    case regexpTag:
-    case stringTag:
-      // Coerce regexes to strings and treat strings primitives and string
-      // objects as equal. See https://es5.github.io/#x15.10.6.4 for more details.
-      return object == (other + '');
-  }
-  return false;
-}
-
-/**
- * A specialized version of `baseIsEqualDeep` for objects with support for
- * partial deep comparisons.
- *
- * @private
- * @param {Object} object The object to compare.
- * @param {Object} other The other object to compare.
- * @param {Function} equalFunc The function to determine equivalents of values.
- * @param {Function} [customizer] The function to customize comparing values.
- * @param {boolean} [isLoose] Specify performing partial comparisons.
- * @param {Array} [stackA] Tracks traversed `value` objects.
- * @param {Array} [stackB] Tracks traversed `other` objects.
- * @returns {boolean} Returns `true` if the objects are equivalent, else `false`.
- */
-function equalObjects(object, other, equalFunc, customizer, isLoose, stackA, stackB) {
-  var objProps = keys(object),
-      objLength = objProps.length,
-      othProps = keys(other),
-      othLength = othProps.length;
-
-  if (objLength != othLength && !isLoose) {
-    return false;
-  }
-  var index = objLength;
-  while (index--) {
-    var key = objProps[index];
-    if (!(isLoose ? key in other : hasOwnProperty.call(other, key))) {
-      return false;
-    }
-  }
-  var skipCtor = isLoose;
-  while (++index < objLength) {
-    key = objProps[index];
-    var objValue = object[key],
-        othValue = other[key],
-        result = customizer ? customizer(isLoose ? othValue : objValue, isLoose? objValue : othValue, key) : undefined;
-
-    // Recursively compare objects (susceptible to call stack limits).
-    if (!(result === undefined ? equalFunc(objValue, othValue, customizer, isLoose, stackA, stackB) : result)) {
-      return false;
-    }
-    skipCtor || (skipCtor = key == 'constructor');
-  }
-  if (!skipCtor) {
-    var objCtor = object.constructor,
-        othCtor = other.constructor;
-
-    // Non `Object` object instances with different constructors are not equal.
-    if (objCtor != othCtor &&
-        ('constructor' in object && 'constructor' in other) &&
-        !(typeof objCtor == 'function' && objCtor instanceof objCtor &&
-          typeof othCtor == 'function' && othCtor instanceof othCtor)) {
-      return false;
-    }
-  }
-  return true;
-}
-
-/**
- * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
- * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
- *
- * @static
- * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an object, else `false`.
- * @example
- *
- * _.isObject({});
- * // => true
- *
- * _.isObject([1, 2, 3]);
- * // => true
- *
- * _.isObject(1);
- * // => false
- */
-function isObject(value) {
-  // Avoid a V8 JIT bug in Chrome 19-20.
-  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
-  var type = typeof value;
-  return !!value && (type == 'object' || type == 'function');
-}
-
-module.exports = baseIsEqual;
-
-},{"lodash.isarray":36,"lodash.istypedarray":34,"lodash.keys":39}],34:[function(require,module,exports){
-/**
- * lodash 3.0.2 (Custom Build) <https://lodash.com/>
- * Build: `lodash modern modularize exports="npm" -o ./`
- * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
- * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
- * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- * Available under MIT license <https://lodash.com/license>
- */
-
-/** `Object#toString` result references. */
-var argsTag = '[object Arguments]',
-    arrayTag = '[object Array]',
-    boolTag = '[object Boolean]',
-    dateTag = '[object Date]',
-    errorTag = '[object Error]',
-    funcTag = '[object Function]',
-    mapTag = '[object Map]',
-    numberTag = '[object Number]',
-    objectTag = '[object Object]',
-    regexpTag = '[object RegExp]',
-    setTag = '[object Set]',
-    stringTag = '[object String]',
-    weakMapTag = '[object WeakMap]';
-
-var arrayBufferTag = '[object ArrayBuffer]',
-    float32Tag = '[object Float32Array]',
-    float64Tag = '[object Float64Array]',
-    int8Tag = '[object Int8Array]',
-    int16Tag = '[object Int16Array]',
-    int32Tag = '[object Int32Array]',
-    uint8Tag = '[object Uint8Array]',
-    uint8ClampedTag = '[object Uint8ClampedArray]',
-    uint16Tag = '[object Uint16Array]',
-    uint32Tag = '[object Uint32Array]';
-
-/** Used to identify `toStringTag` values of typed arrays. */
-var typedArrayTags = {};
-typedArrayTags[float32Tag] = typedArrayTags[float64Tag] =
-typedArrayTags[int8Tag] = typedArrayTags[int16Tag] =
-typedArrayTags[int32Tag] = typedArrayTags[uint8Tag] =
-typedArrayTags[uint8ClampedTag] = typedArrayTags[uint16Tag] =
-typedArrayTags[uint32Tag] = true;
-typedArrayTags[argsTag] = typedArrayTags[arrayTag] =
-typedArrayTags[arrayBufferTag] = typedArrayTags[boolTag] =
-typedArrayTags[dateTag] = typedArrayTags[errorTag] =
-typedArrayTags[funcTag] = typedArrayTags[mapTag] =
-typedArrayTags[numberTag] = typedArrayTags[objectTag] =
-typedArrayTags[regexpTag] = typedArrayTags[setTag] =
-typedArrayTags[stringTag] = typedArrayTags[weakMapTag] = false;
-
-/**
- * Checks if `value` is object-like.
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
- */
-function isObjectLike(value) {
-  return !!value && typeof value == 'object';
-}
-
-/** Used for native method references. */
-var objectProto = Object.prototype;
-
-/**
- * Used to resolve the [`toStringTag`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-object.prototype.tostring)
- * of values.
- */
-var objToString = objectProto.toString;
-
-/**
- * Used as the [maximum length](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-number.max_safe_integer)
- * of an array-like value.
- */
-var MAX_SAFE_INTEGER = 9007199254740991;
-
-/**
- * Checks if `value` is a valid array-like length.
- *
- * **Note:** This function is based on [`ToLength`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength).
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
- */
-function isLength(value) {
-  return typeof value == 'number' && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
-}
-
-/**
- * Checks if `value` is classified as a typed array.
- *
- * @static
- * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
- * @example
- *
- * _.isTypedArray(new Uint8Array);
- * // => true
- *
- * _.isTypedArray([]);
- * // => false
- */
-function isTypedArray(value) {
-  return isObjectLike(value) && isLength(value.length) && !!typedArrayTags[objToString.call(value)];
-}
-
-module.exports = isTypedArray;
-
-},{}],35:[function(require,module,exports){
-/**
- * lodash 3.0.1 (Custom Build) <https://lodash.com/>
- * Build: `lodash modern modularize exports="npm" -o ./`
- * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
- * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
- * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- * Available under MIT license <https://lodash.com/license>
- */
-
-/**
- * A specialized version of `baseCallback` which only supports `this` binding
- * and specifying the number of arguments to provide to `func`.
- *
- * @private
- * @param {Function} func The function to bind.
- * @param {*} thisArg The `this` binding of `func`.
- * @param {number} [argCount] The number of arguments to provide to `func`.
- * @returns {Function} Returns the callback.
- */
-function bindCallback(func, thisArg, argCount) {
-  if (typeof func != 'function') {
-    return identity;
-  }
-  if (thisArg === undefined) {
-    return func;
-  }
-  switch (argCount) {
-    case 1: return function(value) {
-      return func.call(thisArg, value);
-    };
-    case 3: return function(value, index, collection) {
-      return func.call(thisArg, value, index, collection);
-    };
-    case 4: return function(accumulator, value, index, collection) {
-      return func.call(thisArg, accumulator, value, index, collection);
-    };
-    case 5: return function(value, other, key, object, source) {
-      return func.call(thisArg, value, other, key, object, source);
-    };
-  }
-  return function() {
-    return func.apply(thisArg, arguments);
-  };
-}
-
-/**
- * This method returns the first argument provided to it.
- *
- * @static
- * @memberOf _
- * @category Utility
- * @param {*} value Any value.
- * @returns {*} Returns `value`.
- * @example
- *
- * var object = { 'user': 'fred' };
- *
- * _.identity(object) === object;
- * // => true
- */
-function identity(value) {
-  return value;
-}
-
-module.exports = bindCallback;
-
-},{}],36:[function(require,module,exports){
-/**
- * lodash 3.0.4 (Custom Build) <https://lodash.com/>
- * Build: `lodash modern modularize exports="npm" -o ./`
- * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
- * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
- * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- * Available under MIT license <https://lodash.com/license>
- */
-
-/** `Object#toString` result references. */
-var arrayTag = '[object Array]',
-    funcTag = '[object Function]';
-
-/** Used to detect host constructors (Safari > 5). */
-var reIsHostCtor = /^\[object .+?Constructor\]$/;
-
-/**
- * Checks if `value` is object-like.
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
- */
-function isObjectLike(value) {
-  return !!value && typeof value == 'object';
-}
-
-/** Used for native method references. */
-var objectProto = Object.prototype;
-
-/** Used to resolve the decompiled source of functions. */
-var fnToString = Function.prototype.toString;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/**
- * Used to resolve the [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
- * of values.
- */
-var objToString = objectProto.toString;
-
-/** Used to detect if a method is native. */
-var reIsNative = RegExp('^' +
-  fnToString.call(hasOwnProperty).replace(/[\\^$.*+?()[\]{}|]/g, '\\$&')
-  .replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '$'
-);
-
-/* Native method references for those with the same name as other `lodash` methods. */
-var nativeIsArray = getNative(Array, 'isArray');
-
-/**
- * Used as the [maximum length](http://ecma-international.org/ecma-262/6.0/#sec-number.max_safe_integer)
- * of an array-like value.
- */
-var MAX_SAFE_INTEGER = 9007199254740991;
-
-/**
- * Gets the native function at `key` of `object`.
- *
- * @private
- * @param {Object} object The object to query.
- * @param {string} key The key of the method to get.
- * @returns {*} Returns the function if it's native, else `undefined`.
- */
-function getNative(object, key) {
-  var value = object == null ? undefined : object[key];
-  return isNative(value) ? value : undefined;
-}
-
-/**
- * Checks if `value` is a valid array-like length.
- *
- * **Note:** This function is based on [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
- */
-function isLength(value) {
-  return typeof value == 'number' && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
-}
-
-/**
- * Checks if `value` is classified as an `Array` object.
- *
- * @static
- * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
- * @example
- *
- * _.isArray([1, 2, 3]);
- * // => true
- *
- * _.isArray(function() { return arguments; }());
- * // => false
- */
-var isArray = nativeIsArray || function(value) {
-  return isObjectLike(value) && isLength(value.length) && objToString.call(value) == arrayTag;
-};
-
-/**
- * Checks if `value` is classified as a `Function` object.
- *
- * @static
- * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
- * @example
- *
- * _.isFunction(_);
- * // => true
- *
- * _.isFunction(/abc/);
- * // => false
- */
-function isFunction(value) {
-  // The use of `Object#toString` avoids issues with the `typeof` operator
-  // in older versions of Chrome and Safari which return 'function' for regexes
-  // and Safari 8 equivalents which return 'object' for typed array constructors.
-  return isObject(value) && objToString.call(value) == funcTag;
-}
-
-/**
- * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
- * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
- *
- * @static
- * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an object, else `false`.
- * @example
- *
- * _.isObject({});
- * // => true
- *
- * _.isObject([1, 2, 3]);
- * // => true
- *
- * _.isObject(1);
- * // => false
- */
-function isObject(value) {
-  // Avoid a V8 JIT bug in Chrome 19-20.
-  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
-  var type = typeof value;
-  return !!value && (type == 'object' || type == 'function');
-}
-
-/**
- * Checks if `value` is a native function.
- *
- * @static
- * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a native function, else `false`.
- * @example
- *
- * _.isNative(Array.prototype.push);
- * // => true
- *
- * _.isNative(_);
- * // => false
- */
-function isNative(value) {
-  if (value == null) {
-    return false;
-  }
-  if (isFunction(value)) {
-    return reIsNative.test(fnToString.call(value));
-  }
-  return isObjectLike(value) && reIsHostCtor.test(value);
-}
-
-module.exports = isArray;
-
-},{}],37:[function(require,module,exports){
-/**
- * lodash 3.0.1 (Custom Build) <https://lodash.com/>
- * Build: `lodash modern modularize exports="npm" -o ./`
- * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
- * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
- * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- * Available under MIT license <https://lodash.com/license>
- */
-var keys = require('lodash.keys');
-
-/**
- * Converts `value` to an object if it's not one.
- *
- * @private
- * @param {*} value The value to process.
- * @returns {Object} Returns the object.
- */
-function toObject(value) {
-  return isObject(value) ? value : Object(value);
-}
-
-/**
- * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
- * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
- *
- * @static
- * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an object, else `false`.
- * @example
- *
- * _.isObject({});
- * // => true
- *
- * _.isObject([1, 2, 3]);
- * // => true
- *
- * _.isObject(1);
- * // => false
- */
-function isObject(value) {
-  // Avoid a V8 JIT bug in Chrome 19-20.
-  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
-  var type = typeof value;
-  return !!value && (type == 'object' || type == 'function');
-}
-
-/**
- * Creates a two dimensional array of the key-value pairs for `object`,
- * e.g. `[[key1, value1], [key2, value2]]`.
- *
- * @static
- * @memberOf _
- * @category Object
- * @param {Object} object The object to query.
- * @returns {Array} Returns the new array of key-value pairs.
- * @example
- *
- * _.pairs({ 'barney': 36, 'fred': 40 });
- * // => [['barney', 36], ['fred', 40]] (iteration order is not guaranteed)
- */
-function pairs(object) {
-  object = toObject(object);
-
-  var index = -1,
-      props = keys(object),
-      length = props.length,
-      result = Array(length);
-
-  while (++index < length) {
-    var key = props[index];
-    result[index] = [key, object[key]];
-  }
-  return result;
-}
-
-module.exports = pairs;
-
-},{"lodash.keys":39}],38:[function(require,module,exports){
-/**
- * lodash 3.0.2 (Custom Build) <https://lodash.com/>
- * Build: `lodash modern modularize exports="npm" -o ./`
- * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
- * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
- * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- * Available under MIT license <https://lodash.com/license>
- */
-
-/**
- * The base implementation of `baseForIn` and `baseForOwn` which iterates
- * over `object` properties returned by `keysFunc` invoking `iteratee` for
- * each property. Iteratee functions may exit iteration early by explicitly
- * returning `false`.
- *
- * @private
- * @param {Object} object The object to iterate over.
- * @param {Function} iteratee The function invoked per iteration.
- * @param {Function} keysFunc The function to get the keys of `object`.
- * @returns {Object} Returns `object`.
- */
-var baseFor = createBaseFor();
-
-/**
- * Creates a base function for `_.forIn` or `_.forInRight`.
- *
- * @private
- * @param {boolean} [fromRight] Specify iterating from right to left.
- * @returns {Function} Returns the new base function.
- */
-function createBaseFor(fromRight) {
-  return function(object, iteratee, keysFunc) {
-    var iterable = toObject(object),
-        props = keysFunc(object),
-        length = props.length,
-        index = fromRight ? length : -1;
-
-    while ((fromRight ? index-- : ++index < length)) {
-      var key = props[index];
-      if (iteratee(iterable[key], key, iterable) === false) {
-        break;
-      }
-    }
-    return object;
-  };
-}
-
-/**
- * Converts `value` to an object if it's not one.
- *
- * @private
- * @param {*} value The value to process.
- * @returns {Object} Returns the object.
- */
-function toObject(value) {
-  return isObject(value) ? value : Object(value);
-}
-
-/**
- * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
- * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
- *
- * @static
- * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an object, else `false`.
- * @example
- *
- * _.isObject({});
- * // => true
- *
- * _.isObject([1, 2, 3]);
- * // => true
- *
- * _.isObject(1);
- * // => false
- */
-function isObject(value) {
-  // Avoid a V8 JIT bug in Chrome 19-20.
-  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
-  var type = typeof value;
-  return !!value && (type == 'object' || type == 'function');
-}
-
-module.exports = baseFor;
-
-},{}],39:[function(require,module,exports){
-/**
- * lodash 3.1.2 (Custom Build) <https://lodash.com/>
- * Build: `lodash modern modularize exports="npm" -o ./`
- * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
- * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
- * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- * Available under MIT license <https://lodash.com/license>
- */
-var getNative = require('lodash._getnative'),
-    isArguments = require('lodash.isarguments'),
-    isArray = require('lodash.isarray');
-
-/** Used to detect unsigned integer values. */
-var reIsUint = /^\d+$/;
-
-/** Used for native method references. */
-var objectProto = Object.prototype;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/* Native method references for those with the same name as other `lodash` methods. */
-var nativeKeys = getNative(Object, 'keys');
-
-/**
- * Used as the [maximum length](http://ecma-international.org/ecma-262/6.0/#sec-number.max_safe_integer)
- * of an array-like value.
- */
-var MAX_SAFE_INTEGER = 9007199254740991;
-
-/**
- * The base implementation of `_.property` without support for deep paths.
- *
- * @private
- * @param {string} key The key of the property to get.
- * @returns {Function} Returns the new function.
- */
-function baseProperty(key) {
-  return function(object) {
-    return object == null ? undefined : object[key];
-  };
-}
-
-/**
- * Gets the "length" property value of `object`.
- *
- * **Note:** This function is used to avoid a [JIT bug](https://bugs.webkit.org/show_bug.cgi?id=142792)
- * that affects Safari on at least iOS 8.1-8.3 ARM64.
- *
- * @private
- * @param {Object} object The object to query.
- * @returns {*} Returns the "length" value.
- */
-var getLength = baseProperty('length');
-
-/**
- * Checks if `value` is array-like.
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is array-like, else `false`.
- */
-function isArrayLike(value) {
-  return value != null && isLength(getLength(value));
-}
-
-/**
- * Checks if `value` is a valid array-like index.
- *
- * @private
- * @param {*} value The value to check.
- * @param {number} [length=MAX_SAFE_INTEGER] The upper bounds of a valid index.
- * @returns {boolean} Returns `true` if `value` is a valid index, else `false`.
- */
-function isIndex(value, length) {
-  value = (typeof value == 'number' || reIsUint.test(value)) ? +value : -1;
-  length = length == null ? MAX_SAFE_INTEGER : length;
-  return value > -1 && value % 1 == 0 && value < length;
-}
-
-/**
- * Checks if `value` is a valid array-like length.
- *
- * **Note:** This function is based on [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
- */
-function isLength(value) {
-  return typeof value == 'number' && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
-}
-
-/**
- * A fallback implementation of `Object.keys` which creates an array of the
- * own enumerable property names of `object`.
- *
- * @private
- * @param {Object} object The object to query.
- * @returns {Array} Returns the array of property names.
- */
-function shimKeys(object) {
-  var props = keysIn(object),
-      propsLength = props.length,
-      length = propsLength && object.length;
-
-  var allowIndexes = !!length && isLength(length) &&
-    (isArray(object) || isArguments(object));
-
-  var index = -1,
-      result = [];
-
-  while (++index < propsLength) {
-    var key = props[index];
-    if ((allowIndexes && isIndex(key, length)) || hasOwnProperty.call(object, key)) {
-      result.push(key);
-    }
-  }
-  return result;
-}
-
-/**
- * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
- * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
- *
- * @static
- * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an object, else `false`.
- * @example
- *
- * _.isObject({});
- * // => true
- *
- * _.isObject([1, 2, 3]);
- * // => true
- *
- * _.isObject(1);
- * // => false
- */
-function isObject(value) {
-  // Avoid a V8 JIT bug in Chrome 19-20.
-  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
-  var type = typeof value;
-  return !!value && (type == 'object' || type == 'function');
-}
-
-/**
- * Creates an array of the own enumerable property names of `object`.
- *
- * **Note:** Non-object values are coerced to objects. See the
- * [ES spec](http://ecma-international.org/ecma-262/6.0/#sec-object.keys)
- * for more details.
- *
- * @static
- * @memberOf _
- * @category Object
- * @param {Object} object The object to query.
- * @returns {Array} Returns the array of property names.
- * @example
- *
- * function Foo() {
- *   this.a = 1;
- *   this.b = 2;
- * }
- *
- * Foo.prototype.c = 3;
- *
- * _.keys(new Foo);
- * // => ['a', 'b'] (iteration order is not guaranteed)
- *
- * _.keys('hi');
- * // => ['0', '1']
- */
-var keys = !nativeKeys ? shimKeys : function(object) {
-  var Ctor = object == null ? undefined : object.constructor;
-  if ((typeof Ctor == 'function' && Ctor.prototype === object) ||
-      (typeof object != 'function' && isArrayLike(object))) {
-    return shimKeys(object);
-  }
-  return isObject(object) ? nativeKeys(object) : [];
-};
-
-/**
- * Creates an array of the own and inherited enumerable property names of `object`.
- *
- * **Note:** Non-object values are coerced to objects.
- *
- * @static
- * @memberOf _
- * @category Object
- * @param {Object} object The object to query.
- * @returns {Array} Returns the array of property names.
- * @example
- *
- * function Foo() {
- *   this.a = 1;
- *   this.b = 2;
- * }
- *
- * Foo.prototype.c = 3;
- *
- * _.keysIn(new Foo);
- * // => ['a', 'b', 'c'] (iteration order is not guaranteed)
- */
-function keysIn(object) {
-  if (object == null) {
-    return [];
-  }
-  if (!isObject(object)) {
-    object = Object(object);
-  }
-  var length = object.length;
-  length = (length && isLength(length) &&
-    (isArray(object) || isArguments(object)) && length) || 0;
-
-  var Ctor = object.constructor,
-      index = -1,
-      isProto = typeof Ctor == 'function' && Ctor.prototype === object,
-      result = Array(length),
-      skipIndexes = length > 0;
-
-  while (++index < length) {
-    result[index] = (index + '');
-  }
-  for (var key in object) {
-    if (!(skipIndexes && isIndex(key, length)) &&
-        !(key == 'constructor' && (isProto || !hasOwnProperty.call(object, key)))) {
-      result.push(key);
-    }
-  }
-  return result;
-}
-
-module.exports = keys;
-
-},{"lodash._getnative":40,"lodash.isarguments":41,"lodash.isarray":42}],40:[function(require,module,exports){
-/**
- * lodash 3.9.1 (Custom Build) <https://lodash.com/>
- * Build: `lodash modern modularize exports="npm" -o ./`
- * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
- * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
- * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- * Available under MIT license <https://lodash.com/license>
- */
-
-/** `Object#toString` result references. */
-var funcTag = '[object Function]';
-
-/** Used to detect host constructors (Safari > 5). */
-var reIsHostCtor = /^\[object .+?Constructor\]$/;
-
-/**
- * Checks if `value` is object-like.
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
- */
-function isObjectLike(value) {
-  return !!value && typeof value == 'object';
-}
-
-/** Used for native method references. */
-var objectProto = Object.prototype;
-
-/** Used to resolve the decompiled source of functions. */
-var fnToString = Function.prototype.toString;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/**
- * Used to resolve the [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
- * of values.
- */
-var objToString = objectProto.toString;
-
-/** Used to detect if a method is native. */
-var reIsNative = RegExp('^' +
-  fnToString.call(hasOwnProperty).replace(/[\\^$.*+?()[\]{}|]/g, '\\$&')
-  .replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '$'
-);
-
-/**
- * Gets the native function at `key` of `object`.
- *
- * @private
- * @param {Object} object The object to query.
- * @param {string} key The key of the method to get.
- * @returns {*} Returns the function if it's native, else `undefined`.
- */
-function getNative(object, key) {
-  var value = object == null ? undefined : object[key];
-  return isNative(value) ? value : undefined;
-}
-
-/**
- * Checks if `value` is classified as a `Function` object.
- *
- * @static
- * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
- * @example
- *
- * _.isFunction(_);
- * // => true
- *
- * _.isFunction(/abc/);
- * // => false
- */
-function isFunction(value) {
-  // The use of `Object#toString` avoids issues with the `typeof` operator
-  // in older versions of Chrome and Safari which return 'function' for regexes
-  // and Safari 8 equivalents which return 'object' for typed array constructors.
-  return isObject(value) && objToString.call(value) == funcTag;
-}
-
-/**
- * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
- * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
- *
- * @static
- * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an object, else `false`.
- * @example
- *
- * _.isObject({});
- * // => true
- *
- * _.isObject([1, 2, 3]);
- * // => true
- *
- * _.isObject(1);
- * // => false
- */
-function isObject(value) {
-  // Avoid a V8 JIT bug in Chrome 19-20.
-  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
-  var type = typeof value;
-  return !!value && (type == 'object' || type == 'function');
-}
-
-/**
- * Checks if `value` is a native function.
- *
- * @static
- * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a native function, else `false`.
- * @example
- *
- * _.isNative(Array.prototype.push);
- * // => true
- *
- * _.isNative(_);
- * // => false
- */
-function isNative(value) {
-  if (value == null) {
-    return false;
-  }
-  if (isFunction(value)) {
-    return reIsNative.test(fnToString.call(value));
-  }
-  return isObjectLike(value) && reIsHostCtor.test(value);
-}
-
-module.exports = getNative;
-
-},{}],41:[function(require,module,exports){
-/**
- * lodash 3.0.4 (Custom Build) <https://lodash.com/>
- * Build: `lodash modern modularize exports="npm" -o ./`
- * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
- * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
- * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- * Available under MIT license <https://lodash.com/license>
- */
-
-/**
- * Checks if `value` is object-like.
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
- */
-function isObjectLike(value) {
-  return !!value && typeof value == 'object';
-}
-
-/** Used for native method references. */
-var objectProto = Object.prototype;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/** Native method references. */
-var propertyIsEnumerable = objectProto.propertyIsEnumerable;
-
-/**
- * Used as the [maximum length](http://ecma-international.org/ecma-262/6.0/#sec-number.max_safe_integer)
- * of an array-like value.
- */
-var MAX_SAFE_INTEGER = 9007199254740991;
-
-/**
- * The base implementation of `_.property` without support for deep paths.
- *
- * @private
- * @param {string} key The key of the property to get.
- * @returns {Function} Returns the new function.
- */
-function baseProperty(key) {
-  return function(object) {
-    return object == null ? undefined : object[key];
-  };
-}
-
-/**
- * Gets the "length" property value of `object`.
- *
- * **Note:** This function is used to avoid a [JIT bug](https://bugs.webkit.org/show_bug.cgi?id=142792)
- * that affects Safari on at least iOS 8.1-8.3 ARM64.
- *
- * @private
- * @param {Object} object The object to query.
- * @returns {*} Returns the "length" value.
- */
-var getLength = baseProperty('length');
-
-/**
- * Checks if `value` is array-like.
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is array-like, else `false`.
- */
-function isArrayLike(value) {
-  return value != null && isLength(getLength(value));
-}
-
-/**
- * Checks if `value` is a valid array-like length.
- *
- * **Note:** This function is based on [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
- */
-function isLength(value) {
-  return typeof value == 'number' && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
-}
-
-/**
- * Checks if `value` is classified as an `arguments` object.
- *
- * @static
- * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
- * @example
- *
- * _.isArguments(function() { return arguments; }());
- * // => true
- *
- * _.isArguments([1, 2, 3]);
- * // => false
- */
-function isArguments(value) {
-  return isObjectLike(value) && isArrayLike(value) &&
-    hasOwnProperty.call(value, 'callee') && !propertyIsEnumerable.call(value, 'callee');
-}
-
-module.exports = isArguments;
-
-},{}],42:[function(require,module,exports){
-/**
- * lodash 3.0.4 (Custom Build) <https://lodash.com/>
- * Build: `lodash modern modularize exports="npm" -o ./`
- * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
- * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
- * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- * Available under MIT license <https://lodash.com/license>
- */
-
-/** `Object#toString` result references. */
-var arrayTag = '[object Array]',
-    funcTag = '[object Function]';
-
-/** Used to detect host constructors (Safari > 5). */
-var reIsHostCtor = /^\[object .+?Constructor\]$/;
-
-/**
- * Checks if `value` is object-like.
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
- */
-function isObjectLike(value) {
-  return !!value && typeof value == 'object';
-}
-
-/** Used for native method references. */
-var objectProto = Object.prototype;
-
-/** Used to resolve the decompiled source of functions. */
-var fnToString = Function.prototype.toString;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/**
- * Used to resolve the [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
- * of values.
- */
-var objToString = objectProto.toString;
-
-/** Used to detect if a method is native. */
-var reIsNative = RegExp('^' +
-  fnToString.call(hasOwnProperty).replace(/[\\^$.*+?()[\]{}|]/g, '\\$&')
-  .replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '$'
-);
-
-/* Native method references for those with the same name as other `lodash` methods. */
-var nativeIsArray = getNative(Array, 'isArray');
-
-/**
- * Used as the [maximum length](http://ecma-international.org/ecma-262/6.0/#sec-number.max_safe_integer)
- * of an array-like value.
- */
-var MAX_SAFE_INTEGER = 9007199254740991;
-
-/**
- * Gets the native function at `key` of `object`.
- *
- * @private
- * @param {Object} object The object to query.
- * @param {string} key The key of the method to get.
- * @returns {*} Returns the function if it's native, else `undefined`.
- */
-function getNative(object, key) {
-  var value = object == null ? undefined : object[key];
-  return isNative(value) ? value : undefined;
-}
-
-/**
- * Checks if `value` is a valid array-like length.
- *
- * **Note:** This function is based on [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
- */
-function isLength(value) {
-  return typeof value == 'number' && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
-}
-
-/**
- * Checks if `value` is classified as an `Array` object.
- *
- * @static
- * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
- * @example
- *
- * _.isArray([1, 2, 3]);
- * // => true
- *
- * _.isArray(function() { return arguments; }());
- * // => false
- */
-var isArray = nativeIsArray || function(value) {
-  return isObjectLike(value) && isLength(value.length) && objToString.call(value) == arrayTag;
-};
-
-/**
- * Checks if `value` is classified as a `Function` object.
- *
- * @static
- * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
- * @example
- *
- * _.isFunction(_);
- * // => true
- *
- * _.isFunction(/abc/);
- * // => false
- */
-function isFunction(value) {
-  // The use of `Object#toString` avoids issues with the `typeof` operator
-  // in older versions of Chrome and Safari which return 'function' for regexes
-  // and Safari 8 equivalents which return 'object' for typed array constructors.
-  return isObject(value) && objToString.call(value) == funcTag;
-}
-
-/**
- * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
- * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
- *
- * @static
- * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an object, else `false`.
- * @example
- *
- * _.isObject({});
- * // => true
- *
- * _.isObject([1, 2, 3]);
- * // => true
- *
- * _.isObject(1);
- * // => false
- */
-function isObject(value) {
-  // Avoid a V8 JIT bug in Chrome 19-20.
-  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
-  var type = typeof value;
-  return !!value && (type == 'object' || type == 'function');
-}
-
-/**
- * Checks if `value` is a native function.
- *
- * @static
- * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a native function, else `false`.
- * @example
- *
- * _.isNative(Array.prototype.push);
- * // => true
- *
- * _.isNative(_);
- * // => false
- */
-function isNative(value) {
-  if (value == null) {
-    return false;
-  }
-  if (isFunction(value)) {
-    return reIsNative.test(fnToString.call(value));
-  }
-  return isObjectLike(value) && reIsHostCtor.test(value);
-}
-
-module.exports = isArray;
-
-},{}],43:[function(require,module,exports){
+},{"lodash.kebabcase":37,"lodash.mapkeys":40}],49:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -7780,7 +7071,7 @@ var AutoFocusMixin = {
 
 module.exports = AutoFocusMixin;
 
-},{"./focusNode":161}],44:[function(require,module,exports){
+},{"./focusNode":167}],50:[function(require,module,exports){
 /**
  * Copyright 2013-2015 Facebook, Inc.
  * All rights reserved.
@@ -8275,7 +7566,7 @@ var BeforeInputEventPlugin = {
 
 module.exports = BeforeInputEventPlugin;
 
-},{"./EventConstants":56,"./EventPropagators":61,"./ExecutionEnvironment":62,"./FallbackCompositionState":63,"./SyntheticCompositionEvent":135,"./SyntheticInputEvent":139,"./keyOf":183}],45:[function(require,module,exports){
+},{"./EventConstants":62,"./EventPropagators":67,"./ExecutionEnvironment":68,"./FallbackCompositionState":69,"./SyntheticCompositionEvent":141,"./SyntheticInputEvent":145,"./keyOf":189}],51:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -8400,7 +7691,7 @@ var CSSProperty = {
 
 module.exports = CSSProperty;
 
-},{}],46:[function(require,module,exports){
+},{}],52:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -8582,7 +7873,7 @@ var CSSPropertyOperations = {
 module.exports = CSSPropertyOperations;
 
 }).call(this,require('_process'))
-},{"./CSSProperty":45,"./ExecutionEnvironment":62,"./camelizeStyleName":150,"./dangerousStyleValue":155,"./hyphenateStyleName":175,"./memoizeStringOnly":185,"./warning":196,"_process":2}],47:[function(require,module,exports){
+},{"./CSSProperty":51,"./ExecutionEnvironment":68,"./camelizeStyleName":156,"./dangerousStyleValue":161,"./hyphenateStyleName":181,"./memoizeStringOnly":191,"./warning":202,"_process":47}],53:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -8682,7 +7973,7 @@ PooledClass.addPoolingTo(CallbackQueue);
 module.exports = CallbackQueue;
 
 }).call(this,require('_process'))
-},{"./Object.assign":68,"./PooledClass":69,"./invariant":177,"_process":2}],48:[function(require,module,exports){
+},{"./Object.assign":74,"./PooledClass":75,"./invariant":183,"_process":47}],54:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -9064,7 +8355,7 @@ var ChangeEventPlugin = {
 
 module.exports = ChangeEventPlugin;
 
-},{"./EventConstants":56,"./EventPluginHub":58,"./EventPropagators":61,"./ExecutionEnvironment":62,"./ReactUpdates":129,"./SyntheticEvent":137,"./isEventSupported":178,"./isTextInputElement":180,"./keyOf":183}],49:[function(require,module,exports){
+},{"./EventConstants":62,"./EventPluginHub":64,"./EventPropagators":67,"./ExecutionEnvironment":68,"./ReactUpdates":135,"./SyntheticEvent":143,"./isEventSupported":184,"./isTextInputElement":186,"./keyOf":189}],55:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -9089,7 +8380,7 @@ var ClientReactRootIndex = {
 
 module.exports = ClientReactRootIndex;
 
-},{}],50:[function(require,module,exports){
+},{}],56:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -9227,7 +8518,7 @@ var DOMChildrenOperations = {
 module.exports = DOMChildrenOperations;
 
 }).call(this,require('_process'))
-},{"./Danger":53,"./ReactMultiChildUpdateTypes":114,"./invariant":177,"./setTextContent":191,"_process":2}],51:[function(require,module,exports){
+},{"./Danger":59,"./ReactMultiChildUpdateTypes":120,"./invariant":183,"./setTextContent":197,"_process":47}],57:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -9526,7 +8817,7 @@ var DOMProperty = {
 module.exports = DOMProperty;
 
 }).call(this,require('_process'))
-},{"./invariant":177,"_process":2}],52:[function(require,module,exports){
+},{"./invariant":183,"_process":47}],58:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -9718,7 +9009,7 @@ var DOMPropertyOperations = {
 module.exports = DOMPropertyOperations;
 
 }).call(this,require('_process'))
-},{"./DOMProperty":51,"./quoteAttributeValueForBrowser":189,"./warning":196,"_process":2}],53:[function(require,module,exports){
+},{"./DOMProperty":57,"./quoteAttributeValueForBrowser":195,"./warning":202,"_process":47}],59:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -9905,7 +9196,7 @@ var Danger = {
 module.exports = Danger;
 
 }).call(this,require('_process'))
-},{"./ExecutionEnvironment":62,"./createNodesFromMarkup":154,"./emptyFunction":156,"./getMarkupWrap":169,"./invariant":177,"_process":2}],54:[function(require,module,exports){
+},{"./ExecutionEnvironment":68,"./createNodesFromMarkup":160,"./emptyFunction":162,"./getMarkupWrap":175,"./invariant":183,"_process":47}],60:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -9944,7 +9235,7 @@ var DefaultEventPluginOrder = [
 
 module.exports = DefaultEventPluginOrder;
 
-},{"./keyOf":183}],55:[function(require,module,exports){
+},{"./keyOf":189}],61:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -10084,7 +9375,7 @@ var EnterLeaveEventPlugin = {
 
 module.exports = EnterLeaveEventPlugin;
 
-},{"./EventConstants":56,"./EventPropagators":61,"./ReactMount":112,"./SyntheticMouseEvent":141,"./keyOf":183}],56:[function(require,module,exports){
+},{"./EventConstants":62,"./EventPropagators":67,"./ReactMount":118,"./SyntheticMouseEvent":147,"./keyOf":189}],62:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -10156,7 +9447,7 @@ var EventConstants = {
 
 module.exports = EventConstants;
 
-},{"./keyMirror":182}],57:[function(require,module,exports){
+},{"./keyMirror":188}],63:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -10246,7 +9537,7 @@ var EventListener = {
 module.exports = EventListener;
 
 }).call(this,require('_process'))
-},{"./emptyFunction":156,"_process":2}],58:[function(require,module,exports){
+},{"./emptyFunction":162,"_process":47}],64:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -10524,7 +9815,7 @@ var EventPluginHub = {
 module.exports = EventPluginHub;
 
 }).call(this,require('_process'))
-},{"./EventPluginRegistry":59,"./EventPluginUtils":60,"./accumulateInto":147,"./forEachAccumulated":162,"./invariant":177,"_process":2}],59:[function(require,module,exports){
+},{"./EventPluginRegistry":65,"./EventPluginUtils":66,"./accumulateInto":153,"./forEachAccumulated":168,"./invariant":183,"_process":47}],65:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -10804,7 +10095,7 @@ var EventPluginRegistry = {
 module.exports = EventPluginRegistry;
 
 }).call(this,require('_process'))
-},{"./invariant":177,"_process":2}],60:[function(require,module,exports){
+},{"./invariant":183,"_process":47}],66:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -11025,7 +10316,7 @@ var EventPluginUtils = {
 module.exports = EventPluginUtils;
 
 }).call(this,require('_process'))
-},{"./EventConstants":56,"./invariant":177,"_process":2}],61:[function(require,module,exports){
+},{"./EventConstants":62,"./invariant":183,"_process":47}],67:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -11167,7 +10458,7 @@ var EventPropagators = {
 module.exports = EventPropagators;
 
 }).call(this,require('_process'))
-},{"./EventConstants":56,"./EventPluginHub":58,"./accumulateInto":147,"./forEachAccumulated":162,"_process":2}],62:[function(require,module,exports){
+},{"./EventConstants":62,"./EventPluginHub":64,"./accumulateInto":153,"./forEachAccumulated":168,"_process":47}],68:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -11211,7 +10502,7 @@ var ExecutionEnvironment = {
 
 module.exports = ExecutionEnvironment;
 
-},{}],63:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -11302,7 +10593,7 @@ PooledClass.addPoolingTo(FallbackCompositionState);
 
 module.exports = FallbackCompositionState;
 
-},{"./Object.assign":68,"./PooledClass":69,"./getTextContentAccessor":172}],64:[function(require,module,exports){
+},{"./Object.assign":74,"./PooledClass":75,"./getTextContentAccessor":178}],70:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -11513,7 +10804,7 @@ var HTMLDOMPropertyConfig = {
 
 module.exports = HTMLDOMPropertyConfig;
 
-},{"./DOMProperty":51,"./ExecutionEnvironment":62}],65:[function(require,module,exports){
+},{"./DOMProperty":57,"./ExecutionEnvironment":68}],71:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -11669,7 +10960,7 @@ var LinkedValueUtils = {
 module.exports = LinkedValueUtils;
 
 }).call(this,require('_process'))
-},{"./ReactPropTypes":120,"./invariant":177,"_process":2}],66:[function(require,module,exports){
+},{"./ReactPropTypes":126,"./invariant":183,"_process":47}],72:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -11726,7 +11017,7 @@ var LocalEventTrapMixin = {
 module.exports = LocalEventTrapMixin;
 
 }).call(this,require('_process'))
-},{"./ReactBrowserEventEmitter":72,"./accumulateInto":147,"./forEachAccumulated":162,"./invariant":177,"_process":2}],67:[function(require,module,exports){
+},{"./ReactBrowserEventEmitter":78,"./accumulateInto":153,"./forEachAccumulated":168,"./invariant":183,"_process":47}],73:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -11784,7 +11075,7 @@ var MobileSafariClickEventPlugin = {
 
 module.exports = MobileSafariClickEventPlugin;
 
-},{"./EventConstants":56,"./emptyFunction":156}],68:[function(require,module,exports){
+},{"./EventConstants":62,"./emptyFunction":162}],74:[function(require,module,exports){
 /**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -11833,7 +11124,7 @@ function assign(target, sources) {
 
 module.exports = assign;
 
-},{}],69:[function(require,module,exports){
+},{}],75:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -11949,7 +11240,7 @@ var PooledClass = {
 module.exports = PooledClass;
 
 }).call(this,require('_process'))
-},{"./invariant":177,"_process":2}],70:[function(require,module,exports){
+},{"./invariant":183,"_process":47}],76:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -12101,7 +11392,7 @@ React.version = '0.13.3';
 module.exports = React;
 
 }).call(this,require('_process'))
-},{"./EventPluginUtils":60,"./ExecutionEnvironment":62,"./Object.assign":68,"./ReactChildren":74,"./ReactClass":75,"./ReactComponent":76,"./ReactContext":80,"./ReactCurrentOwner":81,"./ReactDOM":82,"./ReactDOMTextComponent":93,"./ReactDefaultInjection":96,"./ReactElement":99,"./ReactElementValidator":100,"./ReactInstanceHandles":108,"./ReactMount":112,"./ReactPerf":117,"./ReactPropTypes":120,"./ReactReconciler":123,"./ReactServerRendering":126,"./findDOMNode":159,"./onlyChild":186,"_process":2}],71:[function(require,module,exports){
+},{"./EventPluginUtils":66,"./ExecutionEnvironment":68,"./Object.assign":74,"./ReactChildren":80,"./ReactClass":81,"./ReactComponent":82,"./ReactContext":86,"./ReactCurrentOwner":87,"./ReactDOM":88,"./ReactDOMTextComponent":99,"./ReactDefaultInjection":102,"./ReactElement":105,"./ReactElementValidator":106,"./ReactInstanceHandles":114,"./ReactMount":118,"./ReactPerf":123,"./ReactPropTypes":126,"./ReactReconciler":129,"./ReactServerRendering":132,"./findDOMNode":165,"./onlyChild":192,"_process":47}],77:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -12132,7 +11423,7 @@ var ReactBrowserComponentMixin = {
 
 module.exports = ReactBrowserComponentMixin;
 
-},{"./findDOMNode":159}],72:[function(require,module,exports){
+},{"./findDOMNode":165}],78:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -12485,7 +11776,7 @@ var ReactBrowserEventEmitter = assign({}, ReactEventEmitterMixin, {
 
 module.exports = ReactBrowserEventEmitter;
 
-},{"./EventConstants":56,"./EventPluginHub":58,"./EventPluginRegistry":59,"./Object.assign":68,"./ReactEventEmitterMixin":103,"./ViewportMetrics":146,"./isEventSupported":178}],73:[function(require,module,exports){
+},{"./EventConstants":62,"./EventPluginHub":64,"./EventPluginRegistry":65,"./Object.assign":74,"./ReactEventEmitterMixin":109,"./ViewportMetrics":152,"./isEventSupported":184}],79:[function(require,module,exports){
 /**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -12612,7 +11903,7 @@ var ReactChildReconciler = {
 
 module.exports = ReactChildReconciler;
 
-},{"./ReactReconciler":123,"./flattenChildren":160,"./instantiateReactComponent":176,"./shouldUpdateReactComponent":193}],74:[function(require,module,exports){
+},{"./ReactReconciler":129,"./flattenChildren":166,"./instantiateReactComponent":182,"./shouldUpdateReactComponent":199}],80:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -12765,7 +12056,7 @@ var ReactChildren = {
 module.exports = ReactChildren;
 
 }).call(this,require('_process'))
-},{"./PooledClass":69,"./ReactFragment":105,"./traverseAllChildren":195,"./warning":196,"_process":2}],75:[function(require,module,exports){
+},{"./PooledClass":75,"./ReactFragment":111,"./traverseAllChildren":201,"./warning":202,"_process":47}],81:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -13711,7 +13002,7 @@ var ReactClass = {
 module.exports = ReactClass;
 
 }).call(this,require('_process'))
-},{"./Object.assign":68,"./ReactComponent":76,"./ReactCurrentOwner":81,"./ReactElement":99,"./ReactErrorUtils":102,"./ReactInstanceMap":109,"./ReactLifeCycle":110,"./ReactPropTypeLocationNames":118,"./ReactPropTypeLocations":119,"./ReactUpdateQueue":128,"./invariant":177,"./keyMirror":182,"./keyOf":183,"./warning":196,"_process":2}],76:[function(require,module,exports){
+},{"./Object.assign":74,"./ReactComponent":82,"./ReactCurrentOwner":87,"./ReactElement":105,"./ReactErrorUtils":108,"./ReactInstanceMap":115,"./ReactLifeCycle":116,"./ReactPropTypeLocationNames":124,"./ReactPropTypeLocations":125,"./ReactUpdateQueue":134,"./invariant":183,"./keyMirror":188,"./keyOf":189,"./warning":202,"_process":47}],82:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -13865,7 +13156,7 @@ if ("production" !== process.env.NODE_ENV) {
 module.exports = ReactComponent;
 
 }).call(this,require('_process'))
-},{"./ReactUpdateQueue":128,"./invariant":177,"./warning":196,"_process":2}],77:[function(require,module,exports){
+},{"./ReactUpdateQueue":134,"./invariant":183,"./warning":202,"_process":47}],83:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -13912,7 +13203,7 @@ var ReactComponentBrowserEnvironment = {
 
 module.exports = ReactComponentBrowserEnvironment;
 
-},{"./ReactDOMIDOperations":86,"./ReactMount":112}],78:[function(require,module,exports){
+},{"./ReactDOMIDOperations":92,"./ReactMount":118}],84:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -13973,7 +13264,7 @@ var ReactComponentEnvironment = {
 module.exports = ReactComponentEnvironment;
 
 }).call(this,require('_process'))
-},{"./invariant":177,"_process":2}],79:[function(require,module,exports){
+},{"./invariant":183,"_process":47}],85:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -14886,7 +14177,7 @@ var ReactCompositeComponent = {
 module.exports = ReactCompositeComponent;
 
 }).call(this,require('_process'))
-},{"./Object.assign":68,"./ReactComponentEnvironment":78,"./ReactContext":80,"./ReactCurrentOwner":81,"./ReactElement":99,"./ReactElementValidator":100,"./ReactInstanceMap":109,"./ReactLifeCycle":110,"./ReactNativeComponent":115,"./ReactPerf":117,"./ReactPropTypeLocationNames":118,"./ReactPropTypeLocations":119,"./ReactReconciler":123,"./ReactUpdates":129,"./emptyObject":157,"./invariant":177,"./shouldUpdateReactComponent":193,"./warning":196,"_process":2}],80:[function(require,module,exports){
+},{"./Object.assign":74,"./ReactComponentEnvironment":84,"./ReactContext":86,"./ReactCurrentOwner":87,"./ReactElement":105,"./ReactElementValidator":106,"./ReactInstanceMap":115,"./ReactLifeCycle":116,"./ReactNativeComponent":121,"./ReactPerf":123,"./ReactPropTypeLocationNames":124,"./ReactPropTypeLocations":125,"./ReactReconciler":129,"./ReactUpdates":135,"./emptyObject":163,"./invariant":183,"./shouldUpdateReactComponent":199,"./warning":202,"_process":47}],86:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -14964,7 +14255,7 @@ var ReactContext = {
 module.exports = ReactContext;
 
 }).call(this,require('_process'))
-},{"./Object.assign":68,"./emptyObject":157,"./warning":196,"_process":2}],81:[function(require,module,exports){
+},{"./Object.assign":74,"./emptyObject":163,"./warning":202,"_process":47}],87:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -14998,7 +14289,7 @@ var ReactCurrentOwner = {
 
 module.exports = ReactCurrentOwner;
 
-},{}],82:[function(require,module,exports){
+},{}],88:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -15177,7 +14468,7 @@ var ReactDOM = mapObject({
 module.exports = ReactDOM;
 
 }).call(this,require('_process'))
-},{"./ReactElement":99,"./ReactElementValidator":100,"./mapObject":184,"_process":2}],83:[function(require,module,exports){
+},{"./ReactElement":105,"./ReactElementValidator":106,"./mapObject":190,"_process":47}],89:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -15241,7 +14532,7 @@ var ReactDOMButton = ReactClass.createClass({
 
 module.exports = ReactDOMButton;
 
-},{"./AutoFocusMixin":43,"./ReactBrowserComponentMixin":71,"./ReactClass":75,"./ReactElement":99,"./keyMirror":182}],84:[function(require,module,exports){
+},{"./AutoFocusMixin":49,"./ReactBrowserComponentMixin":77,"./ReactClass":81,"./ReactElement":105,"./keyMirror":188}],90:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -15751,7 +15042,7 @@ ReactDOMComponent.injection = {
 module.exports = ReactDOMComponent;
 
 }).call(this,require('_process'))
-},{"./CSSPropertyOperations":46,"./DOMProperty":51,"./DOMPropertyOperations":52,"./Object.assign":68,"./ReactBrowserEventEmitter":72,"./ReactComponentBrowserEnvironment":77,"./ReactMount":112,"./ReactMultiChild":113,"./ReactPerf":117,"./escapeTextContentForBrowser":158,"./invariant":177,"./isEventSupported":178,"./keyOf":183,"./warning":196,"_process":2}],85:[function(require,module,exports){
+},{"./CSSPropertyOperations":52,"./DOMProperty":57,"./DOMPropertyOperations":58,"./Object.assign":74,"./ReactBrowserEventEmitter":78,"./ReactComponentBrowserEnvironment":83,"./ReactMount":118,"./ReactMultiChild":119,"./ReactPerf":123,"./escapeTextContentForBrowser":164,"./invariant":183,"./isEventSupported":184,"./keyOf":189,"./warning":202,"_process":47}],91:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -15800,7 +15091,7 @@ var ReactDOMForm = ReactClass.createClass({
 
 module.exports = ReactDOMForm;
 
-},{"./EventConstants":56,"./LocalEventTrapMixin":66,"./ReactBrowserComponentMixin":71,"./ReactClass":75,"./ReactElement":99}],86:[function(require,module,exports){
+},{"./EventConstants":62,"./LocalEventTrapMixin":72,"./ReactBrowserComponentMixin":77,"./ReactClass":81,"./ReactElement":105}],92:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -15968,7 +15259,7 @@ ReactPerf.measureMethods(ReactDOMIDOperations, 'ReactDOMIDOperations', {
 module.exports = ReactDOMIDOperations;
 
 }).call(this,require('_process'))
-},{"./CSSPropertyOperations":46,"./DOMChildrenOperations":50,"./DOMPropertyOperations":52,"./ReactMount":112,"./ReactPerf":117,"./invariant":177,"./setInnerHTML":190,"_process":2}],87:[function(require,module,exports){
+},{"./CSSPropertyOperations":52,"./DOMChildrenOperations":56,"./DOMPropertyOperations":58,"./ReactMount":118,"./ReactPerf":123,"./invariant":183,"./setInnerHTML":196,"_process":47}],93:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -16013,7 +15304,7 @@ var ReactDOMIframe = ReactClass.createClass({
 
 module.exports = ReactDOMIframe;
 
-},{"./EventConstants":56,"./LocalEventTrapMixin":66,"./ReactBrowserComponentMixin":71,"./ReactClass":75,"./ReactElement":99}],88:[function(require,module,exports){
+},{"./EventConstants":62,"./LocalEventTrapMixin":72,"./ReactBrowserComponentMixin":77,"./ReactClass":81,"./ReactElement":105}],94:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -16059,7 +15350,7 @@ var ReactDOMImg = ReactClass.createClass({
 
 module.exports = ReactDOMImg;
 
-},{"./EventConstants":56,"./LocalEventTrapMixin":66,"./ReactBrowserComponentMixin":71,"./ReactClass":75,"./ReactElement":99}],89:[function(require,module,exports){
+},{"./EventConstants":62,"./LocalEventTrapMixin":72,"./ReactBrowserComponentMixin":77,"./ReactClass":81,"./ReactElement":105}],95:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -16236,7 +15527,7 @@ var ReactDOMInput = ReactClass.createClass({
 module.exports = ReactDOMInput;
 
 }).call(this,require('_process'))
-},{"./AutoFocusMixin":43,"./DOMPropertyOperations":52,"./LinkedValueUtils":65,"./Object.assign":68,"./ReactBrowserComponentMixin":71,"./ReactClass":75,"./ReactElement":99,"./ReactMount":112,"./ReactUpdates":129,"./invariant":177,"_process":2}],90:[function(require,module,exports){
+},{"./AutoFocusMixin":49,"./DOMPropertyOperations":58,"./LinkedValueUtils":71,"./Object.assign":74,"./ReactBrowserComponentMixin":77,"./ReactClass":81,"./ReactElement":105,"./ReactMount":118,"./ReactUpdates":135,"./invariant":183,"_process":47}],96:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -16288,7 +15579,7 @@ var ReactDOMOption = ReactClass.createClass({
 module.exports = ReactDOMOption;
 
 }).call(this,require('_process'))
-},{"./ReactBrowserComponentMixin":71,"./ReactClass":75,"./ReactElement":99,"./warning":196,"_process":2}],91:[function(require,module,exports){
+},{"./ReactBrowserComponentMixin":77,"./ReactClass":81,"./ReactElement":105,"./warning":202,"_process":47}],97:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -16466,7 +15757,7 @@ var ReactDOMSelect = ReactClass.createClass({
 
 module.exports = ReactDOMSelect;
 
-},{"./AutoFocusMixin":43,"./LinkedValueUtils":65,"./Object.assign":68,"./ReactBrowserComponentMixin":71,"./ReactClass":75,"./ReactElement":99,"./ReactUpdates":129}],92:[function(require,module,exports){
+},{"./AutoFocusMixin":49,"./LinkedValueUtils":71,"./Object.assign":74,"./ReactBrowserComponentMixin":77,"./ReactClass":81,"./ReactElement":105,"./ReactUpdates":135}],98:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -16679,7 +15970,7 @@ var ReactDOMSelection = {
 
 module.exports = ReactDOMSelection;
 
-},{"./ExecutionEnvironment":62,"./getNodeForCharacterOffset":170,"./getTextContentAccessor":172}],93:[function(require,module,exports){
+},{"./ExecutionEnvironment":68,"./getNodeForCharacterOffset":176,"./getTextContentAccessor":178}],99:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -16796,7 +16087,7 @@ assign(ReactDOMTextComponent.prototype, {
 
 module.exports = ReactDOMTextComponent;
 
-},{"./DOMPropertyOperations":52,"./Object.assign":68,"./ReactComponentBrowserEnvironment":77,"./ReactDOMComponent":84,"./escapeTextContentForBrowser":158}],94:[function(require,module,exports){
+},{"./DOMPropertyOperations":58,"./Object.assign":74,"./ReactComponentBrowserEnvironment":83,"./ReactDOMComponent":90,"./escapeTextContentForBrowser":164}],100:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -16936,7 +16227,7 @@ var ReactDOMTextarea = ReactClass.createClass({
 module.exports = ReactDOMTextarea;
 
 }).call(this,require('_process'))
-},{"./AutoFocusMixin":43,"./DOMPropertyOperations":52,"./LinkedValueUtils":65,"./Object.assign":68,"./ReactBrowserComponentMixin":71,"./ReactClass":75,"./ReactElement":99,"./ReactUpdates":129,"./invariant":177,"./warning":196,"_process":2}],95:[function(require,module,exports){
+},{"./AutoFocusMixin":49,"./DOMPropertyOperations":58,"./LinkedValueUtils":71,"./Object.assign":74,"./ReactBrowserComponentMixin":77,"./ReactClass":81,"./ReactElement":105,"./ReactUpdates":135,"./invariant":183,"./warning":202,"_process":47}],101:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -17009,7 +16300,7 @@ var ReactDefaultBatchingStrategy = {
 
 module.exports = ReactDefaultBatchingStrategy;
 
-},{"./Object.assign":68,"./ReactUpdates":129,"./Transaction":145,"./emptyFunction":156}],96:[function(require,module,exports){
+},{"./Object.assign":74,"./ReactUpdates":135,"./Transaction":151,"./emptyFunction":162}],102:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -17168,7 +16459,7 @@ module.exports = {
 };
 
 }).call(this,require('_process'))
-},{"./BeforeInputEventPlugin":44,"./ChangeEventPlugin":48,"./ClientReactRootIndex":49,"./DefaultEventPluginOrder":54,"./EnterLeaveEventPlugin":55,"./ExecutionEnvironment":62,"./HTMLDOMPropertyConfig":64,"./MobileSafariClickEventPlugin":67,"./ReactBrowserComponentMixin":71,"./ReactClass":75,"./ReactComponentBrowserEnvironment":77,"./ReactDOMButton":83,"./ReactDOMComponent":84,"./ReactDOMForm":85,"./ReactDOMIDOperations":86,"./ReactDOMIframe":87,"./ReactDOMImg":88,"./ReactDOMInput":89,"./ReactDOMOption":90,"./ReactDOMSelect":91,"./ReactDOMTextComponent":93,"./ReactDOMTextarea":94,"./ReactDefaultBatchingStrategy":95,"./ReactDefaultPerf":97,"./ReactElement":99,"./ReactEventListener":104,"./ReactInjection":106,"./ReactInstanceHandles":108,"./ReactMount":112,"./ReactReconcileTransaction":122,"./SVGDOMPropertyConfig":130,"./SelectEventPlugin":131,"./ServerReactRootIndex":132,"./SimpleEventPlugin":133,"./createFullPageComponent":153,"_process":2}],97:[function(require,module,exports){
+},{"./BeforeInputEventPlugin":50,"./ChangeEventPlugin":54,"./ClientReactRootIndex":55,"./DefaultEventPluginOrder":60,"./EnterLeaveEventPlugin":61,"./ExecutionEnvironment":68,"./HTMLDOMPropertyConfig":70,"./MobileSafariClickEventPlugin":73,"./ReactBrowserComponentMixin":77,"./ReactClass":81,"./ReactComponentBrowserEnvironment":83,"./ReactDOMButton":89,"./ReactDOMComponent":90,"./ReactDOMForm":91,"./ReactDOMIDOperations":92,"./ReactDOMIframe":93,"./ReactDOMImg":94,"./ReactDOMInput":95,"./ReactDOMOption":96,"./ReactDOMSelect":97,"./ReactDOMTextComponent":99,"./ReactDOMTextarea":100,"./ReactDefaultBatchingStrategy":101,"./ReactDefaultPerf":103,"./ReactElement":105,"./ReactEventListener":110,"./ReactInjection":112,"./ReactInstanceHandles":114,"./ReactMount":118,"./ReactReconcileTransaction":128,"./SVGDOMPropertyConfig":136,"./SelectEventPlugin":137,"./ServerReactRootIndex":138,"./SimpleEventPlugin":139,"./createFullPageComponent":159,"_process":47}],103:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -17434,7 +16725,7 @@ var ReactDefaultPerf = {
 
 module.exports = ReactDefaultPerf;
 
-},{"./DOMProperty":51,"./ReactDefaultPerfAnalysis":98,"./ReactMount":112,"./ReactPerf":117,"./performanceNow":188}],98:[function(require,module,exports){
+},{"./DOMProperty":57,"./ReactDefaultPerfAnalysis":104,"./ReactMount":118,"./ReactPerf":123,"./performanceNow":194}],104:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -17640,7 +16931,7 @@ var ReactDefaultPerfAnalysis = {
 
 module.exports = ReactDefaultPerfAnalysis;
 
-},{"./Object.assign":68}],99:[function(require,module,exports){
+},{"./Object.assign":74}],105:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -17948,7 +17239,7 @@ ReactElement.isValidElement = function(object) {
 module.exports = ReactElement;
 
 }).call(this,require('_process'))
-},{"./Object.assign":68,"./ReactContext":80,"./ReactCurrentOwner":81,"./warning":196,"_process":2}],100:[function(require,module,exports){
+},{"./Object.assign":74,"./ReactContext":86,"./ReactCurrentOwner":87,"./warning":202,"_process":47}],106:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -18413,7 +17704,7 @@ var ReactElementValidator = {
 module.exports = ReactElementValidator;
 
 }).call(this,require('_process'))
-},{"./ReactCurrentOwner":81,"./ReactElement":99,"./ReactFragment":105,"./ReactNativeComponent":115,"./ReactPropTypeLocationNames":118,"./ReactPropTypeLocations":119,"./getIteratorFn":168,"./invariant":177,"./warning":196,"_process":2}],101:[function(require,module,exports){
+},{"./ReactCurrentOwner":87,"./ReactElement":105,"./ReactFragment":111,"./ReactNativeComponent":121,"./ReactPropTypeLocationNames":124,"./ReactPropTypeLocations":125,"./getIteratorFn":174,"./invariant":183,"./warning":202,"_process":47}],107:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -18508,7 +17799,7 @@ var ReactEmptyComponent = {
 module.exports = ReactEmptyComponent;
 
 }).call(this,require('_process'))
-},{"./ReactElement":99,"./ReactInstanceMap":109,"./invariant":177,"_process":2}],102:[function(require,module,exports){
+},{"./ReactElement":105,"./ReactInstanceMap":115,"./invariant":183,"_process":47}],108:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -18540,7 +17831,7 @@ var ReactErrorUtils = {
 
 module.exports = ReactErrorUtils;
 
-},{}],103:[function(require,module,exports){
+},{}],109:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -18590,7 +17881,7 @@ var ReactEventEmitterMixin = {
 
 module.exports = ReactEventEmitterMixin;
 
-},{"./EventPluginHub":58}],104:[function(require,module,exports){
+},{"./EventPluginHub":64}],110:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -18773,7 +18064,7 @@ var ReactEventListener = {
 
 module.exports = ReactEventListener;
 
-},{"./EventListener":57,"./ExecutionEnvironment":62,"./Object.assign":68,"./PooledClass":69,"./ReactInstanceHandles":108,"./ReactMount":112,"./ReactUpdates":129,"./getEventTarget":167,"./getUnboundedScrollPosition":173}],105:[function(require,module,exports){
+},{"./EventListener":63,"./ExecutionEnvironment":68,"./Object.assign":74,"./PooledClass":75,"./ReactInstanceHandles":114,"./ReactMount":118,"./ReactUpdates":135,"./getEventTarget":173,"./getUnboundedScrollPosition":179}],111:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2015, Facebook, Inc.
@@ -18958,7 +18249,7 @@ var ReactFragment = {
 module.exports = ReactFragment;
 
 }).call(this,require('_process'))
-},{"./ReactElement":99,"./warning":196,"_process":2}],106:[function(require,module,exports){
+},{"./ReactElement":105,"./warning":202,"_process":47}],112:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -19000,7 +18291,7 @@ var ReactInjection = {
 
 module.exports = ReactInjection;
 
-},{"./DOMProperty":51,"./EventPluginHub":58,"./ReactBrowserEventEmitter":72,"./ReactClass":75,"./ReactComponentEnvironment":78,"./ReactDOMComponent":84,"./ReactEmptyComponent":101,"./ReactNativeComponent":115,"./ReactPerf":117,"./ReactRootIndex":125,"./ReactUpdates":129}],107:[function(require,module,exports){
+},{"./DOMProperty":57,"./EventPluginHub":64,"./ReactBrowserEventEmitter":78,"./ReactClass":81,"./ReactComponentEnvironment":84,"./ReactDOMComponent":90,"./ReactEmptyComponent":107,"./ReactNativeComponent":121,"./ReactPerf":123,"./ReactRootIndex":131,"./ReactUpdates":135}],113:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -19135,7 +18426,7 @@ var ReactInputSelection = {
 
 module.exports = ReactInputSelection;
 
-},{"./ReactDOMSelection":92,"./containsNode":151,"./focusNode":161,"./getActiveElement":163}],108:[function(require,module,exports){
+},{"./ReactDOMSelection":98,"./containsNode":157,"./focusNode":167,"./getActiveElement":169}],114:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -19471,7 +18762,7 @@ var ReactInstanceHandles = {
 module.exports = ReactInstanceHandles;
 
 }).call(this,require('_process'))
-},{"./ReactRootIndex":125,"./invariant":177,"_process":2}],109:[function(require,module,exports){
+},{"./ReactRootIndex":131,"./invariant":183,"_process":47}],115:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -19520,7 +18811,7 @@ var ReactInstanceMap = {
 
 module.exports = ReactInstanceMap;
 
-},{}],110:[function(require,module,exports){
+},{}],116:[function(require,module,exports){
 /**
  * Copyright 2015, Facebook, Inc.
  * All rights reserved.
@@ -19557,7 +18848,7 @@ var ReactLifeCycle = {
 
 module.exports = ReactLifeCycle;
 
-},{}],111:[function(require,module,exports){
+},{}],117:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -19605,7 +18896,7 @@ var ReactMarkupChecksum = {
 
 module.exports = ReactMarkupChecksum;
 
-},{"./adler32":148}],112:[function(require,module,exports){
+},{"./adler32":154}],118:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -20496,7 +19787,7 @@ ReactPerf.measureMethods(ReactMount, 'ReactMount', {
 module.exports = ReactMount;
 
 }).call(this,require('_process'))
-},{"./DOMProperty":51,"./ReactBrowserEventEmitter":72,"./ReactCurrentOwner":81,"./ReactElement":99,"./ReactElementValidator":100,"./ReactEmptyComponent":101,"./ReactInstanceHandles":108,"./ReactInstanceMap":109,"./ReactMarkupChecksum":111,"./ReactPerf":117,"./ReactReconciler":123,"./ReactUpdateQueue":128,"./ReactUpdates":129,"./containsNode":151,"./emptyObject":157,"./getReactRootElementInContainer":171,"./instantiateReactComponent":176,"./invariant":177,"./setInnerHTML":190,"./shouldUpdateReactComponent":193,"./warning":196,"_process":2}],113:[function(require,module,exports){
+},{"./DOMProperty":57,"./ReactBrowserEventEmitter":78,"./ReactCurrentOwner":87,"./ReactElement":105,"./ReactElementValidator":106,"./ReactEmptyComponent":107,"./ReactInstanceHandles":114,"./ReactInstanceMap":115,"./ReactMarkupChecksum":117,"./ReactPerf":123,"./ReactReconciler":129,"./ReactUpdateQueue":134,"./ReactUpdates":135,"./containsNode":157,"./emptyObject":163,"./getReactRootElementInContainer":177,"./instantiateReactComponent":182,"./invariant":183,"./setInnerHTML":196,"./shouldUpdateReactComponent":199,"./warning":202,"_process":47}],119:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -20926,7 +20217,7 @@ var ReactMultiChild = {
 
 module.exports = ReactMultiChild;
 
-},{"./ReactChildReconciler":73,"./ReactComponentEnvironment":78,"./ReactMultiChildUpdateTypes":114,"./ReactReconciler":123}],114:[function(require,module,exports){
+},{"./ReactChildReconciler":79,"./ReactComponentEnvironment":84,"./ReactMultiChildUpdateTypes":120,"./ReactReconciler":129}],120:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -20959,7 +20250,7 @@ var ReactMultiChildUpdateTypes = keyMirror({
 
 module.exports = ReactMultiChildUpdateTypes;
 
-},{"./keyMirror":182}],115:[function(require,module,exports){
+},{"./keyMirror":188}],121:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -21066,7 +20357,7 @@ var ReactNativeComponent = {
 module.exports = ReactNativeComponent;
 
 }).call(this,require('_process'))
-},{"./Object.assign":68,"./invariant":177,"_process":2}],116:[function(require,module,exports){
+},{"./Object.assign":74,"./invariant":183,"_process":47}],122:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -21178,7 +20469,7 @@ var ReactOwner = {
 module.exports = ReactOwner;
 
 }).call(this,require('_process'))
-},{"./invariant":177,"_process":2}],117:[function(require,module,exports){
+},{"./invariant":183,"_process":47}],123:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -21282,7 +20573,7 @@ function _noMeasure(objName, fnName, func) {
 module.exports = ReactPerf;
 
 }).call(this,require('_process'))
-},{"_process":2}],118:[function(require,module,exports){
+},{"_process":47}],124:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -21310,7 +20601,7 @@ if ("production" !== process.env.NODE_ENV) {
 module.exports = ReactPropTypeLocationNames;
 
 }).call(this,require('_process'))
-},{"_process":2}],119:[function(require,module,exports){
+},{"_process":47}],125:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -21334,7 +20625,7 @@ var ReactPropTypeLocations = keyMirror({
 
 module.exports = ReactPropTypeLocations;
 
-},{"./keyMirror":182}],120:[function(require,module,exports){
+},{"./keyMirror":188}],126:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -21683,7 +20974,7 @@ function getPreciseType(propValue) {
 
 module.exports = ReactPropTypes;
 
-},{"./ReactElement":99,"./ReactFragment":105,"./ReactPropTypeLocationNames":118,"./emptyFunction":156}],121:[function(require,module,exports){
+},{"./ReactElement":105,"./ReactFragment":111,"./ReactPropTypeLocationNames":124,"./emptyFunction":162}],127:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -21739,7 +21030,7 @@ PooledClass.addPoolingTo(ReactPutListenerQueue);
 
 module.exports = ReactPutListenerQueue;
 
-},{"./Object.assign":68,"./PooledClass":69,"./ReactBrowserEventEmitter":72}],122:[function(require,module,exports){
+},{"./Object.assign":74,"./PooledClass":75,"./ReactBrowserEventEmitter":78}],128:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -21915,7 +21206,7 @@ PooledClass.addPoolingTo(ReactReconcileTransaction);
 
 module.exports = ReactReconcileTransaction;
 
-},{"./CallbackQueue":47,"./Object.assign":68,"./PooledClass":69,"./ReactBrowserEventEmitter":72,"./ReactInputSelection":107,"./ReactPutListenerQueue":121,"./Transaction":145}],123:[function(require,module,exports){
+},{"./CallbackQueue":53,"./Object.assign":74,"./PooledClass":75,"./ReactBrowserEventEmitter":78,"./ReactInputSelection":113,"./ReactPutListenerQueue":127,"./Transaction":151}],129:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -22039,7 +21330,7 @@ var ReactReconciler = {
 module.exports = ReactReconciler;
 
 }).call(this,require('_process'))
-},{"./ReactElementValidator":100,"./ReactRef":124,"_process":2}],124:[function(require,module,exports){
+},{"./ReactElementValidator":106,"./ReactRef":130,"_process":47}],130:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -22110,7 +21401,7 @@ ReactRef.detachRefs = function(instance, element) {
 
 module.exports = ReactRef;
 
-},{"./ReactOwner":116}],125:[function(require,module,exports){
+},{"./ReactOwner":122}],131:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -22141,7 +21432,7 @@ var ReactRootIndex = {
 
 module.exports = ReactRootIndex;
 
-},{}],126:[function(require,module,exports){
+},{}],132:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -22223,7 +21514,7 @@ module.exports = {
 };
 
 }).call(this,require('_process'))
-},{"./ReactElement":99,"./ReactInstanceHandles":108,"./ReactMarkupChecksum":111,"./ReactServerRenderingTransaction":127,"./emptyObject":157,"./instantiateReactComponent":176,"./invariant":177,"_process":2}],127:[function(require,module,exports){
+},{"./ReactElement":105,"./ReactInstanceHandles":114,"./ReactMarkupChecksum":117,"./ReactServerRenderingTransaction":133,"./emptyObject":163,"./instantiateReactComponent":182,"./invariant":183,"_process":47}],133:[function(require,module,exports){
 /**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -22336,7 +21627,7 @@ PooledClass.addPoolingTo(ReactServerRenderingTransaction);
 
 module.exports = ReactServerRenderingTransaction;
 
-},{"./CallbackQueue":47,"./Object.assign":68,"./PooledClass":69,"./ReactPutListenerQueue":121,"./Transaction":145,"./emptyFunction":156}],128:[function(require,module,exports){
+},{"./CallbackQueue":53,"./Object.assign":74,"./PooledClass":75,"./ReactPutListenerQueue":127,"./Transaction":151,"./emptyFunction":162}],134:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2015, Facebook, Inc.
@@ -22635,7 +21926,7 @@ var ReactUpdateQueue = {
 module.exports = ReactUpdateQueue;
 
 }).call(this,require('_process'))
-},{"./Object.assign":68,"./ReactCurrentOwner":81,"./ReactElement":99,"./ReactInstanceMap":109,"./ReactLifeCycle":110,"./ReactUpdates":129,"./invariant":177,"./warning":196,"_process":2}],129:[function(require,module,exports){
+},{"./Object.assign":74,"./ReactCurrentOwner":87,"./ReactElement":105,"./ReactInstanceMap":115,"./ReactLifeCycle":116,"./ReactUpdates":135,"./invariant":183,"./warning":202,"_process":47}],135:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -22917,7 +22208,7 @@ var ReactUpdates = {
 module.exports = ReactUpdates;
 
 }).call(this,require('_process'))
-},{"./CallbackQueue":47,"./Object.assign":68,"./PooledClass":69,"./ReactCurrentOwner":81,"./ReactPerf":117,"./ReactReconciler":123,"./Transaction":145,"./invariant":177,"./warning":196,"_process":2}],130:[function(require,module,exports){
+},{"./CallbackQueue":53,"./Object.assign":74,"./PooledClass":75,"./ReactCurrentOwner":87,"./ReactPerf":123,"./ReactReconciler":129,"./Transaction":151,"./invariant":183,"./warning":202,"_process":47}],136:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -23011,7 +22302,7 @@ var SVGDOMPropertyConfig = {
 
 module.exports = SVGDOMPropertyConfig;
 
-},{"./DOMProperty":51}],131:[function(require,module,exports){
+},{"./DOMProperty":57}],137:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -23206,7 +22497,7 @@ var SelectEventPlugin = {
 
 module.exports = SelectEventPlugin;
 
-},{"./EventConstants":56,"./EventPropagators":61,"./ReactInputSelection":107,"./SyntheticEvent":137,"./getActiveElement":163,"./isTextInputElement":180,"./keyOf":183,"./shallowEqual":192}],132:[function(require,module,exports){
+},{"./EventConstants":62,"./EventPropagators":67,"./ReactInputSelection":113,"./SyntheticEvent":143,"./getActiveElement":169,"./isTextInputElement":186,"./keyOf":189,"./shallowEqual":198}],138:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -23237,7 +22528,7 @@ var ServerReactRootIndex = {
 
 module.exports = ServerReactRootIndex;
 
-},{}],133:[function(require,module,exports){
+},{}],139:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -23665,7 +22956,7 @@ var SimpleEventPlugin = {
 module.exports = SimpleEventPlugin;
 
 }).call(this,require('_process'))
-},{"./EventConstants":56,"./EventPluginUtils":60,"./EventPropagators":61,"./SyntheticClipboardEvent":134,"./SyntheticDragEvent":136,"./SyntheticEvent":137,"./SyntheticFocusEvent":138,"./SyntheticKeyboardEvent":140,"./SyntheticMouseEvent":141,"./SyntheticTouchEvent":142,"./SyntheticUIEvent":143,"./SyntheticWheelEvent":144,"./getEventCharCode":164,"./invariant":177,"./keyOf":183,"./warning":196,"_process":2}],134:[function(require,module,exports){
+},{"./EventConstants":62,"./EventPluginUtils":66,"./EventPropagators":67,"./SyntheticClipboardEvent":140,"./SyntheticDragEvent":142,"./SyntheticEvent":143,"./SyntheticFocusEvent":144,"./SyntheticKeyboardEvent":146,"./SyntheticMouseEvent":147,"./SyntheticTouchEvent":148,"./SyntheticUIEvent":149,"./SyntheticWheelEvent":150,"./getEventCharCode":170,"./invariant":183,"./keyOf":189,"./warning":202,"_process":47}],140:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -23710,7 +23001,7 @@ SyntheticEvent.augmentClass(SyntheticClipboardEvent, ClipboardEventInterface);
 
 module.exports = SyntheticClipboardEvent;
 
-},{"./SyntheticEvent":137}],135:[function(require,module,exports){
+},{"./SyntheticEvent":143}],141:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -23755,7 +23046,7 @@ SyntheticEvent.augmentClass(
 
 module.exports = SyntheticCompositionEvent;
 
-},{"./SyntheticEvent":137}],136:[function(require,module,exports){
+},{"./SyntheticEvent":143}],142:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -23794,7 +23085,7 @@ SyntheticMouseEvent.augmentClass(SyntheticDragEvent, DragEventInterface);
 
 module.exports = SyntheticDragEvent;
 
-},{"./SyntheticMouseEvent":141}],137:[function(require,module,exports){
+},{"./SyntheticMouseEvent":147}],143:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -23960,7 +23251,7 @@ PooledClass.addPoolingTo(SyntheticEvent, PooledClass.threeArgumentPooler);
 
 module.exports = SyntheticEvent;
 
-},{"./Object.assign":68,"./PooledClass":69,"./emptyFunction":156,"./getEventTarget":167}],138:[function(require,module,exports){
+},{"./Object.assign":74,"./PooledClass":75,"./emptyFunction":162,"./getEventTarget":173}],144:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -23999,7 +23290,7 @@ SyntheticUIEvent.augmentClass(SyntheticFocusEvent, FocusEventInterface);
 
 module.exports = SyntheticFocusEvent;
 
-},{"./SyntheticUIEvent":143}],139:[function(require,module,exports){
+},{"./SyntheticUIEvent":149}],145:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -24045,7 +23336,7 @@ SyntheticEvent.augmentClass(
 
 module.exports = SyntheticInputEvent;
 
-},{"./SyntheticEvent":137}],140:[function(require,module,exports){
+},{"./SyntheticEvent":143}],146:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -24132,7 +23423,7 @@ SyntheticUIEvent.augmentClass(SyntheticKeyboardEvent, KeyboardEventInterface);
 
 module.exports = SyntheticKeyboardEvent;
 
-},{"./SyntheticUIEvent":143,"./getEventCharCode":164,"./getEventKey":165,"./getEventModifierState":166}],141:[function(require,module,exports){
+},{"./SyntheticUIEvent":149,"./getEventCharCode":170,"./getEventKey":171,"./getEventModifierState":172}],147:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -24213,7 +23504,7 @@ SyntheticUIEvent.augmentClass(SyntheticMouseEvent, MouseEventInterface);
 
 module.exports = SyntheticMouseEvent;
 
-},{"./SyntheticUIEvent":143,"./ViewportMetrics":146,"./getEventModifierState":166}],142:[function(require,module,exports){
+},{"./SyntheticUIEvent":149,"./ViewportMetrics":152,"./getEventModifierState":172}],148:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -24261,7 +23552,7 @@ SyntheticUIEvent.augmentClass(SyntheticTouchEvent, TouchEventInterface);
 
 module.exports = SyntheticTouchEvent;
 
-},{"./SyntheticUIEvent":143,"./getEventModifierState":166}],143:[function(require,module,exports){
+},{"./SyntheticUIEvent":149,"./getEventModifierState":172}],149:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -24323,7 +23614,7 @@ SyntheticEvent.augmentClass(SyntheticUIEvent, UIEventInterface);
 
 module.exports = SyntheticUIEvent;
 
-},{"./SyntheticEvent":137,"./getEventTarget":167}],144:[function(require,module,exports){
+},{"./SyntheticEvent":143,"./getEventTarget":173}],150:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -24384,7 +23675,7 @@ SyntheticMouseEvent.augmentClass(SyntheticWheelEvent, WheelEventInterface);
 
 module.exports = SyntheticWheelEvent;
 
-},{"./SyntheticMouseEvent":141}],145:[function(require,module,exports){
+},{"./SyntheticMouseEvent":147}],151:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -24625,7 +23916,7 @@ var Transaction = {
 module.exports = Transaction;
 
 }).call(this,require('_process'))
-},{"./invariant":177,"_process":2}],146:[function(require,module,exports){
+},{"./invariant":183,"_process":47}],152:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -24654,7 +23945,7 @@ var ViewportMetrics = {
 
 module.exports = ViewportMetrics;
 
-},{}],147:[function(require,module,exports){
+},{}],153:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -24720,7 +24011,7 @@ function accumulateInto(current, next) {
 module.exports = accumulateInto;
 
 }).call(this,require('_process'))
-},{"./invariant":177,"_process":2}],148:[function(require,module,exports){
+},{"./invariant":183,"_process":47}],154:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -24754,7 +24045,7 @@ function adler32(data) {
 
 module.exports = adler32;
 
-},{}],149:[function(require,module,exports){
+},{}],155:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -24786,7 +24077,7 @@ function camelize(string) {
 
 module.exports = camelize;
 
-},{}],150:[function(require,module,exports){
+},{}],156:[function(require,module,exports){
 /**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -24828,7 +24119,7 @@ function camelizeStyleName(string) {
 
 module.exports = camelizeStyleName;
 
-},{"./camelize":149}],151:[function(require,module,exports){
+},{"./camelize":155}],157:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -24872,7 +24163,7 @@ function containsNode(outerNode, innerNode) {
 
 module.exports = containsNode;
 
-},{"./isTextNode":181}],152:[function(require,module,exports){
+},{"./isTextNode":187}],158:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -24958,7 +24249,7 @@ function createArrayFromMixed(obj) {
 
 module.exports = createArrayFromMixed;
 
-},{"./toArray":194}],153:[function(require,module,exports){
+},{"./toArray":200}],159:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -25020,7 +24311,7 @@ function createFullPageComponent(tag) {
 module.exports = createFullPageComponent;
 
 }).call(this,require('_process'))
-},{"./ReactClass":75,"./ReactElement":99,"./invariant":177,"_process":2}],154:[function(require,module,exports){
+},{"./ReactClass":81,"./ReactElement":105,"./invariant":183,"_process":47}],160:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -25110,7 +24401,7 @@ function createNodesFromMarkup(markup, handleScript) {
 module.exports = createNodesFromMarkup;
 
 }).call(this,require('_process'))
-},{"./ExecutionEnvironment":62,"./createArrayFromMixed":152,"./getMarkupWrap":169,"./invariant":177,"_process":2}],155:[function(require,module,exports){
+},{"./ExecutionEnvironment":68,"./createArrayFromMixed":158,"./getMarkupWrap":175,"./invariant":183,"_process":47}],161:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -25168,7 +24459,7 @@ function dangerousStyleValue(name, value) {
 
 module.exports = dangerousStyleValue;
 
-},{"./CSSProperty":45}],156:[function(require,module,exports){
+},{"./CSSProperty":51}],162:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -25202,7 +24493,7 @@ emptyFunction.thatReturnsArgument = function(arg) { return arg; };
 
 module.exports = emptyFunction;
 
-},{}],157:[function(require,module,exports){
+},{}],163:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -25226,7 +24517,7 @@ if ("production" !== process.env.NODE_ENV) {
 module.exports = emptyObject;
 
 }).call(this,require('_process'))
-},{"_process":2}],158:[function(require,module,exports){
+},{"_process":47}],164:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -25266,7 +24557,7 @@ function escapeTextContentForBrowser(text) {
 
 module.exports = escapeTextContentForBrowser;
 
-},{}],159:[function(require,module,exports){
+},{}],165:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -25339,7 +24630,7 @@ function findDOMNode(componentOrElement) {
 module.exports = findDOMNode;
 
 }).call(this,require('_process'))
-},{"./ReactCurrentOwner":81,"./ReactInstanceMap":109,"./ReactMount":112,"./invariant":177,"./isNode":179,"./warning":196,"_process":2}],160:[function(require,module,exports){
+},{"./ReactCurrentOwner":87,"./ReactInstanceMap":115,"./ReactMount":118,"./invariant":183,"./isNode":185,"./warning":202,"_process":47}],166:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -25397,7 +24688,7 @@ function flattenChildren(children) {
 module.exports = flattenChildren;
 
 }).call(this,require('_process'))
-},{"./traverseAllChildren":195,"./warning":196,"_process":2}],161:[function(require,module,exports){
+},{"./traverseAllChildren":201,"./warning":202,"_process":47}],167:[function(require,module,exports){
 /**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -25426,7 +24717,7 @@ function focusNode(node) {
 
 module.exports = focusNode;
 
-},{}],162:[function(require,module,exports){
+},{}],168:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -25457,7 +24748,7 @@ var forEachAccumulated = function(arr, cb, scope) {
 
 module.exports = forEachAccumulated;
 
-},{}],163:[function(require,module,exports){
+},{}],169:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -25486,7 +24777,7 @@ function getActiveElement() /*?DOMElement*/ {
 
 module.exports = getActiveElement;
 
-},{}],164:[function(require,module,exports){
+},{}],170:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -25538,7 +24829,7 @@ function getEventCharCode(nativeEvent) {
 
 module.exports = getEventCharCode;
 
-},{}],165:[function(require,module,exports){
+},{}],171:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -25643,7 +24934,7 @@ function getEventKey(nativeEvent) {
 
 module.exports = getEventKey;
 
-},{"./getEventCharCode":164}],166:[function(require,module,exports){
+},{"./getEventCharCode":170}],172:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -25690,7 +24981,7 @@ function getEventModifierState(nativeEvent) {
 
 module.exports = getEventModifierState;
 
-},{}],167:[function(require,module,exports){
+},{}],173:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -25721,7 +25012,7 @@ function getEventTarget(nativeEvent) {
 
 module.exports = getEventTarget;
 
-},{}],168:[function(require,module,exports){
+},{}],174:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -25765,7 +25056,7 @@ function getIteratorFn(maybeIterable) {
 
 module.exports = getIteratorFn;
 
-},{}],169:[function(require,module,exports){
+},{}],175:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -25884,7 +25175,7 @@ function getMarkupWrap(nodeName) {
 module.exports = getMarkupWrap;
 
 }).call(this,require('_process'))
-},{"./ExecutionEnvironment":62,"./invariant":177,"_process":2}],170:[function(require,module,exports){
+},{"./ExecutionEnvironment":68,"./invariant":183,"_process":47}],176:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -25959,7 +25250,7 @@ function getNodeForCharacterOffset(root, offset) {
 
 module.exports = getNodeForCharacterOffset;
 
-},{}],171:[function(require,module,exports){
+},{}],177:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -25994,7 +25285,7 @@ function getReactRootElementInContainer(container) {
 
 module.exports = getReactRootElementInContainer;
 
-},{}],172:[function(require,module,exports){
+},{}],178:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -26031,7 +25322,7 @@ function getTextContentAccessor() {
 
 module.exports = getTextContentAccessor;
 
-},{"./ExecutionEnvironment":62}],173:[function(require,module,exports){
+},{"./ExecutionEnvironment":68}],179:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -26071,7 +25362,7 @@ function getUnboundedScrollPosition(scrollable) {
 
 module.exports = getUnboundedScrollPosition;
 
-},{}],174:[function(require,module,exports){
+},{}],180:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -26104,7 +25395,7 @@ function hyphenate(string) {
 
 module.exports = hyphenate;
 
-},{}],175:[function(require,module,exports){
+},{}],181:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -26145,7 +25436,7 @@ function hyphenateStyleName(string) {
 
 module.exports = hyphenateStyleName;
 
-},{"./hyphenate":174}],176:[function(require,module,exports){
+},{"./hyphenate":180}],182:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -26283,7 +25574,7 @@ function instantiateReactComponent(node, parentCompositeType) {
 module.exports = instantiateReactComponent;
 
 }).call(this,require('_process'))
-},{"./Object.assign":68,"./ReactCompositeComponent":79,"./ReactEmptyComponent":101,"./ReactNativeComponent":115,"./invariant":177,"./warning":196,"_process":2}],177:[function(require,module,exports){
+},{"./Object.assign":74,"./ReactCompositeComponent":85,"./ReactEmptyComponent":107,"./ReactNativeComponent":121,"./invariant":183,"./warning":202,"_process":47}],183:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -26340,7 +25631,7 @@ var invariant = function(condition, format, a, b, c, d, e, f) {
 module.exports = invariant;
 
 }).call(this,require('_process'))
-},{"_process":2}],178:[function(require,module,exports){
+},{"_process":47}],184:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -26405,7 +25696,7 @@ function isEventSupported(eventNameSuffix, capture) {
 
 module.exports = isEventSupported;
 
-},{"./ExecutionEnvironment":62}],179:[function(require,module,exports){
+},{"./ExecutionEnvironment":68}],185:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -26432,7 +25723,7 @@ function isNode(object) {
 
 module.exports = isNode;
 
-},{}],180:[function(require,module,exports){
+},{}],186:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -26475,7 +25766,7 @@ function isTextInputElement(elem) {
 
 module.exports = isTextInputElement;
 
-},{}],181:[function(require,module,exports){
+},{}],187:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -26500,7 +25791,7 @@ function isTextNode(object) {
 
 module.exports = isTextNode;
 
-},{"./isNode":179}],182:[function(require,module,exports){
+},{"./isNode":185}],188:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -26555,7 +25846,7 @@ var keyMirror = function(obj) {
 module.exports = keyMirror;
 
 }).call(this,require('_process'))
-},{"./invariant":177,"_process":2}],183:[function(require,module,exports){
+},{"./invariant":183,"_process":47}],189:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -26591,7 +25882,7 @@ var keyOf = function(oneKeyObj) {
 
 module.exports = keyOf;
 
-},{}],184:[function(require,module,exports){
+},{}],190:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -26644,7 +25935,7 @@ function mapObject(object, callback, context) {
 
 module.exports = mapObject;
 
-},{}],185:[function(require,module,exports){
+},{}],191:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -26677,7 +25968,7 @@ function memoizeStringOnly(callback) {
 
 module.exports = memoizeStringOnly;
 
-},{}],186:[function(require,module,exports){
+},{}],192:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -26717,7 +26008,7 @@ function onlyChild(children) {
 module.exports = onlyChild;
 
 }).call(this,require('_process'))
-},{"./ReactElement":99,"./invariant":177,"_process":2}],187:[function(require,module,exports){
+},{"./ReactElement":105,"./invariant":183,"_process":47}],193:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -26745,7 +26036,7 @@ if (ExecutionEnvironment.canUseDOM) {
 
 module.exports = performance || {};
 
-},{"./ExecutionEnvironment":62}],188:[function(require,module,exports){
+},{"./ExecutionEnvironment":68}],194:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -26773,7 +26064,7 @@ var performanceNow = performance.now.bind(performance);
 
 module.exports = performanceNow;
 
-},{"./performance":187}],189:[function(require,module,exports){
+},{"./performance":193}],195:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -26801,7 +26092,7 @@ function quoteAttributeValueForBrowser(value) {
 
 module.exports = quoteAttributeValueForBrowser;
 
-},{"./escapeTextContentForBrowser":158}],190:[function(require,module,exports){
+},{"./escapeTextContentForBrowser":164}],196:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -26890,7 +26181,7 @@ if (ExecutionEnvironment.canUseDOM) {
 
 module.exports = setInnerHTML;
 
-},{"./ExecutionEnvironment":62}],191:[function(require,module,exports){
+},{"./ExecutionEnvironment":68}],197:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -26932,7 +26223,7 @@ if (ExecutionEnvironment.canUseDOM) {
 
 module.exports = setTextContent;
 
-},{"./ExecutionEnvironment":62,"./escapeTextContentForBrowser":158,"./setInnerHTML":190}],192:[function(require,module,exports){
+},{"./ExecutionEnvironment":68,"./escapeTextContentForBrowser":164,"./setInnerHTML":196}],198:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -26976,7 +26267,7 @@ function shallowEqual(objA, objB) {
 
 module.exports = shallowEqual;
 
-},{}],193:[function(require,module,exports){
+},{}],199:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -27080,7 +26371,7 @@ function shouldUpdateReactComponent(prevElement, nextElement) {
 module.exports = shouldUpdateReactComponent;
 
 }).call(this,require('_process'))
-},{"./warning":196,"_process":2}],194:[function(require,module,exports){
+},{"./warning":202,"_process":47}],200:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -27152,7 +26443,7 @@ function toArray(obj) {
 module.exports = toArray;
 
 }).call(this,require('_process'))
-},{"./invariant":177,"_process":2}],195:[function(require,module,exports){
+},{"./invariant":183,"_process":47}],201:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -27405,7 +26696,7 @@ function traverseAllChildren(children, callback, traverseContext) {
 module.exports = traverseAllChildren;
 
 }).call(this,require('_process'))
-},{"./ReactElement":99,"./ReactFragment":105,"./ReactInstanceHandles":108,"./getIteratorFn":168,"./invariant":177,"./warning":196,"_process":2}],196:[function(require,module,exports){
+},{"./ReactElement":105,"./ReactFragment":111,"./ReactInstanceHandles":114,"./getIteratorFn":174,"./invariant":183,"./warning":202,"_process":47}],202:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -27468,194 +26759,10 @@ if ("production" !== process.env.NODE_ENV) {
 module.exports = warning;
 
 }).call(this,require('_process'))
-},{"./emptyFunction":156,"_process":2}],197:[function(require,module,exports){
+},{"./emptyFunction":162,"_process":47}],203:[function(require,module,exports){
 module.exports = require('./lib/React');
 
-},{"./lib/React":70}],198:[function(require,module,exports){
-module.exports = require('./views/alertView.jsx');
-
-
-},{"./views/alertView.jsx":200}],199:[function(require,module,exports){
-'use strict';
-var React = require('react');
-var classNames = require('classnames');
-var getComponentClasses = require('../../../../utils/getComponentClasses');
-
-module.exports = function() {
-
-  var propClasses = ['size', 'purpose'];
-  var classes = getComponentClasses('component-alert', propClasses, this.props);
-
-  return (
-    React.createElement("div", {className: classNames(classes), role: "alert"}, 
-      React.createElement("h4", null, this.props.title), 
-      React.createElement("p", null, this.props.children)
-    )
-  );
-};
-
-
-},{"../../../../utils/getComponentClasses":272,"classnames":3,"react":197}],200:[function(require,module,exports){
-'use strict';
-var React = require('react');
-
-module.exports = React.createClass({displayName: "exports",
-
-  propTypes: {
-    purpose: React.PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
-    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large'])
-  },
-
-  render: function() {
-    return require('../templates/alertTemplate.jsx').call(this);
-  }
-});
-
-
-},{"../templates/alertTemplate.jsx":199,"react":197}],201:[function(require,module,exports){
-module.exports = require('./code/index');
-
-
-},{"./code/index":198}],202:[function(require,module,exports){
-'use strict';
-module.exports = require('./views/anchorView.jsx');
-
-
-},{"./views/anchorView.jsx":204}],203:[function(require,module,exports){
-'use strict';
-var React = require('react');
-
-module.exports = function() {
-
-  var dataAttributes = this.getDataAttributesFromProps();
-
-  return (
-    React.createElement("a", React.__spread({className: "component-anchor"},  dataAttributes, {title: this.props.title, href: this.props.href, onClick: this.props.handleClick, target: this.props.target}), 
-     this.props.children
-    )
-  );
-};
-
-
-},{"react":197}],204:[function(require,module,exports){
-'use strict';
-var React = require('react');
-var DataAttributesMixin = require('react-data-attributes-mixin');
-
-module.exports = React.createClass({displayName: "exports",
-
-  mixins: [DataAttributesMixin],
-
-  getDefaultProps: function() {
-    return {
-      href: '#'
-    };
-  },
-
-  propTypes: {
-    children: React.PropTypes.node,
-    data: React.PropTypes.object,
-    href: React.PropTypes.string,
-    target: React.PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
-    title: React.PropTypes.string
-  },
-
-  render: function() {
-    if (!this.props.children) {
-      return null;
-    }
-    return require('../templates/anchorTemplate.jsx').call(this);
-  }
-});
-
-
-},{"../templates/anchorTemplate.jsx":203,"react":197,"react-data-attributes-mixin":23}],205:[function(require,module,exports){
-'use strict';
-module.exports = require('./code/index');
-
-
-},{"./code/index":202}],206:[function(require,module,exports){
-'use strict';
-module.exports = require('./views/buttonView.jsx');
-
-
-},{"./views/buttonView.jsx":209}],207:[function(require,module,exports){
-'use strict';
-var React = require('react');
-var classNames = require('classnames');
-var getComponentClasses = require('../../../../utils/getComponentClasses');
-
-module.exports = function() {
-
-  var propClasses = ['size', 'purpose'];
-  var classes = getComponentClasses('component-button', propClasses, this.props);
-  var dataAttributes = this.getDataAttributesFromProps();
-
-  return (
-    React.createElement("a", React.__spread({className: classNames(classes), href: this.props.href, target: this.props.target, onClick: this.props.handleClick},  dataAttributes), 
-      this.props.children
-    )
-  );
-};
-
-
-},{"../../../../utils/getComponentClasses":272,"classnames":3,"react":197}],208:[function(require,module,exports){
-'use strict';
-var React = require('react');
-var classNames = require('classnames');
-var getComponentClasses = require('../../../../utils/getComponentClasses');
-
-module.exports = function() {
-
-  var propClasses = ['size', 'purpose'];
-  var classes = getComponentClasses('component-button', propClasses, this.props);
-  var dataAttributes = this.getDataAttributesFromProps();
-
-  return (
-    React.createElement("button", React.__spread({className: classNames(classes), disabled: this.props.disabled, type: this.props.type, onClick: this.props.handleClick},  dataAttributes), 
-      this.props.children
-    )
-  );
-};
-
-
-},{"../../../../utils/getComponentClasses":272,"classnames":3,"react":197}],209:[function(require,module,exports){
-'use strict';
-var React = require('react');
-var DataAttributesMixin = require('react-data-attributes-mixin');
-module.exports = React.createClass({displayName: "exports",
-
-  mixins: [DataAttributesMixin],
-
-  propTypes: {
-    purpose: React.PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
-    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large', 'block']),
-    disabled: React.PropTypes.bool,
-    href: React.PropTypes.string,
-    target: React.PropTypes.string,
-    handleClick: React.PropTypes.func,
-    data: React.PropTypes.object
-  },
-
-  render: function() {
-    if (this.props.href) {
-      return require('../templates/buttonAnchorTemplate.jsx').call(this);
-    }
-    return require('../templates/buttonTemplate.jsx').call(this);
-  }
-
-});
-
-
-},{"../templates/buttonAnchorTemplate.jsx":207,"../templates/buttonTemplate.jsx":208,"react":197,"react-data-attributes-mixin":23}],210:[function(require,module,exports){
-module.exports = require('./code');
-
-
-},{"./code":206}],211:[function(require,module,exports){
-module.exports = require('./views/countdownView.jsx');
-
-
-},{"./views/countdownView.jsx":215}],212:[function(require,module,exports){
+},{"./lib/React":76}],204:[function(require,module,exports){
 'use strict';
 var moment = require('moment');
 var countdown = {};
@@ -27712,7 +26819,7 @@ countdown._durationFromNow = function(untilDate) {
 };
 
 
-},{"moment":22}],213:[function(require,module,exports){
+},{"moment":46}],205:[function(require,module,exports){
 'use strict';
 var countdown = require('./countdown.js');
 var moment = require('moment');
@@ -27749,906 +26856,7 @@ CountdownManager.prototype.time = function(currentMoment) {
 };
 
 
-},{"./countdown.js":212,"moment":22}],214:[function(require,module,exports){
-'use strict';
-var React = require('react');
-var classNames = require('classnames');
-var getComponentClasses = require('../../../../utils/getComponentClasses');
-
-module.exports = function() {
-
-  var propClasses = ['size', 'purpose'];
-  var classes = getComponentClasses('component-countdown', propClasses, this.props);
-
-  return (
-    React.createElement("div", {className: classNames(classes), role: "timer"}, 
-      React.createElement("div", null, this.state.time.days, " ", React.createElement("small", null, "Days")), 
-      React.createElement("div", null, this.state.time.hours, " ", React.createElement("small", null, "Hours")), 
-      React.createElement("div", null, this.state.time.minutes, " ", React.createElement("small", null, "Minutes")), 
-      React.createElement("div", null, this.state.time.seconds, " ", React.createElement("small", null, "Seconds"))
-    )
-  );
-};
-
-
-},{"../../../../utils/getComponentClasses":272,"classnames":3,"react":197}],215:[function(require,module,exports){
-'use strict';
-var React = require('react');
-var CountdownManager = require('../lib/countdownManager');
-
-module.exports = React.createClass({displayName: "exports",
-
-  propTypes: {
-    purpose: React.PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
-    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large']),
-    until: React.PropTypes.string
-  },
-
-  getInitialState: function() {
-    return this.countdownManagerState();
-  },
-
-  countdownManagerState: function(dateUpdate) {
-    var date = { startDate: (dateUpdate || this.props.until) };
-    var countdownManager = new CountdownManager(date);
-    return {
-      countdownManager: countdownManager,
-      time: countdownManager.time()
-    };
-  },
-
-  componentDidMount: function() {
-    this.startCountdownManager();
-  },
-
-  componentWillUnmount: function() {
-    this.stopCountdownManager();
-  },
-
-  componentWillReceiveProps: function(nextProps) {
-    this.stopCountdownManager();
-    this.setState(this.countdownManagerState(nextProps.date), this.startCountdownManager);
-  },
-
-  startCountdownManager: function() {
-    this.state.countdownManager.start(this.onCountdown);
-  },
-
-  onCountdown: function(time) {
-    this.setState({ time: time });
-  },
-
-  stopCountdownManager: function() {
-    return this.state.countdownManager.stop();
-  },
-
-  render: function() {
-    return require('../templates/countdownTemplate.jsx').call(this);
-  }
-});
-
-
-},{"../lib/countdownManager":213,"../templates/countdownTemplate.jsx":214,"react":197}],216:[function(require,module,exports){
-module.exports = require('./code/index');
-
-
-},{"./code/index":211}],217:[function(require,module,exports){
-module.exports = require('./views/flagView.jsx');
-
-
-},{"./views/flagView.jsx":219}],218:[function(require,module,exports){
-'use strict';
-var React = require('react');
-var classNames = require('classnames');
-var getComponentClasses = require('../../../../utils/getComponentClasses');
-
-module.exports = function(props) {
-
-  var propClasses = ['size', 'purpose', 'position'];
-  var classes = getComponentClasses('component-flag', propClasses, props);
-
-  return (
-    React.createElement("span", {className: classNames(classes)}, 
-      props.children
-    )
-  );
-};
-
-
-},{"../../../../utils/getComponentClasses":272,"classnames":3,"react":197}],219:[function(require,module,exports){
-'use strict';
-var React = require('react');
-
-module.exports = React.createClass({displayName: "exports",
-
-  propTypes: {
-    purpose: React.PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
-    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large']),
-    position: React.PropTypes.oneOf([
-      'top',
-      'right',
-      'bottom',
-      'left',
-      'top left',
-      'bottom left',
-      'top right',
-      'bottom right',
-      'left top',
-      'left bottom',
-      'right top',
-      'right bottom',
-      'left right',
-      'right left'
-    ])
-  },
-
-  render: function() {
-    return require('../templates/flagTemplate.jsx')(this.props);
-  }
-});
-
-
-},{"../templates/flagTemplate.jsx":218,"react":197}],220:[function(require,module,exports){
-module.exports = require('./code/index');
-
-
-},{"./code/index":217}],221:[function(require,module,exports){
-module.exports = require('./views/IconListItemComponentView.jsx');
-
-
-},{"./views/IconListItemComponentView.jsx":223}],222:[function(require,module,exports){
-'use strict';
-var React = require('react');
-var classNames = require('classnames');
-var getComponentClasses = require('../../../../utils/getComponentClasses');
-
-module.exports = function() {
-
-  var propClasses = ['size', 'purpose', 'type'];
-  var classes = getComponentClasses('component-icon-list-item', propClasses, this.props);
-  return (
-    React.createElement("li", {className: classNames(classes)}, 
-      React.createElement("i", {className: 'fa fa-fw fa-' + this.props.icon}), this.props.children
-    )
-  );
-};
-
-
-},{"../../../../utils/getComponentClasses":272,"classnames":3,"react":197}],223:[function(require,module,exports){
-'use strict';
-var React = require('react');
-
-module.exports = React.createClass({displayName: "exports",
-
-  propTypes: {
-    icon: React.PropTypes.string.isRequired
-  },
-
-  render: function() {
-    return require('../templates/IconListItemComponentTemplate.jsx').call(this);
-  }
-});
-
-
-},{"../templates/IconListItemComponentTemplate.jsx":222,"react":197}],224:[function(require,module,exports){
-module.exports = require('./code/index');
-
-
-},{"./code/index":221}],225:[function(require,module,exports){
-module.exports = require('./views/IconListComponentView.jsx');
-
-
-},{"./views/IconListComponentView.jsx":227}],226:[function(require,module,exports){
-'use strict';
-var React = require('react');
-
-module.exports = function(props) {
-  return (
-    React.createElement("ul", {className: "component-icon-list"}, 
-      props.children
-    )
-  );
-};
-
-
-},{"react":197}],227:[function(require,module,exports){
-'use strict';
-var React = require('react');
-
-module.exports = React.createClass({displayName: "exports",
-  render: function() {
-    return require('../templates/IconListComponentTemplate.jsx')(this.props);
-  }
-});
-
-
-},{"../templates/IconListComponentTemplate.jsx":226,"react":197}],228:[function(require,module,exports){
-module.exports = require('./code/index');
-
-
-},{"./code/index":225}],229:[function(require,module,exports){
-module.exports = require('./views/imageView.jsx');
-
-
-},{"./views/imageView.jsx":232}],230:[function(require,module,exports){
-'use strict';
-var React = require('react');
-
-module.exports = function() {
-
-  var dataAttributes = this.getDataAttributesFromProps();
-  var sizes = this.props.sizes || '100vw';
-
-  return (
-    React.createElement("a", React.__spread({className: "component-image", href: this.props.href, onClick: this.props.handleClick},  dataAttributes), 
-      React.createElement("img", {src: this.props.src, srcSet: this.props.srcSet, alt: this.props.alt, sizes: sizes})
-    )
-  );
-};
-
-
-},{"react":197}],231:[function(require,module,exports){
-'use strict';
-var React = require('react');
-
-module.exports = function() {
-
-  var dataAttributes = this.getDataAttributesFromProps();
-  var sizes = this.props.sizes || '100vw';
-
-  return (
-    React.createElement("img", React.__spread({className: "component-image", src: this.props.src, srcSet: this.props.srcSet, alt: this.props.alt, sizes: sizes, onClick: this.props.handleClick},  dataAttributes))
-  );
-};
-
-
-},{"react":197}],232:[function(require,module,exports){
-'use strict';
-var React = require('react');
-var DataAttributesMixin = require('react-data-attributes-mixin');
-
-module.exports = React.createClass({displayName: "exports",
-
-  mixins: [DataAttributesMixin],
-
-  propTypes: {
-    src: React.PropTypes.string.isRequired,
-    alt: React.PropTypes.string.isRequired,
-    handleClick: React.PropTypes.func,
-    href: React.PropTypes.string,
-    srcset: React.PropTypes.string,
-    sizes: React.PropTypes.string
-  },
-
-  render: function() {
-    if (this.props.href) {
-      return require('../templates/imageAnchorTemplate.jsx').call(this);
-    }
-    return require('../templates/imageTemplate.jsx').call(this);
-  }
-});
-
-
-},{"../templates/imageAnchorTemplate.jsx":230,"../templates/imageTemplate.jsx":231,"react":197,"react-data-attributes-mixin":23}],233:[function(require,module,exports){
-module.exports = require('./code/index');
-
-
-},{"./code/index":229}],234:[function(require,module,exports){
-module.exports = require('./views/inputView.jsx');
-
-
-},{"./views/inputView.jsx":236}],235:[function(require,module,exports){
-'use strict';
-var React = require('react');
-var classNames = require('classnames');
-
-module.exports = function(component) {
-
-  var classes = classNames({
-    'component-input': true,
-    'error': component.state.error || false,
-    'disabled': component.props.disabled || false
-  });
-
-  // the form label
-  var label;
-
-  if (component.props.label) {
-    label = ( React.createElement("label", {className: "component-input-label", htmlFor: component.props.id}, component.props.label) );
-  }
-
-  /**
-   * Create the span element used for containing messages
-   * related to the element.
-   */
-  var span;
-
-  if (component.state.error) {
-    span = ( React.createElement("span", {className: "component-input-error"}, component.state.error) );
-  }
-
-  return (
-    React.createElement("div", {className: classes, ref: component.props.ref}, 
-      label, 
-      React.createElement("input", {
-        className: "component-input-field", 
-        type: component.props.type, 
-        name: component.props.name, 
-        value: component.state.value, 
-        id: component.props.id, 
-        placeholder: component.props.placeholder, 
-        onChange: component.handleChange, 
-        disabled: component.props.disabled, 
-        readOnly: component.props.readOnly, 
-        required: component.props.required}
-        ), 
-      span
-    )
-  );
-};
-
-
-},{"classnames":3,"react":197}],236:[function(require,module,exports){
-'use strict';
-var React = require('react');
-
-module.exports = React.createClass({displayName: "exports",
-
-  intent: null,
-
-  propTypes: {
-    label: React.PropTypes.string,
-    type: React.PropTypes.oneOf(['text', 'email', 'number', 'tel']),
-    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large']),
-    placeHolder: React.PropTypes.string,
-    name: React.PropTypes.string,
-    id: React.PropTypes.string,
-    disabled: React.PropTypes.bool,
-    readOnly: React.PropTypes.bool,
-    required: React.PropTypes.bool,
-    validator: React.PropTypes.instanceOf(RegExp),
-    errorMessage: React.PropTypes.string,
-    children: React.PropTypes.string,
-    handleChange: React.PropTypes.func
-  },
-
-  getInitialState: function() {
-    return {
-      value: this.props.children,
-      error: null,
-      valid: true
-    };
-  },
-
-  getDefaultProps: function() {
-    return {
-      type: 'text',
-      disabled: false,
-      readOnly: false,
-      required: false,
-      errorMessage: 'Invalid Input',
-      id: 'component-input',
-      name: 'component-input',
-      placeHolder: ''
-    };
-  },
-
-  validate: function(value) {
-    var self = this;
-    var isValid = true;
-    var error = null;
-
-    if (value !== '' && typeof self.props.validator !== 'undefined') {
-      isValid = self.props.validator.test(value);
-    }
-
-    if (!isValid) {
-      error = self.props.errorMessage;
-    }
-
-    self.setState({
-      valid: isValid,
-      error: error
-    });
-  },
-
-  handleChange: function(e) {
-    var self = this;
-    var value = (e.target) ? e.target.value : null;
-
-    self.setState({
-      value: value
-    });
-
-    clearTimeout(this.intent);
-    this.intent = setTimeout(function() {
-      self.validate(value);
-    }, 500);
-
-    if (self.props.handleChange) {
-      self.props.handleChange.apply(this, arguments);
-    }
-
-  },
-
-  render: function() {
-    return require('../templates/inputTemplate.jsx')(this);
-  }
-});
-
-
-},{"../templates/inputTemplate.jsx":235,"react":197}],237:[function(require,module,exports){
-module.exports = require('./code/index');
-
-
-},{"./code/index":234}],238:[function(require,module,exports){
-module.exports = require('./views/LozengeComponentView.jsx');
-
-
-},{"./views/LozengeComponentView.jsx":240}],239:[function(require,module,exports){
-'use strict';
-var React = require('react');
-var classNames = require('classnames');
-var getComponentClasses = require('../../../../utils/getComponentClasses');
-
-module.exports = function() {
-
-  var propClasses = ['size', 'purpose'];
-  var classes = getComponentClasses('component-lozenge', propClasses, this.props);
-
-  return (
-    React.createElement("span", {className: classNames(classes), title: this.props.tip}, 
-      this.props.children
-    )
-  );
-};
-
-
-},{"../../../../utils/getComponentClasses":272,"classnames":3,"react":197}],240:[function(require,module,exports){
-'use strict';
-var React = require('react');
-
-module.exports = React.createClass({displayName: "exports",
-
-  propTypes: {
-    purpose: React.PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
-    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large', 'block'])
-  },
-
-  render: function() {
-    return require('../templates/LozengeComponentTemplate.jsx').call(this);
-  }
-});
-
-
-},{"../templates/LozengeComponentTemplate.jsx":239,"react":197}],241:[function(require,module,exports){
-module.exports = require('./code/index');
-
-
-},{"./code/index":238}],242:[function(require,module,exports){
-module.exports = require('./views/paymentCardView.jsx');
-
-
-},{"./views/paymentCardView.jsx":244}],243:[function(require,module,exports){
-'use strict';
-var React = require('react');
-var classNames = require('classnames');
-var getComponentClasses = require('../../../../utils/getComponentClasses');
-
-module.exports = function() {
-
-  var propClasses = ['type', 'size'];
-  var classes = getComponentClasses('component-payment-card', propClasses, this.props);
-
-  return (
-      React.createElement("div", {className: classNames(classes)})
-  );
-};
-
-
-},{"../../../../utils/getComponentClasses":272,"classnames":3,"react":197}],244:[function(require,module,exports){
-'use strict';
-var React = require('react');
-
-module.exports = React.createClass({displayName: "exports",
-  propTypes: {
-    type: React.PropTypes.oneOf(['amazon', 'amex', 'apple', 'cirrus', 'delta', 'directdebit', 'discover', 'electron', 'google', 'maestro', 'mastercard', 'paym', 'paypal', 'sage', 'sepa', 'solo', 'switch', 'ukash', 'visa', 'visadebit', 'westernunion'])
-  },
-
-  render: function() {
-    return require('../templates/paymentCardTemplate.jsx').call(this);
-  }
-});
-
-
-},{"../templates/paymentCardTemplate.jsx":243,"react":197}],245:[function(require,module,exports){
-module.exports = require('./code/index');
-
-
-},{"./code/index":242}],246:[function(require,module,exports){
-module.exports = require('./views/quoteView.jsx');
-
-
-},{"./views/quoteView.jsx":249}],247:[function(require,module,exports){
-'use strict';
-var React = require('react');
-var classNames = require('classnames');
-var getComponentClasses = require('../../../../utils/getComponentClasses');
-
-module.exports = function() {
-
-  var propClasses = ['size', 'purpose', 'type'];
-  var classes = getComponentClasses('component-quote', propClasses, this.props);
-
-  return (
-      React.createElement("blockquote", {className: classNames(classes), itemScope: true, itemType: "http://schema.org/CreativeWork"}, 
-        React.createElement("p", {itemProp: "text"}, this.props.children), 
-        React.createElement("footer", {itemProp: "author", itemScope: true, itemType: "http://schema.org/Person"}, 
-          React.createElement("span", {itemProp: "name"}, this.props.author), 
-          React.createElement("small", {itemProp: "jobTitle"}, this.props.role), 
-          (this.props.cite) ? React.createElement("cite", {itemProp: "citation"}, this.props.cite) : null
-        )
-      )
-  );
-};
-
-
-},{"../../../../utils/getComponentClasses":272,"classnames":3,"react":197}],248:[function(require,module,exports){
-'use strict';
-var React = require('react');
-var classNames = require('classnames');
-var getComponentClasses = require('../../../../utils/getComponentClasses');
-
-module.exports = function() {
-
-  var propClasses = ['size', 'purpose', 'type'];
-  var classes = getComponentClasses('component-quote', propClasses, this.props);
-
-  return (
-      React.createElement("q", {className: classNames(classes), cite: this.props.cite, itemScope: true, itemType: "http://schema.org/CreativeWork", itemProp: "text"}, 
-        this.props.children, 
-        (this.props.cite) ? React.createElement("meta", {itemProp: "citation", content: this.props.cite}) : null, 
-        React.createElement("span", {itemProp: "author", itemScope: true, itemType: "http://schema.org/Person"}, 
-          React.createElement("meta", {itemProp: "name", content: this.props.author}), 
-          React.createElement("meta", {itemProp: "jobTitle", content: this.props.role})
-        )
-      )
-  );
-};
-
-
-},{"../../../../utils/getComponentClasses":272,"classnames":3,"react":197}],249:[function(require,module,exports){
-'use strict';
-var React = require('react');
-
-module.exports = React.createClass({displayName: "exports",
-
-  propTypes: {
-    purpose: React.PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
-    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large']),
-    orientation: React.PropTypes.oneOf(['default', 'horizontal', 'vertical']),
-    type: React.PropTypes.oneOf(['block', 'inline'])
-  },
-
-  render: function() {
-    if (this.props.type === 'inline') {
-      return require('../templates/quoteTemplate.jsx').call(this);
-    }
-    return require('../templates/blockQuoteTemplate.jsx').call(this);
-  }
-});
-
-
-},{"../templates/blockQuoteTemplate.jsx":247,"../templates/quoteTemplate.jsx":248,"react":197}],250:[function(require,module,exports){
-module.exports = require('./code/index');
-
-
-},{"./code/index":246}],251:[function(require,module,exports){
-module.exports = require('./views/ratingView.jsx');
-
-
-},{"./views/ratingView.jsx":253}],252:[function(require,module,exports){
-'use strict';
-var React = require('react');
-
-module.exports = function(props) {
-
-  var $rating = [];
-  var $blankRating = [];
-
-  for (var i = 0; i < props.rating; i++) {
-    $rating.push( props.children ? props.children : React.createElement("span", {className: "rating-icon"}) );
-  }
-
-  if (props.outOf && props.blankIcon) {
-    for (var j = 0; j < ( props.outOf - props.rating ); j++) {
-      $blankRating.push( props.blankIcon );
-    }
-  }
-
-  return (
-    React.createElement("div", {className: "ui-component-rating"}, 
-      $rating, 
-      $blankRating
-    )
-  );
-};
-
-
-},{"react":197}],253:[function(require,module,exports){
-'use strict';
-var React = require('react');
-
-module.exports = React.createClass({displayName: "exports",
-  propTypes: {
-    rating: React.PropTypes.number.isRequired,
-    outOf: React.PropTypes.number,
-    blankIcon: React.PropTypes.node
-  },
-
-  render: function() {
-    return require('../templates/ratingTemplate.jsx')(this.props);
-  }
-});
-
-
-},{"../templates/ratingTemplate.jsx":252,"react":197}],254:[function(require,module,exports){
-module.exports = require('./code/index');
-
-
-},{"./code/index":251}],255:[function(require,module,exports){
-module.exports = require('./views/reviewsView.jsx');
-
-
-},{"./views/reviewsView.jsx":257}],256:[function(require,module,exports){
-'use strict';
-var React = require('react');
-
-module.exports = function(props) {
-  return (
-    React.createElement("div", {itemProp: "aggregateRating", itemScope: true, itemType: "http://schema.org/AggregateRating", className: "ui-component-reviews"}, 
-      React.createElement("meta", {itemProp: "bestRating", content: "100"}), 
-      React.createElement("div", null, React.createElement("span", {itemProp: "ratingValue"},  props.reviewPercentage), "% would book again"), 
-      React.createElement("div", null, React.createElement("span", {itemProp: "reviewCount"}, "(",  props.reviewCount), " ", React.createElement("a", {title: "Customer reviews"}, "Reviews"), ")")
-    )
-  );
-};
-
-
-},{"react":197}],257:[function(require,module,exports){
-'use strict';
-var React = require('react');
-
-module.exports = React.createClass({displayName: "exports",
-  propTypes: {
-    reviewPercentage: React.PropTypes.number.isRequired,
-    reviewCount: React.PropTypes.number.isRequired
-  },
-  render: function() {
-    return require('../templates/reviewsTemplate.jsx')(this.props);
-  }
-});
-
-
-},{"../templates/reviewsTemplate.jsx":256,"react":197}],258:[function(require,module,exports){
-module.exports = require('./code/index');
-
-
-},{"./code/index":255}],259:[function(require,module,exports){
-module.exports = require('./views/stepperView.jsx');
-
-
-},{"./views/stepperView.jsx":261}],260:[function(require,module,exports){
-'use strict';
-
-var React = require('react');
-var Button = require('../../../button');
-var Input = require('../../../input');
-
-module.exports = function() {
-
-  return (
-    React.createElement("div", {className: "component-stepper"}, 
-      React.createElement("span", {className: "button-container"}, 
-        React.createElement(Button, {handleClick: this.decrement, type: "button", disabled: !this.canDecrement()}, this.props.decrementDisplayString)
-      ), 
-
-      React.createElement(Input, {type: "text", key: this.props.value, readOnly: true}, this.props.value.toString()), 
-
-      React.createElement("span", {className: "button-container"}, 
-        React.createElement(Button, {handleClick: this.increment, type: "button", disabled: !this.canIncrement()}, this.props.incrementDisplayString)
-      )
-    )
-  );
-};
-
-
-},{"../../../button":210,"../../../input":237,"react":197}],261:[function(require,module,exports){
-'use strict';
-
-var React = require('react');
-
-module.exports = React.createClass({displayName: "exports",
-
-  propTypes: {
-    value: React.PropTypes.number,
-    onChange: React.PropTypes.func,
-    minValue: React.PropTypes.number,
-    maxValue: React.PropTypes.number,
-    incrementDisplayString: React.PropTypes.string,
-    decrementDisplayString: React.PropTypes.string
-  },
-
-  getDefaultProps: function() {
-    return {
-      value: 0,
-      incrementDisplayString: '+',
-      decrementDisplayString: '-',
-      onChange: function() {}
-    };
-  },
-
-  decrement: function() {
-    if (!this.canDecrement()) return;
-    this.props.onChange(this.props.value - 1);
-  },
-
-  increment: function() {
-    if (!this.canIncrement()) return;
-    this.props.onChange(this.props.value + 1);
-  },
-
-  canIncrement: function() {
-    if (this.props.maxValue === undefined) return true;
-    return this.props.value < this.props.maxValue;
-  },
-
-  canDecrement: function() {
-    if (this.props.minValue === undefined) return true;
-    return this.props.value > this.props.minValue;
-  },
-
-  render: function() {
-    return require('../templates/stepperTemplate.jsx').call(this);
-  }
-});
-
-
-},{"../templates/stepperTemplate.jsx":260,"react":197}],262:[function(require,module,exports){
-module.exports = require('./code/index');
-
-
-},{"./code/index":259}],263:[function(require,module,exports){
-module.exports = require('./views/tileView.jsx');
-
-
-},{"./views/tileView.jsx":265}],264:[function(require,module,exports){
-'use strict';
-var React = require('react');
-var ImageComponent = require('../../../image');
-
-module.exports = function(props) {
-  return (
-    React.createElement("div", {className: "component-tile"}, 
-      React.createElement(ImageComponent, React.__spread({},  props.image)), 
-      React.createElement("div", {className: "caption"}, 
-        React.createElement("h4", null, props.title), 
-        props.children
-      )
-    )
-  );
-};
-
-
-},{"../../../image":233,"react":197}],265:[function(require,module,exports){
-'use strict';
-var React = require('react');
-
-module.exports = React.createClass({displayName: "exports",
-  propTypes: {
-    image: React.PropTypes.object.isRequired,
-    title: React.PropTypes.string.isRequired
-  },
-
-  defaultProps: function() {
-    return {};
-  },
-
-  render: function() {
-    return require('../templates/tileTemplate.jsx')(this.props);
-  }
-});
-
-
-},{"../templates/tileTemplate.jsx":264,"react":197}],266:[function(require,module,exports){
-module.exports = require('./code/index');
-
-
-},{"./code/index":263}],267:[function(require,module,exports){
-module.exports = require('./views/weatherView.jsx');
-
-
-},{"./views/weatherView.jsx":269}],268:[function(require,module,exports){
-'use strict';
-var moment = require('moment');
-var React = require('react');
-
-module.exports = function() {
-
-  var expectedFormat = ['YYYY-MM-DD', 'YYYY-MM-DDTHH:mm'];
-  var displayFormat = this.props.format || 'ddd';
-  var date = this.props.date;
-  var unit = this.props.unit;
-  if (this.props.unit !== 'K') {
-    unit = '°' + unit;
-  }
-
-  var unitNames = {
-    'C': 'Degrees Celsuis',
-    'F': 'Degrees Farenheit',
-    'K': 'Kelvin',
-    'R': 'Degrees Rankine'
-  };
-  var unitName = unitNames[this.props.unit];
-
-  return (
-    React.createElement("div", {className: "component-weather"}, 
-      React.createElement("div", {className: this.props.type}, React.createElement("span", null, this.props.type)), 
-      (this.props.temperature) ? React.createElement("div", null, this.props.temperature, React.createElement("abbr", {title: unitName}, unit)) : null, 
-      (this.props.date) ? React.createElement("div", null, moment(date, expectedFormat, true).format(displayFormat)) : null
-    )
-  );
-};
-
-
-},{"moment":22,"react":197}],269:[function(require,module,exports){
-'use strict';
-var React = require('react');
-module.exports = React.createClass({displayName: "exports",
-
-  propTypes: {
-    type: React.PropTypes.oneOf(['cloudy', 'fog', 'hail', 'heavy-rain', 'heavy-snow', 'light-rain', 'light-snow', 'night-clear', 'night-partly-cloudy', 'partly-cloudy', 'storm', 'sunny', 'windy']).isRequired,
-    temperature: React.PropTypes.number,
-    date: React.PropTypes.string,
-    unit: React.PropTypes.oneOf(['C', 'F', 'K', 'R'])
-  },
-
-  render: function() {
-    return require('../templates/weatherTemplate.jsx').call(this);
-  }
-});
-
-
-},{"../templates/weatherTemplate.jsx":268,"react":197}],270:[function(require,module,exports){
-module.exports = require('./code/index');
-
-
-},{"./code/index":267}],271:[function(require,module,exports){
-var UIToolkit = {};
-
-// Custom Components
-UIToolkit.Alert = require('./components/alert');
-UIToolkit.Anchor = require('./components/anchor');
-UIToolkit.Button = require('./components/button');
-UIToolkit.Countdown = require('./components/countdown');
-UIToolkit.Flag = require('./components/flag');
-UIToolkit.IconList = require('./components/icon-list');
-UIToolkit.IconListItem = require('./components/icon-list-item');
-UIToolkit.Image = require('./components/image');
-UIToolkit.Input = require('./components/input');
-UIToolkit.Lozenge = require('./components/lozenge');
-UIToolkit.PaymentCard = require('./components/payment-card');
-UIToolkit.Quote = require('./components/quote');
-UIToolkit.Rating = require('./components/rating');
-UIToolkit.Reviews = require('./components/reviews');
-UIToolkit.Tile = require('./components/tile');
-UIToolkit.Weather = require('./components/weather');
-UIToolkit.Stepper = require('./components/stepper');
-
-module.exports = UIToolkit;
-
-
-},{"./components/alert":201,"./components/anchor":205,"./components/button":210,"./components/countdown":216,"./components/flag":220,"./components/icon-list":228,"./components/icon-list-item":224,"./components/image":233,"./components/input":237,"./components/lozenge":241,"./components/payment-card":245,"./components/quote":250,"./components/rating":254,"./components/reviews":258,"./components/stepper":262,"./components/tile":266,"./components/weather":270}],272:[function(require,module,exports){
+},{"./countdown.js":204,"moment":46}],206:[function(require,module,exports){
 'use strict';
 var _ = {
   values: require('lodash.values'),
@@ -28669,5 +26877,5 @@ module.exports = function(defaultClass, propClasses, props) {
 };
 
 
-},{"lodash.pick":4,"lodash.values":16}]},{},[1])(1)
+},{"lodash.pick":42,"lodash.values":44}]},{},[19])(19)
 });

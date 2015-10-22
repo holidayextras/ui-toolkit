@@ -1,6 +1,6 @@
 {
   "name": "ui-toolkit",
-  "version": "0.17.1",
+  "version": "0.18.0",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "index.js",
@@ -9,21 +9,15 @@
     "url": "https://github.com/holidayextras/ui-toolkit.git"
   },
   "scripts": {
-    "coveralls": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --require tests/bootstrap.js --compilers js:babel/register --recursive src/**/*-test.js && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-    "predocs": "cd docs && npm install && cd -",
+    "build": "scripts/build.sh",
+    "postinstall": "npm run build",
+    "coverage": "istanbul cover -x dist _mocha -- test/*-test.*",
+    "predocs": "cd docs && npm install && cd - && npm run build",
     "docs": "grunt docs",
-    "test": "./node_modules/mocha/bin/mocha --require tests/bootstrap.js --compilers js:babel/register --recursive src/**/*-test.js",
+    "pretest": "npm run build",
+    "test": "mocha --recursive test/**/*-test.js* src/**/*-test.js*",
+    "prelint": "npm run build",
     "lint": "node_modules/.bin/make-up grunt src && echo '🍻  All good!'"
-  },
-  "config": {
-    "blanket": {
-      "data-cover-only": "src/",
-      "data-cover-never": [
-        "node_modules",
-        "__tests__"
-      ],
-      "data-cover-loader": "../../../tests/blanket-stub-jsx.js"
-    }
   },
   "keywords": [
     "ui",
@@ -39,6 +33,7 @@
   },
   "homepage": "https://github.com/holidayextras/ui-toolkit",
   "dependencies": {
+    "babel": "^5.8.20",
     "browserify": "^11.1.0",
     "classnames": "^2.1.0",
     "font-awesome": "^4.3.0",
@@ -54,9 +49,7 @@
     "requirejs": "~2.1.9"
   },
   "devDependencies": {
-    "babel": "^5.8.20",
     "chai": "^2.3.0",
-    "coveralls": "^2.11.2",
     "eslint": "^0.21.0",
     "eslint-plugin-react": "^2.2.0",
     "glob": "^5.0.6",
@@ -73,6 +66,7 @@
     "mocha": "^2.2.5",
     "mocha-jsdom": "^0.3.0",
     "mocha-lcov-reporter": "0.0.2",
+    "react-tests-globals-setup": "^1.0.0",
     "sinon": "^1.14.1"
   },
   "browserify": {

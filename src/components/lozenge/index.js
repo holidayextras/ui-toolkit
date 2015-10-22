@@ -1,1 +1,1 @@
-module.exports = require('./code/index');
+module.exports = require('./lozenge.jsx');

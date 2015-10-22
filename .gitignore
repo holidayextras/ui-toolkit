@@ -30,3 +30,6 @@ npm-debug.log
 coverage/*
 docs/npm-debug.log*
 .eslintrc
+
+# Built files
+dist/components

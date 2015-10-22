@@ -1,2 +1,1 @@
-'use strict';
-module.exports = require('./code/index');
+module.exports = require('./anchor.jsx');

@@ -1,1 +1,1 @@
-module.exports = require('./code');
+module.exports = require('./button.jsx');

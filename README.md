@@ -17,7 +17,7 @@ Requirements:
 UI Toolkit Usage
 ---
 
-All the available UI Toolkit Components are to be listed in the `src/ui-toolkit.js` so they can be accessed via:
+All the available UI Toolkit Components are to be listed in the `dist/index.js` so they can be accessed via:
 
 ```jsx
 var UIToolkit = require('ui-toolkit');
@@ -38,6 +38,7 @@ If you would like to cherry pick which components to include in your project, yo
 var Button = require('ui-toolkit').Button;
 <Button />
 ```
+*please note this still includes the entire ui-toolkit*
 
 Install for development
 ---
@@ -65,20 +66,19 @@ Generate a component & follow the prompts
 cd src/components
 mkdir your-new-component
 cd your-new-component
-~~yo ui-component:external # coming back soon new and improved~~
 ```
 
-Then require this file in `src/ui-toolkit.js`
+Then require this file in `dist/index.js`
 ```javascript
-// src/ui-toolkit.js
+// dist/index.js
 UIToolkit.YourNewComponent = require('./components/your-new-component');
 ```
 
 #### Adding functionality
-Add the functionality to your component in `your-new-component/code/`. For more information on this directory structure, view [the component generator documentation](https://github.com/holidayextras/generator-ui-component)
+Add the functionality to your component in `your-new-component/your-new-component.jsx`.
 
 #### Adding styles
-The styles are currently written in [LESS](http://lesscss.org/) and live in the `src/` directory.
+The styles are currently written in [LESS](http://lesscss.org/) and live in the component directory.
 
 You will need to create a new file for your component
 ```bash
