@@ -1,7 +1,6 @@
 'use strict';
 var React = require('react');
 var classNames = require('classnames');
-var getComponentClasses = require('../../../src/utils/getComponentClasses');
 
 module.exports = React.createClass({
 
@@ -13,11 +12,8 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    var propClasses = ['size', 'purpose'];
-    var classes = getComponentClasses('component-alert', propClasses, this.props);
-
     return (
-      <div className={classNames(classes)} role="alert">
+      <div className={classNames('component-alert', this.props.size, this.props.purpose)} role="alert">
         <h4>{this.props.title}</h4>
         <p>{this.props.children}</p>
       </div>

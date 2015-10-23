@@ -1,7 +1,6 @@
 'use strict';
 var React = require('react');
 var classNames = require('classnames');
-var getComponentClasses = require('../../../src/utils/getComponentClasses');
 
 module.exports = React.createClass({
   propTypes: {
@@ -9,11 +8,9 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    var propClasses = ['type', 'size'];
-    var classes = getComponentClasses('component-payment-card', propClasses, this.props);
-
+    var classes = classNames('component-payment-card', this.props.type, this.props.size);
     return (
-        <div className={classNames(classes)}></div>
+        <div className={classes}></div>
     );
   }
 });

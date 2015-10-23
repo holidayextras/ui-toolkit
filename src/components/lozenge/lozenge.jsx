@@ -1,7 +1,6 @@
 'use strict';
 var React = require('react');
 var classNames = require('classnames');
-var getComponentClasses = require('../../../src/utils/getComponentClasses');
 
 module.exports = React.createClass({
 
@@ -14,10 +13,9 @@ module.exports = React.createClass({
 
   render: function() {
     var propClasses = ['size', 'purpose'];
-    var classes = getComponentClasses('component-lozenge', propClasses, this.props);
-
+    var classes = classNames('component-lozenge', this.props.size, this.props.purpose);
     return (
-      <span className={classNames(classes)} title={this.props.tip}>
+      <span className={classes} title={this.props.tip}>
         {this.props.children}
       </span>
     );

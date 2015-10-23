@@ -1,7 +1,6 @@
 'use strict';
 var React = require('react');
 var classNames = require('classnames');
-var getComponentClasses = require('../../../src/utils/getComponentClasses');
 
 module.exports = React.createClass({
 
@@ -18,10 +17,10 @@ module.exports = React.createClass({
 
   render: function() {
     var propClasses = ['size', 'purpose', 'type'];
-    var classes = getComponentClasses('component-quote', propClasses, this.props);
+    var classes = classNames('component-quote', this.props.size, this.props.purpose, this.props.type);
     if (this.props.type === 'inline') {
       return (
-          <q className={classNames(classes)} cite={this.props.cite} itemScope itemType="http://schema.org/CreativeWork" itemProp="text">
+          <q className={classes} cite={this.props.cite} itemScope itemType="http://schema.org/CreativeWork" itemProp="text">
             {this.props.children}
             {(this.props.cite) ? <meta itemProp="citation" content={this.props.cite} /> : null}
             <span itemProp="author" itemScope itemType="http://schema.org/Person">
@@ -32,7 +31,7 @@ module.exports = React.createClass({
       );
     }
     return (
-        <blockquote className={classNames(classes)} itemScope itemType="http://schema.org/CreativeWork">
+        <blockquote className={classes} itemScope itemType="http://schema.org/CreativeWork">
           <p itemProp="text">{this.props.children}</p>
           <footer itemProp="author" itemScope itemType="http://schema.org/Person">
             <span itemProp="name">{this.props.author}</span>
