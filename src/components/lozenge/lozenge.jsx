@@ -12,7 +12,6 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    var propClasses = ['size', 'purpose'];
     var classes = classNames('component-lozenge', this.props.size, this.props.purpose);
     return (
       <span className={classes} title={this.props.tip}>

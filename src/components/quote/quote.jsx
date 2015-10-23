@@ -16,7 +16,6 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    var propClasses = ['size', 'purpose', 'type'];
     var classes = classNames('component-quote', this.props.size, this.props.purpose, this.props.type);
     if (this.props.type === 'inline') {
       return (
