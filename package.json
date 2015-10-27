@@ -67,6 +67,7 @@
     "mocha-jsdom": "^0.3.0",
     "mocha-lcov-reporter": "0.0.2",
     "react-tests-globals-setup": "^1.0.0",
+    "reactify": "^1.1.1",
     "sinon": "^1.14.1"
   },
   "browserify": {

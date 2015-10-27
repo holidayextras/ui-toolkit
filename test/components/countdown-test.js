@@ -165,7 +165,7 @@ describe('Countdown tests', function() {
       });
 
       it('should return 10 days', function() {
-        assert.equal(duration.asDays(), -10);
+        assert.equal(Math.ceil(duration.asDays()), -10);
       });
 
     });
