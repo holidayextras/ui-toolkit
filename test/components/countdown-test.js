@@ -154,8 +154,17 @@ describe('Countdown tests', function() {
 
   describe('_durationFromNow', function() {
 
+    var clock;
     var untilDate = null;
     var duration = null;
+
+    beforeEach( function( ) {
+      clock = sinon.useFakeTimers( new Date( 2015, 1, 1 ).getTime( ));
+    } );
+
+    afterEach( function( ) {
+      return clock.restore( );
+    } );
 
     describe('when the untilDate is before today', function() {
 
@@ -184,14 +193,9 @@ describe('Countdown tests', function() {
     });
 
     describe('when the untilDate is after today', function() {
-      var clock;
       beforeEach(function() {
-        clock = sinon.useFakeTimers(new Date(2015, 1, 1).getTime());
         untilDate = moment().add('10', 'days');
         duration = countdown._durationFromNow(untilDate);
-      });
-      afterEach(function() {
-        return clock.restore();
       });
 
       it('should return -10 days', function() {
