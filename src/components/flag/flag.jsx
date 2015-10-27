@@ -1,7 +1,6 @@
 'use strict';
 var React = require('react');
 var classNames = require('classnames');
-var getComponentClasses = require('../../../src/utils/getComponentClasses');
 
 module.exports = React.createClass({
 
@@ -28,11 +27,9 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    var propClasses = ['size', 'purpose', 'position'];
-    var classes = getComponentClasses('component-flag', propClasses, this.props);
-
+    var classes = classNames('component-flag', this.props.size, this.props.purpose, this.props.position);
     return (
-      <span className={classNames(classes)}>
+      <span className={classes}>
         {this.props.children}
       </span>
     );
