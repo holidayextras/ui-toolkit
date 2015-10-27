@@ -32,16 +32,19 @@
     "url": "https://github.com/holidayextras/ui-toolkit/issues"
   },
   "homepage": "https://github.com/holidayextras/ui-toolkit",
+  "engines": {
+    "node": "~10.4",
+    "npm": "~2.14.8"
+  },
   "dependencies": {
     "babel": "^5.8.20",
+    "babelify": "^6.4.0",
     "browserify": "^11.1.0",
     "classnames": "^2.1.0",
     "font-awesome": "^4.3.0",
     "grunt": "^0.4.5",
     "grunt-shell": "^1.1.1",
     "gruntfile-gtx": "^0.3.0",
-    "lodash.pick": "~3.1.0",
-    "lodash.values": "~3.0.0",
     "moment": "~2.10.6",
     "react": "^0.13.3",
     "react-data-attributes-mixin": "git://github.com/holidayextras/react-data-attributes-mixin",
@@ -71,7 +74,7 @@
   },
   "browserify": {
     "transform": [
-      "reactify"
+      "babelify"
     ]
   }
 }

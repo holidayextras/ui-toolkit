@@ -2,7 +2,6 @@
 var React = require('react');
 var CountdownManager = require('../../../src/components/countdown/lib/countdownManager');
 var classNames = require('classnames');
-var getComponentClasses = require('../../../src/utils/getComponentClasses');
 
 module.exports = React.createClass({
 
@@ -51,11 +50,9 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    var propClasses = ['size', 'purpose'];
-    var classes = getComponentClasses('component-countdown', propClasses, this.props);
-
+    var classes = classNames('component-countdown', this.props.size, this.props.purpose);
     return (
-      <div className={classNames(classes)} role="timer">
+      <div className={classes} role="timer">
         <div>{this.state.time.days} <small>Days</small></div>
         <div>{this.state.time.hours} <small>Hours</small></div>
         <div>{this.state.time.minutes} <small>Minutes</small></div>
