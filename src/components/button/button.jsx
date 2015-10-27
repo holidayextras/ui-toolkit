@@ -2,7 +2,6 @@
 var React = require('react');
 var DataAttributesMixin = require('react-data-attributes-mixin');
 var classNames = require('classnames');
-var getComponentClasses = require('../../../src/utils/getComponentClasses');
 module.exports = React.createClass({
 
   mixins: [DataAttributesMixin],
@@ -20,18 +19,17 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    var propClasses = ['size', 'purpose'];
-    var classes = getComponentClasses('component-button', propClasses, this.props);
+    var classes = classNames('component-button', this.props.size, this.props.purpose);
     var dataAttributes = this.getDataAttributesFromProps();
     if (this.props.href) {
       return (
-        <a className={classNames(classes)} href={this.props.href} target={this.props.target} onClick={this.props.handleClick} {...dataAttributes}>
+        <a className={classes} href={this.props.href} target={this.props.target} onClick={this.props.handleClick} {...dataAttributes}>
           {this.props.children}
         </a>
       );
     }
     return (
-      <button className={classNames(classes)} disabled={this.props.disabled} type={this.props.type} onClick={this.props.handleClick} {...dataAttributes}>
+      <button className={classes} disabled={this.props.disabled} type={this.props.type} onClick={this.props.handleClick} {...dataAttributes}>
         {this.props.children}
       </button>
     );

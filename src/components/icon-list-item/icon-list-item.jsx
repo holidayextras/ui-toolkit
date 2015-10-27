@@ -1,20 +1,21 @@
 'use strict';
 var React = require('react');
 var classNames = require('classnames');
-var getComponentClasses = require('../../../src/utils/getComponentClasses');
 
 module.exports = React.createClass({
 
   propTypes: {
     children: React.PropTypes.any,
+    size: React.PropTypes.string,
+    purpose: React.PropTypes.string,
+    type: React.PropTypes.string,
     icon: React.PropTypes.string.isRequired
   },
 
   render: function() {
-    var propClasses = ['size', 'purpose', 'type'];
-    var classes = getComponentClasses('component-icon-list-item', propClasses, this.props);
+    var classes = classNames('component-icon-list-item', this.props.size, this.props.purpose, this.props.type);
     return (
-      <li className={classNames(classes)}>
+      <li className={classes}>
         <i className={'fa fa-fw fa-' + this.props.icon} />{this.props.children}
       </li>
     );
