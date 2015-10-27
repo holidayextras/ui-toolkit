@@ -21,6 +21,7 @@ var Nav = React.createClass({
               <li><a href="#button">Buttons</a></li>
               <li><a href="#flags">Flags</a></li>
               <li><a href="#image">Image</a></li>
+              <li><a href="#icons">Icons</a></li>
               <li><a href="#input">Input</a></li>
               <li><a href="#lists">Lists</a></li>
               <li><a href="#lozenge">Lozenge</a></li>
@@ -30,6 +31,7 @@ var Nav = React.createClass({
             <ul>
               <li><a href="#alert">Alert</a></li>
               <li><a href="#countdown">Countdown</a></li>
+              <li><a href="#icon-list">Icon List</a></li>
               <li><a href="#payment-card">Payment Card</a></li>
               <li><a href="#rating">Rating</a></li>
               <li><a href="#tile">Tile</a></li>

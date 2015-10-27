@@ -9,9 +9,9 @@ module.exports = React.createClass({
 
   render: function() {
     return (
-      <ul className="component-icon-list">
+      <dd className="component-list-description">
         {this.props.children}
-      </ul>
+      </dd>
     );
   }
 });
