@@ -1,3 +1,4 @@
+'use strict';
 module.exports = {
   docs: {
     files: ['docs/src/**/*.js*', 'src/**/*.js*', 'docs/examples/**/*.js*'],
