@@ -185,7 +185,7 @@ The following will:
 4. Generated Documentation will be merged into `gh-pages`
 
 ```bash
-grunt release-major
+grunt release-major --changelogtxt="Some changes happened"
 ```
 
 #### Create a Minor Release:
@@ -198,7 +198,7 @@ The following will:
 4. Generated Documentation will be merged into `gh-pages`
 
 ```bash
-grunt release-minor
+grunt release-minor --changelogtxt="Some changes happened"
 ```
 
 #### Create a Release Patch:
@@ -211,5 +211,5 @@ The following will:
 4. Generated Documentation will be merged into `gh-pages`
 
 ```bash
-grunt release-patch
+grunt release-patch --changelogtxt="Some changes happened"
 ```
