@@ -156,6 +156,14 @@ describe('Countdown tests', function() {
 
     var untilDate = null;
     var duration = null;
+    var clock;
+
+    beforeEach(function() {
+      clock = sinon.useFakeTimers(new Date(2015, 1, 1).getTime());
+    });
+    afterEach(function() {
+      clock.restore();
+    });
 
     describe('when the untilDate is before today', function() {
 
@@ -165,7 +173,7 @@ describe('Countdown tests', function() {
       });
 
       it('should return 10 days', function() {
-        assert.equal(Math.ceil(duration.asDays()), -10);
+        assert.equal(duration.asDays(), -10);
       });
 
     });
