@@ -4,6 +4,8 @@
 
 
 .component-basket-item {
+  display: table;
+  table-layout: fixed;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -13,8 +15,10 @@
 
   .component-basket-item-description {
     flex: 1;
+    display: table-cell;
   }
   .component-basket-item-price {
     flex: 0 1 auto;
+    display: table-cell;
   }
 }

@@ -1,5 +1,3 @@
-### 0.19.0 - 2015-10-27
-- Added basket item component
 
 ### 0.18.0 - 2015-10-16
 - restructure code and tests

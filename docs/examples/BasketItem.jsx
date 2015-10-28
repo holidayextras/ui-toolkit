@@ -1,5 +1,5 @@
 var example = (
-  <div className="panel">
+  <div>
     <UIToolkit.BasketItem price={100}>
       <a href="#">First product</a> is a fantastic product that is really really cool.
     </UIToolkit.BasketItem>
