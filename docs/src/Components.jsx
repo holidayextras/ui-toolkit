@@ -194,6 +194,17 @@ var Components = React.createClass({
             </ul>
           </article>
 
+          <article id="basket-item">
+            <h3>Basket Item</h3>
+            <p>You can use the basket item as a way of representing anything with a price next to it. This means you could have a simple description (line of text) or even more complex markup passed in as the child.</p>
+            <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/BasketItem.jsx', 'utf8')} />
+            <h4>Attributes</h4>
+            <ul>
+              <li><code>currency</code> [optional] String - A currency symbol to display beside the price.</li>
+              <li><code>price</code> [optional] Number - The price to display along side the basket item.</li>
+            </ul>
+          </article>
+
           <article id="countdown">
             <h3>Countdown</h3>
             <p>Countdowns allow you to find the time difference between the current date and a date in the future. To do this you pass in a <code>until</code> value of any date format.</p>

@@ -30,6 +30,7 @@ var Nav = React.createClass({
             <a href="#molecules">Molecules</a>
             <ul>
               <li><a href="#alert">Alert</a></li>
+              <li><a href="#basket-item">Basket Item</a></li>
               <li><a href="#countdown">Countdown</a></li>
               <li><a href="#icon-list">Icon List</a></li>
               <li><a href="#payment-card">Payment Card</a></li>
