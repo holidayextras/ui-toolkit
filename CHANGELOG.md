@@ -1,3 +1,5 @@
+### 0.19.1 - 2015-10-29
+ - Release borked dues to ulimit
 ### 0.19.0 - 2015-10-29
  - Added basket item component
 
