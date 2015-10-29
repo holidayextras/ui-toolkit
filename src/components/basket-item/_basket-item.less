@@ -1,0 +1,24 @@
+/*------------------------------------*\
+    #Basket Item
+\*------------------------------------*/
+
+
+.component-basket-item {
+  display: table;
+  table-layout: fixed;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: stretch;
+
+  .component-basket-item-description {
+    flex: 1;
+    display: table-cell;
+  }
+  .component-basket-item-price {
+    flex: 0 1 auto;
+    display: table-cell;
+  }
+}
