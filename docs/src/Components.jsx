@@ -142,7 +142,7 @@ var Components = React.createClass({
             <h4>Child Components</h4>
             <ul>
               <li><code>listItem</code> Component - A item of a list. Must be used with an <a href="#ordered-list" alt="ordered-list">ordered-list</a> or <a href="#unordered-list" alt="unordered-list">ordered-list</a></li>
-              <li><code>listTerm</code> Component - A list term of a description list. Must be used as a child of a <a href="#definition-list" alt="definition-list">definition-list</a></li>
+              <li><code>listTerm</code> Component - A list term of a description list. Must be used as a child of a <a href="#description-list" alt="definition-list">definition-list</a></li>
               <li><code>listDescription</code> Component - A desciption of the term of a description list. Must be used as a child of a <a href="#definition-list" alt="definition-list">definition-list</a></li>
             </ul>
           </article>
