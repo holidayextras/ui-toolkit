@@ -172,7 +172,7 @@ The following command will compile Less Styles into a CSS and Concat JS files fo
 This is the most common command you will want to use and is required to view any changed you made in a browser or simulator.
 
 ```bash
-grunt build
+npm run build
 ```
 
 #### Create a Major Release:
