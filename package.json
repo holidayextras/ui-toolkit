@@ -1,6 +1,6 @@
 {
   "name": "ui-toolkit",
-  "version": "0.18.0",
+  "version": "0.19.1",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "index.js",
@@ -70,6 +70,7 @@
     "mocha-jsdom": "^0.3.0",
     "mocha-lcov-reporter": "0.0.2",
     "react-tests-globals-setup": "^1.0.0",
+    "reactify": "^1.1.1",
     "sinon": "^1.14.1"
   },
   "browserify": {
