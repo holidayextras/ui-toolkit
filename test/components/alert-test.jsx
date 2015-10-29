@@ -24,7 +24,7 @@ describe('AlertComponent', function() {
     assert.equal(h4.length, 1);
   });
 
-  it('should render and alert with a H4 if title is passed in', function() {
+  it('should render an alert with a H4 if title is passed in', function() {
     var successAlert = TestUtils.renderIntoDocument(
       <AlertComponent purpose="success">You have been successful</AlertComponent>
     );
