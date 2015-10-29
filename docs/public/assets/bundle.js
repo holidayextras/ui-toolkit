@@ -20744,11 +20744,11 @@ var Components = React.createClass({displayName: "Components",
             React.createElement("p", null, "An unordered list is a list in which the sequence of items is not important."), 
             React.createElement(CustomComponent, {codeText: "var example = (\n  <UIToolkit.List type=\"unordered\">\n    <UIToolkit.ListItem>Hello 1</UIToolkit.ListItem>\n    <UIToolkit.ListItem>Hello 2</UIToolkit.ListItem>\n  </UIToolkit.List>\n);\n\nReact.render(example, mountNode);\n"}), 
 
-            React.createElement("h4", {id: "unordered-list"}, "Ordered list"), 
+            React.createElement("h4", {id: "ordered-list"}, "Ordered list"), 
             React.createElement("p", null, "An ordered list is a list in which the sequence of items is important."), 
             React.createElement(CustomComponent, {codeText: "var example = (\n  <UIToolkit.List type=\"ordered\">\n    <UIToolkit.ListItem>Hello 1</UIToolkit.ListItem>\n    <UIToolkit.ListItem>Hello 2</UIToolkit.ListItem>\n  </UIToolkit.List>\n);\n\nReact.render(example, mountNode);\n"}), 
 
-            React.createElement("h4", {id: "definition-list"}, "Definition list"), 
+            React.createElement("h4", {id: "description-list"}, "Description list"), 
             React.createElement("p", null, "A number of connected items or names written or printed consecutively, typically one below the other."), 
             React.createElement(CustomComponent, {codeText: "var example = (\n  <UIToolkit.List type=\"description\">\n    <UIToolkit.ListTerm>A set of styled components built with React</UIToolkit.ListTerm>\n    <UIToolkit.ListDescription>UI Toolkit</UIToolkit.ListDescription>\n  </UIToolkit.List>\n);\n\nReact.render(example, mountNode);\n"}), 
 
@@ -21222,7 +21222,14 @@ var Nav = React.createClass({displayName: "Nav",
               React.createElement("li", null, React.createElement("a", {href: "#image"}, "Image")), 
               React.createElement("li", null, React.createElement("a", {href: "#icons"}, "Icons")), 
               React.createElement("li", null, React.createElement("a", {href: "#input"}, "Input")), 
-              React.createElement("li", null, React.createElement("a", {href: "#lists"}, "Lists")), 
+              React.createElement("li", null, 
+                React.createElement("a", {href: "#lists"}, "Lists"), 
+                React.createElement("ul", null, 
+                  React.createElement("li", null, React.createElement("a", {href: "#unordered-list"}, "Unordered List")), 
+                  React.createElement("li", null, React.createElement("a", {href: "#ordered-list"}, "Ordered List")), 
+                  React.createElement("li", null, React.createElement("a", {href: "#description-list"}, "Description List"))
+                )
+              ), 
               React.createElement("li", null, React.createElement("a", {href: "#lozenge"}, "Lozenge")), 
               React.createElement("li", null, React.createElement("a", {href: "#quote"}, "Quote"))
             ), 

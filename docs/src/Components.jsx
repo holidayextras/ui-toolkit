@@ -126,11 +126,11 @@ var Components = React.createClass({
             <p>An unordered list is a list in which the sequence of items is not important.</p>
             <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/UnorderedList.jsx', 'utf8')} />
 
-            <h4 id="unordered-list">Ordered list</h4>
+            <h4 id="ordered-list">Ordered list</h4>
             <p>An ordered list is a list in which the sequence of items is important.</p>
             <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/OrderedList.jsx', 'utf8')} />
 
-            <h4 id="definition-list">Definition list</h4>
+            <h4 id="description-list">Description list</h4>
             <p>A number of connected items or names written or printed consecutively, typically one below the other.</p>
             <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/DescriptionList.jsx', 'utf8')} />
 

@@ -23,7 +23,14 @@ var Nav = React.createClass({
               <li><a href="#image">Image</a></li>
               <li><a href="#icons">Icons</a></li>
               <li><a href="#input">Input</a></li>
-              <li><a href="#lists">Lists</a></li>
+              <li>
+                <a href="#lists">Lists</a>
+                <ul>
+                  <li><a href="#unordered-list">Unordered List</a></li>
+                  <li><a href="#ordered-list">Ordered List</a></li>
+                  <li><a href="#description-list">Description List</a></li>
+                </ul>
+              </li>
               <li><a href="#lozenge">Lozenge</a></li>
               <li><a href="#quote">Quote</a></li>
             </ul>
