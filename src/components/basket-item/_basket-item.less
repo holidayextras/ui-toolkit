@@ -3,7 +3,7 @@
 \*------------------------------------*/
 
 
-.component-basket-item {
+.component-basket-row {
   display: table;
   table-layout: fixed;
   display: flex;
@@ -13,12 +13,19 @@
   align-items: flex-start;
   align-content: stretch;
 
-  .component-basket-item-description {
+  .component-basket-item-price, .component-basket-item-title {
+    font-weight: bold;
+    a {
+      font-weight: normal;
+    }
+  }
+  .component-basket-item-title, .component-basket-item-description {
     flex: 1;
     display: table-cell;
   }
-  .component-basket-item-price {
+  .component-basket-item-price, .component-basket-item-remove {
     flex: 0 1 auto;
     display: table-cell;
   }
+
 }
