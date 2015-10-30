@@ -11,7 +11,7 @@
   "scripts": {
     "build": "scripts/build.sh",
     "postinstall": "npm run build",
-    "coverage": "istanbul cover -x dist _mocha -- test/*-test.*",
+    "coverage": "istanbul cover -x dist _mocha -- test/**/*-test.*",
     "predocs": "cd docs && npm install && cd - && npm run build",
     "docs": "grunt docs",
     "pretest": "npm run build",
