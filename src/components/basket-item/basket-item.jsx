@@ -22,21 +22,20 @@ module.exports = React.createClass({
       currencySymbol: '£',
       freeText: 'FREE',
       removeText: 'remove',
-      toggleDescription: false,
-
+      toggleDescription: false
     };
   },
   toggleDescriptionVisibility: function() {
-    this.setState({descriptionVisibility: !this.state.descriptionVisibility});
+    this.setState({ descriptionVisibility: !this.state.descriptionVisibility });
   },
   titleNode: function() {
-    if (!this.props.title) return;
+    if (!this.props.title) return null;
     if (React.isValidElement(this.props.title)) return this.props.title;
     if (this.props.toggleDescription) return (<a onClick={this.toggleDescriptionVisibility}>{this.props.title}</a>);
     return this.props.title;
   },
   priceNode: function() {
-    if (this.props.price === null) return;
+    if (this.props.price === null) return null;
     if (this.props.price === 0) {
       return (<div className="component-basket-item-price">{this.props.freeText}</div>);
     }
@@ -47,7 +46,7 @@ module.exports = React.createClass({
     );
   },
   removeNode: function() {
-    if (!this.props.handleRemove) return;
+    if (!this.props.handleRemove) return null;
     return (
       <div className="component-basket-item-remove">
         <a onClick={this.props.handleRemove}>{this.props.removeText}</a>
@@ -56,7 +55,7 @@ module.exports = React.createClass({
   },
   render: function() {
     var descriptionStyle = {
-      "display": this.state.descriptionVisibility ? "block" : "none"
+      'display': this.state.descriptionVisibility ? 'block' : 'none'
     };
     return (
       <div className="component-basket-item">
