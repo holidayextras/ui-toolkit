@@ -19,6 +19,9 @@ module.exports = React.createClass({
   },
   getDefaultProps: function() {
     return {
+      title: null,
+      price: null,
+      handleRemove: null,
       currencySymbol: '£',
       freeText: 'FREE',
       removeText: 'remove',
@@ -29,7 +32,7 @@ module.exports = React.createClass({
     this.setState({ descriptionVisibility: !this.state.descriptionVisibility });
   },
   titleNode: function() {
-    if (!this.props.title) return null;
+    if (this.props.title === null) return null;
     if (React.isValidElement(this.props.title)) return this.props.title;
     if (this.props.toggleDescription) return (<a onClick={this.toggleDescriptionVisibility}>{this.props.title}</a>);
     return this.props.title;
@@ -37,20 +40,16 @@ module.exports = React.createClass({
   priceNode: function() {
     if (this.props.price === null) return null;
     if (this.props.price === 0) {
-      return (<div className="component-basket-item-price">{this.props.freeText}</div>);
+      return this.props.freeText;
     }
     return (
-      <div className="component-basket-item-price">
-        <span className="component-currency">{this.props.currencySymbol}</span><span className="component-price">{this.props.price}</span>
-      </div>
+      <span><span className="component-basket-item-currency">{this.props.currencySymbol}</span><span className="component-basket-item-price">{this.props.price}</span></span>
     );
   },
   removeNode: function() {
-    if (!this.props.handleRemove) return null;
+    if (this.props.handleRemove === null) return null;
     return (
-      <div className="component-basket-item-remove">
-        <a onClick={this.props.handleRemove}>{this.props.removeText}</a>
-      </div>
+      <a onClick={this.props.handleRemove}>{this.props.removeText}</a>
     );
   },
   render: function() {
@@ -61,11 +60,11 @@ module.exports = React.createClass({
       <div className="component-basket-item">
         <div className="component-basket-row">
           <div className="component-basket-item-title">{this.titleNode()}</div>
-          {this.priceNode()}
+          <div className="component-basket-item-total">{this.priceNode()}</div>
         </div>
         <div className="component-basket-row">
           <div className="component-basket-item-description" style={descriptionStyle}>{this.props.children}</div>
-          {this.removeNode()}
+          <div className="component-basket-item-remove">{this.removeNode()}</div>
         </div>
       </div>
     );

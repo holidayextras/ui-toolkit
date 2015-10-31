@@ -88,38 +88,40 @@ module.exports = React.createClass({
   },
   getDefaultProps: function getDefaultProps() {
     return {
+      title: null,
+      price: null,
+      handleRemove: null,
       currencySymbol: '£',
       freeText: 'FREE',
       removeText: 'remove',
       toggleDescription: false
-
     };
   },
   toggleDescriptionVisibility: function toggleDescriptionVisibility() {
     this.setState({ descriptionVisibility: !this.state.descriptionVisibility });
   },
   titleNode: function titleNode() {
-    if (!this.props.title) return;
+    if (this.props.title === null) return null;
     if (React.isValidElement(this.props.title)) return this.props.title;
     if (this.props.toggleDescription) return React.createElement('a', { onClick: this.toggleDescriptionVisibility }, this.props.title);
     return this.props.title;
   },
   priceNode: function priceNode() {
-    if (this.props.price === null) return;
+    if (this.props.price === null) return null;
     if (this.props.price === 0) {
-      return React.createElement('div', { className: 'component-basket-item-price' }, this.props.freeText);
+      return this.props.freeText;
     }
-    return React.createElement('div', { className: 'component-basket-item-price' }, React.createElement('span', { className: 'component-currency' }, this.props.currencySymbol), React.createElement('span', { className: 'component-price' }, this.props.price));
+    return React.createElement('span', null, React.createElement('span', { className: 'component-basket-item-currency' }, this.props.currencySymbol), React.createElement('span', { className: 'component-basket-item-price' }, this.props.price));
   },
   removeNode: function removeNode() {
-    if (!this.props.handleRemove) return;
-    return React.createElement('div', { className: 'component-basket-item-remove' }, React.createElement('a', { onClick: this.props.handleRemove }, this.props.removeText));
+    if (this.props.handleRemove === null) return null;
+    return React.createElement('a', { onClick: this.props.handleRemove }, this.props.removeText);
   },
   render: function render() {
     var descriptionStyle = {
-      "display": this.state.descriptionVisibility ? "block" : "none"
+      'display': this.state.descriptionVisibility ? 'block' : 'none'
     };
-    return React.createElement('div', { className: 'component-basket-item' }, React.createElement('div', { className: 'component-basket-row' }, React.createElement('div', { className: 'component-basket-item-title' }, this.titleNode()), this.priceNode()), React.createElement('div', { className: 'component-basket-row' }, React.createElement('div', { className: 'component-basket-item-description', style: descriptionStyle }, this.props.children), this.removeNode()));
+    return React.createElement('div', { className: 'component-basket-item' }, React.createElement('div', { className: 'component-basket-row' }, React.createElement('div', { className: 'component-basket-item-title' }, this.titleNode()), React.createElement('div', { className: 'component-basket-item-total' }, this.priceNode())), React.createElement('div', { className: 'component-basket-row' }, React.createElement('div', { className: 'component-basket-item-description', style: descriptionStyle }, this.props.children), React.createElement('div', { className: 'component-basket-item-remove' }, this.removeNode())));
   }
 });
 
@@ -1069,7 +1071,7 @@ var Components = React.createClass({displayName: "Components",
           React.createElement("article", {id: "basket-item"}, 
             React.createElement("h3", null, "Basket Item"), 
             React.createElement("p", null, "You can use the Basket Item as a way of representing anything with a price next to it. This means you could have a simple description (line of text) or even more complex markup passed in as the child."), 
-            React.createElement(CustomComponent, {codeText: "var removeAThing = function(thisProduct) {\n  alert( 'your implementation will deal with removing: ' + thisProduct );\n};\n\nvar pretendLightBox = function(thisProduct) {\n  alert( 'your implementation will deal making a thing for when you click on: ' + thisProduct );\n};\n\nvar example = (\n  <div>\n    <UIToolkit.IconList>\n\n      <UIToolkit.IconListItem icon=\"check\">\n        <UIToolkit.BasketItem title=\"First product\" price={100}>\n          This is a fantastic product that is really really cool.\n        </UIToolkit.BasketItem>\n      </UIToolkit.IconListItem>\n\n      <UIToolkit.IconListItem icon=\"check\">\n        <UIToolkit.BasketItem title=\"Second product (click me)\" toggleDescription={true} price={100}>\n          This one has a hidden description.\n        </UIToolkit.BasketItem>\n      </UIToolkit.IconListItem>\n\n      <UIToolkit.IconListItem icon=\"check\">\n        <UIToolkit.BasketItem title=\"Third product\" handleRemove={removeAThing.bind(null,'3rd product')} price={100}>\n          Can be removed\n        </UIToolkit.BasketItem>\n      </UIToolkit.IconListItem>\n\n      <UIToolkit.IconListItem icon=\"check\">\n        <UIToolkit.BasketItem title={<a onClick={pretendLightBox.bind(null, '4th product')}>Fourth Product</a>} handleRemove={removeAThing.bind(null,'4th product')} price={100}>\n          Has a special title (could open a lightbox or something?)\n        </UIToolkit.BasketItem>\n      </UIToolkit.IconListItem>\n\n      <UIToolkit.IconListItem icon=\"check\">\n        <UIToolkit.BasketItem title={<a onClick={pretendLightBox.bind(null, '5th product')}>Fifth Product (no description)</a>} price={100} />\n      </UIToolkit.IconListItem>\n\n      <UIToolkit.IconListItem icon=\"check\">\n        <UIToolkit.BasketItem title=\"Sixth product\" price={0}>\n          This is the best one of all because it is FREE!\n        </UIToolkit.BasketItem>\n      </UIToolkit.IconListItem>\n\n    </UIToolkit.IconList>\n    <hr />\n    <UIToolkit.BasketItem title=\"Total (also a BasketItem)\" price={400} />\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
+            React.createElement(CustomComponent, {codeText: "var removeAThing = function(thisProduct) {\n  alert( 'your implementation will deal with removing: ' + thisProduct );\n};\n\nvar pretendLightBox = function(thisProduct) {\n  alert( 'your implementation will deal making a thing for when you click on: ' + thisProduct );\n};\n\nvar example = (\n  <div>\n    <UIToolkit.IconList>\n\n      <UIToolkit.IconListItem icon=\"check\">\n        <UIToolkit.BasketItem title=\"First product\">\n          This is a fantastic product that is really really cool with no price.\n        </UIToolkit.BasketItem>\n      </UIToolkit.IconListItem>\n\n      <UIToolkit.IconListItem icon=\"check\">\n        <UIToolkit.BasketItem title=\"Second product (click me)\" toggleDescription={true} price={100}>\n          This one has a hidden description.\n        </UIToolkit.BasketItem>\n      </UIToolkit.IconListItem>\n\n      <UIToolkit.IconListItem icon=\"check\">\n        <UIToolkit.BasketItem title=\"Third product\" handleRemove={removeAThing.bind(null,'3rd product')} price={100}>\n          Can be removed\n        </UIToolkit.BasketItem>\n      </UIToolkit.IconListItem>\n\n      <UIToolkit.IconListItem icon=\"check\">\n        <UIToolkit.BasketItem title={<a onClick={pretendLightBox.bind(null, '4th product')}>Fourth Product</a>} handleRemove={removeAThing.bind(null,'4th product')} price={100}>\n          Has a special title (could open a lightbox or something?)\n        </UIToolkit.BasketItem>\n      </UIToolkit.IconListItem>\n\n      <UIToolkit.IconListItem icon=\"check\">\n        <UIToolkit.BasketItem title={<a onClick={pretendLightBox.bind(null, '5th product')}>Fifth Product (no description)</a>} price={100} />\n      </UIToolkit.IconListItem>\n\n      <UIToolkit.IconListItem icon=\"check\">\n        <UIToolkit.BasketItem title=\"Sixth product\" price={0}>\n          This is the best one of all because it is FREE!\n        </UIToolkit.BasketItem>\n      </UIToolkit.IconListItem>\n\n    </UIToolkit.IconList>\n    <hr />\n    <UIToolkit.BasketItem title=\"Total (also a BasketItem)\" price={400} />\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
             React.createElement("h4", null, "Attributes"), 
             React.createElement("ul", null, 
               React.createElement("li", null, React.createElement("code", null, "currencySymbol"), " [optional] String - A currency symbol to display beside the price."), 
@@ -26750,7 +26752,7 @@ module.exports={
   "scripts": {
     "build": "scripts/build.sh",
     "postinstall": "npm run build",
-    "coverage": "istanbul cover -x dist _mocha -- test/*-test.*",
+    "coverage": "istanbul cover -x dist _mocha -- test/**/*-test.*",
     "predocs": "cd docs && npm install && cd - && npm run build",
     "docs": "grunt docs",
     "pretest": "npm run build",

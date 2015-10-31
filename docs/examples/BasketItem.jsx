@@ -11,8 +11,8 @@ var example = (
     <UIToolkit.IconList>
 
       <UIToolkit.IconListItem icon="check">
-        <UIToolkit.BasketItem title="First product" price={100}>
-          This is a fantastic product that is really really cool.
+        <UIToolkit.BasketItem title="First product">
+          This is a fantastic product that is really really cool with no price.
         </UIToolkit.BasketItem>
       </UIToolkit.IconListItem>
 
