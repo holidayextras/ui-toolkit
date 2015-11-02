@@ -2,7 +2,6 @@
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 var assert = require('chai').assert;
-var sinon = require('sinon');
 var BasketItem = require('../../src/components/basket-item/basket-item.jsx');
 
 describe('BasketItem', function() {
