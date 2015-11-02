@@ -1075,10 +1075,12 @@ var Components = React.createClass({displayName: "Components",
             React.createElement("h4", null, "Attributes"), 
             React.createElement("ul", null, 
               React.createElement("li", null, React.createElement("code", null, "currencySymbol"), " [optional] String - A currency symbol to display beside the price."), 
+              React.createElement("li", null, React.createElement("code", null, "freeText"), " [optional] String - The text to display instead when zero price is passed."), 
               React.createElement("li", null, React.createElement("code", null, "price"), " [optional] Number - The price to display along side the basket item."), 
               React.createElement("li", null, React.createElement("code", null, "title"), " [optional] Node / String - If passed a Node, will simply use that as the title (including any events bound to that node) otherwise, if we have ", React.createElement("em", null, "toggleDescription"), " set, will wrap the text in an anchor to trigger that, otherwise it is wrappered in a ", React.createElement("em", null, "strong"), " html tag."), 
               React.createElement("li", null, React.createElement("code", null, "toggleDescription"), " [optional] Boolean - Whether we want to toggle the display of the ", React.createElement("em", null, "child"), " or not."), 
               React.createElement("li", null, React.createElement("code", null, "handleRemove"), " [optional] Function - This will display a link with the text ", React.createElement("em", null, "remove"), " below the price & this function is responsible for dealing with that removal."), 
+              React.createElement("li", null, React.createElement("code", null, "removeText"), " [optional] String - the text in the removal link when ", React.createElement("em", null, "handleRemove"), " is passed."), 
               React.createElement("li", null, React.createElement("code", null, "children"), " [optional] Node - Anything you want displaying below the title, this is possible to toggle with the addition of the ", React.createElement("em", null, "toggleDescription"), " property.")
             )
           ), 
