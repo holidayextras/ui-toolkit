@@ -33,8 +33,8 @@ module.exports = React.createClass({
   },
   titleNode: function() {
     if (this.props.title === null) return null;
-    if (React.isValidElement(this.props.title)) return this.props.title;
     if (this.props.toggleDescription) return (<a onClick={this.toggleDescriptionVisibility}>{this.props.title}</a>);
+    if (React.isValidElement(this.props.title)) return this.props.title;
     return this.props.title;
   },
   priceNode: function() {
@@ -53,13 +53,14 @@ module.exports = React.createClass({
     );
   },
   render: function() {
+    var titleNode = this.titleNode();
     var descriptionStyle = {
-      'display': this.state.descriptionVisibility ? 'block' : 'none'
+      'display': (this.state.descriptionVisibility || titleNode === null) ? 'block' : 'none'
     };
     return (
       <div className="component-basket-item">
         <div className="component-basket-row">
-          <div className="component-basket-item-title">{this.titleNode()}</div>
+          <div className="component-basket-item-title">{titleNode}</div>
           <div className="component-basket-item-total">{this.priceNode()}</div>
         </div>
         <div className="component-basket-row">

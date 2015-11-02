@@ -91,8 +91,6 @@ describe('BasketItem', function() {
     });
   });
 
-  
-
   describe('with a handleRemove property', function() {
     var handleRemove, anchor;
     before(function() {
@@ -129,6 +127,37 @@ describe('BasketItem', function() {
       var basketItem = TestUtils.renderIntoDocument(<BasketItem>Foobar</BasketItem>);
       var renderedBasketItem = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-description');
       assert.equal(renderedBasketItem.getDOMNode().textContent, 'Foobar');
+    });
+  });
+
+  describe('with a toggleDescription property', function() {
+    var handleRemove, description, titleLink;
+    before(function() {
+      var basketItem = TestUtils.renderIntoDocument(<BasketItem toggleDescription={true} title='Product 1' />);
+      var titleContainer = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-title');
+      titleLink = TestUtils.findRenderedDOMComponentWithTag(titleContainer, 'a');
+      description = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-description');
+    });
+
+    describe('when we have not clicked the title', function () {
+      it('should have the description set to hidden', function () {
+        assert.equal(description.props.style.display, 'none');
+      });
+    });
+
+    describe('when the title is clicked', function () {
+      it('should have the description set to block', function () {
+        TestUtils.Simulate.click(titleLink);
+        assert.equal(description.props.style.display, 'block');
+      });
+    });
+
+    describe('when a title node is not passed', function() {
+      it('should have the description set to block', function () {
+        var basketItem = TestUtils.renderIntoDocument(<BasketItem toggleDescription={true} />);
+        var description = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-description');
+        assert.equal(description.props.style.display, 'block');
+      });
     });
   });
 

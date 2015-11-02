@@ -104,8 +104,8 @@ module.exports = React.createClass({
   },
   titleNode: function titleNode() {
     if (this.props.title === null) return null;
-    if (React.isValidElement(this.props.title)) return this.props.title;
     if (this.props.toggleDescription) return React.createElement('a', { onClick: this.toggleDescriptionVisibility }, this.props.title);
+    if (React.isValidElement(this.props.title)) return this.props.title;
     return this.props.title;
   },
   priceNode: function priceNode() {
@@ -120,10 +120,11 @@ module.exports = React.createClass({
     return React.createElement('a', { onClick: this.props.handleRemove }, this.props.removeText);
   },
   render: function render() {
+    var titleNode = this.titleNode();
     var descriptionStyle = {
-      'display': this.state.descriptionVisibility ? 'block' : 'none'
+      'display': this.state.descriptionVisibility || titleNode === null ? 'block' : 'none'
     };
-    return React.createElement('div', { className: 'component-basket-item' }, React.createElement('div', { className: 'component-basket-row' }, React.createElement('div', { className: 'component-basket-item-title' }, this.titleNode()), React.createElement('div', { className: 'component-basket-item-total' }, this.priceNode())), React.createElement('div', { className: 'component-basket-row' }, React.createElement('div', { className: 'component-basket-item-description', style: descriptionStyle }, this.props.children), React.createElement('div', { className: 'component-basket-item-remove' }, this.removeNode())));
+    return React.createElement('div', { className: 'component-basket-item' }, React.createElement('div', { className: 'component-basket-row' }, React.createElement('div', { className: 'component-basket-item-title' }, titleNode), React.createElement('div', { className: 'component-basket-item-total' }, this.priceNode())), React.createElement('div', { className: 'component-basket-row' }, React.createElement('div', { className: 'component-basket-item-description', style: descriptionStyle }, this.props.children), React.createElement('div', { className: 'component-basket-item-remove' }, this.removeNode())));
   }
 });
 
