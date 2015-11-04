@@ -1,38 +1,52 @@
+var removeAThing = function(thisProduct) {
+  alert( 'your implementation will deal with removing: ' + thisProduct );
+};
+
+var pretendLightBox = function(thisProduct) {
+  alert( 'your implementation will deal making a thing for when you click on: ' + thisProduct );
+};
+
 var example = (
   <div>
-    <UIToolkit.BasketItem price={100}>
-      <a href="#">First product</a> is a fantastic product that is really really cool.
-    </UIToolkit.BasketItem>
+    <UIToolkit.IconList>
 
-    <UIToolkit.BasketItem price={125}>
-      <a href="#">Second product</a> also if not better than the first product, bit more pricey.
-    </UIToolkit.BasketItem>
+      <UIToolkit.IconListItem icon="check">
+        <UIToolkit.BasketItem title="First product">
+          This is a fantastic product that is really really cool with no price.
+        </UIToolkit.BasketItem>
+      </UIToolkit.IconListItem>
 
-    <UIToolkit.BasketItem price={300}>
-      <strong>Third product</strong> does not have a link so just a simple text.
-    </UIToolkit.BasketItem>
+      <UIToolkit.IconListItem icon="check">
+        <UIToolkit.BasketItem title="Second product (click me)" toggleDescription={true} price={100}>
+          This one has a hidden description.
+        </UIToolkit.BasketItem>
+      </UIToolkit.IconListItem>
 
-    <UIToolkit.BasketItem>
-      <a>Fourth product</a> does not have a price.
-    </UIToolkit.BasketItem>
+      <UIToolkit.IconListItem icon="check">
+        <UIToolkit.BasketItem title="Third product" handleRemove={removeAThing.bind(null,'3rd product')} price={100}>
+          Can be removed
+        </UIToolkit.BasketItem>
+      </UIToolkit.IconListItem>
 
-    <UIToolkit.BasketItem price={300}>
-      <a>Fifth product</a> has more complex markup.
-      <ul>
-        <li>one thing</li>
-        <li>another thing</li>
-        <li>somethign else</li>
-      </ul>
-    </UIToolkit.BasketItem>
+      <UIToolkit.IconListItem icon="check">
+        <UIToolkit.BasketItem title={<a onClick={pretendLightBox.bind(null, '4th product')}>Fourth Product</a>} handleRemove={removeAThing.bind(null,'4th product')} price={100}>
+          Has a special title (could open a lightbox or something?)
+        </UIToolkit.BasketItem>
+      </UIToolkit.IconListItem>
 
-    <UIToolkit.BasketItem price={25}>
-      <a>Sixth product</a> went wee wee wee... all the way home.
-    </UIToolkit.BasketItem>
+      <UIToolkit.IconListItem icon="check">
+        <UIToolkit.BasketItem title={<a onClick={pretendLightBox.bind(null, '5th product')}>Fifth Product (no description)</a>} price={100} />
+      </UIToolkit.IconListItem>
 
+      <UIToolkit.IconListItem icon="check">
+        <UIToolkit.BasketItem title="Sixth product" price={0}>
+          This is the best one of all because it is FREE!
+        </UIToolkit.BasketItem>
+      </UIToolkit.IconListItem>
+
+    </UIToolkit.IconList>
     <hr />
-    <UIToolkit.BasketItem price={850}>
-      <strong>Total:</strong>
-    </UIToolkit.BasketItem>
+    <UIToolkit.BasketItem title="Total (also a BasketItem)" price={400} />
   </div>
 );
 

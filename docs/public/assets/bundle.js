@@ -73,20 +73,55 @@ module.exports = React.createClass({
 
   propTypes: {
     currencySymbol: React.PropTypes.string,
+    freeText: React.PropTypes.string,
+    removeText: React.PropTypes.string,
     price: React.PropTypes.number,
+    title: React.PropTypes.node,
+    toggleDescription: React.PropTypes.bool,
+    handleRemove: React.PropTypes.func,
     children: React.PropTypes.node
+  },
+  getInitialState: function getInitialState() {
+    return {
+      descriptionVisibility: !this.props.toggleDescription
+    };
   },
   getDefaultProps: function getDefaultProps() {
     return {
-      currencySymbol: '£'
+      title: null,
+      price: null,
+      handleRemove: null,
+      currencySymbol: '£',
+      freeText: 'FREE',
+      removeText: 'remove',
+      toggleDescription: false
     };
   },
-  render: function render() {
-    var priceNode;
-    if (this.props.price) {
-      priceNode = React.createElement('div', { className: 'component-basket-item-price' }, React.createElement('span', { className: 'component-currency' }, this.props.currencySymbol), this.props.price);
+  toggleDescriptionVisibility: function toggleDescriptionVisibility() {
+    this.setState({ descriptionVisibility: !this.state.descriptionVisibility });
+  },
+  titleNode: function titleNode() {
+    if (this.props.title === null) return null;
+    if (React.isValidElement(this.props.title)) return this.props.title;
+    if (this.props.toggleDescription) return React.createElement('a', { onClick: this.toggleDescriptionVisibility }, this.props.title);
+    return this.props.title;
+  },
+  priceNode: function priceNode() {
+    if (this.props.price === null) return null;
+    if (this.props.price === 0) {
+      return this.props.freeText;
     }
-    return React.createElement('div', { className: 'component-basket-item' }, React.createElement('div', { className: 'component-basket-item-description' }, this.props.children), priceNode);
+    return React.createElement('span', null, React.createElement('span', { className: 'component-basket-item-currency' }, this.props.currencySymbol), React.createElement('span', { className: 'component-basket-item-price' }, this.props.price));
+  },
+  removeNode: function removeNode() {
+    if (this.props.handleRemove === null) return null;
+    return React.createElement('a', { onClick: this.props.handleRemove }, this.props.removeText);
+  },
+  render: function render() {
+    var descriptionStyle = {
+      'display': this.state.descriptionVisibility ? 'block' : 'none'
+    };
+    return React.createElement('div', { className: 'component-basket-item' }, React.createElement('div', { className: 'component-basket-row' }, React.createElement('div', { className: 'component-basket-item-title' }, this.titleNode()), React.createElement('div', { className: 'component-basket-item-total' }, this.priceNode())), React.createElement('div', { className: 'component-basket-row' }, React.createElement('div', { className: 'component-basket-item-description', style: descriptionStyle }, this.props.children), React.createElement('div', { className: 'component-basket-item-remove' }, this.removeNode())));
   }
 });
 
@@ -1035,12 +1070,18 @@ var Components = React.createClass({displayName: "Components",
 
           React.createElement("article", {id: "basket-item"}, 
             React.createElement("h3", null, "Basket Item"), 
-            React.createElement("p", null, "You can use the basket item as a way of representing anything with a price next to it. This means you could have a simple description (line of text) or even more complex markup passed in as the child."), 
-            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.BasketItem price={100}>\n      <a href=\"#\">First product</a> is a fantastic product that is really really cool.\n    </UIToolkit.BasketItem>\n\n    <UIToolkit.BasketItem price={125}>\n      <a href=\"#\">Second product</a> also if not better than the first product, bit more pricey.\n    </UIToolkit.BasketItem>\n\n    <UIToolkit.BasketItem price={300}>\n      <strong>Third product</strong> does not have a link so just a simple text.\n    </UIToolkit.BasketItem>\n\n    <UIToolkit.BasketItem>\n      <a>Fourth product</a> does not have a price.\n    </UIToolkit.BasketItem>\n\n    <UIToolkit.BasketItem price={300}>\n      <a>Fifth product</a> has more complex markup.\n      <ul>\n        <li>one thing</li>\n        <li>another thing</li>\n        <li>somethign else</li>\n      </ul>\n    </UIToolkit.BasketItem>\n\n    <UIToolkit.BasketItem price={25}>\n      <a>Sixth product</a> went wee wee wee... all the way home.\n    </UIToolkit.BasketItem>\n\n    <hr />\n    <UIToolkit.BasketItem price={850}>\n      <strong>Total:</strong>\n    </UIToolkit.BasketItem>\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
+            React.createElement("p", null, "You can use the Basket Item as a way of representing anything with a price next to it. This means you could have a simple description (line of text) or even more complex markup passed in as the child."), 
+            React.createElement(CustomComponent, {codeText: "var removeAThing = function(thisProduct) {\n  alert( 'your implementation will deal with removing: ' + thisProduct );\n};\n\nvar pretendLightBox = function(thisProduct) {\n  alert( 'your implementation will deal making a thing for when you click on: ' + thisProduct );\n};\n\nvar example = (\n  <div>\n    <UIToolkit.IconList>\n\n      <UIToolkit.IconListItem icon=\"check\">\n        <UIToolkit.BasketItem title=\"First product\">\n          This is a fantastic product that is really really cool with no price.\n        </UIToolkit.BasketItem>\n      </UIToolkit.IconListItem>\n\n      <UIToolkit.IconListItem icon=\"check\">\n        <UIToolkit.BasketItem title=\"Second product (click me)\" toggleDescription={true} price={100}>\n          This one has a hidden description.\n        </UIToolkit.BasketItem>\n      </UIToolkit.IconListItem>\n\n      <UIToolkit.IconListItem icon=\"check\">\n        <UIToolkit.BasketItem title=\"Third product\" handleRemove={removeAThing.bind(null,'3rd product')} price={100}>\n          Can be removed\n        </UIToolkit.BasketItem>\n      </UIToolkit.IconListItem>\n\n      <UIToolkit.IconListItem icon=\"check\">\n        <UIToolkit.BasketItem title={<a onClick={pretendLightBox.bind(null, '4th product')}>Fourth Product</a>} handleRemove={removeAThing.bind(null,'4th product')} price={100}>\n          Has a special title (could open a lightbox or something?)\n        </UIToolkit.BasketItem>\n      </UIToolkit.IconListItem>\n\n      <UIToolkit.IconListItem icon=\"check\">\n        <UIToolkit.BasketItem title={<a onClick={pretendLightBox.bind(null, '5th product')}>Fifth Product (no description)</a>} price={100} />\n      </UIToolkit.IconListItem>\n\n      <UIToolkit.IconListItem icon=\"check\">\n        <UIToolkit.BasketItem title=\"Sixth product\" price={0}>\n          This is the best one of all because it is FREE!\n        </UIToolkit.BasketItem>\n      </UIToolkit.IconListItem>\n\n    </UIToolkit.IconList>\n    <hr />\n    <UIToolkit.BasketItem title=\"Total (also a BasketItem)\" price={400} />\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
             React.createElement("h4", null, "Attributes"), 
             React.createElement("ul", null, 
-              React.createElement("li", null, React.createElement("code", null, "currency"), " [optional] String - A currency symbol to display beside the price."), 
-              React.createElement("li", null, React.createElement("code", null, "price"), " [optional] Number - The price to display along side the basket item.")
+              React.createElement("li", null, React.createElement("code", null, "currencySymbol"), " [optional] String - A currency symbol to display beside the price."), 
+              React.createElement("li", null, React.createElement("code", null, "freeText"), " [optional] String - The text to display instead when zero price is passed."), 
+              React.createElement("li", null, React.createElement("code", null, "price"), " [optional] Number - The price to display along side the basket item."), 
+              React.createElement("li", null, React.createElement("code", null, "title"), " [optional] Node / String - If passed a Node, will simply use that as the title (including any events bound to that node) otherwise, if we have ", React.createElement("em", null, "toggleDescription"), " set, will wrap the text in an anchor to trigger that, otherwise it is wrappered in a ", React.createElement("em", null, "strong"), " html tag."), 
+              React.createElement("li", null, React.createElement("code", null, "toggleDescription"), " [optional] Boolean - Whether we want to toggle the display of the ", React.createElement("em", null, "child"), " or not."), 
+              React.createElement("li", null, React.createElement("code", null, "handleRemove"), " [optional] Function - This will display a link with the text ", React.createElement("em", null, "remove"), " below the price & this function is responsible for dealing with that removal."), 
+              React.createElement("li", null, React.createElement("code", null, "removeText"), " [optional] String - the text in the removal link when ", React.createElement("em", null, "handleRemove"), " is passed."), 
+              React.createElement("li", null, React.createElement("code", null, "children"), " [optional] Node - Anything you want displaying below the title, this is possible to toggle with the addition of the ", React.createElement("em", null, "toggleDescription"), " property.")
             )
           ), 
 
@@ -26713,7 +26754,7 @@ module.exports={
   "scripts": {
     "build": "scripts/build.sh",
     "postinstall": "npm run build",
-    "coverage": "istanbul cover -x dist _mocha -- test/*-test.*",
+    "coverage": "istanbul cover -x dist _mocha -- test/**/*-test.*",
     "predocs": "cd docs && npm install && cd - && npm run build",
     "docs": "grunt docs",
     "pretest": "npm run build",
