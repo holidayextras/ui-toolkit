@@ -34,8 +34,8 @@ module.exports = React.createClass({
   },
   titleNode: function() {
     if (this.props.title === null) return null;
-    if (this.props.toggleDescription) return (<Anchor handleClick={this.toggleDescriptionVisibility}>{this.props.title}</Anchor>);
-    if (React.isValidElement(this.props.title)) return this.props.title;
+    // Only wrap the title if it's not an element already.
+    if (this.props.toggleDescription && !React.isValidElement(this.props.title)) return (<Anchor handleClick={this.toggleDescriptionVisibility}>{this.props.title}</Anchor>);
     return this.props.title;
   },
   priceNode: function() {

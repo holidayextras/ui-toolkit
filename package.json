@@ -75,7 +75,7 @@
   },
   "browserify": {
     "transform": [
-      "babelify"
+      "reactify"
     ]
   }
 }
