@@ -1,3 +1,6 @@
+### 0.20.1 - 2015-11-04
+ - Fixed babelify issue & confusing if else on basket-item
+
 ### 0.20.0 - 2015-11-04
  - Basket item improvements
 
