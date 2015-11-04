@@ -1,5 +1,6 @@
 'use strict';
 var React = require('react');
+var Anchor = require('../anchor');
 
 module.exports = React.createClass({
   propTypes: {
@@ -33,7 +34,7 @@ module.exports = React.createClass({
   },
   titleNode: function() {
     if (this.props.title === null) return null;
-    if (this.props.toggleDescription) return (<a onClick={this.toggleDescriptionVisibility}>{this.props.title}</a>);
+    if (this.props.toggleDescription) return (<Anchor handleClick={this.toggleDescriptionVisibility}>{this.props.title}</Anchor>);
     if (React.isValidElement(this.props.title)) return this.props.title;
     return this.props.title;
   },
@@ -49,7 +50,7 @@ module.exports = React.createClass({
   removeNode: function() {
     if (this.props.handleRemove === null) return null;
     return (
-      <a onClick={this.props.handleRemove}>{this.props.removeText}</a>
+      <Anchor handleClick={this.props.handleRemove}>{this.props.removeText}</Anchor>
     );
   },
   render: function() {
