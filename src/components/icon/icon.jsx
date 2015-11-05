@@ -11,7 +11,7 @@ module.exports = React.createClass({
   getDefaultProps: function() {
     return {
       iconFamily: 'font-awesome'
-    }
+    },
   },
 
   getIconFamily: function() {
