@@ -25,10 +25,12 @@ module.exports = React.createClass({
       title: null,
       price: null,
       handleRemove: null,
-      freeText: 'FREE',
-      removeText: 'remove',
       toggleDescription: false,
       locales: 'en-GB',
+      messages: {
+        'free': 'FREE',
+        'remove': 'remove'
+      },
       formats: {
         number: {
           price: {
@@ -52,16 +54,14 @@ module.exports = React.createClass({
   priceNode: function() {
     if (this.props.price === null) return null;
     if (this.props.price === 0) {
-      return this.props.freeText;
+      return <ReactIntl.FormattedMessage message={this.getIntlMessage('free')} />;
     }
-    return (
-      <ReactIntl.FormattedNumber value={this.props.price} format="price" />
-    );
+    return <ReactIntl.FormattedNumber value={this.props.price} format="price" />;
   },
   removeNode: function() {
     if (this.props.handleRemove === null) return null;
     return (
-      <Anchor handleClick={this.props.handleRemove}>{this.props.removeText}</Anchor>
+      <Anchor handleClick={this.props.handleRemove}><ReactIntl.FormattedMessage message={this.getIntlMessage('remove')} /></Anchor>
     );
   },
   render: function() {
