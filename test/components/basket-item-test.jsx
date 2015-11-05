@@ -1,7 +1,9 @@
 'use strict';
 var React = require('react/addons');
+var ReactIntl = require('react-intl');
 var TestUtils = React.addons.TestUtils;
 var assert = require('chai').assert;
+var sinon = require('sinon');
 var BasketItem = require('../../src/components/basket-item/basket-item.jsx');
 
 describe('BasketItem', function() {
@@ -61,33 +63,19 @@ describe('BasketItem', function() {
   });
 
   describe('with a price', function() {
-    it('should have the correct price in the price node', function() {
-      var basketItem = TestUtils.renderIntoDocument(<BasketItem price={123} />);
-      var renderedBasketItem = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-price');
-      assert.equal(renderedBasketItem.getDOMNode().textContent, 123);
+    it('should pass the correct arguments to ReactIntl.FormattedNumber', function() {
+      var basketItem = TestUtils.renderIntoDocument(<BasketItem price={123.45} />);
+      var formattedNumber = TestUtils.findRenderedComponentWithType(basketItem, ReactIntl.FormattedNumber);
+      assert.equal(formattedNumber.props.value, 123.45);
+      assert.equal(formattedNumber.props.format, 'price');
     });
+  });
 
-    it('should have the default currency symbol in the currency node', function() {
-      var basketItem = TestUtils.renderIntoDocument(<BasketItem price={123} />);
-      var renderedBasketItem = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-currency');
-      assert.equal(renderedBasketItem.getDOMNode().textContent, '£');
-    });
-
-    describe('with a price of zero', function() {
-      it('should have the default freeText property in the total node', function() {
-        var basketItem = TestUtils.renderIntoDocument(<BasketItem price={0} />);
-        var renderedBasketItem = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-total');
-        assert.equal(renderedBasketItem.getDOMNode().textContent, 'FREE');
-      });
-    });
-
-    describe('with a currency symbol passed in', function() {
-      it('should have the correct currencySymbol in the currency node', function() {
-        var currencySymbol = '@';
-        var basketItem = TestUtils.renderIntoDocument(<BasketItem price={123} currencySymbol={currencySymbol} />);
-        var renderedBasketItem = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-currency');
-        assert.equal(renderedBasketItem.getDOMNode().textContent, currencySymbol);
-      });
+  describe('with a price of zero', function() {
+    it('should have the default freeText property in the total node', function() {
+      var basketItem = TestUtils.renderIntoDocument(<BasketItem price={0} />);
+      var renderedBasketItem = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-total');
+      assert.equal(renderedBasketItem.getDOMNode().textContent, 'FREE');
     });
   });
 

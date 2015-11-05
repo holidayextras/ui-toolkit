@@ -1,8 +1,10 @@
 'use strict';
 var React = require('react');
+var ReactIntl = require('react-intl');
 var Anchor = require('../anchor');
 
 module.exports = React.createClass({
+  mixins: [ReactIntl.IntlMixin],
   propTypes: {
     currencySymbol: React.PropTypes.string,
     freeText: React.PropTypes.string,
@@ -23,10 +25,19 @@ module.exports = React.createClass({
       title: null,
       price: null,
       handleRemove: null,
-      currencySymbol: '£',
       freeText: 'FREE',
       removeText: 'remove',
-      toggleDescription: false
+      toggleDescription: false,
+      locales: 'en-GB',
+      formats: {
+        number: {
+          price: {
+            style: 'currency',
+            currency: 'GBP',
+            minimumFractionDigits: 2
+          }
+        }
+      }
     };
   },
   toggleDescriptionVisibility: function() {
@@ -44,7 +55,7 @@ module.exports = React.createClass({
       return this.props.freeText;
     }
     return (
-      <span><span className="component-basket-item-currency">{this.props.currencySymbol}</span><span className="component-basket-item-price">{this.props.price}</span></span>
+      <ReactIntl.FormattedNumber value={this.props.price} format="price" />
     );
   },
   removeNode: function() {
