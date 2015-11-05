@@ -1,5 +1,12 @@
+### 0.20.1 - 2015-11-04
+ - Fixed babelify issue & confusing if else on basket-item
+
+### 0.20.0 - 2015-11-04
+ - Basket item improvements
+
 ### 0.19.1 - 2015-10-29
  - Release borked dues to ulimit
+ 
 ### 0.19.0 - 2015-10-29
  - Added basket item component
 

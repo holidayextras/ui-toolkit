@@ -1,6 +1,6 @@
 {
   "name": "ui-toolkit",
-  "version": "0.19.1",
+  "version": "0.20.1",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "index.js",
@@ -11,7 +11,7 @@
   "scripts": {
     "build": "scripts/build.sh",
     "postinstall": "npm run build",
-    "coverage": "istanbul cover -x dist _mocha -- test/*-test.*",
+    "coverage": "istanbul cover -x dist _mocha -- test/**/*-test.*",
     "predocs": "cd docs && npm install && cd - && npm run build",
     "docs": "grunt docs",
     "pretest": "npm run build",
@@ -75,7 +75,7 @@
   },
   "browserify": {
     "transform": [
-      "babelify"
+      "reactify"
     ]
   }
 }
