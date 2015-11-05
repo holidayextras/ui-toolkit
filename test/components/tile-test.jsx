@@ -12,7 +12,11 @@ describe('TileComponent', function() {
       alt: 'bar'
     };
 
-    assert.ok(TestUtils.isElement(<TileComponent image={img} title="title" />));
+    var component = TestUtils.renderIntoDocument(
+    	<TileComponent image={img} title="title" />
+    );
+    
+    assert.isDefined(component);
   });
 
 });

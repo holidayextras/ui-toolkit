@@ -15,22 +15,29 @@ module.exports = React.createClass({
 
   render: function render() {
     var classes = classNames('component-alert', this.props.size, this.props.purpose);
-    return React.createElement('div', { className: classes, role: 'alert' }, this.props.title ? React.createElement('h4', null, this.props.title) : '', React.createElement('p', null, this.props.children));
+    return React.createElement(
+      'div',
+      { className: classes, role: 'alert' },
+      this.props.title ? React.createElement(
+        'h4',
+        null,
+        this.props.title
+      ) : '',
+      React.createElement(
+        'p',
+        null,
+        this.props.children
+      )
+    );
   }
 });
+
+
 
 },{"classnames":191,"react":367}],2:[function(require,module,exports){
 'use strict';
 
-var _extends = Object.assign || function (target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i];for (var key in source) {
-      if (Object.prototype.hasOwnProperty.call(source, key)) {
-        target[key] = source[key];
-      }
-    }
-  }return target;
-};
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var React = require('react');
 var DataAttributesMixin = require('react-data-attributes-mixin');
@@ -60,48 +67,137 @@ module.exports = React.createClass({
       return null;
     }
     var dataAttributes = this.getDataAttributesFromProps();
-    return React.createElement('a', _extends({ className: 'component-anchor' }, dataAttributes, { title: this.props.title, href: this.props.href, onClick: this.props.handleClick, target: this.props.target }), this.props.children);
+    return React.createElement(
+      'a',
+      _extends({ className: 'component-anchor' }, dataAttributes, { title: this.props.title, href: this.props.href, onClick: this.props.handleClick, target: this.props.target }),
+      this.props.children
+    );
   }
 });
+
+
 
 },{"react":367,"react-data-attributes-mixin":193}],3:[function(require,module,exports){
 'use strict';
 var React = require('react');
+var Anchor = require('../anchor');
 
 module.exports = React.createClass({
   displayName: 'exports',
 
   propTypes: {
     currencySymbol: React.PropTypes.string,
+    freeText: React.PropTypes.string,
+    removeText: React.PropTypes.string,
     price: React.PropTypes.number,
+    title: React.PropTypes.node,
+    toggleDescription: React.PropTypes.bool,
+    handleRemove: React.PropTypes.func,
     children: React.PropTypes.node
+  },
+  getInitialState: function getInitialState() {
+    return {
+      descriptionVisibility: !this.props.toggleDescription
+    };
   },
   getDefaultProps: function getDefaultProps() {
     return {
-      currencySymbol: '£'
+      title: null,
+      price: null,
+      handleRemove: null,
+      currencySymbol: '£',
+      freeText: 'FREE',
+      removeText: 'remove',
+      toggleDescription: false
     };
   },
-  render: function render() {
-    var priceNode;
-    if (this.props.price) {
-      priceNode = React.createElement('div', { className: 'component-basket-item-price' }, React.createElement('span', { className: 'component-currency' }, this.props.currencySymbol), this.props.price);
+  toggleDescriptionVisibility: function toggleDescriptionVisibility() {
+    this.setState({ descriptionVisibility: !this.state.descriptionVisibility });
+  },
+  titleNode: function titleNode() {
+    if (this.props.title === null) return null;
+    // Only wrap the title if it's not an element already.
+    if (this.props.toggleDescription && !React.isValidElement(this.props.title)) return React.createElement(
+      Anchor,
+      { handleClick: this.toggleDescriptionVisibility },
+      this.props.title
+    );
+    return this.props.title;
+  },
+  priceNode: function priceNode() {
+    if (this.props.price === null) return null;
+    if (this.props.price === 0) {
+      return this.props.freeText;
     }
-    return React.createElement('div', { className: 'component-basket-item' }, React.createElement('div', { className: 'component-basket-item-description' }, this.props.children), priceNode);
+    return React.createElement(
+      'span',
+      null,
+      React.createElement(
+        'span',
+        { className: 'component-basket-item-currency' },
+        this.props.currencySymbol
+      ),
+      React.createElement(
+        'span',
+        { className: 'component-basket-item-price' },
+        this.props.price
+      )
+    );
+  },
+  removeNode: function removeNode() {
+    if (this.props.handleRemove === null) return null;
+    return React.createElement(
+      Anchor,
+      { handleClick: this.props.handleRemove },
+      this.props.removeText
+    );
+  },
+  render: function render() {
+    var titleNode = this.titleNode();
+    var descriptionStyle = {
+      'display': this.state.descriptionVisibility || titleNode === null ? 'block' : 'none'
+    };
+    return React.createElement(
+      'div',
+      { className: 'component-basket-item' },
+      React.createElement(
+        'div',
+        { className: 'component-basket-row' },
+        React.createElement(
+          'div',
+          { className: 'component-basket-item-title' },
+          titleNode
+        ),
+        React.createElement(
+          'div',
+          { className: 'component-basket-item-total' },
+          this.priceNode()
+        )
+      ),
+      React.createElement(
+        'div',
+        { className: 'component-basket-row' },
+        React.createElement(
+          'div',
+          { className: 'component-basket-item-description', style: descriptionStyle },
+          this.props.children
+        ),
+        React.createElement(
+          'div',
+          { className: 'component-basket-item-remove' },
+          this.removeNode()
+        )
+      )
+    );
   }
 });
 
-},{"react":367}],4:[function(require,module,exports){
+
+
+},{"../anchor":2,"react":367}],4:[function(require,module,exports){
 'use strict';
 
-var _extends = Object.assign || function (target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i];for (var key in source) {
-      if (Object.prototype.hasOwnProperty.call(source, key)) {
-        target[key] = source[key];
-      }
-    }
-  }return target;
-};
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var React = require('react');
 var DataAttributesMixin = require('react-data-attributes-mixin');
@@ -127,11 +223,21 @@ module.exports = React.createClass({
     var classes = classNames('component-button', this.props.size, this.props.purpose);
     var dataAttributes = this.getDataAttributesFromProps();
     if (this.props.href) {
-      return React.createElement('a', _extends({ className: classes, href: this.props.href, target: this.props.target, onClick: this.props.handleClick }, dataAttributes), this.props.children);
+      return React.createElement(
+        'a',
+        _extends({ className: classes, href: this.props.href, target: this.props.target, onClick: this.props.handleClick }, dataAttributes),
+        this.props.children
+      );
     }
-    return React.createElement('button', _extends({ className: classes, disabled: this.props.disabled, type: this.props.type, onClick: this.props.handleClick }, dataAttributes), this.props.children);
+    return React.createElement(
+      'button',
+      _extends({ className: classes, disabled: this.props.disabled, type: this.props.type, onClick: this.props.handleClick }, dataAttributes),
+      this.props.children
+    );
   }
 });
+
+
 
 },{"classnames":191,"react":367,"react-data-attributes-mixin":193}],5:[function(require,module,exports){
 'use strict';
@@ -188,9 +294,58 @@ module.exports = React.createClass({
 
   render: function render() {
     var classes = classNames('component-countdown', this.props.size, this.props.purpose);
-    return React.createElement('div', { className: classes, role: 'timer' }, React.createElement('div', null, this.state.time.days, ' ', React.createElement('small', null, 'Days')), React.createElement('div', null, this.state.time.hours, ' ', React.createElement('small', null, 'Hours')), React.createElement('div', null, this.state.time.minutes, ' ', React.createElement('small', null, 'Minutes')), React.createElement('div', null, this.state.time.seconds, ' ', React.createElement('small', null, 'Seconds')));
+    return React.createElement(
+      'div',
+      { className: classes, role: 'timer' },
+      React.createElement(
+        'div',
+        null,
+        this.state.time.days,
+        ' ',
+        React.createElement(
+          'small',
+          null,
+          'Days'
+        )
+      ),
+      React.createElement(
+        'div',
+        null,
+        this.state.time.hours,
+        ' ',
+        React.createElement(
+          'small',
+          null,
+          'Hours'
+        )
+      ),
+      React.createElement(
+        'div',
+        null,
+        this.state.time.minutes,
+        ' ',
+        React.createElement(
+          'small',
+          null,
+          'Minutes'
+        )
+      ),
+      React.createElement(
+        'div',
+        null,
+        this.state.time.seconds,
+        ' ',
+        React.createElement(
+          'small',
+          null,
+          'Seconds'
+        )
+      )
+    );
   }
 });
+
+
 
 },{"../../../src/components/countdown/lib/countdownManager":370,"classnames":191,"react":367}],6:[function(require,module,exports){
 'use strict';
@@ -209,9 +364,15 @@ module.exports = React.createClass({
 
   render: function render() {
     var classes = classNames('component-flag', this.props.size, this.props.purpose, this.props.position);
-    return React.createElement('span', { className: classes }, this.props.children);
+    return React.createElement(
+      'span',
+      { className: classes },
+      this.props.children
+    );
   }
 });
+
+
 
 },{"classnames":191,"react":367}],7:[function(require,module,exports){
 'use strict';
@@ -225,32 +386,36 @@ module.exports = React.createClass({
     iconFamily: React.PropTypes.oneOf(['font-awesome', 'glyphicon'])
   },
 
-  render: function render() {
-    var icon = this.props.icon;
-    var iconFamily = this.props.iconFamily || 'font-awesome';
+  getDefaultProps: function getDefaultProps() {
+    return {
+      iconFamily: 'font-awesome'
+    };
+  },
 
-    if (iconFamily === 'font-awesome') {
+  getIconFamily: function getIconFamily() {
+    var iconFamily = this.props.iconFamily;
+    if (this.props.iconFamily === 'font-awesome') {
       iconFamily = 'fa';
     }
+    return iconFamily;
+  },
 
-    icon = iconFamily + '-' + icon;
+  getIcon: function getIcon() {
+    return this.getIconFamily() + '-' + this.props.icon;
+  },
 
-    return React.createElement('i', { className: 'component-icon ' + iconFamily + ' ' + icon, 'aria-hidden': 'true' });
+  render: function render() {
+
+    return React.createElement('i', { className: 'component-icon ' + this.getIconFamily() + ' ' + this.getIcon(), 'aria-hidden': 'true' });
   }
 });
+
+
 
 },{"react":367}],8:[function(require,module,exports){
 'use strict';
 
-var _extends = Object.assign || function (target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i];for (var key in source) {
-      if (Object.prototype.hasOwnProperty.call(source, key)) {
-        target[key] = source[key];
-      }
-    }
-  }return target;
-};
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var React = require('react');
 var DataAttributesMixin = require('react-data-attributes-mixin');
@@ -273,11 +438,17 @@ module.exports = React.createClass({
     var dataAttributes = this.getDataAttributesFromProps();
     var sizes = this.props.sizes || '100vw';
     if (this.props.href) {
-      return React.createElement('a', _extends({ className: 'component-image', href: this.props.href, onClick: this.props.handleClick }, dataAttributes), React.createElement('img', { src: this.props.src, srcSet: this.props.srcSet, alt: this.props.alt, sizes: sizes }));
+      return React.createElement(
+        'a',
+        _extends({ className: 'component-image', href: this.props.href, onClick: this.props.handleClick }, dataAttributes),
+        React.createElement('img', { src: this.props.src, srcSet: this.props.srcSet, alt: this.props.alt, sizes: sizes })
+      );
     }
     return React.createElement('img', _extends({ className: 'component-image', src: this.props.src, srcSet: this.props.srcSet, alt: this.props.alt, sizes: sizes, onClick: this.props.handleClick }, dataAttributes));
   }
 });
+
+
 
 },{"react":367,"react-data-attributes-mixin":193}],9:[function(require,module,exports){
 'use strict';
@@ -376,7 +547,11 @@ module.exports = React.createClass({
     var label;
 
     if (this.props.label) {
-      label = React.createElement('label', { className: 'component-input-label', htmlFor: this.props.id }, this.props.label);
+      label = React.createElement(
+        'label',
+        { className: 'component-input-label', htmlFor: this.props.id },
+        this.props.label
+      );
     }
 
     /**
@@ -386,23 +561,35 @@ module.exports = React.createClass({
     var span;
 
     if (this.state.error) {
-      span = React.createElement('span', { className: 'component-input-error' }, this.state.error);
+      span = React.createElement(
+        'span',
+        { className: 'component-input-error' },
+        this.state.error
+      );
     }
 
-    return React.createElement('div', { className: classes, ref: this.props.ref }, label, React.createElement('input', {
-      className: 'component-input-field',
-      type: this.props.type,
-      name: this.props.name,
-      value: this.state.value,
-      id: this.props.id,
-      placeholder: this.props.placeholder,
-      onChange: this.handleChange,
-      disabled: this.props.disabled,
-      readOnly: this.props.readOnly,
-      required: this.props.required
-    }), span);
+    return React.createElement(
+      'div',
+      { className: classes, ref: this.props.ref },
+      label,
+      React.createElement('input', {
+        className: 'component-input-field',
+        type: this.props.type,
+        name: this.props.name,
+        value: this.state.value,
+        id: this.props.id,
+        placeholder: this.props.placeholder,
+        onChange: this.handleChange,
+        disabled: this.props.disabled,
+        readOnly: this.props.readOnly,
+        required: this.props.required
+      }),
+      span
+    );
   }
 });
+
+
 
 },{"classnames":191,"react":367}],10:[function(require,module,exports){
 'use strict';
@@ -416,9 +603,15 @@ module.exports = React.createClass({
   },
 
   render: function render() {
-    return React.createElement('dd', { className: 'component-list-description' }, this.props.children);
+    return React.createElement(
+      'dd',
+      { className: 'component-list-description' },
+      this.props.children
+    );
   }
 });
+
+
 
 },{"react":367}],11:[function(require,module,exports){
 'use strict';
@@ -432,9 +625,15 @@ module.exports = React.createClass({
   },
 
   render: function render() {
-    return React.createElement('li', { className: 'component-list-item' }, this.props.children);
+    return React.createElement(
+      'li',
+      { className: 'component-list-item' },
+      this.props.children
+    );
   }
 });
+
+
 
 },{"react":367}],12:[function(require,module,exports){
 'use strict';
@@ -448,9 +647,15 @@ module.exports = React.createClass({
   },
 
   render: function render() {
-    return React.createElement('dt', { className: 'component-list-term' }, this.props.children);
+    return React.createElement(
+      'dt',
+      { className: 'component-list-term' },
+      this.props.children
+    );
   }
 });
+
+
 
 },{"react":367}],13:[function(require,module,exports){
 'use strict';
@@ -466,15 +671,33 @@ module.exports = React.createClass({
 
   render: function render() {
     if (this.props.type === 'ordered') {
-      return React.createElement('ol', { className: 'component-ordered-list' }, this.props.children);
+      return React.createElement(
+        'ol',
+        { className: 'component-ordered-list' },
+        this.props.children
+      );
     } else if (this.props.type === 'icon') {
-      return React.createElement('ul', { className: 'component-icon-list' }, this.props.children);
+      return React.createElement(
+        'ul',
+        { className: 'component-icon-list' },
+        this.props.children
+      );
     } else if (this.props.type === 'description') {
-      return React.createElement('dl', { className: 'component-description-list' }, this.props.children);
+      return React.createElement(
+        'dl',
+        { className: 'component-description-list' },
+        this.props.children
+      );
     }
-    return React.createElement('ul', { className: 'component-unordered-list' }, this.props.children);
+    return React.createElement(
+      'ul',
+      { className: 'component-unordered-list' },
+      this.props.children
+    );
   }
 });
+
+
 
 },{"react":367}],14:[function(require,module,exports){
 'use strict';
@@ -493,9 +716,15 @@ module.exports = React.createClass({
 
   render: function render() {
     var classes = classNames('component-lozenge', this.props.size, this.props.purpose);
-    return React.createElement('span', { className: classes, title: this.props.tip }, this.props.children);
+    return React.createElement(
+      'span',
+      { className: classes, title: this.props.tip },
+      this.props.children
+    );
   }
 });
+
+
 
 },{"classnames":191,"react":367}],15:[function(require,module,exports){
 'use strict';
@@ -515,6 +744,8 @@ module.exports = React.createClass({
     return React.createElement('div', { className: classes });
   }
 });
+
+
 
 },{"classnames":191,"react":367}],16:[function(require,module,exports){
 'use strict';
@@ -538,11 +769,51 @@ module.exports = React.createClass({
   render: function render() {
     var classes = classNames('component-quote', this.props.size, this.props.purpose, this.props.type);
     if (this.props.type === 'inline') {
-      return React.createElement('q', { className: classes, cite: this.props.cite, itemScope: true, itemType: 'http://schema.org/CreativeWork', itemProp: 'text' }, this.props.children, this.props.cite ? React.createElement('meta', { itemProp: 'citation', content: this.props.cite }) : null, React.createElement('span', { itemProp: 'author', itemScope: true, itemType: 'http://schema.org/Person' }, React.createElement('meta', { itemProp: 'name', content: this.props.author }), React.createElement('meta', { itemProp: 'jobTitle', content: this.props.role })));
+      return React.createElement(
+        'q',
+        { className: classes, cite: this.props.cite, itemScope: true, itemType: 'http://schema.org/CreativeWork', itemProp: 'text' },
+        this.props.children,
+        this.props.cite ? React.createElement('meta', { itemProp: 'citation', content: this.props.cite }) : null,
+        React.createElement(
+          'span',
+          { itemProp: 'author', itemScope: true, itemType: 'http://schema.org/Person' },
+          React.createElement('meta', { itemProp: 'name', content: this.props.author }),
+          React.createElement('meta', { itemProp: 'jobTitle', content: this.props.role })
+        )
+      );
     }
-    return React.createElement('blockquote', { className: classes, itemScope: true, itemType: 'http://schema.org/CreativeWork' }, React.createElement('p', { itemProp: 'text' }, this.props.children), React.createElement('footer', { itemProp: 'author', itemScope: true, itemType: 'http://schema.org/Person' }, React.createElement('span', { itemProp: 'name' }, this.props.author), React.createElement('small', { itemProp: 'jobTitle' }, this.props.role), this.props.cite ? React.createElement('cite', { itemProp: 'citation' }, this.props.cite) : null));
+    return React.createElement(
+      'blockquote',
+      { className: classes, itemScope: true, itemType: 'http://schema.org/CreativeWork' },
+      React.createElement(
+        'p',
+        { itemProp: 'text' },
+        this.props.children
+      ),
+      React.createElement(
+        'footer',
+        { itemProp: 'author', itemScope: true, itemType: 'http://schema.org/Person' },
+        React.createElement(
+          'span',
+          { itemProp: 'name' },
+          this.props.author
+        ),
+        React.createElement(
+          'small',
+          { itemProp: 'jobTitle' },
+          this.props.role
+        ),
+        this.props.cite ? React.createElement(
+          'cite',
+          { itemProp: 'citation' },
+          this.props.cite
+        ) : null
+      )
+    );
   }
 });
+
+
 
 },{"classnames":191,"react":367}],17:[function(require,module,exports){
 'use strict';
@@ -572,9 +843,16 @@ module.exports = React.createClass({
       }
     }
 
-    return React.createElement('div', { className: 'ui-component-rating' }, $rating, $blankRating);
+    return React.createElement(
+      'div',
+      { className: 'ui-component-rating' },
+      $rating,
+      $blankRating
+    );
   }
 });
+
+
 
 },{"react":367}],18:[function(require,module,exports){
 'use strict';
@@ -588,9 +866,42 @@ module.exports = React.createClass({
     reviewCount: React.PropTypes.number.isRequired
   },
   render: function render() {
-    return React.createElement('div', { itemProp: 'aggregateRating', itemScope: true, itemType: 'http://schema.org/AggregateRating', className: 'ui-component-reviews' }, React.createElement('meta', { itemProp: 'bestRating', content: '100' }), React.createElement('div', null, React.createElement('span', { itemProp: 'ratingValue' }, this.props.reviewPercentage), '% would book again'), React.createElement('div', null, React.createElement('span', { itemProp: 'reviewCount' }, '(', this.props.reviewCount), ' ', React.createElement('a', { title: 'Customer reviews' }, 'Reviews'), ')'));
+    return React.createElement(
+      'div',
+      { itemProp: 'aggregateRating', itemScope: true, itemType: 'http://schema.org/AggregateRating', className: 'ui-component-reviews' },
+      React.createElement('meta', { itemProp: 'bestRating', content: '100' }),
+      React.createElement(
+        'div',
+        null,
+        React.createElement(
+          'span',
+          { itemProp: 'ratingValue' },
+          this.props.reviewPercentage
+        ),
+        '% would book again'
+      ),
+      React.createElement(
+        'div',
+        null,
+        React.createElement(
+          'span',
+          { itemProp: 'reviewCount' },
+          '(',
+          this.props.reviewCount
+        ),
+        ' ',
+        React.createElement(
+          'a',
+          { title: 'Customer reviews' },
+          'Reviews'
+        ),
+        ')'
+      )
+    );
   }
 });
+
+
 
 },{"react":367}],19:[function(require,module,exports){
 'use strict';
@@ -641,9 +952,37 @@ module.exports = React.createClass({
   },
 
   render: function render() {
-    return React.createElement('div', { className: 'component-stepper' }, React.createElement('span', { className: 'button-container' }, React.createElement(Button, { handleClick: this.decrement, type: 'button', disabled: !this.canDecrement() }, this.props.decrementDisplayString)), React.createElement(Input, { type: 'text', key: this.props.value, readOnly: true }, this.props.value.toString()), React.createElement('span', { className: 'button-container' }, React.createElement(Button, { handleClick: this.increment, type: 'button', disabled: !this.canIncrement() }, this.props.incrementDisplayString)));
+    return React.createElement(
+      'div',
+      { className: 'component-stepper' },
+      React.createElement(
+        'span',
+        { className: 'button-container' },
+        React.createElement(
+          Button,
+          { handleClick: this.decrement, type: 'button', disabled: !this.canDecrement() },
+          this.props.decrementDisplayString
+        )
+      ),
+      React.createElement(
+        Input,
+        { type: 'text', key: this.props.value, readOnly: true },
+        this.props.value.toString()
+      ),
+      React.createElement(
+        'span',
+        { className: 'button-container' },
+        React.createElement(
+          Button,
+          { handleClick: this.increment, type: 'button', disabled: !this.canIncrement() },
+          this.props.incrementDisplayString
+        )
+      )
+    );
   }
 });
+
+
 
 },{"../button":4,"../input":9,"react":367}],20:[function(require,module,exports){
 'use strict';
@@ -660,9 +999,25 @@ module.exports = React.createClass({
   },
 
   render: function render() {
-    return React.createElement('div', { className: 'component-tile' }, React.createElement(Image, this.props.image), React.createElement('div', { className: 'caption' }, React.createElement('h4', null, this.props.title), this.props.children));
+    return React.createElement(
+      'div',
+      { className: 'component-tile' },
+      React.createElement(Image, this.props.image),
+      React.createElement(
+        'div',
+        { className: 'caption' },
+        React.createElement(
+          'h4',
+          null,
+          this.props.title
+        ),
+        this.props.children
+      )
+    );
   }
 });
+
+
 
 },{"../image":8,"react":367}],21:[function(require,module,exports){
 'use strict';
@@ -696,13 +1051,40 @@ module.exports = React.createClass({
     };
     var unitName = unitNames[this.props.unit];
 
-    return React.createElement('div', { className: 'component-weather' }, React.createElement('div', { className: this.props.type }, React.createElement('span', null, this.props.type)), this.props.temperature ? React.createElement('div', null, this.props.temperature, React.createElement('abbr', { title: unitName }, unit)) : null, this.props.date ? React.createElement('div', null, moment(date, expectedFormat, true).format(displayFormat)) : null);
+    return React.createElement(
+      'div',
+      { className: 'component-weather' },
+      React.createElement(
+        'div',
+        { className: this.props.type },
+        React.createElement(
+          'span',
+          null,
+          this.props.type
+        )
+      ),
+      this.props.temperature ? React.createElement(
+        'div',
+        null,
+        this.props.temperature,
+        React.createElement(
+          'abbr',
+          { title: unitName },
+          unit
+        )
+      ) : null,
+      this.props.date ? React.createElement(
+        'div',
+        null,
+        moment(date, expectedFormat, true).format(displayFormat)
+      ) : null
+    );
   }
 });
 
-},{"moment":192,"react":367}],22:[function(require,module,exports){
-'use strict';
 
+
+},{"moment":192,"react":367}],22:[function(require,module,exports){
 var UIToolkit = {};
 
 // Custom Components
@@ -729,6 +1111,8 @@ UIToolkit.Weather = require('./components/weather');
 UIToolkit.Stepper = require('./components/stepper');
 
 module.exports = UIToolkit;
+
+
 
 },{"./components/alert":1,"./components/anchor":2,"./components/basket-item":3,"./components/button":4,"./components/countdown":5,"./components/flag":6,"./components/icon":7,"./components/image":8,"./components/input":9,"./components/list":13,"./components/list-description":10,"./components/list-item":11,"./components/list-term":12,"./components/lozenge":14,"./components/payment-card":15,"./components/quote":16,"./components/rating":17,"./components/reviews":18,"./components/stepper":19,"./components/tile":20,"./components/weather":21}],23:[function(require,module,exports){
 'use strict';
@@ -20760,8 +21144,8 @@ var Components = React.createClass({displayName: "Components",
             React.createElement("h4", null, "Child Components"), 
             React.createElement("ul", null, 
               React.createElement("li", null, React.createElement("code", null, "listItem"), " Component - A item of a list. Must be used with an ", React.createElement("a", {href: "#ordered-list", alt: "ordered-list"}, "ordered-list"), " or ", React.createElement("a", {href: "#unordered-list", alt: "unordered-list"}, "ordered-list")), 
-              React.createElement("li", null, React.createElement("code", null, "listTerm"), " Component - A list term of a description list. Must be used as a child of a ", React.createElement("a", {href: "#definition-list", alt: "definition-list"}, "definition-list")), 
-              React.createElement("li", null, React.createElement("code", null, "listDescription"), " Component - A desciption of the term of a description list. Must be used as a child of a ", React.createElement("a", {href: "#definition-list", alt: "definition-list"}, "definition-list"))
+              React.createElement("li", null, React.createElement("code", null, "listTerm"), " Component - A list term of a description list. Must be used as a child of a ", React.createElement("a", {href: "#description-list", alt: "description-list"}, "description-list")), 
+              React.createElement("li", null, React.createElement("code", null, "listDescription"), " Component - A desciption of the term of a description list. Must be used as a child of a ", React.createElement("a", {href: "#description-list", alt: "description-list"}, "description-list"))
             )
           ), 
 
@@ -20814,12 +21198,18 @@ var Components = React.createClass({displayName: "Components",
 
           React.createElement("article", {id: "basket-item"}, 
             React.createElement("h3", null, "Basket Item"), 
-            React.createElement("p", null, "You can use the basket item as a way of representing anything with a price next to it. This means you could have a simple description (line of text) or even more complex markup passed in as the child."), 
-            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.BasketItem price={100}>\n      <a href=\"#\">First product</a> is a fantastic product that is really really cool.\n    </UIToolkit.BasketItem>\n\n    <UIToolkit.BasketItem price={125}>\n      <a href=\"#\">Second product</a> also if not better than the first product, bit more pricey.\n    </UIToolkit.BasketItem>\n\n    <UIToolkit.BasketItem price={300}>\n      <strong>Third product</strong> does not have a link so just a simple text.\n    </UIToolkit.BasketItem>\n\n    <UIToolkit.BasketItem>\n      <a>Fourth product</a> does not have a price.\n    </UIToolkit.BasketItem>\n\n    <UIToolkit.BasketItem price={300}>\n      <a>Fifth product</a> has more complex markup.\n      <ul>\n        <li>one thing</li>\n        <li>another thing</li>\n        <li>somethign else</li>\n      </ul>\n    </UIToolkit.BasketItem>\n\n    <UIToolkit.BasketItem price={25}>\n      <a>Sixth product</a> went wee wee wee... all the way home.\n    </UIToolkit.BasketItem>\n\n    <hr />\n    <UIToolkit.BasketItem price={850}>\n      <strong>Total:</strong>\n    </UIToolkit.BasketItem>\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
+            React.createElement("p", null, "You can use the Basket Item as a way of representing anything with a price next to it. This means you could have a simple description (line of text) or even more complex markup passed in as the child."), 
+            React.createElement(CustomComponent, {codeText: "var removeAThing = function(thisProduct) {\n  alert( 'your implementation will deal with removing: ' + thisProduct );\n};\n\nvar pretendLightBox = function(thisProduct) {\n  alert( 'your implementation will deal making a thing for when you click on: ' + thisProduct );\n};\n\nvar example = (\n  <div>\n    <UIToolkit.IconList>\n\n      <UIToolkit.IconListItem icon=\"check\">\n        <UIToolkit.BasketItem title=\"First product\">\n          This is a fantastic product that is really really cool with no price.\n        </UIToolkit.BasketItem>\n      </UIToolkit.IconListItem>\n\n      <UIToolkit.IconListItem icon=\"check\">\n        <UIToolkit.BasketItem title=\"Second product (click me)\" toggleDescription={true} price={100}>\n          This one has a hidden description.\n        </UIToolkit.BasketItem>\n      </UIToolkit.IconListItem>\n\n      <UIToolkit.IconListItem icon=\"check\">\n        <UIToolkit.BasketItem title=\"Third product\" handleRemove={removeAThing.bind(null,'3rd product')} price={100}>\n          Can be removed\n        </UIToolkit.BasketItem>\n      </UIToolkit.IconListItem>\n\n      <UIToolkit.IconListItem icon=\"check\">\n        <UIToolkit.BasketItem title={<a onClick={pretendLightBox.bind(null, '4th product')}>Fourth Product</a>} handleRemove={removeAThing.bind(null,'4th product')} price={100}>\n          Has a special title (could open a lightbox or something?)\n        </UIToolkit.BasketItem>\n      </UIToolkit.IconListItem>\n\n      <UIToolkit.IconListItem icon=\"check\">\n        <UIToolkit.BasketItem title={<a onClick={pretendLightBox.bind(null, '5th product')}>Fifth Product (no description)</a>} price={100} />\n      </UIToolkit.IconListItem>\n\n      <UIToolkit.IconListItem icon=\"check\">\n        <UIToolkit.BasketItem title=\"Sixth product\" price={0}>\n          This is the best one of all because it is FREE!\n        </UIToolkit.BasketItem>\n      </UIToolkit.IconListItem>\n\n    </UIToolkit.IconList>\n    <hr />\n    <UIToolkit.BasketItem title=\"Total (also a BasketItem)\" price={400} />\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
             React.createElement("h4", null, "Attributes"), 
             React.createElement("ul", null, 
-              React.createElement("li", null, React.createElement("code", null, "currency"), " [optional] String - A currency symbol to display beside the price."), 
-              React.createElement("li", null, React.createElement("code", null, "price"), " [optional] Number - The price to display along side the basket item.")
+              React.createElement("li", null, React.createElement("code", null, "currencySymbol"), " [optional] String - A currency symbol to display beside the price."), 
+              React.createElement("li", null, React.createElement("code", null, "freeText"), " [optional] String - The text to display instead when zero price is passed."), 
+              React.createElement("li", null, React.createElement("code", null, "price"), " [optional] Number - The price to display along side the basket item."), 
+              React.createElement("li", null, React.createElement("code", null, "title"), " [optional] Node / String - If passed a Node, will simply use that as the title (including any events bound to that node) otherwise, if we have ", React.createElement("em", null, "toggleDescription"), " set, will wrap the text in an anchor to trigger that, otherwise it is wrapped in a ", React.createElement("em", null, "strong"), " html tag."), 
+              React.createElement("li", null, React.createElement("code", null, "toggleDescription"), " [optional] Boolean - Whether we want to toggle the display of the ", React.createElement("em", null, "child"), " or not."), 
+              React.createElement("li", null, React.createElement("code", null, "handleRemove"), " [optional] Function - This will display a link with the text ", React.createElement("em", null, "remove"), " below the price & this function is responsible for dealing with that removal."), 
+              React.createElement("li", null, React.createElement("code", null, "removeText"), " [optional] String - the text in the removal link when ", React.createElement("em", null, "handleRemove"), " is passed."), 
+              React.createElement("li", null, React.createElement("code", null, "children"), " [optional] Node - Anything you want displaying below the title, this is possible to toggle with the addition of the ", React.createElement("em", null, "toggleDescription"), " property.")
             )
           ), 
 
@@ -21312,6 +21702,8 @@ module.exports = PageHeader;
 },{"../../package.json":368,"react":181}],190:[function(require,module,exports){
 'use strict';
 module.exports = require('./dist');
+
+
 
 },{"./dist":22}],191:[function(require,module,exports){
 /*!
@@ -27094,7 +27486,7 @@ arguments[4][181][0].apply(exports,arguments)
 },{"./lib/React":240,"dup":181}],368:[function(require,module,exports){
 module.exports={
   "name": "ui-toolkit",
-  "version": "0.19.1",
+  "version": "0.20.1",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "index.js",
@@ -27105,7 +27497,7 @@ module.exports={
   "scripts": {
     "build": "scripts/build.sh",
     "postinstall": "npm run build",
-    "coverage": "istanbul cover -x dist _mocha -- test/*-test.*",
+    "coverage": "istanbul cover -x dist _mocha -- test/**/*-test.*",
     "predocs": "cd docs && npm install && cd - && npm run build",
     "docs": "grunt docs",
     "pretest": "npm run build",
@@ -27169,7 +27561,7 @@ module.exports={
   },
   "browserify": {
     "transform": [
-      "babelify"
+      "reactify"
     ]
   }
 }
@@ -27180,7 +27572,7 @@ var moment = require('moment');
 var countdown = {};
 module.exports = countdown;
 
-countdown.until = function (untilDate) {
+countdown.until = function(untilDate) {
   var duration = this._durationFromNow(untilDate);
 
   return {
@@ -27191,17 +27583,17 @@ countdown.until = function (untilDate) {
   };
 };
 
-countdown.untilString = function (untilDate) {
+countdown.untilString = function(untilDate) {
   var timeLeft = this.until(untilDate);
   var out = timeLeft.days + ' days';
-  out += ', ' + timeLeft.hours / 1 + ' hours';
-  out += ', ' + timeLeft.minutes / 1 + ' minutes';
-  out += ' & ' + timeLeft.seconds / 1 + ' seconds';
+  out += ', ' + ( timeLeft.hours / 1 ) + ' hours';
+  out += ', ' + ( timeLeft.minutes / 1 ) + ' minutes';
+  out += ' & ' + ( timeLeft.seconds / 1 ) + ' seconds';
   return out;
 };
 
 // Private functions from here
-countdown._pad = function (number) {
+countdown._pad = function(number) {
   number = Math.abs(Math.floor(number));
   if (number > 9) {
     return '' + number;
@@ -27209,18 +27601,18 @@ countdown._pad = function (number) {
   return '0' + number;
 };
 
-countdown._roundTowardsZero = function (number) {
+countdown._roundTowardsZero = function(number) {
   if (number > 0) {
     return '' + Math.floor(number);
   }
   return '' + Math.ceil(number);
 };
 
-countdown._isSameDay = function (moment1, moment2) {
+countdown._isSameDay = function(moment1, moment2) {
   return moment(moment1).isSame(moment2, 'day');
 };
 
-countdown._durationFromNow = function (untilDate) {
+countdown._durationFromNow = function(untilDate) {
   var until = moment(untilDate);
   var now = moment();
   if (this._isSameDay(until, now)) {
@@ -27230,12 +27622,14 @@ countdown._durationFromNow = function (untilDate) {
   return moment.duration(seconds, 'seconds');
 };
 
+
+
 },{"moment":192}],370:[function(require,module,exports){
 'use strict';
 var countdown = require('./countdown.js');
 var moment = require('moment');
 
-var CountdownManager = function CountdownManager(date) {
+var CountdownManager = function(date) {
   this.date = date;
 };
 
@@ -27243,27 +27637,29 @@ module.exports = CountdownManager;
 
 CountdownManager.countdownInterval = 1000;
 
-CountdownManager.prototype.start = function (callback) {
+CountdownManager.prototype.start = function(callback) {
   this.intervalId = setInterval(this.intervalCounter(callback), CountdownManager.countdownInterval);
 };
 
-CountdownManager.prototype.stop = function () {
+CountdownManager.prototype.stop = function() {
   clearInterval(this.intervalId);
   return moment();
 };
 
-CountdownManager.prototype.intervalCounter = function (callback) {
-  return (function () {
+CountdownManager.prototype.intervalCounter = function(callback) {
+  return function() {
     callback(this.time());
-  }).bind(this);
+  }.bind(this);
 };
 
-CountdownManager.prototype.countdownDate = function (callback) {
-  return typeof callback === 'function' ? callback(this.date.startDate) : this.date.startDate;
+CountdownManager.prototype.countdownDate = function(callback) {
+  return (typeof callback === 'function') ? callback(this.date.startDate) : this.date.startDate;
 };
 
-CountdownManager.prototype.time = function (currentMoment) {
+CountdownManager.prototype.time = function(currentMoment) {
   return countdown.until(this.countdownDate(), currentMoment);
 };
+
+
 
 },{"./countdown.js":369,"moment":192}]},{},[23]);

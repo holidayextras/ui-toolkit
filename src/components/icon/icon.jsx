@@ -8,18 +8,28 @@ module.exports = React.createClass({
     iconFamily: React.PropTypes.oneOf(['font-awesome', 'glyphicon'])
   },
 
-  render: function() {
-    var icon = this.props.icon;
-    var iconFamily = this.props.iconFamily || 'font-awesome';
+  getDefaultProps: function() {
+    return {
+      iconFamily: 'font-awesome'
+    }
+  },
 
-    if (iconFamily === 'font-awesome') {
+  getIconFamily: function() {
+    var iconFamily = this.props.iconFamily;
+    if (this.props.iconFamily === 'font-awesome') {
       iconFamily = 'fa';
     }
+    return iconFamily;
+  },
 
-    icon = iconFamily + '-' + icon;
+  getIcon: function() {
+    return this.getIconFamily() + '-' + this.props.icon;
+  },
+
+  render: function() {
 
     return (
-      <i className={'component-icon ' + iconFamily + ' ' + icon} aria-hidden="true" />
+      <i className={'component-icon ' + this.getIconFamily() + ' ' + this.getIcon()} aria-hidden="true" />
     );
   }
 });

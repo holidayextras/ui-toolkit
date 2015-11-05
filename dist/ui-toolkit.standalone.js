@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.uiToolkit = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 var React = require('react');
@@ -16,7 +15,20 @@ module.exports = React.createClass({
 
   render: function render() {
     var classes = classNames('component-alert', this.props.size, this.props.purpose);
-    return React.createElement('div', { className: classes, role: 'alert' }, React.createElement('h4', null, this.props.title), React.createElement('p', null, this.props.children));
+    return React.createElement(
+      'div',
+      { className: classes, role: 'alert' },
+      this.props.title ? React.createElement(
+        'h4',
+        null,
+        this.props.title
+      ) : '',
+      React.createElement(
+        'p',
+        null,
+        this.props.children
+      )
+    );
   }
 });
 
@@ -24,15 +36,7 @@ module.exports = React.createClass({
 },{"classnames":25,"react":201}],2:[function(require,module,exports){
 'use strict';
 
-var _extends = Object.assign || function (target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i];for (var key in source) {
-      if (Object.prototype.hasOwnProperty.call(source, key)) {
-        target[key] = source[key];
-      }
-    }
-  }return target;
-};
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var React = require('react');
 var DataAttributesMixin = require('react-data-attributes-mixin');
@@ -62,7 +66,11 @@ module.exports = React.createClass({
       return null;
     }
     var dataAttributes = this.getDataAttributesFromProps();
-    return React.createElement('a', _extends({ className: 'component-anchor' }, dataAttributes, { title: this.props.title, href: this.props.href, onClick: this.props.handleClick, target: this.props.target }), this.props.children);
+    return React.createElement(
+      'a',
+      _extends({ className: 'component-anchor' }, dataAttributes, { title: this.props.title, href: this.props.href, onClick: this.props.handleClick, target: this.props.target }),
+      this.props.children
+    );
   }
 });
 
@@ -70,42 +78,123 @@ module.exports = React.createClass({
 },{"react":201,"react-data-attributes-mixin":27}],3:[function(require,module,exports){
 'use strict';
 var React = require('react');
+var Anchor = require('../anchor');
 
 module.exports = React.createClass({
   displayName: 'exports',
 
   propTypes: {
     currencySymbol: React.PropTypes.string,
+    freeText: React.PropTypes.string,
+    removeText: React.PropTypes.string,
     price: React.PropTypes.number,
+    title: React.PropTypes.node,
+    toggleDescription: React.PropTypes.bool,
+    handleRemove: React.PropTypes.func,
     children: React.PropTypes.node
+  },
+  getInitialState: function getInitialState() {
+    return {
+      descriptionVisibility: !this.props.toggleDescription
+    };
   },
   getDefaultProps: function getDefaultProps() {
     return {
-      currencySymbol: '£'
+      title: null,
+      price: null,
+      handleRemove: null,
+      currencySymbol: '£',
+      freeText: 'FREE',
+      removeText: 'remove',
+      toggleDescription: false
     };
   },
-  render: function render() {
-    var priceNode;
-    if (this.props.price) {
-      priceNode = React.createElement('div', { className: 'component-basket-item-price' }, React.createElement('span', { className: 'component-currency' }, this.props.currencySymbol), this.props.price);
+  toggleDescriptionVisibility: function toggleDescriptionVisibility() {
+    this.setState({ descriptionVisibility: !this.state.descriptionVisibility });
+  },
+  titleNode: function titleNode() {
+    if (this.props.title === null) return null;
+    // Only wrap the title if it's not an element already.
+    if (this.props.toggleDescription && !React.isValidElement(this.props.title)) return React.createElement(
+      Anchor,
+      { handleClick: this.toggleDescriptionVisibility },
+      this.props.title
+    );
+    return this.props.title;
+  },
+  priceNode: function priceNode() {
+    if (this.props.price === null) return null;
+    if (this.props.price === 0) {
+      return this.props.freeText;
     }
-    return React.createElement('div', { className: 'component-basket-item' }, React.createElement('div', { className: 'component-basket-item-description' }, this.props.children), priceNode);
+    return React.createElement(
+      'span',
+      null,
+      React.createElement(
+        'span',
+        { className: 'component-basket-item-currency' },
+        this.props.currencySymbol
+      ),
+      React.createElement(
+        'span',
+        { className: 'component-basket-item-price' },
+        this.props.price
+      )
+    );
+  },
+  removeNode: function removeNode() {
+    if (this.props.handleRemove === null) return null;
+    return React.createElement(
+      Anchor,
+      { handleClick: this.props.handleRemove },
+      this.props.removeText
+    );
+  },
+  render: function render() {
+    var titleNode = this.titleNode();
+    var descriptionStyle = {
+      'display': this.state.descriptionVisibility || titleNode === null ? 'block' : 'none'
+    };
+    return React.createElement(
+      'div',
+      { className: 'component-basket-item' },
+      React.createElement(
+        'div',
+        { className: 'component-basket-row' },
+        React.createElement(
+          'div',
+          { className: 'component-basket-item-title' },
+          titleNode
+        ),
+        React.createElement(
+          'div',
+          { className: 'component-basket-item-total' },
+          this.priceNode()
+        )
+      ),
+      React.createElement(
+        'div',
+        { className: 'component-basket-row' },
+        React.createElement(
+          'div',
+          { className: 'component-basket-item-description', style: descriptionStyle },
+          this.props.children
+        ),
+        React.createElement(
+          'div',
+          { className: 'component-basket-item-remove' },
+          this.removeNode()
+        )
+      )
+    );
   }
 });
 
 
-},{"react":201}],4:[function(require,module,exports){
+},{"../anchor":2,"react":201}],4:[function(require,module,exports){
 'use strict';
 
-var _extends = Object.assign || function (target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i];for (var key in source) {
-      if (Object.prototype.hasOwnProperty.call(source, key)) {
-        target[key] = source[key];
-      }
-    }
-  }return target;
-};
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var React = require('react');
 var DataAttributesMixin = require('react-data-attributes-mixin');
@@ -131,9 +220,17 @@ module.exports = React.createClass({
     var classes = classNames('component-button', this.props.size, this.props.purpose);
     var dataAttributes = this.getDataAttributesFromProps();
     if (this.props.href) {
-      return React.createElement('a', _extends({ className: classes, href: this.props.href, target: this.props.target, onClick: this.props.handleClick }, dataAttributes), this.props.children);
+      return React.createElement(
+        'a',
+        _extends({ className: classes, href: this.props.href, target: this.props.target, onClick: this.props.handleClick }, dataAttributes),
+        this.props.children
+      );
     }
-    return React.createElement('button', _extends({ className: classes, disabled: this.props.disabled, type: this.props.type, onClick: this.props.handleClick }, dataAttributes), this.props.children);
+    return React.createElement(
+      'button',
+      _extends({ className: classes, disabled: this.props.disabled, type: this.props.type, onClick: this.props.handleClick }, dataAttributes),
+      this.props.children
+    );
   }
 });
 
@@ -193,7 +290,54 @@ module.exports = React.createClass({
 
   render: function render() {
     var classes = classNames('component-countdown', this.props.size, this.props.purpose);
-    return React.createElement('div', { className: classes, role: 'timer' }, React.createElement('div', null, this.state.time.days, ' ', React.createElement('small', null, 'Days')), React.createElement('div', null, this.state.time.hours, ' ', React.createElement('small', null, 'Hours')), React.createElement('div', null, this.state.time.minutes, ' ', React.createElement('small', null, 'Minutes')), React.createElement('div', null, this.state.time.seconds, ' ', React.createElement('small', null, 'Seconds')));
+    return React.createElement(
+      'div',
+      { className: classes, role: 'timer' },
+      React.createElement(
+        'div',
+        null,
+        this.state.time.days,
+        ' ',
+        React.createElement(
+          'small',
+          null,
+          'Days'
+        )
+      ),
+      React.createElement(
+        'div',
+        null,
+        this.state.time.hours,
+        ' ',
+        React.createElement(
+          'small',
+          null,
+          'Hours'
+        )
+      ),
+      React.createElement(
+        'div',
+        null,
+        this.state.time.minutes,
+        ' ',
+        React.createElement(
+          'small',
+          null,
+          'Minutes'
+        )
+      ),
+      React.createElement(
+        'div',
+        null,
+        this.state.time.seconds,
+        ' ',
+        React.createElement(
+          'small',
+          null,
+          'Seconds'
+        )
+      )
+    );
   }
 });
 
@@ -215,7 +359,11 @@ module.exports = React.createClass({
 
   render: function render() {
     var classes = classNames('component-flag', this.props.size, this.props.purpose, this.props.position);
-    return React.createElement('span', { className: classes }, this.props.children);
+    return React.createElement(
+      'span',
+      { className: classes },
+      this.props.children
+    );
   }
 });
 
@@ -232,17 +380,27 @@ module.exports = React.createClass({
     iconFamily: React.PropTypes.oneOf(['font-awesome', 'glyphicon'])
   },
 
-  render: function render() {
-    var icon = this.props.icon;
-    var iconFamily = this.props.iconFamily || 'font-awesome';
+  getDefaultProps: function getDefaultProps() {
+    return {
+      iconFamily: 'font-awesome'
+    };
+  },
 
-    if (iconFamily === 'font-awesome') {
+  getIconFamily: function getIconFamily() {
+    var iconFamily = this.props.iconFamily;
+    if (this.props.iconFamily === 'font-awesome') {
       iconFamily = 'fa';
     }
+    return iconFamily;
+  },
 
-    icon = iconFamily + '-' + icon;
+  getIcon: function getIcon() {
+    return this.getIconFamily() + '-' + this.props.icon;
+  },
 
-    return React.createElement('i', { className: 'component-icon ' + iconFamily + ' ' + icon, 'aria-hidden': 'true' });
+  render: function render() {
+
+    return React.createElement('i', { className: 'component-icon ' + this.getIconFamily() + ' ' + this.getIcon(), 'aria-hidden': 'true' });
   }
 });
 
@@ -250,15 +408,7 @@ module.exports = React.createClass({
 },{"react":201}],8:[function(require,module,exports){
 'use strict';
 
-var _extends = Object.assign || function (target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i];for (var key in source) {
-      if (Object.prototype.hasOwnProperty.call(source, key)) {
-        target[key] = source[key];
-      }
-    }
-  }return target;
-};
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var React = require('react');
 var DataAttributesMixin = require('react-data-attributes-mixin');
@@ -281,7 +431,11 @@ module.exports = React.createClass({
     var dataAttributes = this.getDataAttributesFromProps();
     var sizes = this.props.sizes || '100vw';
     if (this.props.href) {
-      return React.createElement('a', _extends({ className: 'component-image', href: this.props.href, onClick: this.props.handleClick }, dataAttributes), React.createElement('img', { src: this.props.src, srcSet: this.props.srcSet, alt: this.props.alt, sizes: sizes }));
+      return React.createElement(
+        'a',
+        _extends({ className: 'component-image', href: this.props.href, onClick: this.props.handleClick }, dataAttributes),
+        React.createElement('img', { src: this.props.src, srcSet: this.props.srcSet, alt: this.props.alt, sizes: sizes })
+      );
     }
     return React.createElement('img', _extends({ className: 'component-image', src: this.props.src, srcSet: this.props.srcSet, alt: this.props.alt, sizes: sizes, onClick: this.props.handleClick }, dataAttributes));
   }
@@ -385,7 +539,11 @@ module.exports = React.createClass({
     var label;
 
     if (this.props.label) {
-      label = React.createElement('label', { className: 'component-input-label', htmlFor: this.props.id }, this.props.label);
+      label = React.createElement(
+        'label',
+        { className: 'component-input-label', htmlFor: this.props.id },
+        this.props.label
+      );
     }
 
     /**
@@ -395,21 +553,31 @@ module.exports = React.createClass({
     var span;
 
     if (this.state.error) {
-      span = React.createElement('span', { className: 'component-input-error' }, this.state.error);
+      span = React.createElement(
+        'span',
+        { className: 'component-input-error' },
+        this.state.error
+      );
     }
 
-    return React.createElement('div', { className: classes, ref: this.props.ref }, label, React.createElement('input', {
-      className: 'component-input-field',
-      type: this.props.type,
-      name: this.props.name,
-      value: this.state.value,
-      id: this.props.id,
-      placeholder: this.props.placeholder,
-      onChange: this.handleChange,
-      disabled: this.props.disabled,
-      readOnly: this.props.readOnly,
-      required: this.props.required
-    }), span);
+    return React.createElement(
+      'div',
+      { className: classes, ref: this.props.ref },
+      label,
+      React.createElement('input', {
+        className: 'component-input-field',
+        type: this.props.type,
+        name: this.props.name,
+        value: this.state.value,
+        id: this.props.id,
+        placeholder: this.props.placeholder,
+        onChange: this.handleChange,
+        disabled: this.props.disabled,
+        readOnly: this.props.readOnly,
+        required: this.props.required
+      }),
+      span
+    );
   }
 });
 
@@ -426,7 +594,11 @@ module.exports = React.createClass({
   },
 
   render: function render() {
-    return React.createElement('dd', { className: 'component-list-description' }, this.props.children);
+    return React.createElement(
+      'dd',
+      { className: 'component-list-description' },
+      this.props.children
+    );
   }
 });
 
@@ -443,7 +615,11 @@ module.exports = React.createClass({
   },
 
   render: function render() {
-    return React.createElement('li', { className: 'component-list-item' }, this.props.children);
+    return React.createElement(
+      'li',
+      { className: 'component-list-item' },
+      this.props.children
+    );
   }
 });
 
@@ -460,7 +636,11 @@ module.exports = React.createClass({
   },
 
   render: function render() {
-    return React.createElement('dt', { className: 'component-list-term' }, this.props.children);
+    return React.createElement(
+      'dt',
+      { className: 'component-list-term' },
+      this.props.children
+    );
   }
 });
 
@@ -479,13 +659,29 @@ module.exports = React.createClass({
 
   render: function render() {
     if (this.props.type === 'ordered') {
-      return React.createElement('ol', { className: 'component-ordered-list' }, this.props.children);
+      return React.createElement(
+        'ol',
+        { className: 'component-ordered-list' },
+        this.props.children
+      );
     } else if (this.props.type === 'icon') {
-      return React.createElement('ul', { className: 'component-icon-list' }, this.props.children);
+      return React.createElement(
+        'ul',
+        { className: 'component-icon-list' },
+        this.props.children
+      );
     } else if (this.props.type === 'description') {
-      return React.createElement('dl', { className: 'component-description-list' }, this.props.children);
+      return React.createElement(
+        'dl',
+        { className: 'component-description-list' },
+        this.props.children
+      );
     }
-    return React.createElement('ul', { className: 'component-unordered-list' }, this.props.children);
+    return React.createElement(
+      'ul',
+      { className: 'component-unordered-list' },
+      this.props.children
+    );
   }
 });
 
@@ -507,7 +703,11 @@ module.exports = React.createClass({
 
   render: function render() {
     var classes = classNames('component-lozenge', this.props.size, this.props.purpose);
-    return React.createElement('span', { className: classes, title: this.props.tip }, this.props.children);
+    return React.createElement(
+      'span',
+      { className: classes, title: this.props.tip },
+      this.props.children
+    );
   }
 });
 
@@ -554,9 +754,47 @@ module.exports = React.createClass({
   render: function render() {
     var classes = classNames('component-quote', this.props.size, this.props.purpose, this.props.type);
     if (this.props.type === 'inline') {
-      return React.createElement('q', { className: classes, cite: this.props.cite, itemScope: true, itemType: 'http://schema.org/CreativeWork', itemProp: 'text' }, this.props.children, this.props.cite ? React.createElement('meta', { itemProp: 'citation', content: this.props.cite }) : null, React.createElement('span', { itemProp: 'author', itemScope: true, itemType: 'http://schema.org/Person' }, React.createElement('meta', { itemProp: 'name', content: this.props.author }), React.createElement('meta', { itemProp: 'jobTitle', content: this.props.role })));
+      return React.createElement(
+        'q',
+        { className: classes, cite: this.props.cite, itemScope: true, itemType: 'http://schema.org/CreativeWork', itemProp: 'text' },
+        this.props.children,
+        this.props.cite ? React.createElement('meta', { itemProp: 'citation', content: this.props.cite }) : null,
+        React.createElement(
+          'span',
+          { itemProp: 'author', itemScope: true, itemType: 'http://schema.org/Person' },
+          React.createElement('meta', { itemProp: 'name', content: this.props.author }),
+          React.createElement('meta', { itemProp: 'jobTitle', content: this.props.role })
+        )
+      );
     }
-    return React.createElement('blockquote', { className: classes, itemScope: true, itemType: 'http://schema.org/CreativeWork' }, React.createElement('p', { itemProp: 'text' }, this.props.children), React.createElement('footer', { itemProp: 'author', itemScope: true, itemType: 'http://schema.org/Person' }, React.createElement('span', { itemProp: 'name' }, this.props.author), React.createElement('small', { itemProp: 'jobTitle' }, this.props.role), this.props.cite ? React.createElement('cite', { itemProp: 'citation' }, this.props.cite) : null));
+    return React.createElement(
+      'blockquote',
+      { className: classes, itemScope: true, itemType: 'http://schema.org/CreativeWork' },
+      React.createElement(
+        'p',
+        { itemProp: 'text' },
+        this.props.children
+      ),
+      React.createElement(
+        'footer',
+        { itemProp: 'author', itemScope: true, itemType: 'http://schema.org/Person' },
+        React.createElement(
+          'span',
+          { itemProp: 'name' },
+          this.props.author
+        ),
+        React.createElement(
+          'small',
+          { itemProp: 'jobTitle' },
+          this.props.role
+        ),
+        this.props.cite ? React.createElement(
+          'cite',
+          { itemProp: 'citation' },
+          this.props.cite
+        ) : null
+      )
+    );
   }
 });
 
@@ -589,7 +827,12 @@ module.exports = React.createClass({
       }
     }
 
-    return React.createElement('div', { className: 'ui-component-rating' }, $rating, $blankRating);
+    return React.createElement(
+      'div',
+      { className: 'ui-component-rating' },
+      $rating,
+      $blankRating
+    );
   }
 });
 
@@ -606,7 +849,38 @@ module.exports = React.createClass({
     reviewCount: React.PropTypes.number.isRequired
   },
   render: function render() {
-    return React.createElement('div', { itemProp: 'aggregateRating', itemScope: true, itemType: 'http://schema.org/AggregateRating', className: 'ui-component-reviews' }, React.createElement('meta', { itemProp: 'bestRating', content: '100' }), React.createElement('div', null, React.createElement('span', { itemProp: 'ratingValue' }, this.props.reviewPercentage), '% would book again'), React.createElement('div', null, React.createElement('span', { itemProp: 'reviewCount' }, '(', this.props.reviewCount), ' ', React.createElement('a', { title: 'Customer reviews' }, 'Reviews'), ')'));
+    return React.createElement(
+      'div',
+      { itemProp: 'aggregateRating', itemScope: true, itemType: 'http://schema.org/AggregateRating', className: 'ui-component-reviews' },
+      React.createElement('meta', { itemProp: 'bestRating', content: '100' }),
+      React.createElement(
+        'div',
+        null,
+        React.createElement(
+          'span',
+          { itemProp: 'ratingValue' },
+          this.props.reviewPercentage
+        ),
+        '% would book again'
+      ),
+      React.createElement(
+        'div',
+        null,
+        React.createElement(
+          'span',
+          { itemProp: 'reviewCount' },
+          '(',
+          this.props.reviewCount
+        ),
+        ' ',
+        React.createElement(
+          'a',
+          { title: 'Customer reviews' },
+          'Reviews'
+        ),
+        ')'
+      )
+    );
   }
 });
 
@@ -660,7 +934,33 @@ module.exports = React.createClass({
   },
 
   render: function render() {
-    return React.createElement('div', { className: 'component-stepper' }, React.createElement('span', { className: 'button-container' }, React.createElement(Button, { handleClick: this.decrement, type: 'button', disabled: !this.canDecrement() }, this.props.decrementDisplayString)), React.createElement(Input, { type: 'text', key: this.props.value, readOnly: true }, this.props.value.toString()), React.createElement('span', { className: 'button-container' }, React.createElement(Button, { handleClick: this.increment, type: 'button', disabled: !this.canIncrement() }, this.props.incrementDisplayString)));
+    return React.createElement(
+      'div',
+      { className: 'component-stepper' },
+      React.createElement(
+        'span',
+        { className: 'button-container' },
+        React.createElement(
+          Button,
+          { handleClick: this.decrement, type: 'button', disabled: !this.canDecrement() },
+          this.props.decrementDisplayString
+        )
+      ),
+      React.createElement(
+        Input,
+        { type: 'text', key: this.props.value, readOnly: true },
+        this.props.value.toString()
+      ),
+      React.createElement(
+        'span',
+        { className: 'button-container' },
+        React.createElement(
+          Button,
+          { handleClick: this.increment, type: 'button', disabled: !this.canIncrement() },
+          this.props.incrementDisplayString
+        )
+      )
+    );
   }
 });
 
@@ -680,7 +980,21 @@ module.exports = React.createClass({
   },
 
   render: function render() {
-    return React.createElement('div', { className: 'component-tile' }, React.createElement(Image, this.props.image), React.createElement('div', { className: 'caption' }, React.createElement('h4', null, this.props.title), this.props.children));
+    return React.createElement(
+      'div',
+      { className: 'component-tile' },
+      React.createElement(Image, this.props.image),
+      React.createElement(
+        'div',
+        { className: 'caption' },
+        React.createElement(
+          'h4',
+          null,
+          this.props.title
+        ),
+        this.props.children
+      )
+    );
   }
 });
 
@@ -717,14 +1031,39 @@ module.exports = React.createClass({
     };
     var unitName = unitNames[this.props.unit];
 
-    return React.createElement('div', { className: 'component-weather' }, React.createElement('div', { className: this.props.type }, React.createElement('span', null, this.props.type)), this.props.temperature ? React.createElement('div', null, this.props.temperature, React.createElement('abbr', { title: unitName }, unit)) : null, this.props.date ? React.createElement('div', null, moment(date, expectedFormat, true).format(displayFormat)) : null);
+    return React.createElement(
+      'div',
+      { className: 'component-weather' },
+      React.createElement(
+        'div',
+        { className: this.props.type },
+        React.createElement(
+          'span',
+          null,
+          this.props.type
+        )
+      ),
+      this.props.temperature ? React.createElement(
+        'div',
+        null,
+        this.props.temperature,
+        React.createElement(
+          'abbr',
+          { title: unitName },
+          unit
+        )
+      ) : null,
+      this.props.date ? React.createElement(
+        'div',
+        null,
+        moment(date, expectedFormat, true).format(displayFormat)
+      ) : null
+    );
   }
 });
 
 
 },{"moment":26,"react":201}],22:[function(require,module,exports){
-'use strict';
-
 var UIToolkit = {};
 
 // Custom Components
@@ -26246,7 +26585,7 @@ var moment = require('moment');
 var countdown = {};
 module.exports = countdown;
 
-countdown.until = function (untilDate) {
+countdown.until = function(untilDate) {
   var duration = this._durationFromNow(untilDate);
 
   return {
@@ -26257,17 +26596,17 @@ countdown.until = function (untilDate) {
   };
 };
 
-countdown.untilString = function (untilDate) {
+countdown.untilString = function(untilDate) {
   var timeLeft = this.until(untilDate);
   var out = timeLeft.days + ' days';
-  out += ', ' + timeLeft.hours / 1 + ' hours';
-  out += ', ' + timeLeft.minutes / 1 + ' minutes';
-  out += ' & ' + timeLeft.seconds / 1 + ' seconds';
+  out += ', ' + ( timeLeft.hours / 1 ) + ' hours';
+  out += ', ' + ( timeLeft.minutes / 1 ) + ' minutes';
+  out += ' & ' + ( timeLeft.seconds / 1 ) + ' seconds';
   return out;
 };
 
 // Private functions from here
-countdown._pad = function (number) {
+countdown._pad = function(number) {
   number = Math.abs(Math.floor(number));
   if (number > 9) {
     return '' + number;
@@ -26275,18 +26614,18 @@ countdown._pad = function (number) {
   return '0' + number;
 };
 
-countdown._roundTowardsZero = function (number) {
+countdown._roundTowardsZero = function(number) {
   if (number > 0) {
     return '' + Math.floor(number);
   }
   return '' + Math.ceil(number);
 };
 
-countdown._isSameDay = function (moment1, moment2) {
+countdown._isSameDay = function(moment1, moment2) {
   return moment(moment1).isSame(moment2, 'day');
 };
 
-countdown._durationFromNow = function (untilDate) {
+countdown._durationFromNow = function(untilDate) {
   var until = moment(untilDate);
   var now = moment();
   if (this._isSameDay(until, now)) {
@@ -26302,7 +26641,7 @@ countdown._durationFromNow = function (untilDate) {
 var countdown = require('./countdown.js');
 var moment = require('moment');
 
-var CountdownManager = function CountdownManager(date) {
+var CountdownManager = function(date) {
   this.date = date;
 };
 
@@ -26310,31 +26649,29 @@ module.exports = CountdownManager;
 
 CountdownManager.countdownInterval = 1000;
 
-CountdownManager.prototype.start = function (callback) {
+CountdownManager.prototype.start = function(callback) {
   this.intervalId = setInterval(this.intervalCounter(callback), CountdownManager.countdownInterval);
 };
 
-CountdownManager.prototype.stop = function () {
+CountdownManager.prototype.stop = function() {
   clearInterval(this.intervalId);
   return moment();
 };
 
-CountdownManager.prototype.intervalCounter = function (callback) {
-  return (function () {
+CountdownManager.prototype.intervalCounter = function(callback) {
+  return function() {
     callback(this.time());
-  }).bind(this);
+  }.bind(this);
 };
 
-CountdownManager.prototype.countdownDate = function (callback) {
-  return typeof callback === 'function' ? callback(this.date.startDate) : this.date.startDate;
+CountdownManager.prototype.countdownDate = function(callback) {
+  return (typeof callback === 'function') ? callback(this.date.startDate) : this.date.startDate;
 };
 
-CountdownManager.prototype.time = function (currentMoment) {
+CountdownManager.prototype.time = function(currentMoment) {
   return countdown.until(this.countdownDate(), currentMoment);
 };
 
 
 },{"./countdown.js":202,"moment":26}]},{},[23])(23)
 });
-=======
->>>>>>> master
