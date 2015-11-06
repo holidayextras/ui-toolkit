@@ -1,12 +1,12 @@
 machine:
   node:
-    version: 0.10.39
+    version: 0.10.40
 dependencies:
   cache_directories:
     - node_modules
 test:
   override:
-    - npm run ci
+    - npm run ci > $CIRCLE_TEST_REPORTS/results.xml
     - npm run lint
     - npm run test
     - npm run coveralls
