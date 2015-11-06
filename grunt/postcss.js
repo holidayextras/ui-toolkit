@@ -2,11 +2,11 @@
 module.exports = {
   options: {
     processors: [
+      require('postcss-import')(),
       require('autoprefixer')({ browsers: ['last 2 versions'] }),
       require('postcss-calc')(),
-      require('postcss-color-function')(),
       require('postcss-custom-properties')(),
-      require('postcss-import')(),
+      require('postcss-color-function')(),
       require('postcss-nested')()
     ]
   },
