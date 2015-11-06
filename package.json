@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "scripts/build.sh",
-    "postbuild": "grunt build
+    "postbuild": "ulimit -n 9999; grunt build",
     "postinstall": "npm run build",
     "coverage": "istanbul cover -x dist _mocha -- test/**/*-test.*",
     "predocs": "cd docs && npm install && cd - && npm run build",
