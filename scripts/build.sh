@@ -14,4 +14,3 @@ for tool in $( ls -1 $SRCFOLDER ); do
   echo "UIToolkit.$( ${CASESCRIPT} ${tool}) = require('./components/${tool}');" >> ${DISTINDEX}
 done
 ulimit -n 9999
-grunt build
