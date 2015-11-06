@@ -29,13 +29,13 @@ var example = (
       </UIToolkit.IconListItem>
 
       <UIToolkit.IconListItem icon="check">
-        <UIToolkit.BasketItem title={<a onClick={pretendLightBox.bind(null, '4th product')}>Fourth Product</a>} handleRemove={removeAThing.bind(null,'4th product')} price={100}>
+        <UIToolkit.BasketItem title={<a onClick={pretendLightBox.bind(null, '4th product')} role="link" tabIndex="0">Fourth Product</a>} handleRemove={removeAThing.bind(null,'4th product')} price={100}>
           Has a special title (could open a lightbox or something?)
         </UIToolkit.BasketItem>
       </UIToolkit.IconListItem>
 
       <UIToolkit.IconListItem icon="check">
-        <UIToolkit.BasketItem title={<a onClick={pretendLightBox.bind(null, '5th product')}>Fifth Product (no description)</a>} price={100} />
+        <UIToolkit.BasketItem title={<a onClick={pretendLightBox.bind(null, '5th product')} role="link" tabIndex="0">Fifth Product (no description)</a>} price={100} />
       </UIToolkit.IconListItem>
 
       <UIToolkit.IconListItem icon="check">

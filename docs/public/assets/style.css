@@ -17,6 +17,9 @@ body {
 h1, h2, h3, h4, h5 {
   clear:both;
 }
+a {
+  color: #0000EE;
+}
 
 header {
   background:rgb(222,75,149);
