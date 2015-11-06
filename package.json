@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "scripts/build.sh",
-    "ci": "mocha --recursive test/**/*-test.js* src/**/*-test.js* -R xunit",
+    "ci": "mocha --recursive test/**/*-test.js* src/**/*-test.js* -R xunit > $CIRCLE_TEST_REPORTS/results.xml",
     "postinstall": "npm run build",
     "coverage": "istanbul cover -x dist _mocha -- test/**/*-test.*",
     "predocs": "cd docs && npm install && cd - && npm run build",
