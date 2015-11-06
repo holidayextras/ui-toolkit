@@ -1,0 +1,14 @@
+/*------------------------------------*\
+    #Iconography
+\*------------------------------------*/
+
+/*
+ *    Font Awesome
+ */
+
+@import "../../node_modules/font-awesome/css/font-awesome.min.css";
+
+:root {
+  --fa-font-path: "//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts"; /* for referencing Bootstrap CDN font files directly */
+  --icon-font-path: var(--fa-font-path);
+}

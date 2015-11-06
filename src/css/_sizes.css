@@ -1,0 +1,55 @@
+/*------------------------------------*\
+    #Sizes
+\*------------------------------------*/
+
+/*
+ *    Sizes relative to font sizes
+ */
+
+.small, small {
+  font-size: var(--font-size-small);
+}
+.medium, .default {
+  font-size: var(--font-size-medium);
+}
+.large {
+  font-size: var(--font-size-large);
+}
+.extra-large {
+  font-size: var(--font-size-extra-large);
+}
+
+:root {
+
+  /*
+   *    Padding Sizes
+   */
+  --padding-default:            1em;
+  --padding-vertical-default:   calc(var(--padding-default) / 2);
+  --padding-horizontal-default: var(--padding-default);
+
+  --padding-default-large:      var(--padding-default);
+  --padding-vertical-large:     var(--padding-vertical-default);
+  --padding-horizontal-large:   var(--padding-horizontal-default);
+
+  --padding-default-small:      var(--padding-default);
+  --padding-vertical-small:     var(--padding-vertical-default);
+  --padding-horizontal-small:   var(--padding-horizontal-default);
+
+  /*
+   *    Margin Sizes
+   */
+
+  --margin-default:            1em;
+  --margin-vertical-default:   calc(var(--margin-default) / 2);
+  --margin-horizontal-default: var(--margin-default);
+
+  --margin-default-large:      var(--margin-default);
+  --margin-vertical-large:     var(--margin-vertical-default);
+  --margin-horizontal-large:   var(--margin-horizontal-default);
+
+  --margin-default-small:      var(--margin-default);
+  --margin-vertical-small:     var(--margin-vertical-default);
+  --margin-horizontal-small:   var(--margin-horizontal-default);
+
+}

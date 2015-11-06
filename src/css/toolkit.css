@@ -1,0 +1,61 @@
+/*------------------------------------*\
+    #UI-Toolkit
+\*------------------------------------*/
+
+@import "_variables.css";
+
+/*@import "../components/alert/_alert";
+@import "../components/basket-item/_basket-item";
+@import "../components/button/_button";
+@import "../components/countdown/_countdown";
+@import "../components/flag/_flag";
+@import "../components/icon-list/_icon-list";
+@import "../components/icon-list-item/_icon-list-item";
+@import "../components/image/_image";
+@import "../components/input/_input";
+@import "../components/lozenge/_lozenge";
+@import "../components/payment-card/_payment-card";
+@import "../components/quote/_quote";
+@import "../components/tile/_tile";
+@import "../components/weather/_weather";
+@import "../components/stepper/_stepper";*/
+
+/*
+ *    Default styling
+ */
+
+body {
+  font-family: var(--font-family-body);
+  font-size:   var(--font-size-base);
+  line-height: var(--line-height-body);
+}
+h1, h2, h3 {
+  font-family: var(--font-family-headings);
+  line-height: var(--line-height-headings);
+}
+
+h1, .h1 {
+  font-size:   var(--font-size-h1); /* 40px */
+  line-height: var(--line-height-headings);
+}
+h2, .h2 {
+  font-size:   var(--font-size-h2); /* 30px */
+  line-height: var(--line-height-headings);
+}
+h3, .h3 {
+  font-size:   var(--font-size-h3); /* 24px */
+  line-height: var(--line-height-headings);
+}
+h4, .h4 {
+  font-size:   var(--font-size-h4); /* 20px */
+  line-height: var(--line-height-headings);
+}
+h5, .h5 {
+  font-size:   var(--font-size-h5); /* 16px */
+  line-height: var(--line-height-headings);
+}
+h6, .h6 {
+  font-size:   var(--font-size-h6); /* 14px */
+  line-height: var(--line-height-headings);
+  text-transform: uppercase;
+}
