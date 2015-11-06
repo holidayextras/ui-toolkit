@@ -1,4 +1,6 @@
+#!/bin/bash
 SCRIPTFOLDER=$( dirname "${BASH_SOURCE[0]}" )
+echo $SCRIPTFOLDER
 CASESCRIPT=${SCRIPTFOLDER}/toPascalCase.js
 SRCFOLDER=src/components
 DISTFOLDER=dist/components
