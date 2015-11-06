@@ -53,6 +53,7 @@
   },
   "devDependencies": {
     "chai": "^2.3.0",
+    "change-case": "^2.3.0",
     "eslint": "^0.21.0",
     "eslint-plugin-react": "^2.2.0",
     "glob": "^5.0.6",
