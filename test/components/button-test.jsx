@@ -18,7 +18,7 @@ describe('ButtonComponent', function() {
 
   it('should render a primary button', function() {
     var primaryButton = TestUtils.renderIntoDocument(
-      <ButtonView purpose="primarry">Book Now</ButtonView>
+      <ButtonView purpose="primary">Book Now</ButtonView>
     );
 
     var renderedButton = TestUtils.findRenderedDOMComponentWithClass(primaryButton, 'primary');
