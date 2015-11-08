@@ -54,6 +54,8 @@
   "devDependencies": {
     "autoprefixer": "^6.1.0",
     "chai": "^2.3.0",
+    "cssnano": "^3.3.2",
+    "es6-promise": "^3.0.2",
     "eslint": "^0.21.0",
     "eslint-plugin-react": "^2.2.0",
     "glob": "^5.0.6",
@@ -71,7 +73,6 @@
     "mocha": "^2.2.5",
     "mocha-jsdom": "^0.3.0",
     "mocha-lcov-reporter": "0.0.2",
-    "postcss-calc": "^5.0.0",
     "postcss-color-function": "^2.0.0",
     "postcss-custom-properties": "^5.0.0",
     "postcss-import": "^7.1.3",

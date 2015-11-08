@@ -1,13 +1,16 @@
 'use strict';
+require('es6-promise').polyfill(); // can be removed when we no longer support node v0.10
 module.exports = {
   options: {
     processors: [
       require('postcss-import')(),
-      require('autoprefixer')({ browsers: ['last 2 versions'] }),
-      require('postcss-calc')(),
+      require('postcss-nested')(),
       require('postcss-custom-properties')(),
       require('postcss-color-function')(),
-      require('postcss-nested')()
+      require('cssnano')({
+        autoprefixer: { browsers: ['last 2 versions'] },
+        discardComments: { removeAll: true }
+      })
     ]
   },
   dist: {
