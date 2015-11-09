@@ -33,3 +33,5 @@ docs/npm-debug.log*
 
 # Built files
 dist/components
+dist/*.js
+dist/toolkit.css

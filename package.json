@@ -41,6 +41,7 @@
     "babel": "^5.8.20",
     "babelify": "^6.4.0",
     "browserify": "^11.1.0",
+    "change-case": "^2.3.0",
     "classnames": "^2.1.0",
     "font-awesome": "^4.3.0",
     "grunt": "^0.4.5",
@@ -55,7 +56,6 @@
   },
   "devDependencies": {
     "chai": "^2.3.0",
-    "change-case": "^2.3.0",
     "eslint": "^0.21.0",
     "eslint-plugin-react": "^2.2.0",
     "glob": "^5.0.6",
