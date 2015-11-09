@@ -93,7 +93,8 @@ module.exports = React.createClass({
     title: React.PropTypes.node,
     toggleDescription: React.PropTypes.bool,
     handleRemove: React.PropTypes.func,
-    children: React.PropTypes.node
+    children: React.PropTypes.node,
+    formats: React.Proptypes.optionalObject
   },
   getInitialState: function getInitialState() {
     return {
@@ -140,7 +141,7 @@ module.exports = React.createClass({
     if (this.props.price === 0) {
       return React.createElement(ReactIntl.FormattedMessage, { message: this.getIntlMessage('free') });
     }
-    return React.createElement(ReactIntl.FormattedNumber, { value: this.props.price, format: 'price' });
+    return React.createElement(ReactIntl.FormattedNumber, { value: this.props.price, format: 'price', formats: this.props.formats });
   },
   removeNode: function removeNode() {
     if (this.props.handleRemove === null) return null;

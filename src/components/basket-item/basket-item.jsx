@@ -13,7 +13,8 @@ module.exports = React.createClass({
     title: React.PropTypes.node,
     toggleDescription: React.PropTypes.bool,
     handleRemove: React.PropTypes.func,
-    children: React.PropTypes.node
+    children: React.PropTypes.node,
+    formats: React.PropTypes.object
   },
   getInitialState: function() {
     return {
