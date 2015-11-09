@@ -46,7 +46,7 @@
     "grunt-shell": "^1.1.1",
     "gruntfile-gtx": "^0.3.0",
     "moment": "~2.10.6",
-    "react": "^0.14.2",
+    "react": "^0.13.3",
     "react-data-attributes-mixin": "git://github.com/holidayextras/react-data-attributes-mixin",
     "require-directory": "^2.0.0",
     "requirejs": "~2.1.9"
