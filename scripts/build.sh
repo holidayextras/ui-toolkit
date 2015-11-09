@@ -13,4 +13,3 @@ for tool in $( ls -1 $SRCFOLDER ); do
   babel $SRCFOLDER/$tool/$tool.jsx -o $DISTFOLDER/$tool/index.js
   echo "UIToolkit.$( ${CASESCRIPT} ${tool}) = require('./components/${tool}');" >> ${DISTINDEX}
 done
-ulimit -n 9999
