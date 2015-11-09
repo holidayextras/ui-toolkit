@@ -1,0 +1,89 @@
+/*------------------------------------*\
+    #Quote
+\*------------------------------------*/
+
+.component-quote {
+  border-left: var(--quotes-border-style) var(--quotes-border-size);
+  margin: 0;
+  padding: var(--padding-default);
+  font-size: var(--font-size-base);
+  quotes: "“" "”" "‘" "’";
+  &.inline {
+    border-left: none;
+    padding: 0;
+  }
+  p {
+    &:first-of-type {
+      margin-top: 0;
+    }
+    font-style: italic;
+    font-size: var(--font-size-base);
+    &:before {
+      content: open-quote;
+    }
+    &:after {
+      content: close-quote;
+    }
+  }
+  footer {
+    font-size: var(--font-size-base);
+  }
+  small, cite {
+    font-size: var(--font-size-small);
+  }
+  cite:before {
+    content: "Source: "
+  }
+  & + .component-quote {
+    margin-top: var(--margin-vertical-default);
+  }
+}
+
+/*
+ *    Functional Colours
+ */
+
+.component-quote {
+  &.primary {
+    color: var(--primary);
+    border-color: color(var(--primary) l(+30%));
+    small, cite {
+      color: color(var(--primary) l(+20%));
+    }
+  }
+  &.secondary {
+    color: var(--secondary);
+    border-color: color(var(--secondary) l(+30%));
+    small, cite {
+      color: color(var(--secondary) l(+20%));
+    }
+  }
+  &.success {
+    color: var(--success);
+    border-color: color(var(--success) l(+30%));
+    small, cite {
+      color: color(var(--success) l(+20%));
+    }
+  }
+  &.info {
+    color: var(--info);
+    border-color: color(var(--info) l(+30%));
+    small, cite {
+      color: color(var(--info) l(+20%));
+    }
+  }
+  &.warning {
+    color: var(--warning);
+    border-color: color(var(--warning) l(+30%));
+    small, cite {
+      color: color(var(--warning) l(+20%));
+    }
+  }
+  &.danger {
+    color: var(--danger);
+    border-color: color(var(--danger) l(+30%));
+    small, cite {
+      color: color(var(--danger) l(+20%));
+    }
+  }
+}

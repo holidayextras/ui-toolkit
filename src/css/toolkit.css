@@ -15,10 +15,10 @@
 @import "../components/input/_input";
 @import "../components/lozenge/_lozenge";
 @import "../components/payment-card/_payment-card";
-/*@import "../components/quote/_quote";
+@import "../components/quote/_quote";
 @import "../components/tile/_tile";
 @import "../components/weather/_weather";
-@import "../components/stepper/_stepper";*/
+@import "../components/stepper/_stepper";
 
 /*
  *    Default styling
