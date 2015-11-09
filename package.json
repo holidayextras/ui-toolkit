@@ -51,7 +51,6 @@
     "requirejs": "~2.1.9"
   },
   "devDependencies": {
-    "autoprefixer": "^6.1.0",
     "chai": "^2.3.0",
     "cssnano": "^3.3.2",
     "es6-promise": "^3.0.2",
