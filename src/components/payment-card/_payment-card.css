@@ -1,0 +1,46 @@
+/*------------------------------------*\
+    #Card
+\*------------------------------------*/
+
+/* Default size */
+:root {
+  --cardWidth: 52px;
+  --cardHeight: 32px;
+}
+
+.component-payment-card {
+  background:url(var(--asset-path)/cards.png) no-repeat;
+  width: var(--cardWidth);
+  height: var(--cardHeight);
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0;
+  margin: 0;
+  background-size: var(--cardWidth) auto;
+
+  /*
+   * == Card types ==
+   */
+  &.amazon { background-position : 0 -calc(0 * var(--cardHeight)); }
+  &.amex { background-position : 0 -calc(1 * var(--cardHeight)); }
+  &.apple { background-position : 0 -calc(2 * var(--cardHeight)); }
+  &.cirrus { background-position : 0 -calc(3 * var(--cardHeight)); }
+  &.delta { background-position : 0 -calc(4 * var(--cardHeight)); }
+  &.directdebit { background-position : 0 -calc(5 * var(--cardHeight)); }
+  &.discover { background-position : 0 -calc(6 * var(--cardHeight)); }
+  &.electron { background-position : 0 -calc(7 * var(--cardHeight)); }
+  &.google { background-position : 0 -calc(8 * var(--cardHeight)); }
+  &.maestro { background-position : 0 -calc(9 * var(--cardHeight)); }
+  &.mastercard { background-position : 0 -calc(10 * var(--cardHeight)); }
+  &.paym { background-position : 0 -calc(11 * var(--cardHeight)); }
+  &.paypal { background-position : 0 -calc(12 * var(--cardHeight)); }
+  &.sage { background-position : 0 -calc(13 * var(--cardHeight)); }
+  &.sepa { background-position : 0 -calc(14 * var(--cardHeight)); }
+  &.solo { background-position : 0 -calc(15 * var(--cardHeight)); }
+  &.switch { background-position : 0 -calc(16 * var(--cardHeight)); }
+  &.ukash { background-position : 0 -calc(17 * var(--cardHeight)); }
+  &.visa { background-position : 0 -calc(18 * var(--cardHeight)); }
+  &.visadebit { background-position : 0 -calc(19 * var(--cardHeight)); }
+  &.westernunion { background-position : 0 -calc(20 * var(--cardHeight)); }
+
+}

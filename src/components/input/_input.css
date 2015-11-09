@@ -1,0 +1,21 @@
+/*------------------------------------*\
+    #Input
+\*------------------------------------*/
+
+.component-input {
+  .component-input-label {
+    margin-bottom: var(--margin-vertical-default);
+    font-weight: var(--font-weight-body);
+    display: inline-block;
+    padding: var(--padding-vertical-default) 0;
+  }
+  .component-input-field {
+    background: var(--input);
+    border: var(--input-border-style) var(--input-border-size) var(--input-border-color);
+    border-radius: var(--input-border-radius);
+    line-height: var(--line-height-body);
+    padding: var(--padding-vertical-default) var(--padding-horizontal-default);
+    margin-left: var(--margin-default);
+    margin-bottom: var(--margin-vertical-default);
+  }
+}
