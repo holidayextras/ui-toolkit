@@ -63,11 +63,35 @@ describe('BasketItem', function() {
   });
 
   describe('with a price', function() {
-    it('should pass the correct arguments to ReactIntl.FormattedNumber', function() {
+    it('should pass the correct price argument to ReactIntl.FormattedNumber', function() {
       var basketItem = TestUtils.renderIntoDocument(<BasketItem price={123.45} />);
       var formattedNumber = TestUtils.findRenderedComponentWithType(basketItem, ReactIntl.FormattedNumber);
       assert.equal(formattedNumber.props.value, 123.45);
       assert.equal(formattedNumber.props.format, 'price');
+    });
+
+    it('should have default formats of GBP currency', function() {
+      var basketItem = TestUtils.renderIntoDocument(<BasketItem price={123.45} />);
+      var formattedNumber = TestUtils.findRenderedComponentWithType(basketItem, ReactIntl.FormattedNumber);
+      assert.equal(formattedNumber.props.formats.number.price.currency, 'GBP');
+    });
+
+  });
+
+  describe('with formats', function() {
+    it('should pass the correct formats argument to ReactIntl.FormattedNumber', function() {
+      var formats = {
+        number: {
+          price: {
+            style: 'currency',
+            currency: 'GBP',
+            minimumFractionDigits: 2
+          }
+        }
+      };
+      var basketItem = TestUtils.renderIntoDocument(<BasketItem price={123.45} formats={formats} />);
+      var formattedNumber = TestUtils.findRenderedComponentWithType(basketItem, ReactIntl.FormattedNumber);
+      assert.equal(formattedNumber.props.formats, formats);
     });
   });
 

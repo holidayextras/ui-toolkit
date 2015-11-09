@@ -56,7 +56,7 @@ module.exports = React.createClass({
     if (this.props.price === 0) {
       return <ReactIntl.FormattedMessage message={this.getIntlMessage('free')} />;
     }
-    return <ReactIntl.FormattedNumber value={this.props.price} format="price" />;
+    return <ReactIntl.FormattedNumber value={this.props.price} format="price" formats={this.props.formats} />;
   },
   removeNode: function() {
     if (this.props.handleRemove === null) return null;
