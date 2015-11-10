@@ -29,7 +29,7 @@ describe('BasketItem', function() {
         before(function() {
           var basketItem = TestUtils.renderIntoDocument(<BasketItem title={title} toggleDescription={true} />);
           var renderedBasketItem = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-title');
-          anchor = TestUtils.findRenderedDOMComponentWithTag(renderedBasketItem, 'a');
+          anchor = renderedBasketItem.querySelector('a');
         });
         it('should have a title node that contains an anchor', function() {
           assert.equal(anchor.getDOMNode().textContent, title);
@@ -46,7 +46,7 @@ describe('BasketItem', function() {
         var title = <a>Title as an Element</a>;
         var basketItem = TestUtils.renderIntoDocument(<BasketItem title={title} />);
         var renderedBasketItem = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-title');
-        var anchor = TestUtils.findRenderedDOMComponentWithTag(renderedBasketItem, 'a');
+        var anchor = renderedBasketItem.querySelector('a');
         assert.isDefined(anchor);
       });
     });
@@ -99,7 +99,7 @@ describe('BasketItem', function() {
       };
       var basketItem = TestUtils.renderIntoDocument(<BasketItem handleRemove={handleRemove} />);
       var renderedBasketItem = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-remove');
-      anchor = TestUtils.findRenderedDOMComponentWithTag(renderedBasketItem, 'a');
+      anchor = renderedBasketItem.querySelector('a');
     });
     it('should have a remove node with an anchor as a child', function() {
       assert.isDefined(anchor);
@@ -135,7 +135,7 @@ describe('BasketItem', function() {
     before(function() {
       var basketItem = TestUtils.renderIntoDocument(<BasketItem toggleDescription={true} title='Product 1' />);
       var titleContainer = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-title');
-      titleLink = TestUtils.findRenderedDOMComponentWithTag(titleContainer, 'a');
+      titleLink = titleContainer.querySelector('a');
       description = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-description');
     });
 
