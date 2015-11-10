@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "scripts/build.sh",
-    "ci": "mocha --recursive test/**/*-test.js* src/**/*-test.js* && istanbul cover -x dist _mocha -- test/**/*-test.* && node_modules/.bin/make-up grunt src && echo '🍻  All good!'",
+    "ci": "npm run lint && npm test && npm run coverage",
     "postinstall": "npm run build",
     "coverage": "istanbul cover -x dist _mocha -- test/**/*-test.*",
     "predocs": "cd docs && npm install && cd - && npm run build",
