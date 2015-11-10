@@ -4,6 +4,7 @@ machine:
 dependencies:
   cache_directories:
     - node_modules
+
 test:
   override:
     - npm run ci
