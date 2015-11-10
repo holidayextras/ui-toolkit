@@ -18,7 +18,7 @@ var CodeMirrorEditor = React.createClass({
   componentDidMount: function() {
     if (IS_MOBILE) return;
 
-    this.editor = CodeMirror.fromTextArea(this.refs.editor.getDOMNode(), {
+    this.editor = CodeMirror.fromTextArea(this.refs.editor, {
       mode: 'javascript',
       lineNumbers: false,
       matchBrackets: true,
@@ -170,14 +170,14 @@ var CustomComponent = React.createClass({
   },
 
   componentWillUnmount: function() {
-    var mountNode = this.refs.mount.getDOMNode();
+    var mountNode = this.refs.mount;
     try {
       React.unmountComponentAtNode(mountNode);
     } catch (e) { }
   },
 
   executeCode: function() {
-    var mountNode = this.refs.mount.getDOMNode();
+    var mountNode = this.refs.mount;
 
     try {
       React.unmountComponentAtNode(mountNode);
