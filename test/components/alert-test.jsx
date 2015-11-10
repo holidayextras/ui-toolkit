@@ -12,7 +12,7 @@ describe('AlertComponent', function() {
     );
 
     var renderedAlert = TestUtils.findRenderedDOMComponentWithClass(alert, 'component-alert');
-    assert.equal(renderedAlert.getDOMNode().textContent, 'I am content');
+    assert.equal(renderedAlert.getDOMNode().textContent, 'I ant');
 
   });
 
