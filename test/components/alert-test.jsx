@@ -12,8 +12,7 @@ describe('AlertComponent', function() {
     );
 
     var renderedAlert = TestUtils.findRenderedDOMComponentWithClass(alert, 'component-alert');
-    assert.equal(renderedAlert.getDOMNode().textContent, 'I ant');
-
+    assert.equal(renderedAlert.getDOMNode().textContent, 'I am content');
   });
 
   it('should render an alert without a H4 if title is no passed in', function() {
