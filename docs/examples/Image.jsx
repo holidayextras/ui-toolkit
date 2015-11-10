@@ -7,4 +7,4 @@ var example = (
   <UIToolkit.Image className="component-image" src={image.src} alt={image.alt} />
 );
 
-React.render(example, mountNode);
+ReactDOM.render(example, mountNode);

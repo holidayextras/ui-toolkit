@@ -7,4 +7,4 @@ var example = (
   </UIToolkit.IconList>
 );
 
-React.render(example, mountNode);
+ReactDOM.render(example, mountNode);

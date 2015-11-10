@@ -110,7 +110,7 @@ _Note: This needs to and will be be simplified_
 var example = (
   <UIToolkit.YourNewComponent foo="bar" />
 );
-React.render(example, mountNode);
+ReactDOM.render(example, mountNode);
 ```
 
 2. Then add a link to the navigation in `.docs/src/Nav.jsx`.

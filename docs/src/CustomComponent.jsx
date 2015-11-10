@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactDOM = require('react-dom');
 var classNames = require('classnames');
 var CodeMirror = global.CodeMirror;
 var JSXTransformer = global.JSXTransformer;
@@ -172,7 +173,7 @@ var CustomComponent = React.createClass({
   componentWillUnmount: function() {
     var mountNode = this.refs.mount;
     try {
-      React.unmountComponentAtNode(mountNode);
+      ReactDOM.unmountComponentAtNode(mountNode);
     } catch (e) { }
   },
 
@@ -180,13 +181,13 @@ var CustomComponent = React.createClass({
     var mountNode = this.refs.mount;
 
     try {
-      React.unmountComponentAtNode(mountNode);
+      ReactDOM.unmountComponentAtNode(mountNode);
     } catch (e) { }
 
     try {
       var compiledCode = this.compileCode();
       if (this.props.renderCode) {
-        React.render(
+        ReactDOM.render(
           <CodeMirrorEditor codeText={compiledCode} readOnly={true} />,
           mountNode
         );
@@ -199,7 +200,7 @@ var CustomComponent = React.createClass({
         {
           console.error(err);
         }
-        React.render(
+        ReactDOM.render(
           <div className="alert alert-danger">{err.toString()}</div>,
           mountNode
         );
