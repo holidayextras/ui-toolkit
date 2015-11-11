@@ -41,7 +41,7 @@ describe('CountdownComponent', function() {
         <CountdownComponent until={date} />
       );
       var renderedCountdown = TestUtils.findRenderedDOMComponentWithClass(countdown, 'component-countdown');
-      assert.equal(renderedCountdown.getDOMNode().getAttribute('role'), 'timer');
+      assert.equal(renderedCountdown.getAttribute('role'), 'timer');
     });
   });
 });

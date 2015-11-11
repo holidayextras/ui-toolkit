@@ -12,7 +12,7 @@ describe('ButtonComponent', function() {
     );
 
     var renderedButton = TestUtils.findRenderedDOMComponentWithClass(button, 'component-button');
-    assert.equal(renderedButton.getDOMNode().textContent, 'Book Now');
+    assert.equal(renderedButton.textContent, 'Book Now');
 
   });
 

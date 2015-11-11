@@ -12,7 +12,7 @@ describe('ReviewsComponent', function() {
     );
 
     var reviewText = TestUtils.findRenderedDOMComponentWithClass(reviewView, 'ui-component-reviews');
-    assert.equal(reviewText.getDOMNode().textContent, '98% would book again(123 Reviews)');
+    assert.equal(reviewText.textContent, '98% would book again(123 Reviews)');
   });
 
 });
