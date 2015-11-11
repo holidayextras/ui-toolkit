@@ -1,5 +1,5 @@
 'use strict';
-var React = require('react/addons');
+var React = require('react');
 var sinon = require('sinon');
 var assert = require('chai').assert;
 var CountdownComponent = require('../countdown.jsx');

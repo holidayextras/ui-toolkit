@@ -1,5 +1,5 @@
 'use strict';
-var React = require('react/addons');
+var React = require('react');
 var ReactIntl = require('react-intl');
 var TestUtils = require('react-addons-test-utils');
 var assert = require('chai').assert;

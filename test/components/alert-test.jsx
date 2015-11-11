@@ -1,5 +1,5 @@
 'use strict';
-var React = require('react/addons');
+var React = require('react');
 var TestUtils = require('react-addons-test-utils');
 var assert = require('chai').assert;
 var AlertComponent = require('../../src/components/alert/alert.jsx');
