@@ -17,7 +17,7 @@ describe('IconListComponent ', function() {
     );
 
     var renderedIconList = TestUtils.findRenderedDOMComponentWithClass(iconListInstance, 'component-icon-list');
-    assert.equal(renderedIconList.getDOMNode().nodeName, 'UL');
+    assert.equal(renderedIconList.nodeName, 'UL');
   });
 
   it('should support multiple IconListItem children', function() {

@@ -16,7 +16,7 @@ describe('IconListItemComponent', function() {
     );
 
     var renderedIconListItem = TestUtils.findRenderedDOMComponentWithClass(iconListItemInstance, 'component-icon-list-item');
-    assert.equal(renderedIconListItem.getDOMNode().nodeName, 'LI');
+    assert.equal(renderedIconListItem.nodeName, 'LI');
   });
 
   it('should render an i tag with the correct font awesome classes', function() {
@@ -25,8 +25,8 @@ describe('IconListItemComponent', function() {
     );
 
     var renderedIconListItem = TestUtils.findRenderedDOMComponentWithClass(iconListItemInstance, 'component-icon-list-item');
-    assert.equal(renderedIconListItem.getDOMNode().firstChild.nodeName, 'I');
-    assert.equal(renderedIconListItem.getDOMNode().firstChild.className, 'fa fa-fw fa-check');
+    assert.equal(renderedIconListItem.firstChild.nodeName, 'I');
+    assert.equal(renderedIconListItem.firstChild.className, 'fa fa-fw fa-check');
   });
 
   it('render text content passed in as child', function() {
@@ -35,7 +35,7 @@ describe('IconListItemComponent', function() {
     );
 
     var renderedIconListItem = TestUtils.findRenderedDOMComponentWithClass(iconListItemInstance, 'component-icon-list-item');
-    assert.equal(renderedIconListItem.getDOMNode().textContent, 'this is a check');
+    assert.equal(renderedIconListItem.textContent, 'this is a check');
   });
 
   it('renders html tags as children', function() {
@@ -44,8 +44,8 @@ describe('IconListItemComponent', function() {
     );
 
     var renderedIconListItem = TestUtils.findRenderedDOMComponentWithClass(iconListItemInstance, 'component-icon-list-item');
-    assert.equal(renderedIconListItem.getDOMNode().lastChild.nodeName, 'STRONG');
-    assert.equal(renderedIconListItem.getDOMNode().lastChild.textContent, 'this is a strong check');
+    assert.equal(renderedIconListItem.lastChild.nodeName, 'STRONG');
+    assert.equal(renderedIconListItem.lastChild.textContent, 'this is a strong check');
   });
 
   describe('with purpose attribute', function() {
