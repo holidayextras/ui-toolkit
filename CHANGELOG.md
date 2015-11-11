@@ -1,3 +1,6 @@
+### 0.21.2 - 2015-11-11
+ - Pushing dist file
+
 ### 0.21.1 - 2015-11-11
  - Updated to React V0.14.2 (properly this time)
 
