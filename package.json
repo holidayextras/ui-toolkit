@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "scripts/build.sh",
-    "ci": "npm run lint && npm test-xunit && npm run coverage",
+    "ci": "npm run lint && npm run test-xunit && npm run coverage",
     "postinstall": "npm run build",
     "coverage": "istanbul cover -x dist _mocha -- test/**/*-test.*",
     "predocs": "cd docs && npm install && cd - && npm run build",
