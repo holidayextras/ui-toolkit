@@ -1647,7 +1647,7 @@ var CustomComponent = React.createClass({displayName: "CustomComponent",
   componentWillUnmount: function() {
     var mountNode = this.refs.mount;
     try {
-      React.unmountComponentAtNode(mountNode);
+      ReactDOM.unmountComponentAtNode(mountNode);
     } catch (e) { }
   },
 
@@ -1655,7 +1655,7 @@ var CustomComponent = React.createClass({displayName: "CustomComponent",
     var mountNode = this.refs.mount;
 
     try {
-      React.unmountComponentAtNode(mountNode);
+      ReactDOM.unmountComponentAtNode(mountNode);
     } catch (e) { }
 
     try {
@@ -26251,7 +26251,7 @@ module.exports = require('./lib/React');
 },{"./lib/React":79}],212:[function(require,module,exports){
 module.exports={
   "name": "ui-toolkit",
-  "version": "0.20.1",
+  "version": "0.21.1",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "index.js",
