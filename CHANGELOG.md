@@ -1,3 +1,9 @@
+### 0.21.1 - 2015-11-11
+ - Updated to React V0.14.2 (properly this time)
+
+### 0.21.0 - 2015-11-11
+ - Updated to React V0.14.2
+
 ### 0.20.1 - 2015-11-04
  - Fixed babelify issue & confusing if else on basket-item
 
