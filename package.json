@@ -23,13 +23,20 @@
   },
   "keywords": [
     "ui",
-    "toolkit"
+    "toolkit",
+    "react",
+    "ui-toolkit",
+    "components"
   ],
   "author": {
     "name": "Holiday Extras",
     "email": "webit@holidayextras.com",
     "url": "http://www.holidayextras.co.uk"
   },
+  "contributors": [{
+    "name": "Jodie Doubleday",
+    "email": "jodie.doubleday@holidayextras.com"
+  }],
   "bugs": {
     "url": "https://github.com/holidayextras/ui-toolkit/issues"
   },
