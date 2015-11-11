@@ -7,3 +7,4 @@ dependencies:
 test:
   override:
     - npm run ci
+  post: cp -av coverage $CIRCLE_ARTIFACTS/
