@@ -1,6 +1,6 @@
 var example = (
   <div>
-    <UIToolkit.Stepper value={2} minValue={1} maxValue={9}/>
+    <UIToolkit.Stepper value={2} minValue={1} maxValue={9} onChange={function() { alert('changed'); }} />
   </div>
 );
-React.render(example, mountNode);
+ReactDOM.render(example, mountNode);

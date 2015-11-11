@@ -12,7 +12,7 @@ describe('FlagComponent', function() {
     );
 
     var renderedFlag = TestUtils.findRenderedDOMComponentWithClass(flag, 'component-flag');
-    assert.equal(renderedFlag.getDOMNode().textContent, 'Special Offer');
+    assert.equal(renderedFlag.textContent, 'Special Offer');
 
   });
 

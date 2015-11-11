@@ -70,7 +70,7 @@ var Components = React.createClass({
           <article id="icons">
             <h3>Icons</h3>
             <p>Icons are provided to add visual aid to elements on your website. Use independently, as part of a list, the world is your oyster (though there is no oyster icon).</p>
-            <p>The default font library we use is <a href="https://fortawesome.github.io/Font-Awesome/" alt="Font Awesome">Font Awesome</a> but you can also use Bootstraps <a href="http://getbootstrap.com/components/#glyphicons" alt="Glyphicons">Glyphicons</a>. You will need to load the CSS for each of these libraries separately, UI Toolkit doesn't include these be default.</p>
+            <p>The default font library we use is <a href="https://fortawesome.github.io/Font-Awesome/" alt="Font Awesome">Font Awesome</a> but you can also use Bootstraps <a href="http://getbootstrap.com/components/#glyphicons" alt="Glyphicons">Glyphicons</a>. You will need to load the CSS for each of these libraries separately, UI Toolkit does not include these be default.</p>
             <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Icon.jsx', 'utf8')} />
             <h4>Attributes</h4>
             <ul>

@@ -5,4 +5,4 @@ var example = (
   </UIToolkit.List>
 );
 
-React.render(example, mountNode);
+ReactDOM.render(example, mountNode);
