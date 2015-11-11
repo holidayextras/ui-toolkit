@@ -63,4 +63,4 @@ var example = (
   </div>
 );
 
-React.render(example, mountNode);
+ReactDOM.render(example, mountNode);
