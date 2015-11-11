@@ -1,6 +1,6 @@
 'use strict';
 var React = require('react/addons');
-var TestUtils = React.addons.TestUtils;
+var TestUtils = require('react-addons-test-utils');
 var assert = require('chai').assert;
 var TileComponent = require('../../src/components/tile/tile.jsx');
 

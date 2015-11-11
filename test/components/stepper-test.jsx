@@ -2,7 +2,7 @@
 
 var assert = require('chai').assert;
 var React = require('react/addons');
-var TestUtils = React.addons.TestUtils;
+var TestUtils = require('react-addons-test-utils');
 var sinon = require('sinon');
 var Stepper = require('../../src/components/stepper/stepper.jsx');
 

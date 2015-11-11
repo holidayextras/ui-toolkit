@@ -1,7 +1,7 @@
 'use strict';
 var React = require('react/addons');
 var ReactIntl = require('react-intl');
-var TestUtils = React.addons.TestUtils;
+var TestUtils = require('react-addons-test-utils');
 var assert = require('chai').assert;
 var sinon = require('sinon');
 var BasketItem = require('../../src/components/basket-item/basket-item.jsx');
