@@ -4,7 +4,6 @@ var ReactIntl = require('react-intl');
 var Anchor = require('../anchor');
 
 module.exports = React.createClass({
-  mixins: [ReactIntl.IntlMixin],
   propTypes: {
     currencySymbol: React.PropTypes.string,
     freeText: React.PropTypes.string,
@@ -55,14 +54,14 @@ module.exports = React.createClass({
   priceNode: function() {
     if (this.props.price === null) return null;
     if (this.props.price === 0) {
-      return <ReactIntl.FormattedMessage message={this.getIntlMessage('free')} />;
+      return 'Free';
     }
-    return <ReactIntl.FormattedNumber value={this.props.price} format="price" formats={this.props.formats} />;
+    return <ReactIntl.FormattedNumber value={this.props.price} format="price" />;
   },
   removeNode: function() {
     if (this.props.handleRemove === null) return null;
     return (
-      <Anchor handleClick={this.props.handleRemove}><ReactIntl.FormattedMessage message={this.getIntlMessage('remove')} /></Anchor>
+      <Anchor handleClick={this.props.handleRemove}>Remove</Anchor>
     );
   },
   render: function() {
@@ -71,16 +70,18 @@ module.exports = React.createClass({
       'display': (this.state.descriptionVisibility || titleNode === null) ? 'block' : 'none'
     };
     return (
-      <div className="component-basket-item">
-        <div className="component-basket-row">
-          <div className="component-basket-item-title">{titleNode}</div>
-          <div className="component-basket-item-total">{this.priceNode()}</div>
+      <ReactIntl.IntlProvider locale="en" formats={this.props.formats}>
+        <div className="component-basket-item">
+          <div className="component-basket-row">
+            <div className="component-basket-item-title">{titleNode}</div>
+            <div className="component-basket-item-total">{this.priceNode()}</div>
+          </div>
+          <div className="component-basket-row">
+            <div className="component-basket-item-description" style={descriptionStyle}>{this.props.children}</div>
+            <div className="component-basket-item-remove">{this.removeNode()}</div>
+          </div>
         </div>
-        <div className="component-basket-row">
-          <div className="component-basket-item-description" style={descriptionStyle}>{this.props.children}</div>
-          <div className="component-basket-item-remove">{this.removeNode()}</div>
-        </div>
-      </div>
+      </ReactIntl.IntlProvider>
     );
   }
 });
