@@ -13,7 +13,7 @@ describe('InputComponent', function() {
     );
 
     var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field');
-    assert.equal(renderedInput.getDOMNode().type, 'text');
+    assert.equal(renderedInput.type, 'text');
 
   });
 
@@ -23,7 +23,7 @@ describe('InputComponent', function() {
     );
 
     var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field');
-    assert.equal(renderedInput.getDOMNode().type, 'tel');
+    assert.equal(renderedInput.type, 'tel');
 
   });
 
@@ -33,7 +33,7 @@ describe('InputComponent', function() {
     );
 
     var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field');
-    assert.equal(renderedInput.getDOMNode().type, 'email');
+    assert.equal(renderedInput.type, 'email');
   });
 
   it('should render number input', function() {
@@ -42,7 +42,7 @@ describe('InputComponent', function() {
     );
 
     var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field');
-    assert.equal(renderedInput.getDOMNode().type, 'number');
+    assert.equal(renderedInput.type, 'number');
 
   });
 
@@ -74,7 +74,7 @@ describe('InputComponent', function() {
     );
 
     var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field');
-    assert.equal(renderedInput.getDOMNode().getAttribute('disabled'), '');
+    assert.equal(renderedInput.getAttribute('disabled'), '');
 
   });
 
@@ -84,7 +84,7 @@ describe('InputComponent', function() {
     );
 
     var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field');
-    assert.equal(renderedInput.getDOMNode().getAttribute('readonly'), '');
+    assert.equal(renderedInput.getAttribute('readonly'), '');
 
   });
 
@@ -94,7 +94,7 @@ describe('InputComponent', function() {
     );
 
     var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field');
-    assert.equal(renderedInput.getDOMNode().value, '');
+    assert.equal(renderedInput.value, '');
   });
 
   it('should have default ID', function() {
@@ -103,7 +103,7 @@ describe('InputComponent', function() {
     );
 
     var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field');
-    assert.equal(renderedInput.getDOMNode().id, 'component-input');
+    assert.equal(renderedInput.id, 'component-input');
   });
 
   it('should have default name', function() {
@@ -112,7 +112,7 @@ describe('InputComponent', function() {
     );
 
     var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field');
-    assert.equal(renderedInput.getDOMNode().name, 'component-input');
+    assert.equal(renderedInput.name, 'component-input');
   });
 
   it('should have custom value', function() {
@@ -121,7 +121,7 @@ describe('InputComponent', function() {
     );
 
     var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field');
-    assert.equal(renderedInput.getDOMNode().value, 'Jane Doe');
+    assert.equal(renderedInput.value, 'Jane Doe');
   });
 
   it('should have custom placeholder', function() {
@@ -130,7 +130,7 @@ describe('InputComponent', function() {
     );
 
     var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field');
-    assert.equal(renderedInput.getDOMNode().getAttribute('placeholder'), 'Enter Name');
+    assert.equal(renderedInput.getAttribute('placeholder'), 'Enter Name');
   });
 
   it('should have custom ID', function() {
@@ -139,7 +139,7 @@ describe('InputComponent', function() {
     );
 
     var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field');
-    assert.equal(renderedInput.getDOMNode().id, 'test-input-id');
+    assert.equal(renderedInput.id, 'test-input-id');
   });
 
   it('should have custom name', function() {
@@ -148,7 +148,7 @@ describe('InputComponent', function() {
     );
 
     var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field');
-    assert.equal(renderedInput.getDOMNode().name, 'test-input-name');
+    assert.equal(renderedInput.name, 'test-input-name');
   });
 
   describe('getDefaultProps', function() {
@@ -234,7 +234,7 @@ describe('InputComponent Error with Default Message', function() {
   });
 
   it('should change the value to be invalid and throw error state with null message', function() {
-    TestUtils.Simulate.change(renderedInput.getDOMNode(), { target: { value: 'invalid @ email . #$%' } });
+    TestUtils.Simulate.change(renderedInput, { target: { value: 'invalid @ email . #$%' } });
     setTimeout(function() {
       assert.equal(input.state.error, 'Invalid Input');
     }, 1000);
@@ -256,7 +256,7 @@ describe('InputComponent Error with Custom Message', function() {
   });
 
   it('should change the value to be invalid and throw error state with custom message', function() {
-    TestUtils.Simulate.change(renderedInput.getDOMNode(), { target: { value: 'invalid @ email . #$%' } });
+    TestUtils.Simulate.change(renderedInput, { target: { value: 'invalid @ email . #$%' } });
     setTimeout(function() {
       assert.equal(input.state.error, 'Invalid Input');
     }, 1000);

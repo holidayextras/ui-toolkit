@@ -38,7 +38,7 @@ describe('ImageComponent', function() {
         <ImageComponent src={src} alt={alt} handleClick={handleClick} href={href} />
       );
       renderedImage = TestUtils.findRenderedDOMComponentWithClass(imageInstance, 'component-image');
-      imageDOMNode = renderedImage.getDOMNode();
+      imageDOMNode = renderedImage;
     });
 
     it('should render as an anchor', function() {
@@ -71,7 +71,7 @@ describe('ImageComponent', function() {
         <ImageComponent src={src} alt={alt} handleClick={handleClick} sizes={sizes} srcSet={srcSet} />
       );
       renderedImage = TestUtils.findRenderedDOMComponentWithClass(imageInstance, 'component-image');
-      imageDOMNode = renderedImage.getDOMNode();
+      imageDOMNode = renderedImage;
     });
 
     it('should render an img tag', function() {

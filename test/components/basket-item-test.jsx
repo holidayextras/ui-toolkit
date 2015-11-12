@@ -10,7 +10,7 @@ describe('BasketItem', function() {
     it('should have an empty title node', function() {
       var basketItem = TestUtils.renderIntoDocument(<BasketItem />);
       var renderedBasketItem = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-title');
-      assert.equal(renderedBasketItem.getDOMNode().textContent, '');
+      assert.equal(renderedBasketItem.textContent, '');
     });
   });
 
@@ -20,7 +20,7 @@ describe('BasketItem', function() {
         var title = 'A title';
         var basketItem = TestUtils.renderIntoDocument(<BasketItem title={title} />);
         var renderedBasketItem = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-title');
-        assert.equal(renderedBasketItem.getDOMNode().textContent, title);
+        assert.equal(renderedBasketItem.textContent, title);
       });
 
       describe('and the toggleDescription property set to true', function() {
@@ -29,10 +29,10 @@ describe('BasketItem', function() {
         before(function() {
           var basketItem = TestUtils.renderIntoDocument(<BasketItem title={title} toggleDescription={true} />);
           var renderedBasketItem = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-title');
-          anchor = TestUtils.findRenderedDOMComponentWithTag(renderedBasketItem, 'a');
+          anchor = renderedBasketItem.querySelector('a');
         });
         it('should have a title node that contains an anchor', function() {
-          assert.equal(anchor.getDOMNode().textContent, title);
+          assert.equal(anchor.textContent, title);
         });
 
         it('the anchor should have an onClick handler function set', function() {
@@ -46,7 +46,7 @@ describe('BasketItem', function() {
         var title = <a>Title as an Element</a>;
         var basketItem = TestUtils.renderIntoDocument(<BasketItem title={title} />);
         var renderedBasketItem = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-title');
-        var anchor = TestUtils.findRenderedDOMComponentWithTag(renderedBasketItem, 'a');
+        var anchor = renderedBasketItem.querySelector('a');
         assert.isDefined(anchor);
       });
     });
@@ -56,7 +56,7 @@ describe('BasketItem', function() {
     it('should have an empty total node', function() {
       var basketItem = TestUtils.renderIntoDocument(<BasketItem />);
       var renderedBasketItem = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-total');
-      assert.equal(renderedBasketItem.getDOMNode().textContent, '');
+      assert.equal(renderedBasketItem.textContent, '');
     });
   });
 
@@ -64,20 +64,20 @@ describe('BasketItem', function() {
     it('should have the correct price in the price node', function() {
       var basketItem = TestUtils.renderIntoDocument(<BasketItem price={123} />);
       var renderedBasketItem = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-price');
-      assert.equal(renderedBasketItem.getDOMNode().textContent, 123);
+      assert.equal(renderedBasketItem.textContent, 123);
     });
 
     it('should have the default currency symbol in the currency node', function() {
       var basketItem = TestUtils.renderIntoDocument(<BasketItem price={123} />);
       var renderedBasketItem = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-currency');
-      assert.equal(renderedBasketItem.getDOMNode().textContent, '£');
+      assert.equal(renderedBasketItem.textContent, '£');
     });
 
     describe('with a price of zero', function() {
       it('should have the default freeText property in the total node', function() {
         var basketItem = TestUtils.renderIntoDocument(<BasketItem price={0} />);
         var renderedBasketItem = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-total');
-        assert.equal(renderedBasketItem.getDOMNode().textContent, 'FREE');
+        assert.equal(renderedBasketItem.textContent, 'FREE');
       });
     });
 
@@ -86,7 +86,7 @@ describe('BasketItem', function() {
         var currencySymbol = '@';
         var basketItem = TestUtils.renderIntoDocument(<BasketItem price={123} currencySymbol={currencySymbol} />);
         var renderedBasketItem = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-currency');
-        assert.equal(renderedBasketItem.getDOMNode().textContent, currencySymbol);
+        assert.equal(renderedBasketItem.textContent, currencySymbol);
       });
     });
   });
@@ -99,7 +99,7 @@ describe('BasketItem', function() {
       };
       var basketItem = TestUtils.renderIntoDocument(<BasketItem handleRemove={handleRemove} />);
       var renderedBasketItem = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-remove');
-      anchor = TestUtils.findRenderedDOMComponentWithTag(renderedBasketItem, 'a');
+      anchor = renderedBasketItem.querySelector('a');
     });
     it('should have a remove node with an anchor as a child', function() {
       assert.isDefined(anchor);
@@ -110,7 +110,7 @@ describe('BasketItem', function() {
     });
 
     it('should have an anchor with the text set to the default removeText property', function() {
-      assert.equal(anchor.getDOMNode().textContent, 'remove');
+      assert.equal(anchor.textContent, 'remove');
     });
   });
 
@@ -118,7 +118,7 @@ describe('BasketItem', function() {
     it('should have an empty description node', function() {
       var basketItem = TestUtils.renderIntoDocument(<BasketItem />);
       var renderedBasketItem = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-description');
-      assert.equal(renderedBasketItem.getDOMNode().textContent, '');
+      assert.equal(renderedBasketItem.textContent, '');
     });
   });
 
@@ -126,7 +126,7 @@ describe('BasketItem', function() {
     it('should have the children passed in as the content of the description node', function() {
       var basketItem = TestUtils.renderIntoDocument(<BasketItem>Foobar</BasketItem>);
       var renderedBasketItem = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-description');
-      assert.equal(renderedBasketItem.getDOMNode().textContent, 'Foobar');
+      assert.equal(renderedBasketItem.textContent, 'Foobar');
     });
   });
 
@@ -135,7 +135,7 @@ describe('BasketItem', function() {
     before(function() {
       var basketItem = TestUtils.renderIntoDocument(<BasketItem toggleDescription={true} title='Product 1' />);
       var titleContainer = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-title');
-      titleLink = TestUtils.findRenderedDOMComponentWithTag(titleContainer, 'a');
+      titleLink = titleContainer.querySelector('a');
       description = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-description');
     });
 

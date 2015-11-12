@@ -30,7 +30,7 @@ describe('WeatherComponent', function() {
       );
 
       var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1];
-      assert.equal(renderedWeather.getDOMNode().textContent, 'cloudy');
+      assert.equal(renderedWeather.textContent, 'cloudy');
     });
 
     it('is foggy', function() {
@@ -41,7 +41,7 @@ describe('WeatherComponent', function() {
       );
 
       var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1];
-      assert.equal(renderedWeather.getDOMNode().textContent, 'fog');
+      assert.equal(renderedWeather.textContent, 'fog');
     });
 
     it('is hailing', function() {
@@ -52,7 +52,7 @@ describe('WeatherComponent', function() {
       );
 
       var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1];
-      assert.equal(renderedWeather.getDOMNode().textContent, 'hail');
+      assert.equal(renderedWeather.textContent, 'hail');
     });
 
     it('is raining heavily', function() {
@@ -63,7 +63,7 @@ describe('WeatherComponent', function() {
       );
 
       var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1];
-      assert.equal(renderedWeather.getDOMNode().textContent, 'heavy-rain');
+      assert.equal(renderedWeather.textContent, 'heavy-rain');
     });
 
     it('is snowing heavily', function() {
@@ -74,7 +74,7 @@ describe('WeatherComponent', function() {
       );
 
       var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1];
-      assert.equal(renderedWeather.getDOMNode().textContent, 'heavy-snow');
+      assert.equal(renderedWeather.textContent, 'heavy-snow');
     });
 
     it('is raining lightly', function() {
@@ -85,7 +85,7 @@ describe('WeatherComponent', function() {
       );
 
       var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1];
-      assert.equal(renderedWeather.getDOMNode().textContent, 'light-rain');
+      assert.equal(renderedWeather.textContent, 'light-rain');
     });
 
     it('is snowing lightly', function() {
@@ -96,7 +96,7 @@ describe('WeatherComponent', function() {
       );
 
       var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1];
-      assert.equal(renderedWeather.getDOMNode().textContent, 'light-snow');
+      assert.equal(renderedWeather.textContent, 'light-snow');
     });
 
     it('is a clear night', function() {
@@ -107,7 +107,7 @@ describe('WeatherComponent', function() {
       );
 
       var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1];
-      assert.equal(renderedWeather.getDOMNode().textContent, 'night-clear');
+      assert.equal(renderedWeather.textContent, 'night-clear');
     });
 
     it('is a partly cloudy night', function() {
@@ -118,7 +118,7 @@ describe('WeatherComponent', function() {
       );
 
       var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1];
-      assert.equal(renderedWeather.getDOMNode().textContent, 'night-partly-cloudy');
+      assert.equal(renderedWeather.textContent, 'night-partly-cloudy');
     });
 
     it('is partly cloudy', function() {
@@ -129,7 +129,7 @@ describe('WeatherComponent', function() {
       );
 
       var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1];
-      assert.equal(renderedWeather.getDOMNode().textContent, 'partly-cloudy');
+      assert.equal(renderedWeather.textContent, 'partly-cloudy');
     });
 
     it('is stormy', function() {
@@ -140,7 +140,7 @@ describe('WeatherComponent', function() {
       );
 
       var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1];
-      assert.equal(renderedWeather.getDOMNode().textContent, 'storm');
+      assert.equal(renderedWeather.textContent, 'storm');
     });
 
     it('is sunny', function() {
@@ -151,7 +151,7 @@ describe('WeatherComponent', function() {
       );
 
       var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1];
-      assert.equal(renderedWeather.getDOMNode().textContent, 'sunny');
+      assert.equal(renderedWeather.textContent, 'sunny');
     });
   });
   describe('dates', function() {
@@ -168,7 +168,7 @@ describe('WeatherComponent', function() {
         );
 
         var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherDate, 'div')[2];
-        assert.equal(renderedWeather.getDOMNode().textContent, 'Thursday');
+        assert.equal(renderedWeather.textContent, 'Thursday');
 
       });
     });
@@ -181,7 +181,7 @@ describe('WeatherComponent', function() {
         );
 
         var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherDate, 'div')[2];
-        assert.equal(renderedWeather.getDOMNode().textContent, 'Invalid date');
+        assert.equal(renderedWeather.textContent, 'Invalid date');
 
       });
     });
@@ -200,7 +200,7 @@ describe('WeatherComponent', function() {
       );
 
       var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherTemp, 'div')[2];
-      assert.equal(renderedWeather.getDOMNode().textContent, '20°C');
+      assert.equal(renderedWeather.textContent, '20°C');
 
     });
 
@@ -211,7 +211,7 @@ describe('WeatherComponent', function() {
       );
 
       var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherTemp, 'div')[2];
-      assert.equal(renderedWeather.getDOMNode().textContent, '20°F');
+      assert.equal(renderedWeather.textContent, '20°F');
     });
 
     it('displays temperature in Rankine', function() {
@@ -221,7 +221,7 @@ describe('WeatherComponent', function() {
       );
 
       var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherTemp, 'div')[2];
-      assert.equal(renderedWeather.getDOMNode().textContent, '20°R');
+      assert.equal(renderedWeather.textContent, '20°R');
     });
 
     it('displays temperature in Kelvin', function() {
@@ -231,7 +231,7 @@ describe('WeatherComponent', function() {
       );
 
       var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherTemp, 'div')[2];
-      assert.equal(renderedWeather.getDOMNode().textContent, '20K');
+      assert.equal(renderedWeather.textContent, '20K');
     });
   });
 

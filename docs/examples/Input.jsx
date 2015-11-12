@@ -7,4 +7,4 @@ var example = (
 
 );
 
-React.render(example, mountNode);
+ReactDOM.render(example, mountNode);

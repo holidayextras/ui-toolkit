@@ -16,7 +16,7 @@ describe('Lozenge', function() {
 
   it('renders the children', function() {
     var rendered = TestUtils.renderIntoDocument(<Lozenge tip="foo">bar</Lozenge>);
-    assert.equal(TestUtils.findRenderedDOMComponentWithTag(rendered, 'span').getDOMNode().innerHTML, 'bar');
+    assert.equal(TestUtils.findRenderedDOMComponentWithTag(rendered, 'span').innerHTML, 'bar');
   });
 
   describe('with tip', function() {
@@ -25,7 +25,7 @@ describe('Lozenge', function() {
     });
 
     it('sets the tip as the title', function() {
-      var el = TestUtils.findRenderedDOMComponentWithClass(this.instance, 'component-lozenge').getDOMNode();
+      var el = TestUtils.findRenderedDOMComponentWithClass(this.instance, 'component-lozenge');
       assert.equal(el.getAttribute('title'), 'foo');
     });
   });
@@ -36,7 +36,7 @@ describe('Lozenge', function() {
     });
 
     it('should not set a tip as the title', function() {
-      var el = TestUtils.findRenderedDOMComponentWithClass(this.instance, 'component-lozenge').getDOMNode();
+      var el = TestUtils.findRenderedDOMComponentWithClass(this.instance, 'component-lozenge');
       assert.equal(el.getAttribute('title'), null);
     });
   });
