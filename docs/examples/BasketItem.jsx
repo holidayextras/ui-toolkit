@@ -8,7 +8,7 @@ var pretendLightBox = function(thisProduct) {
 
 var example = (
   <div>
-    <UIToolkit.List>
+    <UIToolkit.List type="icon">
 
       <UIToolkit.ListItem>
         <UIToolkit.Icon icon="check" iconFamily="font-awesome" />

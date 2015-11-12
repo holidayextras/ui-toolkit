@@ -7,10 +7,22 @@ ol.component-ordered-list {
 }
 
 .component-icon-list {
-  margin-left: 0;
-  list-style: none;
-  i {
-    width: (18em / 14);
-    text-align: center;
+  .component-list-item {
+    margin-left: 0;
+    list-style: none;
+    display:table;
+    table-layout:fixed;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width:100%;
+  }
+  & > {
+    & i, span, p {
+      display:table-cell;
+    }
+    & i {
+      width:1.5em;
+      text-align:center;
+    }
   }
 }

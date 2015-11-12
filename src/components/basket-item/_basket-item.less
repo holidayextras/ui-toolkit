@@ -2,30 +2,34 @@
     #Basket Item
 \*------------------------------------*/
 
-
+.component-basket-item {
+  padding:.5em;
+}
 .component-basket-row {
   display: table;
   table-layout: fixed;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  align-content: stretch;
-
-  .component-basket-item-total, .component-basket-item-title {
-    font-weight: bold;
-    a {
-      font-weight: normal;
-    }
-  }
-  .component-basket-item-title, .component-basket-item-description {
+  width:100%;
+  .component-basket-item-title {
     flex: 1;
     display: table-cell;
   }
-  .component-basket-item-total, .component-basket-item-remove {
+  .component-basket-item-description {
+    flex: 1;
+    display: table-cell;
+    font-size:.85em;
+  }
+  .component-basket-item-remove{
+    font-size:.85em;
     flex: 0 1 auto;
     display: table-cell;
+    margin-left: .25em;
   }
-
+  .component-basket-item-total {
+    flex: 0 1 auto;
+    display: table-cell;
+    margin-left: .25em;
+  }
 }
