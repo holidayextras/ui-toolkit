@@ -41,7 +41,7 @@ module.exports = React.createClass({
   priceNode: function() {
     if (this.props.price === null) return null;
     if (this.props.price === 0) {
-      return 'Free';
+      return <ReactIntl.FormattedMessage id="free" description="The adjective free" defaultMessage="free" />;
     }
     // TODO: Revisit this when this issue has been completed: https://github.com/yahoo/react-intl/issues/215
     // need to pass in `format="price"` and remove `style` and `currency` props.
@@ -50,7 +50,7 @@ module.exports = React.createClass({
   removeNode: function() {
     if (this.props.handleRemove === null) return null;
     return (
-      <Anchor handleClick={this.props.handleRemove}>Remove</Anchor>
+      <Anchor handleClick={this.props.handleRemove}><ReactIntl.FormattedMessage id="remove" description="The verb remove" defaultMessage="remove" /></Anchor>
     );
   },
   render: function() {

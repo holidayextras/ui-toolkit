@@ -125,8 +125,10 @@ module.exports = React.createClass({
   priceNode: function priceNode() {
     if (this.props.price === null) return null;
     if (this.props.price === 0) {
-      return 'Free';
+      return React.createElement(ReactIntl.FormattedMessage, { id: 'free', description: 'The adjective free', defaultMessage: 'free' });
     }
+    // TODO: Revisit this when this issue has been completed: https://github.com/yahoo/react-intl/issues/215
+    // need to pass in `format="price"` and remove `style` and `currency` props.
     return React.createElement(ReactIntl.FormattedNumber, { value: this.props.price, style: 'currency', currency: 'GBP' });
   },
   removeNode: function removeNode() {
@@ -134,7 +136,7 @@ module.exports = React.createClass({
     return React.createElement(
       Anchor,
       { handleClick: this.props.handleRemove },
-      'Remove'
+      React.createElement(ReactIntl.FormattedMessage, { id: 'remove', description: 'The verb remove', defaultMessage: 'remove' })
     );
   },
   render: function render() {
@@ -142,7 +144,7 @@ module.exports = React.createClass({
     var descriptionStyle = {
       'display': this.state.descriptionVisibility || titleNode === null ? 'block' : 'none'
     };
-    var defaults = {
+    var intlDefaults = {
       locale: 'en',
       messages: {
         'free': 'FREE',
@@ -160,7 +162,7 @@ module.exports = React.createClass({
     };
     return React.createElement(
       ReactIntl.IntlProvider,
-      { defaultLocale: defaults.locale, defaultFormats: defaults.formats },
+      { defaultLocale: intlDefaults.locale, defaultFormats: intlDefaults.formats },
       React.createElement(
         'div',
         { className: 'component-basket-item' },
