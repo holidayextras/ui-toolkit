@@ -1297,6 +1297,7 @@ var Components = React.createClass({displayName: "Components",
             React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Input type='text' label='Text Only' validator={/^[a-zA-Z ]*$/g} />\n    <UIToolkit.Input type='text' label='With Default' >Default Value</UIToolkit.Input>\n    <UIToolkit.Input type='text' label='Required' placeholder='Full Name' required={true} />\n  </div>\n\n);\n\nReactDOM.render(example, mountNode);\n"}), 
             React.createElement("h4", null, "Attributes"), 
             React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "data"), " Object - Where ", React.createElement("code", null, "keys"), " will be data attributes and ", React.createElement("code", null, "values"), " will be their values (uses ", React.createElement("a", {href: "https://github.com/holidayextras/react-data-attributes-mixin", alt: "React Data Attributes Mixin"}, "React Data Attributes Mixin"), ")"), 
               React.createElement("li", null, React.createElement("code", null, "type"), " String - Type of Input Field can be ", React.createElement("code", null, "text"), ", ", React.createElement("code", null, "email"), ", ", React.createElement("code", null, "tel"), " or ", React.createElement("code", null, "number")), 
               React.createElement("li", null, React.createElement("code", null, "name"), " String - Optional Name for Input Field"), 
               React.createElement("li", null, React.createElement("code", null, "id"), " String - Optional ID for Input Field"), 
@@ -26251,7 +26252,7 @@ module.exports = require('./lib/React');
 },{"./lib/React":79}],212:[function(require,module,exports){
 module.exports={
   "name": "ui-toolkit",
-  "version": "0.21.1",
+  "version": "0.21.2",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "index.js",
@@ -26261,24 +26262,33 @@ module.exports={
   },
   "scripts": {
     "build": "scripts/build.sh",
+    "ci": "npm run lint && npm run test-xunit && npm run coverage",
     "postinstall": "npm run build",
     "coverage": "istanbul cover -x dist _mocha -- test/**/*-test.*",
     "predocs": "cd docs && npm install && cd - && npm run build",
     "docs": "grunt docs",
     "pretest": "npm run build",
+    "test-xunit": "mocha --recursive test/**/*-test.js* src/**/*-test.js* -R xunit > $CIRCLE_TEST_REPORTS/results.xml",
     "test": "mocha --recursive test/**/*-test.js* src/**/*-test.js*",
     "prelint": "npm run build",
     "lint": "node_modules/.bin/make-up grunt src && echo '🍻  All good!'"
   },
   "keywords": [
     "ui",
-    "toolkit"
+    "toolkit",
+    "react",
+    "ui-toolkit",
+    "components"
   ],
   "author": {
     "name": "Holiday Extras",
     "email": "webit@holidayextras.com",
     "url": "http://www.holidayextras.co.uk"
   },
+  "contributors": [{
+    "name": "Jodie Doubleday",
+    "email": "jodie.doubleday@holidayextras.com"
+  }],
   "bugs": {
     "url": "https://github.com/holidayextras/ui-toolkit/issues"
   },

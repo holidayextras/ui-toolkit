@@ -92,6 +92,7 @@ var Components = React.createClass({
             <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Input.jsx', 'utf8')} />
             <h4>Attributes</h4>
             <ul>
+              <li><code>data</code> Object - Where <code>keys</code> will be data attributes and <code>values</code> will be their values (uses <a href="https://github.com/holidayextras/react-data-attributes-mixin" alt="React Data Attributes Mixin">React Data Attributes Mixin</a>)</li>
               <li><code>type</code> String - Type of Input Field can be <code>text</code>, <code>email</code>, <code>tel</code> or <code>number</code></li>
               <li><code>name</code> String - Optional Name for Input Field</li>
               <li><code>id</code> String - Optional ID for Input Field</li>
