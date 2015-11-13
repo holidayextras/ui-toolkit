@@ -30209,24 +30209,33 @@ module.exports={
   },
   "scripts": {
     "build": "scripts/build.sh",
+    "ci": "npm run lint && npm run test-xunit && npm run coverage",
     "postinstall": "npm run build",
     "coverage": "istanbul cover -x dist _mocha -- test/**/*-test.*",
     "predocs": "cd docs && npm install && cd - && npm run build",
     "docs": "grunt docs",
     "pretest": "npm run build",
+    "test-xunit": "mocha --recursive test/**/*-test.js* src/**/*-test.js* -R xunit > $CIRCLE_TEST_REPORTS/results.xml",
     "test": "mocha --recursive test/**/*-test.js* src/**/*-test.js*",
     "prelint": "npm run build",
     "lint": "node_modules/.bin/make-up grunt src && echo '🍻  All good!'"
   },
   "keywords": [
     "ui",
-    "toolkit"
+    "toolkit",
+    "react",
+    "ui-toolkit",
+    "components"
   ],
   "author": {
     "name": "Holiday Extras",
     "email": "webit@holidayextras.com",
     "url": "http://www.holidayextras.co.uk"
   },
+  "contributors": [{
+    "name": "Jodie Doubleday",
+    "email": "jodie.doubleday@holidayextras.com"
+  }],
   "bugs": {
     "url": "https://github.com/holidayextras/ui-toolkit/issues"
   },
