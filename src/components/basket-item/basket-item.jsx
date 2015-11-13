@@ -5,14 +5,15 @@ var Anchor = require('../anchor');
 
 module.exports = React.createClass({
   propTypes: {
-    currencySymbol: React.PropTypes.string,
-    freeText: React.PropTypes.string,
-    removeText: React.PropTypes.string,
     price: React.PropTypes.number,
     title: React.PropTypes.node,
     toggleDescription: React.PropTypes.bool,
     handleRemove: React.PropTypes.func,
-    children: React.PropTypes.node,
+    children: React.PropTypes.node
+  },
+  contextTypes: {
+    locale: React.PropTypes.string,
+    messages: React.PropTypes.object,
     formats: React.PropTypes.object
   },
   getInitialState: function() {
@@ -25,21 +26,7 @@ module.exports = React.createClass({
       title: null,
       price: null,
       handleRemove: null,
-      toggleDescription: false,
-      locales: 'en-GB',
-      messages: {
-        'free': 'FREE',
-        'remove': 'remove'
-      },
-      formats: {
-        number: {
-          price: {
-            style: 'currency',
-            currency: 'GBP',
-            minimumFractionDigits: 2
-          }
-        }
-      }
+      toggleDescription: false
     };
   },
   toggleDescriptionVisibility: function() {
@@ -56,7 +43,9 @@ module.exports = React.createClass({
     if (this.props.price === 0) {
       return 'Free';
     }
-    return <ReactIntl.FormattedNumber value={this.props.price} format="price" />;
+    // TODO: Revisit this when this issue has been completed: https://github.com/yahoo/react-intl/issues/215
+    // need to pass in `format="price"` and remove `style` and `currency` props.
+    return <ReactIntl.FormattedNumber value={this.props.price} style="currency" currency="GBP" />;
   },
   removeNode: function() {
     if (this.props.handleRemove === null) return null;
@@ -69,8 +58,24 @@ module.exports = React.createClass({
     var descriptionStyle = {
       'display': (this.state.descriptionVisibility || titleNode === null) ? 'block' : 'none'
     };
+    var intlDefaults = {
+      locale: 'en',
+      messages: {
+        'free': 'FREE',
+        'remove': 'remove'
+      },
+      formats: {
+        number: {
+          price: {
+            style: 'currency',
+            currency: 'GBP',
+            minimumFractionDigits: 2
+          }
+        }
+      }
+    };
     return (
-      <ReactIntl.IntlProvider locale="en" formats={this.props.formats}>
+      <ReactIntl.IntlProvider defaultLocale={intlDefaults.locale} defaultFormats={intlDefaults.formats}>
         <div className="component-basket-item">
           <div className="component-basket-row">
             <div className="component-basket-item-title">{titleNode}</div>
