@@ -1,6 +1,6 @@
 {
   "name": "ui-toolkit",
-  "version": "0.21.2",
+  "version": "0.22.1",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "index.js",
@@ -33,10 +33,12 @@
     "email": "webit@holidayextras.com",
     "url": "http://www.holidayextras.co.uk"
   },
-  "contributors": [{
-    "name": "Jodie Doubleday",
-    "email": "jodie.doubleday@holidayextras.com"
-  }],
+  "contributors": [
+    {
+      "name": "Jodie Doubleday",
+      "email": "jodie.doubleday@holidayextras.com"
+    }
+  ],
   "bugs": {
     "url": "https://github.com/holidayextras/ui-toolkit/issues"
   },

@@ -1,3 +1,9 @@
+### 0.22.1 - 2015-11-16
+ - Fix dist build
+
+### 0.22.0 - 2015-11-16
+ - Added data attribute mixin to inputs
+
 ### 0.21.2 - 2015-11-11
  - Pushing dist file
 

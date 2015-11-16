@@ -465,11 +465,17 @@ module.exports = React.createClass({
 
 },{"react":246,"react-data-attributes-mixin":36}],10:[function(require,module,exports){
 'use strict';
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var React = require('react');
+var DataAttributesMixin = require('react-data-attributes-mixin');
 var classNames = require('classnames');
 
 module.exports = React.createClass({
   displayName: 'exports',
+
+  mixins: [DataAttributesMixin],
 
   intent: null,
 
@@ -488,7 +494,8 @@ module.exports = React.createClass({
     validator: React.PropTypes.instanceOf(RegExp),
     errorMessage: React.PropTypes.string,
     children: React.PropTypes.string,
-    handleChange: React.PropTypes.func
+    handleChange: React.PropTypes.func,
+    data: React.PropTypes.object
   },
 
   getInitialState: function getInitialState() {
@@ -555,6 +562,7 @@ module.exports = React.createClass({
       'error': this.state.error || false,
       'disabled': this.props.disabled || false
     });
+    var dataAttributes = this.getDataAttributesFromProps();
 
     // the form label
     var label;
@@ -585,7 +593,7 @@ module.exports = React.createClass({
       'div',
       { className: classes, ref: this.props.ref },
       label,
-      React.createElement('input', {
+      React.createElement('input', _extends({
         className: 'component-input-field',
         type: this.props.type,
         name: this.props.name,
@@ -596,14 +604,14 @@ module.exports = React.createClass({
         disabled: this.props.disabled,
         readOnly: this.props.readOnly,
         required: this.props.required
-      }),
+      }, dataAttributes)),
       span
     );
   }
 });
 
 
-},{"classnames":34,"react":246}],11:[function(require,module,exports){
+},{"classnames":34,"react":246,"react-data-attributes-mixin":36}],11:[function(require,module,exports){
 'use strict';
 var React = require('react');
 var classNames = require('classnames');
@@ -1309,6 +1317,7 @@ var Components = React.createClass({displayName: "Components",
             React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Input type='text' label='Text Only' validator={/^[a-zA-Z ]*$/g} />\n    <UIToolkit.Input type='text' label='With Default' >Default Value</UIToolkit.Input>\n    <UIToolkit.Input type='text' label='Required' placeholder='Full Name' required={true} />\n  </div>\n\n);\n\nReactDOM.render(example, mountNode);\n"}), 
             React.createElement("h4", null, "Attributes"), 
             React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "data"), " Object - Where ", React.createElement("code", null, "keys"), " will be data attributes and ", React.createElement("code", null, "values"), " will be their values (uses ", React.createElement("a", {href: "https://github.com/holidayextras/react-data-attributes-mixin", alt: "React Data Attributes Mixin"}, "React Data Attributes Mixin"), ")"), 
               React.createElement("li", null, React.createElement("code", null, "type"), " String - Type of Input Field can be ", React.createElement("code", null, "text"), ", ", React.createElement("code", null, "email"), ", ", React.createElement("code", null, "tel"), " or ", React.createElement("code", null, "number")), 
               React.createElement("li", null, React.createElement("code", null, "name"), " String - Optional Name for Input Field"), 
               React.createElement("li", null, React.createElement("code", null, "id"), " String - Optional ID for Input Field"), 
@@ -30199,7 +30208,7 @@ module.exports = require('./lib/React');
 },{"./lib/React":114}],247:[function(require,module,exports){
 module.exports={
   "name": "ui-toolkit",
-  "version": "0.21.2",
+  "version": "0.22.1",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "index.js",
@@ -30232,10 +30241,12 @@ module.exports={
     "email": "webit@holidayextras.com",
     "url": "http://www.holidayextras.co.uk"
   },
-  "contributors": [{
-    "name": "Jodie Doubleday",
-    "email": "jodie.doubleday@holidayextras.com"
-  }],
+  "contributors": [
+    {
+      "name": "Jodie Doubleday",
+      "email": "jodie.doubleday@holidayextras.com"
+    }
+  ],
   "bugs": {
     "url": "https://github.com/holidayextras/ui-toolkit/issues"
   },

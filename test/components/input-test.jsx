@@ -151,6 +151,18 @@ describe('InputComponent', function() {
     assert.equal(renderedInput.name, 'test-input-name');
   });
 
+  it('should have data attributes', function() {
+    var data = {
+      attr: 'test'
+    };
+    var input = TestUtils.renderIntoDocument(
+      <InputView data={data} />
+    );
+
+    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field');
+    assert.equal(renderedInput.getAttribute('data-attr'), 'test');
+  });
+
   describe('getDefaultProps', function() {
     var elem = TestUtils.renderIntoDocument(
       <InputView />
