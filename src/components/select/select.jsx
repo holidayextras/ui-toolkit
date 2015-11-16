@@ -1,10 +1,10 @@
 'use strict';
 var React = require('react');
-var classNames = require('classnames');
+var DataAttributesMixin = require('react-data-attributes-mixin');
 
 module.exports = React.createClass({
 
-  intent: null,
+  mixins: [DataAttributesMixin],
 
   propTypes: {
     label: React.PropTypes.string,
@@ -12,7 +12,8 @@ module.exports = React.createClass({
     name: React.PropTypes.string,
     id: React.PropTypes.string,
     children: React.PropTypes.string,
-    handleChange: React.PropTypes.func
+    handleChange: React.PropTypes.func,
+    data: React.PropTypes.object
   },
 
   getInitialState: function() {
@@ -71,11 +72,14 @@ module.exports = React.createClass({
 
   render: function() {
     var classes = 'component-select';
+
+    var dataAttributes = this.getDataAttributesFromProps();
+
     // the form label
     var label;
 
     if (this.props.label) {
-      label = ( <label className="component-input-label" htmlFor={this.props.id}>{this.props.label}</label > );
+      label = ( <label className="component-select-label" htmlFor={this.props.id}>{this.props.label}</label > );
     }
 
     /**
@@ -85,19 +89,20 @@ module.exports = React.createClass({
     var span;
 
     if (this.state.error) {
-      span = ( <span className="component-input-error">{this.state.error}</span> );
+      span = ( <span className="component-select-error">{this.state.error}</span> );
     }
 
     return (
       <div className={classes}>
         {label}
-        <input
-          className="component-input-field"
+        <select
+          className="component-select-field"
           name={this.props.name}
           value={this.state.value}
           id={this.props.id}
           placeHolder={this.props.placeHolder}
           onChange={this.handleChange}
+          {...dataAttributes}
           />
         {span}
       </div>

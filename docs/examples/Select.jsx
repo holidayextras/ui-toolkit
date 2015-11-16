@@ -1,6 +1,6 @@
 var example = (
   <div>
-    <UIToolkit.Select type='select' label='In front of box' placeHolder = 'Placeholder' />
+    <UIToolkit.Select label='Label' placeHolder = 'Placeholder' />
   </div>
 
 );
