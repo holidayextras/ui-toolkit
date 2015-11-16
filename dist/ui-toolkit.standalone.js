@@ -48,7 +48,8 @@ module.exports = React.createClass({
 
   getDefaultProps: function getDefaultProps() {
     return {
-      href: '#'
+      href: '#',
+      role: 'link'
     };
   },
 
@@ -58,7 +59,8 @@ module.exports = React.createClass({
     data: React.PropTypes.object,
     href: React.PropTypes.string,
     target: React.PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
-    title: React.PropTypes.string
+    title: React.PropTypes.string,
+    role: React.PropTypes.string
   },
 
   render: function render() {
@@ -68,7 +70,7 @@ module.exports = React.createClass({
     var dataAttributes = this.getDataAttributesFromProps();
     return React.createElement(
       'a',
-      _extends({ className: 'component-anchor' }, dataAttributes, { title: this.props.title, href: this.props.href, onClick: this.props.handleClick, target: this.props.target }),
+      _extends({ className: 'component-anchor' }, dataAttributes, { title: this.props.title, role: this.props.role, href: this.props.href, onClick: this.props.handleClick, target: this.props.target }),
       this.props.children
     );
   }
@@ -146,7 +148,7 @@ module.exports = React.createClass({
     if (this.props.handleRemove === null) return null;
     return React.createElement(
       Anchor,
-      { handleClick: this.props.handleRemove },
+      { handleClick: this.props.handleRemove, role: 'button' },
       this.props.removeText
     );
   },
@@ -541,7 +543,7 @@ module.exports = React.createClass({
     if (this.props.label) {
       label = React.createElement(
         'label',
-        { className: 'component-input-label', htmlFor: this.props.id },
+        { className: 'component-input-label', 'aria-label': this.props.id, htmlFor: this.props.id },
         this.props.label
       );
     }
@@ -569,6 +571,7 @@ module.exports = React.createClass({
         type: this.props.type,
         name: this.props.name,
         value: this.state.value,
+        'aria-labelledby': this.props.label,
         id: this.props.id,
         placeholder: this.props.placeholder,
         onChange: this.handleChange,
@@ -941,26 +944,35 @@ module.exports = React.createClass({
       'div',
       { className: 'component-stepper' },
       React.createElement(
-        'span',
-        { className: 'button-container' },
-        React.createElement(
-          Button,
-          { handleClick: this.decrement, type: 'button', disabled: !this.canDecrement() },
-          this.props.decrementDisplayString
-        )
+        'label',
+        { className: 'component-stepper-label', htmlFor: this.props.id },
+        'HELLO'
       ),
       React.createElement(
-        Input,
-        { type: 'text', id: this.props.id, key: this.props.value, readOnly: true, label: this.props.label },
-        this.props.value.toString()
-      ),
-      React.createElement(
-        'span',
-        { className: 'button-container' },
+        'div',
+        null,
         React.createElement(
-          Button,
-          { handleClick: this.increment, type: 'button', disabled: !this.canIncrement() },
-          this.props.incrementDisplayString
+          'span',
+          { className: 'button-container' },
+          React.createElement(
+            Button,
+            { handleClick: this.decrement, type: 'button', disabled: !this.canDecrement() },
+            this.props.decrementDisplayString
+          )
+        ),
+        React.createElement(
+          Input,
+          { type: 'text', id: this.props.id, key: this.props.value, readOnly: true, 'aria-labelledby': this.props.label, label: this.props.label },
+          this.props.value.toString()
+        ),
+        React.createElement(
+          'span',
+          { className: 'button-container' },
+          React.createElement(
+            Button,
+            { handleClick: this.increment, type: 'button', disabled: !this.canIncrement() },
+            this.props.incrementDisplayString
+          )
         )
       )
     );

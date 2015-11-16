@@ -1,6 +1,6 @@
 {
   "name": "ui-toolkit",
-  "version": "0.21.2",
+  "version": "0.23.1",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "index.js",
@@ -10,24 +10,35 @@
   },
   "scripts": {
     "build": "scripts/build.sh",
+    "ci": "npm run lint && npm run test-xunit && npm run coverage",
     "postinstall": "npm run build",
     "coverage": "istanbul cover -x dist _mocha -- test/**/*-test.*",
     "predocs": "cd docs && npm install && cd - && npm run build",
     "docs": "grunt docs",
     "pretest": "npm run build",
+    "test-xunit": "mocha --recursive test/**/*-test.js* src/**/*-test.js* -R xunit > $CIRCLE_TEST_REPORTS/results.xml",
     "test": "mocha --recursive test/**/*-test.js* src/**/*-test.js*",
     "prelint": "npm run build",
     "lint": "node_modules/.bin/make-up grunt src && echo '🍻  All good!'"
   },
   "keywords": [
     "ui",
-    "toolkit"
+    "toolkit",
+    "react",
+    "ui-toolkit",
+    "components"
   ],
   "author": {
     "name": "Holiday Extras",
     "email": "webit@holidayextras.com",
     "url": "http://www.holidayextras.co.uk"
   },
+  "contributors": [
+    {
+      "name": "Jodie Doubleday",
+      "email": "jodie.doubleday@holidayextras.com"
+    }
+  ],
   "bugs": {
     "url": "https://github.com/holidayextras/ui-toolkit/issues"
   },
@@ -49,6 +60,7 @@
     "react": "^0.14.2",
     "react-data-attributes-mixin": "git://github.com/holidayextras/react-data-attributes-mixin",
     "react-dom": "^0.14.2",
+    "react-intl": "^2.0.0-pr-3",
     "require-directory": "^2.0.0",
     "requirejs": "~2.1.9"
   },
@@ -70,6 +82,7 @@
     "mocha": "^2.2.5",
     "mocha-jsdom": "^0.3.0",
     "mocha-lcov-reporter": "0.0.2",
+    "react-addons-test-utils": "^0.14.2",
     "react-tests-globals-setup": "^1.0.0",
     "reactify": "^1.1.1",
     "sinon": "^1.14.1"

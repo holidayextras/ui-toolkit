@@ -1,3 +1,15 @@
+### 0.23.1 - 2015-11-16
+ - Bundled dist files
+
+### 0.23.0 - 2015-11-16
+ - i18n on basketItem latest ReactIntl V2
+
+### 0.22.1 - 2015-11-16
+ - Fix dist build
+
+### 0.22.0 - 2015-11-16
+ - Added data attribute mixin to inputs
+
 ### 0.21.2 - 2015-11-11
  - Pushing dist file
 

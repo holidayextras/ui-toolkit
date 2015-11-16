@@ -1,0 +1,11 @@
+machine:
+  node:
+    version: 0.10.40
+dependencies:
+  cache_directories:
+    - node_modules
+test:
+  override:
+    - npm run ci
+  post:
+    - cp -av coverage $CIRCLE_ARTIFACTS/
