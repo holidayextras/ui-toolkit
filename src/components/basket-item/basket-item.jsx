@@ -1,17 +1,20 @@
 'use strict';
 var React = require('react');
+var ReactIntl = require('react-intl');
 var Anchor = require('../anchor');
 
 module.exports = React.createClass({
   propTypes: {
-    currencySymbol: React.PropTypes.string,
-    freeText: React.PropTypes.string,
-    removeText: React.PropTypes.string,
     price: React.PropTypes.number,
     title: React.PropTypes.node,
     toggleDescription: React.PropTypes.bool,
     handleRemove: React.PropTypes.func,
     children: React.PropTypes.node
+  },
+  contextTypes: {
+    locale: React.PropTypes.string,
+    messages: React.PropTypes.object,
+    formats: React.PropTypes.object
   },
   getInitialState: function() {
     return {
@@ -23,9 +26,6 @@ module.exports = React.createClass({
       title: null,
       price: null,
       handleRemove: null,
-      currencySymbol: '£',
-      freeText: 'FREE',
-      removeText: 'remove',
       toggleDescription: false
     };
   },
@@ -41,16 +41,16 @@ module.exports = React.createClass({
   priceNode: function() {
     if (this.props.price === null) return null;
     if (this.props.price === 0) {
-      return this.props.freeText;
+      return <ReactIntl.FormattedMessage id="free" description="The adjective free" defaultMessage="free" />;
     }
-    return (
-      <span><span className="component-basket-item-currency">{this.props.currencySymbol}</span><span className="component-basket-item-price">{this.props.price}</span></span>
-    );
+    // TODO: Revisit this when this issue has been completed: https://github.com/yahoo/react-intl/issues/215
+    // need to pass in `format="price"` and remove `style` and `currency` props.
+    return <ReactIntl.FormattedNumber value={this.props.price} style="currency" currency="GBP" />;
   },
   removeNode: function() {
     if (this.props.handleRemove === null) return null;
     return (
-      <Anchor handleClick={this.props.handleRemove}>{this.props.removeText}</Anchor>
+      <Anchor handleClick={this.props.handleRemove}><ReactIntl.FormattedMessage id="remove" description="The verb remove" defaultMessage="remove" /></Anchor>
     );
   },
   render: function() {
@@ -58,17 +58,35 @@ module.exports = React.createClass({
     var descriptionStyle = {
       'display': (this.state.descriptionVisibility || titleNode === null) ? 'block' : 'none'
     };
+    var intlDefaults = {
+      locale: 'en',
+      messages: {
+        'free': 'FREE',
+        'remove': 'remove'
+      },
+      formats: {
+        number: {
+          price: {
+            style: 'currency',
+            currency: 'GBP',
+            minimumFractionDigits: 2
+          }
+        }
+      }
+    };
     return (
-      <div className="component-basket-item">
-        <div className="component-basket-row">
-          <div className="component-basket-item-title">{titleNode}</div>
-          <div className="component-basket-item-total">{this.priceNode()}</div>
+      <ReactIntl.IntlProvider defaultLocale={intlDefaults.locale} defaultFormats={intlDefaults.formats}>
+        <div className="component-basket-item">
+          <div className="component-basket-row">
+            <div className="component-basket-item-title">{titleNode}</div>
+            <div className="component-basket-item-total">{this.priceNode()}</div>
+          </div>
+          <div className="component-basket-row">
+            <div className="component-basket-item-description" style={descriptionStyle}>{this.props.children}</div>
+            <div className="component-basket-item-remove">{this.removeNode()}</div>
+          </div>
         </div>
-        <div className="component-basket-row">
-          <div className="component-basket-item-description" style={descriptionStyle}>{this.props.children}</div>
-          <div className="component-basket-item-remove">{this.removeNode()}</div>
-        </div>
-      </div>
+      </ReactIntl.IntlProvider>
     );
   }
 });
