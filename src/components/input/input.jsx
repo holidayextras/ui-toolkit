@@ -1,8 +1,11 @@
 'use strict';
 var React = require('react');
+var DataAttributesMixin = require('react-data-attributes-mixin');
 var classNames = require('classnames');
 
 module.exports = React.createClass({
+
+  mixins: [DataAttributesMixin],
 
   intent: null,
 
@@ -21,7 +24,8 @@ module.exports = React.createClass({
     validator: React.PropTypes.instanceOf(RegExp),
     errorMessage: React.PropTypes.string,
     children: React.PropTypes.string,
-    handleChange: React.PropTypes.func
+    handleChange: React.PropTypes.func,
+    data: React.PropTypes.object
   },
 
   getInitialState: function() {
@@ -89,6 +93,7 @@ module.exports = React.createClass({
       'error': this.state.error || false,
       'disabled': this.props.disabled || false
     });
+    var dataAttributes = this.getDataAttributesFromProps();
 
     // the form label
     var label;
@@ -122,7 +127,8 @@ module.exports = React.createClass({
           disabled={this.props.disabled}
           readOnly={this.props.readOnly}
           required={this.props.required}
-          />
+          {...dataAttributes}
+        />
         {span}
       </div>
     );

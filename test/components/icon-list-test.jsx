@@ -1,6 +1,6 @@
 'use strict';
-var React = require('react/addons');
-var TestUtils = React.addons.TestUtils;
+var React = require('react');
+var TestUtils = require('react-addons-test-utils');
 var assert = require('chai').assert;
 var IconList = require('../../src/components/icon-list/icon-list.jsx');
 var IconListItem = require('../../src/components/icon-list-item/icon-list-item.jsx');

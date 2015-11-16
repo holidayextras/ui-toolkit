@@ -1,6 +1,6 @@
 'use strict';
-var React = require('react/addons');
-var TestUtils = React.addons.TestUtils;
+var React = require('react');
+var TestUtils = require('react-addons-test-utils');
 var assert = require('chai').assert;
 var sinon = require('sinon');
 var InputView = require('../../src/components/input/input.jsx');
@@ -149,6 +149,18 @@ describe('InputComponent', function() {
 
     var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field');
     assert.equal(renderedInput.name, 'test-input-name');
+  });
+
+  it('should have data attributes', function() {
+    var data = {
+      attr: 'test'
+    };
+    var input = TestUtils.renderIntoDocument(
+      <InputView data={data} />
+    );
+
+    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field');
+    assert.equal(renderedInput.getAttribute('data-attr'), 'test');
   });
 
   describe('getDefaultProps', function() {
