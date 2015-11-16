@@ -1,3 +1,6 @@
+### 0.23.0 - 2015-11-16
+ - i18n on basketItem latest ReactIntl V2
+
 ### 0.22.1 - 2015-11-16
  - Fix dist build
 
