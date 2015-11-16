@@ -465,11 +465,17 @@ module.exports = React.createClass({
 
 },{"react":246,"react-data-attributes-mixin":36}],10:[function(require,module,exports){
 'use strict';
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var React = require('react');
+var DataAttributesMixin = require('react-data-attributes-mixin');
 var classNames = require('classnames');
 
 module.exports = React.createClass({
   displayName: 'exports',
+
+  mixins: [DataAttributesMixin],
 
   intent: null,
 
@@ -488,7 +494,8 @@ module.exports = React.createClass({
     validator: React.PropTypes.instanceOf(RegExp),
     errorMessage: React.PropTypes.string,
     children: React.PropTypes.string,
-    handleChange: React.PropTypes.func
+    handleChange: React.PropTypes.func,
+    data: React.PropTypes.object
   },
 
   getInitialState: function getInitialState() {
@@ -555,6 +562,7 @@ module.exports = React.createClass({
       'error': this.state.error || false,
       'disabled': this.props.disabled || false
     });
+    var dataAttributes = this.getDataAttributesFromProps();
 
     // the form label
     var label;
@@ -585,7 +593,7 @@ module.exports = React.createClass({
       'div',
       { className: classes, ref: this.props.ref },
       label,
-      React.createElement('input', {
+      React.createElement('input', _extends({
         className: 'component-input-field',
         type: this.props.type,
         name: this.props.name,
@@ -596,14 +604,14 @@ module.exports = React.createClass({
         disabled: this.props.disabled,
         readOnly: this.props.readOnly,
         required: this.props.required
-      }),
+      }, dataAttributes)),
       span
     );
   }
 });
 
 
-},{"classnames":34,"react":246}],11:[function(require,module,exports){
+},{"classnames":34,"react":246,"react-data-attributes-mixin":36}],11:[function(require,module,exports){
 'use strict';
 var React = require('react');
 var classNames = require('classnames');
@@ -1013,6 +1021,7 @@ module.exports = UIToolkit;
 'use strict';
 
 var React = require('react');
+var ReactIntl = require('react-intl');
 var ReactDOM = require('react-dom');
 var App = require('./src/App.jsx');
 
@@ -1025,7 +1034,7 @@ window.ReactDOM = ReactDOM;
 ReactDOM.render(React.createElement(App, null), document.getElementById('application'));
 
 
-},{"./src/App.jsx":25,"react":246,"react-dom":56}],21:[function(require,module,exports){
+},{"./src/App.jsx":25,"react":246,"react-dom":56,"react-intl":70}],21:[function(require,module,exports){
 
 },{}],22:[function(require,module,exports){
 arguments[4][21][0].apply(exports,arguments)
@@ -1388,14 +1397,12 @@ var Components = React.createClass({displayName: "Components",
             React.createElement(CustomComponent, {codeText: "var removeAThing = function(thisProduct) {\n  alert( 'your implementation will deal with removing: ' + thisProduct );\n};\n\nvar pretendLightBox = function(thisProduct) {\n  alert( 'your implementation will deal making a thing for when you click on: ' + thisProduct );\n};\n\nvar example = (\n  <div>\n    <UIToolkit.IconList>\n\n      <UIToolkit.IconListItem icon=\"check\">\n        <UIToolkit.BasketItem title=\"First product\">\n          This is a fantastic product that is really really cool with no price.\n        </UIToolkit.BasketItem>\n      </UIToolkit.IconListItem>\n\n      <UIToolkit.IconListItem icon=\"check\">\n        <UIToolkit.BasketItem title=\"Second product (click me)\" toggleDescription={true} price={100}>\n          This one has a hidden description.\n        </UIToolkit.BasketItem>\n      </UIToolkit.IconListItem>\n\n      <UIToolkit.IconListItem icon=\"check\">\n        <UIToolkit.BasketItem title=\"Third product\" handleRemove={removeAThing.bind(null,'3rd product')} price={100}>\n          Can be removed\n        </UIToolkit.BasketItem>\n      </UIToolkit.IconListItem>\n\n      <UIToolkit.IconListItem icon=\"check\">\n        <UIToolkit.BasketItem title={<a onClick={pretendLightBox.bind(null, '4th product')}>Fourth Product</a>} handleRemove={removeAThing.bind(null,'4th product')} price={100}>\n          Has a special title (could open a lightbox or something?)\n        </UIToolkit.BasketItem>\n      </UIToolkit.IconListItem>\n\n      <UIToolkit.IconListItem icon=\"check\">\n        <UIToolkit.BasketItem title={<a onClick={pretendLightBox.bind(null, '5th product')}>Fifth Product (no description)</a>} price={100} />\n      </UIToolkit.IconListItem>\n\n      <UIToolkit.IconListItem icon=\"check\">\n        <UIToolkit.BasketItem title=\"Sixth product\" price={0}>\n          This is the best one of all because it is FREE!\n        </UIToolkit.BasketItem>\n      </UIToolkit.IconListItem>\n\n    </UIToolkit.IconList>\n    <hr />\n    <UIToolkit.BasketItem title=\"Total (also a BasketItem)\" price={400} />\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}), 
             React.createElement("h4", null, "Attributes"), 
             React.createElement("ul", null, 
-              React.createElement("li", null, React.createElement("code", null, "currencySymbol"), " [optional] String - A currency symbol to display beside the price."), 
-              React.createElement("li", null, React.createElement("code", null, "freeText"), " [optional] String - The text to display instead when zero price is passed."), 
               React.createElement("li", null, React.createElement("code", null, "price"), " [optional] Number - The price to display along side the basket item."), 
               React.createElement("li", null, React.createElement("code", null, "title"), " [optional] Node / String - If passed a Node, will simply use that as the title (including any events bound to that node) otherwise, if we have ", React.createElement("em", null, "toggleDescription"), " set, will wrap the text in an anchor to trigger that, otherwise it is wrapped in a ", React.createElement("em", null, "strong"), " html tag."), 
               React.createElement("li", null, React.createElement("code", null, "toggleDescription"), " [optional] Boolean - Whether we want to toggle the display of the ", React.createElement("em", null, "child"), " or not."), 
               React.createElement("li", null, React.createElement("code", null, "handleRemove"), " [optional] Function - This will display a link with the text ", React.createElement("em", null, "remove"), " below the price & this function is responsible for dealing with that removal."), 
-              React.createElement("li", null, React.createElement("code", null, "removeText"), " [optional] String - the text in the removal link when ", React.createElement("em", null, "handleRemove"), " is passed."), 
-              React.createElement("li", null, React.createElement("code", null, "children"), " [optional] Node - Anything you want displaying below the title, this is possible to toggle with the addition of the ", React.createElement("em", null, "toggleDescription"), " property.")
+              React.createElement("li", null, React.createElement("code", null, "children"), " [optional] Node - Anything you want displaying below the title, this is possible to toggle with the addition of the ", React.createElement("em", null, "toggleDescription"), " property."), 
+              React.createElement("li", null, React.createElement("code", null, "formats"), " [optional] Object - This is where you can pass in the options for internationalisation")
             )
           ), 
 
@@ -30201,7 +30208,7 @@ module.exports = require('./lib/React');
 },{"./lib/React":114}],247:[function(require,module,exports){
 module.exports={
   "name": "ui-toolkit",
-  "version": "0.22.0",
+  "version": "0.22.1",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "index.js",
@@ -30261,6 +30268,7 @@ module.exports={
     "react": "^0.14.2",
     "react-data-attributes-mixin": "git://github.com/holidayextras/react-data-attributes-mixin",
     "react-dom": "^0.14.2",
+    "react-intl": "^2.0.0-pr-3",
     "require-directory": "^2.0.0",
     "requirejs": "~2.1.9"
   },
@@ -30282,6 +30290,7 @@ module.exports={
     "mocha": "^2.2.5",
     "mocha-jsdom": "^0.3.0",
     "mocha-lcov-reporter": "0.0.2",
+    "react-addons-test-utils": "^0.14.2",
     "react-tests-globals-setup": "^1.0.0",
     "reactify": "^1.1.1",
     "sinon": "^1.14.1"

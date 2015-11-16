@@ -172,14 +172,12 @@ var Components = React.createClass({
             <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/BasketItem.jsx', 'utf8')} />
             <h4>Attributes</h4>
             <ul>
-              <li><code>currencySymbol</code> [optional] String - A currency symbol to display beside the price.</li>
-              <li><code>freeText</code> [optional] String - The text to display instead when zero price is passed.</li>
               <li><code>price</code> [optional] Number - The price to display along side the basket item.</li>
               <li><code>title</code> [optional] Node / String - If passed a Node, will simply use that as the title (including any events bound to that node) otherwise, if we have <em>toggleDescription</em> set, will wrap the text in an anchor to trigger that, otherwise it is wrapped in a <em>strong</em> html tag.</li>
               <li><code>toggleDescription</code> [optional] Boolean - Whether we want to toggle the display of the <em>child</em> or not.</li>
               <li><code>handleRemove</code> [optional] Function - This will display a link with the text <em>remove</em> below the price &amp; this function is responsible for dealing with that removal.</li>
-              <li><code>removeText</code> [optional] String - the text in the removal link when <em>handleRemove</em> is passed.</li>
               <li><code>children</code> [optional] Node - Anything you want displaying below the title, this is possible to toggle with the addition of the <em>toggleDescription</em> property.</li>
+              <li><code>formats</code> [optional] Object - This is where you can pass in the options for internationalisation</li>
             </ul>
           </article>
 
