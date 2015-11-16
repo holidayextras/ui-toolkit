@@ -29,7 +29,7 @@ module.exports = React.createClass({
     }
     var dataAttributes = this.getDataAttributesFromProps();
     return (
-      <a className="component-anchor" {...dataAttributes} title={this.props.title} role={this.props.role}  href={this.props.href} onClick={this.props.handleClick} target={this.props.target}>
+      <a className="component-anchor" {...dataAttributes} title={this.props.title} role={this.props.role} href={this.props.href} onClick={this.props.handleClick} target={this.props.target}>
         {this.props.children}
       </a>
     );
