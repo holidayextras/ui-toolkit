@@ -1,0 +1,14 @@
+/*------------------------------------*\
+    #Tile
+\*------------------------------------*/
+
+.component-tile {
+  border-radius: var(--tiles-border-radius);
+  border: var(--tiles-border-size) var(--tiles-border-style) var(--tiles-border-color);
+  .caption {
+    padding: var(--padding-default);
+  }
+  img {
+    width: 100%;
+  }
+}

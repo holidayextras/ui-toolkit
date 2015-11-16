@@ -1,0 +1,223 @@
+/*------------------------------------*\
+    #Flag
+\*------------------------------------*/
+
+.component-flag {
+  background: var(--default);
+  border-color: var(--default);
+  display: inline-block;
+  line-height: 1em;
+  padding: calc(var(--padding-vertical-default) / 2) var(--padding-horizontal-default);
+  position: relative;
+  margin: var(--margin-vertical-default) var(--margin-horizontal-default);
+
+  &:after, &:before {
+    content: "";
+    display: block;
+    top: 1.5em;
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-width: .75em .5em;
+    border-style: solid;
+    border-color: color(var(--default) l(-5%));
+    z-index:-1;
+  }
+
+  &:after {
+    top: .25em;
+    right: 0;
+    margin-right: -.75em;
+    border-right-color: transparent;
+  }
+
+  &:before {
+    top: .25em;
+    left: 0;
+    margin-left: -.75em;
+    border-left-color: transparent;
+  }
+
+}
+
+/*
+ *    Functional Colours
+ */
+
+.component-flag {
+  color: var(--text-color);
+  background-color: var(--default);
+  border: var(--default);
+  &:after {
+    border-color: color(var(--default) l(-5%));
+    border-right-color: transparent;
+  }
+  &:before {
+    border-color: color(var(--default) l(-5%));
+    border-left-color: transparent;
+  }
+  &.default {
+    color: var(--text-color);
+    background-color: var(--default);
+    border: var(--default);
+    &:after {
+      border-color: color(var(--default) l(-5%));
+      border-right-color: transparent;
+    }
+    &:before {
+      border-color: color(var(--default) l(-5%));
+      border-left-color: transparent;
+    }
+  }
+  &.primary {
+    color: var(--text-color-inverted);
+    background-color: var(--primary);
+    border: var(--primary);
+    &:after {
+      border-color: color(var(--primary) l(-5%));
+      border-right-color: transparent;
+    }
+    &:before {
+      border-color: color(var(--primary) l(-5%));
+      border-left-color: transparent;
+    }
+  }
+  &.secondary {
+    color: var(--text-color-inverted);
+    background-color: var(--secondary);
+    border: var(--secondary);
+    &:after {
+      border-color: color(var(--secondary) l(-5%));
+      border-right-color: transparent;
+    }
+    &:before {
+      border-color: color(var(--secondary) l(-5%));
+      border-left-color: transparent;
+    }
+  }
+  &.success {
+    color: var(--text-color-inverted);
+    background-color: var(--success);
+    border: var(--success);
+    &:after {
+      border-color: color(var(--success) l(-5%));
+      border-right-color: transparent;
+    }
+    &:before {
+      border-color: color(var(--success) l(-5%));
+      border-left-color: transparent;
+    }
+  }
+  &.info {
+    color: var(--text-color-inverted);
+    background-color: var(--info);
+    border: var(--info);
+    &:after {
+      border-color: color(var(--info) l(-5%));
+      border-right-color: transparent;
+    }
+    &:before {
+      border-color: color(var(--info) l(-5%));
+      border-left-color: transparent;
+    }
+  }
+  &.warning {
+    color: var(--text-color-inverted);
+    background-color: var(--warning);
+    border: var(--warning);
+    &:after {
+      border-color: color(var(--warning) l(-5%));
+      border-right-color: transparent;
+    }
+    &:before {
+      border-color: color(var(--warning) l(-5%));
+      border-left-color: transparent;
+    }
+  }
+  &.danger {
+    color: var(--text-color-inverted);
+    background-color: var(--danger);
+    border: var(--danger);
+    &:after {
+      border-color: color(var(--danger) l(-5%));
+      border-right-color: transparent;
+    }
+    &:before {
+      border-color: color(var(--danger) l(-5%));
+      border-left-color: transparent;
+    }
+  }
+}
+
+/*
+ *    Position
+ */
+
+.component-flag {
+
+  /* Right */
+  &.right {
+    position: absolute;
+    top: 0;
+    bottom: auto;
+    right: 0;
+    margin-right: -.5em;
+    &:after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 0;
+      position: absolute;
+      z-index: -1;
+      border-width: .25em;
+     top: 1.5em;
+      right: 0;
+      margin-top: -1px;
+      margin-right: 0;
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+    }
+    &:before {
+      top:0;
+      z-index:0;
+      border-color: inherit;
+      border-left-color: transparent;
+    }
+  }
+
+  /* Left */
+  &.left {
+    position: absolute;
+    top: 0;
+    bottom: auto;
+    left: 0;
+    margin-left: -.5em;
+    &:before {
+      content: "";
+      display: block;
+      width: 0;
+      height: 0;
+      position: absolute;
+      z-index: -1;
+      border-width: .25em;
+      top: 1.5em;
+      left: 0;
+      margin-top: -1px;
+      margin-left: 0;
+      border-left-color: transparent;
+      border-bottom-color: transparent;
+    }
+    &:after {
+      top:0;
+      z-index:0;
+      border-color: inherit;
+      border-right-color: transparent;
+    }
+  }
+
+  /* Bottom */
+  &.bottom {
+    top: auto;
+    bottom: 0;
+  }
+}

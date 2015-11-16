@@ -1,0 +1,57 @@
+/*------------------------------------*\
+    #Lozenge
+\*------------------------------------*/
+
+.component-lozenge {
+  padding: calc(var(--padding-horizontal-default) / 2) calc(var(--padding-vertical-default) / 2);
+  border-radius: var(--lozenge-border-radius);
+  display: inline-block;
+  font-size: var(--font-size-small);
+  line-height: 1em;
+  text-align: center;
+
+  /*
+   *    Block
+   */
+  &.block {
+    display: block;
+    width: 100%;
+  }
+}
+
+/*
+ *    Functional Colours
+ */
+
+.component-lozenge {
+  background-color: var(--default);
+  color: var(--text-color);
+  &.default {
+    background-color: var(--default);
+    color: var(--text-color);
+  }
+  &.primary {
+    background-color: var(--primary);
+    color: var(--text-color-inverted);
+  }
+  &.secondary {
+    background-color: var(--secondary);
+    color: var(--text-color-inverted);
+  }
+  &.success {
+    background-color: var(--success);
+    color: var(--text-color-inverted);
+  }
+  &.info {
+    background-color: var(--info);
+    color: var(--text-color-inverted);
+  }
+  &.warning {
+    background-color: var(--warning);
+    color: var(--text-color-inverted);
+  }
+  &.danger {
+    background-color: var(--danger);
+    color: var(--text-color-inverted);
+  }
+}

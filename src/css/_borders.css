@@ -1,0 +1,98 @@
+/*------------------------------------*\
+    #Borders
+\*------------------------------------*/
+
+:root {
+
+  /*
+   *    Defaults
+   */
+
+  --border-style-default: solid;
+
+  --border-size-default: 1px;
+  --border-size-large: 4px;
+  --border-size-small: 0;
+
+  --border-color-default: color(var(--default) l(-5%));
+  --border-color-primary: color(var(--primary) l(-5%));
+  --border-color-secondary: color(var(--secondary) l(-5%));
+  --border-color-success: color(var(--success) l(-5%));
+  --border-color-info: color(var(--info) l(-5%));
+  --border-color-warning: color(var(--warning) l(-5%));
+  --border-color-danger: color(var(--danger) l(-5%));
+
+  --radius-default:            .25em;
+  --radius-vertical-default:   var(--radius-default);
+  --radius-horizontal-default: var(--radius-default);
+
+  --radius-default-large:      var(--radius-default);
+  --radius-vertical-large:     var(--radius-vertical-default);
+  --radius-horizontal-large:   var(--radius-horizontal-default);
+
+  --radius-default-small:      var(--radius-default);
+  --radius-vertical-small:     var(--radius-vertical-default);
+  --radius-horizontal-small:   var(--radius-horizontal-default);
+
+
+  /*
+   *    Buttons
+   */
+
+  --button-border-size:    var(--border-size-default);
+  --button-border-style:   var(--border-style-default);
+  --button-border-color:   var(--border-color-default);
+  --button-border-radius:  var(--radius-default);
+
+
+  /*
+   *    Alerts
+   */
+
+  --alerts-border-size:    var(--border-size-default);
+  --alerts-border-style:   var(--border-style-default);
+  --alerts-border-color:   var(--border-color-default);
+  --alerts-border-radius:  var(--radius-default);
+
+
+  /*
+   *    Forms
+   */
+
+  --input-border-size:     var(--border-size-default);
+  --input-border-style:    var(--border-style-default);
+  --input-border-color:    color(var(--input) l(-15%));
+  --input-border-radius:   var(--radius-default);
+
+
+  /*
+   *    Lozenge
+   */
+
+  --lozenge-border-size:    var(--border-size-small);
+  --lozenge-border-style:   var(--border-style-default);
+  --lozenge-border-color:   rgba(255,255,255,0);
+  --lozenge-border-radius:  var(--radius-default);
+
+
+  /*
+   *    Quotes
+   */
+
+  --quotes-border-size:    var(--border-size-large);
+  --quotes-border-style:   var(--border-style-default);
+  --quotes-border-color:   var(--border-color-default);
+  --quotes-cite-color:     var(--border-color-default);
+  --quotes-border-radius:  var(--radius-default);
+
+
+  /*
+   *    Tiles
+   */
+
+  --tiles-border-size:     var(--border-size-default);
+  --tiles-border-style:    var(--border-style-default);
+  --tiles-border-color:    var(--border-color-default);
+  --tiles-border-radius:   var(--radius-default);
+
+}

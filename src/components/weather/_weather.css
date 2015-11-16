@@ -1,0 +1,91 @@
+/*------------------------------------*\
+    #Weather
+\*------------------------------------*/
+
+@font-face {
+  font-family: 'MeteoconsRegular';
+  src: url(var(--asset-path)/fonts/meteocons-webfont.eot);
+  src: url(var(--asset-path)/fonts/meteocons-webfont.eot?#iefix) format('embedded-opentype'),
+       url(var(--asset-path)/fonts/meteocons-webfont.woff) format('woff'),
+       url(var(--asset-path)/fonts/meteocons-webfont.ttf) format('truetype'),
+       url(var(--asset-path)/fonts/meteocons-webfont.svg#MeteoconsRegular) format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.component-weather {
+  width:auto;
+  text-align:center;
+  width:100px;
+  div {
+    padding-bottom: var(--padding-vertical-small);
+    &:before {
+      font-family: 'MeteoconsRegular';
+      font-size: 3.5em;
+      visibility: visible;
+    }
+    &.cloudy,
+    &.fog,
+    &.hail,
+    &.heavy-rain,
+    &.heavy-snow,
+    &.light-rain,
+    &.light-snow,
+    &.night-clear,
+    &.night-partly-cloudy,
+    &.partly-cloudy,
+    &.storm,
+    &.sunny,
+    &.windy {
+      span {
+        display: block;
+        text-indent: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        height: 0;
+      }  
+    }
+    &.cloudy {
+      &:before { content: "N"; }
+    }
+    &.fog {
+      &:before { content: "M"; }
+    }
+    &.hail {
+      &:before { content: "X"; }
+    }
+    &.heavy-rain {
+      &:before { content: "R"; }
+    }
+    &.heavy-snow {
+      &:before { content: "W"; }
+    }
+    &.light-rain {
+      &:before { content: "Q"; }
+    }
+    &.light-snow {
+      &:before { content: "U"; }
+    }
+    &.night-clear {
+      &:before { content: "C"; }
+    }
+    &.night-partly-cloudy {
+      &:before { content: "I"; }
+    }
+    &.partly-cloudy {
+      &:before { content: "H"; }
+    }
+    &.storm {
+      &:before { content: "Z"; }
+    }
+    &.sunny {
+      &:before { content: "B"; }
+    }
+    &.windy {
+      &:before { content: "F"; }
+    }
+  }
+  abbr {
+    border-bottom:0;
+  }
+}

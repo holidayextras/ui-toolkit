@@ -1,0 +1,285 @@
+/*------------------------------------*\
+    #Button
+\*------------------------------------*/
+
+.component-button {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: var(--border-size-default) var(--border-style-default) var(--border-color-default);
+  white-space: nowrap;
+  padding: var(--padding-vertical-default) var(--padding-horizontal-default);
+  border-radius: var(--radius-default);
+  text-decoration: none;
+
+  &,
+  &:active,
+  &.active {
+    &:focus,
+    &.focus {
+      outline: thin dotted;
+      outline: 5px auto -webkit-focus-ring-color;
+      outline-offset: -2px;
+    }
+  }
+
+  &:hover,
+  &:focus,
+  &.focus {
+    color: var(--default);
+    text-decoration: none;
+  }
+
+  &:active,
+  &.active {
+    outline: 0;
+    background-image: none;
+  }
+
+  &.disabled,
+  &[disabled] {
+    pointer-events: none;
+    opacity:.65;
+  }
+
+  /*
+   *    Block
+   */
+  &.block {
+    display:block;
+    width: 100%;
+  }
+
+}
+
+/*
+ *    Functional Colours
+ */
+
+.component-button {
+  background-color: var(--default);
+      border-color: var(--border-color-default);
+             color: var(--text-color);
+  &:hover,
+  &:focus,
+  &.focus,
+  &:active,
+  &.active {
+    background-color: color(var(--default) l(-10%));
+        border-color: color(var(--border-color-default) l(-12%));
+               color: var(--text-color);
+  }
+  &:active,
+  &.active,
+  &.disabled,
+  &[disabled]{
+    &,
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+      background-color: var(--default);
+          border-color: var(--border-color-default);
+    }
+  }
+  &.default {
+    background-color: var(--default);
+        border-color: var(--border-color-default);
+               color: var(--text-color);
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+      background-color: color(var(--default) l(-10%));
+          border-color: color(var(--border-color-default) l(-12%));
+                 color: var(--text-color);
+    }
+    &:active,
+    &.active,
+    &.disabled,
+    &[disabled]{
+      &,
+      &:hover,
+      &:focus,
+      &.focus,
+      &:active,
+      &.active {
+        background-color: var(--default);
+            border-color: var(--border-color-default);
+      }
+    }
+  }
+  &.primary {
+    background-color: var(--primary);
+        border-color: var(--border-color-primary);
+               color: var(--text-color-inverted);
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+      background-color: color(var(--primary) l(-10%));
+          border-color: color(var(--border-color-primary) l(-12%));
+                 color: var(--text-color-inverted);
+    }
+    &:active,
+    &.active,
+    &.disabled,
+    &[disabled]{
+      &,
+      &:hover,
+      &:focus,
+      &.focus,
+      &:active,
+      &.active {
+        background-color: var(--primary);
+            border-color: var(--border-color-primary);
+      }
+    }
+  }
+  &.secondary {
+    background-color: var(--secondary);
+        border-color: var(--border-color-secondary);
+               color: var(--text-color-inverted);
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+      background-color: color(var(--secondary) l(-10%));
+          border-color: color(var(--border-color-secondary) l(-12%));
+                 color: var(--text-color-inverted);
+    }
+    &:active,
+    &.active,
+    &.disabled,
+    &[disabled]{
+      &,
+      &:hover,
+      &:focus,
+      &.focus,
+      &:active,
+      &.active {
+        background-color: var(--secondary);
+            border-color: var(--border-color-secondary);
+      }
+    }
+  }
+  &.success {
+    background-color: var(--success);
+        border-color: var(--border-color-success);
+               color: var(--text-color-inverted);
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+      background-color: color(var(--success) l(-10%));
+          border-color: color(var(--border-color-success) l(-12%));
+                 color: var(--text-color-inverted);
+    }
+    &:active,
+    &.active,
+    &.disabled,
+    &[disabled]{
+      &,
+      &:hover,
+      &:focus,
+      &.focus,
+      &:active,
+      &.active {
+        background-color: var(--success);
+            border-color: var(--border-color-success);
+      }
+    }
+  }
+  &.info {
+    background-color: var(--info);
+        border-color: var(--border-color-info);
+               color: var(--text-color-inverted);
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+      background-color: color(var(--info) l(-10%));
+          border-color: color(var(--border-color-info) l(-12%));
+                 color: var(--text-color-inverted);
+    }
+    &:active,
+    &.active,
+    &.disabled,
+    &[disabled]{
+      &,
+      &:hover,
+      &:focus,
+      &.focus,
+      &:active,
+      &.active {
+        background-color: var(--info);
+            border-color: var(--border-color-info);
+      }
+    }
+  }
+  &.warning {
+    background-color: var(--warning);
+        border-color: var(--border-color-warning);
+               color: var(--text-color-inverted);
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+      background-color: color(var(--warning) l(-10%));
+          border-color: color(var(--border-color-warning) l(-12%));
+                 color: var(--text-color-inverted);
+    }
+    &:active,
+    &.active,
+    &.disabled,
+    &[disabled]{
+      &,
+      &:hover,
+      &:focus,
+      &.focus,
+      &:active,
+      &.active {
+        background-color: var(--warning);
+            border-color: var(--border-color-warning);
+      }
+    }
+  }
+  &.danger {
+    background-color: var(--danger);
+        border-color: var(--border-color-danger);
+               color: var(--text-color-inverted);
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+      background-color: color(var(--danger) l(-10%));
+          border-color: color(var(--border-color-danger) l(-12%));
+                 color: var(--text-color-inverted);
+    }
+    &:active,
+    &.active,
+    &.disabled,
+    &[disabled]{
+      &,
+      &:hover,
+      &:focus,
+      &.focus,
+      &:active,
+      &.active {
+        background-color: var(--danger);
+            border-color: var(--border-color-danger);
+      }
+    }
+  }
+}

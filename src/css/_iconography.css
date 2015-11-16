@@ -1,8 +1,9 @@
 /*------------------------------------*\
-    #Countdown
+    #Iconography
 \*------------------------------------*/
 
-.component-countdown {
+/*
+ *    Font Awesome
+ */
 
-}
-
+@import "../vendor/font-awesome.css";
