@@ -99,7 +99,6 @@ module.exports = React.createClass({
           name={this.props.name}
           value={this.state.value}
           id={this.props.id}
-          placeHolder={this.props.placeHolder}
           onChange={this.handleChange}
           {...dataAttributes}
           >
