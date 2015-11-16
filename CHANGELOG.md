@@ -1,3 +1,6 @@
+### 0.23.1 - 2015-11-16
+ - Bundled dist files
+
 ### 0.23.0 - 2015-11-16
  - i18n on basketItem latest ReactIntl V2
 
