@@ -1,6 +1,6 @@
 var example = (
   <div>
-    <UIToolkit.Stepper value={2} minValue={1} maxValue={9}/>
+    <UIToolkit.Stepper label="number of passengers" value={2} minValue={1} maxValue={9}/>
   </div>
 );
 

@@ -50,7 +50,7 @@ module.exports = React.createClass({
   removeNode: function() {
     if (this.props.handleRemove === null) return null;
     return (
-      <Anchor handleClick={this.props.handleRemove}>{this.props.removeText}</Anchor>
+      <Anchor handleClick={this.props.handleRemove} role="button">{this.props.removeText}</Anchor>
     );
   },
   render: function() {
