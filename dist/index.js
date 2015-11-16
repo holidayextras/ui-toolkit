@@ -16,6 +16,7 @@ UIToolkit.PaymentCard = require('./components/payment-card');
 UIToolkit.Quote = require('./components/quote');
 UIToolkit.Rating = require('./components/rating');
 UIToolkit.Reviews = require('./components/reviews');
+UIToolkit.Select = require('./components/select');
 UIToolkit.Tile = require('./components/tile');
 UIToolkit.Weather = require('./components/weather');
 UIToolkit.Stepper = require('./components/stepper');

@@ -106,6 +106,20 @@ var Components = React.createClass({
             </ul>
           </article>
 
+          <article id="select">
+            <h3>Select</h3>
+            <p>Custom Select for Text, Email, Telephone &amp; Number Types</p>
+            <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Select.jsx', 'utf8')} />
+            <h4>Attributes</h4>
+            <ul>
+              <li><code>name</code> String - Optional Name for Input Field</li>
+              <li><code>id</code> String - Optional ID for Input Field</li>
+              <li><code>label</code> String - Optional Label in front of Input Field</li>
+              <li><code>placeHolder</code> String - Optional Placeholder for Input Field</li>
+              <li><code>handleChange</code> Function - Optional Function which is called onChange</li>
+            </ul>
+          </article>
+
           <article id="lists">
             <h3>Lists</h3>
             <h4>Icon list</h4>
