@@ -67,6 +67,18 @@ var Components = React.createClass({
             </ul>
           </article>
 
+          <article id="icons">
+            <h3>Icons</h3>
+            <p>Icons are provided to add visual aid to elements on your website. Use independently, as part of a list, the world is your oyster (though there is no oyster icon).</p>
+            <p>The default font library we use is <a href="https://fortawesome.github.io/Font-Awesome/" alt="Font Awesome">Font Awesome</a> but you can also use Bootstraps <a href="http://getbootstrap.com/components/#glyphicons" alt="Glyphicons">Glyphicons</a>. You will need to load the CSS for each of these libraries separately, UI Toolkit does not include these be default.</p>
+            <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Icon.jsx', 'utf8')} />
+            <h4>Attributes</h4>
+            <ul>
+              <li><code>icon</code> String - The name of the icon you want to display.</li>
+              <li><code>iconFamily</code> String - <code>font-awesome</code> or <code>glyphicons</code></li>
+            </ul>
+          </article>
+
           <article id="image">
             <h3>Image</h3>
             <p>A standard Image Component which is set at 100% width by default to ensure the image works responsively.</p>
@@ -123,13 +135,30 @@ var Components = React.createClass({
 
           <article id="lists">
             <h3>Lists</h3>
-            <h4>Icon list</h4>
-            <p>An unordered list that uses <a href="http://fortawesome.github.io/Font-Awesome/icons/">Font Awesome</a> for the bullets</p>
-            <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/IconList.jsx', 'utf8')} />
-            <h4>Attributes (for ListGroupItem)</h4>
+            <p>There are 3 types of list <code>ordered</code>, <code>unordered</code> and <code>description</code></p>
+
+            <h4 id="unordered-list">Unordered list</h4>
+            <p>An unordered list is a list in which the sequence of items is not important.</p>
+            <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/UnorderedList.jsx', 'utf8')} />
+
+            <h4 id="ordered-list">Ordered list</h4>
+            <p>An ordered list is a list in which the sequence of items is important.</p>
+            <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/OrderedList.jsx', 'utf8')} />
+
+            <h4 id="description-list">Description list</h4>
+            <p>A number of connected items or names written or printed consecutively, typically one below the other.</p>
+            <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/DescriptionList.jsx', 'utf8')} />
+
+            <h4>Attributes</h4>
             <ul>
-              <li><code>icon</code> String - The name of the <a href="http://fortawesome.github.io/Font-Awesome/icons/">Font Awesome</a> icon that you want to display</li>
-              <li><code>purpose</code> String - default, primary, secondary, success, info, warning, danger</li>
+              <li><code>type</code> String - <code>ordered</code>,<code>unordered</code> and <code>description</code></li>
+            </ul>
+
+            <h4>Child Components</h4>
+            <ul>
+              <li><code>listItem</code> Component - A item of a list. Must be used with an <a href="#ordered-list" alt="ordered-list">ordered-list</a> or <a href="#unordered-list" alt="unordered-list">ordered-list</a></li>
+              <li><code>listTerm</code> Component - A list term of a description list. Must be used as a child of a <a href="#description-list" alt="description-list">description-list</a></li>
+              <li><code>listDescription</code> Component - A desciption of the term of a description list. Must be used as a child of a <a href="#description-list" alt="description-list">description-list</a></li>
             </ul>
           </article>
 
@@ -203,6 +232,12 @@ var Components = React.createClass({
             <ul>
               <li><code>until</code> String - Date in the future</li>
             </ul>
+          </article>
+
+          <article id="icon-list">
+            <h3>Icon List</h3>
+            <p>An icon list is an unordered list with bullets consisting of icons. You must still use list-items as children, but include an <a href="#icons">Icon</a> component as well.</p>
+            <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/IconList.jsx', 'utf8')} />
           </article>
 
           <article id="payment-card">

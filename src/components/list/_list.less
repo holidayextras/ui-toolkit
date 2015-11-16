@@ -1,0 +1,28 @@
+/*------------------------------------*\
+    # list Item
+\*------------------------------------*/
+ul.component-unordered-list,
+ol.component-ordered-list {
+  margin-left: 1.5em;
+}
+
+.component-icon-list {
+  .component-list-item {
+    margin-left: 0;
+    list-style: none;
+    display:table;
+    table-layout:fixed;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width:100%;
+  }
+  & > {
+    & i, span, p {
+      display:table-cell;
+    }
+    & i {
+      width:1.5em;
+      text-align:center;
+    }
+  }
+}
