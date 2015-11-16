@@ -456,11 +456,17 @@ module.exports = React.createClass({
 
 },{"react":199,"react-data-attributes-mixin":24}],10:[function(require,module,exports){
 'use strict';
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var React = require('react');
+var DataAttributesMixin = require('react-data-attributes-mixin');
 var classNames = require('classnames');
 
 module.exports = React.createClass({
   displayName: 'exports',
+
+  mixins: [DataAttributesMixin],
 
   intent: null,
 
@@ -479,7 +485,8 @@ module.exports = React.createClass({
     validator: React.PropTypes.instanceOf(RegExp),
     errorMessage: React.PropTypes.string,
     children: React.PropTypes.string,
-    handleChange: React.PropTypes.func
+    handleChange: React.PropTypes.func,
+    data: React.PropTypes.object
   },
 
   getInitialState: function getInitialState() {
@@ -546,6 +553,7 @@ module.exports = React.createClass({
       'error': this.state.error || false,
       'disabled': this.props.disabled || false
     });
+    var dataAttributes = this.getDataAttributesFromProps();
 
     // the form label
     var label;
@@ -576,7 +584,7 @@ module.exports = React.createClass({
       'div',
       { className: classes, ref: this.props.ref },
       label,
-      React.createElement('input', {
+      React.createElement('input', _extends({
         className: 'component-input-field',
         type: this.props.type,
         name: this.props.name,
@@ -587,14 +595,14 @@ module.exports = React.createClass({
         disabled: this.props.disabled,
         readOnly: this.props.readOnly,
         required: this.props.required
-      }),
+      }, dataAttributes)),
       span
     );
   }
 });
 
 
-},{"classnames":22,"react":199}],11:[function(require,module,exports){
+},{"classnames":22,"react":199,"react-data-attributes-mixin":24}],11:[function(require,module,exports){
 'use strict';
 var React = require('react');
 var classNames = require('classnames');
