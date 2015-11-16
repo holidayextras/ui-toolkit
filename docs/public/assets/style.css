@@ -40,10 +40,11 @@ nav {
 }
 nav ul {
   list-style:none;
+  margin-left:1em;
 }
 nav ul li a {
   display:block;
-  padding:.5em 1em;
+  padding:0 0 0 1em;
   border-left:2px solid transparent;
   text-decoration:none;
   font-size:1em;
@@ -54,11 +55,6 @@ nav ul li a:hover {
 }
 nav ul ul li a {
   font-size:0.85em;
-  padding: 0 2em;
-}
-
-section ul {
-  margin-left: 1.5em;
 }
 
 article {
