@@ -8,43 +8,48 @@ var pretendLightBox = function(thisProduct) {
 
 var example = (
   <div>
-    <UIToolkit.IconList>
+    <UIToolkit.List type="icon">
 
-      <UIToolkit.IconListItem icon="check">
+      <UIToolkit.ListItem>
+        <UIToolkit.Icon icon="check" iconFamily="font-awesome" />
         <UIToolkit.BasketItem title="First product">
           This is a fantastic product that is really really cool with no price.
         </UIToolkit.BasketItem>
-      </UIToolkit.IconListItem>
+      </UIToolkit.ListItem>
 
-      <UIToolkit.IconListItem icon="check">
+      <UIToolkit.ListItem>
+        <UIToolkit.Icon icon="check" iconFamily="font-awesome" />
         <UIToolkit.BasketItem title="Second product (click me)" toggleDescription={true} price={100}>
           This one has a hidden description.
         </UIToolkit.BasketItem>
-      </UIToolkit.IconListItem>
+      </UIToolkit.ListItem>
 
-      <UIToolkit.IconListItem icon="check">
+      <UIToolkit.ListItem>
+        <UIToolkit.Icon icon="check" iconFamily="font-awesome" />
         <UIToolkit.BasketItem title="Third product" handleRemove={removeAThing.bind(null,'3rd product')} price={100}>
           Can be removed
         </UIToolkit.BasketItem>
-      </UIToolkit.IconListItem>
+      </UIToolkit.ListItem>
 
-      <UIToolkit.IconListItem icon="check">
+      <UIToolkit.ListItem>
+        <UIToolkit.Icon icon="check" iconFamily="font-awesome" />
         <UIToolkit.BasketItem title={<a onClick={pretendLightBox.bind(null, '4th product')} role="link" tabIndex="0">Fourth Product</a>} handleRemove={removeAThing.bind(null,'4th product')} price={100}>
           Has a special title (could open a lightbox or something?)
         </UIToolkit.BasketItem>
-      </UIToolkit.IconListItem>
+      </UIToolkit.ListItem>
 
       <UIToolkit.IconListItem icon="check">
         <UIToolkit.BasketItem title={<a onClick={pretendLightBox.bind(null, '5th product')} role="link" tabIndex="0">Fifth Product (no description)</a>} price={100} />
       </UIToolkit.IconListItem>
 
-      <UIToolkit.IconListItem icon="check">
+      <UIToolkit.ListItem>
+        <UIToolkit.Icon icon="check" iconFamily="font-awesome" />
         <UIToolkit.BasketItem title="Sixth product" price={0}>
           This is the best one of all because it is FREE!
         </UIToolkit.BasketItem>
-      </UIToolkit.IconListItem>
+      </UIToolkit.ListItem>
 
-    </UIToolkit.IconList>
+    </UIToolkit.List>
     <hr />
     <UIToolkit.BasketItem title="Total (also a BasketItem)" price={400} />
   </div>
