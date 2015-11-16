@@ -8,7 +8,6 @@ module.exports = React.createClass({
 
   propTypes: {
     label: React.PropTypes.string,
-    placeHolder: React.PropTypes.string,
     name: React.PropTypes.string,
     id: React.PropTypes.string,
     children: React.PropTypes.string,
@@ -103,7 +102,9 @@ module.exports = React.createClass({
           placeHolder={this.props.placeHolder}
           onChange={this.handleChange}
           {...dataAttributes}
-          />
+          >
+          {this.props.children}
+        </select>
         {span}
       </div>
     );

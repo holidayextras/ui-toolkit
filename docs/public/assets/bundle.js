@@ -825,7 +825,6 @@ module.exports = React.createClass({
 
   propTypes: {
     label: React.PropTypes.string,
-    placeHolder: React.PropTypes.string,
     name: React.PropTypes.string,
     id: React.PropTypes.string,
     children: React.PropTypes.string,
@@ -920,14 +919,18 @@ module.exports = React.createClass({
       'div',
       { className: classes },
       label,
-      React.createElement('select', _extends({
-        className: 'component-select-field',
-        name: this.props.name,
-        value: this.state.value,
-        id: this.props.id,
-        placeHolder: this.props.placeHolder,
-        onChange: this.handleChange
-      }, dataAttributes)),
+      React.createElement(
+        'select',
+        _extends({
+          className: 'component-select-field',
+          name: this.props.name,
+          value: this.state.value,
+          id: this.props.id,
+          placeHolder: this.props.placeHolder,
+          onChange: this.handleChange
+        }, dataAttributes),
+        this.props.children
+      ),
       span
     );
   }
@@ -1459,15 +1462,15 @@ var Components = React.createClass({displayName: "Components",
 
           React.createElement("article", {id: "select"}, 
             React.createElement("h3", null, "Select"), 
-            React.createElement("p", null, "Custom Select for Text, Email, Telephone & Number Types"), 
-            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Select label='Label' placeHolder = 'Placeholder' />\n  </div>\n\n);\n\nReactDOM.render(example, mountNode);\n"}), 
+            React.createElement("p", null, "Custom Select extended to inculde the data attribute"), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Select label = 'Destination:'>\n      <option>Country</option>\n      <option>Germany</option>\n      <option>Spain</option>\n      <option>Portugal</option>\n      <option>England</option>\n      <option>Scotland</option>\n    </UIToolkit.Select>\n  </div>\n\n);\n\nReactDOM.render(example, mountNode);\n"}), 
             React.createElement("h4", null, "Attributes"), 
             React.createElement("ul", null, 
               React.createElement("li", null, React.createElement("code", null, "name"), " String - Optional Name for Input Field"), 
               React.createElement("li", null, React.createElement("code", null, "id"), " String - Optional ID for Input Field"), 
               React.createElement("li", null, React.createElement("code", null, "label"), " String - Optional Label in front of Input Field"), 
-              React.createElement("li", null, React.createElement("code", null, "placeHolder"), " String - Optional Placeholder for Input Field"), 
-              React.createElement("li", null, React.createElement("code", null, "handleChange"), " Function - Optional Function which is called onChange")
+              React.createElement("li", null, React.createElement("code", null, "handleChange"), " Function - Optional Function which is called onChange"), 
+              React.createElement("li", null, React.createElement("code", null, "data"), " Object - Where ", React.createElement("code", null, "keys"), " will be data attributes and ", React.createElement("code", null, "values"), " will be their values (uses ", React.createElement("a", {href: "https://github.com/holidayextras/react-data-attributes-mixin", alt: "React Data Attributes Mixin"}, "React Data Attributes Mixin"), ")")
             )
           ), 
 
