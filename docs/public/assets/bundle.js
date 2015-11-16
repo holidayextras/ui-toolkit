@@ -30208,7 +30208,7 @@ module.exports = require('./lib/React');
 },{"./lib/React":114}],247:[function(require,module,exports){
 module.exports={
   "name": "ui-toolkit",
-  "version": "0.22.1",
+  "version": "0.23.0",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "index.js",
