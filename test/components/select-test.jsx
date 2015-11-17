@@ -65,18 +65,6 @@ describe('SelectComponent', function() {
     assert.equal(renderedSelect.getAttribute('data-attr'), 'test');
   });
 
-  it('should call handleChange prop when value changes', function() {
-    var handleChange = sinon.spy();
-    var input = TestUtils.renderIntoDocument(
-      <SelectView label="Test" handleChange={handleChange} />
-    );
-
-    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-select-field');
-
-    TestUtils.Simulate.change(renderedInput, { target: { value: 'changed value' } });
-    assert.ok(handleChange.calledOnce);
-  });
-
   describe('getDefaultProps', function() {
     var elem = TestUtils.renderIntoDocument(
       <SelectView />
