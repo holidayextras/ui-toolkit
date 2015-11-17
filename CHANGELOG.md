@@ -1,3 +1,6 @@
+### 0.24.1 - 2015-11-17
+ - Fix dependency issue
+
 ### 0.24.0 - 2015-11-16
  - BREAKING CHANGE: Removing icon list and replacing with icons and lists
 
