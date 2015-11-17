@@ -923,10 +923,10 @@ module.exports = React.createClass({
     handleChange: React.PropTypes.func,
     data: React.PropTypes.object
   },
-
-  getInitialState: function getInitialState() {
-    return { value: this.props.children };
-  },
+  //
+  // getInitialState: function() {
+  //   return { value: this.props.children };
+  // },
 
   getDefaultProps: function getDefaultProps() {
     return {
@@ -952,7 +952,6 @@ module.exports = React.createClass({
     var classes = 'component-select';
     var dataAttributes = this.getDataAttributesFromProps();
 
-    // the form label
     var label;
     if (this.props.label) {
       label = React.createElement(
@@ -971,7 +970,6 @@ module.exports = React.createClass({
         _extends({
           className: 'component-select-field',
           name: this.props.name,
-          value: this.state.value,
           id: this.props.id,
           onChange: this.handleChange
         }, dataAttributes),

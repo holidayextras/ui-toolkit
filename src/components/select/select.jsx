@@ -14,11 +14,7 @@ module.exports = React.createClass({
     handleChange: React.PropTypes.func,
     data: React.PropTypes.object
   },
-
-  getInitialState: function() {
-    return { value: this.props.children };
-  },
-
+  
   getDefaultProps: function() {
     return {
       id: 'component-select',
@@ -54,7 +50,6 @@ module.exports = React.createClass({
         <select
           className="component-select-field"
           name={this.props.name}
-          value={this.state.value}
           id={this.props.id}
           onChange={this.handleChange}
           {...dataAttributes}
