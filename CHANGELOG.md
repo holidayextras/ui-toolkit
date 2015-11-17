@@ -1,3 +1,9 @@
+### 0.24.2 - 2015-11-17
+ - adding react a11y to show dev issues with accessibility
+
+### 0.24.1 - 2015-11-17
+ - Fix dependency issue
+
 ### 0.24.0 - 2015-11-16
  - BREAKING CHANGE: Removing icon list and replacing with icons and lists
 

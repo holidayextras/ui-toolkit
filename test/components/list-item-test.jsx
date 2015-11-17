@@ -17,7 +17,7 @@ describe('ListItemComponent ', function() {
     );
 
     var renderedListItem = TestUtils.findRenderedDOMComponentWithClass(ListInstance, 'component-list-item');
-    assert.equal(renderedListItem.getDOMNode().nodeName, 'LI');
+    assert.equal(renderedListItem.nodeName, 'LI');
   });
 
 

@@ -99,7 +99,7 @@ module.exports = React.createClass({
     var label;
 
     if (this.props.label) {
-      label = ( <label className="component-input-label" htmlFor={this.props.id}>{this.props.label}</label > );
+      label = ( <label className="component-input-label" aria-label={this.props.id} htmlFor={this.props.id}>{this.props.label}</label > );
     }
 
     /**
@@ -120,6 +120,7 @@ module.exports = React.createClass({
           type={this.props.type}
           name={this.props.name}
           value={this.state.value}
+          aria-labelledby={this.props.label}
           id={this.props.id}
           placeholder={this.props.placeholder}
           onChange={this.handleChange}

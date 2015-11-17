@@ -153,7 +153,7 @@ var CustomComponent = React.createClass({
           <div ref="mount" />
         </div>
         {editor}
-        <a className={classNames(toggleClasses)} onClick={this.handleCodeModeToggle} href="#">{this.state.mode === this.MODES.NONE ? 'show code' : 'hide code'}</a>
+        <a className={classNames(toggleClasses)} onKeyDown={this.handleCodeModeToggle} onClick={this.handleCodeModeToggle} href="#" role="button">{this.state.mode === this.MODES.NONE ? 'show code' : 'hide code'}</a>
       </div>
     );
   },
