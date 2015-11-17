@@ -966,12 +966,12 @@ module.exports = React.createClass({
     self.setState({
       value: value
     });
-
-    clearTimeout(this.intent);
-    this.intent = setTimeout(function () {
-      self.validate(value);
-    }, 500);
-
+    //
+    //   clearTimeout(this.intent);
+    //   this.intent = setTimeout(function() {
+    //     self.validate(value);
+    //   }, 500);
+    //
     if (self.props.handleChange) {
       self.props.handleChange.apply(this, arguments);
     }

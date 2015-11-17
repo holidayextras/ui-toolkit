@@ -26,43 +26,20 @@ module.exports = React.createClass({
   getDefaultProps: function() {
     return {
       id: 'component-select',
-      name: 'component-select',
-      placeHolder: ''
+      name: 'component-select'
     };
   },
 
-  validate: function(value) {
-    var self = this;
-    var isValid = true;
-    var error = null;
-
-    if (value !== '' && typeof self.props.validator !== 'undefined') {
-      isValid = self.props.validator.test(value);
-    }
-
-    if (!isValid) {
-      error = self.props.errorMessage;
-    }
-
-    self.setState({
-      valid: isValid,
-      error: error
-    });
-  },
 
   handleChange: function(e) {
     var self = this;
     var value = (e.target) ? e.target.value : null;
 
+
     self.setState({
       value: value
     });
-
-    clearTimeout(this.intent);
-    this.intent = setTimeout(function() {
-      self.validate(value);
-    }, 500);
-
+    
     if (self.props.handleChange) {
       self.props.handleChange.apply(this, arguments);
     }
