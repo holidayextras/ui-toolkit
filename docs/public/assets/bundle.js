@@ -925,38 +925,14 @@ module.exports = React.createClass({
   },
 
   getInitialState: function getInitialState() {
-    return {
-      value: this.props.children,
-      error: null,
-      valid: true
-    };
+    return { value: this.props.children };
   },
 
   getDefaultProps: function getDefaultProps() {
     return {
       id: 'component-select',
-      name: 'component-select',
-      placeHolder: ''
+      name: 'component-select'
     };
-  },
-
-  validate: function validate(value) {
-    var self = this;
-    var isValid = true;
-    var error = null;
-
-    if (value !== '' && typeof self.props.validator !== 'undefined') {
-      isValid = self.props.validator.test(value);
-    }
-
-    if (!isValid) {
-      error = self.props.errorMessage;
-    }
-
-    self.setState({
-      valid: isValid,
-      error: error
-    });
   },
 
   handleChange: function handleChange(e) {
@@ -966,12 +942,7 @@ module.exports = React.createClass({
     self.setState({
       value: value
     });
-    //
-    //   clearTimeout(this.intent);
-    //   this.intent = setTimeout(function() {
-    //     self.validate(value);
-    //   }, 500);
-    //
+
     if (self.props.handleChange) {
       self.props.handleChange.apply(this, arguments);
     }
@@ -979,31 +950,15 @@ module.exports = React.createClass({
 
   render: function render() {
     var classes = 'component-select';
-
     var dataAttributes = this.getDataAttributesFromProps();
 
     // the form label
     var label;
-
     if (this.props.label) {
       label = React.createElement(
         'label',
         { className: 'component-select-label', htmlFor: this.props.id },
         this.props.label
-      );
-    }
-
-    /**
-     * Create the span element used for containing messages
-     * related to the element.
-     */
-    var span;
-
-    if (this.state.error) {
-      span = React.createElement(
-        'span',
-        { className: 'component-select-error' },
-        this.state.error
       );
     }
 
@@ -1021,8 +976,7 @@ module.exports = React.createClass({
           onChange: this.handleChange
         }, dataAttributes),
         this.props.children
-      ),
-      span
+      )
     );
   }
 });

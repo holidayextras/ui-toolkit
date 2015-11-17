@@ -16,11 +16,7 @@ module.exports = React.createClass({
   },
 
   getInitialState: function() {
-    return {
-      value: this.props.children,
-      error: null,
-      valid: true
-    };
+    return { value: this.props.children };
   },
 
   getDefaultProps: function() {
@@ -54,15 +50,6 @@ module.exports = React.createClass({
       label = ( <label className="component-select-label" htmlFor={this.props.id}>{this.props.label}</label > );
     }
 
-    /**
-     * Create the span element used for containing messages
-     * related to the element.
-     */
-    var span;
-    if (this.state.error) {
-      span = ( <span className="component-select-error">{this.state.error}</span> );
-    }
-
     return (
       <div className={classes}>
         {label}
@@ -76,7 +63,6 @@ module.exports = React.createClass({
           >
           {this.props.children}
         </select>
-        {span}
       </div>
     );
   }
