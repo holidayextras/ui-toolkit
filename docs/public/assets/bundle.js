@@ -921,19 +921,19 @@ module.exports = React.createClass({
     id: React.PropTypes.string,
     children: React.PropTypes.string,
     handleChange: React.PropTypes.func,
-    data: React.PropTypes.object
+    data: React.PropTypes.object,
+    multiple: React.PropTypes.bool
   },
 
   getDefaultProps: function getDefaultProps() {
     return {
       id: 'component-select',
-      name: 'component-select'
+      name: 'component-select',
+      multiple: false
     };
   },
 
   handleChange: function handleChange(e) {
-    var value = e.target ? e.target.value : null;
-
     if (self.props.handleChange) {
       self.props.handleChange.apply(this, arguments);
     }
@@ -962,7 +962,8 @@ module.exports = React.createClass({
           className: 'component-select-field',
           name: this.props.name,
           id: this.props.id,
-          onChange: this.handleChange
+          onChange: this.handleChange,
+          multiple: this.props.multiple
         }, dataAttributes),
         this.props.children
       )
