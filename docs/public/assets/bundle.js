@@ -923,10 +923,6 @@ module.exports = React.createClass({
     handleChange: React.PropTypes.func,
     data: React.PropTypes.object
   },
-  //
-  // getInitialState: function() {
-  //   return { value: this.props.children };
-  // },
 
   getDefaultProps: function getDefaultProps() {
     return {
@@ -936,12 +932,7 @@ module.exports = React.createClass({
   },
 
   handleChange: function handleChange(e) {
-    var self = this;
     var value = e.target ? e.target.value : null;
-
-    self.setState({
-      value: value
-    });
 
     if (self.props.handleChange) {
       self.props.handleChange.apply(this, arguments);

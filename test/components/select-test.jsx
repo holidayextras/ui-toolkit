@@ -16,15 +16,6 @@ describe('SelectComponent', function() {
 
   });
 
-  it('should not have default value', function() {
-    var select = TestUtils.renderIntoDocument(
-      <SelectView />
-    );
-
-    var renderedSelect = TestUtils.findRenderedDOMComponentWithClass(select, 'component-select-field');
-    assert.equal(renderedSelect.value, '');
-  });
-
   it('should have default ID', function() {
     var select = TestUtils.renderIntoDocument(
       <SelectView />

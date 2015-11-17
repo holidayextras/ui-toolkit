@@ -23,12 +23,7 @@ module.exports = React.createClass({
   },
 
   handleChange: function(e) {
-    var self = this;
     var value = e.target ? e.target.value : null;
-
-    self.setState({
-      value: value
-    });
 
     if (self.props.handleChange) {
       self.props.handleChange.apply(this, arguments);
