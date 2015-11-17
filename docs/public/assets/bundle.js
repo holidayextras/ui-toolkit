@@ -30347,7 +30347,7 @@ module.exports = require('./lib/React');
 },{"./lib/React":117}],250:[function(require,module,exports){
 module.exports={
   "name": "ui-toolkit",
-  "version": "0.23.1",
+  "version": "0.24.0",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "index.js",
@@ -30408,6 +30408,7 @@ module.exports={
     "react-data-attributes-mixin": "git://github.com/holidayextras/react-data-attributes-mixin",
     "react-dom": "^0.14.2",
     "react-intl": "^2.0.0-pr-3",
+    "reactify": "^1.1.1",
     "require-directory": "^2.0.0",
     "requirejs": "~2.1.9"
   },
@@ -30431,7 +30432,6 @@ module.exports={
     "mocha-lcov-reporter": "0.0.2",
     "react-addons-test-utils": "^0.14.2",
     "react-tests-globals-setup": "^1.0.0",
-    "reactify": "^1.1.1",
     "sinon": "^1.14.1"
   },
   "browserify": {
