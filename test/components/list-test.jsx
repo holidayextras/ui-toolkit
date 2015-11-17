@@ -17,7 +17,7 @@ describe('ListComponent ', function() {
     );
 
     var renderedList = TestUtils.findRenderedDOMComponentWithClass(ListInstance, 'component-unordered-list');
-    assert.equal(renderedList.getDOMNode().nodeName, 'UL');
+    assert.equal(renderedList.nodeName, 'UL');
   });
 
   it('should render an ordered list with a class of component-ordered-list', function() {
@@ -26,7 +26,7 @@ describe('ListComponent ', function() {
     );
 
     var renderedList = TestUtils.findRenderedDOMComponentWithClass(ListInstance, 'component-ordered-list');
-    assert.equal(renderedList.getDOMNode().nodeName, 'OL');
+    assert.equal(renderedList.nodeName, 'OL');
   });
 
   it('should render an description list with a class of component-description-list', function() {
@@ -35,7 +35,7 @@ describe('ListComponent ', function() {
     );
 
     var renderedList = TestUtils.findRenderedDOMComponentWithClass(ListInstance, 'component-description-list');
-    assert.equal(renderedList.getDOMNode().nodeName, 'DL');
+    assert.equal(renderedList.nodeName, 'DL');
   });
 
   it('should render an icon list with a class of component-icon-list', function() {
@@ -44,7 +44,7 @@ describe('ListComponent ', function() {
     );
 
     var renderedList = TestUtils.findRenderedDOMComponentWithClass(ListInstance, 'component-icon-list');
-    assert.equal(renderedList.getDOMNode().nodeName, 'UL');
+    assert.equal(renderedList.nodeName, 'UL');
   });
 
   it('should render an unordered list with a class of component-unordered-list if type is undefined', function() {
@@ -53,7 +53,7 @@ describe('ListComponent ', function() {
     );
 
     var renderedList = TestUtils.findRenderedDOMComponentWithClass(ListInstance, 'component-unordered-list');
-    assert.equal(renderedList.getDOMNode().nodeName, 'UL');
+    assert.equal(renderedList.nodeName, 'UL');
   });
 
   it('should render an unordered list with a class of component-unordered-list if type is unrecognised', function() {
@@ -62,7 +62,7 @@ describe('ListComponent ', function() {
     );
 
     var renderedList = TestUtils.findRenderedDOMComponentWithClass(ListInstance, 'component-unordered-list');
-    assert.equal(renderedList.getDOMNode().nodeName, 'UL');
+    assert.equal(renderedList.nodeName, 'UL');
   });
 
 });

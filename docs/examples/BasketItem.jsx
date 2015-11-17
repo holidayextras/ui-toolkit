@@ -38,9 +38,12 @@ var example = (
         </UIToolkit.BasketItem>
       </UIToolkit.ListItem>
 
-      <UIToolkit.IconListItem icon="check">
-        <UIToolkit.BasketItem title="5th product" role="link" tabIndex="0" title="Fifth Product (no description)" price={100} />
-      </UIToolkit.IconListItem>
+      <UIToolkit.ListItem>
+        <UIToolkit.Icon icon="check" iconFamily="font-awesome" />
+        <UIToolkit.BasketItem title="5th product" role="link" tabIndex="0" title="Fifth Product (no description)" price={100}>
+          I am awesome
+        </UIToolkit.BasketItem>
+      </UIToolkit.ListItem>
 
       <UIToolkit.ListItem>
         <UIToolkit.Icon icon="check" iconFamily="font-awesome" />

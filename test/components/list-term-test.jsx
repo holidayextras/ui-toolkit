@@ -17,7 +17,7 @@ describe('ListTermComponent ', function() {
     );
 
     var renderedListTerm = TestUtils.findRenderedDOMComponentWithClass(ListInstance, 'component-list-term');
-    assert.equal(renderedListTerm.getDOMNode().nodeName, 'DT');
+    assert.equal(renderedListTerm.nodeName, 'DT');
   });
 
 });
