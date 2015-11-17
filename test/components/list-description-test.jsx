@@ -17,7 +17,7 @@ describe('ListDescriptionComponent ', function() {
     );
 
     var renderedListDescription = TestUtils.findRenderedDOMComponentWithClass(ListInstance, 'component-list-description');
-    assert.equal(renderedListDescription.getDOMNode().nodeName, 'DD');
+    assert.equal(renderedListDescription.nodeName, 'DD');
   });
 
 

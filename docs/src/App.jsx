@@ -2,6 +2,10 @@ var React = require('react');
 
 var HomePage = require('./HomePage.jsx');
 
+var a11y = require('react-a11y');
+//a11y(React, { throw: true, includeSrcNode: true });
+a11y(React);
+
 var App = React.createClass({
   statics: {
 

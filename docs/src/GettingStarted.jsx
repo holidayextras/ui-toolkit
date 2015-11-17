@@ -5,8 +5,7 @@ var GettingStarted = React.createClass({
     return (
       <section>
         <h2 id="setup" className="page-header">Get started</h2>
-        <p>You can install UI Toolkit using npm.</p>
-
+        <p>You can install UI Toolkit using <a href="https://www.npmjs.com/" alt="npm">npm</a> or alternatively download or contribute to the project on <a href="https://github.com/holidayextras/ui-toolkit" title="UI Toolkit on GitHub">GitHub</a></p>
         <h3 id="terminal">Terminal</h3>
         <div className="highlight">
           <pre>

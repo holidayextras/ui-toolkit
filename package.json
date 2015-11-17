@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "babel": "^5.8.20",
+    "babel-runtime": "^5.1.11",
     "babelify": "^6.4.0",
     "browserify": "^12.0.1",
     "classnames": "^2.1.0",
@@ -83,6 +84,7 @@
     "mocha": "^2.2.5",
     "mocha-jsdom": "^0.3.0",
     "mocha-lcov-reporter": "0.0.2",
+    "react-a11y": "^0.2.8",
     "react-addons-test-utils": "^0.14.2",
     "react-tests-globals-setup": "^1.0.0",
     "sinon": "^1.14.1"
