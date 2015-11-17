@@ -14,7 +14,7 @@ module.exports = React.createClass({
     handleChange: React.PropTypes.func,
     data: React.PropTypes.object
   },
-  
+
   getDefaultProps: function() {
     return {
       id: 'component-select',
