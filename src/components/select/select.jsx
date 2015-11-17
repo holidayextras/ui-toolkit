@@ -35,25 +35,21 @@ module.exports = React.createClass({
     var self = this;
     var value = (e.target) ? e.target.value : null;
 
-
     self.setState({
       value: value
     });
-    
+
     if (self.props.handleChange) {
       self.props.handleChange.apply(this, arguments);
     }
-
   },
 
   render: function() {
     var classes = 'component-select';
-
     var dataAttributes = this.getDataAttributesFromProps();
 
     // the form label
     var label;
-
     if (this.props.label) {
       label = ( <label className="component-select-label" htmlFor={this.props.id}>{this.props.label}</label > );
     }
@@ -63,7 +59,6 @@ module.exports = React.createClass({
      * related to the element.
      */
     var span;
-
     if (this.state.error) {
       span = ( <span className="component-select-error">{this.state.error}</span> );
     }
