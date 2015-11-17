@@ -933,7 +933,7 @@ module.exports = React.createClass({
     };
   },
 
-  handleChange: function handleChange(e) {
+  handleChange: function handleChange() {
     if (self.props.handleChange) {
       self.props.handleChange.apply(this, arguments);
     }
@@ -1520,9 +1520,26 @@ var Components = React.createClass({displayName: "Components",
               React.createElement("li", null, React.createElement("code", null, "id"), " String - Optional ID for Input Field"), 
               React.createElement("li", null, React.createElement("code", null, "label"), " String - Optional Label in front of Input Field"), 
               React.createElement("li", null, React.createElement("code", null, "handleChange"), " Function - Optional Function which is called onChange"), 
-              React.createElement("li", null, React.createElement("code", null, "data"), " Object - Where ", React.createElement("code", null, "keys"), " will be data attributes and ", React.createElement("code", null, "values"), " will be their values (uses ", React.createElement("a", {href: "https://github.com/holidayextras/react-data-attributes-mixin", alt: "React Data Attributes Mixin"}, "React Data Attributes Mixin"), ")")
+              React.createElement("li", null, React.createElement("code", null, "data"), " Object - Where ", React.createElement("code", null, "keys"), " will be data attributes and ", React.createElement("code", null, "values"), " will be their values (uses ", React.createElement("a", {href: "https://github.com/holidayextras/react-data-attributes-mixin", alt: "React Data Attributes Mixin"}, "React Data Attributes Mixin"), ")"), 
+              React.createElement("li", null, React.createElement("code", null, "name"), " String - Optional Boolean for multiple select")
             )
           ), 
+
+          React.createElement("article", {id: "select-multiple"}, 
+            React.createElement("h3", null, "Multiple Select"), 
+            React.createElement("p", null, "Custom Multiple Select extended to inculde the data attribute"), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Select label='Destination' multiple={true}>\n      <option>Country</option>\n      <option>Germany</option>\n      <option>Spain</option>\n      <option>Portugal</option>\n      <option>England</option>\n      <option>Scotland</option>\n    </UIToolkit.Select>\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "name"), " String - Optional Name for Input Field"), 
+              React.createElement("li", null, React.createElement("code", null, "id"), " String - Optional ID for Input Field"), 
+              React.createElement("li", null, React.createElement("code", null, "label"), " String - Optional Label in front of Input Field"), 
+              React.createElement("li", null, React.createElement("code", null, "handleChange"), " Function - Optional Function which is called onChange"), 
+              React.createElement("li", null, React.createElement("code", null, "data"), " Object - Where ", React.createElement("code", null, "keys"), " will be data attributes and ", React.createElement("code", null, "values"), " will be their values (uses ", React.createElement("a", {href: "https://github.com/holidayextras/react-data-attributes-mixin", alt: "React Data Attributes Mixin"}, "React Data Attributes Mixin"), ")"), 
+              React.createElement("li", null, React.createElement("code", null, "name"), " String - Optional Boolean for multiple select")
+            )
+          ), 
+
 
           React.createElement("article", {id: "lists"}, 
             React.createElement("h3", null, "Lists"), 

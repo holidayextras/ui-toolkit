@@ -130,8 +130,25 @@ var Components = React.createClass({
               <li><code>label</code> String - Optional Label in front of Input Field</li>
               <li><code>handleChange</code> Function - Optional Function which is called onChange</li>
               <li><code>data</code> Object - Where <code>keys</code> will be data attributes and <code>values</code> will be their values (uses <a href="https://github.com/holidayextras/react-data-attributes-mixin" alt="React Data Attributes Mixin">React Data Attributes Mixin</a>)</li>
+              <li><code>name</code> String - Optional Boolean for multiple select</li>
             </ul>
           </article>
+
+          <article id="select-multiple">
+            <h3>Multiple Select</h3>
+            <p>Custom Multiple Select extended to inculde the data attribute</p>
+            <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Select-multiple.jsx', 'utf8')} />
+            <h4>Attributes</h4>
+            <ul>
+              <li><code>name</code> String - Optional Name for Input Field</li>
+              <li><code>id</code> String - Optional ID for Input Field</li>
+              <li><code>label</code> String - Optional Label in front of Input Field</li>
+              <li><code>handleChange</code> Function - Optional Function which is called onChange</li>
+              <li><code>data</code> Object - Where <code>keys</code> will be data attributes and <code>values</code> will be their values (uses <a href="https://github.com/holidayextras/react-data-attributes-mixin" alt="React Data Attributes Mixin">React Data Attributes Mixin</a>)</li>
+              <li><code>name</code> String - Optional Boolean for multiple select</li>
+            </ul>
+          </article>
+
 
           <article id="lists">
             <h3>Lists</h3>
