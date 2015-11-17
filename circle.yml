@@ -9,3 +9,7 @@ test:
     - npm run ci
   post:
     - cp -av coverage $CIRCLE_ARTIFACTS/
+general:
+  branches:
+    ignore:
+      - gh-pages
