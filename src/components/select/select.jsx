@@ -26,10 +26,9 @@ module.exports = React.createClass({
     };
   },
 
-
   handleChange: function(e) {
     var self = this;
-    var value = (e.target) ? e.target.value : null;
+    var value = e.target ? e.target.value : null;
 
     self.setState({
       value: value
@@ -44,7 +43,6 @@ module.exports = React.createClass({
     var classes = 'component-select';
     var dataAttributes = this.getDataAttributesFromProps();
 
-    // the form label
     var label;
     if (this.props.label) {
       label = ( <label className="component-select-label" htmlFor={this.props.id}>{this.props.label}</label > );
