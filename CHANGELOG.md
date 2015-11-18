@@ -1,3 +1,6 @@
+### 0.24.3 - 2015-11-18
+ - Fixed messages confusion on basketItem
+
 ### 0.24.2 - 2015-11-17
  - adding react a11y to show dev issues with accessibility
 
