@@ -148,10 +148,6 @@ module.exports = React.createClass({
     };
     var intlDefaults = {
       locale: 'en',
-      messages: {
-        'free': 'FREE',
-        'remove': 'remove'
-      },
       formats: {
         number: {
           price: {
