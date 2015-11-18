@@ -25,8 +25,8 @@ module.exports = React.createClass({
   },
 
   handleChange: function() {
-    if (self.props.handleChange) {
-      self.props.handleChange.apply(this, arguments);
+    if (this.props.handleChange) {
+      this.props.handleChange.apply(this, arguments);
     }
   },
 
@@ -37,6 +37,10 @@ module.exports = React.createClass({
     var label;
     if (this.props.label) {
       label = ( <label className="component-select-label" htmlFor={this.props.id}>{this.props.label}</label > );
+    }
+
+    if (this.props.multiple) {
+      classes += ' multiple';
     }
 
     return (

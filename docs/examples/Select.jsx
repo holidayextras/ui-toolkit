@@ -1,7 +1,13 @@
 var example = (
   <div>
     <UIToolkit.Select label='Destination'>
-      <option>Country</option>
+      <option>Germany</option>
+      <option>Spain</option>
+      <option>Portugal</option>
+      <option>England</option>
+      <option>Scotland</option>
+    </UIToolkit.Select>
+    <UIToolkit.Select label='Multiple' multiple={true}>
       <option>Germany</option>
       <option>Spain</option>
       <option>Portugal</option>

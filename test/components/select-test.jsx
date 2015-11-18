@@ -65,6 +65,22 @@ describe('SelectComponent', function() {
     assert.equal(renderedSelect.getAttribute('data-attr'), 'test');
   });
 
+  it('should call handleChange prop when value changes', function() {
+    var handleChange = sinon.spy();
+    var select = TestUtils.renderIntoDocument(
+      <SelectView label="test" handleChange={handleChange}>
+        <option>Country</option>
+        <option>Germany</option>
+        <option>Spain</option>
+      </SelectView>
+    );
+
+    var renderedSelect = TestUtils.findRenderedDOMComponentWithClass(select, 'component-select-field');
+    TestUtils.Simulate.change(renderedSelect, {option: 'Germany'});
+    assert.ok(handleChange.calledOnce);
+  });
+
+
   describe('getDefaultProps', function() {
     var elem = TestUtils.renderIntoDocument(
       <SelectView />
