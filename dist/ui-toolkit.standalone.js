@@ -105,7 +105,9 @@ module.exports = React.createClass({
       toggleDescription: false
     };
   },
-  toggleDescriptionVisibility: function toggleDescriptionVisibility() {
+  toggleDescriptionVisibility: function toggleDescriptionVisibility(e) {
+    e.preventDefault();
+    e.stopPropagation();
     this.setState({ descriptionVisibility: !this.state.descriptionVisibility });
   },
   titleNode: function titleNode() {

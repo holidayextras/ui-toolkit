@@ -1,9 +1,7 @@
-var removeAThing = function(thisProduct) {
+var removeAThing = function(thisProduct, e) {
+  e.preventDefault();
+  e.stopPropagation();
   alert( 'your implementation will deal with removing: ' + thisProduct );
-};
-
-var pretendLightBox = function(thisProduct) {
-  alert( 'your implementation will deal making a thing for when you click on: ' + thisProduct );
 };
 
 var example = (

@@ -23,7 +23,9 @@ module.exports = React.createClass({
       toggleDescription: false
     };
   },
-  toggleDescriptionVisibility: function() {
+  toggleDescriptionVisibility: function(e) {
+    e.preventDefault();
+    e.stopPropagation();
     this.setState({ descriptionVisibility: !this.state.descriptionVisibility });
   },
   titleNode: function() {
