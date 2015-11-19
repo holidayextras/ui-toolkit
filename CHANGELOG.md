@@ -1,11 +1,5 @@
 ### 0.25.0 - 2015-11-18
- - 
-
-### 0.26.0 - 2015-11-18
- - 
-
-### 0.25.0 - 2015-11-18
- - 
+ - Added select component
 
 ### 0.24.3 - 2015-11-18
  - Fixed messages confusion on basketItem
