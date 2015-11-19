@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/holidayextras/ui-toolkit.svg?branch=master)](https://travis-ci.org/holidayextras/ui-toolkit)
+[![Build Status](https://circleci.com/gh/holidayextras/ui-toolkit.png?style=shield&circle-token=18f9f8e6fb4bb7d802d571d70889a2f996a58ee7)](https://circleci.com/gh/holidayextras/ui-toolkit)
 [![Dependency Status](https://gemnasium.com/holidayextras/ui-toolkit.svg)](https://gemnasium.com/holidayextras/ui-toolkit)
 [![Coverage Status](https://coveralls.io/repos/holidayextras/ui-toolkit/badge.svg?branch=master&service=github)](https://coveralls.io/github/holidayextras/ui-toolkit?branch=master)
-![Version](https://img.shields.io/github/tag/holidayextras/ui-toolkit.svg)
 
 <header style="background: rgb(222,75,149);padding:2em;text-align:center">
   ![UIToolkit](docs/public/assets/toolkit-banner.png)
@@ -189,6 +189,8 @@ grunt release-major --changelogtxt="Some changes happened"
 ```
 
 #### Create a Minor Release:
+
+Once you have merged your work into master, ensure you build the standalone assets (`npm run build` and `npm run docs`) commit these compiled files to master then release as below...
 
 The following will:
 
