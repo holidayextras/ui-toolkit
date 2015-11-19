@@ -887,7 +887,7 @@ module.exports = React.createClass({
     label: React.PropTypes.string,
     name: React.PropTypes.string,
     id: React.PropTypes.string,
-    children: React.PropTypes.string,
+    children: React.PropTypes.array,
     handleChange: React.PropTypes.func,
     data: React.PropTypes.object,
     multiple: React.PropTypes.bool

@@ -887,7 +887,7 @@ module.exports = React.createClass({
     label: React.PropTypes.string,
     name: React.PropTypes.string,
     id: React.PropTypes.string,
-    children: React.PropTypes.string,
+    children: React.PropTypes.array,
     handleChange: React.PropTypes.func,
     data: React.PropTypes.object,
     multiple: React.PropTypes.bool
@@ -27807,7 +27807,7 @@ module.exports={
   },
   "homepage": "https://github.com/holidayextras/ui-toolkit",
   "engines": {
-    "node": "~10.4",
+    "node": ">0.10 <0.12",
     "npm": "~2.14.8"
   },
   "dependencies": {
