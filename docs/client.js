@@ -1,7 +1,6 @@
 'use strict';
 
 var React = require('react');
-var ReactIntl = require('react-intl');
 var ReactDOM = require('react-dom');
 var App = require('./src/App.jsx');
 

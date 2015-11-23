@@ -1,6 +1,5 @@
 'use strict';
 var React = require('react');
-var ReactIntl = require('react-intl');
 var TestUtils = require('react-addons-test-utils');
 var assert = require('chai').assert;
 var sinon = require('sinon');
@@ -63,18 +62,18 @@ describe('BasketItem', function() {
   });
 
   describe('with a price', function() {
-    it('should pass the correct price argument to ReactIntl.FormattedNumber', function() {
+    it('should display the price passed in', function() {
       var basketItem = TestUtils.renderIntoDocument(<BasketItem price={123.45} />);
-      var formattedNumber = TestUtils.findRenderedComponentWithType(basketItem, ReactIntl.FormattedNumber);
-      assert.equal(formattedNumber.props.value, 123.45);
+      var renderedBasketItem = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-total');
+      assert.equal(renderedBasketItem.textContent, 123.45);
     });
   });
 
   describe('with a price of zero', function() {
-    it('should have the default freeText property in the total node', function() {
-      var basketItem = TestUtils.renderIntoDocument(<BasketItem price={0} />);
+    it('should have an empty total node', function() {
+      var basketItem = TestUtils.renderIntoDocument(<BasketItem />);
       var renderedBasketItem = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-total');
-      assert.equal(renderedBasketItem.getDOMNode().textContent, 'free');
+      assert.equal(renderedBasketItem.textContent, '');
     });
   });
 

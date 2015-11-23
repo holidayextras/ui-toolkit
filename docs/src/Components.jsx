@@ -221,7 +221,6 @@ var Components = React.createClass({
               <li><code>toggleDescription</code> [optional] Boolean - Whether we want to toggle the display of the <em>child</em> or not.</li>
               <li><code>handleRemove</code> [optional] Function - This will display a link with the text <em>remove</em> below the price &amp; this function is responsible for dealing with that removal.</li>
               <li><code>children</code> [optional] Node - Anything you want displaying below the title, this is possible to toggle with the addition of the <em>toggleDescription</em> property.</li>
-              <li><code>formats</code> [optional] Object - This is where you can pass in the options for internationalisation</li>
             </ul>
           </article>
 
