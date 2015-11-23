@@ -1,3 +1,6 @@
+### 0.26.0 - 2015-11-23
+ - Removed react intl from basket item
+
 ### 0.25.0 - 2015-11-18
  - Added select component
 
