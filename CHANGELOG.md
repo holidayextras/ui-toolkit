@@ -1,3 +1,6 @@
+### 0.26.2 - 2015-11-23
+ - creating better, semantic icon list styles
+
 ### 0.26.1 - 2015-11-23
  - Built dist files
 
