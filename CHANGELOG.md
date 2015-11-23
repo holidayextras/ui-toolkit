@@ -1,3 +1,6 @@
+### 0.26.1 - 2015-11-23
+ - Built dist files
+
 ### 0.26.0 - 2015-11-23
  - Removed react intl from basket item
 
