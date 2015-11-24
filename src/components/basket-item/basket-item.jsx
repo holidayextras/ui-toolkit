@@ -47,10 +47,12 @@ module.exports = React.createClass({
     };
     return (
       <div className="component-basket-item">
+        {(this.props.title) ?
         <div className="component-basket-row">
           <div className="component-basket-item-title">{titleNode}</div>
           <div className="component-basket-item-total">{this.props.price}</div>
         </div>
+       : null}
         <div className="component-basket-row">
           <div className="component-basket-item-description" style={descriptionStyle}>{this.props.children}</div>
           <div className="component-basket-item-remove">{this.removeNode()}</div>

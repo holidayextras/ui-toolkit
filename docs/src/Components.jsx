@@ -212,11 +212,11 @@ var Components = React.createClass({
 
           <article id="basket-item">
             <h3>Basket Item</h3>
-            <p>You can use the Basket Item as a way of representing anything with a price next to it. This means you could have a simple description (line of text) or even more complex markup passed in as the child.</p>
+            <p>You can use the Basket Item as a way of representing anything in a basket with or without a price next to it. This means you could have a simple description (line of text) or even more complex markup passed in as the child. Note to have a price, you must declare a title for the product. If the product has no title then description is used.</p>
             <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/BasketItem.jsx', 'utf8')} />
             <h4>Attributes</h4>
             <ul>
-              <li><code>price</code> [optional] Number - The price to display along side the basket item.</li>
+              <li><code>price</code> [optional] Number - The price to display along side the basket item. Must be used with <code>title</code></li>
               <li><code>title</code> [optional] Node / String - If passed a Node, will simply use that as the title (including any events bound to that node) otherwise, if we have <em>toggleDescription</em> set, will wrap the text in an anchor to trigger that, otherwise it is wrapped in a <em>strong</em> html tag.</li>
               <li><code>toggleDescription</code> [optional] Boolean - Whether we want to toggle the display of the <em>child</em> or not.</li>
               <li><code>handleRemove</code> [optional] Function - This will display a link with the text <em>remove</em> below the price &amp; this function is responsible for dealing with that removal.</li>

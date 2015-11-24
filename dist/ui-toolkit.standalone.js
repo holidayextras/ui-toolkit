@@ -136,7 +136,7 @@ module.exports = React.createClass({
     return React.createElement(
       'div',
       { className: 'component-basket-item' },
-      React.createElement(
+      this.props.title ? React.createElement(
         'div',
         { className: 'component-basket-row' },
         React.createElement(
@@ -149,7 +149,7 @@ module.exports = React.createClass({
           { className: 'component-basket-item-total' },
           this.props.price
         )
-      ),
+      ) : null,
       React.createElement(
         'div',
         { className: 'component-basket-row' },
