@@ -8,10 +8,20 @@ var BasketItem = require('../../src/components/basket-item/basket-item.jsx');
 describe('BasketItem', function() {
 
   describe('with no title', function() {
-    it('should have an empty title node', function() {
+    it('should have no title node', function() {
       var basketItem = TestUtils.renderIntoDocument(<BasketItem />);
-      var renderedBasketItem = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-title');
-      assert.equal(renderedBasketItem.textContent, '');
+      assert.throws(function() {
+        TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-title');
+      });
+    });
+  });
+
+  describe('with no title', function() {
+    it('should have no price node', function() {
+      var basketItem = TestUtils.renderIntoDocument(<BasketItem price={123.45} />);
+      assert.throws(function() {
+        TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-total');
+      });
     });
   });
 
@@ -55,7 +65,7 @@ describe('BasketItem', function() {
 
   describe('with no price', function() {
     it('should have an empty total node', function() {
-      var basketItem = TestUtils.renderIntoDocument(<BasketItem />);
+      var basketItem = TestUtils.renderIntoDocument(<BasketItem title="A Title" />);
       var renderedBasketItem = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-total');
       assert.equal(renderedBasketItem.textContent, '');
     });
@@ -63,7 +73,7 @@ describe('BasketItem', function() {
 
   describe('with a price', function() {
     it('should display the price passed in', function() {
-      var basketItem = TestUtils.renderIntoDocument(<BasketItem price={123.45} />);
+      var basketItem = TestUtils.renderIntoDocument(<BasketItem title="A Title" price={123.45} />);
       var renderedBasketItem = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-total');
       assert.equal(renderedBasketItem.textContent, 123.45);
     });
@@ -71,7 +81,7 @@ describe('BasketItem', function() {
 
   describe('with a price of zero', function() {
     it('should have an empty total node', function() {
-      var basketItem = TestUtils.renderIntoDocument(<BasketItem />);
+      var basketItem = TestUtils.renderIntoDocument(<BasketItem title="A Title" />);
       var renderedBasketItem = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-total');
       assert.equal(renderedBasketItem.textContent, '');
     });
