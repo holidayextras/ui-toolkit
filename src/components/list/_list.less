@@ -16,12 +16,11 @@ ol.component-ordered-list {
     flex-direction: row;
     flex-wrap: nowrap;
     width:100%;
-  }
-  & > {
-    & i, span, p {
+    & > div, & > p {
       display:table-cell;
     }
-    & i {
+    & > .component-icon {
+      display:table-cell;
       width:1.5em;
       text-align:center;
     }
