@@ -50,7 +50,7 @@ module.exports = React.createClass({
   render: function() {
     return (
       <div className="component-stepper">
-        <label className="component-stepper-label" htmlFor={this.props.id}>HELLO</label>
+        <label className="component-stepper-label" htmlFor={this.props.id}>{this.props.label}</label>
         <div>
           <span className="button-container">
             <Button handleClick={this.decrement} type="button" disabled={!this.canDecrement()}>{this.props.decrementDisplayString}</Button>
