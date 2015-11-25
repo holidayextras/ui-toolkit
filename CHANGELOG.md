@@ -1,3 +1,6 @@
+### 0.26.4 - 2015-11-25
+ - removed some css specificity for icon lists
+
 ### 0.26.3 - 2015-11-25
  - updating basket styles to solves all use cases
 
