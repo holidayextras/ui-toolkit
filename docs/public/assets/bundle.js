@@ -1004,7 +1004,7 @@ module.exports = React.createClass({
       React.createElement(
         'label',
         { className: 'component-stepper-label', htmlFor: this.props.id },
-        'HELLO'
+        this.props.label
       ),
       React.createElement(
         'div',
@@ -1020,7 +1020,7 @@ module.exports = React.createClass({
         ),
         React.createElement(
           Input,
-          { type: 'text', id: this.props.id, key: this.props.value, readOnly: true, 'aria-labelledby': this.props.label, label: this.props.label },
+          { type: 'text', id: this.props.id, key: this.props.value, readOnly: true },
           this.props.value.toString()
         ),
         React.createElement(
@@ -1328,7 +1328,7 @@ var React = require('react');
 var HomePage = require('./HomePage.jsx');
 
 var a11y = require('react-a11y');
-//a11y(React, { throw: true, includeSrcNode: true });
+// a11y(React, {includeSrcNode: true });
 a11y(React);
 
 var App = React.createClass({displayName: "App",
@@ -1668,7 +1668,7 @@ var Components = React.createClass({displayName: "Components",
           React.createElement("article", {id: "stepper"}, 
             React.createElement("h3", null, "Stepper"), 
             React.createElement("p", null, "Display an input with a number value that is surrounded by decrement and increment buttons"), 
-            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Stepper label=\"number of passengers\" value={2} minValue={1} maxValue={9} onChange={function() { alert('changed'); }} />\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Stepper label=\"number of passengers\" value={2} minValue={1} maxValue={9} id=\"stepper-example\" onChange={function() { alert('changed'); }} />\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}), 
             React.createElement("h4", null, "Attributes"), 
             React.createElement("ul", null, 
               React.createElement("li", null, React.createElement("code", null, "value"), " Number - The value of the stepper"), 
@@ -27765,7 +27765,7 @@ module.exports = require('./lib/React');
 },{"./lib/React":146}],279:[function(require,module,exports){
 module.exports={
   "name": "ui-toolkit",
-  "version": "0.26.3",
+  "version": "0.26.4",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "index.js",

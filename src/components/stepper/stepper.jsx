@@ -56,7 +56,7 @@ module.exports = React.createClass({
             <Button handleClick={this.decrement} type="button" disabled={!this.canDecrement()}>{this.props.decrementDisplayString}</Button>
           </span>
 
-          <Input type="text" id={this.props.id} key={this.props.value} readOnly={true} aria-labelledby={this.props.label} label={this.props.label}>{this.props.value.toString()}</Input>
+          <Input type="text" id={this.props.id} key={this.props.value} readOnly={true}>{this.props.value.toString()}</Input>
 
           <span className="button-container">
             <Button handleClick={this.increment} type="button" disabled={!this.canIncrement()}>{this.props.incrementDisplayString}</Button>
