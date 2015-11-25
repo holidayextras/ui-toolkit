@@ -136,7 +136,7 @@ module.exports = React.createClass({
     return React.createElement(
       'div',
       { className: 'component-basket-item' },
-      React.createElement(
+      this.props.title ? React.createElement(
         'div',
         { className: 'component-basket-row' },
         React.createElement(
@@ -149,7 +149,7 @@ module.exports = React.createClass({
           { className: 'component-basket-item-total' },
           this.props.price
         )
-      ),
+      ) : null,
       React.createElement(
         'div',
         { className: 'component-basket-row' },
@@ -27765,7 +27765,7 @@ module.exports = require('./lib/React');
 },{"./lib/React":146}],279:[function(require,module,exports){
 module.exports={
   "name": "ui-toolkit",
-  "version": "0.26.1",
+  "version": "0.26.2",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "index.js",
