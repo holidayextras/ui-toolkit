@@ -1,3 +1,6 @@
+### 0.26.3 - 2015-11-25
+ - updating basket styles to solves all use cases
+
 ### 0.26.2 - 2015-11-23
  - creating better, semantic icon list styles
 
