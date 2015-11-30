@@ -1,3 +1,6 @@
+### 0.26.6 - 2015-11-30
+ - fixing broken select linting
+
 ### 0.26.5 - 2015-11-30
  - adding google web master verification code
 
