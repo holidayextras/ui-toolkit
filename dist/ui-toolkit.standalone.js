@@ -1004,7 +1004,7 @@ module.exports = React.createClass({
       React.createElement(
         'label',
         { className: 'component-stepper-label', htmlFor: this.props.id },
-        this.props.label
+        'HELLO'
       ),
       React.createElement(
         'div',
@@ -1020,7 +1020,7 @@ module.exports = React.createClass({
         ),
         React.createElement(
           Input,
-          { type: 'text', id: this.props.id, key: this.props.value, readOnly: true },
+          { type: 'text', id: this.props.id, key: this.props.value, readOnly: true, 'aria-labelledby': this.props.label, label: this.props.label },
           this.props.value.toString()
         ),
         React.createElement(
