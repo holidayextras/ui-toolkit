@@ -880,13 +880,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 var React = require('react');
 var DataAttributesMixin = require('react-data-attributes-mixin');
 
-var _React$PropTypes = React.PropTypes;
-var string = _React$PropTypes.string;
-var array = _React$PropTypes.array;
-var func = _React$PropTypes.func;
-var object = _React$PropTypes.object;
-var bool = _React$PropTypes.bool;
-
 module.exports = React.createClass({
   displayName: 'exports',
 
@@ -27772,7 +27765,7 @@ module.exports = require('./lib/React');
 },{"./lib/React":146}],279:[function(require,module,exports){
 module.exports={
   "name": "ui-toolkit",
-  "version": "0.26.4",
+  "version": "0.26.5",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "index.js",

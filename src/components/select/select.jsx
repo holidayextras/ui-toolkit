@@ -2,8 +2,6 @@
 var React = require('react');
 var DataAttributesMixin = require('react-data-attributes-mixin');
 
-const { string, array, func, object, bool } = React.PropTypes
-
 module.exports = React.createClass({
 
   mixins: [DataAttributesMixin],
