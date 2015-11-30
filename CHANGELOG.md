@@ -1,3 +1,6 @@
+### 0.26.5 - 2015-11-30
+ - adding google web master verification code
+
 ### 0.26.4 - 2015-11-25
  - removed some css specificity for icon lists
 
