@@ -17,7 +17,7 @@ describe('Stepper', function() {
       onChange: sinon.spy(),
       minValue: 1,
       maxValue: 3,
-      label: "stepper"
+      label: 'stepper'
     };
 
   });

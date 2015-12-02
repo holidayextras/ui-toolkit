@@ -302,6 +302,8 @@ var Components = React.createClass({
               <li><code>maxValue</code> Number - The maximum value the stepper can increment to</li>
               <li><code>incrementDisplayString</code> String - The string to display in the decrement button</li>
               <li><code>decrementDisplayString</code> String - The string to display in the increment button</li>
+              <li><code>readOnly</code> Boolean - Make the stepper read only. N.B we advise this to alwyas be manually editable for accessibilty purposes</li>
+              <li><code>label</code> String - The label of the stepper.</li>
             </ul>
           </article>
         </section>

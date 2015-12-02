@@ -1677,7 +1677,9 @@ var Components = React.createClass({displayName: "Components",
               React.createElement("li", null, React.createElement("code", null, "minValue"), " Number - The minimum value the stepper can decrement to"), 
               React.createElement("li", null, React.createElement("code", null, "maxValue"), " Number - The maximum value the stepper can increment to"), 
               React.createElement("li", null, React.createElement("code", null, "incrementDisplayString"), " String - The string to display in the decrement button"), 
-              React.createElement("li", null, React.createElement("code", null, "decrementDisplayString"), " String - The string to display in the increment button")
+              React.createElement("li", null, React.createElement("code", null, "decrementDisplayString"), " String - The string to display in the increment button"), 
+              React.createElement("li", null, React.createElement("code", null, "readOnly"), " Boolean - Make the stepper read only. N.B we advise this to alwyas be manually editable for accessibilty purposes"), 
+              React.createElement("li", null, React.createElement("code", null, "label"), " String - The label of the stepper.")
             )
           )
         )
