@@ -1,6 +1,6 @@
 'use strict';
-var React = require('react/addons');
-var TestUtils = React.addons.TestUtils;
+var React = require('react');
+var TestUtils = require('react-addons-test-utils');
 var assert = require('chai').assert;
 var TileComponent = require('../../src/components/tile/tile.jsx');
 
@@ -12,7 +12,11 @@ describe('TileComponent', function() {
       alt: 'bar'
     };
 
-    assert.ok(TestUtils.isElement(<TileComponent image={img} title="title" />));
+    var component = TestUtils.renderIntoDocument(
+    	<TileComponent image={img} title="title" />
+    );
+    
+    assert.isDefined(component);
   });
 
 });

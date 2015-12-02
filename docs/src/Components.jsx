@@ -67,6 +67,18 @@ var Components = React.createClass({
             </ul>
           </article>
 
+          <article id="icons">
+            <h3>Icons</h3>
+            <p>Icons are provided to add visual aid to elements on your website. Use independently, as part of a list, the world is your oyster (though there is no oyster icon).</p>
+            <p>The default font library we use is <a href="https://fortawesome.github.io/Font-Awesome/" alt="Font Awesome">Font Awesome</a> but you can also use Bootstraps <a href="http://getbootstrap.com/components/#glyphicons" alt="Glyphicons">Glyphicons</a>. You will need to load the CSS for each of these libraries separately, UI Toolkit does not include these be default.</p>
+            <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Icon.jsx', 'utf8')} />
+            <h4>Attributes</h4>
+            <ul>
+              <li><code>icon</code> String - The name of the icon you want to display.</li>
+              <li><code>iconFamily</code> String - <code>font-awesome</code> or <code>glyphicons</code></li>
+            </ul>
+          </article>
+
           <article id="image">
             <h3>Image</h3>
             <p>A standard Image Component which is set at 100% width by default to ensure the image works responsively.</p>
@@ -92,6 +104,7 @@ var Components = React.createClass({
             <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Input.jsx', 'utf8')} />
             <h4>Attributes</h4>
             <ul>
+              <li><code>data</code> Object - Where <code>keys</code> will be data attributes and <code>values</code> will be their values (uses <a href="https://github.com/holidayextras/react-data-attributes-mixin" alt="React Data Attributes Mixin">React Data Attributes Mixin</a>)</li>
               <li><code>type</code> String - Type of Input Field can be <code>text</code>, <code>email</code>, <code>tel</code> or <code>number</code></li>
               <li><code>name</code> String - Optional Name for Input Field</li>
               <li><code>id</code> String - Optional ID for Input Field</li>
@@ -106,15 +119,47 @@ var Components = React.createClass({
             </ul>
           </article>
 
+          <article id="select">
+            <h3>Select</h3>
+            <p>Custom Select extended to inculde the data attribute</p>
+            <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Select.jsx', 'utf8')} />
+            <h4>Attributes</h4>
+            <ul>
+              <li><code>name</code> String - Optional Name for Input Field</li>
+              <li><code>id</code> String - Optional ID for Input Field</li>
+              <li><code>label</code> String - Optional Label in front of Input Field</li>
+              <li><code>handleChange</code> Function - Optional Function which is called onChange</li>
+              <li><code>data</code> Object - Where <code>keys</code> will be data attributes and <code>values</code> will be their values (uses <a href="https://github.com/holidayextras/react-data-attributes-mixin" alt="React Data Attributes Mixin">React Data Attributes Mixin</a>)</li>
+              <li><code>name</code> String - Optional Boolean for multiple select</li>
+            </ul>
+          </article>
+
           <article id="lists">
             <h3>Lists</h3>
-            <h4>Icon list</h4>
-            <p>An unordered list that uses <a href="http://fortawesome.github.io/Font-Awesome/icons/">Font Awesome</a> for the bullets</p>
-            <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/IconList.jsx', 'utf8')} />
-            <h4>Attributes (for ListGroupItem)</h4>
+            <p>There are 3 types of list <code>ordered</code>, <code>unordered</code> and <code>description</code></p>
+
+            <h4 id="unordered-list">Unordered list</h4>
+            <p>An unordered list is a list in which the sequence of items is not important.</p>
+            <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/UnorderedList.jsx', 'utf8')} />
+
+            <h4 id="ordered-list">Ordered list</h4>
+            <p>An ordered list is a list in which the sequence of items is important.</p>
+            <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/OrderedList.jsx', 'utf8')} />
+
+            <h4 id="description-list">Description list</h4>
+            <p>A number of connected items or names written or printed consecutively, typically one below the other.</p>
+            <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/DescriptionList.jsx', 'utf8')} />
+
+            <h4>Attributes</h4>
             <ul>
-              <li><code>icon</code> String - The name of the <a href="http://fortawesome.github.io/Font-Awesome/icons/">Font Awesome</a> icon that you want to display</li>
-              <li><code>purpose</code> String - default, primary, secondary, success, info, warning, danger</li>
+              <li><code>type</code> String - <code>ordered</code>,<code>unordered</code> and <code>description</code></li>
+            </ul>
+
+            <h4>Child Components</h4>
+            <ul>
+              <li><code>listItem</code> Component - A item of a list. Must be used with an <a href="#ordered-list" alt="ordered-list">ordered-list</a> or <a href="#unordered-list" alt="unordered-list">ordered-list</a></li>
+              <li><code>listTerm</code> Component - A list term of a description list. Must be used as a child of a <a href="#description-list" alt="description-list">description-list</a></li>
+              <li><code>listDescription</code> Component - A desciption of the term of a description list. Must be used as a child of a <a href="#description-list" alt="description-list">description-list</a></li>
             </ul>
           </article>
 
@@ -165,6 +210,20 @@ var Components = React.createClass({
             </ul>
           </article>
 
+          <article id="basket-item">
+            <h3>Basket Item</h3>
+            <p>You can use the Basket Item as a way of representing anything in a basket with or without a price next to it. This means you could have a simple description (line of text) or even more complex markup passed in as the child. Note to have a price, you must declare a title for the product. If the product has no title then description is used.</p>
+            <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/BasketItem.jsx', 'utf8')} />
+            <h4>Attributes</h4>
+            <ul>
+              <li><code>price</code> [optional] Number - The price to display along side the basket item. Must be used with <code>title</code></li>
+              <li><code>title</code> [optional] Node / String - If passed a Node, will simply use that as the title (including any events bound to that node) otherwise, if we have <em>toggleDescription</em> set, will wrap the text in an anchor to trigger that, otherwise it is wrapped in a <em>strong</em> html tag.</li>
+              <li><code>toggleDescription</code> [optional] Boolean - Whether we want to toggle the display of the <em>child</em> or not.</li>
+              <li><code>handleRemove</code> [optional] Function - This will display a link with the text <em>remove</em> below the price &amp; this function is responsible for dealing with that removal.</li>
+              <li><code>children</code> [optional] Node - Anything you want displaying below the title, this is possible to toggle with the addition of the <em>toggleDescription</em> property.</li>
+            </ul>
+          </article>
+
           <article id="countdown">
             <h3>Countdown</h3>
             <p>Countdowns allow you to find the time difference between the current date and a date in the future. To do this you pass in a <code>until</code> value of any date format.</p>
@@ -173,6 +232,12 @@ var Components = React.createClass({
             <ul>
               <li><code>until</code> String - Date in the future</li>
             </ul>
+          </article>
+
+          <article id="icon-list">
+            <h3>Icon List</h3>
+            <p>An icon list is an unordered list with bullets consisting of icons. You must still use list-items as children, but include an <a href="#icons">Icon</a> component as well.</p>
+            <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/IconList.jsx', 'utf8')} />
           </article>
 
           <article id="payment-card">
@@ -185,7 +250,7 @@ var Components = React.createClass({
             </ul>
           </article>
 
-          <article>
+          <article id="payment-card">
             <h3 id="rating">Rating</h3>
             <p>Ratings can be used to display a series of icons intended to represent a score.</p>
             <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Rating.jsx', 'utf8')} />

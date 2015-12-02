@@ -8,7 +8,8 @@ module.exports = React.createClass({
 
   getDefaultProps: function() {
     return {
-      href: '#'
+      href: '#',
+      role: 'link'
     };
   },
 
@@ -18,7 +19,8 @@ module.exports = React.createClass({
     data: React.PropTypes.object,
     href: React.PropTypes.string,
     target: React.PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
-    title: React.PropTypes.string
+    title: React.PropTypes.string,
+    role: React.PropTypes.string
   },
 
   render: function() {
@@ -27,8 +29,8 @@ module.exports = React.createClass({
     }
     var dataAttributes = this.getDataAttributesFromProps();
     return (
-      <a className="component-anchor" {...dataAttributes} title={this.props.title} href={this.props.href} onClick={this.props.handleClick} target={this.props.target}>
-      {this.props.children}
+      <a className="component-anchor" {...dataAttributes} title={this.props.title} role={this.props.role} href={this.props.href} onClick={this.props.handleClick} target={this.props.target}>
+        {this.props.children}
       </a>
     );
   }

@@ -1,3 +1,72 @@
+### 0.26.6 - 2015-11-30
+ - fixing broken select linting
+
+### 0.26.5 - 2015-11-30
+ - adding google web master verification code
+
+### 0.26.4 - 2015-11-25
+ - removed some css specificity for icon lists
+
+### 0.26.3 - 2015-11-25
+ - updating basket styles to solves all use cases
+
+### 0.26.2 - 2015-11-23
+ - creating better, semantic icon list styles
+
+### 0.26.1 - 2015-11-23
+ - Built dist files
+
+### 0.26.0 - 2015-11-23
+ - Removed react intl from basket item
+
+### 0.25.0 - 2015-11-18
+ - Added select component
+
+### 0.24.3 - 2015-11-18
+ - Fixed messages confusion on basketItem
+
+### 0.24.2 - 2015-11-17
+ - adding react a11y to show dev issues with accessibility
+
+### 0.24.1 - 2015-11-17
+ - Fix dependency issue
+
+### 0.24.0 - 2015-11-16
+ - BREAKING CHANGE: Removing icon list and replacing with icons and lists
+
+### 0.23.1 - 2015-11-16
+ - Bundled dist files
+
+### 0.23.0 - 2015-11-16
+ - i18n on basketItem latest ReactIntl V2
+
+### 0.22.1 - 2015-11-16
+ - Fix dist build
+
+### 0.22.0 - 2015-11-16
+ - Added data attribute mixin to inputs
+
+### 0.21.2 - 2015-11-11
+ - Pushing dist file
+
+### 0.21.1 - 2015-11-11
+ - Updated to React V0.14.2 (properly this time)
+
+### 0.21.0 - 2015-11-11
+ - Updated to React V0.14.2
+
+### 0.20.1 - 2015-11-04
+ - Fixed babelify issue & confusing if else on basket-item
+
+### 0.20.0 - 2015-11-04
+ - Basket item improvements
+
+### 0.19.1 - 2015-10-29
+ - Release borked dues to ulimit
+ 
+### 0.19.0 - 2015-10-29
+ - Added basket item component
+
 ### 0.18.0 - 2015-10-16
 - restructure code and tests
 

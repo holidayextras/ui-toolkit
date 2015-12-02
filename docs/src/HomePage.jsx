@@ -11,13 +11,14 @@ var HomePage = React.createClass({
     return (
       <div>
         <PageHeader />
+        <a href="#main" className="sr-only">Skip navigation</a>
         <div className="container">
-          <div className="col-xs-12 col-md-9">
+          <div className="col-xs-12 col-md-3 col-md-push-9">
+            <Nav />
+          </div>
+          <div id="main" className="col-xs-12 col-md-9 col-md-pull-3">
             <GettingStarted />
             <Components />
-          </div>
-          <div className="col-xs-12 col-md-3">
-            <Nav />
           </div>
         </div>
         <PageFooter />

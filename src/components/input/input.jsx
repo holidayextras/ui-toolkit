@@ -1,8 +1,11 @@
 'use strict';
 var React = require('react');
+var DataAttributesMixin = require('react-data-attributes-mixin');
 var classNames = require('classnames');
 
 module.exports = React.createClass({
+
+  mixins: [DataAttributesMixin],
 
   intent: null,
 
@@ -21,7 +24,8 @@ module.exports = React.createClass({
     validator: React.PropTypes.instanceOf(RegExp),
     errorMessage: React.PropTypes.string,
     children: React.PropTypes.string,
-    handleChange: React.PropTypes.func
+    handleChange: React.PropTypes.func,
+    data: React.PropTypes.object
   },
 
   getInitialState: function() {
@@ -89,12 +93,13 @@ module.exports = React.createClass({
       'error': this.state.error || false,
       'disabled': this.props.disabled || false
     });
+    var dataAttributes = this.getDataAttributesFromProps();
 
     // the form label
     var label;
 
     if (this.props.label) {
-      label = ( <label className="component-input-label" htmlFor={this.props.id}>{this.props.label}</label > );
+      label = ( <label className="component-input-label" aria-label={this.props.id} htmlFor={this.props.id}>{this.props.label}</label > );
     }
 
     /**
@@ -115,13 +120,15 @@ module.exports = React.createClass({
           type={this.props.type}
           name={this.props.name}
           value={this.state.value}
+          aria-labelledby={this.props.label}
           id={this.props.id}
           placeholder={this.props.placeholder}
           onChange={this.handleChange}
           disabled={this.props.disabled}
           readOnly={this.props.readOnly}
           required={this.props.required}
-          />
+          {...dataAttributes}
+        />
         {span}
       </div>
     );

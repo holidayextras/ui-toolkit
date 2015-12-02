@@ -1,13 +1,40 @@
 'use strict';
-var React = require('react/addons');
-var TestUtils = React.addons.TestUtils;
+var React = require('react');
+var TestUtils = require('react-addons-test-utils');
 var assert = require('chai').assert;
 var Rating = require('../../src/components/rating/rating.jsx');
 
 describe('Rating', function() {
 
-  it('is an element', function() {
-    assert.ok(TestUtils.isElement(<Rating rating={4} />));
+  describe('with a rating of 4 passed in', function() {
+    it('is an element', function() {
+      var component = TestUtils.renderIntoDocument(
+        <Rating rating={4} />
+      );
+      assert.isDefined(component);
+    });
+
+    describe('with a child prop', function() {
+      it('is an element', function() {
+        var component = TestUtils.renderIntoDocument(
+          <Rating rating={4}>X</Rating>
+        );
+        assert.isDefined(component);
+      });
+    });
+
+    describe('with a blank icon prop', function() {
+      it('is an element', function() {
+        var component = TestUtils.renderIntoDocument(
+          <Rating rating={4} outOf={5} blankIcon='X' />
+        );
+        assert.isDefined(component);
+      });
+    });
+
+
   });
+
+  
 
 });

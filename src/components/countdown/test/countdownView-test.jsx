@@ -1,10 +1,10 @@
 'use strict';
-var React = require('react/addons');
+var React = require('react');
 var sinon = require('sinon');
 var assert = require('chai').assert;
 var CountdownComponent = require('../countdown.jsx');
 var CountdownManager = require('../lib/countdownManager');
-var TestUtils = React.addons.TestUtils;
+var TestUtils = require('react-addons-test-utils');
 
 
 describe('CountdownComponent', function() {
@@ -41,7 +41,7 @@ describe('CountdownComponent', function() {
         <CountdownComponent until={date} />
       );
       var renderedCountdown = TestUtils.findRenderedDOMComponentWithClass(countdown, 'component-countdown');
-      assert.equal(renderedCountdown.getDOMNode().getAttribute('role'), 'timer');
+      assert.equal(renderedCountdown.getAttribute('role'), 'timer');
     });
   });
 });

@@ -1,6 +1,6 @@
 'use strict';
-var React = require('react/addons');
-var TestUtils = React.addons.TestUtils;
+var React = require('react');
+var TestUtils = require('react-addons-test-utils');
 var assert = require('chai').assert;
 var AlertComponent = require('../../src/components/alert/alert.jsx');
 
@@ -12,8 +12,24 @@ describe('AlertComponent', function() {
     );
 
     var renderedAlert = TestUtils.findRenderedDOMComponentWithClass(alert, 'component-alert');
-    assert.equal(renderedAlert.getDOMNode().textContent, 'I am content');
+    assert.equal(renderedAlert.textContent, 'I am content');
 
+  });
+
+  it('should render an alert without a H4 if title is no passed in', function() {
+    var successAlert = TestUtils.renderIntoDocument(
+      <AlertComponent purpose="success" title="title">You have been successful</AlertComponent>
+    );
+    var h4 = TestUtils.scryRenderedDOMComponentsWithTag(successAlert, 'h4');
+    assert.equal(h4.length, 1);
+  });
+
+  it('should render an alert with a H4 if title is passed in', function() {
+    var successAlert = TestUtils.renderIntoDocument(
+      <AlertComponent purpose="success">You have been successful</AlertComponent>
+    );
+    var h4 = TestUtils.scryRenderedDOMComponentsWithTag(successAlert, 'h4');
+    assert.equal(h4.length, 0);
   });
 
   it('should render a success alert', function() {
@@ -72,7 +88,7 @@ describe('AlertComponent', function() {
     );
 
     var renderedAlert = TestUtils.findRenderedDOMComponentWithClass(alert, 'component-alert');
-    assert.equal(renderedAlert.getDOMNode().textContent, 'Header');
+    assert.equal(renderedAlert.textContent, 'Header');
 
   });
 

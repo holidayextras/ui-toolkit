@@ -1,6 +1,6 @@
 'use strict';
-var React = require('react/addons');
-var TestUtils = React.addons.TestUtils;
+var React = require('react');
+var TestUtils = require('react-addons-test-utils');
 var assert = require('chai').assert;
 var ButtonView = require('../../src/components/button/button.jsx');
 
@@ -12,7 +12,7 @@ describe('ButtonComponent', function() {
     );
 
     var renderedButton = TestUtils.findRenderedDOMComponentWithClass(button, 'component-button');
-    assert.equal(renderedButton.getDOMNode().textContent, 'Book Now');
+    assert.equal(renderedButton.textContent, 'Book Now');
 
   });
 

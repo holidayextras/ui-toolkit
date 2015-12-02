@@ -1,10 +1,8 @@
 var example = (
-  <UIToolkit.IconList>
-    <UIToolkit.IconListItem icon="plane">Suitable for all terminals</UIToolkit.IconListItem>
-    <UIToolkit.IconListItem icon="bus">Transfers run every 5 minutes</UIToolkit.IconListItem>
-    <UIToolkit.IconListItem icon="car">Car parked for you</UIToolkit.IconListItem>
-    <UIToolkit.IconListItem icon="check"><strong>Success!</strong></UIToolkit.IconListItem>
-  </UIToolkit.IconList>
+  <UIToolkit.List type="icon">
+    <UIToolkit.ListItem><UIToolkit.Icon icon="bus" iconFamily="font-awesome" /> Magic Bus</UIToolkit.ListItem>
+    <UIToolkit.ListItem><UIToolkit.Icon icon="send" iconFamily="font-awesome" /> Paper Planes</UIToolkit.ListItem>
+  </UIToolkit.List>
 );
 
-React.render(example, mountNode);
+ReactDOM.render(example, mountNode);

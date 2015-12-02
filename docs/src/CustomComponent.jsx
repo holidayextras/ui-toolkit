@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactDOM = require('react-dom');
 var classNames = require('classnames');
 var CodeMirror = global.CodeMirror;
 var JSXTransformer = global.JSXTransformer;
@@ -18,7 +19,7 @@ var CodeMirrorEditor = React.createClass({
   componentDidMount: function() {
     if (IS_MOBILE) return;
 
-    this.editor = CodeMirror.fromTextArea(this.refs.editor.getDOMNode(), {
+    this.editor = CodeMirror.fromTextArea(this.refs.editor, {
       mode: 'javascript',
       lineNumbers: false,
       matchBrackets: true,
@@ -152,7 +153,7 @@ var CustomComponent = React.createClass({
           <div ref="mount" />
         </div>
         {editor}
-        <a className={classNames(toggleClasses)} onClick={this.handleCodeModeToggle} href="#">{this.state.mode === this.MODES.NONE ? 'show code' : 'hide code'}</a>
+        <a className={classNames(toggleClasses)} onKeyDown={this.handleCodeModeToggle} onClick={this.handleCodeModeToggle} href="#" role="button">{this.state.mode === this.MODES.NONE ? 'show code' : 'hide code'}</a>
       </div>
     );
   },
@@ -170,23 +171,23 @@ var CustomComponent = React.createClass({
   },
 
   componentWillUnmount: function() {
-    var mountNode = this.refs.mount.getDOMNode();
+    var mountNode = this.refs.mount;
     try {
-      React.unmountComponentAtNode(mountNode);
+      ReactDOM.unmountComponentAtNode(mountNode);
     } catch (e) { }
   },
 
   executeCode: function() {
-    var mountNode = this.refs.mount.getDOMNode();
+    var mountNode = this.refs.mount;
 
     try {
-      React.unmountComponentAtNode(mountNode);
+      ReactDOM.unmountComponentAtNode(mountNode);
     } catch (e) { }
 
     try {
       var compiledCode = this.compileCode();
       if (this.props.renderCode) {
-        React.render(
+        ReactDOM.render(
           <CodeMirrorEditor codeText={compiledCode} readOnly={true} />,
           mountNode
         );
@@ -199,7 +200,7 @@ var CustomComponent = React.createClass({
         {
           console.error(err);
         }
-        React.render(
+        ReactDOM.render(
           <div className="alert alert-danger">{err.toString()}</div>,
           mountNode
         );

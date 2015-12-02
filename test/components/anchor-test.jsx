@@ -1,6 +1,6 @@
 'use strict';
-var React = require('react/addons');
-var TestUtils = React.addons.TestUtils;
+var React = require('react');
+var TestUtils = require('react-addons-test-utils');
 var sinon = require('sinon');
 var assert = require('chai').assert;
 
@@ -31,7 +31,7 @@ describe('Anchor', function() {
     );
 
     var renderedAnchor = TestUtils.findRenderedDOMComponentWithTag(instance, 'a');
-    anchorDomNode = renderedAnchor.getDOMNode();
+    anchorDomNode = renderedAnchor;
   });
 
   it('is an element', function() {
@@ -89,7 +89,7 @@ describe('Anchor', function() {
         <Anchor data={data} title={title} handleClick={clickHandler} >Content</Anchor>
       );
       var renderedAnchor = TestUtils.findRenderedDOMComponentWithTag(instance, 'a');
-      anchorDomNode = renderedAnchor.getDOMNode();
+      anchorDomNode = renderedAnchor;
     });
     it('defaults to #', function() {
       assert.equal(anchorDomNode.getAttribute('href'), '#');

@@ -1,6 +1,6 @@
 'use strict';
-var React = require('react/addons');
-var TestUtils = React.addons.TestUtils;
+var React = require('react');
+var TestUtils = require('react-addons-test-utils');
 var assert = require('chai').assert;
 var QuoteComponent = require('../../src/components/quote/quote.jsx');
 
@@ -12,7 +12,7 @@ describe('QuoteComponent', function() {
     );
 
     var renderedQuote = TestUtils.findRenderedDOMComponentWithClass(quote, 'component-quote');
-    assert.equal(renderedQuote.getDOMNode().textContent, 'I am content');
+    assert.equal(renderedQuote.textContent, 'I am content');
 
   });
 
@@ -42,7 +42,7 @@ describe('QuoteComponent', function() {
     );
 
     var renderedQuote = TestUtils.findRenderedDOMComponentWithClass(citeQuote, 'component-quote');
-    assert.equal(renderedQuote.getDOMNode().textContent, 'Twitter');
+    assert.equal(renderedQuote.textContent, 'Twitter');
 
   });
 
@@ -52,7 +52,7 @@ describe('QuoteComponent', function() {
     );
 
     var renderedQuote = TestUtils.findRenderedDOMComponentWithClass(authorQuote, 'component-quote');
-    assert.equal(renderedQuote.getDOMNode().textContent, 'Timmy Test');
+    assert.equal(renderedQuote.textContent, 'Timmy Test');
 
   });
 
@@ -62,7 +62,7 @@ describe('QuoteComponent', function() {
     );
 
     var renderedQuote = TestUtils.findRenderedDOMComponentWithClass(roleQuote, 'component-quote');
-    assert.equal(renderedQuote.getDOMNode().textContent, 'Developer');
+    assert.equal(renderedQuote.textContent, 'Developer');
 
   });
 
@@ -72,7 +72,7 @@ describe('QuoteComponent', function() {
     );
 
     var renderedQuote = TestUtils.findRenderedDOMComponentWithClass(inlineQuote, 'inline');
-    assert.equal(renderedQuote.getDOMNode().textContent, 'Inline Quote');
+    assert.equal(renderedQuote.textContent, 'Inline Quote');
 
   });
 

@@ -1,8 +1,8 @@
 'use strict';
 
 var assert = require('chai').assert;
-var React = require('react/addons');
-var TestUtils = React.addons.TestUtils;
+var React = require('react');
+var TestUtils = require('react-addons-test-utils');
 var sinon = require('sinon');
 var Stepper = require('../../src/components/stepper/stepper.jsx');
 
@@ -32,28 +32,28 @@ describe('Stepper', function() {
     it('should not disable the increment button when the value is less than the maxValue', function() {
       var renderOutput = TestUtils.renderIntoDocument(<Stepper {... props} />);
       var button = TestUtils.scryRenderedDOMComponentsWithClass(renderOutput, 'component-button')[1];
-      assert(!button.getDOMNode().disabled);
+      assert(!button.disabled);
     });
 
     it('should disable the increment button when it hits the maxValue', function() {
       props.value = 3;
       var renderOutput = TestUtils.renderIntoDocument(<Stepper {... props} />);
       var button = TestUtils.scryRenderedDOMComponentsWithClass(renderOutput, 'component-button')[1];
-      assert(button.getDOMNode().disabled);
+      assert(button.disabled);
     });
 
     it('should not disable the decrement button when the value is more than the minValue', function() {
       props.value = 2;
       var renderOutput = TestUtils.renderIntoDocument(<Stepper {... props} />);
       var button = TestUtils.scryRenderedDOMComponentsWithClass(renderOutput, 'component-button')[0];
-      assert(!button.getDOMNode().disabled);
+      assert(!button.disabled);
     });
 
     it('should disable the decrement button when it hits the minValue', function() {
       props.value = 1;
       var renderOutput = TestUtils.renderIntoDocument(<Stepper {... props} />);
       var button = TestUtils.scryRenderedDOMComponentsWithClass(renderOutput, 'component-button')[0];
-      assert(button.getDOMNode().disabled);
+      assert(button.disabled);
     });
 
   });

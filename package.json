@@ -1,6 +1,6 @@
 {
   "name": "ui-toolkit",
-  "version": "0.18.0",
+  "version": "0.26.6",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "index.js",
@@ -10,44 +10,58 @@
   },
   "scripts": {
     "build": "scripts/build.sh",
+    "ci": "npm run lint && npm run test-xunit && npm run coverage",
     "postinstall": "npm run build",
-    "coverage": "istanbul cover -x dist _mocha -- test/*-test.*",
+    "coverage": "istanbul cover -x dist _mocha -- test/**/*-test.*",
     "predocs": "cd docs && npm install && cd - && npm run build",
     "docs": "grunt docs",
     "pretest": "npm run build",
+    "test-xunit": "mocha --recursive test/**/*-test.js* src/**/*-test.js* -R xunit > $CIRCLE_TEST_REPORTS/results.xml",
     "test": "mocha --recursive test/**/*-test.js* src/**/*-test.js*",
     "prelint": "npm run build",
     "lint": "node_modules/.bin/make-up grunt src && echo '🍻  All good!'"
   },
   "keywords": [
     "ui",
-    "toolkit"
+    "toolkit",
+    "react",
+    "ui-toolkit",
+    "components"
   ],
   "author": {
     "name": "Holiday Extras",
     "email": "webit@holidayextras.com",
     "url": "http://www.holidayextras.co.uk"
   },
+  "contributors": [
+    {
+      "name": "Jodie Doubleday",
+      "email": "jodie.doubleday@holidayextras.com"
+    }
+  ],
   "bugs": {
     "url": "https://github.com/holidayextras/ui-toolkit/issues"
   },
   "homepage": "https://github.com/holidayextras/ui-toolkit",
   "engines": {
-    "node": "~10.4",
+    "node": ">0.10 <0.12",
     "npm": "~2.14.8"
   },
   "dependencies": {
     "babel": "^5.8.20",
+    "babel-runtime": "^5.1.11",
     "babelify": "^6.4.0",
-    "browserify": "^11.1.0",
+    "browserify": "^12.0.1",
     "classnames": "^2.1.0",
     "font-awesome": "^4.3.0",
     "grunt": "^0.4.5",
     "grunt-shell": "^1.1.1",
     "gruntfile-gtx": "^0.3.0",
     "moment": "~2.10.6",
-    "react": "^0.13.3",
+    "react": "^0.14.2",
     "react-data-attributes-mixin": "git://github.com/holidayextras/react-data-attributes-mixin",
+    "react-dom": "^0.14.2",
+    "reactify": "^1.1.1",
     "require-directory": "^2.0.0",
     "requirejs": "~2.1.9"
   },
@@ -69,12 +83,14 @@
     "mocha": "^2.2.5",
     "mocha-jsdom": "^0.3.0",
     "mocha-lcov-reporter": "0.0.2",
+    "react-a11y": "^0.2.8",
+    "react-addons-test-utils": "^0.14.2",
     "react-tests-globals-setup": "^1.0.0",
     "sinon": "^1.14.1"
   },
   "browserify": {
     "transform": [
-      "babelify"
+      "reactify"
     ]
   }
 }

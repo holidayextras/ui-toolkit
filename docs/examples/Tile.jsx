@@ -7,4 +7,4 @@ var example = (
   <UIToolkit.Tile image={image} title='Tender sirloin steak with blue cheese dressing' />
 );
 
-React.render(example, mountNode);
+ReactDOM.render(example, mountNode);

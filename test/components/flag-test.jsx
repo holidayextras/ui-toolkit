@@ -1,6 +1,6 @@
 'use strict';
-var React = require('react/addons');
-var TestUtils = React.addons.TestUtils;
+var React = require('react');
+var TestUtils = require('react-addons-test-utils');
 var assert = require('chai').assert;
 var FlagComponent = require('../../src/components/flag/flag.jsx');
 
@@ -12,7 +12,7 @@ describe('FlagComponent', function() {
     );
 
     var renderedFlag = TestUtils.findRenderedDOMComponentWithClass(flag, 'component-flag');
-    assert.equal(renderedFlag.getDOMNode().textContent, 'Special Offer');
+    assert.equal(renderedFlag.textContent, 'Special Offer');
 
   });
 

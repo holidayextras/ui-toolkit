@@ -15,7 +15,7 @@ module.exports = React.createClass({
     var classes = classNames('component-alert', this.props.size, this.props.purpose);
     return (
       <div className={classes} role="alert">
-        <h4>{this.props.title}</h4>
+        {this.props.title ? <h4>{this.props.title}</h4> : ''}
         <p>{this.props.children}</p>
       </div>
     );

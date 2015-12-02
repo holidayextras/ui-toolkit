@@ -1,11 +1,11 @@
 var example = (
   <div>
-    <UIToolkit.PaymentCard type="amex"></UIToolkit.PaymentCard>
-    <UIToolkit.PaymentCard type="visa"></UIToolkit.PaymentCard>
-    <UIToolkit.PaymentCard type="mastercard"></UIToolkit.PaymentCard>
-    <UIToolkit.PaymentCard type="paym"></UIToolkit.PaymentCard>
-    <UIToolkit.PaymentCard type="amazon"></UIToolkit.PaymentCard>
+    <UIToolkit.PaymentCard type="amex">Amex</UIToolkit.PaymentCard>
+    <UIToolkit.PaymentCard type="visa">Visa</UIToolkit.PaymentCard>
+    <UIToolkit.PaymentCard type="mastercard">Mastercard</UIToolkit.PaymentCard>
+    <UIToolkit.PaymentCard type="paym">Paym</UIToolkit.PaymentCard>
+    <UIToolkit.PaymentCard type="amazon">Amazon</UIToolkit.PaymentCard>
   </div>
 );
 
-React.render(example, mountNode);
+ReactDOM.render(example, mountNode);
