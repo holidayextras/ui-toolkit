@@ -16,7 +16,8 @@ describe('Stepper', function() {
       value: 2,
       onChange: sinon.spy(),
       minValue: 1,
-      maxValue: 3
+      maxValue: 3,
+      label: 'stepper'
     };
 
   });
@@ -54,6 +55,12 @@ describe('Stepper', function() {
       var renderOutput = TestUtils.renderIntoDocument(<Stepper {... props} />);
       var button = TestUtils.scryRenderedDOMComponentsWithClass(renderOutput, 'component-button')[0];
       assert(button.disabled);
+    });
+
+    it('should render a label for the entire stepper', function() {
+      var renderOutput = TestUtils.renderIntoDocument(<Stepper {... props} />);
+      var stepper = TestUtils.findRenderedDOMComponentWithClass(renderOutput, 'component-stepper-label');
+      assert.isDefined(stepper);
     });
 
   });

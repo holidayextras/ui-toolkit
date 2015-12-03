@@ -880,13 +880,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 var React = require('react');
 var DataAttributesMixin = require('react-data-attributes-mixin');
 
-var _React$PropTypes = React.PropTypes;
-var string = _React$PropTypes.string;
-var array = _React$PropTypes.array;
-var func = _React$PropTypes.func;
-var object = _React$PropTypes.object;
-var bool = _React$PropTypes.bool;
-
 module.exports = React.createClass({
   displayName: 'exports',
 
@@ -972,7 +965,8 @@ module.exports = React.createClass({
     incrementDisplayString: React.PropTypes.string,
     decrementDisplayString: React.PropTypes.string,
     id: React.PropTypes.string,
-    label: React.PropTypes.string
+    label: React.PropTypes.string,
+    readOnly: React.PropTypes.bool
   },
 
   getDefaultProps: function getDefaultProps() {
@@ -1011,7 +1005,7 @@ module.exports = React.createClass({
       React.createElement(
         'label',
         { className: 'component-stepper-label', htmlFor: this.props.id },
-        'HELLO'
+        this.props.label
       ),
       React.createElement(
         'div',
@@ -1027,7 +1021,7 @@ module.exports = React.createClass({
         ),
         React.createElement(
           Input,
-          { type: 'text', id: this.props.id, key: this.props.value, readOnly: true, 'aria-labelledby': this.props.label, label: this.props.label },
+          { type: 'text', id: this.props.id, key: this.props.value, readOnly: this.props.readOnly },
           this.props.value.toString()
         ),
         React.createElement(

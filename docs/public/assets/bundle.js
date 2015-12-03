@@ -965,7 +965,8 @@ module.exports = React.createClass({
     incrementDisplayString: React.PropTypes.string,
     decrementDisplayString: React.PropTypes.string,
     id: React.PropTypes.string,
-    label: React.PropTypes.string
+    label: React.PropTypes.string,
+    readOnly: React.PropTypes.bool
   },
 
   getDefaultProps: function getDefaultProps() {
@@ -1004,7 +1005,7 @@ module.exports = React.createClass({
       React.createElement(
         'label',
         { className: 'component-stepper-label', htmlFor: this.props.id },
-        'HELLO'
+        this.props.label
       ),
       React.createElement(
         'div',
@@ -1020,7 +1021,7 @@ module.exports = React.createClass({
         ),
         React.createElement(
           Input,
-          { type: 'text', id: this.props.id, key: this.props.value, readOnly: true, 'aria-labelledby': this.props.label, label: this.props.label },
+          { type: 'text', id: this.props.id, key: this.props.value, readOnly: this.props.readOnly },
           this.props.value.toString()
         ),
         React.createElement(
@@ -1328,7 +1329,7 @@ var React = require('react');
 var HomePage = require('./HomePage.jsx');
 
 var a11y = require('react-a11y');
-//a11y(React, { throw: true, includeSrcNode: true });
+// a11y(React, {includeSrcNode: true });
 a11y(React);
 
 var App = React.createClass({displayName: "App",
@@ -1668,7 +1669,7 @@ var Components = React.createClass({displayName: "Components",
           React.createElement("article", {id: "stepper"}, 
             React.createElement("h3", null, "Stepper"), 
             React.createElement("p", null, "Display an input with a number value that is surrounded by decrement and increment buttons"), 
-            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Stepper label=\"number of passengers\" value={2} minValue={1} maxValue={9} onChange={function() { alert('changed'); }} />\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Stepper label=\"number of passengers\" value={2} minValue={1} maxValue={9} id=\"stepper-example\" onChange={function() { alert('changed'); }} />\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}), 
             React.createElement("h4", null, "Attributes"), 
             React.createElement("ul", null, 
               React.createElement("li", null, React.createElement("code", null, "value"), " Number - The value of the stepper"), 
@@ -1676,7 +1677,9 @@ var Components = React.createClass({displayName: "Components",
               React.createElement("li", null, React.createElement("code", null, "minValue"), " Number - The minimum value the stepper can decrement to"), 
               React.createElement("li", null, React.createElement("code", null, "maxValue"), " Number - The maximum value the stepper can increment to"), 
               React.createElement("li", null, React.createElement("code", null, "incrementDisplayString"), " String - The string to display in the decrement button"), 
-              React.createElement("li", null, React.createElement("code", null, "decrementDisplayString"), " String - The string to display in the increment button")
+              React.createElement("li", null, React.createElement("code", null, "decrementDisplayString"), " String - The string to display in the increment button"), 
+              React.createElement("li", null, React.createElement("code", null, "readOnly"), " Boolean - Make the stepper read only. N.B we advise this to alwyas be manually editable for accessibilty purposes"), 
+              React.createElement("li", null, React.createElement("code", null, "label"), " String - The label of the stepper.")
             )
           )
         )
@@ -27765,7 +27768,7 @@ module.exports = require('./lib/React');
 },{"./lib/React":146}],279:[function(require,module,exports){
 module.exports={
   "name": "ui-toolkit",
-  "version": "0.26.5",
+  "version": "0.26.6",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "index.js",
