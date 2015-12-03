@@ -1,3 +1,6 @@
+### 0.26.7 - 2015-12-03
+ - fixing the stepper component, to remove random word
+
 ### 0.26.6 - 2015-11-30
  - fixing broken select linting
 
