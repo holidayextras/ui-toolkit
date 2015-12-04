@@ -9,12 +9,14 @@
     "url": "https://github.com/holidayextras/ui-toolkit.git"
   },
   "scripts": {
+    "start": "parallelshell 'live-server public -p 4000' 'npm run docs:build:watch' 'open http://localhost:4000'",
+    "docs:build": "browserify -t [ reactify --extension '.jsx' ] ./docs/client.js -o ./public/assets/bundle.js",
+    "predocs:build:watch": "npm run docs:build",
+    "docs:build:watch": "watch 'npm run build' src docs",
     "build": "scripts/build.sh",
     "ci": "npm run lint && npm run test-xunit && npm run coverage",
     "postinstall": "npm run build",
     "coverage": "istanbul cover -x dist _mocha -- test/**/*-test.*",
-    "predocs": "cd docs && npm install && cd - && npm run build",
-    "docs": "grunt docs",
     "pretest": "npm run build",
     "test-xunit": "mocha --recursive test/**/*-test.js* src/**/*-test.js* -R xunit > $CIRCLE_TEST_REPORTS/results.xml",
     "test": "mocha --recursive test/**/*-test.js* src/**/*-test.js*",
@@ -37,6 +39,10 @@
     {
       "name": "Jodie Doubleday",
       "email": "jodie.doubleday@holidayextras.com"
+    },
+    {
+      "name": "Luke Hansell",
+      "email": "luke.hansell@holidayextras.com"
     }
   ],
   "bugs": {
@@ -58,6 +64,7 @@
     "grunt-shell": "^1.1.1",
     "gruntfile-gtx": "^0.3.0",
     "moment": "~2.10.6",
+    "radium": "^0.15.3",
     "react": "^0.14.2",
     "react-data-attributes-mixin": "git://github.com/holidayextras/react-data-attributes-mixin",
     "react-dom": "^0.14.2",
@@ -66,7 +73,9 @@
     "requirejs": "~2.1.9"
   },
   "devDependencies": {
+    "brfs": "~1.0.0",
     "chai": "^2.3.0",
+    "envify": "~1.2.0",
     "eslint": "^0.21.0",
     "eslint-plugin-react": "^2.2.0",
     "glob": "^5.0.6",
@@ -83,14 +92,26 @@
     "mocha": "^2.2.5",
     "mocha-jsdom": "^0.3.0",
     "mocha-lcov-reporter": "0.0.2",
+    "node-fs": "^0.1.7",
+    "node-jsx": "~0.12.0",
+    "open": "^0.0.5",
+    "parallelshell": "^2.0.0",
     "react-a11y": "^0.2.8",
     "react-addons-test-utils": "^0.14.2",
     "react-tests-globals-setup": "^1.0.0",
-    "sinon": "^1.14.1"
+    "reactify": "^1.1.0",
+    "serve": "^1.4.0",
+    "sinon": "^1.14.1",
+    "uglify-js": "^2.3.6",
+    "watch": "^0.16.0",
+    "watchify": "^3.1.0",
+    "webpack": "^1.12.9"
   },
   "browserify": {
     "transform": [
-      "reactify"
+      "reactify",
+      "brfs",
+      "envify"
     ]
   }
 }

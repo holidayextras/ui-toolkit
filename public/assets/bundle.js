@@ -195,18 +195,21 @@ module.exports = React.createClass({
   },
 
   render: function render() {
+    console.log('here');
     var classes = classNames('component-button', this.props.size, this.props.purpose);
     var dataAttributes = this.getDataAttributesFromProps();
     if (this.props.href) {
       return React.createElement(
         'a',
         _extends({ className: classes, href: this.props.href, target: this.props.target, onClick: this.props.handleClick }, dataAttributes),
+        'hey ',
         this.props.children
       );
     }
     return React.createElement(
       'button',
       _extends({ className: classes, disabled: this.props.disabled, type: this.props.type, onClick: this.props.handleClick }, dataAttributes),
+      'hey ',
       this.props.children
     );
   }
@@ -1587,11 +1590,11 @@ var Components = React.createClass({displayName: "Components",
 
           React.createElement("article", {id: "basket-item"}, 
             React.createElement("h3", null, "Basket Item"), 
-            React.createElement("p", null, "You can use the Basket Item as a way of representing anything with a price next to it. This means you could have a simple description (line of text) or even more complex markup passed in as the child."), 
+            React.createElement("p", null, "You can use the Basket Item as a way of representing anything in a basket with or without a price next to it. This means you could have a simple description (line of text) or even more complex markup passed in as the child. Note to have a price, you must declare a title for the product. If the product has no title then description is used."), 
             React.createElement(CustomComponent, {codeText: "var removeAThing = function(thisProduct, e) {\n  e.preventDefault();\n  e.stopPropagation();\n  alert( 'your implementation will deal with removing: ' + thisProduct );\n};\n\nvar example = (\n  <div>\n    <UIToolkit.List type=\"icon\">\n\n      <UIToolkit.ListItem>\n        <UIToolkit.Icon icon=\"check\" iconFamily=\"font-awesome\" />\n        <UIToolkit.BasketItem title=\"First product\">\n          This is a fantastic product that is really really cool with no price.\n        </UIToolkit.BasketItem>\n      </UIToolkit.ListItem>\n\n      <UIToolkit.ListItem>\n        <UIToolkit.Icon icon=\"check\" iconFamily=\"font-awesome\" />\n        <UIToolkit.BasketItem title=\"Second product (click me)\" toggleDescription={true} price=\"£100\">\n          This one has a hidden description.\n        </UIToolkit.BasketItem>\n      </UIToolkit.ListItem>\n\n      <UIToolkit.ListItem>\n        <UIToolkit.Icon icon=\"check\" iconFamily=\"font-awesome\" />\n        <UIToolkit.BasketItem title=\"Third product\" handleRemove={removeAThing.bind(null,'3rd product')} price=\"£100\">\n          Can be removed\n        </UIToolkit.BasketItem>\n      </UIToolkit.ListItem>\n\n      <UIToolkit.ListItem>\n        <UIToolkit.Icon icon=\"check\" iconFamily=\"font-awesome\" />\n        <UIToolkit.BasketItem title=\"4th product\" role=\"link\" tabIndex=\"0\" title=\"Fourth Product\" price=\"£100\">\n          Has a special title (could open a lightbox or something?)\n        </UIToolkit.BasketItem>\n      </UIToolkit.ListItem>\n\n      <UIToolkit.ListItem>\n        <UIToolkit.Icon icon=\"check\" iconFamily=\"font-awesome\" />\n        <UIToolkit.BasketItem title=\"5th product\" role=\"link\" tabIndex=\"0\" title=\"Fifth Product (no description)\" price=\"£100\">\n          I am awesome\n        </UIToolkit.BasketItem>\n      </UIToolkit.ListItem>\n\n      <UIToolkit.ListItem>\n        <UIToolkit.Icon icon=\"check\" iconFamily=\"font-awesome\" />\n        <UIToolkit.BasketItem title=\"Sixth product\" price=\"Free\">\n          This is the best one of all because it is FREE!\n        </UIToolkit.BasketItem>\n      </UIToolkit.ListItem>\n\n    </UIToolkit.List>\n    <hr />\n    <UIToolkit.BasketItem title=\"Total (also a BasketItem)\" price=\"£400\" />\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}), 
             React.createElement("h4", null, "Attributes"), 
             React.createElement("ul", null, 
-              React.createElement("li", null, React.createElement("code", null, "price"), " [optional] Number - The price to display along side the basket item."), 
+              React.createElement("li", null, React.createElement("code", null, "price"), " [optional] Number - The price to display along side the basket item. Must be used with ", React.createElement("code", null, "title")), 
               React.createElement("li", null, React.createElement("code", null, "title"), " [optional] Node / String - If passed a Node, will simply use that as the title (including any events bound to that node) otherwise, if we have ", React.createElement("em", null, "toggleDescription"), " set, will wrap the text in an anchor to trigger that, otherwise it is wrapped in a ", React.createElement("em", null, "strong"), " html tag."), 
               React.createElement("li", null, React.createElement("code", null, "toggleDescription"), " [optional] Boolean - Whether we want to toggle the display of the ", React.createElement("em", null, "child"), " or not."), 
               React.createElement("li", null, React.createElement("code", null, "handleRemove"), " [optional] Function - This will display a link with the text ", React.createElement("em", null, "remove"), " below the price & this function is responsible for dealing with that removal."), 
@@ -27823,6 +27826,7 @@ module.exports={
     "grunt-shell": "^1.1.1",
     "gruntfile-gtx": "^0.3.0",
     "moment": "~2.10.6",
+    "radium": "^0.15.3",
     "react": "^0.14.2",
     "react-data-attributes-mixin": "git://github.com/holidayextras/react-data-attributes-mixin",
     "react-dom": "^0.14.2",
@@ -27851,7 +27855,8 @@ module.exports={
     "react-a11y": "^0.2.8",
     "react-addons-test-utils": "^0.14.2",
     "react-tests-globals-setup": "^1.0.0",
-    "sinon": "^1.14.1"
+    "sinon": "^1.14.1",
+    "watch": "^0.16.0"
   },
   "browserify": {
     "transform": [
