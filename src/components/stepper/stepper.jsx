@@ -8,6 +8,7 @@ module.exports = React.createClass({
 
   propTypes: {
     value: React.PropTypes.number,
+    valueText: React.PropTypes.string,
     onChange: React.PropTypes.func.isRequired,
     minValue: React.PropTypes.number,
     maxValue: React.PropTypes.number,
@@ -49,6 +50,7 @@ module.exports = React.createClass({
   },
 
   render: function() {
+    var valueText = this.props.valueText ? this.props.valueText : this.props.value;
     return (
       <div className="component-stepper">
         <label className="component-stepper-label" htmlFor={this.props.id}>{this.props.label}</label>
@@ -57,7 +59,7 @@ module.exports = React.createClass({
             <Button handleClick={this.decrement} type="button" disabled={!this.canDecrement()}>{this.props.decrementDisplayString}</Button>
           </span>
 
-          <Input type="text" id={this.props.id} key={this.props.value} readOnly={this.props.readOnly}>{this.props.value.toString()}</Input>
+          <Input type="text" id={this.props.id} key={this.props.value} readOnly={this.props.readOnly}>{valueText.toString()}</Input>
 
           <span className="button-container">
             <Button handleClick={this.increment} type="button" disabled={!this.canIncrement()}>{this.props.incrementDisplayString}</Button>

@@ -154,4 +154,15 @@ describe('Stepper', function() {
 
   });
 
+  describe( 'setValueText', function() {
+
+    it( 'uses the valueText passed in', function() {
+      props.valueText = '9am';
+      var renderOutput = TestUtils.renderIntoDocument(<Stepper {... props} />);
+      var stepperValue = TestUtils.findRenderedDOMComponentWithClass(renderOutput, 'component-input-field');
+      assert.equal(stepperValue.value, '9am' );
+    });
+
+  });
+
 });
