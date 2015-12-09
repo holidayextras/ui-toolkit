@@ -16,10 +16,12 @@ module.exports = function(grunt) {
   gtx.alias('docs-start', ['shell:docsStart']);
   gtx.alias('docs-view', ['shell:docsView']);
 
+  gtx.alias('upload', ['aws_s3']);
+
   gtx.alias('release-docs', ['build', 'docs-build', 'gh-pages']);
-  gtx.alias('release-major', ['release:major', 'release-docs']);
-  gtx.alias('release-minor', ['release:minor', 'release-docs']);
-  gtx.alias('release-patch', ['release:patch', 'release-docs']);
+
+  //gtx.alias('deploy', ['release-docs', 'release', 'upload']);
+  gtx.alias('deploy', ['upload']);
 
   gtx.finalise();
 };
