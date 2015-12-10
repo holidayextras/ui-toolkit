@@ -304,7 +304,7 @@ var Components = React.createClass({
               <li><code>decrementDisplayString</code> String - The string to display in the increment button</li>
               <li><code>readOnly</code> Boolean - Make the stepper read only. N.B we advise this to alwyas be manually editable for accessibilty purposes</li>
               <li><code>label</code> String - The label of the stepper.</li>
-              <li><code>valueText</code> String - Wizard uses this to alter the text for how we would like it presented in the input</li>
+              <li><code>valueText</code> String - Used for alterting the text we show within the input</li>
             </ul>
           </article>
         </section>
