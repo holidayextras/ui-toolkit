@@ -1,6 +1,3 @@
-### 0.26.9 - 2015-12-10
- - 
-
 ### 0.26.7 - 2015-12-03
  - fixing the stepper component, to remove random word
 
