@@ -50,7 +50,7 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    var valueText = this.props.valueText ? this.props.valueText : this.props.value;
+    var valueText = this.props.valueText || this.props.value;
     return (
       <div className="component-stepper">
         <label className="component-stepper-label" htmlFor={this.props.id}>{this.props.label}</label>
