@@ -11,14 +11,14 @@
   "scripts": {
     "build": "scripts/build.sh",
     "ci": "npm run lint && npm run test-xunit && npm run coverage",
+    "ci_travis": "npm run lint && npm run coverage",
+    "deploy": "scripts/deploy.sh",
     "postinstall": "npm run build",
     "coverage": "istanbul cover -x dist _mocha -- test/**/*-test.*",
     "predocs": "cd docs && npm install && cd - && npm run build",
     "docs": "grunt docs",
-    "pretest": "npm run build",
     "test-xunit": "mocha --recursive test/**/*-test.js* src/**/*-test.js* -R xunit > $CIRCLE_TEST_REPORTS/results.xml",
     "test": "mocha --recursive test/**/*-test.js* src/**/*-test.js*",
-    "prelint": "npm run build",
     "lint": "node_modules/.bin/make-up grunt src && echo '🍻  All good!'"
   },
   "keywords": [
@@ -70,6 +70,7 @@
     "eslint": "^0.21.0",
     "eslint-plugin-react": "^2.2.0",
     "glob": "^5.0.6",
+    "grunt-aws-s3": "^0.14.3",
     "grunt-changelog": "^0.3.0",
     "grunt-concurrent": "^1.0.0",
     "grunt-contrib-copy": "~0.8.0",
