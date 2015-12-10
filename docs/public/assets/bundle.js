@@ -958,6 +958,7 @@ module.exports = React.createClass({
 
   propTypes: {
     value: React.PropTypes.number,
+    valueText: React.PropTypes.string,
     onChange: React.PropTypes.func.isRequired,
     minValue: React.PropTypes.number,
     maxValue: React.PropTypes.number,
@@ -999,6 +1000,7 @@ module.exports = React.createClass({
   },
 
   render: function render() {
+    var valueText = this.props.valueText || this.props.value;
     return React.createElement(
       'div',
       { className: 'component-stepper' },
@@ -1022,7 +1024,7 @@ module.exports = React.createClass({
         React.createElement(
           Input,
           { type: 'text', id: this.props.id, key: this.props.value, readOnly: this.props.readOnly },
-          this.props.value.toString()
+          valueText.toString()
         ),
         React.createElement(
           'span',
@@ -1669,7 +1671,7 @@ var Components = React.createClass({displayName: "Components",
           React.createElement("article", {id: "stepper"}, 
             React.createElement("h3", null, "Stepper"), 
             React.createElement("p", null, "Display an input with a number value that is surrounded by decrement and increment buttons"), 
-            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Stepper label=\"number of passengers\" value={2} minValue={1} maxValue={9} id=\"stepper-example\" onChange={function() { alert('changed'); }} />\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Stepper label=\"number of passengers\" value={2} minValue={1} maxValue={9} id=\"stepper-example\" onChange={function() { alert('changed'); }} />\n    <UIToolkit.Stepper label=\"Time of travel\" value={1500} minValue={100} maxValue={2300} id=\"stepper-example\" stepValue={100} valueText=\"3pm\" onChange={function() { alert('changed'); }} />\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}), 
             React.createElement("h4", null, "Attributes"), 
             React.createElement("ul", null, 
               React.createElement("li", null, React.createElement("code", null, "value"), " Number - The value of the stepper"), 
@@ -1679,7 +1681,8 @@ var Components = React.createClass({displayName: "Components",
               React.createElement("li", null, React.createElement("code", null, "incrementDisplayString"), " String - The string to display in the decrement button"), 
               React.createElement("li", null, React.createElement("code", null, "decrementDisplayString"), " String - The string to display in the increment button"), 
               React.createElement("li", null, React.createElement("code", null, "readOnly"), " Boolean - Make the stepper read only. N.B we advise this to alwyas be manually editable for accessibilty purposes"), 
-              React.createElement("li", null, React.createElement("code", null, "label"), " String - The label of the stepper.")
+              React.createElement("li", null, React.createElement("code", null, "label"), " String - The label of the stepper."), 
+              React.createElement("li", null, React.createElement("code", null, "valueText"), " String - Used for alterting the text we show within the input")
             )
           )
         )
@@ -27768,7 +27771,7 @@ module.exports = require('./lib/React');
 },{"./lib/React":146}],279:[function(require,module,exports){
 module.exports={
   "name": "ui-toolkit",
-  "version": "0.26.6",
+  "version": "0.26.7",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "index.js",
