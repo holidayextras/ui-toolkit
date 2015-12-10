@@ -958,6 +958,7 @@ module.exports = React.createClass({
 
   propTypes: {
     value: React.PropTypes.number,
+    valueText: React.PropTypes.string,
     onChange: React.PropTypes.func.isRequired,
     minValue: React.PropTypes.number,
     maxValue: React.PropTypes.number,
@@ -999,6 +1000,7 @@ module.exports = React.createClass({
   },
 
   render: function render() {
+    var valueText = this.props.valueText || this.props.value;
     return React.createElement(
       'div',
       { className: 'component-stepper' },
@@ -1022,7 +1024,7 @@ module.exports = React.createClass({
         React.createElement(
           Input,
           { type: 'text', id: this.props.id, key: this.props.value, readOnly: this.props.readOnly },
-          this.props.value.toString()
+          valueText.toString()
         ),
         React.createElement(
           'span',
@@ -1679,7 +1681,8 @@ var Components = React.createClass({displayName: "Components",
               React.createElement("li", null, React.createElement("code", null, "incrementDisplayString"), " String - The string to display in the decrement button"), 
               React.createElement("li", null, React.createElement("code", null, "decrementDisplayString"), " String - The string to display in the increment button"), 
               React.createElement("li", null, React.createElement("code", null, "readOnly"), " Boolean - Make the stepper read only. N.B we advise this to alwyas be manually editable for accessibilty purposes"), 
-              React.createElement("li", null, React.createElement("code", null, "label"), " String - The label of the stepper.")
+              React.createElement("li", null, React.createElement("code", null, "label"), " String - The label of the stepper."), 
+              React.createElement("li", null, React.createElement("code", null, "valueText"), " String - Wizard uses this to alter the text for how we would like it presented in the input")
             )
           )
         )
@@ -27768,7 +27771,7 @@ module.exports = require('./lib/React');
 },{"./lib/React":146}],279:[function(require,module,exports){
 module.exports={
   "name": "ui-toolkit",
-  "version": "0.26.6",
+  "version": "0.26.7",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "index.js",
