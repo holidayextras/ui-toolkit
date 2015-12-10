@@ -5,6 +5,10 @@ PREVIOUS_PACKAGE_VERSION=$(git show HEAD^:package.json | grep version | head -1 
 
 if [ "$PACKAGE_VERSION" != "$PREVIOUS_PACKAGE_VERSION" ]
 then
-  # grunt deploy
+  echo 'Installing node_modules'
+  npm install
   echo 'Going to deploy'
+  grunt deploy
+  echo 'Removing node_modules'
+  rm -rf ./node_modules
 fi
