@@ -958,6 +958,7 @@ module.exports = React.createClass({
 
   propTypes: {
     value: React.PropTypes.number,
+    valueText: React.PropTypes.string,
     onChange: React.PropTypes.func.isRequired,
     minValue: React.PropTypes.number,
     maxValue: React.PropTypes.number,
@@ -999,6 +1000,7 @@ module.exports = React.createClass({
   },
 
   render: function render() {
+    var valueText = this.props.valueText || this.props.value;
     return React.createElement(
       'div',
       { className: 'component-stepper' },
@@ -1022,7 +1024,7 @@ module.exports = React.createClass({
         React.createElement(
           Input,
           { type: 'text', id: this.props.id, key: this.props.value, readOnly: this.props.readOnly },
-          this.props.value.toString()
+          valueText.toString()
         ),
         React.createElement(
           'span',

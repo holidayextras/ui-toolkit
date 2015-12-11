@@ -1680,7 +1680,7 @@ var Components = React.createClass({displayName: "Components",
               React.createElement("li", null, React.createElement("code", null, "maxValue"), " Number - The maximum value the stepper can increment to"), 
               React.createElement("li", null, React.createElement("code", null, "incrementDisplayString"), " String - The string to display in the decrement button"), 
               React.createElement("li", null, React.createElement("code", null, "decrementDisplayString"), " String - The string to display in the increment button"), 
-              React.createElement("li", null, React.createElement("code", null, "readOnly"), " Boolean - Make the stepper read only. N.B we advise this to alwyas be manually editable for accessibilty purposes"), 
+              React.createElement("li", null, React.createElement("code", null, "readOnly"), " Boolean - Make the stepper read only. N.B we advise this to always be manually editable for accessibilty purposes"), 
               React.createElement("li", null, React.createElement("code", null, "label"), " String - The label of the stepper."), 
               React.createElement("li", null, React.createElement("code", null, "valueText"), " String - Used for alterting the text we show within the input")
             )
@@ -27771,7 +27771,7 @@ module.exports = require('./lib/React');
 },{"./lib/React":146}],279:[function(require,module,exports){
 module.exports={
   "name": "ui-toolkit",
-  "version": "0.26.7",
+  "version": "0.26.9",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "index.js",
@@ -27782,14 +27782,14 @@ module.exports={
   "scripts": {
     "build": "scripts/build.sh",
     "ci": "npm run lint && npm run test-xunit && npm run coverage",
+    "ci_travis": "npm run lint && npm run coverage",
+    "deploy": "scripts/deploy.sh",
     "postinstall": "npm run build",
     "coverage": "istanbul cover -x dist _mocha -- test/**/*-test.*",
     "predocs": "cd docs && npm install && cd - && npm run build",
     "docs": "grunt docs",
-    "pretest": "npm run build",
     "test-xunit": "mocha --recursive test/**/*-test.js* src/**/*-test.js* -R xunit > $CIRCLE_TEST_REPORTS/results.xml",
     "test": "mocha --recursive test/**/*-test.js* src/**/*-test.js*",
-    "prelint": "npm run build",
     "lint": "node_modules/.bin/make-up grunt src && echo '🍻  All good!'"
   },
   "keywords": [
@@ -27841,13 +27841,15 @@ module.exports={
     "eslint": "^0.21.0",
     "eslint-plugin-react": "^2.2.0",
     "glob": "^5.0.6",
+    "grunt-aws-s3": "^0.14.3",
     "grunt-changelog": "^0.3.0",
+    "grunt-cli": "^0.1.13",
     "grunt-concurrent": "^1.0.0",
     "grunt-contrib-copy": "~0.8.0",
     "grunt-contrib-less": "~1.0.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-gh-pages": "0.10.0",
-    "grunt-release": "^0.12.0",
+    "grunt-release": "^0.13.0",
     "istanbul": "^0.3.17",
     "jsdom": "^1.0.0",
     "make-up": "^5.3.1",
