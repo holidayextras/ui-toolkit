@@ -1,7 +1,7 @@
 sudo: false
 language: node_js
 node_js:
-  - "5.1.0"
+  - "stable"
 script: "npm run ci_travis"
 
 deploy:
