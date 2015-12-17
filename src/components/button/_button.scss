@@ -62,7 +62,7 @@
 //Function
 
 @function set-text-color($background) {
-  @if (lightness($background) > 50) {
+  @if (lightness($background) > 70) {
     @return $text-color;
   } @else {
     @return $text-color-inverted;

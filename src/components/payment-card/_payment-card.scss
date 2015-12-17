@@ -21,7 +21,7 @@ $cardHeight: 32px;
   //
 
   @mixin card-variant($number) {
-    background-position : 0 -$number*$cardHeight;
+    background-position : 0 (-($number * $cardHeight));
   }
 
   &.amazon {@include card-variant(0);}

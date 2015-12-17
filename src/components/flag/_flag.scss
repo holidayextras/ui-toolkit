@@ -44,9 +44,19 @@
 // == Functional Colours ==
 //
 
+//Function
+
+@function set-text-color($background) {
+  @if (lightness($background) > 70) {
+    @return $text-color;
+  } @else {
+    @return $text-color-inverted;
+  }
+}
+
 // Mixin
 @mixin flag-variant($background) {
-  color: contrast($background, $text-color, $text-color-inverted, 70%);
+  color: set-text-color($background);
   background-color: $background;
   border: $background;
   &:after {
@@ -88,33 +98,33 @@
 // == Position ==
 //
 
+
+
+// Extends
+.position-variant {
+  position: absolute;
+  top:    0;
+  bottom: auto;
+}
+
+.flag-wrap {
+  content: "";
+  display: block;
+  width:  0;
+  height: 0;
+  position: absolute;
+  z-index: -1;
+  border-width: .25em;
+  top: 1.5em;
+}
+
+.flag-end {
+  top:0;
+  z-index:0;
+  border-color: inherit;
+}
+
 .component-flag {
-
-
-  // Mixins
-  .position-variant {
-    position: absolute;
-    top:    0;
-    bottom: auto;
-  }
-
-  .flag-wrap {
-    content: "";
-    display: block;
-    width:  0;
-    height: 0;
-    position: absolute;
-    z-index: -1;
-    border-width: .25em;
-    top:   1.5em;
-  }
-
-  .flag-end {
-    top:0;
-    z-index:0;
-    border-color: inherit;
-  }
-
   // Right
   &.right {
     @extend .position-variant;

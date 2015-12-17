@@ -18,7 +18,7 @@
   padding-bottom: $padding-vertical-small;
   &:before {
     font-family: 'MeteoconsRegular';
-    content: "@{weather}";
+    content: "#{$weather}";
     font-size: 3.5em;
     visibility: visible;
   }
