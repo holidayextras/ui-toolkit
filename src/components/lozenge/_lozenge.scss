@@ -1,0 +1,64 @@
+/*------------------------------------*\
+    #Lozenge
+\*------------------------------------*/
+
+.component-lozenge {
+  padding:($padding-horizontal-default / 2) ($padding-vertical-default / 2);
+  border-radius:$lozenge-border-radius;
+  display:inline-block;
+  font-size:$font-size-small;
+  line-height:1em;
+  text-align:center;
+
+  //
+  // == Block ==
+  //
+  &.block {
+    display:block;
+    width: 100%;
+  }
+}
+
+//
+// == Functional Colours ==
+//
+
+// Function
+@function set-text-color($background) {
+  @if (lightness($background) > 50) {
+    @return $text-color;
+  } @else {
+    @return $text-color-inverted;
+  }
+}
+
+// Mixin
+@mixin lozenge-variant($background) {
+  background-color: $background;
+  color: set-text-color($background);
+}
+
+.component-lozenge {
+  @include lozenge-variant($default);
+  &.default {
+    @include lozenge-variant($default);
+  }
+  &.primary {
+    @include lozenge-variant($primary);
+  }
+  &.secondary {
+    @include lozenge-variant($secondary);
+  }
+  &.success {
+    @include lozenge-variant($success);
+  }
+  &.info {
+    @include lozenge-variant($info);
+  }
+  &.warning {
+    @include lozenge-variant($warning);
+  }
+  &.danger {
+    @include lozenge-variant($danger);
+  }
+}

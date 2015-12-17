@@ -1,0 +1,21 @@
+/*------------------------------------*\
+    #Input
+\*------------------------------------*/
+
+.component-input {
+  .component-input-label {
+    margin-bottom: $margin-vertical-default;
+    font-weight: $font-weight-body;
+    display: inline-block;
+    padding: $padding-vertical-default 0;
+  }
+  .component-input-field {
+    background: $input;
+    border: $input-border-style $input-border-size $input-border-color;
+    border-radius: $input-border-radius;
+    line-height: $line-height-body;
+    padding: $padding-vertical-default $padding-horizontal-default;
+    margin-left: $margin-default;
+    margin-bottom: $margin-vertical-default;
+  }
+}

@@ -1,0 +1,55 @@
+/*------------------------------------*\
+    #Quote
+\*------------------------------------*/
+
+.component-alert {
+  padding: $padding-default;
+  border-radius: $alerts-border-radius;
+  overflow:hidden;
+  position:relative;
+  & + .component-alert {
+    margin-top: $margin-vertical-default;
+  }
+  h4 {
+    margin-top:0;
+  }
+  p:last-of-type {
+    margin:0;
+  }
+}
+
+//
+// == Functional Colours ==
+//
+
+// Mixin
+@mixin alert-variant($background) {
+  color: darken($background, 30%);
+  background-color: lighten($background, 30%);
+  border: $background $alerts-border-style $alerts-border-size;
+}
+
+.component-alert {
+  @include alert-variant($default);
+  &.default {
+    @include alert-variant($default);
+  }
+  &.primary {
+    @include alert-variant($primary);
+  }
+  &.secondary {
+    @include alert-variant($secondary);
+  }
+  &.success {
+    @include alert-variant($success);
+  }
+  &.info {
+    @include alert-variant($info);
+  }
+  &.warning {
+    @include alert-variant($warning);
+  }
+  &.danger {
+    @include alert-variant($danger);
+  }
+}

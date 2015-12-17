@@ -1,0 +1,125 @@
+/*------------------------------------*\
+    #Button
+\*------------------------------------*/
+
+.component-button {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: $border-size-default $border-style-default $border-color-default;
+  white-space: nowrap;
+  padding: $padding-vertical-default $padding-horizontal-default;
+  border-radius: $radius-default;
+  text-decoration: none;
+
+  &,
+  &:active,
+  &.active {
+    &:focus,
+    &.focus {
+      outline: thin dotted;
+      outline: 5px auto -webkit-focus-ring-color;
+      outline-offset: -2px;
+    }
+  }
+
+  &:hover,
+  &:focus,
+  &.focus {
+    color: $default;
+    text-decoration: none;
+  }
+
+  &:active,
+  &.active {
+    outline: 0;
+    background-image: none;
+  }
+
+  &.disabled,
+  &[disabled] {
+    pointer-events: none;
+    opacity:.65;
+  }
+
+  //
+  // == Block ==
+  //
+  &.block {
+    display:block;
+    width: 100%;
+  }
+
+}
+
+//
+// == Functional Colours ==
+//
+
+//Function
+
+@function set-text-color($background) {
+  @if (lightness($background) > 50) {
+    @return $text-color;
+  } @else {
+    @return $text-color-inverted;
+  }
+}
+
+// Mixin
+@mixin button-variant($background, $border) {
+  background-color: $background;
+      border-color: $border;
+             color: set-text-color($background);
+  &:hover,
+  &:focus,
+  &.focus,
+  &:active,
+  &.active {
+    background-color: darken($background, 10%);
+        border-color: darken($border, 12%);
+               color: set-text-color($background);
+  }
+  &:active,
+  &.active,
+  &.disabled,
+  &[disabled]{
+    &,
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+      background-color: $background;
+          border-color: $border;
+    }
+  }
+}
+
+.component-button {
+  @include button-variant($default, $border-color-default);
+  &.default {
+    @include button-variant($default, $border-color-default);
+  }
+  &.primary {
+    @include button-variant($primary, $border-color-primary);
+  }
+  &.secondary {
+    @include button-variant($secondary, $border-color-secondary);
+  }
+  &.success {
+    @include button-variant($success, $border-color-success);
+  }
+  &.info {
+    @include button-variant($info, $border-color-info);
+  }
+  &.warning {
+    @include button-variant($warning, $border-color-warning);
+  }
+  &.danger {
+    @include button-variant($danger, $border-color-danger);
+  }
+}

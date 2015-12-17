@@ -1,0 +1,48 @@
+/*------------------------------------*\
+    #Card
+\*------------------------------------*/
+
+// Default size
+$cardWidth: 52px;
+$cardHeight: 32px;
+
+.component-payment-card {
+  background:url('#{$asset-path}cards.png') no-repeat;
+  width: $cardWidth;
+  height: $cardHeight;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0;
+  margin: 0;
+  background-size:$cardWidth auto;
+
+  //
+  // == Card types ==
+  //
+
+  @mixin card-variant($number) {
+    background-position : 0 -$number*$cardHeight;
+  }
+
+  &.amazon {@include card-variant(0);}
+  &.amex {@include card-variant(1);}
+  &.apple {@include card-variant(2);}
+  &.cirrus {@include card-variant(3);}
+  &.delta {@include card-variant(4);}
+  &.directdebit {@include card-variant(5);}
+  &.discover {@include card-variant(6);}
+  &.electron {@include card-variant(7);}
+  &.google {@include card-variant(8);}
+  &.maestro {@include card-variant(9);}
+  &.mastercard {@include card-variant(10);}
+  &.paym {@include card-variant(11);}
+  &.paypal {@include card-variant(12);}
+  &.sage {@include card-variant(13);}
+  &.sepa {@include card-variant(14);}
+  &.solo {@include card-variant(15);}
+  &.switch {@include card-variant(16);}
+  &.ukash {@include card-variant(17);}
+  &.visa {@include card-variant(18);}
+  &.visadebit {@include card-variant(19);}
+  &.westernunion {@include card-variant(20);}
+}

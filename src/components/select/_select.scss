@@ -1,0 +1,26 @@
+.component-select {
+  .component-select-label {
+    margin-bottom: $margin-vertical-default;
+    font-weight: $font-weight-body;
+    display: inline-block;
+    padding: $padding-vertical-default;
+  }
+  .component-select-field {
+    background: $input;
+    border: $input-border-style $input-border-size $input-border-color;
+    border-radius: $input-border-radius;
+    line-height: $line-height-body;
+    padding: $padding-vertical-default $padding-horizontal-default;
+    margin-left: $margin-default;
+    margin-bottom: $margin-vertical-default;
+  }
+
+  &.multiple {
+
+    .component-select-label {
+      float: left;
+      margin-right: 1em;
+    }
+    .component-select-field {}
+  }
+}

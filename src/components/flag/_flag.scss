@@ -1,0 +1,161 @@
+/*------------------------------------*\
+    #Flag
+\*------------------------------------*/
+
+.component-flag {
+  background: $default;
+  border-color: $default;
+  display: inline-block;
+  line-height: 1em;
+  padding: ($padding-vertical-default / 2) $padding-horizontal-default;
+  position: relative;
+  margin: $margin-vertical-default $margin-horizontal-default;
+
+  &:after, &:before {
+    content: "";
+    display: block;
+    top:   1.5em;
+    width:  0;
+    height: 0;
+    position: absolute;
+    border-width: .75em .5em;
+    border-style: solid;
+    border-color: darken($default, 5%);
+    z-index:-1;
+  }
+
+  &:after {
+    top:  .25em;
+    right: 0;
+    margin-right: -.75em;
+    border-right-color: transparent;
+  }
+
+  &:before {
+    top:  .25em;
+    left: 0;
+    margin-left: -.75em;
+    border-left-color: transparent;
+  }
+
+}
+
+//
+// == Functional Colours ==
+//
+
+// Mixin
+@mixin flag-variant($background) {
+  color: contrast($background, $text-color, $text-color-inverted, 70%);
+  background-color: $background;
+  border: $background;
+  &:after {
+    border-color: darken($background, 5%);
+    border-right-color: transparent;
+  }
+  &:before {
+    border-color: darken($background, 5%);
+    border-left-color: transparent;
+  }
+}
+
+.component-flag {
+  @include flag-variant($default);
+  &.default {
+    @include flag-variant($default);
+  }
+  &.primary {
+    @include flag-variant($primary);
+  }
+  &.secondary {
+    @include flag-variant($secondary);
+  }
+  &.success {
+    @include flag-variant($success);
+  }
+  &.info {
+    @include flag-variant($info);
+  }
+  &.warning {
+    @include flag-variant($warning);
+  }
+  &.danger {
+    @include flag-variant($danger);
+  }
+}
+
+//
+// == Position ==
+//
+
+.component-flag {
+
+
+  // Mixins
+  .position-variant {
+    position: absolute;
+    top:    0;
+    bottom: auto;
+  }
+
+  .flag-wrap {
+    content: "";
+    display: block;
+    width:  0;
+    height: 0;
+    position: absolute;
+    z-index: -1;
+    border-width: .25em;
+    top:   1.5em;
+  }
+
+  .flag-end {
+    top:0;
+    z-index:0;
+    border-color: inherit;
+  }
+
+  // Right
+  &.right {
+    @extend .position-variant;
+    right: 0;
+    margin-right: -.5em;
+    &:after {
+      @extend .flag-wrap;
+      right: 0;
+      margin-top:  -1px;
+      margin-right: 0;
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+    }
+    &:before {
+      @extend .flag-end;
+      border-left-color: transparent;
+    }
+  }
+
+  // Left
+  &.left {
+    @extend .position-variant;
+    left: 0;
+    margin-left: -.5em;
+    &:before {
+      @extend .flag-wrap;
+      left:  0;
+      margin-top:  -1px;
+      margin-left: 0;
+      border-left-color: transparent;
+      border-bottom-color: transparent;
+    }
+    &:after {
+      @extend .flag-end;
+      border-right-color: transparent;
+    }
+  }
+
+  // Bottom
+  &.bottom {
+    top:    auto;
+    bottom: 0;
+  }
+}

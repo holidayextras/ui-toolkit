@@ -1,0 +1,33 @@
+/*------------------------------------*\
+    #Basket Item
+\*------------------------------------*/
+
+.component-basket-item {
+  padding:.5em;
+}
+.component-basket-row {
+  display: table;
+  table-layout: fixed;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width:100%;
+  .component-basket-item-title {
+    flex: 1;
+    display: table-cell;
+  }
+  .component-basket-item-description {
+    @extend .component-basket-item-title;
+    font-size:.85em;
+  }
+  .component-basket-item-total {
+    flex: 0 1 20%;
+    display: table-cell;
+    margin-left: .25em;
+    text-align:right;
+  }
+  .component-basket-item-remove  {
+    @extend .component-basket-item-total;
+    font-size:.85em;
+  }
+}

@@ -1,0 +1,14 @@
+/*------------------------------------*\
+    #Tile
+\*------------------------------------*/
+
+.component-tile {
+  border-radius: $tiles-border-radius;
+  border: $tiles-border-size $tiles-border-style $tiles-border-color;
+  .caption {
+    padding: $padding-default;
+  }
+  img {
+    width: 100%;
+  }
+}
