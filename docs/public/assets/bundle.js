@@ -40,6 +40,13 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var React = require('react');
 var DataAttributesMixin = require('react-data-attributes-mixin');
+var _React$PropTypes = React.PropTypes;
+var arrayOf = _React$PropTypes.arrayOf;
+var func = _React$PropTypes.func;
+var node = _React$PropTypes.node;
+var object = _React$PropTypes.object;
+var oneOf = _React$PropTypes.oneOf;
+var string = _React$PropTypes.string;
 
 module.exports = React.createClass({
   displayName: 'exports',
@@ -54,13 +61,15 @@ module.exports = React.createClass({
   },
 
   propTypes: {
-    handleClick: React.PropTypes.func,
-    children: React.PropTypes.node,
-    data: React.PropTypes.object,
-    href: React.PropTypes.string,
-    target: React.PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
-    title: React.PropTypes.string,
-    role: React.PropTypes.string
+    children: node,
+    classes: arrayOf(string),
+    data: object,
+    handleClick: func,
+    href: string,
+    key: string,
+    role: string,
+    target: oneOf(['_self', '_blank', '_parent', '_top']),
+    title: string
   },
 
   render: function render() {
@@ -68,9 +77,17 @@ module.exports = React.createClass({
       return null;
     }
     var dataAttributes = this.getDataAttributesFromProps();
+    var props = {
+      className: ['component-anchor'].concat(this.props.classes).join(' '),
+      title: this.props.title,
+      role: this.props.role,
+      href: this.props.href,
+      onClick: this.props.handleClick,
+      target: this.props.target
+    };
     return React.createElement(
       'a',
-      _extends({ className: 'component-anchor' }, dataAttributes, { title: this.props.title, role: this.props.role, href: this.props.href, onClick: this.props.handleClick, target: this.props.target }),
+      _extends({}, props, dataAttributes),
       this.props.children
     );
   }
@@ -1399,7 +1416,10 @@ var Components = React.createClass({displayName: "Components",
               React.createElement("li", null, React.createElement("code", null, "handleClick"), " Function - handle click events on the anchor"), 
               React.createElement("li", null, React.createElement("code", null, "href"), " String - The location you want to anchor to"), 
               React.createElement("li", null, React.createElement("code", null, "target"), " String - This attribute specifies where to display the linked resource. Can be ", React.createElement("code", null, "_self"), ", ", React.createElement("code", null, "_blank"), ", ", React.createElement("code", null, "_parent"), " or ", React.createElement("code", null, "_top")), 
-              React.createElement("li", null, React.createElement("code", null, "title"), " String - A well worded title for the anchor")
+              React.createElement("li", null, React.createElement("code", null, "title"), " String - A well worded title for the anchor"), 
+              React.createElement("li", null, React.createElement("code", null, "role"), " String - A role"), 
+              React.createElement("li", null, React.createElement("code", null, "classes"), " Array - An optional array of extra classes to add"), 
+              React.createElement("li", null, React.createElement("code", null, "key"), " String - An optional key")
             )
           ), 
 
@@ -27852,7 +27872,7 @@ module.exports={
     "grunt-release": "^0.13.0",
     "istanbul": "^0.3.17",
     "jsdom": "^1.0.0",
-    "make-up": "^5.3.1",
+    "make-up": "7.0.0",
     "mocha": "^2.2.5",
     "mocha-jsdom": "^0.3.0",
     "mocha-lcov-reporter": "0.0.2",

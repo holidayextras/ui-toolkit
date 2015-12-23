@@ -1,6 +1,7 @@
 'use strict';
-var React = require('react');
-var DataAttributesMixin = require('react-data-attributes-mixin');
+const React = require('react');
+const DataAttributesMixin = require('react-data-attributes-mixin');
+const { arrayOf, func, node, object, oneOf, string } = React.PropTypes;
 
 module.exports = React.createClass({
 
@@ -14,24 +15,30 @@ module.exports = React.createClass({
   },
 
   propTypes: {
-    handleClick: React.PropTypes.func,
-    children: React.PropTypes.node,
-    data: React.PropTypes.object,
-    href: React.PropTypes.string,
-    target: React.PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
-    title: React.PropTypes.string,
-    role: React.PropTypes.string
+    children: node,
+    classes: arrayOf(string),
+    data: object,
+    handleClick: func,
+    href: string,
+    key: string,
+    role: string,
+    target: oneOf(['_self', '_blank', '_parent', '_top']),
+    title: string
   },
 
   render: function() {
     if (!this.props.children) {
       return null;
     }
-    var dataAttributes = this.getDataAttributesFromProps();
-    return (
-      <a className="component-anchor" {...dataAttributes} title={this.props.title} role={this.props.role} href={this.props.href} onClick={this.props.handleClick} target={this.props.target}>
-        {this.props.children}
-      </a>
-    );
+    const dataAttributes = this.getDataAttributesFromProps();
+    const props = {
+      className: ['component-anchor'].concat(this.props.classes).join(' '),
+      title: this.props.title,
+      role: this.props.role,
+      href: this.props.href,
+      onClick: this.props.handleClick,
+      target: this.props.target
+    };
+    return <a {...props} {...dataAttributes}>{this.props.children}</a>;
   }
 });

@@ -22,6 +22,9 @@ var Components = React.createClass({
               <li><code>href</code> String - The location you want to anchor to</li>
               <li><code>target</code> String - This attribute specifies where to display the linked resource. Can be <code>_self</code>, <code>_blank</code>, <code>_parent</code> or <code>_top</code></li>
               <li><code>title</code> String - A well worded title for the anchor</li>
+              <li><code>role</code> String - A role</li>
+              <li><code>classes</code> Array - An optional array of extra classes to add</li>
+              <li><code>key</code> String - An optional key</li>
             </ul>
           </article>
 
