@@ -2,9 +2,6 @@
 const React = require('react');
 const DataAttributesMixin = require('react-data-attributes-mixin');
 const { arrayOf, func, node, object, oneOf, string } = React.PropTypes;
-const _ = {
-  union: require('lodash.union')
-};
 
 module.exports = React.createClass({
 
@@ -35,7 +32,7 @@ module.exports = React.createClass({
     }
     const dataAttributes = this.getDataAttributesFromProps();
     const props = {
-      className: _.union(['component-anchor'], this.props.classes),
+      className: ['component-anchor'].concat(this.props.classes).join(' '),
       title: this.props.title,
       role: this.props.role,
       href: this.props.href,
