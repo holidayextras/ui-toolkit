@@ -1,0 +1,60 @@
+/*------------------------------------*\
+    #UI-Toolkit
+\*------------------------------------*/
+
+@import '_variables';
+
+@import '../components/alert/_alert';
+@import '../components/basket-item/_basket-item';
+@import '../components/button/_button';
+@import '../components/flag/_flag';
+@import '../components/image/_image';
+@import '../components/input/_input';
+@import '../components/list/_list';
+@import '../components/lozenge/_lozenge';
+@import '../components/payment-card/_payment-card';
+@import '../components/quote/_quote';
+@import '../components/select/_select';
+@import '../components/stepper/_stepper';
+@import '../components/tile/_tile';
+@import '../components/weather/_weather';
+
+//
+// == Default styling ==
+//
+
+body {
+  font-family: $font-family-body;
+  font-size:   $font-size-base;
+  line-height: $line-height-body;
+}
+h1, h2, h3 {
+  font-family: $font-family-headings;
+  line-height: $line-height-headings;
+}
+
+h1, .h1 {
+  font-size:   $font-size-h1; //40px
+  line-height: $line-height-headings;
+}
+h2, .h2 {
+  font-size:   $font-size-h2; //30px
+  line-height: $line-height-headings;
+}
+h3, .h3 {
+  font-size:   $font-size-h3; //24px
+  line-height: $line-height-headings;
+}
+h4, .h4 {
+  font-size:   $font-size-h4; //20px
+  line-height: $line-height-headings;
+}
+h5, .h5 {
+  font-size:   $font-size-h5; //16px
+  line-height: $line-height-headings;
+}
+h6, .h6 {
+  font-size:   $font-size-h6; //14px
+  line-height: $line-height-headings;
+  text-transform: uppercase;
+}

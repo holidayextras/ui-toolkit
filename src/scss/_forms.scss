@@ -1,0 +1,18 @@
+/*------------------------------------*\
+    #Forms
+\*------------------------------------*/
+
+//
+// == Input ==
+//
+
+.component-input {
+  input {
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.075);
+    &:focus {
+      background: rgb(255,255,255);
+      border-color: rgb(81,167,232);
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.075),0 0 5px rgba(81,167,232,0.5);
+    }
+  }
+}

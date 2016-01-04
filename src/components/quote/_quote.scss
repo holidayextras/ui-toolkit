@@ -1,0 +1,74 @@
+/*------------------------------------*\
+    #Quote
+\*------------------------------------*/
+
+.component-quote {
+  border-left: $quotes-border-style $quotes-border-size;
+  margin:0;
+  padding:$padding-default;
+  font-size:$font-size-base;
+  quotes: "“" "”" "‘" "’";
+  &.inline {
+    border-left:none;
+    padding:0;
+  }
+  p {
+    &:first-of-type {
+      margin-top:0;
+    }
+    font-style: italic;
+    font-size: $font-size-base;
+    &:before {
+      content: open-quote;
+    }
+    &:after {
+      content: close-quote;
+    }
+  }
+  footer {
+    font-size:$font-size-base;
+  }
+  small, cite {
+    @extend .small;
+  }
+  cite:before {
+    content: "Source: "
+  }
+  & + .component-quote {
+    margin-top: $margin-vertical-default;
+  }
+}
+
+//
+// == Functional Colours ==
+//
+
+// Mixin
+@mixin quote-variant($background) {
+  color: $background;
+  border-color: lighten($background, 30%);
+  small, cite {
+    color: lighten($background, 20%);
+  }
+}
+
+.component-quote {
+  &.primary {
+    @include quote-variant($primary);
+  }
+  &.secondary {
+    @include quote-variant($secondary);
+  }
+  &.success {
+    @include quote-variant($success);
+  }
+  &.info {
+    @include quote-variant($info);
+  }
+  &.warning {
+    @include quote-variant($warning);
+  }
+  &.danger {
+    @include quote-variant($danger);
+  }
+}
