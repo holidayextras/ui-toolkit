@@ -15,23 +15,46 @@ module.exports = React.createClass({
     type: React.PropTypes.string,
     target: React.PropTypes.string,
     handleClick: React.PropTypes.func,
-    data: React.PropTypes.object
+    data: React.PropTypes.object,
+    id: React.PropTypes.string
   },
 
   render: function() {
-    var classes = classNames('component-button', this.props.size, this.props.purpose);
+    return this.props.href ? this.renderAnchor() : this.renderButton();
+  },
+
+  renderAnchor: function() {
+    var props = {
+      id: this.props.id,
+      className: classNames('component-button', this.props.size, this.props.purpose),
+      href: this.props.href,
+      target: this.props.target,
+      onClick: this.props.handleClick
+    };
     var dataAttributes = this.getDataAttributesFromProps();
-    if (this.props.href) {
-      return (
-        <a className={classes} href={this.props.href} target={this.props.target} onClick={this.props.handleClick} {...dataAttributes}>
-          {this.props.children}
-        </a>
-      );
-    }
+
     return (
-      <button className={classes} disabled={this.props.disabled} type={this.props.type} onClick={this.props.handleClick} {...dataAttributes}>
+      <a {...props} {...dataAttributes}>
+        {this.props.children}
+      </a>
+    );
+  },
+
+  renderButton: function() {
+    var props = {
+      id: this.props.id,
+      className: classNames('component-button', this.props.size, this.props.purpose),
+      disabled: this.props.disabled,
+      type: this.props.type,
+      onClick: this.props.handleClick
+    };
+    var dataAttributes = this.getDataAttributesFromProps();
+
+    return (
+      <button {...props} {...dataAttributes}>
         {this.props.children}
       </button>
     );
   }
+
 });
