@@ -75,4 +75,13 @@ describe('ButtonComponent', function() {
     assert.isDefined(renderedButton);
   });
 
+  it('should render with an id if present', function() {
+    var buttonWithID = TestUtils.renderIntoDocument(
+      <ButtonView id="my-id">Book Now</ButtonView>
+    );
+
+    var renderedButton = TestUtils.findRenderedDOMComponentWithClass(buttonWithID, 'component-button');
+    assert.equal(renderedButton.id, 'my-id');
+  });
+
 });

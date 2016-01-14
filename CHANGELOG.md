@@ -1,3 +1,6 @@
+### 0.26.10 - 2016-01-14
+- Allow id prop for buttons that adds id attribute
+
 ### 0.26.7 - 2015-12-03
  - fixing the stepper component, to remove random word
 
@@ -66,7 +69,7 @@
 
 ### 0.19.1 - 2015-10-29
  - Release borked dues to ulimit
- 
+
 ### 0.19.0 - 2015-10-29
  - Added basket item component
 

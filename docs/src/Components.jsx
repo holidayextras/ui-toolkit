@@ -43,7 +43,8 @@ var Components = React.createClass({
               <li><code>href</code> String - If an href is passed to a button, it changes to an anchor with button styling</li>
               <li><code>purpose</code> String - default, primary, secondary, success, info, warning, danger</li>
               <li><code>size</code> String - small, medium (default), large, extra-large, block</li>
-              <li><code>target</code> String - Standard html traget attribute</li>
+              <li><code>target</code> String - Standard html target attribute</li>
+              <li><code>id</code> String (optional) - Standard html id attribute</li>
             </ul>
           </article>
 
