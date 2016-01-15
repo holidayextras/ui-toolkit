@@ -1,6 +1,7 @@
 'use strict';
+
 var React = require('react');
-var Button = require('ui-toolkit').Button;
+var Button = require('../button');
 
 module.exports = React.createClass({
 
