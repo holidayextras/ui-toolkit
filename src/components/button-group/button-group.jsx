@@ -22,6 +22,7 @@ module.exports = React.createClass({
   },
 
   buildListOptions: function() {
+    console.log('x');
     var self = this;
     var options = this.props.options.map(function(option, index) {
       return (
