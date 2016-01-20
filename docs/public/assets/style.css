@@ -71,7 +71,7 @@ article {
   padding: 9px 14px;
   border-radius: 4px;
   position:relative;
-  overflow:hidden;
+  /*overflow:hidden;*/
 }
 .toolkit-example:before {
   content:"Example";

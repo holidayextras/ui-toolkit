@@ -225,18 +225,12 @@ var Components = React.createClass({
             </ul>
           </article>
 
-          <arictle id="button-group">
+          <arictle id="button-dropdown">
             <h3>Button Group</h3>
             <p>You can use Button Group as a way to store options in a list and for them to be clickable as well as the default button.</p>
             <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/ButtonGroup.jsx', 'utf8')}/>
             <h4>Attributes</h4>
               <ul>
-                <li><code>buttonText</code> String required - The text you wish to see on your button.</li>
-                <li><code>options</code> Array of Objects required - The options you wish to pass to the dropup button. Options get mapped over and plucked out as each list option.</li>
-                <li><code>data</code> Object - Any data options you wish to pass to the button. This may been needed for tracking or other purposes.</li>
-                <li><code>handleClick</code> Function required - The handleclick is a way of allowing you to provide a way for the button to act in response to recieving a click.</li>
-                <li><code>purpose</code> String - One of default, primary, secondary, info, warning, danger.</li>
-                <li><code>size</code> String - one of default, small, medium, large, extra-large</li>
               </ul>
           </arictle>
 
