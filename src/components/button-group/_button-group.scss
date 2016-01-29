@@ -14,7 +14,7 @@
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
       .component-icon {
-        line-height: @line-height-body;
+        line-height: $line-height-body;
       }
     }
   }
@@ -29,7 +29,7 @@
     border: 1px solid rgba(0,0,0,.15);
     border-radius: 4px;
     box-shadow: 0 6px 12px rgba(0,0,0,.175);
-    background-color: @background-color;
+    background-color: $background-color;
     box-shadow: 0 6px 12px rgba(0,0,0,.175);
   }
 

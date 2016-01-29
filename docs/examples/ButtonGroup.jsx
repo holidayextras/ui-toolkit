@@ -1,7 +1,7 @@
 var example = (
   <UIToolkit.ButtonGroup>
     <UIToolkit.Button>Hello</UIToolkit.Button>
-    <UIToolkit.Button>
+    <UIToolkit.Button handleClick={function() {document.getElementsByClassName('component-unordered-list')[1].classList.toggle("visible");}}>
       <UIToolkit.Icon icon="caret-up"/>
     </UIToolkit.Button>
     <UIToolkit.List type="unordered">

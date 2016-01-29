@@ -225,12 +225,13 @@ var Components = React.createClass({
             </ul>
           </article>
 
-          <arictle id="button-dropdown">
+          <arictle id="button-group">
             <h3>Button Group</h3>
             <p>You can use Button Group as a way to store options in a list and for them to be clickable as well as the default button.</p>
             <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/ButtonGroup.jsx', 'utf8')}/>
             <h4>Attributes</h4>
               <ul>
+                <li><code>position</code> oneOf - Can either pass top or bottom as a string and it will format the position</li>
               </ul>
           </arictle>
 
