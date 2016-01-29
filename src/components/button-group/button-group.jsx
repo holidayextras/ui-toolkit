@@ -6,7 +6,7 @@ module.exports = React.createClass({
 
   propTypes: {
     children: React.PropTypes.any,
-    position: React.PropTypes.oneOf(['top', 'bottom']),
+    position: React.PropTypes.oneOf(['top', 'bottom'])
   },
 
   render: function() {
