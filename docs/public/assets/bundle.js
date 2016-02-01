@@ -1075,7 +1075,7 @@ module.exports = React.createClass({
   propTypes: {
     children: React.PropTypes.any,
     image: React.PropTypes.object.isRequired,
-    title: React.PropTypes.string.isRequired
+    title: React.PropTypes.string
   },
 
   render: function render() {
@@ -1085,12 +1085,12 @@ module.exports = React.createClass({
       React.createElement(Image, this.props.image),
       React.createElement(
         'div',
-        { className: 'caption' },
-        React.createElement(
+        { className: 'component-tile-block' },
+        this.props.title ? React.createElement(
           'h4',
           null,
           this.props.title
-        ),
+        ) : null,
         this.props.children
       )
     );
@@ -28047,7 +28047,7 @@ module.exports = require('./lib/React');
 },{"./lib/React":143}],276:[function(require,module,exports){
 module.exports={
   "name": "ui-toolkit",
-  "version": "0.26.10",
+  "version": "0.26.20",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "index.js",
