@@ -1,3 +1,6 @@
+### 0.27.0 - 2016-02-01
+ - Updating tile to enable more flexibiloty with title being optional
+
 ### 0.26.20 - 2016-02-01
  - Updating tile to enable more flexibiloty with title being optional
 
