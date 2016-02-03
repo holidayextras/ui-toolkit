@@ -46,6 +46,18 @@ describe('InputComponent', function() {
 
   });
 
+  it('should call handleBlur prop when value changes', function() {
+    var handleBlur = sinon.spy();
+    var input = TestUtils.renderIntoDocument(
+      <InputView type="test" label="Full Name" handleBlur={handleBlur} />
+    );
+
+    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field');
+
+    TestUtils.Simulate.blur(renderedInput, { target: {value: 'changed value' } });
+    assert.ok(handleBlur.calledOnce);
+  });
+
   it('should call handleChange prop when value changes', function() {
     var handleChange = sinon.spy();
     var input = TestUtils.renderIntoDocument(
