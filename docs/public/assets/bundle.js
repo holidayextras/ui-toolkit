@@ -1519,7 +1519,8 @@ var Components = React.createClass({displayName: "Components",
               React.createElement("li", null, React.createElement("code", null, "disabled"), " Boolean - Whether to Disable the Input Field"), 
               React.createElement("li", null, React.createElement("code", null, "readOnly"), " Boolean - Whether to set the Input Field to Read Only"), 
               React.createElement("li", null, React.createElement("code", null, "required"), " Boolean - Whether to set the Input Field to be Required"), 
-              React.createElement("li", null, React.createElement("code", null, "handleChange"), " Function - Optional Function which is called onChange")
+              React.createElement("li", null, React.createElement("code", null, "handleChange"), " Function - Optional Function which is called onChange"), 
+              React.createElement("li", null, React.createElement("code", null, "handleBlur"), " Function - Optional Function which is called onBlur")
             )
           ), 
 
