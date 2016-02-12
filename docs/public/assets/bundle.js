@@ -1247,7 +1247,7 @@ UIToolkit.Alert = require('./components/alert');
 UIToolkit.Anchor = require('./components/anchor');
 UIToolkit.BasketItem = require('./components/basket-item');
 UIToolkit.Button = require('./components/button');
-UIToolkit.ButtonGroup = require('./components/button-group');
+UIToolkit.ButtonDropdown = require('./components/button-dropdown');
 UIToolkit.Countdown = require('./components/countdown');
 UIToolkit.Flag = require('./components/flag');
 UIToolkit.Icon = require('./components/icon');
@@ -28199,6 +28199,8 @@ module.exports={
   },
   "devDependencies": {
     "chai": "^2.3.0",
+    "dirty-chai": "^1.2.2",
+    "enzyme": "^1.4.1",
     "eslint": "^0.21.0",
     "eslint-plugin-react": "^2.2.0",
     "glob": "^5.0.6",

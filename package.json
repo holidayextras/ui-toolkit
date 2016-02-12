@@ -67,6 +67,8 @@
   },
   "devDependencies": {
     "chai": "^2.3.0",
+    "dirty-chai": "^1.2.2",
+    "enzyme": "^1.4.1",
     "eslint": "^0.21.0",
     "eslint-plugin-react": "^2.2.0",
     "glob": "^5.0.6",
