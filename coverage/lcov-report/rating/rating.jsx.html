@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for rating/rating.jsx</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../prettify.css">
+    <link rel="stylesheet" href="../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">rating/rating.jsx</span></h1>
+    <h2>
+        Statements: <span class="metric">100% <small>(10 / 10)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">100% <small>(6 / 6)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(1 / 1)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">100% <small>(10 / 10)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">rating/</a> &#187; rating.jsx</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+var React = require('react');
+&nbsp;
+module.exports = React.createClass({
+  displayName: 'exports',
+&nbsp;
+  propTypes: {
+    children: React.PropTypes.any,
+    rating: React.PropTypes.number.isRequired,
+    outOf: React.PropTypes.number,
+    blankIcon: React.PropTypes.node
+  },
+&nbsp;
+  render: function render() {
+    var $rating = [];
+    var $blankRating = [];
+&nbsp;
+    for (var i = 0; i &lt; this.props.rating; i++) {
+      $rating.push(this.props.children ? this.props.children : React.createElement('span', { className: 'rating-icon' }));
+    }
+&nbsp;
+    if (this.props.outOf &amp;&amp; this.props.blankIcon) {
+      for (var j = 0; j &lt; this.props.outOf - this.props.rating; j++) {
+        $blankRating.push(this.props.blankIcon);
+      }
+    }
+&nbsp;
+    return React.createElement(
+      'div',
+      { className: 'ui-component-rating' },
+      $rating,
+      $blankRating
+    );
+  }
+});
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9qb2RpZS5kb3VibGVkYXkvRG9jdW1lbnRzL0dpdEh1Yi91aS10b29sa2l0L3NyYy9jb21wb25lbnRzL3JhdGluZy9yYXRpbmcuanN4Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLFlBQVksQ0FBQztBQUNiLElBQUksS0FBSyxHQUFHLE9BQU8sQ0FBQyxPQUFPLENBQUMsQ0FBQzs7QUFFN0IsTUFBTSxDQUFDLE9BQU8sR0FBRyxLQUFLLENBQUMsV0FBVyxDQUFDOzs7QUFDakMsV0FBUyxFQUFFO0FBQ1QsWUFBUSxFQUFFLEtBQUssQ0FBQyxTQUFTLENBQUMsR0FBRztBQUM3QixVQUFNLEVBQUUsS0FBSyxDQUFDLFNBQVMsQ0FBQyxNQUFNLENBQUMsVUFBVTtBQUN6QyxTQUFLLEVBQUUsS0FBSyxDQUFDLFNBQVMsQ0FBQyxNQUFNO0FBQzdCLGFBQVMsRUFBRSxLQUFLLENBQUMsU0FBUyxDQUFDLElBQUk7R0FDaEM7O0FBRUQsUUFBTSxFQUFFLGtCQUFXO0FBQ2pCLFFBQUksT0FBTyxHQUFHLEVBQUUsQ0FBQztBQUNqQixRQUFJLFlBQVksR0FBRyxFQUFFLENBQUM7O0FBRXRCLFNBQUssSUFBSSxDQUFDLEdBQUcsQ0FBQyxFQUFFLENBQUMsR0FBRyxJQUFJLENBQUMsS0FBSyxDQUFDLE1BQU0sRUFBRSxDQUFDLEVBQUUsRUFBRTtBQUMxQyxhQUFPLENBQUMsSUFBSSxDQUFFLElBQUksQ0FBQyxLQUFLLENBQUMsUUFBUSxHQUFHLElBQUksQ0FBQyxLQUFLLENBQUMsUUFBUSxHQUFHLDhCQUFNLFNBQVMsRUFBQyxhQUFhLEdBQUcsQ0FBRSxDQUFDO0tBQzlGOztBQUVELFFBQUksSUFBSSxDQUFDLEtBQUssQ0FBQyxLQUFLLElBQUksSUFBSSxDQUFDLEtBQUssQ0FBQyxTQUFTLEVBQUU7QUFDNUMsV0FBSyxJQUFJLENBQUMsR0FBRyxDQUFDLEVBQUUsQ0FBQyxHQUFLLElBQUksQ0FBQyxLQUFLLENBQUMsS0FBSyxHQUFHLElBQUksQ0FBQyxLQUFLLENBQUMsTUFBTSxBQUFFLEVBQUUsQ0FBQyxFQUFFLEVBQUU7QUFDakUsb0JBQVksQ0FBQyxJQUFJLENBQUUsSUFBSSxDQUFDLEtBQUssQ0FBQyxTQUFTLENBQUUsQ0FBQztPQUMzQztLQUNGOztBQUVELFdBQ0U7O1FBQUssU0FBUyxFQUFDLHFCQUFxQjtNQUNqQyxPQUFPO01BQ1AsWUFBWTtLQUNULENBQ047R0FDSDtDQUNGLENBQUMsQ0FBQyIsImZpbGUiOiIvVXNlcnMvam9kaWUuZG91YmxlZGF5L0RvY3VtZW50cy9HaXRIdWIvdWktdG9vbGtpdC9zcmMvY29tcG9uZW50cy9yYXRpbmcvcmF0aW5nLmpzeCIsInNvdXJjZXNDb250ZW50IjpbIid1c2Ugc3RyaWN0JztcbnZhciBSZWFjdCA9IHJlcXVpcmUoJ3JlYWN0Jyk7XG5cbm1vZHVsZS5leHBvcnRzID0gUmVhY3QuY3JlYXRlQ2xhc3Moe1xuICBwcm9wVHlwZXM6IHtcbiAgICBjaGlsZHJlbjogUmVhY3QuUHJvcFR5cGVzLmFueSxcbiAgICByYXRpbmc6IFJlYWN0LlByb3BUeXBlcy5udW1iZXIuaXNSZXF1aXJlZCxcbiAgICBvdXRPZjogUmVhY3QuUHJvcFR5cGVzLm51bWJlcixcbiAgICBibGFua0ljb246IFJlYWN0LlByb3BUeXBlcy5ub2RlXG4gIH0sXG5cbiAgcmVuZGVyOiBmdW5jdGlvbigpIHtcbiAgICB2YXIgJHJhdGluZyA9IFtdO1xuICAgIHZhciAkYmxhbmtSYXRpbmcgPSBbXTtcblxuICAgIGZvciAodmFyIGkgPSAwOyBpIDwgdGhpcy5wcm9wcy5yYXRpbmc7IGkrKykge1xuICAgICAgJHJhdGluZy5wdXNoKCB0aGlzLnByb3BzLmNoaWxkcmVuID8gdGhpcy5wcm9wcy5jaGlsZHJlbiA6IDxzcGFuIGNsYXNzTmFtZT1cInJhdGluZy1pY29uXCIgLz4gKTtcbiAgICB9XG5cbiAgICBpZiAodGhpcy5wcm9wcy5vdXRPZiAmJiB0aGlzLnByb3BzLmJsYW5rSWNvbikge1xuICAgICAgZm9yICh2YXIgaiA9IDA7IGogPCAoIHRoaXMucHJvcHMub3V0T2YgLSB0aGlzLnByb3BzLnJhdGluZyApOyBqKyspIHtcbiAgICAgICAgJGJsYW5rUmF0aW5nLnB1c2goIHRoaXMucHJvcHMuYmxhbmtJY29uICk7XG4gICAgICB9XG4gICAgfVxuXG4gICAgcmV0dXJuIChcbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwidWktY29tcG9uZW50LXJhdGluZ1wiPlxuICAgICAgICB7JHJhdGluZ31cbiAgICAgICAgeyRibGFua1JhdGluZ31cbiAgICAgIDwvZGl2PlxuICAgICk7XG4gIH1cbn0pO1xuIl19</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Nov 16 2015 12:48:28 GMT+0000 (GMT)</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

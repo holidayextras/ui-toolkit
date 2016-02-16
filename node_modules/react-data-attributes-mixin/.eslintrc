@@ -1,0 +1,10 @@
+{
+  "env": {
+    "node": true,
+    "mocha": true
+  },
+  "rules": {
+    "quotes": [2, "single"],
+    "strict": [2, "never"]
+  }
+}
