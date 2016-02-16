@@ -1,7 +1,0 @@
-name: ui-toolkit
-description: Holiday Extras UI Toolkit
-markdown: redcarpet
-highlighter: pygments
-baseurl: /ui-toolkit
-permalink: none
-exclude: ['Gruntfile.js', 'ui-toolkit.sublime-project']
