@@ -31,7 +31,7 @@ module.exports = React.createClass({
     return (
       <div className="component-weather">
         <div className={this.props.type}><span>{this.props.type}</span></div>
-        {(this.props.temperature) ? <div>{this.props.temperature}<abbr title={unitName}>{unit}</abbr></div> : null}
+        {(this.props.temperature || this.props.temperature === 0) ? <div>{this.props.temperature}<abbr title={unitName}>{unit}</abbr></div> : null}
         {(this.props.date) ? <div>{moment(date, expectedFormat, true).format(displayFormat)}</div> : null}
       </div>
     );
