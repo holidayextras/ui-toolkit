@@ -233,6 +233,16 @@ describe('WeatherComponent', function() {
       var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherTemp, 'div')[2];
       assert.equal(renderedWeather.textContent, '20K');
     });
+
+    it('displays a temperature at 0', function() {
+      var weatherTemp = TestUtils.renderIntoDocument(
+        <WeatherComponent type={type} temperature={0} unit="C"/>
+      );
+
+      var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherTemp, 'div')[2];
+      assert.equal(renderedWeather.textContent, '0°C');
+    });
+
   });
 
 });
