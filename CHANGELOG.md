@@ -1,3 +1,6 @@
+### 0.28.1 - 2016-02-17
+- Fix bug with weather component that stopped it from displaying 0 temperature values
+
 ### 0.28.0 - 2016-02-01
  - Updating tile to enable more flexibiloty with title being optional
 
