@@ -1,6 +1,6 @@
 {
-  "name": "ui-toolkit",
-  "version": "0.28.1",
+  "name": "@holidayextras/ui-toolkit",
+  "version": "0.29.1",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "index.js",
@@ -13,7 +13,7 @@
     "ci": "npm run lint && npm run test-xunit && npm run coverage",
     "ci_travis": "npm run lint && npm run coverage",
     "deploy": "scripts/deploy.sh",
-    "postinstall": "npm run build",
+    "prepublish": "npm run build",
     "coverage": "istanbul cover -x dist _mocha -- test/**/*-test.*",
     "predocs": "cd docs && npm install && cd - && npm run build",
     "docs": "grunt docs",
