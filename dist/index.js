@@ -18,6 +18,7 @@ UIToolkit.Lozenge = require('./components/lozenge');
 UIToolkit.PaymentCard = require('./components/payment-card');
 UIToolkit.Quote = require('./components/quote');
 UIToolkit.Rating = require('./components/rating');
+UIToolkit.Review = require('./components/review');
 UIToolkit.Reviews = require('./components/reviews');
 UIToolkit.Select = require('./components/select');
 UIToolkit.Tile = require('./components/tile');

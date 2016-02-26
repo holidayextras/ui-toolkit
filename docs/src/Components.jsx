@@ -193,6 +193,18 @@ var Components = React.createClass({
               <li><code>type</code> String - Block (default) or Inline</li>
             </ul>
           </article>
+
+          <article id="review">
+            <h3>Review</h3>
+            <p>A review component which displays the comment and the author with an optional date.</p>
+            <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Review.jsx', 'utf8')} />
+            <h4>Attributes</h4>
+            <ul>
+              <li><code>author</code> String - The author of the review</li>
+              <li><code>comment</code> String - The text of the review</li>
+              <li><code>date</code> String - The date the review was posted</li>
+            </ul>
+          </article>
         </section>
 
         <section id="molecules">

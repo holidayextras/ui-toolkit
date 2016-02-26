@@ -33,7 +33,7 @@ module.exports = React.createClass({
 });
 
 
-},{"classnames":97,"react":275}],2:[function(require,module,exports){
+},{"classnames":98,"react":278}],2:[function(require,module,exports){
 'use strict';
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -77,7 +77,7 @@ module.exports = React.createClass({
 });
 
 
-},{"react":275,"react-data-attributes-mixin":102}],3:[function(require,module,exports){
+},{"react":278,"react-data-attributes-mixin":103}],3:[function(require,module,exports){
 'use strict';
 var React = require('react');
 var Anchor = require('../anchor');
@@ -169,7 +169,7 @@ module.exports = React.createClass({
 });
 
 
-},{"../anchor":2,"react":275}],4:[function(require,module,exports){
+},{"../anchor":2,"react":278}],4:[function(require,module,exports){
 'use strict';
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -236,7 +236,7 @@ module.exports = React.createClass({
 });
 
 
-},{"classnames":97,"react":275,"react-data-attributes-mixin":102}],5:[function(require,module,exports){
+},{"classnames":98,"react":278,"react-data-attributes-mixin":103}],5:[function(require,module,exports){
 'use strict';
 var React = require('react');
 var CountdownManager = require('../../../src/components/countdown/lib/countdownManager');
@@ -343,7 +343,7 @@ module.exports = React.createClass({
 });
 
 
-},{"../../../src/components/countdown/lib/countdownManager":278,"classnames":97,"react":275}],6:[function(require,module,exports){
+},{"../../../src/components/countdown/lib/countdownManager":281,"classnames":98,"react":278}],6:[function(require,module,exports){
 'use strict';
 var React = require('react');
 var classNames = require('classnames');
@@ -369,7 +369,7 @@ module.exports = React.createClass({
 });
 
 
-},{"classnames":97,"react":275}],7:[function(require,module,exports){
+},{"classnames":98,"react":278}],7:[function(require,module,exports){
 'use strict';
 var React = require('react');
 
@@ -406,7 +406,7 @@ module.exports = React.createClass({
 });
 
 
-},{"react":275}],8:[function(require,module,exports){
+},{"react":278}],8:[function(require,module,exports){
 'use strict';
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -443,7 +443,7 @@ module.exports = React.createClass({
 });
 
 
-},{"react":275,"react-data-attributes-mixin":102}],9:[function(require,module,exports){
+},{"react":278,"react-data-attributes-mixin":103}],9:[function(require,module,exports){
 'use strict';
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -592,7 +592,7 @@ module.exports = React.createClass({
 });
 
 
-},{"classnames":97,"react":275,"react-data-attributes-mixin":102}],10:[function(require,module,exports){
+},{"classnames":98,"react":278,"react-data-attributes-mixin":103}],10:[function(require,module,exports){
 'use strict';
 var React = require('react');
 
@@ -613,7 +613,7 @@ module.exports = React.createClass({
 });
 
 
-},{"react":275}],11:[function(require,module,exports){
+},{"react":278}],11:[function(require,module,exports){
 'use strict';
 var React = require('react');
 
@@ -634,7 +634,7 @@ module.exports = React.createClass({
 });
 
 
-},{"react":275}],12:[function(require,module,exports){
+},{"react":278}],12:[function(require,module,exports){
 'use strict';
 var React = require('react');
 
@@ -655,7 +655,7 @@ module.exports = React.createClass({
 });
 
 
-},{"react":275}],13:[function(require,module,exports){
+},{"react":278}],13:[function(require,module,exports){
 'use strict';
 var React = require('react');
 
@@ -696,7 +696,7 @@ module.exports = React.createClass({
 });
 
 
-},{"react":275}],14:[function(require,module,exports){
+},{"react":278}],14:[function(require,module,exports){
 'use strict';
 var React = require('react');
 var classNames = require('classnames');
@@ -722,7 +722,7 @@ module.exports = React.createClass({
 });
 
 
-},{"classnames":97,"react":275}],15:[function(require,module,exports){
+},{"classnames":98,"react":278}],15:[function(require,module,exports){
 'use strict';
 var React = require('react');
 var classNames = require('classnames');
@@ -742,7 +742,7 @@ module.exports = React.createClass({
 });
 
 
-},{"classnames":97,"react":275}],16:[function(require,module,exports){
+},{"classnames":98,"react":278}],16:[function(require,module,exports){
 'use strict';
 var React = require('react');
 var classNames = require('classnames');
@@ -809,7 +809,7 @@ module.exports = React.createClass({
 });
 
 
-},{"classnames":97,"react":275}],17:[function(require,module,exports){
+},{"classnames":98,"react":278}],17:[function(require,module,exports){
 'use strict';
 var React = require('react');
 
@@ -847,7 +847,54 @@ module.exports = React.createClass({
 });
 
 
-},{"react":275}],18:[function(require,module,exports){
+},{"react":278}],18:[function(require,module,exports){
+'use strict';
+var React = require('react');
+var string = React.PropTypes.string;
+
+module.exports = React.createClass({
+	displayName: 'exports',
+
+	propTypes: {
+		comment: string.isRequired,
+		author: string.isRequired,
+		date: string
+	},
+
+	render: function render() {
+		var _props = this.props;
+		var date = _props.date;
+		var comment = _props.comment;
+		var author = _props.author;
+
+		return React.createElement(
+			'blockquote',
+			{ itemProp: 'review', itemScope: true, itemType: 'http://schema.org/Review' },
+			React.createElement(
+				'p',
+				{ itemProp: 'description' },
+				comment
+			),
+			React.createElement(
+				'small',
+				null,
+				React.createElement(
+					'cite',
+					{ itemProp: 'author' },
+					author
+				),
+				date && React.createElement(
+					'em',
+					{ itemProp: 'datePublished', content: date },
+					date
+				)
+			)
+		);
+	}
+});
+
+
+},{"react":278}],19:[function(require,module,exports){
 'use strict';
 var React = require('react');
 
@@ -895,7 +942,7 @@ module.exports = React.createClass({
 });
 
 
-},{"react":275}],19:[function(require,module,exports){
+},{"react":278}],20:[function(require,module,exports){
 'use strict';
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -969,7 +1016,7 @@ module.exports = React.createClass({
 });
 
 
-},{"react":275,"react-data-attributes-mixin":102}],20:[function(require,module,exports){
+},{"react":278,"react-data-attributes-mixin":103}],21:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -1064,7 +1111,7 @@ module.exports = React.createClass({
 });
 
 
-},{"../button":4,"../input":9,"react":275}],21:[function(require,module,exports){
+},{"../button":4,"../input":9,"react":278}],22:[function(require,module,exports){
 'use strict';
 var React = require('react');
 var Image = require('../image');
@@ -1098,7 +1145,7 @@ module.exports = React.createClass({
 });
 
 
-},{"../image":8,"react":275}],22:[function(require,module,exports){
+},{"../image":8,"react":278}],23:[function(require,module,exports){
 'use strict';
 var React = require('react');
 var moment = require('moment');
@@ -1142,7 +1189,7 @@ module.exports = React.createClass({
           this.props.type
         )
       ),
-      this.props.temperature ? React.createElement(
+      this.props.temperature || this.props.temperature === 0 ? React.createElement(
         'div',
         null,
         this.props.temperature,
@@ -1162,7 +1209,7 @@ module.exports = React.createClass({
 });
 
 
-},{"moment":98,"react":275}],23:[function(require,module,exports){
+},{"moment":99,"react":278}],24:[function(require,module,exports){
 var UIToolkit = {};
 
 // Custom Components
@@ -1183,6 +1230,7 @@ UIToolkit.Lozenge = require('./components/lozenge');
 UIToolkit.PaymentCard = require('./components/payment-card');
 UIToolkit.Quote = require('./components/quote');
 UIToolkit.Rating = require('./components/rating');
+UIToolkit.Review = require('./components/review');
 UIToolkit.Reviews = require('./components/reviews');
 UIToolkit.Select = require('./components/select');
 UIToolkit.Tile = require('./components/tile');
@@ -1192,7 +1240,7 @@ UIToolkit.Stepper = require('./components/stepper');
 module.exports = UIToolkit;
 
 
-},{"./components/alert":1,"./components/anchor":2,"./components/basket-item":3,"./components/button":4,"./components/countdown":5,"./components/flag":6,"./components/icon":7,"./components/image":8,"./components/input":9,"./components/list":13,"./components/list-description":10,"./components/list-item":11,"./components/list-term":12,"./components/lozenge":14,"./components/payment-card":15,"./components/quote":16,"./components/rating":17,"./components/reviews":18,"./components/select":19,"./components/stepper":20,"./components/tile":21,"./components/weather":22}],24:[function(require,module,exports){
+},{"./components/alert":1,"./components/anchor":2,"./components/basket-item":3,"./components/button":4,"./components/countdown":5,"./components/flag":6,"./components/icon":7,"./components/image":8,"./components/input":9,"./components/list":13,"./components/list-description":10,"./components/list-item":11,"./components/list-term":12,"./components/lozenge":14,"./components/payment-card":15,"./components/quote":16,"./components/rating":17,"./components/review":18,"./components/reviews":19,"./components/select":20,"./components/stepper":21,"./components/tile":22,"./components/weather":23}],25:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -1208,9 +1256,9 @@ window.ReactDOM = ReactDOM;
 ReactDOM.render(React.createElement(App, null), document.getElementById('application'));
 
 
-},{"./src/App.jsx":28,"react":275,"react-dom":119}],25:[function(require,module,exports){
+},{"./src/App.jsx":29,"react":278,"react-dom":122}],26:[function(require,module,exports){
 
-},{}],26:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -1303,7 +1351,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],27:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 /*!
   Copyright (c) 2015 Jed Watson.
   Licensed under the MIT License (MIT), see
@@ -1348,7 +1396,7 @@ if (typeof define !== 'undefined' && define.amd) {
 	});
 }
 
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 var React = require('react');
 
 var HomePage = require('./HomePage.jsx');
@@ -1388,7 +1436,7 @@ var App = React.createClass({displayName: "App",
   render: function () {
 
     return (
-      React.createElement("div", {className: "wrapper"},
+      React.createElement("div", {className: "wrapper"}, 
         React.createElement(HomePage, null)
       )
     );
@@ -1398,7 +1446,7 @@ var App = React.createClass({displayName: "App",
 module.exports = App;
 
 
-},{"./HomePage.jsx":32,"react":275,"react-a11y":101}],29:[function(require,module,exports){
+},{"./HomePage.jsx":33,"react":278,"react-a11y":102}],30:[function(require,module,exports){
 var React = require('react');
 var fs = require('fs');
 
@@ -1407,305 +1455,317 @@ var CustomComponent = require('./CustomComponent.jsx');
 var Components = React.createClass({displayName: "Components",
   render: function () {
     return (
-      React.createElement("main", {role: "main"},
-        React.createElement("section", {id: "atoms"},
-          React.createElement("h2", {className: "page-header"}, "Atoms"),
-          React.createElement("p", null, "Atoms are the basic building blocks of matter. Applied to web interfaces, atoms are our HTML tags, such as a form label, an input or a button."),
+      React.createElement("main", {role: "main"}, 
+        React.createElement("section", {id: "atoms"}, 
+          React.createElement("h2", {className: "page-header"}, "Atoms"), 
+          React.createElement("p", null, "Atoms are the basic building blocks of matter. Applied to web interfaces, atoms are our HTML tags, such as a form label, an input or a button."), 
 
-          React.createElement("article", {id: "anchor"},
-            React.createElement("h3", null, "Anchor"),
-            React.createElement("p", null, "The Anchor defines a hyperlink to a location on the same page or any other page on the Web"),
-            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    Why not visit the <UIToolkit.Anchor title=\"The UI Tookit\" href=\"http://www.ui-toolkit.com/\" target=\"_blank\">UI Toolkit</UIToolkit.Anchor> for awesome react components\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}),
-            React.createElement("h4", null, "Attributes"),
-            React.createElement("ul", null,
-              React.createElement("li", null, React.createElement("code", null, "data"), " Object - Where ", React.createElement("code", null, "keys"), " will be data attributes and ", React.createElement("code", null, "values"), " will be their values (uses ", React.createElement("a", {href: "https://github.com/holidayextras/react-data-attributes-mixin", alt: "React Data Attributes Mixin"}, "React Data Attributes Mixin"), ")"),
-              React.createElement("li", null, React.createElement("code", null, "handleClick"), " Function - handle click events on the anchor"),
-              React.createElement("li", null, React.createElement("code", null, "href"), " String - The location you want to anchor to"),
-              React.createElement("li", null, React.createElement("code", null, "target"), " String - This attribute specifies where to display the linked resource. Can be ", React.createElement("code", null, "_self"), ", ", React.createElement("code", null, "_blank"), ", ", React.createElement("code", null, "_parent"), " or ", React.createElement("code", null, "_top")),
+          React.createElement("article", {id: "anchor"}, 
+            React.createElement("h3", null, "Anchor"), 
+            React.createElement("p", null, "The Anchor defines a hyperlink to a location on the same page or any other page on the Web"), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    Why not visit the <UIToolkit.Anchor title=\"The UI Tookit\" href=\"http://www.ui-toolkit.com/\" target=\"_blank\">UI Toolkit</UIToolkit.Anchor> for awesome react components\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "data"), " Object - Where ", React.createElement("code", null, "keys"), " will be data attributes and ", React.createElement("code", null, "values"), " will be their values (uses ", React.createElement("a", {href: "https://github.com/holidayextras/react-data-attributes-mixin", alt: "React Data Attributes Mixin"}, "React Data Attributes Mixin"), ")"), 
+              React.createElement("li", null, React.createElement("code", null, "handleClick"), " Function - handle click events on the anchor"), 
+              React.createElement("li", null, React.createElement("code", null, "href"), " String - The location you want to anchor to"), 
+              React.createElement("li", null, React.createElement("code", null, "target"), " String - This attribute specifies where to display the linked resource. Can be ", React.createElement("code", null, "_self"), ", ", React.createElement("code", null, "_blank"), ", ", React.createElement("code", null, "_parent"), " or ", React.createElement("code", null, "_top")), 
               React.createElement("li", null, React.createElement("code", null, "title"), " String - A well worded title for the anchor")
             )
-          ),
+          ), 
 
-          React.createElement("article", {id: "button"},
-            React.createElement("h3", null, "Buttons"),
-            React.createElement("p", null, "A clickable/tappable button element"),
-            React.createElement("p", null, "To give the button a purpose, add ", React.createElement("code", null, "purpose"), " etc."),
-            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Button>Default</UIToolkit.Button>\n    <UIToolkit.Button purpose=\"primary\">Primary</UIToolkit.Button>\n    <UIToolkit.Button purpose=\"secondary\">Secondary</UIToolkit.Button>\n    <UIToolkit.Button purpose=\"success\">Success</UIToolkit.Button>\n    <UIToolkit.Button purpose=\"info\">Info</UIToolkit.Button>\n    <UIToolkit.Button purpose=\"warning\">Warning</UIToolkit.Button>\n    <UIToolkit.Button purpose=\"danger\">Danger</UIToolkit.Button>\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}),
-            React.createElement("h4", null, "Size"),
-            React.createElement("p", null, "Fancy larger or smaller buttons? Add ", React.createElement("code", null, "size"), " for additional sizes."),
-            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Button size=\"small\">Small</UIToolkit.Button>\n    <UIToolkit.Button>Default</UIToolkit.Button>\n    <UIToolkit.Button size=\"large\">Large</UIToolkit.Button>\n    <UIToolkit.Button size=\"extra-large\">Extra Large</UIToolkit.Button>\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}),
-            React.createElement("h4", null, "Block"),
-            React.createElement("p", null, "Create block level buttons by adding"),
-            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Button size=\"block\">Block default</UIToolkit.Button>\n    <UIToolkit.Button size=\"block\" purpose=\"primary\">Block primary</UIToolkit.Button>\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}),
-            React.createElement("h4", null, "Attributes"),
-            React.createElement("ul", null,
-              React.createElement("li", null, React.createElement("code", null, "data"), " Object - Where ", React.createElement("code", null, "keys"), " will be data attributes and ", React.createElement("code", null, "values"), " will be their values (uses ", React.createElement("a", {href: "https://github.com/holidayextras/react-data-attributes-mixin", alt: "React Data Attributes Mixin"}, "React Data Attributes Mixin"), ")"),
-              React.createElement("li", null, React.createElement("code", null, "disabled"), " Boolean - Determines the state of the button"),
-              React.createElement("li", null, React.createElement("code", null, "href"), " String - If an href is passed to a button, it changes to an anchor with button styling"),
-              React.createElement("li", null, React.createElement("code", null, "purpose"), " String - default, primary, secondary, success, info, warning, danger"),
-              React.createElement("li", null, React.createElement("code", null, "size"), " String - small, medium (default), large, extra-large, block"),
-              React.createElement("li", null, React.createElement("code", null, "target"), " String - Standard html target attribute"),
+          React.createElement("article", {id: "button"}, 
+            React.createElement("h3", null, "Buttons"), 
+            React.createElement("p", null, "A clickable/tappable button element"), 
+            React.createElement("p", null, "To give the button a purpose, add ", React.createElement("code", null, "purpose"), " etc."), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Button>Default</UIToolkit.Button>\n    <UIToolkit.Button purpose=\"primary\">Primary</UIToolkit.Button>\n    <UIToolkit.Button purpose=\"secondary\">Secondary</UIToolkit.Button>\n    <UIToolkit.Button purpose=\"success\">Success</UIToolkit.Button>\n    <UIToolkit.Button purpose=\"info\">Info</UIToolkit.Button>\n    <UIToolkit.Button purpose=\"warning\">Warning</UIToolkit.Button>\n    <UIToolkit.Button purpose=\"danger\">Danger</UIToolkit.Button>\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Size"), 
+            React.createElement("p", null, "Fancy larger or smaller buttons? Add ", React.createElement("code", null, "size"), " for additional sizes."), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Button size=\"small\">Small</UIToolkit.Button>\n    <UIToolkit.Button>Default</UIToolkit.Button>\n    <UIToolkit.Button size=\"large\">Large</UIToolkit.Button>\n    <UIToolkit.Button size=\"extra-large\">Extra Large</UIToolkit.Button>\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Block"), 
+            React.createElement("p", null, "Create block level buttons by adding"), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Button size=\"block\">Block default</UIToolkit.Button>\n    <UIToolkit.Button size=\"block\" purpose=\"primary\">Block primary</UIToolkit.Button>\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "data"), " Object - Where ", React.createElement("code", null, "keys"), " will be data attributes and ", React.createElement("code", null, "values"), " will be their values (uses ", React.createElement("a", {href: "https://github.com/holidayextras/react-data-attributes-mixin", alt: "React Data Attributes Mixin"}, "React Data Attributes Mixin"), ")"), 
+              React.createElement("li", null, React.createElement("code", null, "disabled"), " Boolean - Determines the state of the button"), 
+              React.createElement("li", null, React.createElement("code", null, "href"), " String - If an href is passed to a button, it changes to an anchor with button styling"), 
+              React.createElement("li", null, React.createElement("code", null, "purpose"), " String - default, primary, secondary, success, info, warning, danger"), 
+              React.createElement("li", null, React.createElement("code", null, "size"), " String - small, medium (default), large, extra-large, block"), 
+              React.createElement("li", null, React.createElement("code", null, "target"), " String - Standard html target attribute"), 
               React.createElement("li", null, React.createElement("code", null, "id"), " String (optional) - Standard html id attribute")
             )
-          ),
+          ), 
 
-          React.createElement("article", {id: "flags"},
-            React.createElement("h3", null, "Flags"),
-            React.createElement("p", null, "Flags are used to highlight taxonomy terms or 'tags' on elements. For example 'special offer' or 'limited time only'"),
-            React.createElement("p", null, "To give the flag a purpose, add ", React.createElement("code", null, "purpose"), " etc."),
-            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Flag>Default</UIToolkit.Flag>\n    <UIToolkit.Flag purpose=\"primary\">Primary</UIToolkit.Flag>\n    <UIToolkit.Flag purpose=\"secondary\">Secondary</UIToolkit.Flag>\n    <UIToolkit.Flag purpose=\"success\">Success</UIToolkit.Flag>\n    <UIToolkit.Flag purpose=\"warning\">Warning</UIToolkit.Flag>\n    <UIToolkit.Flag purpose=\"danger\">Danger</UIToolkit.Flag>\n    <UIToolkit.Flag purpose=\"info\">Info</UIToolkit.Flag>\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}),
-            React.createElement("h4", null, "Size"),
-            React.createElement("p", null, "Fancy larger or smaller flags? Add ", React.createElement("code", null, "size"), " for additional sizes."),
-            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Flag size=\"small\">Small</UIToolkit.Flag>\n    <UIToolkit.Flag>Default</UIToolkit.Flag>\n    <UIToolkit.Flag size=\"large\">Large</UIToolkit.Flag>\n    <UIToolkit.Flag size=\"extra-large\">Extra Large</UIToolkit.Flag>    \n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}),
-            React.createElement("h4", null, "Position"),
-            React.createElement("p", null, "Need to position your flag? You can position the flag anywhere in a container using ", React.createElement("code", null, "position")),
-            React.createElement("p", null, "The container must have a ", React.createElement("code", null, "relative:position"), " and a ", React.createElement("code", null, "z-index:x"), " applied."),
-            React.createElement(CustomComponent, {codeText: "var example = (\n  <div className=\"demo-box\">\n    <UIToolkit.Flag position=\"left\">Left</UIToolkit.Flag>\n    <UIToolkit.Flag position=\"right\">Right</UIToolkit.Flag>\n    <UIToolkit.Flag position=\"bottom left\">Bottom Left</UIToolkit.Flag>\n    <UIToolkit.Flag position=\"bottom right\">Bottom Right</UIToolkit.Flag>\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}),
-            React.createElement("h4", null, "Attributes"),
-            React.createElement("ul", null,
-              React.createElement("li", null, React.createElement("code", null, "position"), " String - top (default), bottom, left, right"),
-              React.createElement("li", null, React.createElement("code", null, "purpose"), " String - default, primary, secondary, success, info, warning, danger"),
+          React.createElement("article", {id: "flags"}, 
+            React.createElement("h3", null, "Flags"), 
+            React.createElement("p", null, "Flags are used to highlight taxonomy terms or 'tags' on elements. For example 'special offer' or 'limited time only'"), 
+            React.createElement("p", null, "To give the flag a purpose, add ", React.createElement("code", null, "purpose"), " etc."), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Flag>Default</UIToolkit.Flag>\n    <UIToolkit.Flag purpose=\"primary\">Primary</UIToolkit.Flag>\n    <UIToolkit.Flag purpose=\"secondary\">Secondary</UIToolkit.Flag>\n    <UIToolkit.Flag purpose=\"success\">Success</UIToolkit.Flag>\n    <UIToolkit.Flag purpose=\"warning\">Warning</UIToolkit.Flag>\n    <UIToolkit.Flag purpose=\"danger\">Danger</UIToolkit.Flag>\n    <UIToolkit.Flag purpose=\"info\">Info</UIToolkit.Flag>\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Size"), 
+            React.createElement("p", null, "Fancy larger or smaller flags? Add ", React.createElement("code", null, "size"), " for additional sizes."), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Flag size=\"small\">Small</UIToolkit.Flag>\n    <UIToolkit.Flag>Default</UIToolkit.Flag>\n    <UIToolkit.Flag size=\"large\">Large</UIToolkit.Flag>\n    <UIToolkit.Flag size=\"extra-large\">Extra Large</UIToolkit.Flag>    \n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Position"), 
+            React.createElement("p", null, "Need to position your flag? You can position the flag anywhere in a container using ", React.createElement("code", null, "position")), 
+            React.createElement("p", null, "The container must have a ", React.createElement("code", null, "relative:position"), " and a ", React.createElement("code", null, "z-index:x"), " applied."), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div className=\"demo-box\">\n    <UIToolkit.Flag position=\"left\">Left</UIToolkit.Flag>\n    <UIToolkit.Flag position=\"right\">Right</UIToolkit.Flag>\n    <UIToolkit.Flag position=\"bottom left\">Bottom Left</UIToolkit.Flag>\n    <UIToolkit.Flag position=\"bottom right\">Bottom Right</UIToolkit.Flag>\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "position"), " String - top (default), bottom, left, right"), 
+              React.createElement("li", null, React.createElement("code", null, "purpose"), " String - default, primary, secondary, success, info, warning, danger"), 
               React.createElement("li", null, React.createElement("code", null, "size"), " String - small, medium (default), large, extra-large")
             )
-          ),
+          ), 
 
-          React.createElement("article", {id: "icons"},
-            React.createElement("h3", null, "Icons"),
-            React.createElement("p", null, "Icons are provided to add visual aid to elements on your website. Use independently, as part of a list, the world is your oyster (though there is no oyster icon)."),
-            React.createElement("p", null, "The default font library we use is ", React.createElement("a", {href: "https://fortawesome.github.io/Font-Awesome/", alt: "Font Awesome"}, "Font Awesome"), " but you can also use Bootstraps ", React.createElement("a", {href: "http://getbootstrap.com/components/#glyphicons", alt: "Glyphicons"}, "Glyphicons"), ". You will need to load the CSS for each of these libraries separately, UI Toolkit does not include these be default."),
-            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Icon icon=\"plane\" />\n    <UIToolkit.Icon icon=\"bus\" iconFamily=\"font-awesome\" />\n    <UIToolkit.Icon icon=\"send\" iconFamily=\"glyphicon\" />\n    <UIToolkit.Icon icon=\"check\" iconFamily=\"font-awesome\" />\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}),
-            React.createElement("h4", null, "Attributes"),
-            React.createElement("ul", null,
-              React.createElement("li", null, React.createElement("code", null, "icon"), " String - The name of the icon you want to display."),
+          React.createElement("article", {id: "icons"}, 
+            React.createElement("h3", null, "Icons"), 
+            React.createElement("p", null, "Icons are provided to add visual aid to elements on your website. Use independently, as part of a list, the world is your oyster (though there is no oyster icon)."), 
+            React.createElement("p", null, "The default font library we use is ", React.createElement("a", {href: "https://fortawesome.github.io/Font-Awesome/", alt: "Font Awesome"}, "Font Awesome"), " but you can also use Bootstraps ", React.createElement("a", {href: "http://getbootstrap.com/components/#glyphicons", alt: "Glyphicons"}, "Glyphicons"), ". You will need to load the CSS for each of these libraries separately, UI Toolkit does not include these be default."), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Icon icon=\"plane\" />\n    <UIToolkit.Icon icon=\"bus\" iconFamily=\"font-awesome\" />\n    <UIToolkit.Icon icon=\"send\" iconFamily=\"glyphicon\" />\n    <UIToolkit.Icon icon=\"check\" iconFamily=\"font-awesome\" />\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "icon"), " String - The name of the icon you want to display."), 
               React.createElement("li", null, React.createElement("code", null, "iconFamily"), " String - ", React.createElement("code", null, "font-awesome"), " or ", React.createElement("code", null, "glyphicons"))
             )
-          ),
+          ), 
 
-          React.createElement("article", {id: "image"},
-            React.createElement("h3", null, "Image"),
-            React.createElement("p", null, "A standard Image Component which is set at 100% width by default to ensure the image works responsively."),
-            React.createElement(CustomComponent, {codeText: "var image = {\n  src: 'http://brand.holidayextras.com/img/product-dessert.jpg',\n  alt: 'Delicious strawberry cheesecake'\n};\n\nvar example = (\n  <UIToolkit.Image className=\"component-image\" src={image.src} alt={image.alt} />\n);\n\nReactDOM.render(example, mountNode);\n"}),
-            React.createElement("h4", null, "Responsive Image"),
-            React.createElement("p", null, "This component also utilises the ", React.createElement("code", null, "srcset"), " attribute, which helps if you are implementing responsive images (different images in HTML for different situations) and all you are doing is switching between different versions of the same image (the vast majority of usage). Historically for high resolution (2x) desktop screens we often use high-res, large dimension images. For smaller screens this means downloading a large file when not necessary. For more information visit ", React.createElement("a", {href: "https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/", title: "CSS Tricks guide to srcset"}, "CSS Tricks"), "."),
-            React.createElement(CustomComponent, {codeText: "var image = {\n  srcSet: 'https://open-source.holidayextras.com/ui-toolkit/images/panda2000.jpg 2000w, https://open-source.holidayextras.com/ui-toolkit/images/panda1500.jpg 1500w, https://open-source.holidayextras.com/ui-toolkit/images/panda1000.jpg 1000w, https://open-source.holidayextras.com/ui-toolkit/images/panda500.jpg 500w',\n  src: 'https://open-source.holidayextras.com/ui-toolkit/images/panda500.jpg',\n  alt: 'A cute panda'\n};\n\nvar example = (\n  <UIToolkit.Image className=\"component-image\" src={image.src} sizes=\"100vw\" srcSet={image.srcSet}  alt={image.alt} />\n);\n\nReactDOM.render(example, mountNode);\n"}),
-            React.createElement("h4", null, "Attributes"),
-            React.createElement("ul", null,
-              React.createElement("li", null, React.createElement("code", null, "alt"), " String - Image alt attribute"),
-              React.createElement("li", null, React.createElement("code", null, "handleClick"), " Function - handle click events on the image"),
-              React.createElement("li", null, React.createElement("code", null, "src"), " String - Image src attribute"),
-              React.createElement("li", null, React.createElement("code", null, "href"), " String - an href that wraps the image in an anchor"),
-              React.createElement("li", null, React.createElement("code", null, "data"), " Object - Where ", React.createElement("code", null, "keys"), " will be data attributes and ", React.createElement("code", null, "values"), " will be their values (uses ", React.createElement("a", {href: "https://github.com/holidayextras/react-data-attributes-mixin", alt: "React Data Attributes Mixin"}, "React Data Attributes Mixin"), ")"),
-              React.createElement("li", null, React.createElement("code", null, "srcset"), " String - a comma separated list of images and their file size, perfect for responsive images"),
+          React.createElement("article", {id: "image"}, 
+            React.createElement("h3", null, "Image"), 
+            React.createElement("p", null, "A standard Image Component which is set at 100% width by default to ensure the image works responsively."), 
+            React.createElement(CustomComponent, {codeText: "var image = {\n  src: 'http://brand.holidayextras.com/img/product-dessert.jpg',\n  alt: 'Delicious strawberry cheesecake'\n};\n\nvar example = (\n  <UIToolkit.Image className=\"component-image\" src={image.src} alt={image.alt} />\n);\n\nReactDOM.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Responsive Image"), 
+            React.createElement("p", null, "This component also utilises the ", React.createElement("code", null, "srcset"), " attribute, which helps if you are implementing responsive images (different images in HTML for different situations) and all you are doing is switching between different versions of the same image (the vast majority of usage). Historically for high resolution (2x) desktop screens we often use high-res, large dimension images. For smaller screens this means downloading a large file when not necessary. For more information visit ", React.createElement("a", {href: "https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/", title: "CSS Tricks guide to srcset"}, "CSS Tricks"), "."), 
+            React.createElement(CustomComponent, {codeText: "var image = {\n  srcSet: 'https://open-source.holidayextras.com/ui-toolkit/images/panda2000.jpg 2000w, https://open-source.holidayextras.com/ui-toolkit/images/panda1500.jpg 1500w, https://open-source.holidayextras.com/ui-toolkit/images/panda1000.jpg 1000w, https://open-source.holidayextras.com/ui-toolkit/images/panda500.jpg 500w',\n  src: 'https://open-source.holidayextras.com/ui-toolkit/images/panda500.jpg',\n  alt: 'A cute panda'\n};\n\nvar example = (\n  <UIToolkit.Image className=\"component-image\" src={image.src} sizes=\"100vw\" srcSet={image.srcSet}  alt={image.alt} />\n);\n\nReactDOM.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "alt"), " String - Image alt attribute"), 
+              React.createElement("li", null, React.createElement("code", null, "handleClick"), " Function - handle click events on the image"), 
+              React.createElement("li", null, React.createElement("code", null, "src"), " String - Image src attribute"), 
+              React.createElement("li", null, React.createElement("code", null, "href"), " String - an href that wraps the image in an anchor"), 
+              React.createElement("li", null, React.createElement("code", null, "data"), " Object - Where ", React.createElement("code", null, "keys"), " will be data attributes and ", React.createElement("code", null, "values"), " will be their values (uses ", React.createElement("a", {href: "https://github.com/holidayextras/react-data-attributes-mixin", alt: "React Data Attributes Mixin"}, "React Data Attributes Mixin"), ")"), 
+              React.createElement("li", null, React.createElement("code", null, "srcset"), " String - a comma separated list of images and their file size, perfect for responsive images"), 
               React.createElement("li", null, React.createElement("code", null, "sizes"), " String (optional) - A rough start size for your image. To be used in conjunction with srcset when implementing responsive images. Please note that this is an optimisation only and its default is set to ", React.createElement("code", null, "100vw"))
             )
-          ),
+          ), 
 
-          React.createElement("article", {id: "input"},
-            React.createElement("h3", null, "Input"),
-            React.createElement("p", null, "Custom Input for Text, Email, Telephone & Number Types"),
-            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Input type='text' label='Text Only' validator={/^[a-zA-Z ]*$/g} />\n    <UIToolkit.Input type='text' label='With Default' >Default Value</UIToolkit.Input>\n    <UIToolkit.Input type='text' label='Required' placeholder='Full Name' required={true} />\n  </div>\n\n);\n\nReactDOM.render(example, mountNode);\n"}),
-            React.createElement("h4", null, "Attributes"),
-            React.createElement("ul", null,
-              React.createElement("li", null, React.createElement("code", null, "data"), " Object - Where ", React.createElement("code", null, "keys"), " will be data attributes and ", React.createElement("code", null, "values"), " will be their values (uses ", React.createElement("a", {href: "https://github.com/holidayextras/react-data-attributes-mixin", alt: "React Data Attributes Mixin"}, "React Data Attributes Mixin"), ")"),
-              React.createElement("li", null, React.createElement("code", null, "type"), " String - Type of Input Field can be ", React.createElement("code", null, "text"), ", ", React.createElement("code", null, "email"), ", ", React.createElement("code", null, "tel"), " or ", React.createElement("code", null, "number")),
-              React.createElement("li", null, React.createElement("code", null, "name"), " String - Optional Name for Input Field"),
-              React.createElement("li", null, React.createElement("code", null, "id"), " String - Optional ID for Input Field"),
-              React.createElement("li", null, React.createElement("code", null, "label"), " String - Optional Label in front of Input Field"),
-              React.createElement("li", null, React.createElement("code", null, "placeHolder"), " String - Optional Placeholder for Input Field"),
-              React.createElement("li", null, React.createElement("code", null, "validator"), " String - Optional Regular Expression to Validate Input"),
-              React.createElement("li", null, React.createElement("code", null, "errorMessage"), " String - Optional Error Message to show if ", React.createElement("code", null, "validator"), " returns false"),
-              React.createElement("li", null, React.createElement("code", null, "disabled"), " Boolean - Whether to Disable the Input Field"),
-              React.createElement("li", null, React.createElement("code", null, "readOnly"), " Boolean - Whether to set the Input Field to Read Only"),
-              React.createElement("li", null, React.createElement("code", null, "required"), " Boolean - Whether to set the Input Field to be Required"),
+          React.createElement("article", {id: "input"}, 
+            React.createElement("h3", null, "Input"), 
+            React.createElement("p", null, "Custom Input for Text, Email, Telephone & Number Types"), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Input type='text' label='Text Only' validator={/^[a-zA-Z ]*$/g} />\n    <UIToolkit.Input type='text' label='With Default' >Default Value</UIToolkit.Input>\n    <UIToolkit.Input type='text' label='Required' placeholder='Full Name' required={true} />\n  </div>\n\n);\n\nReactDOM.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "data"), " Object - Where ", React.createElement("code", null, "keys"), " will be data attributes and ", React.createElement("code", null, "values"), " will be their values (uses ", React.createElement("a", {href: "https://github.com/holidayextras/react-data-attributes-mixin", alt: "React Data Attributes Mixin"}, "React Data Attributes Mixin"), ")"), 
+              React.createElement("li", null, React.createElement("code", null, "type"), " String - Type of Input Field can be ", React.createElement("code", null, "text"), ", ", React.createElement("code", null, "email"), ", ", React.createElement("code", null, "tel"), " or ", React.createElement("code", null, "number")), 
+              React.createElement("li", null, React.createElement("code", null, "name"), " String - Optional Name for Input Field"), 
+              React.createElement("li", null, React.createElement("code", null, "id"), " String - Optional ID for Input Field"), 
+              React.createElement("li", null, React.createElement("code", null, "label"), " String - Optional Label in front of Input Field"), 
+              React.createElement("li", null, React.createElement("code", null, "placeHolder"), " String - Optional Placeholder for Input Field"), 
+              React.createElement("li", null, React.createElement("code", null, "validator"), " String - Optional Regular Expression to Validate Input"), 
+              React.createElement("li", null, React.createElement("code", null, "errorMessage"), " String - Optional Error Message to show if ", React.createElement("code", null, "validator"), " returns false"), 
+              React.createElement("li", null, React.createElement("code", null, "disabled"), " Boolean - Whether to Disable the Input Field"), 
+              React.createElement("li", null, React.createElement("code", null, "readOnly"), " Boolean - Whether to set the Input Field to Read Only"), 
+              React.createElement("li", null, React.createElement("code", null, "required"), " Boolean - Whether to set the Input Field to be Required"), 
               React.createElement("li", null, React.createElement("code", null, "handleChange"), " Function - Optional Function which is called onChange")
             )
-          ),
+          ), 
 
-          React.createElement("article", {id: "select"},
-            React.createElement("h3", null, "Select"),
-            React.createElement("p", null, "Custom Select extended to inculde the data attribute"),
-            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Select label='Destination'>\n      <option>Germany</option>\n      <option>Spain</option>\n      <option>Portugal</option>\n      <option>England</option>\n      <option>Scotland</option>\n    </UIToolkit.Select>\n    <UIToolkit.Select label='Multiple' multiple={true}>\n      <option>Germany</option>\n      <option>Spain</option>\n      <option>Portugal</option>\n      <option>England</option>\n      <option>Scotland</option>\n    </UIToolkit.Select>\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}),
-            React.createElement("h4", null, "Attributes"),
-            React.createElement("ul", null,
-              React.createElement("li", null, React.createElement("code", null, "name"), " String - Optional Name for Input Field"),
-              React.createElement("li", null, React.createElement("code", null, "id"), " String - Optional ID for Input Field"),
-              React.createElement("li", null, React.createElement("code", null, "label"), " String - Optional Label in front of Input Field"),
-              React.createElement("li", null, React.createElement("code", null, "handleChange"), " Function - Optional Function which is called onChange"),
-              React.createElement("li", null, React.createElement("code", null, "data"), " Object - Where ", React.createElement("code", null, "keys"), " will be data attributes and ", React.createElement("code", null, "values"), " will be their values (uses ", React.createElement("a", {href: "https://github.com/holidayextras/react-data-attributes-mixin", alt: "React Data Attributes Mixin"}, "React Data Attributes Mixin"), ")"),
+          React.createElement("article", {id: "select"}, 
+            React.createElement("h3", null, "Select"), 
+            React.createElement("p", null, "Custom Select extended to inculde the data attribute"), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Select label='Destination'>\n      <option>Germany</option>\n      <option>Spain</option>\n      <option>Portugal</option>\n      <option>England</option>\n      <option>Scotland</option>\n    </UIToolkit.Select>\n    <UIToolkit.Select label='Multiple' multiple={true}>\n      <option>Germany</option>\n      <option>Spain</option>\n      <option>Portugal</option>\n      <option>England</option>\n      <option>Scotland</option>\n    </UIToolkit.Select>\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "name"), " String - Optional Name for Input Field"), 
+              React.createElement("li", null, React.createElement("code", null, "id"), " String - Optional ID for Input Field"), 
+              React.createElement("li", null, React.createElement("code", null, "label"), " String - Optional Label in front of Input Field"), 
+              React.createElement("li", null, React.createElement("code", null, "handleChange"), " Function - Optional Function which is called onChange"), 
+              React.createElement("li", null, React.createElement("code", null, "data"), " Object - Where ", React.createElement("code", null, "keys"), " will be data attributes and ", React.createElement("code", null, "values"), " will be their values (uses ", React.createElement("a", {href: "https://github.com/holidayextras/react-data-attributes-mixin", alt: "React Data Attributes Mixin"}, "React Data Attributes Mixin"), ")"), 
               React.createElement("li", null, React.createElement("code", null, "name"), " String - Optional Boolean for multiple select")
             )
-          ),
+          ), 
 
-          React.createElement("article", {id: "lists"},
-            React.createElement("h3", null, "Lists"),
-            React.createElement("p", null, "There are 3 types of list ", React.createElement("code", null, "ordered"), ", ", React.createElement("code", null, "unordered"), " and ", React.createElement("code", null, "description")),
+          React.createElement("article", {id: "lists"}, 
+            React.createElement("h3", null, "Lists"), 
+            React.createElement("p", null, "There are 3 types of list ", React.createElement("code", null, "ordered"), ", ", React.createElement("code", null, "unordered"), " and ", React.createElement("code", null, "description")), 
 
-            React.createElement("h4", {id: "unordered-list"}, "Unordered list"),
-            React.createElement("p", null, "An unordered list is a list in which the sequence of items is not important."),
-            React.createElement(CustomComponent, {codeText: "var example = (\n  <UIToolkit.List type=\"unordered\">\n    <UIToolkit.ListItem>Hello 1</UIToolkit.ListItem>\n    <UIToolkit.ListItem>Hello 2</UIToolkit.ListItem>\n  </UIToolkit.List>\n);\n\nReactDOM.render(example, mountNode);\n"}),
+            React.createElement("h4", {id: "unordered-list"}, "Unordered list"), 
+            React.createElement("p", null, "An unordered list is a list in which the sequence of items is not important."), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <UIToolkit.List type=\"unordered\">\n    <UIToolkit.ListItem>Hello 1</UIToolkit.ListItem>\n    <UIToolkit.ListItem>Hello 2</UIToolkit.ListItem>\n  </UIToolkit.List>\n);\n\nReactDOM.render(example, mountNode);\n"}), 
 
-            React.createElement("h4", {id: "ordered-list"}, "Ordered list"),
-            React.createElement("p", null, "An ordered list is a list in which the sequence of items is important."),
-            React.createElement(CustomComponent, {codeText: "var example = (\n  <UIToolkit.List type=\"ordered\">\n    <UIToolkit.ListItem>Hello 1</UIToolkit.ListItem>\n    <UIToolkit.ListItem>Hello 2</UIToolkit.ListItem>\n  </UIToolkit.List>\n);\n\nReactDOM.render(example, mountNode);\n"}),
+            React.createElement("h4", {id: "ordered-list"}, "Ordered list"), 
+            React.createElement("p", null, "An ordered list is a list in which the sequence of items is important."), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <UIToolkit.List type=\"ordered\">\n    <UIToolkit.ListItem>Hello 1</UIToolkit.ListItem>\n    <UIToolkit.ListItem>Hello 2</UIToolkit.ListItem>\n  </UIToolkit.List>\n);\n\nReactDOM.render(example, mountNode);\n"}), 
 
-            React.createElement("h4", {id: "description-list"}, "Description list"),
-            React.createElement("p", null, "A number of connected items or names written or printed consecutively, typically one below the other."),
-            React.createElement(CustomComponent, {codeText: "var example = (\n  <UIToolkit.List type=\"description\">\n    <UIToolkit.ListTerm>A set of styled components built with React</UIToolkit.ListTerm>\n    <UIToolkit.ListDescription>UI Toolkit</UIToolkit.ListDescription>\n  </UIToolkit.List>\n);\n\nReactDOM.render(example, mountNode);\n"}),
+            React.createElement("h4", {id: "description-list"}, "Description list"), 
+            React.createElement("p", null, "A number of connected items or names written or printed consecutively, typically one below the other."), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <UIToolkit.List type=\"description\">\n    <UIToolkit.ListTerm>A set of styled components built with React</UIToolkit.ListTerm>\n    <UIToolkit.ListDescription>UI Toolkit</UIToolkit.ListDescription>\n  </UIToolkit.List>\n);\n\nReactDOM.render(example, mountNode);\n"}), 
 
-            React.createElement("h4", null, "Attributes"),
-            React.createElement("ul", null,
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
               React.createElement("li", null, React.createElement("code", null, "type"), " String - ", React.createElement("code", null, "ordered"), ",", React.createElement("code", null, "unordered"), " and ", React.createElement("code", null, "description"))
-            ),
+            ), 
 
-            React.createElement("h4", null, "Child Components"),
-            React.createElement("ul", null,
-              React.createElement("li", null, React.createElement("code", null, "listItem"), " Component - A item of a list. Must be used with an ", React.createElement("a", {href: "#ordered-list", alt: "ordered-list"}, "ordered-list"), " or ", React.createElement("a", {href: "#unordered-list", alt: "unordered-list"}, "ordered-list")),
-              React.createElement("li", null, React.createElement("code", null, "listTerm"), " Component - A list term of a description list. Must be used as a child of a ", React.createElement("a", {href: "#description-list", alt: "description-list"}, "description-list")),
+            React.createElement("h4", null, "Child Components"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "listItem"), " Component - A item of a list. Must be used with an ", React.createElement("a", {href: "#ordered-list", alt: "ordered-list"}, "ordered-list"), " or ", React.createElement("a", {href: "#unordered-list", alt: "unordered-list"}, "ordered-list")), 
+              React.createElement("li", null, React.createElement("code", null, "listTerm"), " Component - A list term of a description list. Must be used as a child of a ", React.createElement("a", {href: "#description-list", alt: "description-list"}, "description-list")), 
               React.createElement("li", null, React.createElement("code", null, "listDescription"), " Component - A desciption of the term of a description list. Must be used as a child of a ", React.createElement("a", {href: "#description-list", alt: "description-list"}, "description-list"))
             )
-          ),
+          ), 
 
-          React.createElement("article", {id: "lozenge"},
-            React.createElement("h3", null, "Lozenge"),
-            React.createElement("p", null, "A small pill shaped item for displaying information"),
-            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Lozenge tip=\"default tip\">Default</UIToolkit.Lozenge>\n    <UIToolkit.Lozenge purpose=\"primary\" tip=\"primary tip\">Primary</UIToolkit.Lozenge>\n    <UIToolkit.Lozenge purpose=\"success\" tip=\"success tip\">Success</UIToolkit.Lozenge>\n    <UIToolkit.Lozenge purpose=\"info\" tip=\"info tip\">Info</UIToolkit.Lozenge>\n    <UIToolkit.Lozenge purpose=\"warning\" tip=\"warning tip\">Warning</UIToolkit.Lozenge>\n    <UIToolkit.Lozenge purpose=\"danger\" tip=\"danger tip\">Danger</UIToolkit.Lozenge>\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}),
-            React.createElement("h4", null, "Attributes"),
-            React.createElement("ul", null,
-              React.createElement("li", null, React.createElement("code", null, "purpose"), " String - default, primary, secondary, success, info, warning, danger"),
-              React.createElement("li", null, React.createElement("code", null, "size"), " String - small, medium (default), large, extra-large, block"),
+          React.createElement("article", {id: "lozenge"}, 
+            React.createElement("h3", null, "Lozenge"), 
+            React.createElement("p", null, "A small pill shaped item for displaying information"), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Lozenge tip=\"default tip\">Default</UIToolkit.Lozenge>\n    <UIToolkit.Lozenge purpose=\"primary\" tip=\"primary tip\">Primary</UIToolkit.Lozenge>\n    <UIToolkit.Lozenge purpose=\"success\" tip=\"success tip\">Success</UIToolkit.Lozenge>\n    <UIToolkit.Lozenge purpose=\"info\" tip=\"info tip\">Info</UIToolkit.Lozenge>\n    <UIToolkit.Lozenge purpose=\"warning\" tip=\"warning tip\">Warning</UIToolkit.Lozenge>\n    <UIToolkit.Lozenge purpose=\"danger\" tip=\"danger tip\">Danger</UIToolkit.Lozenge>\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "purpose"), " String - default, primary, secondary, success, info, warning, danger"), 
+              React.createElement("li", null, React.createElement("code", null, "size"), " String - small, medium (default), large, extra-large, block"), 
               React.createElement("li", null, React.createElement("code", null, "tip"), " String - Tooltip text to display")
             )
-          ),
+          ), 
 
-          React.createElement("article", {id: "quote"},
-            React.createElement("h3", null, "Quote"),
-            React.createElement("p", null, "A quote is used referencing blocks of content from another source within your document. They come as a ", React.createElement("code", null, "Block"), " (default) or ", React.createElement("code", null, "inline")),
-            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Quote author=\"Brad Frost\" role=\"Web Designer\">It's not about what we do, it's about what we enable other people to do</UIToolkit.Quote>\n    <UIToolkit.Quote author=\"Christian Heilmann\" role=\"Developer Evangelist\" cite=\"Twitter\" purpose=\"warning\">Fix the broken things before you build the shiney new broken things</UIToolkit.Quote>\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}),
-            React.createElement("h4", null, "Inline"),
-            React.createElement("p", null, "Inline quotes are for referencing something inline within a section of prose"),
-            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <p>Gandalf, Captain of the Starship Enterprise said <UIToolkit.Quote type=\"inline\" author=\"Gandalf\" role=\"Captain of the Starship Enterprise\" cite=\"The Internet\" purpose=\"success\">Use The Force Harry</UIToolkit.Quote>\n    </p>\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}),
-            React.createElement("h4", null, "Attributes"),
-            React.createElement("ul", null,
-              React.createElement("li", null, React.createElement("code", null, "author"), " String - The author of the quote"),
-              React.createElement("li", null, React.createElement("code", null, "cite"), " String - cited title of a work; for example, the title of a book mentioned within the main text flow of a document"),
-              React.createElement("li", null, React.createElement("code", null, "purpose"), " String - default, primary, secondary, success, info, warning, danger"),
-              React.createElement("li", null, React.createElement("code", null, "role"), " String - The role/job title of the author"),
-              React.createElement("li", null, React.createElement("code", null, "size"), " String - small, medium (default), large, extra-large"),
+          React.createElement("article", {id: "quote"}, 
+            React.createElement("h3", null, "Quote"), 
+            React.createElement("p", null, "A quote is used referencing blocks of content from another source within your document. They come as a ", React.createElement("code", null, "Block"), " (default) or ", React.createElement("code", null, "inline")), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Quote author=\"Brad Frost\" role=\"Web Designer\">It's not about what we do, it's about what we enable other people to do</UIToolkit.Quote>\n    <UIToolkit.Quote author=\"Christian Heilmann\" role=\"Developer Evangelist\" cite=\"Twitter\" purpose=\"warning\">Fix the broken things before you build the shiney new broken things</UIToolkit.Quote>\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Inline"), 
+            React.createElement("p", null, "Inline quotes are for referencing something inline within a section of prose"), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <p>Gandalf, Captain of the Starship Enterprise said <UIToolkit.Quote type=\"inline\" author=\"Gandalf\" role=\"Captain of the Starship Enterprise\" cite=\"The Internet\" purpose=\"success\">Use The Force Harry</UIToolkit.Quote>\n    </p>\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "author"), " String - The author of the quote"), 
+              React.createElement("li", null, React.createElement("code", null, "cite"), " String - cited title of a work; for example, the title of a book mentioned within the main text flow of a document"), 
+              React.createElement("li", null, React.createElement("code", null, "purpose"), " String - default, primary, secondary, success, info, warning, danger"), 
+              React.createElement("li", null, React.createElement("code", null, "role"), " String - The role/job title of the author"), 
+              React.createElement("li", null, React.createElement("code", null, "size"), " String - small, medium (default), large, extra-large"), 
               React.createElement("li", null, React.createElement("code", null, "type"), " String - Block (default) or Inline")
             )
+          ), 
+
+          React.createElement("article", {id: "review"}, 
+            React.createElement("h3", null, "Review"), 
+            React.createElement("p", null, "A review component which displays the comment and the author with an optional date."), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Review comment=\"An excellent toolkit of useful items!\" author=\"someone\" date=\"today\"/>\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "author"), " String - The author of the review"), 
+              React.createElement("li", null, React.createElement("code", null, "comment"), " String - The text of the review"), 
+              React.createElement("li", null, React.createElement("code", null, "date"), " String - The date the review was posted")
+            )
           )
-        ),
+        ), 
 
-        React.createElement("section", {id: "molecules"},
-          React.createElement("h2", {className: "page-header"}, "Molecules"),
-          React.createElement("p", null, "Things start getting more interesting and tangible when we start combining atoms together. Molecules are groups of atoms bonded together and are the smallest fundamental units of a compound. These molecules take on their own properties and serve as the backbone of our design systems."),
+        React.createElement("section", {id: "molecules"}, 
+          React.createElement("h2", {className: "page-header"}, "Molecules"), 
+          React.createElement("p", null, "Things start getting more interesting and tangible when we start combining atoms together. Molecules are groups of atoms bonded together and are the smallest fundamental units of a compound. These molecules take on their own properties and serve as the backbone of our design systems."), 
 
-          React.createElement("article", {id: "alert"},
-            React.createElement("h3", null, "Alert"),
-            React.createElement("p", null, "An alert is used to display helpful or factual information usually used as a prompt."),
-            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Alert purpose=\"success\" title=\"Success\">This <UIToolkit.Anchor title=\"A fake link\">link to something</UIToolkit.Anchor> is a great thing</UIToolkit.Alert>\n    <UIToolkit.Alert purpose=\"warning\" title=\"Warning\">be careful</UIToolkit.Alert>\n    <UIToolkit.Alert purpose=\"info\" title=\"Information\">You should pay attention</UIToolkit.Alert>\n    <UIToolkit.Alert purpose=\"danger\" title=\"Danger\">Stranger danger</UIToolkit.Alert>\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}),
-            React.createElement("h4", null, "Attributes"),
-            React.createElement("ul", null,
-              React.createElement("li", null, React.createElement("code", null, "purpose"), " String - default, primary, secondary, success, info, warning, danger"),
-              React.createElement("li", null, React.createElement("code", null, "size"), " String - small, medium (default), large, extra-large"),
+          React.createElement("article", {id: "alert"}, 
+            React.createElement("h3", null, "Alert"), 
+            React.createElement("p", null, "An alert is used to display helpful or factual information usually used as a prompt."), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Alert purpose=\"success\" title=\"Success\">This <UIToolkit.Anchor title=\"A fake link\">link to something</UIToolkit.Anchor> is a great thing</UIToolkit.Alert>\n    <UIToolkit.Alert purpose=\"warning\" title=\"Warning\">be careful</UIToolkit.Alert>\n    <UIToolkit.Alert purpose=\"info\" title=\"Information\">You should pay attention</UIToolkit.Alert>\n    <UIToolkit.Alert purpose=\"danger\" title=\"Danger\">Stranger danger</UIToolkit.Alert>\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "purpose"), " String - default, primary, secondary, success, info, warning, danger"), 
+              React.createElement("li", null, React.createElement("code", null, "size"), " String - small, medium (default), large, extra-large"), 
               React.createElement("li", null, React.createElement("code", null, "title"), " String - The title of the alert")
             )
-          ),
+          ), 
 
-          React.createElement("article", {id: "basket-item"},
-            React.createElement("h3", null, "Basket Item"),
-            React.createElement("p", null, "You can use the Basket Item as a way of representing anything in a basket with or without a price next to it. This means you could have a simple description (line of text) or even more complex markup passed in as the child. Note to have a price, you must declare a title for the product. If the product has no title then description is used."),
-            React.createElement(CustomComponent, {codeText: "var removeAThing = function(thisProduct, e) {\n  e.preventDefault();\n  e.stopPropagation();\n  alert( 'your implementation will deal with removing: ' + thisProduct );\n};\n\nvar example = (\n  <div>\n    <UIToolkit.List type=\"icon\">\n\n      <UIToolkit.ListItem>\n        <UIToolkit.Icon icon=\"check\" iconFamily=\"font-awesome\" />\n        <UIToolkit.BasketItem title=\"First product\">\n          This is a fantastic product that is really really cool with no price.\n        </UIToolkit.BasketItem>\n      </UIToolkit.ListItem>\n\n      <UIToolkit.ListItem>\n        <UIToolkit.Icon icon=\"check\" iconFamily=\"font-awesome\" />\n        <UIToolkit.BasketItem title=\"Second product (click me)\" toggleDescription={true} price=\"£100\">\n          This one has a hidden description.\n        </UIToolkit.BasketItem>\n      </UIToolkit.ListItem>\n\n      <UIToolkit.ListItem>\n        <UIToolkit.Icon icon=\"check\" iconFamily=\"font-awesome\" />\n        <UIToolkit.BasketItem title=\"Third product\" handleRemove={removeAThing.bind(null,'3rd product')} price=\"£100\">\n          Can be removed\n        </UIToolkit.BasketItem>\n      </UIToolkit.ListItem>\n\n      <UIToolkit.ListItem>\n        <UIToolkit.Icon icon=\"check\" iconFamily=\"font-awesome\" />\n        <UIToolkit.BasketItem title=\"4th product\" role=\"link\" tabIndex=\"0\" title=\"Fourth Product\" price=\"£100\">\n          Has a special title (could open a lightbox or something?)\n        </UIToolkit.BasketItem>\n      </UIToolkit.ListItem>\n\n      <UIToolkit.ListItem>\n        <UIToolkit.Icon icon=\"check\" iconFamily=\"font-awesome\" />\n        <UIToolkit.BasketItem title=\"5th product\" role=\"link\" tabIndex=\"0\" title=\"Fifth Product (no description)\" price=\"£100\">\n          I am awesome\n        </UIToolkit.BasketItem>\n      </UIToolkit.ListItem>\n\n      <UIToolkit.ListItem>\n        <UIToolkit.Icon icon=\"check\" iconFamily=\"font-awesome\" />\n        <UIToolkit.BasketItem title=\"Sixth product\" price=\"Free\">\n          This is the best one of all because it is FREE!\n        </UIToolkit.BasketItem>\n      </UIToolkit.ListItem>\n\n    </UIToolkit.List>\n    <hr />\n    <UIToolkit.BasketItem title=\"Total (also a BasketItem)\" price=\"£400\" />\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}),
-            React.createElement("h4", null, "Attributes"),
-            React.createElement("ul", null,
-              React.createElement("li", null, React.createElement("code", null, "price"), " [optional] Number - The price to display along side the basket item. Must be used with ", React.createElement("code", null, "title")),
-              React.createElement("li", null, React.createElement("code", null, "title"), " [optional] Node / String - If passed a Node, will simply use that as the title (including any events bound to that node) otherwise, if we have ", React.createElement("em", null, "toggleDescription"), " set, will wrap the text in an anchor to trigger that, otherwise it is wrapped in a ", React.createElement("em", null, "strong"), " html tag."),
-              React.createElement("li", null, React.createElement("code", null, "toggleDescription"), " [optional] Boolean - Whether we want to toggle the display of the ", React.createElement("em", null, "child"), " or not."),
-              React.createElement("li", null, React.createElement("code", null, "handleRemove"), " [optional] Function - This will display a link with the text ", React.createElement("em", null, "remove"), " below the price & this function is responsible for dealing with that removal."),
+          React.createElement("article", {id: "basket-item"}, 
+            React.createElement("h3", null, "Basket Item"), 
+            React.createElement("p", null, "You can use the Basket Item as a way of representing anything in a basket with or without a price next to it. This means you could have a simple description (line of text) or even more complex markup passed in as the child. Note to have a price, you must declare a title for the product. If the product has no title then description is used."), 
+            React.createElement(CustomComponent, {codeText: "var removeAThing = function(thisProduct, e) {\n  e.preventDefault();\n  e.stopPropagation();\n  alert( 'your implementation will deal with removing: ' + thisProduct );\n};\n\nvar example = (\n  <div>\n    <UIToolkit.List type=\"icon\">\n\n      <UIToolkit.ListItem>\n        <UIToolkit.Icon icon=\"check\" iconFamily=\"font-awesome\" />\n        <UIToolkit.BasketItem title=\"First product\">\n          This is a fantastic product that is really really cool with no price.\n        </UIToolkit.BasketItem>\n      </UIToolkit.ListItem>\n\n      <UIToolkit.ListItem>\n        <UIToolkit.Icon icon=\"check\" iconFamily=\"font-awesome\" />\n        <UIToolkit.BasketItem title=\"Second product (click me)\" toggleDescription={true} price=\"£100\">\n          This one has a hidden description.\n        </UIToolkit.BasketItem>\n      </UIToolkit.ListItem>\n\n      <UIToolkit.ListItem>\n        <UIToolkit.Icon icon=\"check\" iconFamily=\"font-awesome\" />\n        <UIToolkit.BasketItem title=\"Third product\" handleRemove={removeAThing.bind(null,'3rd product')} price=\"£100\">\n          Can be removed\n        </UIToolkit.BasketItem>\n      </UIToolkit.ListItem>\n\n      <UIToolkit.ListItem>\n        <UIToolkit.Icon icon=\"check\" iconFamily=\"font-awesome\" />\n        <UIToolkit.BasketItem title=\"4th product\" role=\"link\" tabIndex=\"0\" title=\"Fourth Product\" price=\"£100\">\n          Has a special title (could open a lightbox or something?)\n        </UIToolkit.BasketItem>\n      </UIToolkit.ListItem>\n\n      <UIToolkit.ListItem>\n        <UIToolkit.Icon icon=\"check\" iconFamily=\"font-awesome\" />\n        <UIToolkit.BasketItem title=\"5th product\" role=\"link\" tabIndex=\"0\" title=\"Fifth Product (no description)\" price=\"£100\">\n          I am awesome\n        </UIToolkit.BasketItem>\n      </UIToolkit.ListItem>\n\n      <UIToolkit.ListItem>\n        <UIToolkit.Icon icon=\"check\" iconFamily=\"font-awesome\" />\n        <UIToolkit.BasketItem title=\"Sixth product\" price=\"Free\">\n          This is the best one of all because it is FREE!\n        </UIToolkit.BasketItem>\n      </UIToolkit.ListItem>\n\n    </UIToolkit.List>\n    <hr />\n    <UIToolkit.BasketItem title=\"Total (also a BasketItem)\" price=\"£400\" />\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "price"), " [optional] Number - The price to display along side the basket item. Must be used with ", React.createElement("code", null, "title")), 
+              React.createElement("li", null, React.createElement("code", null, "title"), " [optional] Node / String - If passed a Node, will simply use that as the title (including any events bound to that node) otherwise, if we have ", React.createElement("em", null, "toggleDescription"), " set, will wrap the text in an anchor to trigger that, otherwise it is wrapped in a ", React.createElement("em", null, "strong"), " html tag."), 
+              React.createElement("li", null, React.createElement("code", null, "toggleDescription"), " [optional] Boolean - Whether we want to toggle the display of the ", React.createElement("em", null, "child"), " or not."), 
+              React.createElement("li", null, React.createElement("code", null, "handleRemove"), " [optional] Function - This will display a link with the text ", React.createElement("em", null, "remove"), " below the price & this function is responsible for dealing with that removal."), 
               React.createElement("li", null, React.createElement("code", null, "children"), " [optional] Node - Anything you want displaying below the title, this is possible to toggle with the addition of the ", React.createElement("em", null, "toggleDescription"), " property.")
             )
-          ),
+          ), 
 
-          React.createElement("article", {id: "countdown"},
-            React.createElement("h3", null, "Countdown"),
-            React.createElement("p", null, "Countdowns allow you to find the time difference between the current date and a date in the future. To do this you pass in a ", React.createElement("code", null, "until"), " value of any date format."),
-            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Countdown until=\"2016-07-27\"></UIToolkit.Countdown>\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}),
-            React.createElement("h4", null, "Attributes"),
-            React.createElement("ul", null,
+          React.createElement("article", {id: "countdown"}, 
+            React.createElement("h3", null, "Countdown"), 
+            React.createElement("p", null, "Countdowns allow you to find the time difference between the current date and a date in the future. To do this you pass in a ", React.createElement("code", null, "until"), " value of any date format."), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Countdown until=\"2016-07-27\"></UIToolkit.Countdown>\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
               React.createElement("li", null, React.createElement("code", null, "until"), " String - Date in the future")
             )
-          ),
+          ), 
 
-          React.createElement("article", {id: "icon-list"},
-            React.createElement("h3", null, "Icon List"),
-            React.createElement("p", null, "An icon list is an unordered list with bullets consisting of icons. You must still use list-items as children, but include an ", React.createElement("a", {href: "#icons"}, "Icon"), " component as well."),
+          React.createElement("article", {id: "icon-list"}, 
+            React.createElement("h3", null, "Icon List"), 
+            React.createElement("p", null, "An icon list is an unordered list with bullets consisting of icons. You must still use list-items as children, but include an ", React.createElement("a", {href: "#icons"}, "Icon"), " component as well."), 
             React.createElement(CustomComponent, {codeText: "var example = (\n  <UIToolkit.List type=\"icon\">\n    <UIToolkit.ListItem><UIToolkit.Icon icon=\"bus\" iconFamily=\"font-awesome\" /> Magic Bus</UIToolkit.ListItem>\n    <UIToolkit.ListItem><UIToolkit.Icon icon=\"send\" iconFamily=\"font-awesome\" /> Paper Planes</UIToolkit.ListItem>\n  </UIToolkit.List>\n);\n\nReactDOM.render(example, mountNode);\n"})
-          ),
+          ), 
 
-          React.createElement("article", {id: "payment-card"},
-            React.createElement("h3", null, "Payment Cards"),
-            React.createElement("p", null, "Easily display what payment cards your website accepts"),
-            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.PaymentCard type=\"amex\">Amex</UIToolkit.PaymentCard>\n    <UIToolkit.PaymentCard type=\"visa\">Visa</UIToolkit.PaymentCard>\n    <UIToolkit.PaymentCard type=\"mastercard\">Mastercard</UIToolkit.PaymentCard>\n    <UIToolkit.PaymentCard type=\"paym\">Paym</UIToolkit.PaymentCard>\n    <UIToolkit.PaymentCard type=\"amazon\">Amazon</UIToolkit.PaymentCard>\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}),
-            React.createElement("h4", null, "Attributes"),
-            React.createElement("ul", null,
+          React.createElement("article", {id: "payment-card"}, 
+            React.createElement("h3", null, "Payment Cards"), 
+            React.createElement("p", null, "Easily display what payment cards your website accepts"), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.PaymentCard type=\"amex\">Amex</UIToolkit.PaymentCard>\n    <UIToolkit.PaymentCard type=\"visa\">Visa</UIToolkit.PaymentCard>\n    <UIToolkit.PaymentCard type=\"mastercard\">Mastercard</UIToolkit.PaymentCard>\n    <UIToolkit.PaymentCard type=\"paym\">Paym</UIToolkit.PaymentCard>\n    <UIToolkit.PaymentCard type=\"amazon\">Amazon</UIToolkit.PaymentCard>\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
               React.createElement("li", null, React.createElement("code", null, "type")), " String - ", React.createElement("code", null, "amazon amex apple cirrus delta directdebit discover electron google maestro mastercard paym paypal sage sepa solo switch ukash visa visadebit westernunion")
             )
-          ),
+          ), 
 
-          React.createElement("article", {id: "payment-card"},
-            React.createElement("h3", {id: "rating"}, "Rating"),
-            React.createElement("p", null, "Ratings can be used to display a series of icons intended to represent a score."),
-            React.createElement(CustomComponent, {codeText: "var example = (\n  <UIToolkit.Rating rating={4} outOf={5} blankIcon=\"☆\" >★</UIToolkit.Rating>\n);\nReactDOM.render(example, mountNode);"}),
-            React.createElement("h4", null, "Attributes"),
-            React.createElement("ul", null,
-              React.createElement("li", null, React.createElement("code", null, "blankIcon"), " [optional] Node (any displayable item) - the icon to display for empty ratings."),
-              React.createElement("li", null, React.createElement("code", null, "outOf"), " [optional] Number - The total count the rating value is out of."),
+          React.createElement("article", {id: "payment-card"}, 
+            React.createElement("h3", {id: "rating"}, "Rating"), 
+            React.createElement("p", null, "Ratings can be used to display a series of icons intended to represent a score."), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <UIToolkit.Rating rating={4} outOf={5} blankIcon=\"☆\" >★</UIToolkit.Rating>\n);\nReactDOM.render(example, mountNode);"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "blankIcon"), " [optional] Node (any displayable item) - the icon to display for empty ratings."), 
+              React.createElement("li", null, React.createElement("code", null, "outOf"), " [optional] Number - The total count the rating value is out of."), 
               React.createElement("li", null, React.createElement("code", null, "rating"), " Number - The count of positive icons to display.")
-            ),
+            ), 
 
             "The ", React.createElement("code", null, "outOf"), " and ", React.createElement("code", null, "blankIcon"), " attributes are optional and dependent upon each other."
-          ),
+          ), 
 
-          React.createElement("article", {id: "tile"},
-            React.createElement("h3", null, "Tile"),
-            React.createElement("p", null, "A tile for displaying an image with a title. The width of a tile is 100% of a container."),
-            React.createElement(CustomComponent, {codeText: "var image = {\n  src: 'http://brand.holidayextras.com/img/product-main.jpg',\n  alt: 'Tender sirloin steak with blue cheese dressing'\n}\n\nvar example = (\n  <UIToolkit.Tile image={image} title='Tender sirloin steak with blue cheese dressing' />\n);\n\nReactDOM.render(example, mountNode);\n"}),
-            React.createElement("h4", null, "Attributes"),
-            React.createElement("ul", null,
-              React.createElement("li", null, React.createElement("code", null, "image"), " Object - Containing ", React.createElement("code", null, "src"), " and ", React.createElement("code", null, "alt"), " keys"),
+          React.createElement("article", {id: "tile"}, 
+            React.createElement("h3", null, "Tile"), 
+            React.createElement("p", null, "A tile for displaying an image with a title. The width of a tile is 100% of a container."), 
+            React.createElement(CustomComponent, {codeText: "var image = {\n  src: 'http://brand.holidayextras.com/img/product-main.jpg',\n  alt: 'Tender sirloin steak with blue cheese dressing'\n}\n\nvar example = (\n  <UIToolkit.Tile image={image} title='Tender sirloin steak with blue cheese dressing' />\n);\n\nReactDOM.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "image"), " Object - Containing ", React.createElement("code", null, "src"), " and ", React.createElement("code", null, "alt"), " keys"), 
               React.createElement("li", null, React.createElement("code", null, "title"), " String - The title of the tile")
             )
-          ),
+          ), 
 
-          React.createElement("article", {id: "weather"},
-            React.createElement("h3", null, "Weather"),
-            React.createElement("p", null, "Display weather information in a standard format. Combine a few of these components to create weather patterns i.e a 5 day forecast"),
-            React.createElement(CustomComponent, {codeText: "var example = (\n  <div className=\"example-weather\">\n    <UIToolkit.Weather type=\"sunny\" temperature={22} unit=\"C\" date=\"2016-07-25\" />\n    <UIToolkit.Weather type=\"partly-cloudy\" temperature={17} unit=\"C\" date=\"2016-07-26\" />\n    <UIToolkit.Weather type=\"cloudy\" temperature={14} unit=\"F\" date=\"2016-07-27\" />\n    <UIToolkit.Weather type=\"light-rain\" temperature={10} unit=\"C\" date=\"2016-07-28\" format=\"dddd\"/>\n    <UIToolkit.Weather type=\"heavy-rain\" temperature={5} unit=\"C\" date=\"2016-07-29T09:00\" format=\"HH:mm\" />\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}),
-            React.createElement("h4", null, "Attributes"),
-            React.createElement("ul", null,
-              React.createElement("li", null, React.createElement("code", null, "weather"), " String - The type of weather that is occuring. Can be ", React.createElement("code", null, "cloudy"), ", ", React.createElement("code", null, "fog"), ", ", React.createElement("code", null, "hail"), ", ", React.createElement("code", null, "heavy-rain"), ", ", React.createElement("code", null, "heavy-snow"), ", ", React.createElement("code", null, "light-rain"), ", ", React.createElement("code", null, "light-snow"), ", ", React.createElement("code", null, "night-clear"), ", ", React.createElement("code", null, "night-partly-cloudy"), ", ", React.createElement("code", null, "partly-cloudy"), ", ", React.createElement("code", null, "storm"), ", ", React.createElement("code", null, "sunny"), " or ", React.createElement("code", null, "windy"), " (more to come)"),
-              React.createElement("li", null, React.createElement("code", null, "temperature"), " Number - The current temperature"),
-              React.createElement("li", null, React.createElement("code", null, "unit"), " String - The unit of measurement for temperature ", React.createElement("code", null, "C"), " (Celsius), ", React.createElement("code", null, "F"), " (Fahrenheit), ", React.createElement("code", null, "K"), " (Kelvin) or ", React.createElement("code", null, "R"), " (Rankine)"),
-              React.createElement("li", null, React.createElement("code", null, "date"), " String - The date of the weather you want displayed passed in ", React.createElement("a", {href: "https://en.wikipedia.org/wiki/ISO_8601"}, "ISO8601"), " format"),
+          React.createElement("article", {id: "weather"}, 
+            React.createElement("h3", null, "Weather"), 
+            React.createElement("p", null, "Display weather information in a standard format. Combine a few of these components to create weather patterns i.e a 5 day forecast"), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div className=\"example-weather\">\n    <UIToolkit.Weather type=\"sunny\" temperature={22} unit=\"C\" date=\"2016-07-25\" />\n    <UIToolkit.Weather type=\"partly-cloudy\" temperature={17} unit=\"C\" date=\"2016-07-26\" />\n    <UIToolkit.Weather type=\"heavy-snow\" temperature={0} unit=\"C\" date=\"2016-07-29\" />\n    <UIToolkit.Weather type=\"cloudy\" temperature={14} unit=\"F\" date=\"2016-07-27\" />\n    <UIToolkit.Weather type=\"light-rain\" temperature={10} unit=\"C\" date=\"2016-07-28\" format=\"dddd\"/>\n    <UIToolkit.Weather type=\"heavy-rain\" temperature={5} unit=\"C\" date=\"2016-07-29T09:00\" format=\"HH:mm\" />\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "weather"), " String - The type of weather that is occuring. Can be ", React.createElement("code", null, "cloudy"), ", ", React.createElement("code", null, "fog"), ", ", React.createElement("code", null, "hail"), ", ", React.createElement("code", null, "heavy-rain"), ", ", React.createElement("code", null, "heavy-snow"), ", ", React.createElement("code", null, "light-rain"), ", ", React.createElement("code", null, "light-snow"), ", ", React.createElement("code", null, "night-clear"), ", ", React.createElement("code", null, "night-partly-cloudy"), ", ", React.createElement("code", null, "partly-cloudy"), ", ", React.createElement("code", null, "storm"), ", ", React.createElement("code", null, "sunny"), " or ", React.createElement("code", null, "windy"), " (more to come)"), 
+              React.createElement("li", null, React.createElement("code", null, "temperature"), " Number - The current temperature"), 
+              React.createElement("li", null, React.createElement("code", null, "unit"), " String - The unit of measurement for temperature ", React.createElement("code", null, "C"), " (Celsius), ", React.createElement("code", null, "F"), " (Fahrenheit), ", React.createElement("code", null, "K"), " (Kelvin) or ", React.createElement("code", null, "R"), " (Rankine)"), 
+              React.createElement("li", null, React.createElement("code", null, "date"), " String - The date of the weather you want displayed passed in ", React.createElement("a", {href: "https://en.wikipedia.org/wiki/ISO_8601"}, "ISO8601"), " format"), 
               React.createElement("li", null, React.createElement("code", null, "format"), " String - Date format required i.e ", React.createElement("code", null, "dddd"), ", ", React.createElement("code", null, "HH:mm"), " (default) etc")
-            ),
+            ), 
             React.createElement("small", null, "We currently use a small sample of ", React.createElement("a", {href: "http://www.alessioatzeni.com/meteocons/", title: "Meteocons"}, "Meteocons"))
-          ),
+          ), 
 
-          React.createElement("article", {id: "stepper"},
-            React.createElement("h3", null, "Stepper"),
-            React.createElement("p", null, "Display an input with a number value that is surrounded by decrement and increment buttons"),
-            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Stepper label=\"number of passengers\" value={2} minValue={1} maxValue={9} id=\"stepper-example\" onChange={function() { alert('changed'); }} />\n    <UIToolkit.Stepper label=\"Time of travel\" value={1500} minValue={100} maxValue={2300} id=\"stepper-example\" stepValue={100} valueText=\"3pm\" onChange={function() { alert('changed'); }} />\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}),
-            React.createElement("h4", null, "Attributes"),
-            React.createElement("ul", null,
-              React.createElement("li", null, React.createElement("code", null, "value"), " Number - The value of the stepper"),
-              React.createElement("li", null, React.createElement("code", null, "onChange"), " Function - The function to call when the value changes"),
-              React.createElement("li", null, React.createElement("code", null, "minValue"), " Number - The minimum value the stepper can decrement to"),
-              React.createElement("li", null, React.createElement("code", null, "maxValue"), " Number - The maximum value the stepper can increment to"),
-              React.createElement("li", null, React.createElement("code", null, "incrementDisplayString"), " String - The string to display in the decrement button"),
-              React.createElement("li", null, React.createElement("code", null, "decrementDisplayString"), " String - The string to display in the increment button"),
-              React.createElement("li", null, React.createElement("code", null, "readOnly"), " Boolean - Make the stepper read only. N.B we advise this to always be manually editable for accessibilty purposes"),
-              React.createElement("li", null, React.createElement("code", null, "label"), " String - The label of the stepper."),
+          React.createElement("article", {id: "stepper"}, 
+            React.createElement("h3", null, "Stepper"), 
+            React.createElement("p", null, "Display an input with a number value that is surrounded by decrement and increment buttons"), 
+            React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Stepper label=\"number of passengers\" value={2} minValue={1} maxValue={9} id=\"stepper-example\" onChange={function() { alert('changed'); }} />\n    <UIToolkit.Stepper label=\"Time of travel\" value={1500} minValue={100} maxValue={2300} id=\"stepper-example\" stepValue={100} valueText=\"3pm\" onChange={function() { alert('changed'); }} />\n  </div>\n);\n\nReactDOM.render(example, mountNode);\n"}), 
+            React.createElement("h4", null, "Attributes"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("code", null, "value"), " Number - The value of the stepper"), 
+              React.createElement("li", null, React.createElement("code", null, "onChange"), " Function - The function to call when the value changes"), 
+              React.createElement("li", null, React.createElement("code", null, "minValue"), " Number - The minimum value the stepper can decrement to"), 
+              React.createElement("li", null, React.createElement("code", null, "maxValue"), " Number - The maximum value the stepper can increment to"), 
+              React.createElement("li", null, React.createElement("code", null, "incrementDisplayString"), " String - The string to display in the decrement button"), 
+              React.createElement("li", null, React.createElement("code", null, "decrementDisplayString"), " String - The string to display in the increment button"), 
+              React.createElement("li", null, React.createElement("code", null, "readOnly"), " Boolean - Make the stepper read only. N.B we advise this to always be manually editable for accessibilty purposes"), 
+              React.createElement("li", null, React.createElement("code", null, "label"), " String - The label of the stepper."), 
               React.createElement("li", null, React.createElement("code", null, "valueText"), " String - Used for alterting the text we show within the input")
             )
           )
@@ -1718,7 +1778,7 @@ var Components = React.createClass({displayName: "Components",
 module.exports = Components;
 
 
-},{"./CustomComponent.jsx":30,"fs":25,"react":275}],30:[function(require,module,exports){
+},{"./CustomComponent.jsx":31,"fs":26,"react":278}],31:[function(require,module,exports){
 (function (global){
 var React = require('react');
 var ReactDOM = require('react-dom');
@@ -1776,7 +1836,7 @@ var CodeMirrorEditor = React.createClass({displayName: "CodeMirrorEditor",
     }
 
     return (
-      React.createElement("div", {style: this.props.style, className: this.props.className},
+      React.createElement("div", {style: this.props.style, className: this.props.className}, 
         editor
       )
       );
@@ -1870,11 +1930,11 @@ var CustomComponent = React.createClass({displayName: "CustomComponent",
       toggleClasses.open = true;
     }
     return (
-      React.createElement("div", {className: "playground"},
-        React.createElement("div", {className: classNames(classes)},
+      React.createElement("div", {className: "playground"}, 
+        React.createElement("div", {className: classNames(classes)}, 
           React.createElement("div", {ref: "mount"})
-        ),
-        editor,
+        ), 
+        editor, 
         React.createElement("a", {className: classNames(toggleClasses), onKeyDown: this.handleCodeModeToggle, onClick: this.handleCodeModeToggle, href: "#", role: "button"}, this.state.mode === this.MODES.NONE ? 'show code' : 'hide code')
       )
     );
@@ -1935,26 +1995,26 @@ module.exports = CustomComponent;
 
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../../":36,"classnames":27,"react":275,"react-dom":119}],31:[function(require,module,exports){
+},{"../../":37,"classnames":28,"react":278,"react-dom":122}],32:[function(require,module,exports){
 var React = require('react');
 
 var GettingStarted = React.createClass({displayName: "GettingStarted",
   render: function () {
     return (
-      React.createElement("section", null,
-        React.createElement("h2", {id: "setup", className: "page-header"}, "Get started"),
-        React.createElement("p", null, "You can install UI Toolkit using ", React.createElement("a", {href: "https://www.npmjs.com/", alt: "npm"}, "npm"), " or alternatively download or contribute to the project on ", React.createElement("a", {href: "https://github.com/holidayextras/ui-toolkit", title: "UI Toolkit on GitHub"}, "GitHub")),
-        React.createElement("h3", {id: "terminal"}, "Terminal"),
-        React.createElement("div", {className: "highlight"},
-          React.createElement("pre", null,
+      React.createElement("section", null, 
+        React.createElement("h2", {id: "setup", className: "page-header"}, "Get started"), 
+        React.createElement("p", null, "You can install UI Toolkit using ", React.createElement("a", {href: "https://www.npmjs.com/", alt: "npm"}, "npm"), " or alternatively download or contribute to the project on ", React.createElement("a", {href: "https://github.com/holidayextras/ui-toolkit", title: "UI Toolkit on GitHub"}, "GitHub")), 
+        React.createElement("h3", {id: "terminal"}, "Terminal"), 
+        React.createElement("div", {className: "highlight"}, 
+          React.createElement("pre", null, 
             React.createElement("code", {className: "shell"}, '$ npm install --save @holidayextras/ui-toolkit\n')
           )
-        ),
+        ), 
 
-        React.createElement("h3", {id: "usage"}, "Sample Usage"),
-        React.createElement("p", null, "You can then use ", React.createElement("a", {href: "#components"}, "UI Toolkit's Custom Components"), " via:"),
-        React.createElement("div", {className: "highlight"},
-          React.createElement("pre", null,
+        React.createElement("h3", {id: "usage"}, "Sample Usage"), 
+        React.createElement("p", null, "You can then use ", React.createElement("a", {href: "#components"}, "UI Toolkit's Custom Components"), " via:"), 
+        React.createElement("div", {className: "highlight"}, 
+          React.createElement("pre", null, 
             React.createElement("code", {className: "js"}, 'var Button = require(\'ui-toolkit\').Button;')
           )
         )
@@ -1966,7 +2026,7 @@ var GettingStarted = React.createClass({displayName: "GettingStarted",
 module.exports = GettingStarted;
 
 
-},{"react":275}],32:[function(require,module,exports){
+},{"react":278}],33:[function(require,module,exports){
 var React = require('react');
 
 var PageHeader = require('./PageHeader.jsx');
@@ -1978,18 +2038,18 @@ var PageFooter = require('./PageFooter.jsx');
 var HomePage = React.createClass({displayName: "HomePage",
   render: function () {
     return (
-      React.createElement("div", null,
-        React.createElement(PageHeader, null),
-        React.createElement("a", {href: "#main", className: "sr-only"}, "Skip navigation"),
-        React.createElement("div", {className: "container"},
-          React.createElement("div", {className: "col-xs-12 col-md-3 col-md-push-9"},
+      React.createElement("div", null, 
+        React.createElement(PageHeader, null), 
+        React.createElement("a", {href: "#main", className: "sr-only"}, "Skip navigation"), 
+        React.createElement("div", {className: "container"}, 
+          React.createElement("div", {className: "col-xs-12 col-md-3 col-md-push-9"}, 
             React.createElement(Nav, null)
-          ),
-          React.createElement("div", {id: "main", className: "col-xs-12 col-md-9 col-md-pull-3"},
-            React.createElement(GettingStarted, null),
+          ), 
+          React.createElement("div", {id: "main", className: "col-xs-12 col-md-9 col-md-pull-3"}, 
+            React.createElement(GettingStarted, null), 
             React.createElement(Components, null)
           )
-        ),
+        ), 
         React.createElement(PageFooter, null)
       )
     );
@@ -1999,54 +2059,55 @@ var HomePage = React.createClass({displayName: "HomePage",
 module.exports = HomePage;
 
 
-},{"./Components.jsx":29,"./GettingStarted.jsx":31,"./Nav.jsx":33,"./PageFooter.jsx":34,"./PageHeader.jsx":35,"react":275}],33:[function(require,module,exports){
+},{"./Components.jsx":30,"./GettingStarted.jsx":32,"./Nav.jsx":34,"./PageFooter.jsx":35,"./PageHeader.jsx":36,"react":278}],34:[function(require,module,exports){
 var React = require('react');
 
 var Nav = React.createClass({displayName: "Nav",
   render: function () {
     return (
-      React.createElement("nav", {className: "hidden-xs hidden-sm", role: "navigation"},
+      React.createElement("nav", {className: "hidden-xs hidden-sm", role: "navigation"}, 
 
-        React.createElement("ul", null,
-          React.createElement("li", null,
-            React.createElement("a", {href: "#setup"}, "Get started"),
-            React.createElement("ul", null,
-              React.createElement("li", null, React.createElement("a", {href: "#terminal"}, "Terminal")),
+        React.createElement("ul", null, 
+          React.createElement("li", null, 
+            React.createElement("a", {href: "#setup"}, "Get started"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("a", {href: "#terminal"}, "Terminal")), 
               React.createElement("li", null, React.createElement("a", {href: "#usage"}, "Sample usage"))
             )
-          ),
+          ), 
 
-          React.createElement("li", null,
-            React.createElement("a", {href: "#atoms"}, "Atoms"),
-            React.createElement("ul", null,
-              React.createElement("li", null, React.createElement("a", {href: "#anchor"}, "Anchor")),
-              React.createElement("li", null, React.createElement("a", {href: "#button"}, "Buttons")),
-              React.createElement("li", null, React.createElement("a", {href: "#flags"}, "Flags")),
-              React.createElement("li", null, React.createElement("a", {href: "#image"}, "Image")),
-              React.createElement("li", null, React.createElement("a", {href: "#icons"}, "Icons")),
-              React.createElement("li", null, React.createElement("a", {href: "#input"}, "Input")),
-              React.createElement("li", null, React.createElement("a", {href: "#select"}, "Select")),
-              React.createElement("li", null,
-                React.createElement("a", {href: "#lists"}, "Lists"),
-                React.createElement("ul", null,
-                  React.createElement("li", null, React.createElement("a", {href: "#unordered-list"}, "Unordered List")),
-                  React.createElement("li", null, React.createElement("a", {href: "#ordered-list"}, "Ordered List")),
+          React.createElement("li", null, 
+            React.createElement("a", {href: "#atoms"}, "Atoms"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("a", {href: "#anchor"}, "Anchor")), 
+              React.createElement("li", null, React.createElement("a", {href: "#button"}, "Buttons")), 
+              React.createElement("li", null, React.createElement("a", {href: "#flags"}, "Flags")), 
+              React.createElement("li", null, React.createElement("a", {href: "#image"}, "Image")), 
+              React.createElement("li", null, React.createElement("a", {href: "#icons"}, "Icons")), 
+              React.createElement("li", null, React.createElement("a", {href: "#input"}, "Input")), 
+              React.createElement("li", null, React.createElement("a", {href: "#review"}, "Review")), 
+              React.createElement("li", null, React.createElement("a", {href: "#select"}, "Select")), 
+              React.createElement("li", null, 
+                React.createElement("a", {href: "#lists"}, "Lists"), 
+                React.createElement("ul", null, 
+                  React.createElement("li", null, React.createElement("a", {href: "#unordered-list"}, "Unordered List")), 
+                  React.createElement("li", null, React.createElement("a", {href: "#ordered-list"}, "Ordered List")), 
                   React.createElement("li", null, React.createElement("a", {href: "#description-list"}, "Description List"))
                 )
-              ),
-              React.createElement("li", null, React.createElement("a", {href: "#lozenge"}, "Lozenge")),
+              ), 
+              React.createElement("li", null, React.createElement("a", {href: "#lozenge"}, "Lozenge")), 
               React.createElement("li", null, React.createElement("a", {href: "#quote"}, "Quote"))
-            ),
-            React.createElement("a", {href: "#molecules"}, "Molecules"),
-            React.createElement("ul", null,
-              React.createElement("li", null, React.createElement("a", {href: "#alert"}, "Alert")),
-              React.createElement("li", null, React.createElement("a", {href: "#basket-item"}, "Basket Item")),
-              React.createElement("li", null, React.createElement("a", {href: "#countdown"}, "Countdown")),
-              React.createElement("li", null, React.createElement("a", {href: "#icon-list"}, "Icon List")),
-              React.createElement("li", null, React.createElement("a", {href: "#payment-card"}, "Payment Card")),
-              React.createElement("li", null, React.createElement("a", {href: "#rating"}, "Rating")),
-              React.createElement("li", null, React.createElement("a", {href: "#tile"}, "Tile")),
-              React.createElement("li", null, React.createElement("a", {href: "#weather"}, "Weather")),
+            ), 
+            React.createElement("a", {href: "#molecules"}, "Molecules"), 
+            React.createElement("ul", null, 
+              React.createElement("li", null, React.createElement("a", {href: "#alert"}, "Alert")), 
+              React.createElement("li", null, React.createElement("a", {href: "#basket-item"}, "Basket Item")), 
+              React.createElement("li", null, React.createElement("a", {href: "#countdown"}, "Countdown")), 
+              React.createElement("li", null, React.createElement("a", {href: "#icon-list"}, "Icon List")), 
+              React.createElement("li", null, React.createElement("a", {href: "#payment-card"}, "Payment Card")), 
+              React.createElement("li", null, React.createElement("a", {href: "#rating"}, "Rating")), 
+              React.createElement("li", null, React.createElement("a", {href: "#tile"}, "Tile")), 
+              React.createElement("li", null, React.createElement("a", {href: "#weather"}, "Weather")), 
               React.createElement("li", null, React.createElement("a", {href: "#stepper"}, "Stepper"))
             )
           )
@@ -2060,7 +2121,7 @@ var Nav = React.createClass({displayName: "Nav",
 module.exports = Nav;
 
 
-},{"react":275}],34:[function(require,module,exports){
+},{"react":278}],35:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -2069,15 +2130,15 @@ var packageJSON = require('../../package.json');
 var PageHeader = React.createClass({displayName: "PageHeader",
   render: function () {
     return (
-        React.createElement("footer", {className: "bs-docs-footer", role: "contentinfo"},
-          React.createElement("div", {className: "container"},
-            React.createElement("ul", {className: "bs-docs-footer-links muted"},
-              React.createElement("li", null, "Currently v", packageJSON.version),
-              React.createElement("li", null, "·"),
-              React.createElement("li", null, React.createElement("a", {href:  packageJSON.homepage}, "GitHub")),
-              React.createElement("li", null, "·"),
-              React.createElement("li", null, React.createElement("a", {href:  packageJSON.homepage + '/issues?state=open'}, "Issues")),
-              React.createElement("li", null, "·"),
+        React.createElement("footer", {className: "bs-docs-footer", role: "contentinfo"}, 
+          React.createElement("div", {className: "container"}, 
+            React.createElement("ul", {className: "bs-docs-footer-links muted"}, 
+              React.createElement("li", null, "Currently v", packageJSON.version), 
+              React.createElement("li", null, "·"), 
+              React.createElement("li", null, React.createElement("a", {href:  packageJSON.homepage}, "GitHub")), 
+              React.createElement("li", null, "·"), 
+              React.createElement("li", null, React.createElement("a", {href:  packageJSON.homepage + '/issues?state=open'}, "Issues")), 
+              React.createElement("li", null, "·"), 
               React.createElement("li", null, React.createElement("a", {href:  packageJSON.homepage + '/releases'}, "Releases"))
             )
           )
@@ -2089,7 +2150,7 @@ var PageHeader = React.createClass({displayName: "PageHeader",
 module.exports = PageHeader;
 
 
-},{"../../package.json":276,"react":275}],35:[function(require,module,exports){
+},{"../../package.json":279,"react":278}],36:[function(require,module,exports){
 var React = require('react');
 
 var packageJSON = require('../../package.json');
@@ -2097,10 +2158,10 @@ var packageJSON = require('../../package.json');
 var PageHeader = React.createClass({displayName: "PageHeader",
   render: function () {
     return (
-      React.createElement("header", null,
-        React.createElement("div", {className: "container"},
-          React.createElement("img", {src: "./assets/toolkit-logo.svg", alt: "Toolkit"}),
-          React.createElement("h1", null, packageJSON.description),
+      React.createElement("header", null, 
+        React.createElement("div", {className: "container"}, 
+          React.createElement("img", {src: "./assets/toolkit-logo.svg", alt: "Toolkit"}), 
+          React.createElement("h1", null, packageJSON.description), 
           React.createElement("p", {className: "lead"}, "A set of styled components built with React")
         )
       )
@@ -2111,18 +2172,18 @@ var PageHeader = React.createClass({displayName: "PageHeader",
 module.exports = PageHeader;
 
 
-},{"../../package.json":276,"react":275}],36:[function(require,module,exports){
+},{"../../package.json":279,"react":278}],37:[function(require,module,exports){
 'use strict';
 module.exports = require('./dist');
 
 
-},{"./dist":23}],37:[function(require,module,exports){
+},{"./dist":24}],38:[function(require,module,exports){
 module.exports = { "default": require("core-js/library/fn/array/from"), __esModule: true };
-},{"core-js/library/fn/array/from":41}],38:[function(require,module,exports){
+},{"core-js/library/fn/array/from":42}],39:[function(require,module,exports){
 module.exports = { "default": require("core-js/library/fn/object/assign"), __esModule: true };
-},{"core-js/library/fn/object/assign":42}],39:[function(require,module,exports){
+},{"core-js/library/fn/object/assign":43}],40:[function(require,module,exports){
 module.exports = { "default": require("core-js/library/fn/set"), __esModule: true };
-},{"core-js/library/fn/set":43}],40:[function(require,module,exports){
+},{"core-js/library/fn/set":44}],41:[function(require,module,exports){
 "use strict";
 
 var _Array$from = require("babel-runtime/core-js/array/from")["default"];
@@ -2138,34 +2199,34 @@ exports["default"] = function (arr) {
 };
 
 exports.__esModule = true;
-},{"babel-runtime/core-js/array/from":37}],41:[function(require,module,exports){
+},{"babel-runtime/core-js/array/from":38}],42:[function(require,module,exports){
 require('../../modules/es6.string.iterator');
 require('../../modules/es6.array.from');
 module.exports = require('../../modules/$.core').Array.from;
-},{"../../modules/$.core":52,"../../modules/es6.array.from":89,"../../modules/es6.string.iterator":94}],42:[function(require,module,exports){
+},{"../../modules/$.core":53,"../../modules/es6.array.from":90,"../../modules/es6.string.iterator":95}],43:[function(require,module,exports){
 require('../../modules/es6.object.assign');
 module.exports = require('../../modules/$.core').Object.assign;
-},{"../../modules/$.core":52,"../../modules/es6.object.assign":91}],43:[function(require,module,exports){
+},{"../../modules/$.core":53,"../../modules/es6.object.assign":92}],44:[function(require,module,exports){
 require('../modules/es6.object.to-string');
 require('../modules/es6.string.iterator');
 require('../modules/web.dom.iterable');
 require('../modules/es6.set');
 require('../modules/es7.set.to-json');
 module.exports = require('../modules/$.core').Set;
-},{"../modules/$.core":52,"../modules/es6.object.to-string":92,"../modules/es6.set":93,"../modules/es6.string.iterator":94,"../modules/es7.set.to-json":95,"../modules/web.dom.iterable":96}],44:[function(require,module,exports){
+},{"../modules/$.core":53,"../modules/es6.object.to-string":93,"../modules/es6.set":94,"../modules/es6.string.iterator":95,"../modules/es7.set.to-json":96,"../modules/web.dom.iterable":97}],45:[function(require,module,exports){
 module.exports = function(it){
   if(typeof it != 'function')throw TypeError(it + ' is not a function!');
   return it;
 };
-},{}],45:[function(require,module,exports){
-module.exports = function(){ /* empty */ };
 },{}],46:[function(require,module,exports){
+module.exports = function(){ /* empty */ };
+},{}],47:[function(require,module,exports){
 var isObject = require('./$.is-object');
 module.exports = function(it){
   if(!isObject(it))throw TypeError(it + ' is not an object!');
   return it;
 };
-},{"./$.is-object":64}],47:[function(require,module,exports){
+},{"./$.is-object":65}],48:[function(require,module,exports){
 // getting tag from 19.1.3.6 Object.prototype.toString()
 var cof = require('./$.cof')
   , TAG = require('./$.wks')('toStringTag')
@@ -2182,13 +2243,13 @@ module.exports = function(it){
     // ES3 arguments fallback
     : (B = cof(O)) == 'Object' && typeof O.callee == 'function' ? 'Arguments' : B;
 };
-},{"./$.cof":48,"./$.wks":87}],48:[function(require,module,exports){
+},{"./$.cof":49,"./$.wks":88}],49:[function(require,module,exports){
 var toString = {}.toString;
 
 module.exports = function(it){
   return toString.call(it).slice(8, -1);
 };
-},{}],49:[function(require,module,exports){
+},{}],50:[function(require,module,exports){
 'use strict';
 var $            = require('./$')
   , hide         = require('./$.hide')
@@ -2348,7 +2409,7 @@ module.exports = {
     setSpecies(NAME);
   }
 };
-},{"./$":71,"./$.ctx":53,"./$.defined":54,"./$.descriptors":55,"./$.for-of":58,"./$.has":60,"./$.hide":61,"./$.is-object":64,"./$.iter-define":67,"./$.iter-step":69,"./$.redefine-all":75,"./$.set-species":77,"./$.strict-new":80,"./$.uid":86}],50:[function(require,module,exports){
+},{"./$":72,"./$.ctx":54,"./$.defined":55,"./$.descriptors":56,"./$.for-of":59,"./$.has":61,"./$.hide":62,"./$.is-object":65,"./$.iter-define":68,"./$.iter-step":70,"./$.redefine-all":76,"./$.set-species":78,"./$.strict-new":81,"./$.uid":87}],51:[function(require,module,exports){
 // https://github.com/DavidBruant/Map-Set.prototype.toJSON
 var forOf   = require('./$.for-of')
   , classof = require('./$.classof');
@@ -2360,7 +2421,7 @@ module.exports = function(NAME){
     return arr;
   };
 };
-},{"./$.classof":47,"./$.for-of":58}],51:[function(require,module,exports){
+},{"./$.classof":48,"./$.for-of":59}],52:[function(require,module,exports){
 'use strict';
 var $              = require('./$')
   , global         = require('./$.global')
@@ -2416,10 +2477,10 @@ module.exports = function(NAME, wrapper, methods, common, IS_MAP, IS_WEAK){
 
   return C;
 };
-},{"./$":71,"./$.descriptors":55,"./$.export":56,"./$.fails":57,"./$.for-of":58,"./$.global":59,"./$.hide":61,"./$.is-object":64,"./$.redefine-all":75,"./$.set-to-string-tag":78,"./$.strict-new":80}],52:[function(require,module,exports){
+},{"./$":72,"./$.descriptors":56,"./$.export":57,"./$.fails":58,"./$.for-of":59,"./$.global":60,"./$.hide":62,"./$.is-object":65,"./$.redefine-all":76,"./$.set-to-string-tag":79,"./$.strict-new":81}],53:[function(require,module,exports){
 var core = module.exports = {version: '1.2.6'};
 if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
-},{}],53:[function(require,module,exports){
+},{}],54:[function(require,module,exports){
 // optional / simple context binding
 var aFunction = require('./$.a-function');
 module.exports = function(fn, that, length){
@@ -2440,18 +2501,18 @@ module.exports = function(fn, that, length){
     return fn.apply(that, arguments);
   };
 };
-},{"./$.a-function":44}],54:[function(require,module,exports){
+},{"./$.a-function":45}],55:[function(require,module,exports){
 // 7.2.1 RequireObjectCoercible(argument)
 module.exports = function(it){
   if(it == undefined)throw TypeError("Can't call method on  " + it);
   return it;
 };
-},{}],55:[function(require,module,exports){
+},{}],56:[function(require,module,exports){
 // Thank's IE8 for his funny defineProperty
 module.exports = !require('./$.fails')(function(){
   return Object.defineProperty({}, 'a', {get: function(){ return 7; }}).a != 7;
 });
-},{"./$.fails":57}],56:[function(require,module,exports){
+},{"./$.fails":58}],57:[function(require,module,exports){
 var global    = require('./$.global')
   , core      = require('./$.core')
   , ctx       = require('./$.ctx')
@@ -2498,7 +2559,7 @@ $export.P = 8;  // proto
 $export.B = 16; // bind
 $export.W = 32; // wrap
 module.exports = $export;
-},{"./$.core":52,"./$.ctx":53,"./$.global":59}],57:[function(require,module,exports){
+},{"./$.core":53,"./$.ctx":54,"./$.global":60}],58:[function(require,module,exports){
 module.exports = function(exec){
   try {
     return !!exec();
@@ -2506,7 +2567,7 @@ module.exports = function(exec){
     return true;
   }
 };
-},{}],58:[function(require,module,exports){
+},{}],59:[function(require,module,exports){
 var ctx         = require('./$.ctx')
   , call        = require('./$.iter-call')
   , isArrayIter = require('./$.is-array-iter')
@@ -2526,17 +2587,17 @@ module.exports = function(iterable, entries, fn, that){
     call(iterator, f, step.value, entries);
   }
 };
-},{"./$.an-object":46,"./$.ctx":53,"./$.is-array-iter":63,"./$.iter-call":65,"./$.to-length":84,"./core.get-iterator-method":88}],59:[function(require,module,exports){
+},{"./$.an-object":47,"./$.ctx":54,"./$.is-array-iter":64,"./$.iter-call":66,"./$.to-length":85,"./core.get-iterator-method":89}],60:[function(require,module,exports){
 // https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
 var global = module.exports = typeof window != 'undefined' && window.Math == Math
   ? window : typeof self != 'undefined' && self.Math == Math ? self : Function('return this')();
 if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
-},{}],60:[function(require,module,exports){
+},{}],61:[function(require,module,exports){
 var hasOwnProperty = {}.hasOwnProperty;
 module.exports = function(it, key){
   return hasOwnProperty.call(it, key);
 };
-},{}],61:[function(require,module,exports){
+},{}],62:[function(require,module,exports){
 var $          = require('./$')
   , createDesc = require('./$.property-desc');
 module.exports = require('./$.descriptors') ? function(object, key, value){
@@ -2545,13 +2606,13 @@ module.exports = require('./$.descriptors') ? function(object, key, value){
   object[key] = value;
   return object;
 };
-},{"./$":71,"./$.descriptors":55,"./$.property-desc":74}],62:[function(require,module,exports){
+},{"./$":72,"./$.descriptors":56,"./$.property-desc":75}],63:[function(require,module,exports){
 // fallback for non-array-like ES3 and non-enumerable old V8 strings
 var cof = require('./$.cof');
 module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
   return cof(it) == 'String' ? it.split('') : Object(it);
 };
-},{"./$.cof":48}],63:[function(require,module,exports){
+},{"./$.cof":49}],64:[function(require,module,exports){
 // check on default Array iterator
 var Iterators  = require('./$.iterators')
   , ITERATOR   = require('./$.wks')('iterator')
@@ -2560,11 +2621,11 @@ var Iterators  = require('./$.iterators')
 module.exports = function(it){
   return it !== undefined && (Iterators.Array === it || ArrayProto[ITERATOR] === it);
 };
-},{"./$.iterators":70,"./$.wks":87}],64:[function(require,module,exports){
+},{"./$.iterators":71,"./$.wks":88}],65:[function(require,module,exports){
 module.exports = function(it){
   return typeof it === 'object' ? it !== null : typeof it === 'function';
 };
-},{}],65:[function(require,module,exports){
+},{}],66:[function(require,module,exports){
 // call something on iterator step with safe closing on error
 var anObject = require('./$.an-object');
 module.exports = function(iterator, fn, value, entries){
@@ -2577,7 +2638,7 @@ module.exports = function(iterator, fn, value, entries){
     throw e;
   }
 };
-},{"./$.an-object":46}],66:[function(require,module,exports){
+},{"./$.an-object":47}],67:[function(require,module,exports){
 'use strict';
 var $              = require('./$')
   , descriptor     = require('./$.property-desc')
@@ -2591,7 +2652,7 @@ module.exports = function(Constructor, NAME, next){
   Constructor.prototype = $.create(IteratorPrototype, {next: descriptor(1, next)});
   setToStringTag(Constructor, NAME + ' Iterator');
 };
-},{"./$":71,"./$.hide":61,"./$.property-desc":74,"./$.set-to-string-tag":78,"./$.wks":87}],67:[function(require,module,exports){
+},{"./$":72,"./$.hide":62,"./$.property-desc":75,"./$.set-to-string-tag":79,"./$.wks":88}],68:[function(require,module,exports){
 'use strict';
 var LIBRARY        = require('./$.library')
   , $export        = require('./$.export')
@@ -2658,7 +2719,7 @@ module.exports = function(Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCED
   }
   return methods;
 };
-},{"./$":71,"./$.export":56,"./$.has":60,"./$.hide":61,"./$.iter-create":66,"./$.iterators":70,"./$.library":72,"./$.redefine":76,"./$.set-to-string-tag":78,"./$.wks":87}],68:[function(require,module,exports){
+},{"./$":72,"./$.export":57,"./$.has":61,"./$.hide":62,"./$.iter-create":67,"./$.iterators":71,"./$.library":73,"./$.redefine":77,"./$.set-to-string-tag":79,"./$.wks":88}],69:[function(require,module,exports){
 var ITERATOR     = require('./$.wks')('iterator')
   , SAFE_CLOSING = false;
 
@@ -2680,13 +2741,13 @@ module.exports = function(exec, skipClosing){
   } catch(e){ /* empty */ }
   return safe;
 };
-},{"./$.wks":87}],69:[function(require,module,exports){
+},{"./$.wks":88}],70:[function(require,module,exports){
 module.exports = function(done, value){
   return {value: value, done: !!done};
 };
-},{}],70:[function(require,module,exports){
-module.exports = {};
 },{}],71:[function(require,module,exports){
+module.exports = {};
+},{}],72:[function(require,module,exports){
 var $Object = Object;
 module.exports = {
   create:     $Object.create,
@@ -2700,9 +2761,9 @@ module.exports = {
   getSymbols: $Object.getOwnPropertySymbols,
   each:       [].forEach
 };
-},{}],72:[function(require,module,exports){
-module.exports = true;
 },{}],73:[function(require,module,exports){
+module.exports = true;
+},{}],74:[function(require,module,exports){
 // 19.1.2.1 Object.assign(target, source, ...)
 var $        = require('./$')
   , toObject = require('./$.to-object')
@@ -2736,7 +2797,7 @@ module.exports = require('./$.fails')(function(){
   }
   return T;
 } : Object.assign;
-},{"./$":71,"./$.fails":57,"./$.iobject":62,"./$.to-object":85}],74:[function(require,module,exports){
+},{"./$":72,"./$.fails":58,"./$.iobject":63,"./$.to-object":86}],75:[function(require,module,exports){
 module.exports = function(bitmap, value){
   return {
     enumerable  : !(bitmap & 1),
@@ -2745,15 +2806,15 @@ module.exports = function(bitmap, value){
     value       : value
   };
 };
-},{}],75:[function(require,module,exports){
+},{}],76:[function(require,module,exports){
 var redefine = require('./$.redefine');
 module.exports = function(target, src){
   for(var key in src)redefine(target, key, src[key]);
   return target;
 };
-},{"./$.redefine":76}],76:[function(require,module,exports){
+},{"./$.redefine":77}],77:[function(require,module,exports){
 module.exports = require('./$.hide');
-},{"./$.hide":61}],77:[function(require,module,exports){
+},{"./$.hide":62}],78:[function(require,module,exports){
 'use strict';
 var core        = require('./$.core')
   , $           = require('./$')
@@ -2767,7 +2828,7 @@ module.exports = function(KEY){
     get: function(){ return this; }
   });
 };
-},{"./$":71,"./$.core":52,"./$.descriptors":55,"./$.wks":87}],78:[function(require,module,exports){
+},{"./$":72,"./$.core":53,"./$.descriptors":56,"./$.wks":88}],79:[function(require,module,exports){
 var def = require('./$').setDesc
   , has = require('./$.has')
   , TAG = require('./$.wks')('toStringTag');
@@ -2775,19 +2836,19 @@ var def = require('./$').setDesc
 module.exports = function(it, tag, stat){
   if(it && !has(it = stat ? it : it.prototype, TAG))def(it, TAG, {configurable: true, value: tag});
 };
-},{"./$":71,"./$.has":60,"./$.wks":87}],79:[function(require,module,exports){
+},{"./$":72,"./$.has":61,"./$.wks":88}],80:[function(require,module,exports){
 var global = require('./$.global')
   , SHARED = '__core-js_shared__'
   , store  = global[SHARED] || (global[SHARED] = {});
 module.exports = function(key){
   return store[key] || (store[key] = {});
 };
-},{"./$.global":59}],80:[function(require,module,exports){
+},{"./$.global":60}],81:[function(require,module,exports){
 module.exports = function(it, Constructor, name){
   if(!(it instanceof Constructor))throw TypeError(name + ": use the 'new' operator!");
   return it;
 };
-},{}],81:[function(require,module,exports){
+},{}],82:[function(require,module,exports){
 var toInteger = require('./$.to-integer')
   , defined   = require('./$.defined');
 // true  -> String#at
@@ -2805,40 +2866,40 @@ module.exports = function(TO_STRING){
       : TO_STRING ? s.slice(i, i + 2) : (a - 0xd800 << 10) + (b - 0xdc00) + 0x10000;
   };
 };
-},{"./$.defined":54,"./$.to-integer":82}],82:[function(require,module,exports){
+},{"./$.defined":55,"./$.to-integer":83}],83:[function(require,module,exports){
 // 7.1.4 ToInteger
 var ceil  = Math.ceil
   , floor = Math.floor;
 module.exports = function(it){
   return isNaN(it = +it) ? 0 : (it > 0 ? floor : ceil)(it);
 };
-},{}],83:[function(require,module,exports){
+},{}],84:[function(require,module,exports){
 // to indexed object, toObject with fallback for non-array-like ES3 strings
 var IObject = require('./$.iobject')
   , defined = require('./$.defined');
 module.exports = function(it){
   return IObject(defined(it));
 };
-},{"./$.defined":54,"./$.iobject":62}],84:[function(require,module,exports){
+},{"./$.defined":55,"./$.iobject":63}],85:[function(require,module,exports){
 // 7.1.15 ToLength
 var toInteger = require('./$.to-integer')
   , min       = Math.min;
 module.exports = function(it){
   return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
 };
-},{"./$.to-integer":82}],85:[function(require,module,exports){
+},{"./$.to-integer":83}],86:[function(require,module,exports){
 // 7.1.13 ToObject(argument)
 var defined = require('./$.defined');
 module.exports = function(it){
   return Object(defined(it));
 };
-},{"./$.defined":54}],86:[function(require,module,exports){
+},{"./$.defined":55}],87:[function(require,module,exports){
 var id = 0
   , px = Math.random();
 module.exports = function(key){
   return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
 };
-},{}],87:[function(require,module,exports){
+},{}],88:[function(require,module,exports){
 var store  = require('./$.shared')('wks')
   , uid    = require('./$.uid')
   , Symbol = require('./$.global').Symbol;
@@ -2846,7 +2907,7 @@ module.exports = function(name){
   return store[name] || (store[name] =
     Symbol && Symbol[name] || (Symbol || uid)('Symbol.' + name));
 };
-},{"./$.global":59,"./$.shared":79,"./$.uid":86}],88:[function(require,module,exports){
+},{"./$.global":60,"./$.shared":80,"./$.uid":87}],89:[function(require,module,exports){
 var classof   = require('./$.classof')
   , ITERATOR  = require('./$.wks')('iterator')
   , Iterators = require('./$.iterators');
@@ -2855,7 +2916,7 @@ module.exports = require('./$.core').getIteratorMethod = function(it){
     || it['@@iterator']
     || Iterators[classof(it)];
 };
-},{"./$.classof":47,"./$.core":52,"./$.iterators":70,"./$.wks":87}],89:[function(require,module,exports){
+},{"./$.classof":48,"./$.core":53,"./$.iterators":71,"./$.wks":88}],90:[function(require,module,exports){
 'use strict';
 var ctx         = require('./$.ctx')
   , $export     = require('./$.export')
@@ -2893,7 +2954,7 @@ $export($export.S + $export.F * !require('./$.iter-detect')(function(iter){ Arra
   }
 });
 
-},{"./$.ctx":53,"./$.export":56,"./$.is-array-iter":63,"./$.iter-call":65,"./$.iter-detect":68,"./$.to-length":84,"./$.to-object":85,"./core.get-iterator-method":88}],90:[function(require,module,exports){
+},{"./$.ctx":54,"./$.export":57,"./$.is-array-iter":64,"./$.iter-call":66,"./$.iter-detect":69,"./$.to-length":85,"./$.to-object":86,"./core.get-iterator-method":89}],91:[function(require,module,exports){
 'use strict';
 var addToUnscopables = require('./$.add-to-unscopables')
   , step             = require('./$.iter-step')
@@ -2928,14 +2989,14 @@ Iterators.Arguments = Iterators.Array;
 addToUnscopables('keys');
 addToUnscopables('values');
 addToUnscopables('entries');
-},{"./$.add-to-unscopables":45,"./$.iter-define":67,"./$.iter-step":69,"./$.iterators":70,"./$.to-iobject":83}],91:[function(require,module,exports){
+},{"./$.add-to-unscopables":46,"./$.iter-define":68,"./$.iter-step":70,"./$.iterators":71,"./$.to-iobject":84}],92:[function(require,module,exports){
 // 19.1.3.1 Object.assign(target, source)
 var $export = require('./$.export');
 
 $export($export.S + $export.F, 'Object', {assign: require('./$.object-assign')});
-},{"./$.export":56,"./$.object-assign":73}],92:[function(require,module,exports){
-arguments[4][25][0].apply(exports,arguments)
-},{"dup":25}],93:[function(require,module,exports){
+},{"./$.export":57,"./$.object-assign":74}],93:[function(require,module,exports){
+arguments[4][26][0].apply(exports,arguments)
+},{"dup":26}],94:[function(require,module,exports){
 'use strict';
 var strong = require('./$.collection-strong');
 
@@ -2948,7 +3009,7 @@ require('./$.collection')('Set', function(get){
     return strong.def(this, value = value === 0 ? 0 : value, value);
   }
 }, strong);
-},{"./$.collection":51,"./$.collection-strong":49}],94:[function(require,module,exports){
+},{"./$.collection":52,"./$.collection-strong":50}],95:[function(require,module,exports){
 'use strict';
 var $at  = require('./$.string-at')(true);
 
@@ -2966,18 +3027,18 @@ require('./$.iter-define')(String, 'String', function(iterated){
   this._i += point.length;
   return {value: point, done: false};
 });
-},{"./$.iter-define":67,"./$.string-at":81}],95:[function(require,module,exports){
+},{"./$.iter-define":68,"./$.string-at":82}],96:[function(require,module,exports){
 // https://github.com/DavidBruant/Map-Set.prototype.toJSON
 var $export  = require('./$.export');
 
 $export($export.P, 'Set', {toJSON: require('./$.collection-to-json')('Set')});
-},{"./$.collection-to-json":50,"./$.export":56}],96:[function(require,module,exports){
+},{"./$.collection-to-json":51,"./$.export":57}],97:[function(require,module,exports){
 require('./es6.array.iterator');
 var Iterators = require('./$.iterators');
 Iterators.NodeList = Iterators.HTMLCollection = Iterators.Array;
-},{"./$.iterators":70,"./es6.array.iterator":90}],97:[function(require,module,exports){
+},{"./$.iterators":71,"./es6.array.iterator":91}],98:[function(require,module,exports){
 /*!
-  Copyright (c) 2016 Jed Watson.
+  Copyright (c) 2015 Jed Watson.
   Licensed under the MIT License (MIT), see
   http://jedwatson.github.io/classnames
 */
@@ -2989,7 +3050,7 @@ Iterators.NodeList = Iterators.HTMLCollection = Iterators.Array;
 	var hasOwn = {}.hasOwnProperty;
 
 	function classNames () {
-		var classes = [];
+		var classes = '';
 
 		for (var i = 0; i < arguments.length; i++) {
 			var arg = arguments[i];
@@ -2998,19 +3059,19 @@ Iterators.NodeList = Iterators.HTMLCollection = Iterators.Array;
 			var argType = typeof arg;
 
 			if (argType === 'string' || argType === 'number') {
-				classes.push(arg);
+				classes += ' ' + arg;
 			} else if (Array.isArray(arg)) {
-				classes.push(classNames.apply(null, arg));
+				classes += ' ' + classNames.apply(null, arg);
 			} else if (argType === 'object') {
 				for (var key in arg) {
 					if (hasOwn.call(arg, key) && arg[key]) {
-						classes.push(key);
+						classes += ' ' + key;
 					}
 				}
 			}
 		}
 
-		return classes.join(' ');
+		return classes.substr(1);
 	}
 
 	if (typeof module !== 'undefined' && module.exports) {
@@ -3025,7 +3086,7 @@ Iterators.NodeList = Iterators.HTMLCollection = Iterators.Array;
 	}
 }());
 
-},{}],98:[function(require,module,exports){
+},{}],99:[function(require,module,exports){
 //! moment.js
 //! version : 2.10.6
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
@@ -6221,7 +6282,7 @@ Iterators.NodeList = Iterators.HTMLCollection = Iterators.Array;
     return _moment;
 
 }));
-},{}],99:[function(require,module,exports){
+},{}],100:[function(require,module,exports){
 "use strict";
 
 var after = function after(host, name, cb) {
@@ -6242,7 +6303,7 @@ var after = function after(host, name, cb) {
 };
 
 module.exports = after;
-},{}],100:[function(require,module,exports){
+},{}],101:[function(require,module,exports){
 'use strict';
 
 var _Set = require('babel-runtime/core-js/set')['default'];
@@ -6453,7 +6514,7 @@ exports.render = {
   }
 
 };
-},{"./after":99,"babel-runtime/core-js/set":39}],101:[function(require,module,exports){
+},{"./after":100,"babel-runtime/core-js/set":40}],102:[function(require,module,exports){
 'use strict';
 
 var _toConsumableArray = require('babel-runtime/helpers/to-consumable-array')['default'];
@@ -6645,7 +6706,7 @@ var reactA11y = function reactA11y(React, options) {
 };
 
 module.exports = reactA11y;
-},{"./after":99,"./assertions":100,"babel-runtime/core-js/object/assign":38,"babel-runtime/core-js/set":39,"babel-runtime/helpers/to-consumable-array":40}],102:[function(require,module,exports){
+},{"./after":100,"./assertions":101,"babel-runtime/core-js/object/assign":39,"babel-runtime/core-js/set":40,"babel-runtime/helpers/to-consumable-array":41}],103:[function(require,module,exports){
 var _ = {
   mapKeys: require('lodash.mapkeys'),
   kebabCase: require('lodash.kebabcase')
@@ -6659,7 +6720,7 @@ module.exports = {
   }
 };
 
-},{"lodash.kebabcase":103,"lodash.mapkeys":107}],103:[function(require,module,exports){
+},{"lodash.kebabcase":104,"lodash.mapkeys":110}],104:[function(require,module,exports){
 /**
  * lodash 3.0.0 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
@@ -6697,7 +6758,7 @@ var kebabCase = createCompounder(function(result, word, index) {
 
 module.exports = kebabCase;
 
-},{"lodash._createcompounder":104}],104:[function(require,module,exports){
+},{"lodash._createcompounder":105}],105:[function(require,module,exports){
 /**
  * lodash 3.0.0 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
@@ -6733,16 +6794,16 @@ function createCompounder(callback) {
 
 module.exports = createCompounder;
 
-},{"lodash.deburr":105,"lodash.words":106}],105:[function(require,module,exports){
-(function (global){
+},{"lodash.deburr":106,"lodash.words":108}],106:[function(require,module,exports){
 /**
- * lodash 3.1.1 (Custom Build) <https://lodash.com/>
+ * lodash 3.2.0 (Custom Build) <https://lodash.com/>
  * Build: `lodash modularize exports="npm" -o ./`
  * Copyright 2012-2016 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
  * Copyright 2009-2016 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
  * Available under MIT license <https://lodash.com/license>
  */
+var root = require('lodash._root');
 
 /** Used as references for various `Number` constants. */
 var INFINITY = 1 / 0;
@@ -6799,7 +6860,7 @@ function deburrLetter(letter) {
 }
 
 /** Used for built-in method references. */
-var objectProto = global.Object.prototype;
+var objectProto = Object.prototype;
 
 /**
  * Used to resolve the [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
@@ -6808,7 +6869,7 @@ var objectProto = global.Object.prototype;
 var objectToString = objectProto.toString;
 
 /** Built-in value references. */
-var Symbol = global.Symbol;
+var Symbol = root.Symbol;
 
 /** Used to convert symbols to primitives and strings. */
 var symbolProto = Symbol ? Symbol.prototype : undefined,
@@ -6918,17 +6979,79 @@ function deburr(string) {
 
 module.exports = deburr;
 
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],106:[function(require,module,exports){
+},{"lodash._root":107}],107:[function(require,module,exports){
 (function (global){
 /**
- * lodash 3.1.1 (Custom Build) <https://lodash.com/>
+ * lodash 3.0.1 (Custom Build) <https://lodash.com/>
  * Build: `lodash modularize exports="npm" -o ./`
  * Copyright 2012-2016 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
  * Copyright 2009-2016 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
  * Available under MIT license <https://lodash.com/license>
  */
+
+/** Used to determine if values are of the language type `Object`. */
+var objectTypes = {
+  'function': true,
+  'object': true
+};
+
+/** Detect free variable `exports`. */
+var freeExports = (objectTypes[typeof exports] && exports && !exports.nodeType)
+  ? exports
+  : undefined;
+
+/** Detect free variable `module`. */
+var freeModule = (objectTypes[typeof module] && module && !module.nodeType)
+  ? module
+  : undefined;
+
+/** Detect free variable `global` from Node.js. */
+var freeGlobal = checkGlobal(freeExports && freeModule && typeof global == 'object' && global);
+
+/** Detect free variable `self`. */
+var freeSelf = checkGlobal(objectTypes[typeof self] && self);
+
+/** Detect free variable `window`. */
+var freeWindow = checkGlobal(objectTypes[typeof window] && window);
+
+/** Detect `this` as the global object. */
+var thisGlobal = checkGlobal(objectTypes[typeof this] && this);
+
+/**
+ * Used as a reference to the global object.
+ *
+ * The `this` value is used if it's the global object to avoid Greasemonkey's
+ * restricted `window` object, otherwise the `window` object is used.
+ */
+var root = freeGlobal ||
+  ((freeWindow !== (thisGlobal && thisGlobal.window)) && freeWindow) ||
+    freeSelf || thisGlobal || Function('return this')();
+
+/**
+ * Checks if `value` is a global object.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {null|Object} Returns `value` if it's a global object, else `null`.
+ */
+function checkGlobal(value) {
+  return (value && value.Object === Object) ? value : null;
+}
+
+module.exports = root;
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{}],108:[function(require,module,exports){
+/**
+ * lodash 3.2.0 (Custom Build) <https://lodash.com/>
+ * Build: `lodash modularize exports="npm" -o ./`
+ * Copyright 2012-2016 The Dojo Foundation <http://dojofoundation.org/>
+ * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
+ * Copyright 2009-2016 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ * Available under MIT license <https://lodash.com/license>
+ */
+var root = require('lodash._root');
 
 /** Used as references for various `Number` constants. */
 var INFINITY = 1 / 0;
@@ -6991,7 +7114,7 @@ var reComplexWord = RegExp([
 var reHasComplexWord = /[a-z][A-Z]|[0-9][a-zA-Z]|[a-zA-Z][0-9]|[^a-zA-Z0-9 ]/;
 
 /** Used for built-in method references. */
-var objectProto = global.Object.prototype;
+var objectProto = Object.prototype;
 
 /**
  * Used to resolve the [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
@@ -7000,7 +7123,7 @@ var objectProto = global.Object.prototype;
 var objectToString = objectProto.toString;
 
 /** Built-in value references. */
-var Symbol = global.Symbol;
+var Symbol = root.Symbol;
 
 /** Used to convert symbols to primitives and strings. */
 var symbolProto = Symbol ? Symbol.prototype : undefined,
@@ -7119,8 +7242,9 @@ function words(string, pattern, guard) {
 
 module.exports = words;
 
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],107:[function(require,module,exports){
+},{"lodash._root":109}],109:[function(require,module,exports){
+arguments[4][107][0].apply(exports,arguments)
+},{"dup":107}],110:[function(require,module,exports){
 /**
  * lodash 3.8.0 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
@@ -7192,7 +7316,7 @@ var mapKeys = createObjectMapper(true);
 
 module.exports = mapKeys;
 
-},{"lodash._basecallback":108,"lodash._basefor":114,"lodash.keys":115}],108:[function(require,module,exports){
+},{"lodash._basecallback":111,"lodash._basefor":117,"lodash.keys":118}],111:[function(require,module,exports){
 /**
  * lodash 3.3.1 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
@@ -7616,7 +7740,7 @@ function property(path) {
 
 module.exports = baseCallback;
 
-},{"lodash._baseisequal":109,"lodash._bindcallback":111,"lodash.isarray":112,"lodash.pairs":113}],109:[function(require,module,exports){
+},{"lodash._baseisequal":112,"lodash._bindcallback":114,"lodash.isarray":115,"lodash.pairs":116}],112:[function(require,module,exports){
 /**
  * lodash 3.0.7 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
@@ -7960,10 +8084,9 @@ function isObject(value) {
 
 module.exports = baseIsEqual;
 
-},{"lodash.isarray":112,"lodash.istypedarray":110,"lodash.keys":115}],110:[function(require,module,exports){
-(function (global){
+},{"lodash.isarray":115,"lodash.istypedarray":113,"lodash.keys":118}],113:[function(require,module,exports){
 /**
- * lodash 3.0.3 (Custom Build) <https://lodash.com/>
+ * lodash 3.0.5 (Custom Build) <https://lodash.com/>
  * Build: `lodash modularize exports="npm" -o ./`
  * Copyright 2012-2016 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
@@ -8016,7 +8139,7 @@ typedArrayTags[regexpTag] = typedArrayTags[setTag] =
 typedArrayTags[stringTag] = typedArrayTags[weakMapTag] = false;
 
 /** Used for built-in method references. */
-var objectProto = global.Object.prototype;
+var objectProto = Object.prototype;
 
 /**
  * Used to resolve the [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
@@ -8049,7 +8172,8 @@ var objectToString = objectProto.toString;
  * // => false
  */
 function isLength(value) {
-  return typeof value == 'number' && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
+  return typeof value == 'number' &&
+    value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
 }
 
 /**
@@ -8096,13 +8220,13 @@ function isObjectLike(value) {
  * // => false
  */
 function isTypedArray(value) {
-  return isObjectLike(value) && isLength(value.length) && !!typedArrayTags[objectToString.call(value)];
+  return isObjectLike(value) &&
+    isLength(value.length) && !!typedArrayTags[objectToString.call(value)];
 }
 
 module.exports = isTypedArray;
 
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],111:[function(require,module,exports){
+},{}],114:[function(require,module,exports){
 /**
  * lodash 3.0.1 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
@@ -8169,7 +8293,7 @@ function identity(value) {
 
 module.exports = bindCallback;
 
-},{}],112:[function(require,module,exports){
+},{}],115:[function(require,module,exports){
 /**
  * lodash 3.0.4 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
@@ -8351,7 +8475,7 @@ function isNative(value) {
 
 module.exports = isArray;
 
-},{}],113:[function(require,module,exports){
+},{}],116:[function(require,module,exports){
 /**
  * lodash 3.0.1 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
@@ -8431,7 +8555,7 @@ function pairs(object) {
 
 module.exports = pairs;
 
-},{"lodash.keys":115}],114:[function(require,module,exports){
+},{"lodash.keys":118}],117:[function(require,module,exports){
 /**
  * lodash 3.0.3 (Custom Build) <https://lodash.com/>
  * Build: `lodash modularize exports="npm" -o ./`
@@ -8481,7 +8605,7 @@ function createBaseFor(fromRight) {
 
 module.exports = baseFor;
 
-},{}],115:[function(require,module,exports){
+},{}],118:[function(require,module,exports){
 /**
  * lodash 3.1.2 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
@@ -8719,7 +8843,7 @@ function keysIn(object) {
 
 module.exports = keys;
 
-},{"lodash._getnative":116,"lodash.isarguments":117,"lodash.isarray":118}],116:[function(require,module,exports){
+},{"lodash._getnative":119,"lodash.isarguments":120,"lodash.isarray":121}],119:[function(require,module,exports){
 /**
  * lodash 3.9.1 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
@@ -8858,10 +8982,9 @@ function isNative(value) {
 
 module.exports = getNative;
 
-},{}],117:[function(require,module,exports){
-(function (global){
+},{}],120:[function(require,module,exports){
 /**
- * lodash 3.0.5 (Custom Build) <https://lodash.com/>
+ * lodash 3.0.7 (Custom Build) <https://lodash.com/>
  * Build: `lodash modularize exports="npm" -o ./`
  * Copyright 2012-2016 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
@@ -8878,7 +9001,7 @@ var argsTag = '[object Arguments]',
     genTag = '[object GeneratorFunction]';
 
 /** Used for built-in method references. */
-var objectProto = global.Object.prototype;
+var objectProto = Object.prototype;
 
 /** Used to check objects for own properties. */
 var hasOwnProperty = objectProto.hasOwnProperty;
@@ -8946,7 +9069,6 @@ function isArguments(value) {
  *
  * @static
  * @memberOf _
- * @type Function
  * @category Lang
  * @param {*} value The value to check.
  * @returns {boolean} Returns `true` if `value` is array-like, else `false`.
@@ -8975,7 +9097,6 @@ function isArrayLike(value) {
  *
  * @static
  * @memberOf _
- * @type Function
  * @category Lang
  * @param {*} value The value to check.
  * @returns {boolean} Returns `true` if `value` is an array-like object, else `false`.
@@ -9046,7 +9167,8 @@ function isFunction(value) {
  * // => false
  */
 function isLength(value) {
-  return typeof value == 'number' && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
+  return typeof value == 'number' &&
+    value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
 }
 
 /**
@@ -9073,8 +9195,6 @@ function isLength(value) {
  * // => false
  */
 function isObject(value) {
-  // Avoid a V8 JIT bug in Chrome 19-20.
-  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
   var type = typeof value;
   return !!value && (type == 'object' || type == 'function');
 }
@@ -9108,15 +9228,14 @@ function isObjectLike(value) {
 
 module.exports = isArguments;
 
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],118:[function(require,module,exports){
-arguments[4][112][0].apply(exports,arguments)
-},{"dup":112}],119:[function(require,module,exports){
+},{}],121:[function(require,module,exports){
+arguments[4][115][0].apply(exports,arguments)
+},{"dup":115}],122:[function(require,module,exports){
 'use strict';
 
 module.exports = require('react/lib/ReactDOM');
 
-},{"react/lib/ReactDOM":154}],120:[function(require,module,exports){
+},{"react/lib/ReactDOM":157}],123:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -9153,7 +9272,7 @@ var AutoFocusUtils = {
 };
 
 module.exports = AutoFocusUtils;
-},{"./ReactMount":184,"./findDOMNode":227,"fbjs/lib/focusNode":257}],121:[function(require,module,exports){
+},{"./ReactMount":187,"./findDOMNode":230,"fbjs/lib/focusNode":260}],124:[function(require,module,exports){
 /**
  * Copyright 2013-2015 Facebook, Inc.
  * All rights reserved.
@@ -9559,7 +9678,7 @@ var BeforeInputEventPlugin = {
 };
 
 module.exports = BeforeInputEventPlugin;
-},{"./EventConstants":133,"./EventPropagators":137,"./FallbackCompositionState":138,"./SyntheticCompositionEvent":209,"./SyntheticInputEvent":213,"fbjs/lib/ExecutionEnvironment":249,"fbjs/lib/keyOf":267}],122:[function(require,module,exports){
+},{"./EventConstants":136,"./EventPropagators":140,"./FallbackCompositionState":141,"./SyntheticCompositionEvent":212,"./SyntheticInputEvent":216,"fbjs/lib/ExecutionEnvironment":252,"fbjs/lib/keyOf":270}],125:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -9699,7 +9818,7 @@ var CSSProperty = {
 };
 
 module.exports = CSSProperty;
-},{}],123:[function(require,module,exports){
+},{}],126:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -9877,7 +9996,7 @@ ReactPerf.measureMethods(CSSPropertyOperations, 'CSSPropertyOperations', {
 
 module.exports = CSSPropertyOperations;
 }).call(this,require('_process'))
-},{"./CSSProperty":122,"./ReactPerf":190,"./dangerousStyleValue":224,"_process":26,"fbjs/lib/ExecutionEnvironment":249,"fbjs/lib/camelizeStyleName":251,"fbjs/lib/hyphenateStyleName":262,"fbjs/lib/memoizeStringOnly":269,"fbjs/lib/warning":274}],124:[function(require,module,exports){
+},{"./CSSProperty":125,"./ReactPerf":193,"./dangerousStyleValue":227,"_process":27,"fbjs/lib/ExecutionEnvironment":252,"fbjs/lib/camelizeStyleName":254,"fbjs/lib/hyphenateStyleName":265,"fbjs/lib/memoizeStringOnly":272,"fbjs/lib/warning":277}],127:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -9973,7 +10092,7 @@ PooledClass.addPoolingTo(CallbackQueue);
 
 module.exports = CallbackQueue;
 }).call(this,require('_process'))
-},{"./Object.assign":141,"./PooledClass":142,"_process":26,"fbjs/lib/invariant":263}],125:[function(require,module,exports){
+},{"./Object.assign":144,"./PooledClass":145,"_process":27,"fbjs/lib/invariant":266}],128:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -10295,7 +10414,7 @@ var ChangeEventPlugin = {
 };
 
 module.exports = ChangeEventPlugin;
-},{"./EventConstants":133,"./EventPluginHub":134,"./EventPropagators":137,"./ReactUpdates":202,"./SyntheticEvent":211,"./getEventTarget":233,"./isEventSupported":238,"./isTextInputElement":239,"fbjs/lib/ExecutionEnvironment":249,"fbjs/lib/keyOf":267}],126:[function(require,module,exports){
+},{"./EventConstants":136,"./EventPluginHub":137,"./EventPropagators":140,"./ReactUpdates":205,"./SyntheticEvent":214,"./getEventTarget":236,"./isEventSupported":241,"./isTextInputElement":242,"fbjs/lib/ExecutionEnvironment":252,"fbjs/lib/keyOf":270}],129:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -10319,7 +10438,7 @@ var ClientReactRootIndex = {
 };
 
 module.exports = ClientReactRootIndex;
-},{}],127:[function(require,module,exports){
+},{}],130:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -10451,7 +10570,7 @@ ReactPerf.measureMethods(DOMChildrenOperations, 'DOMChildrenOperations', {
 
 module.exports = DOMChildrenOperations;
 }).call(this,require('_process'))
-},{"./Danger":130,"./ReactMultiChildUpdateTypes":186,"./ReactPerf":190,"./setInnerHTML":243,"./setTextContent":244,"_process":26,"fbjs/lib/invariant":263}],128:[function(require,module,exports){
+},{"./Danger":133,"./ReactMultiChildUpdateTypes":189,"./ReactPerf":193,"./setInnerHTML":246,"./setTextContent":247,"_process":27,"fbjs/lib/invariant":266}],131:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -10688,7 +10807,7 @@ var DOMProperty = {
 
 module.exports = DOMProperty;
 }).call(this,require('_process'))
-},{"_process":26,"fbjs/lib/invariant":263}],129:[function(require,module,exports){
+},{"_process":27,"fbjs/lib/invariant":266}],132:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -10916,7 +11035,7 @@ ReactPerf.measureMethods(DOMPropertyOperations, 'DOMPropertyOperations', {
 
 module.exports = DOMPropertyOperations;
 }).call(this,require('_process'))
-},{"./DOMProperty":128,"./ReactPerf":190,"./quoteAttributeValueForBrowser":241,"_process":26,"fbjs/lib/warning":274}],130:[function(require,module,exports){
+},{"./DOMProperty":131,"./ReactPerf":193,"./quoteAttributeValueForBrowser":244,"_process":27,"fbjs/lib/warning":277}],133:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -11064,7 +11183,7 @@ var Danger = {
 
 module.exports = Danger;
 }).call(this,require('_process'))
-},{"_process":26,"fbjs/lib/ExecutionEnvironment":249,"fbjs/lib/createNodesFromMarkup":254,"fbjs/lib/emptyFunction":255,"fbjs/lib/getMarkupWrap":259,"fbjs/lib/invariant":263}],131:[function(require,module,exports){
+},{"_process":27,"fbjs/lib/ExecutionEnvironment":252,"fbjs/lib/createNodesFromMarkup":257,"fbjs/lib/emptyFunction":258,"fbjs/lib/getMarkupWrap":262,"fbjs/lib/invariant":266}],134:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -11092,7 +11211,7 @@ var keyOf = require('fbjs/lib/keyOf');
 var DefaultEventPluginOrder = [keyOf({ ResponderEventPlugin: null }), keyOf({ SimpleEventPlugin: null }), keyOf({ TapEventPlugin: null }), keyOf({ EnterLeaveEventPlugin: null }), keyOf({ ChangeEventPlugin: null }), keyOf({ SelectEventPlugin: null }), keyOf({ BeforeInputEventPlugin: null })];
 
 module.exports = DefaultEventPluginOrder;
-},{"fbjs/lib/keyOf":267}],132:[function(require,module,exports){
+},{"fbjs/lib/keyOf":270}],135:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -11217,7 +11336,7 @@ var EnterLeaveEventPlugin = {
 };
 
 module.exports = EnterLeaveEventPlugin;
-},{"./EventConstants":133,"./EventPropagators":137,"./ReactMount":184,"./SyntheticMouseEvent":215,"fbjs/lib/keyOf":267}],133:[function(require,module,exports){
+},{"./EventConstants":136,"./EventPropagators":140,"./ReactMount":187,"./SyntheticMouseEvent":218,"fbjs/lib/keyOf":270}],136:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -11310,7 +11429,7 @@ var EventConstants = {
 };
 
 module.exports = EventConstants;
-},{"fbjs/lib/keyMirror":266}],134:[function(require,module,exports){
+},{"fbjs/lib/keyMirror":269}],137:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -11592,7 +11711,7 @@ var EventPluginHub = {
 
 module.exports = EventPluginHub;
 }).call(this,require('_process'))
-},{"./EventPluginRegistry":135,"./EventPluginUtils":136,"./ReactErrorUtils":175,"./accumulateInto":221,"./forEachAccumulated":229,"_process":26,"fbjs/lib/invariant":263,"fbjs/lib/warning":274}],135:[function(require,module,exports){
+},{"./EventPluginRegistry":138,"./EventPluginUtils":139,"./ReactErrorUtils":178,"./accumulateInto":224,"./forEachAccumulated":232,"_process":27,"fbjs/lib/invariant":266,"fbjs/lib/warning":277}],138:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -11815,7 +11934,7 @@ var EventPluginRegistry = {
 
 module.exports = EventPluginRegistry;
 }).call(this,require('_process'))
-},{"_process":26,"fbjs/lib/invariant":263}],136:[function(require,module,exports){
+},{"_process":27,"fbjs/lib/invariant":266}],139:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -12020,7 +12139,7 @@ var EventPluginUtils = {
 
 module.exports = EventPluginUtils;
 }).call(this,require('_process'))
-},{"./EventConstants":133,"./ReactErrorUtils":175,"_process":26,"fbjs/lib/invariant":263,"fbjs/lib/warning":274}],137:[function(require,module,exports){
+},{"./EventConstants":136,"./ReactErrorUtils":178,"_process":27,"fbjs/lib/invariant":266,"fbjs/lib/warning":277}],140:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -12158,7 +12277,7 @@ var EventPropagators = {
 
 module.exports = EventPropagators;
 }).call(this,require('_process'))
-},{"./EventConstants":133,"./EventPluginHub":134,"./accumulateInto":221,"./forEachAccumulated":229,"_process":26,"fbjs/lib/warning":274}],138:[function(require,module,exports){
+},{"./EventConstants":136,"./EventPluginHub":137,"./accumulateInto":224,"./forEachAccumulated":232,"_process":27,"fbjs/lib/warning":277}],141:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -12254,7 +12373,7 @@ assign(FallbackCompositionState.prototype, {
 PooledClass.addPoolingTo(FallbackCompositionState);
 
 module.exports = FallbackCompositionState;
-},{"./Object.assign":141,"./PooledClass":142,"./getTextContentAccessor":236}],139:[function(require,module,exports){
+},{"./Object.assign":144,"./PooledClass":145,"./getTextContentAccessor":239}],142:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -12437,8 +12556,8 @@ var HTMLDOMPropertyConfig = {
      */
     // autoCapitalize and autoCorrect are supported in Mobile Safari for
     // keyboard hints.
-    autoCapitalize: MUST_USE_ATTRIBUTE,
-    autoCorrect: MUST_USE_ATTRIBUTE,
+    autoCapitalize: null,
+    autoCorrect: null,
     // autoSave allows WebKit/Blink to persist values of input fields on page reloads
     autoSave: null,
     // color is for Safari mask-icon link
@@ -12469,7 +12588,9 @@ var HTMLDOMPropertyConfig = {
     httpEquiv: 'http-equiv'
   },
   DOMPropertyNames: {
+    autoCapitalize: 'autocapitalize',
     autoComplete: 'autocomplete',
+    autoCorrect: 'autocorrect',
     autoFocus: 'autofocus',
     autoPlay: 'autoplay',
     autoSave: 'autosave',
@@ -12485,7 +12606,7 @@ var HTMLDOMPropertyConfig = {
 };
 
 module.exports = HTMLDOMPropertyConfig;
-},{"./DOMProperty":128,"fbjs/lib/ExecutionEnvironment":249}],140:[function(require,module,exports){
+},{"./DOMProperty":131,"fbjs/lib/ExecutionEnvironment":252}],143:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -12622,7 +12743,7 @@ var LinkedValueUtils = {
 
 module.exports = LinkedValueUtils;
 }).call(this,require('_process'))
-},{"./ReactPropTypeLocations":192,"./ReactPropTypes":193,"_process":26,"fbjs/lib/invariant":263,"fbjs/lib/warning":274}],141:[function(require,module,exports){
+},{"./ReactPropTypeLocations":195,"./ReactPropTypes":196,"_process":27,"fbjs/lib/invariant":266,"fbjs/lib/warning":277}],144:[function(require,module,exports){
 /**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -12670,7 +12791,7 @@ function assign(target, sources) {
 }
 
 module.exports = assign;
-},{}],142:[function(require,module,exports){
+},{}],145:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -12792,7 +12913,7 @@ var PooledClass = {
 
 module.exports = PooledClass;
 }).call(this,require('_process'))
-},{"_process":26,"fbjs/lib/invariant":263}],143:[function(require,module,exports){
+},{"_process":27,"fbjs/lib/invariant":266}],146:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -12833,7 +12954,7 @@ React.__SECRET_DOM_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactDOM;
 React.__SECRET_DOM_SERVER_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactDOMServer;
 
 module.exports = React;
-},{"./Object.assign":141,"./ReactDOM":154,"./ReactDOMServer":164,"./ReactIsomorphic":182,"./deprecated":225}],144:[function(require,module,exports){
+},{"./Object.assign":144,"./ReactDOM":157,"./ReactDOMServer":167,"./ReactIsomorphic":185,"./deprecated":228}],147:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -12872,7 +12993,7 @@ var ReactBrowserComponentMixin = {
 
 module.exports = ReactBrowserComponentMixin;
 }).call(this,require('_process'))
-},{"./ReactInstanceMap":181,"./findDOMNode":227,"_process":26,"fbjs/lib/warning":274}],145:[function(require,module,exports){
+},{"./ReactInstanceMap":184,"./findDOMNode":230,"_process":27,"fbjs/lib/warning":277}],148:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -13197,7 +13318,7 @@ ReactPerf.measureMethods(ReactBrowserEventEmitter, 'ReactBrowserEventEmitter', {
 });
 
 module.exports = ReactBrowserEventEmitter;
-},{"./EventConstants":133,"./EventPluginHub":134,"./EventPluginRegistry":135,"./Object.assign":141,"./ReactEventEmitterMixin":176,"./ReactPerf":190,"./ViewportMetrics":220,"./isEventSupported":238}],146:[function(require,module,exports){
+},{"./EventConstants":136,"./EventPluginHub":137,"./EventPluginRegistry":138,"./Object.assign":144,"./ReactEventEmitterMixin":179,"./ReactPerf":193,"./ViewportMetrics":223,"./isEventSupported":241}],149:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -13322,7 +13443,7 @@ var ReactChildReconciler = {
 
 module.exports = ReactChildReconciler;
 }).call(this,require('_process'))
-},{"./ReactReconciler":195,"./instantiateReactComponent":237,"./shouldUpdateReactComponent":245,"./traverseAllChildren":246,"_process":26,"fbjs/lib/warning":274}],147:[function(require,module,exports){
+},{"./ReactReconciler":198,"./instantiateReactComponent":240,"./shouldUpdateReactComponent":248,"./traverseAllChildren":249,"_process":27,"fbjs/lib/warning":277}],150:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -13505,7 +13626,7 @@ var ReactChildren = {
 };
 
 module.exports = ReactChildren;
-},{"./PooledClass":142,"./ReactElement":171,"./traverseAllChildren":246,"fbjs/lib/emptyFunction":255}],148:[function(require,module,exports){
+},{"./PooledClass":145,"./ReactElement":174,"./traverseAllChildren":249,"fbjs/lib/emptyFunction":258}],151:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -14279,7 +14400,7 @@ var ReactClass = {
 
 module.exports = ReactClass;
 }).call(this,require('_process'))
-},{"./Object.assign":141,"./ReactComponent":149,"./ReactElement":171,"./ReactNoopUpdateQueue":188,"./ReactPropTypeLocationNames":191,"./ReactPropTypeLocations":192,"_process":26,"fbjs/lib/emptyObject":256,"fbjs/lib/invariant":263,"fbjs/lib/keyMirror":266,"fbjs/lib/keyOf":267,"fbjs/lib/warning":274}],149:[function(require,module,exports){
+},{"./Object.assign":144,"./ReactComponent":152,"./ReactElement":174,"./ReactNoopUpdateQueue":191,"./ReactPropTypeLocationNames":194,"./ReactPropTypeLocations":195,"_process":27,"fbjs/lib/emptyObject":259,"fbjs/lib/invariant":266,"fbjs/lib/keyMirror":269,"fbjs/lib/keyOf":270,"fbjs/lib/warning":277}],152:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -14404,7 +14525,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = ReactComponent;
 }).call(this,require('_process'))
-},{"./ReactNoopUpdateQueue":188,"./canDefineProperty":223,"_process":26,"fbjs/lib/emptyObject":256,"fbjs/lib/invariant":263,"fbjs/lib/warning":274}],150:[function(require,module,exports){
+},{"./ReactNoopUpdateQueue":191,"./canDefineProperty":226,"_process":27,"fbjs/lib/emptyObject":259,"fbjs/lib/invariant":266,"fbjs/lib/warning":277}],153:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -14446,7 +14567,7 @@ var ReactComponentBrowserEnvironment = {
 };
 
 module.exports = ReactComponentBrowserEnvironment;
-},{"./ReactDOMIDOperations":159,"./ReactMount":184}],151:[function(require,module,exports){
+},{"./ReactDOMIDOperations":162,"./ReactMount":187}],154:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -14500,7 +14621,7 @@ var ReactComponentEnvironment = {
 
 module.exports = ReactComponentEnvironment;
 }).call(this,require('_process'))
-},{"_process":26,"fbjs/lib/invariant":263}],152:[function(require,module,exports){
+},{"_process":27,"fbjs/lib/invariant":266}],155:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -15197,7 +15318,7 @@ var ReactCompositeComponent = {
 
 module.exports = ReactCompositeComponent;
 }).call(this,require('_process'))
-},{"./Object.assign":141,"./ReactComponentEnvironment":151,"./ReactCurrentOwner":153,"./ReactElement":171,"./ReactInstanceMap":181,"./ReactPerf":190,"./ReactPropTypeLocationNames":191,"./ReactPropTypeLocations":192,"./ReactReconciler":195,"./ReactUpdateQueue":201,"./shouldUpdateReactComponent":245,"_process":26,"fbjs/lib/emptyObject":256,"fbjs/lib/invariant":263,"fbjs/lib/warning":274}],153:[function(require,module,exports){
+},{"./Object.assign":144,"./ReactComponentEnvironment":154,"./ReactCurrentOwner":156,"./ReactElement":174,"./ReactInstanceMap":184,"./ReactPerf":193,"./ReactPropTypeLocationNames":194,"./ReactPropTypeLocations":195,"./ReactReconciler":198,"./ReactUpdateQueue":204,"./shouldUpdateReactComponent":248,"_process":27,"fbjs/lib/emptyObject":259,"fbjs/lib/invariant":266,"fbjs/lib/warning":277}],156:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -15228,7 +15349,7 @@ var ReactCurrentOwner = {
 };
 
 module.exports = ReactCurrentOwner;
-},{}],154:[function(require,module,exports){
+},{}],157:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -15323,7 +15444,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = React;
 }).call(this,require('_process'))
-},{"./ReactCurrentOwner":153,"./ReactDOMTextComponent":165,"./ReactDefaultInjection":168,"./ReactInstanceHandles":180,"./ReactMount":184,"./ReactPerf":190,"./ReactReconciler":195,"./ReactUpdates":202,"./ReactVersion":203,"./findDOMNode":227,"./renderSubtreeIntoContainer":242,"_process":26,"fbjs/lib/ExecutionEnvironment":249,"fbjs/lib/warning":274}],155:[function(require,module,exports){
+},{"./ReactCurrentOwner":156,"./ReactDOMTextComponent":168,"./ReactDefaultInjection":171,"./ReactInstanceHandles":183,"./ReactMount":187,"./ReactPerf":193,"./ReactReconciler":198,"./ReactUpdates":205,"./ReactVersion":206,"./findDOMNode":230,"./renderSubtreeIntoContainer":245,"_process":27,"fbjs/lib/ExecutionEnvironment":252,"fbjs/lib/warning":277}],158:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -15374,7 +15495,7 @@ var ReactDOMButton = {
 };
 
 module.exports = ReactDOMButton;
-},{}],156:[function(require,module,exports){
+},{}],159:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -16339,7 +16460,7 @@ assign(ReactDOMComponent.prototype, ReactDOMComponent.Mixin, ReactMultiChild.Mix
 
 module.exports = ReactDOMComponent;
 }).call(this,require('_process'))
-},{"./AutoFocusUtils":120,"./CSSPropertyOperations":123,"./DOMProperty":128,"./DOMPropertyOperations":129,"./EventConstants":133,"./Object.assign":141,"./ReactBrowserEventEmitter":145,"./ReactComponentBrowserEnvironment":150,"./ReactDOMButton":155,"./ReactDOMInput":160,"./ReactDOMOption":161,"./ReactDOMSelect":162,"./ReactDOMTextarea":166,"./ReactMount":184,"./ReactMultiChild":185,"./ReactPerf":190,"./ReactUpdateQueue":201,"./canDefineProperty":223,"./escapeTextContentForBrowser":226,"./isEventSupported":238,"./setInnerHTML":243,"./setTextContent":244,"./validateDOMNesting":247,"_process":26,"fbjs/lib/invariant":263,"fbjs/lib/keyOf":267,"fbjs/lib/shallowEqual":272,"fbjs/lib/warning":274}],157:[function(require,module,exports){
+},{"./AutoFocusUtils":123,"./CSSPropertyOperations":126,"./DOMProperty":131,"./DOMPropertyOperations":132,"./EventConstants":136,"./Object.assign":144,"./ReactBrowserEventEmitter":148,"./ReactComponentBrowserEnvironment":153,"./ReactDOMButton":158,"./ReactDOMInput":163,"./ReactDOMOption":164,"./ReactDOMSelect":165,"./ReactDOMTextarea":169,"./ReactMount":187,"./ReactMultiChild":188,"./ReactPerf":193,"./ReactUpdateQueue":204,"./canDefineProperty":226,"./escapeTextContentForBrowser":229,"./isEventSupported":241,"./setInnerHTML":246,"./setTextContent":247,"./validateDOMNesting":250,"_process":27,"fbjs/lib/invariant":266,"fbjs/lib/keyOf":270,"fbjs/lib/shallowEqual":275,"fbjs/lib/warning":277}],160:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -16519,7 +16640,7 @@ var ReactDOMFactories = mapObject({
 
 module.exports = ReactDOMFactories;
 }).call(this,require('_process'))
-},{"./ReactElement":171,"./ReactElementValidator":172,"_process":26,"fbjs/lib/mapObject":268}],158:[function(require,module,exports){
+},{"./ReactElement":174,"./ReactElementValidator":175,"_process":27,"fbjs/lib/mapObject":271}],161:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -16538,7 +16659,7 @@ var ReactDOMFeatureFlags = {
 };
 
 module.exports = ReactDOMFeatureFlags;
-},{}],159:[function(require,module,exports){
+},{}],162:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -16635,7 +16756,7 @@ ReactPerf.measureMethods(ReactDOMIDOperations, 'ReactDOMIDOperations', {
 
 module.exports = ReactDOMIDOperations;
 }).call(this,require('_process'))
-},{"./DOMChildrenOperations":127,"./DOMPropertyOperations":129,"./ReactMount":184,"./ReactPerf":190,"_process":26,"fbjs/lib/invariant":263}],160:[function(require,module,exports){
+},{"./DOMChildrenOperations":130,"./DOMPropertyOperations":132,"./ReactMount":187,"./ReactPerf":193,"_process":27,"fbjs/lib/invariant":266}],163:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -16791,7 +16912,7 @@ function _handleChange(event) {
 
 module.exports = ReactDOMInput;
 }).call(this,require('_process'))
-},{"./LinkedValueUtils":140,"./Object.assign":141,"./ReactDOMIDOperations":159,"./ReactMount":184,"./ReactUpdates":202,"_process":26,"fbjs/lib/invariant":263}],161:[function(require,module,exports){
+},{"./LinkedValueUtils":143,"./Object.assign":144,"./ReactDOMIDOperations":162,"./ReactMount":187,"./ReactUpdates":205,"_process":27,"fbjs/lib/invariant":266}],164:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -16880,7 +17001,7 @@ var ReactDOMOption = {
 
 module.exports = ReactDOMOption;
 }).call(this,require('_process'))
-},{"./Object.assign":141,"./ReactChildren":147,"./ReactDOMSelect":162,"_process":26,"fbjs/lib/warning":274}],162:[function(require,module,exports){
+},{"./Object.assign":144,"./ReactChildren":150,"./ReactDOMSelect":165,"_process":27,"fbjs/lib/warning":277}],165:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -16912,7 +17033,7 @@ function updateOptionsIfPendingUpdateAndMounted() {
     var value = LinkedValueUtils.getValue(props);
 
     if (value != null) {
-      updateOptions(this, Boolean(props.multiple), value);
+      updateOptions(this, props, value);
     }
   }
 }
@@ -17071,7 +17192,7 @@ function _handleChange(event) {
 
 module.exports = ReactDOMSelect;
 }).call(this,require('_process'))
-},{"./LinkedValueUtils":140,"./Object.assign":141,"./ReactMount":184,"./ReactUpdates":202,"_process":26,"fbjs/lib/warning":274}],163:[function(require,module,exports){
+},{"./LinkedValueUtils":143,"./Object.assign":144,"./ReactMount":187,"./ReactUpdates":205,"_process":27,"fbjs/lib/warning":277}],166:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -17284,7 +17405,7 @@ var ReactDOMSelection = {
 };
 
 module.exports = ReactDOMSelection;
-},{"./getNodeForCharacterOffset":235,"./getTextContentAccessor":236,"fbjs/lib/ExecutionEnvironment":249}],164:[function(require,module,exports){
+},{"./getNodeForCharacterOffset":238,"./getTextContentAccessor":239,"fbjs/lib/ExecutionEnvironment":252}],167:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -17311,7 +17432,7 @@ var ReactDOMServer = {
 };
 
 module.exports = ReactDOMServer;
-},{"./ReactDefaultInjection":168,"./ReactServerRendering":199,"./ReactVersion":203}],165:[function(require,module,exports){
+},{"./ReactDefaultInjection":171,"./ReactServerRendering":202,"./ReactVersion":206}],168:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -17441,7 +17562,7 @@ assign(ReactDOMTextComponent.prototype, {
 
 module.exports = ReactDOMTextComponent;
 }).call(this,require('_process'))
-},{"./DOMChildrenOperations":127,"./DOMPropertyOperations":129,"./Object.assign":141,"./ReactComponentBrowserEnvironment":150,"./ReactMount":184,"./escapeTextContentForBrowser":226,"./setTextContent":244,"./validateDOMNesting":247,"_process":26}],166:[function(require,module,exports){
+},{"./DOMChildrenOperations":130,"./DOMPropertyOperations":132,"./Object.assign":144,"./ReactComponentBrowserEnvironment":153,"./ReactMount":187,"./escapeTextContentForBrowser":229,"./setTextContent":247,"./validateDOMNesting":250,"_process":27}],169:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -17557,7 +17678,7 @@ function _handleChange(event) {
 
 module.exports = ReactDOMTextarea;
 }).call(this,require('_process'))
-},{"./LinkedValueUtils":140,"./Object.assign":141,"./ReactDOMIDOperations":159,"./ReactUpdates":202,"_process":26,"fbjs/lib/invariant":263,"fbjs/lib/warning":274}],167:[function(require,module,exports){
+},{"./LinkedValueUtils":143,"./Object.assign":144,"./ReactDOMIDOperations":162,"./ReactUpdates":205,"_process":27,"fbjs/lib/invariant":266,"fbjs/lib/warning":277}],170:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -17625,7 +17746,7 @@ var ReactDefaultBatchingStrategy = {
 };
 
 module.exports = ReactDefaultBatchingStrategy;
-},{"./Object.assign":141,"./ReactUpdates":202,"./Transaction":219,"fbjs/lib/emptyFunction":255}],168:[function(require,module,exports){
+},{"./Object.assign":144,"./ReactUpdates":205,"./Transaction":222,"fbjs/lib/emptyFunction":258}],171:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -17725,7 +17846,7 @@ module.exports = {
   inject: inject
 };
 }).call(this,require('_process'))
-},{"./BeforeInputEventPlugin":121,"./ChangeEventPlugin":125,"./ClientReactRootIndex":126,"./DefaultEventPluginOrder":131,"./EnterLeaveEventPlugin":132,"./HTMLDOMPropertyConfig":139,"./ReactBrowserComponentMixin":144,"./ReactComponentBrowserEnvironment":150,"./ReactDOMComponent":156,"./ReactDOMTextComponent":165,"./ReactDefaultBatchingStrategy":167,"./ReactDefaultPerf":169,"./ReactEventListener":177,"./ReactInjection":178,"./ReactInstanceHandles":180,"./ReactMount":184,"./ReactReconcileTransaction":194,"./SVGDOMPropertyConfig":204,"./SelectEventPlugin":205,"./ServerReactRootIndex":206,"./SimpleEventPlugin":207,"_process":26,"fbjs/lib/ExecutionEnvironment":249}],169:[function(require,module,exports){
+},{"./BeforeInputEventPlugin":124,"./ChangeEventPlugin":128,"./ClientReactRootIndex":129,"./DefaultEventPluginOrder":134,"./EnterLeaveEventPlugin":135,"./HTMLDOMPropertyConfig":142,"./ReactBrowserComponentMixin":147,"./ReactComponentBrowserEnvironment":153,"./ReactDOMComponent":159,"./ReactDOMTextComponent":168,"./ReactDefaultBatchingStrategy":170,"./ReactDefaultPerf":172,"./ReactEventListener":180,"./ReactInjection":181,"./ReactInstanceHandles":183,"./ReactMount":187,"./ReactReconcileTransaction":197,"./SVGDOMPropertyConfig":207,"./SelectEventPlugin":208,"./ServerReactRootIndex":209,"./SimpleEventPlugin":210,"_process":27,"fbjs/lib/ExecutionEnvironment":252}],172:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -17963,7 +18084,7 @@ var ReactDefaultPerf = {
 };
 
 module.exports = ReactDefaultPerf;
-},{"./DOMProperty":128,"./ReactDefaultPerfAnalysis":170,"./ReactMount":184,"./ReactPerf":190,"fbjs/lib/performanceNow":271}],170:[function(require,module,exports){
+},{"./DOMProperty":131,"./ReactDefaultPerfAnalysis":173,"./ReactMount":187,"./ReactPerf":193,"fbjs/lib/performanceNow":274}],173:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -17991,9 +18112,7 @@ var DOM_OPERATION_TYPES = {
   'setValueForProperty': 'update attribute',
   'setValueForAttribute': 'update attribute',
   'deleteValueForProperty': 'remove attribute',
-  'setValueForStyles': 'update styles',
-  'replaceNodeWithMarkup': 'replace',
-  'updateTextContent': 'set textContent'
+  'dangerouslyReplaceNodeWithMarkupByID': 'replace'
 };
 
 function getTotalTime(measurements) {
@@ -18165,7 +18284,7 @@ var ReactDefaultPerfAnalysis = {
 };
 
 module.exports = ReactDefaultPerfAnalysis;
-},{"./Object.assign":141}],171:[function(require,module,exports){
+},{"./Object.assign":144}],174:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -18415,7 +18534,7 @@ ReactElement.isValidElement = function (object) {
 
 module.exports = ReactElement;
 }).call(this,require('_process'))
-},{"./Object.assign":141,"./ReactCurrentOwner":153,"./canDefineProperty":223,"_process":26}],172:[function(require,module,exports){
+},{"./Object.assign":144,"./ReactCurrentOwner":156,"./canDefineProperty":226,"_process":27}],175:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -18699,7 +18818,7 @@ var ReactElementValidator = {
 
 module.exports = ReactElementValidator;
 }).call(this,require('_process'))
-},{"./ReactCurrentOwner":153,"./ReactElement":171,"./ReactPropTypeLocationNames":191,"./ReactPropTypeLocations":192,"./canDefineProperty":223,"./getIteratorFn":234,"_process":26,"fbjs/lib/invariant":263,"fbjs/lib/warning":274}],173:[function(require,module,exports){
+},{"./ReactCurrentOwner":156,"./ReactElement":174,"./ReactPropTypeLocationNames":194,"./ReactPropTypeLocations":195,"./canDefineProperty":226,"./getIteratorFn":237,"_process":27,"fbjs/lib/invariant":266,"fbjs/lib/warning":277}],176:[function(require,module,exports){
 /**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -18751,7 +18870,7 @@ assign(ReactEmptyComponent.prototype, {
 ReactEmptyComponent.injection = ReactEmptyComponentInjection;
 
 module.exports = ReactEmptyComponent;
-},{"./Object.assign":141,"./ReactElement":171,"./ReactEmptyComponentRegistry":174,"./ReactReconciler":195}],174:[function(require,module,exports){
+},{"./Object.assign":144,"./ReactElement":174,"./ReactEmptyComponentRegistry":177,"./ReactReconciler":198}],177:[function(require,module,exports){
 /**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -18800,7 +18919,7 @@ var ReactEmptyComponentRegistry = {
 };
 
 module.exports = ReactEmptyComponentRegistry;
-},{}],175:[function(require,module,exports){
+},{}],178:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -18880,7 +18999,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = ReactErrorUtils;
 }).call(this,require('_process'))
-},{"_process":26}],176:[function(require,module,exports){
+},{"_process":27}],179:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -18919,7 +19038,7 @@ var ReactEventEmitterMixin = {
 };
 
 module.exports = ReactEventEmitterMixin;
-},{"./EventPluginHub":134}],177:[function(require,module,exports){
+},{"./EventPluginHub":137}],180:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -19131,7 +19250,7 @@ var ReactEventListener = {
 };
 
 module.exports = ReactEventListener;
-},{"./Object.assign":141,"./PooledClass":142,"./ReactInstanceHandles":180,"./ReactMount":184,"./ReactUpdates":202,"./getEventTarget":233,"fbjs/lib/EventListener":248,"fbjs/lib/ExecutionEnvironment":249,"fbjs/lib/getUnboundedScrollPosition":260}],178:[function(require,module,exports){
+},{"./Object.assign":144,"./PooledClass":145,"./ReactInstanceHandles":183,"./ReactMount":187,"./ReactUpdates":205,"./getEventTarget":236,"fbjs/lib/EventListener":251,"fbjs/lib/ExecutionEnvironment":252,"fbjs/lib/getUnboundedScrollPosition":263}],181:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -19170,7 +19289,7 @@ var ReactInjection = {
 };
 
 module.exports = ReactInjection;
-},{"./DOMProperty":128,"./EventPluginHub":134,"./ReactBrowserEventEmitter":145,"./ReactClass":148,"./ReactComponentEnvironment":151,"./ReactEmptyComponent":173,"./ReactNativeComponent":187,"./ReactPerf":190,"./ReactRootIndex":197,"./ReactUpdates":202}],179:[function(require,module,exports){
+},{"./DOMProperty":131,"./EventPluginHub":137,"./ReactBrowserEventEmitter":148,"./ReactClass":151,"./ReactComponentEnvironment":154,"./ReactEmptyComponent":176,"./ReactNativeComponent":190,"./ReactPerf":193,"./ReactRootIndex":200,"./ReactUpdates":205}],182:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -19295,7 +19414,7 @@ var ReactInputSelection = {
 };
 
 module.exports = ReactInputSelection;
-},{"./ReactDOMSelection":163,"fbjs/lib/containsNode":252,"fbjs/lib/focusNode":257,"fbjs/lib/getActiveElement":258}],180:[function(require,module,exports){
+},{"./ReactDOMSelection":166,"fbjs/lib/containsNode":255,"fbjs/lib/focusNode":260,"fbjs/lib/getActiveElement":261}],183:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -19600,7 +19719,7 @@ var ReactInstanceHandles = {
 
 module.exports = ReactInstanceHandles;
 }).call(this,require('_process'))
-},{"./ReactRootIndex":197,"_process":26,"fbjs/lib/invariant":263}],181:[function(require,module,exports){
+},{"./ReactRootIndex":200,"_process":27,"fbjs/lib/invariant":266}],184:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -19648,7 +19767,7 @@ var ReactInstanceMap = {
 };
 
 module.exports = ReactInstanceMap;
-},{}],182:[function(require,module,exports){
+},{}],185:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -19725,7 +19844,7 @@ var React = {
 
 module.exports = React;
 }).call(this,require('_process'))
-},{"./Object.assign":141,"./ReactChildren":147,"./ReactClass":148,"./ReactComponent":149,"./ReactDOMFactories":157,"./ReactElement":171,"./ReactElementValidator":172,"./ReactPropTypes":193,"./ReactVersion":203,"./onlyChild":240,"_process":26}],183:[function(require,module,exports){
+},{"./Object.assign":144,"./ReactChildren":150,"./ReactClass":151,"./ReactComponent":152,"./ReactDOMFactories":160,"./ReactElement":174,"./ReactElementValidator":175,"./ReactPropTypes":196,"./ReactVersion":206,"./onlyChild":243,"_process":27}],186:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -19771,7 +19890,7 @@ var ReactMarkupChecksum = {
 };
 
 module.exports = ReactMarkupChecksum;
-},{"./adler32":222}],184:[function(require,module,exports){
+},{"./adler32":225}],187:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -20624,7 +20743,7 @@ ReactPerf.measureMethods(ReactMount, 'ReactMount', {
 
 module.exports = ReactMount;
 }).call(this,require('_process'))
-},{"./DOMProperty":128,"./Object.assign":141,"./ReactBrowserEventEmitter":145,"./ReactCurrentOwner":153,"./ReactDOMFeatureFlags":158,"./ReactElement":171,"./ReactEmptyComponentRegistry":174,"./ReactInstanceHandles":180,"./ReactInstanceMap":181,"./ReactMarkupChecksum":183,"./ReactPerf":190,"./ReactReconciler":195,"./ReactUpdateQueue":201,"./ReactUpdates":202,"./instantiateReactComponent":237,"./setInnerHTML":243,"./shouldUpdateReactComponent":245,"./validateDOMNesting":247,"_process":26,"fbjs/lib/containsNode":252,"fbjs/lib/emptyObject":256,"fbjs/lib/invariant":263,"fbjs/lib/warning":274}],185:[function(require,module,exports){
+},{"./DOMProperty":131,"./Object.assign":144,"./ReactBrowserEventEmitter":148,"./ReactCurrentOwner":156,"./ReactDOMFeatureFlags":161,"./ReactElement":174,"./ReactEmptyComponentRegistry":177,"./ReactInstanceHandles":183,"./ReactInstanceMap":184,"./ReactMarkupChecksum":186,"./ReactPerf":193,"./ReactReconciler":198,"./ReactUpdateQueue":204,"./ReactUpdates":205,"./instantiateReactComponent":240,"./setInnerHTML":246,"./shouldUpdateReactComponent":248,"./validateDOMNesting":250,"_process":27,"fbjs/lib/containsNode":255,"fbjs/lib/emptyObject":259,"fbjs/lib/invariant":266,"fbjs/lib/warning":277}],188:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -21123,7 +21242,7 @@ var ReactMultiChild = {
 
 module.exports = ReactMultiChild;
 }).call(this,require('_process'))
-},{"./ReactChildReconciler":146,"./ReactComponentEnvironment":151,"./ReactCurrentOwner":153,"./ReactMultiChildUpdateTypes":186,"./ReactReconciler":195,"./flattenChildren":228,"_process":26}],186:[function(require,module,exports){
+},{"./ReactChildReconciler":149,"./ReactComponentEnvironment":154,"./ReactCurrentOwner":156,"./ReactMultiChildUpdateTypes":189,"./ReactReconciler":198,"./flattenChildren":231,"_process":27}],189:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -21156,7 +21275,7 @@ var ReactMultiChildUpdateTypes = keyMirror({
 });
 
 module.exports = ReactMultiChildUpdateTypes;
-},{"fbjs/lib/keyMirror":266}],187:[function(require,module,exports){
+},{"fbjs/lib/keyMirror":269}],190:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -21253,7 +21372,7 @@ var ReactNativeComponent = {
 
 module.exports = ReactNativeComponent;
 }).call(this,require('_process'))
-},{"./Object.assign":141,"_process":26,"fbjs/lib/invariant":263}],188:[function(require,module,exports){
+},{"./Object.assign":144,"_process":27,"fbjs/lib/invariant":266}],191:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2015, Facebook, Inc.
@@ -21374,7 +21493,7 @@ var ReactNoopUpdateQueue = {
 
 module.exports = ReactNoopUpdateQueue;
 }).call(this,require('_process'))
-},{"_process":26,"fbjs/lib/warning":274}],189:[function(require,module,exports){
+},{"_process":27,"fbjs/lib/warning":277}],192:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -21468,7 +21587,7 @@ var ReactOwner = {
 
 module.exports = ReactOwner;
 }).call(this,require('_process'))
-},{"_process":26,"fbjs/lib/invariant":263}],190:[function(require,module,exports){
+},{"_process":27,"fbjs/lib/invariant":266}],193:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -21567,7 +21686,7 @@ function _noMeasure(objName, fnName, func) {
 
 module.exports = ReactPerf;
 }).call(this,require('_process'))
-},{"_process":26}],191:[function(require,module,exports){
+},{"_process":27}],194:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -21594,7 +21713,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = ReactPropTypeLocationNames;
 }).call(this,require('_process'))
-},{"_process":26}],192:[function(require,module,exports){
+},{"_process":27}],195:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -21617,7 +21736,7 @@ var ReactPropTypeLocations = keyMirror({
 });
 
 module.exports = ReactPropTypeLocations;
-},{"fbjs/lib/keyMirror":266}],193:[function(require,module,exports){
+},{"fbjs/lib/keyMirror":269}],196:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -21974,7 +22093,7 @@ function getClassName(propValue) {
 }
 
 module.exports = ReactPropTypes;
-},{"./ReactElement":171,"./ReactPropTypeLocationNames":191,"./getIteratorFn":234,"fbjs/lib/emptyFunction":255}],194:[function(require,module,exports){
+},{"./ReactElement":174,"./ReactPropTypeLocationNames":194,"./getIteratorFn":237,"fbjs/lib/emptyFunction":258}],197:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -22126,7 +22245,7 @@ assign(ReactReconcileTransaction.prototype, Transaction.Mixin, Mixin);
 PooledClass.addPoolingTo(ReactReconcileTransaction);
 
 module.exports = ReactReconcileTransaction;
-},{"./CallbackQueue":124,"./Object.assign":141,"./PooledClass":142,"./ReactBrowserEventEmitter":145,"./ReactDOMFeatureFlags":158,"./ReactInputSelection":179,"./Transaction":219}],195:[function(require,module,exports){
+},{"./CallbackQueue":127,"./Object.assign":144,"./PooledClass":145,"./ReactBrowserEventEmitter":148,"./ReactDOMFeatureFlags":161,"./ReactInputSelection":182,"./Transaction":222}],198:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -22234,7 +22353,7 @@ var ReactReconciler = {
 };
 
 module.exports = ReactReconciler;
-},{"./ReactRef":196}],196:[function(require,module,exports){
+},{"./ReactRef":199}],199:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -22313,7 +22432,7 @@ ReactRef.detachRefs = function (instance, element) {
 };
 
 module.exports = ReactRef;
-},{"./ReactOwner":189}],197:[function(require,module,exports){
+},{"./ReactOwner":192}],200:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -22343,7 +22462,7 @@ var ReactRootIndex = {
 };
 
 module.exports = ReactRootIndex;
-},{}],198:[function(require,module,exports){
+},{}],201:[function(require,module,exports){
 /**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -22367,7 +22486,7 @@ var ReactServerBatchingStrategy = {
 };
 
 module.exports = ReactServerBatchingStrategy;
-},{}],199:[function(require,module,exports){
+},{}],202:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -22453,7 +22572,7 @@ module.exports = {
   renderToStaticMarkup: renderToStaticMarkup
 };
 }).call(this,require('_process'))
-},{"./ReactDefaultBatchingStrategy":167,"./ReactElement":171,"./ReactInstanceHandles":180,"./ReactMarkupChecksum":183,"./ReactServerBatchingStrategy":198,"./ReactServerRenderingTransaction":200,"./ReactUpdates":202,"./instantiateReactComponent":237,"_process":26,"fbjs/lib/emptyObject":256,"fbjs/lib/invariant":263}],200:[function(require,module,exports){
+},{"./ReactDefaultBatchingStrategy":170,"./ReactElement":174,"./ReactInstanceHandles":183,"./ReactMarkupChecksum":186,"./ReactServerBatchingStrategy":201,"./ReactServerRenderingTransaction":203,"./ReactUpdates":205,"./instantiateReactComponent":240,"_process":27,"fbjs/lib/emptyObject":259,"fbjs/lib/invariant":266}],203:[function(require,module,exports){
 /**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -22541,7 +22660,7 @@ assign(ReactServerRenderingTransaction.prototype, Transaction.Mixin, Mixin);
 PooledClass.addPoolingTo(ReactServerRenderingTransaction);
 
 module.exports = ReactServerRenderingTransaction;
-},{"./CallbackQueue":124,"./Object.assign":141,"./PooledClass":142,"./Transaction":219,"fbjs/lib/emptyFunction":255}],201:[function(require,module,exports){
+},{"./CallbackQueue":127,"./Object.assign":144,"./PooledClass":145,"./Transaction":222,"fbjs/lib/emptyFunction":258}],204:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2015, Facebook, Inc.
@@ -22801,7 +22920,7 @@ var ReactUpdateQueue = {
 
 module.exports = ReactUpdateQueue;
 }).call(this,require('_process'))
-},{"./Object.assign":141,"./ReactCurrentOwner":153,"./ReactElement":171,"./ReactInstanceMap":181,"./ReactUpdates":202,"_process":26,"fbjs/lib/invariant":263,"fbjs/lib/warning":274}],202:[function(require,module,exports){
+},{"./Object.assign":144,"./ReactCurrentOwner":156,"./ReactElement":174,"./ReactInstanceMap":184,"./ReactUpdates":205,"_process":27,"fbjs/lib/invariant":266,"fbjs/lib/warning":277}],205:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -23027,7 +23146,7 @@ var ReactUpdates = {
 
 module.exports = ReactUpdates;
 }).call(this,require('_process'))
-},{"./CallbackQueue":124,"./Object.assign":141,"./PooledClass":142,"./ReactPerf":190,"./ReactReconciler":195,"./Transaction":219,"_process":26,"fbjs/lib/invariant":263}],203:[function(require,module,exports){
+},{"./CallbackQueue":127,"./Object.assign":144,"./PooledClass":145,"./ReactPerf":193,"./ReactReconciler":198,"./Transaction":222,"_process":27,"fbjs/lib/invariant":266}],206:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -23041,8 +23160,8 @@ module.exports = ReactUpdates;
 
 'use strict';
 
-module.exports = '0.14.6';
-},{}],204:[function(require,module,exports){
+module.exports = '0.14.3';
+},{}],207:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -23170,7 +23289,7 @@ var SVGDOMPropertyConfig = {
 };
 
 module.exports = SVGDOMPropertyConfig;
-},{"./DOMProperty":128}],205:[function(require,module,exports){
+},{"./DOMProperty":131}],208:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -23372,7 +23491,7 @@ var SelectEventPlugin = {
 };
 
 module.exports = SelectEventPlugin;
-},{"./EventConstants":133,"./EventPropagators":137,"./ReactInputSelection":179,"./SyntheticEvent":211,"./isTextInputElement":239,"fbjs/lib/ExecutionEnvironment":249,"fbjs/lib/getActiveElement":258,"fbjs/lib/keyOf":267,"fbjs/lib/shallowEqual":272}],206:[function(require,module,exports){
+},{"./EventConstants":136,"./EventPropagators":140,"./ReactInputSelection":182,"./SyntheticEvent":214,"./isTextInputElement":242,"fbjs/lib/ExecutionEnvironment":252,"fbjs/lib/getActiveElement":261,"fbjs/lib/keyOf":270,"fbjs/lib/shallowEqual":275}],209:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -23402,7 +23521,7 @@ var ServerReactRootIndex = {
 };
 
 module.exports = ServerReactRootIndex;
-},{}],207:[function(require,module,exports){
+},{}],210:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -23992,7 +24111,7 @@ var SimpleEventPlugin = {
 
 module.exports = SimpleEventPlugin;
 }).call(this,require('_process'))
-},{"./EventConstants":133,"./EventPropagators":137,"./ReactMount":184,"./SyntheticClipboardEvent":208,"./SyntheticDragEvent":210,"./SyntheticEvent":211,"./SyntheticFocusEvent":212,"./SyntheticKeyboardEvent":214,"./SyntheticMouseEvent":215,"./SyntheticTouchEvent":216,"./SyntheticUIEvent":217,"./SyntheticWheelEvent":218,"./getEventCharCode":230,"_process":26,"fbjs/lib/EventListener":248,"fbjs/lib/emptyFunction":255,"fbjs/lib/invariant":263,"fbjs/lib/keyOf":267}],208:[function(require,module,exports){
+},{"./EventConstants":136,"./EventPropagators":140,"./ReactMount":187,"./SyntheticClipboardEvent":211,"./SyntheticDragEvent":213,"./SyntheticEvent":214,"./SyntheticFocusEvent":215,"./SyntheticKeyboardEvent":217,"./SyntheticMouseEvent":218,"./SyntheticTouchEvent":219,"./SyntheticUIEvent":220,"./SyntheticWheelEvent":221,"./getEventCharCode":233,"_process":27,"fbjs/lib/EventListener":251,"fbjs/lib/emptyFunction":258,"fbjs/lib/invariant":266,"fbjs/lib/keyOf":270}],211:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -24032,7 +24151,7 @@ function SyntheticClipboardEvent(dispatchConfig, dispatchMarker, nativeEvent, na
 SyntheticEvent.augmentClass(SyntheticClipboardEvent, ClipboardEventInterface);
 
 module.exports = SyntheticClipboardEvent;
-},{"./SyntheticEvent":211}],209:[function(require,module,exports){
+},{"./SyntheticEvent":214}],212:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -24070,7 +24189,7 @@ function SyntheticCompositionEvent(dispatchConfig, dispatchMarker, nativeEvent, 
 SyntheticEvent.augmentClass(SyntheticCompositionEvent, CompositionEventInterface);
 
 module.exports = SyntheticCompositionEvent;
-},{"./SyntheticEvent":211}],210:[function(require,module,exports){
+},{"./SyntheticEvent":214}],213:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -24108,7 +24227,7 @@ function SyntheticDragEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeE
 SyntheticMouseEvent.augmentClass(SyntheticDragEvent, DragEventInterface);
 
 module.exports = SyntheticDragEvent;
-},{"./SyntheticMouseEvent":215}],211:[function(require,module,exports){
+},{"./SyntheticMouseEvent":218}],214:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -24288,7 +24407,7 @@ PooledClass.addPoolingTo(SyntheticEvent, PooledClass.fourArgumentPooler);
 
 module.exports = SyntheticEvent;
 }).call(this,require('_process'))
-},{"./Object.assign":141,"./PooledClass":142,"_process":26,"fbjs/lib/emptyFunction":255,"fbjs/lib/warning":274}],212:[function(require,module,exports){
+},{"./Object.assign":144,"./PooledClass":145,"_process":27,"fbjs/lib/emptyFunction":258,"fbjs/lib/warning":277}],215:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -24326,7 +24445,7 @@ function SyntheticFocusEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticUIEvent.augmentClass(SyntheticFocusEvent, FocusEventInterface);
 
 module.exports = SyntheticFocusEvent;
-},{"./SyntheticUIEvent":217}],213:[function(require,module,exports){
+},{"./SyntheticUIEvent":220}],216:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -24365,7 +24484,7 @@ function SyntheticInputEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticEvent.augmentClass(SyntheticInputEvent, InputEventInterface);
 
 module.exports = SyntheticInputEvent;
-},{"./SyntheticEvent":211}],214:[function(require,module,exports){
+},{"./SyntheticEvent":214}],217:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -24451,7 +24570,7 @@ function SyntheticKeyboardEvent(dispatchConfig, dispatchMarker, nativeEvent, nat
 SyntheticUIEvent.augmentClass(SyntheticKeyboardEvent, KeyboardEventInterface);
 
 module.exports = SyntheticKeyboardEvent;
-},{"./SyntheticUIEvent":217,"./getEventCharCode":230,"./getEventKey":231,"./getEventModifierState":232}],215:[function(require,module,exports){
+},{"./SyntheticUIEvent":220,"./getEventCharCode":233,"./getEventKey":234,"./getEventModifierState":235}],218:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -24525,7 +24644,7 @@ function SyntheticMouseEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticUIEvent.augmentClass(SyntheticMouseEvent, MouseEventInterface);
 
 module.exports = SyntheticMouseEvent;
-},{"./SyntheticUIEvent":217,"./ViewportMetrics":220,"./getEventModifierState":232}],216:[function(require,module,exports){
+},{"./SyntheticUIEvent":220,"./ViewportMetrics":223,"./getEventModifierState":235}],219:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -24572,7 +24691,7 @@ function SyntheticTouchEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticUIEvent.augmentClass(SyntheticTouchEvent, TouchEventInterface);
 
 module.exports = SyntheticTouchEvent;
-},{"./SyntheticUIEvent":217,"./getEventModifierState":232}],217:[function(require,module,exports){
+},{"./SyntheticUIEvent":220,"./getEventModifierState":235}],220:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -24633,7 +24752,7 @@ function SyntheticUIEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeEve
 SyntheticEvent.augmentClass(SyntheticUIEvent, UIEventInterface);
 
 module.exports = SyntheticUIEvent;
-},{"./SyntheticEvent":211,"./getEventTarget":233}],218:[function(require,module,exports){
+},{"./SyntheticEvent":214,"./getEventTarget":236}],221:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -24689,7 +24808,7 @@ function SyntheticWheelEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticMouseEvent.augmentClass(SyntheticWheelEvent, WheelEventInterface);
 
 module.exports = SyntheticWheelEvent;
-},{"./SyntheticMouseEvent":215}],219:[function(require,module,exports){
+},{"./SyntheticMouseEvent":218}],222:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -24923,7 +25042,7 @@ var Transaction = {
 
 module.exports = Transaction;
 }).call(this,require('_process'))
-},{"_process":26,"fbjs/lib/invariant":263}],220:[function(require,module,exports){
+},{"_process":27,"fbjs/lib/invariant":266}],223:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -24951,7 +25070,7 @@ var ViewportMetrics = {
 };
 
 module.exports = ViewportMetrics;
-},{}],221:[function(require,module,exports){
+},{}],224:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -25013,7 +25132,7 @@ function accumulateInto(current, next) {
 
 module.exports = accumulateInto;
 }).call(this,require('_process'))
-},{"_process":26,"fbjs/lib/invariant":263}],222:[function(require,module,exports){
+},{"_process":27,"fbjs/lib/invariant":266}],225:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -25056,7 +25175,7 @@ function adler32(data) {
 }
 
 module.exports = adler32;
-},{}],223:[function(require,module,exports){
+},{}],226:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -25083,7 +25202,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = canDefineProperty;
 }).call(this,require('_process'))
-},{"_process":26}],224:[function(require,module,exports){
+},{"_process":27}],227:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -25139,7 +25258,7 @@ function dangerousStyleValue(name, value) {
 }
 
 module.exports = dangerousStyleValue;
-},{"./CSSProperty":122}],225:[function(require,module,exports){
+},{"./CSSProperty":125}],228:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -25190,7 +25309,7 @@ function deprecated(fnName, newModule, newPackage, ctx, fn) {
 
 module.exports = deprecated;
 }).call(this,require('_process'))
-},{"./Object.assign":141,"_process":26,"fbjs/lib/warning":274}],226:[function(require,module,exports){
+},{"./Object.assign":144,"_process":27,"fbjs/lib/warning":277}],229:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -25229,7 +25348,7 @@ function escapeTextContentForBrowser(text) {
 }
 
 module.exports = escapeTextContentForBrowser;
-},{}],227:[function(require,module,exports){
+},{}],230:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -25281,7 +25400,7 @@ function findDOMNode(componentOrElement) {
 
 module.exports = findDOMNode;
 }).call(this,require('_process'))
-},{"./ReactCurrentOwner":153,"./ReactInstanceMap":181,"./ReactMount":184,"_process":26,"fbjs/lib/invariant":263,"fbjs/lib/warning":274}],228:[function(require,module,exports){
+},{"./ReactCurrentOwner":156,"./ReactInstanceMap":184,"./ReactMount":187,"_process":27,"fbjs/lib/invariant":266,"fbjs/lib/warning":277}],231:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -25332,7 +25451,7 @@ function flattenChildren(children) {
 
 module.exports = flattenChildren;
 }).call(this,require('_process'))
-},{"./traverseAllChildren":246,"_process":26,"fbjs/lib/warning":274}],229:[function(require,module,exports){
+},{"./traverseAllChildren":249,"_process":27,"fbjs/lib/warning":277}],232:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -25362,7 +25481,7 @@ var forEachAccumulated = function (arr, cb, scope) {
 };
 
 module.exports = forEachAccumulated;
-},{}],230:[function(require,module,exports){
+},{}],233:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -25413,7 +25532,7 @@ function getEventCharCode(nativeEvent) {
 }
 
 module.exports = getEventCharCode;
-},{}],231:[function(require,module,exports){
+},{}],234:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -25517,7 +25636,7 @@ function getEventKey(nativeEvent) {
 }
 
 module.exports = getEventKey;
-},{"./getEventCharCode":230}],232:[function(require,module,exports){
+},{"./getEventCharCode":233}],235:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -25562,7 +25681,7 @@ function getEventModifierState(nativeEvent) {
 }
 
 module.exports = getEventModifierState;
-},{}],233:[function(require,module,exports){
+},{}],236:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -25592,7 +25711,7 @@ function getEventTarget(nativeEvent) {
 }
 
 module.exports = getEventTarget;
-},{}],234:[function(require,module,exports){
+},{}],237:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -25633,7 +25752,7 @@ function getIteratorFn(maybeIterable) {
 }
 
 module.exports = getIteratorFn;
-},{}],235:[function(require,module,exports){
+},{}],238:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -25707,7 +25826,7 @@ function getNodeForCharacterOffset(root, offset) {
 }
 
 module.exports = getNodeForCharacterOffset;
-},{}],236:[function(require,module,exports){
+},{}],239:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -25741,7 +25860,7 @@ function getTextContentAccessor() {
 }
 
 module.exports = getTextContentAccessor;
-},{"fbjs/lib/ExecutionEnvironment":249}],237:[function(require,module,exports){
+},{"fbjs/lib/ExecutionEnvironment":252}],240:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -25856,7 +25975,7 @@ function instantiateReactComponent(node) {
 
 module.exports = instantiateReactComponent;
 }).call(this,require('_process'))
-},{"./Object.assign":141,"./ReactCompositeComponent":152,"./ReactEmptyComponent":173,"./ReactNativeComponent":187,"_process":26,"fbjs/lib/invariant":263,"fbjs/lib/warning":274}],238:[function(require,module,exports){
+},{"./Object.assign":144,"./ReactCompositeComponent":155,"./ReactEmptyComponent":176,"./ReactNativeComponent":190,"_process":27,"fbjs/lib/invariant":266,"fbjs/lib/warning":277}],241:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -25917,7 +26036,7 @@ function isEventSupported(eventNameSuffix, capture) {
 }
 
 module.exports = isEventSupported;
-},{"fbjs/lib/ExecutionEnvironment":249}],239:[function(require,module,exports){
+},{"fbjs/lib/ExecutionEnvironment":252}],242:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -25958,7 +26077,7 @@ function isTextInputElement(elem) {
 }
 
 module.exports = isTextInputElement;
-},{}],240:[function(require,module,exports){
+},{}],243:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -25994,7 +26113,7 @@ function onlyChild(children) {
 
 module.exports = onlyChild;
 }).call(this,require('_process'))
-},{"./ReactElement":171,"_process":26,"fbjs/lib/invariant":263}],241:[function(require,module,exports){
+},{"./ReactElement":174,"_process":27,"fbjs/lib/invariant":266}],244:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -26021,7 +26140,7 @@ function quoteAttributeValueForBrowser(value) {
 }
 
 module.exports = quoteAttributeValueForBrowser;
-},{"./escapeTextContentForBrowser":226}],242:[function(require,module,exports){
+},{"./escapeTextContentForBrowser":229}],245:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -26038,7 +26157,7 @@ module.exports = quoteAttributeValueForBrowser;
 var ReactMount = require('./ReactMount');
 
 module.exports = ReactMount.renderSubtreeIntoContainer;
-},{"./ReactMount":184}],243:[function(require,module,exports){
+},{"./ReactMount":187}],246:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -26129,7 +26248,7 @@ if (ExecutionEnvironment.canUseDOM) {
 }
 
 module.exports = setInnerHTML;
-},{"fbjs/lib/ExecutionEnvironment":249}],244:[function(require,module,exports){
+},{"fbjs/lib/ExecutionEnvironment":252}],247:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -26170,7 +26289,7 @@ if (ExecutionEnvironment.canUseDOM) {
 }
 
 module.exports = setTextContent;
-},{"./escapeTextContentForBrowser":226,"./setInnerHTML":243,"fbjs/lib/ExecutionEnvironment":249}],245:[function(require,module,exports){
+},{"./escapeTextContentForBrowser":229,"./setInnerHTML":246,"fbjs/lib/ExecutionEnvironment":252}],248:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -26214,7 +26333,7 @@ function shouldUpdateReactComponent(prevElement, nextElement) {
 }
 
 module.exports = shouldUpdateReactComponent;
-},{}],246:[function(require,module,exports){
+},{}],249:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -26406,7 +26525,7 @@ function traverseAllChildren(children, callback, traverseContext) {
 
 module.exports = traverseAllChildren;
 }).call(this,require('_process'))
-},{"./ReactCurrentOwner":153,"./ReactElement":171,"./ReactInstanceHandles":180,"./getIteratorFn":234,"_process":26,"fbjs/lib/invariant":263,"fbjs/lib/warning":274}],247:[function(require,module,exports){
+},{"./ReactCurrentOwner":156,"./ReactElement":174,"./ReactInstanceHandles":183,"./getIteratorFn":237,"_process":27,"fbjs/lib/invariant":266,"fbjs/lib/warning":277}],250:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2015, Facebook, Inc.
@@ -26772,7 +26891,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = validateDOMNesting;
 }).call(this,require('_process'))
-},{"./Object.assign":141,"_process":26,"fbjs/lib/emptyFunction":255,"fbjs/lib/warning":274}],248:[function(require,module,exports){
+},{"./Object.assign":144,"_process":27,"fbjs/lib/emptyFunction":258,"fbjs/lib/warning":277}],251:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -26859,7 +26978,7 @@ var EventListener = {
 
 module.exports = EventListener;
 }).call(this,require('_process'))
-},{"./emptyFunction":255,"_process":26}],249:[function(require,module,exports){
+},{"./emptyFunction":258,"_process":27}],252:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -26896,7 +27015,7 @@ var ExecutionEnvironment = {
 };
 
 module.exports = ExecutionEnvironment;
-},{}],250:[function(require,module,exports){
+},{}],253:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -26929,7 +27048,7 @@ function camelize(string) {
 }
 
 module.exports = camelize;
-},{}],251:[function(require,module,exports){
+},{}],254:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -26970,7 +27089,7 @@ function camelizeStyleName(string) {
 }
 
 module.exports = camelizeStyleName;
-},{"./camelize":250}],252:[function(require,module,exports){
+},{"./camelize":253}],255:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -27026,7 +27145,7 @@ function containsNode(_x, _x2) {
 }
 
 module.exports = containsNode;
-},{"./isTextNode":265}],253:[function(require,module,exports){
+},{"./isTextNode":268}],256:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -27112,7 +27231,7 @@ function createArrayFromMixed(obj) {
 }
 
 module.exports = createArrayFromMixed;
-},{"./toArray":273}],254:[function(require,module,exports){
+},{"./toArray":276}],257:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -27199,7 +27318,7 @@ function createNodesFromMarkup(markup, handleScript) {
 
 module.exports = createNodesFromMarkup;
 }).call(this,require('_process'))
-},{"./ExecutionEnvironment":249,"./createArrayFromMixed":253,"./getMarkupWrap":259,"./invariant":263,"_process":26}],255:[function(require,module,exports){
+},{"./ExecutionEnvironment":252,"./createArrayFromMixed":256,"./getMarkupWrap":262,"./invariant":266,"_process":27}],258:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -27238,7 +27357,7 @@ emptyFunction.thatReturnsArgument = function (arg) {
 };
 
 module.exports = emptyFunction;
-},{}],256:[function(require,module,exports){
+},{}],259:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -27261,7 +27380,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = emptyObject;
 }).call(this,require('_process'))
-},{"_process":26}],257:[function(require,module,exports){
+},{"_process":27}],260:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -27288,7 +27407,7 @@ function focusNode(node) {
 }
 
 module.exports = focusNode;
-},{}],258:[function(require,module,exports){
+},{}],261:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -27301,14 +27420,11 @@ module.exports = focusNode;
  * @typechecks
  */
 
-/* eslint-disable fb-www/typeof-undefined */
-
 /**
  * Same as document.activeElement but wraps in a try-catch block. In IE it is
  * not safe to call document.activeElement if there is nothing focused.
  *
- * The activeElement will be null only if the document or document body is not
- * yet defined.
+ * The activeElement will be null only if the document or document body is not yet defined.
  */
 'use strict';
 
@@ -27316,6 +27432,7 @@ function getActiveElement() /*?DOMElement*/{
   if (typeof document === 'undefined') {
     return null;
   }
+
   try {
     return document.activeElement || document.body;
   } catch (e) {
@@ -27324,7 +27441,7 @@ function getActiveElement() /*?DOMElement*/{
 }
 
 module.exports = getActiveElement;
-},{}],259:[function(require,module,exports){
+},{}],262:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -27422,7 +27539,7 @@ function getMarkupWrap(nodeName) {
 
 module.exports = getMarkupWrap;
 }).call(this,require('_process'))
-},{"./ExecutionEnvironment":249,"./invariant":263,"_process":26}],260:[function(require,module,exports){
+},{"./ExecutionEnvironment":252,"./invariant":266,"_process":27}],263:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -27461,7 +27578,7 @@ function getUnboundedScrollPosition(scrollable) {
 }
 
 module.exports = getUnboundedScrollPosition;
-},{}],261:[function(require,module,exports){
+},{}],264:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -27495,7 +27612,7 @@ function hyphenate(string) {
 }
 
 module.exports = hyphenate;
-},{}],262:[function(require,module,exports){
+},{}],265:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -27535,7 +27652,7 @@ function hyphenateStyleName(string) {
 }
 
 module.exports = hyphenateStyleName;
-},{"./hyphenate":261}],263:[function(require,module,exports){
+},{"./hyphenate":264}],266:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -27561,7 +27678,7 @@ module.exports = hyphenateStyleName;
  * will remain to ensure logic does not differ in production.
  */
 
-function invariant(condition, format, a, b, c, d, e, f) {
+var invariant = function (condition, format, a, b, c, d, e, f) {
   if (process.env.NODE_ENV !== 'production') {
     if (format === undefined) {
       throw new Error('invariant requires an error message argument');
@@ -27575,20 +27692,19 @@ function invariant(condition, format, a, b, c, d, e, f) {
     } else {
       var args = [a, b, c, d, e, f];
       var argIndex = 0;
-      error = new Error(format.replace(/%s/g, function () {
+      error = new Error('Invariant Violation: ' + format.replace(/%s/g, function () {
         return args[argIndex++];
       }));
-      error.name = 'Invariant Violation';
     }
 
     error.framesToPop = 1; // we don't care about invariant's own frame
     throw error;
   }
-}
+};
 
 module.exports = invariant;
 }).call(this,require('_process'))
-},{"_process":26}],264:[function(require,module,exports){
+},{"_process":27}],267:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -27612,7 +27728,7 @@ function isNode(object) {
 }
 
 module.exports = isNode;
-},{}],265:[function(require,module,exports){
+},{}],268:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -27638,7 +27754,7 @@ function isTextNode(object) {
 }
 
 module.exports = isTextNode;
-},{"./isNode":264}],266:[function(require,module,exports){
+},{"./isNode":267}],269:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -27689,7 +27805,7 @@ var keyMirror = function (obj) {
 
 module.exports = keyMirror;
 }).call(this,require('_process'))
-},{"./invariant":263,"_process":26}],267:[function(require,module,exports){
+},{"./invariant":266,"_process":27}],270:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -27725,7 +27841,7 @@ var keyOf = function (oneKeyObj) {
 };
 
 module.exports = keyOf;
-},{}],268:[function(require,module,exports){
+},{}],271:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -27777,7 +27893,7 @@ function mapObject(object, callback, context) {
 }
 
 module.exports = mapObject;
-},{}],269:[function(require,module,exports){
+},{}],272:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -27809,7 +27925,7 @@ function memoizeStringOnly(callback) {
 }
 
 module.exports = memoizeStringOnly;
-},{}],270:[function(require,module,exports){
+},{}],273:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -27833,7 +27949,7 @@ if (ExecutionEnvironment.canUseDOM) {
 }
 
 module.exports = performance || {};
-},{"./ExecutionEnvironment":249}],271:[function(require,module,exports){
+},{"./ExecutionEnvironment":252}],274:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -27849,26 +27965,21 @@ module.exports = performance || {};
 'use strict';
 
 var performance = require('./performance');
-
-var performanceNow;
+var curPerformance = performance;
 
 /**
  * Detect if we can use `window.performance.now()` and gracefully fallback to
  * `Date.now()` if it doesn't exist. We need to support Firefox < 15 for now
  * because of Facebook's testing infrastructure.
  */
-if (performance.now) {
-  performanceNow = function () {
-    return performance.now();
-  };
-} else {
-  performanceNow = function () {
-    return Date.now();
-  };
+if (!curPerformance || !curPerformance.now) {
+  curPerformance = Date;
 }
 
+var performanceNow = curPerformance.now.bind(curPerformance);
+
 module.exports = performanceNow;
-},{"./performance":270}],272:[function(require,module,exports){
+},{"./performance":273}],275:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -27879,7 +27990,7 @@ module.exports = performanceNow;
  *
  * @providesModule shallowEqual
  * @typechecks
- *
+ * 
  */
 
 'use strict';
@@ -27919,7 +28030,7 @@ function shallowEqual(objA, objB) {
 }
 
 module.exports = shallowEqual;
-},{}],273:[function(require,module,exports){
+},{}],276:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -27979,7 +28090,7 @@ function toArray(obj) {
 
 module.exports = toArray;
 }).call(this,require('_process'))
-},{"./invariant":263,"_process":26}],274:[function(require,module,exports){
+},{"./invariant":266,"_process":27}],277:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -28039,15 +28150,15 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = warning;
 }).call(this,require('_process'))
-},{"./emptyFunction":255,"_process":26}],275:[function(require,module,exports){
+},{"./emptyFunction":258,"_process":27}],278:[function(require,module,exports){
 'use strict';
 
 module.exports = require('./lib/React');
 
-},{"./lib/React":143}],276:[function(require,module,exports){
+},{"./lib/React":146}],279:[function(require,module,exports){
 module.exports={
-  "name": "ui-toolkit",
-  "version": "0.26.20",
+  "name": "@holidayextras/ui-toolkit",
+  "version": "0.30.0",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "index.js",
@@ -28060,7 +28171,7 @@ module.exports={
     "ci": "npm run lint && npm run test-xunit && npm run coverage",
     "ci_travis": "npm run lint && npm run coverage",
     "deploy": "scripts/deploy.sh",
-    "postinstall": "npm run build",
+    "prepublish": "npm run build",
     "coverage": "istanbul cover -x dist _mocha -- test/**/*-test.*",
     "predocs": "cd docs && npm install && cd - && npm run build",
     "docs": "grunt docs",
@@ -28091,7 +28202,7 @@ module.exports={
   },
   "homepage": "https://github.com/holidayextras/ui-toolkit",
   "engines": {
-    "node": ">0.10 <0.12",
+    "node": ">0.10 <=0.12",
     "npm": "~2.14.8"
   },
   "dependencies": {
@@ -28144,7 +28255,7 @@ module.exports={
   }
 }
 
-},{}],277:[function(require,module,exports){
+},{}],280:[function(require,module,exports){
 'use strict';
 var moment = require('moment');
 var countdown = {};
@@ -28201,7 +28312,7 @@ countdown._durationFromNow = function(untilDate) {
 };
 
 
-},{"moment":98}],278:[function(require,module,exports){
+},{"moment":99}],281:[function(require,module,exports){
 'use strict';
 var countdown = require('./countdown.js');
 var moment = require('moment');
@@ -28238,4 +28349,4 @@ CountdownManager.prototype.time = function(currentMoment) {
 };
 
 
-},{"./countdown.js":277,"moment":98}]},{},[24]);
+},{"./countdown.js":280,"moment":99}]},{},[25]);

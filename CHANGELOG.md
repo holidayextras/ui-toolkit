@@ -1,3 +1,6 @@
+### 0.30.0
+- Adding review component
+
 ### 0.28.1 - 2016-02-17
 - Fix bug with weather component that stopped it from displaying 0 temperature values
 
