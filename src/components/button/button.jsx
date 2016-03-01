@@ -16,7 +16,8 @@ module.exports = React.createClass({
     target: React.PropTypes.string,
     handleClick: React.PropTypes.func,
     data: React.PropTypes.object,
-    id: React.PropTypes.string
+    id: React.PropTypes.string,
+    gaAction: React.PropTypes.string
   },
 
   render: function() {
@@ -31,6 +32,7 @@ module.exports = React.createClass({
       target: this.props.target,
       onClick: this.props.handleClick
     };
+    if (this.props.gaAction) props.ga_action = this.props.gaAction;
     var dataAttributes = this.getDataAttributesFromProps();
 
     return (
@@ -48,6 +50,7 @@ module.exports = React.createClass({
       type: this.props.type,
       onClick: this.props.handleClick
     };
+    if (this.props.gaAction) props.ga_action = this.props.gaAction;
     var dataAttributes = this.getDataAttributesFromProps();
 
     return (
