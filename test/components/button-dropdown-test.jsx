@@ -44,9 +44,10 @@ describe('ButtonDropdown', function() {
   context('when rendering into document', function() {
 
     it('should render a div containing the classnames', function() {
-      var buttonDropdown = TestUtils.renderIntoDocument(<ButtonDropdown />);
+      var buttonDropdown = TestUtils.renderIntoDocument(<ButtonDropdown {...props}/>);
       var tag = TestUtils.findRenderedDOMComponentWithTag(buttonDropdown, 'div');
-      expect(tag).to.be.ok();
+      console.log('tag', tag)
+      expect(tag.getAttribute('classname')).to.equal('component-button-dropdown');
     });
 
     it('should be able to take a number of children', function() {
