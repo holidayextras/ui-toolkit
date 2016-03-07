@@ -1,6 +1,6 @@
 {
   "name": "@holidayextras/ui-toolkit",
-  "version": "0.29.2",
+  "version": "0.29.3",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "index.js",
@@ -53,7 +53,8 @@
     "moment": "~2.10.6",
     "react": "^0.14.2",
     "react-data-attributes-mixin": "git://github.com/holidayextras/react-data-attributes-mixin",
-    "react-dom": "^0.14.2"
+    "react-dom": "^0.14.2",
+    "reactify": "^1.1.1"
   },
   "devDependencies": {
     "babel": "^5.8.20",
@@ -85,7 +86,6 @@
     "react-a11y": "^0.2.8",
     "react-addons-test-utils": "^0.14.2",
     "react-tests-globals-setup": "^1.0.0",
-    "reactify": "^1.1.1",
     "require-directory": "^2.0.0",
     "requirejs": "~2.1.9",
     "sinon": "^1.14.1"

@@ -1,3 +1,6 @@
+### 0.29.3 - 2016-03-07
+- Bug fix, allow inclusion into other code bases, by installing reactify.
+
 ### 0.29.2 - 2016-03-07
 - Moved non essential dependencies to dev dependencies.
 
