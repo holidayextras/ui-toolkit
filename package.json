@@ -19,7 +19,7 @@
     "docs": "grunt docs",
     "test-xunit": "mocha --recursive test/**/*-test.js* src/**/*-test.js* -R xunit > $CIRCLE_TEST_REPORTS/results.xml",
     "test": "mocha --recursive test/**/*-test.js* src/**/*-test.js*",
-    "lint": "node_modules/.bin/make-up grunt src && echo '🍻  All good!'"
+    "lint": "make-up grunt src test"
   },
   "keywords": [
     "ui",
@@ -78,7 +78,7 @@
     "gruntfile-gtx": "^0.3.0",
     "istanbul": "^0.3.17",
     "jsdom": "^1.0.0",
-    "make-up": "^5.3.1",
+    "make-up": "^8.0.0",
     "mocha": "^2.2.5",
     "mocha-jsdom": "^0.3.0",
     "mocha-lcov-reporter": "0.0.2",

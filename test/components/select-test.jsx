@@ -76,7 +76,7 @@ describe('SelectComponent', function() {
     );
 
     var renderedSelect = TestUtils.findRenderedDOMComponentWithClass(select, 'component-select-field');
-    TestUtils.Simulate.change(renderedSelect, {option: 'Germany'});
+    TestUtils.Simulate.change(renderedSelect, { option: 'Germany' });
     assert.ok(handleChange.calledOnce);
   });
 

@@ -6,7 +6,7 @@ var TileComponent = require('../../src/components/tile/tile.jsx');
 
 describe('TileComponent', function() {
 
-  var img
+  var img;
 
   beforeEach(function() {
     img = {
