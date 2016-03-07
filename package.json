@@ -1,6 +1,6 @@
 {
   "name": "@holidayextras/ui-toolkit",
-  "version": "0.29.1",
+  "version": "0.29.2",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "index.js",
@@ -19,7 +19,7 @@
     "docs": "grunt docs",
     "test-xunit": "mocha --recursive test/**/*-test.js* src/**/*-test.js* -R xunit > $CIRCLE_TEST_REPORTS/results.xml",
     "test": "mocha --recursive test/**/*-test.js* src/**/*-test.js*",
-    "lint": "node_modules/.bin/make-up grunt src && echo '🍻  All good!'"
+    "lint": "make-up grunt src test"
   },
   "keywords": [
     "ui",
@@ -45,31 +45,26 @@
   "homepage": "https://github.com/holidayextras/ui-toolkit",
   "engines": {
     "node": ">0.10 <=0.12",
-    "npm": "~2.14.8"
+    "npm": "^2.14.8"
   },
   "dependencies": {
+    "classnames": "^2.1.0",
+    "font-awesome": "^4.3.0",
+    "moment": "~2.10.6",
+    "react": "^0.14.2",
+    "react-data-attributes-mixin": "git://github.com/holidayextras/react-data-attributes-mixin",
+    "react-dom": "^0.14.2"
+  },
+  "devDependencies": {
     "babel": "^5.8.20",
     "babel-runtime": "^5.1.11",
     "babelify": "^6.4.0",
     "browserify": "^12.0.1",
-    "classnames": "^2.1.0",
-    "font-awesome": "^4.3.0",
-    "grunt": "^0.4.5",
-    "grunt-shell": "^1.1.1",
-    "gruntfile-gtx": "^0.3.0",
-    "moment": "~2.10.6",
-    "react": "^0.14.2",
-    "react-data-attributes-mixin": "git://github.com/holidayextras/react-data-attributes-mixin",
-    "react-dom": "^0.14.2",
-    "reactify": "^1.1.1",
-    "require-directory": "^2.0.0",
-    "requirejs": "~2.1.9"
-  },
-  "devDependencies": {
     "chai": "^2.3.0",
     "eslint": "^0.21.0",
     "eslint-plugin-react": "^2.2.0",
     "glob": "^5.0.6",
+    "grunt": "^0.4.5",
     "grunt-aws-s3": "^0.14.3",
     "grunt-changelog": "^0.3.0",
     "grunt-cli": "^0.1.13",
@@ -79,15 +74,20 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-gh-pages": "0.10.0",
     "grunt-release": "^0.13.0",
+    "grunt-shell": "^1.1.1",
+    "gruntfile-gtx": "^0.3.0",
     "istanbul": "^0.3.17",
     "jsdom": "^1.0.0",
-    "make-up": "^5.3.1",
+    "make-up": "^8.0.0",
     "mocha": "^2.2.5",
     "mocha-jsdom": "^0.3.0",
     "mocha-lcov-reporter": "0.0.2",
     "react-a11y": "^0.2.8",
     "react-addons-test-utils": "^0.14.2",
     "react-tests-globals-setup": "^1.0.0",
+    "reactify": "^1.1.1",
+    "require-directory": "^2.0.0",
+    "requirejs": "~2.1.9",
     "sinon": "^1.14.1"
   },
   "browserify": {

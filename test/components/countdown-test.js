@@ -192,7 +192,7 @@ describe('Countdown tests', function() {
     });
 
     describe('when the untilDate is after today', function() {
-      var clock;
+
       beforeEach(function() {
         clock = sinon.useFakeTimers(new Date(2015, 1, 1).getTime());
         untilDate = moment().add('10', 'days');

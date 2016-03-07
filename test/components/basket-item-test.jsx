@@ -2,7 +2,6 @@
 var React = require('react');
 var TestUtils = require('react-addons-test-utils');
 var assert = require('chai').assert;
-var sinon = require('sinon');
 var BasketItem = require('../../src/components/basket-item/basket-item.jsx');
 
 describe('BasketItem', function() {
@@ -127,31 +126,31 @@ describe('BasketItem', function() {
   });
 
   describe('with a toggleDescription property', function() {
-    var handleRemove, description, titleLink;
+    var description, titleLink;
     before(function() {
-      var basketItem = TestUtils.renderIntoDocument(<BasketItem toggleDescription={true} title='Product 1' />);
+      var basketItem = TestUtils.renderIntoDocument(<BasketItem toggleDescription={true} title="Product 1" />);
       var titleContainer = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-title');
       titleLink = titleContainer.querySelector('a');
       description = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-description');
     });
 
-    describe('when we have not clicked the title', function () {
-      it('should have the description set to hidden', function () {
+    describe('when we have not clicked the title', function() {
+      it('should have the description set to hidden', function() {
         assert.equal(description.props.style.display, 'none');
       });
     });
 
-    describe('when the title is clicked', function () {
-      it('should have the description set to block', function () {
+    describe('when the title is clicked', function() {
+      it('should have the description set to block', function() {
         TestUtils.Simulate.click(titleLink);
         assert.equal(description.props.style.display, 'block');
       });
     });
 
     describe('when a title node is not passed', function() {
-      it('should have the description set to block', function () {
+      it('should have the description set to block', function() {
         var basketItem = TestUtils.renderIntoDocument(<BasketItem toggleDescription={true} />);
-        var description = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-description');
+        description = TestUtils.findRenderedDOMComponentWithClass(basketItem, 'component-basket-item-description');
         assert.equal(description.props.style.display, 'block');
       });
     });

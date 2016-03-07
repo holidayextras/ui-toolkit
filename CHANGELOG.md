@@ -1,3 +1,9 @@
+### 0.29.2 - 2016-03-07
+- Moved non essential dependencies to dev dependencies.
+
+### 0.29.1 - 2016-02-22
+- Removed post install task.
+
 ### 0.28.1 - 2016-02-17
 - Fix bug with weather component that stopped it from displaying 0 temperature values
 
