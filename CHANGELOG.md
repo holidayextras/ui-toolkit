@@ -1,5 +1,6 @@
 ### 0.30.0 - 2016-03-22
 - Updating Payment Card to be more flexible with accepted props
+- Bug fix, adding build task prior to release and s3 deploy 
 
 ### 0.29.3 - 2016-03-07
 - Bug fix, allow inclusion into other code bases, by installing reactify.
