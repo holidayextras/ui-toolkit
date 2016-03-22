@@ -241,7 +241,7 @@ describe('PaymentCardComponent', function() {
     );
 
     var cardElement = TestUtils.findRenderedDOMComponentWithClass(card, 'component-payment-card');
-    assert.equal(cardElement.id, 'foo')
+    assert.equal(cardElement.id, 'foo');
   });
 
 });
