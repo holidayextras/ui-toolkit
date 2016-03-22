@@ -33,3 +33,4 @@ docs/npm-debug.log*
 
 # Built files
 dist/components
+docs/public/assets/bundle.js
