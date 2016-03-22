@@ -3,6 +3,7 @@ var React = require('react');
 var TestUtils = require('react-addons-test-utils');
 var assert = require('chai').assert;
 var PaymentCardView = require('../../src/components/payment-card/payment-card.jsx');
+var sinon = require('sinon');
 
 describe('PaymentCardComponent', function() {
 
@@ -214,6 +215,33 @@ describe('PaymentCardComponent', function() {
     var renderedWesternUnion = TestUtils.findRenderedDOMComponentWithClass(westernUnionPaymentCard, 'westernunion');
     assert.isDefined(renderedWesternUnion);
 
+  });
+
+  describe('with onClick event handler', function() {
+    var handler;
+
+    beforeEach(function() {
+      handler = sinon.stub();
+      var card = TestUtils.renderIntoDocument(
+        <PaymentCardView onClick={handler} />
+      );
+
+      var cardElement = TestUtils.findRenderedDOMComponentWithClass(card, 'component-payment-card');
+      TestUtils.Simulate.click(cardElement);
+    });
+
+    it('calls the handler', function() {
+      sinon.assert.called(handler);
+    });
+  });
+
+  it('should allow other attributes', function() {
+    var card = TestUtils.renderIntoDocument(
+      <PaymentCardView id="foo" />
+    );
+
+    var cardElement = TestUtils.findRenderedDOMComponentWithClass(card, 'component-payment-card');
+    assert.equal(cardElement.id, 'foo')
   });
 
 });

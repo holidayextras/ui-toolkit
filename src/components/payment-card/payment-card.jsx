@@ -9,9 +9,11 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    var classes = classNames('component-payment-card', this.props.type, this.props.size);
+    const { className, size, type, children, ...props } = this.props;
+    const classes = classNames('component-payment-card', type, size, className);
+    
     return (
-        <div className={classes}></div>
+        <div className={classes} {...props} />
     );
   }
 });
