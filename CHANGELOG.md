@@ -1,4 +1,4 @@
-### 0.30.0 - 2016-03-22
+### 1.0.0 - 2016-03-23
 - Updating Payment Card to be more flexible with accepted props
 - Bug fix, adding build task prior to release and s3 deploy
 - Ignoring built docs bundle file
