@@ -18,7 +18,7 @@ module.exports = function(grunt) {
 
   gtx.alias('release-docs', ['build', 'docs-build', 'gh-pages']);
 
-  gtx.alias('deploy', ['release', 'aws_s3']);
+  gtx.alias('deploy', ['build', 'release', 'aws_s3']);
 
   gtx.finalise();
 };
