@@ -144,7 +144,7 @@ describe('Countdown Manager', function() {
         assert.isTrue(countdownManager.hasDatePassed());
       });
     });
-    
+
     describe('when the start date is in the future', function() {
       beforeEach(function() {
         sinon.stub(countdownManager, 'countdownDate').returns('1970-01-01T00:01');
@@ -158,7 +158,7 @@ describe('Countdown Manager', function() {
         assert.isFalse(countdownManager.hasDatePassed());
       });
     });
-    
+
   });
 
 });
