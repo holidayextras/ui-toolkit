@@ -25,6 +25,10 @@ CountdownManager.prototype.intervalCounter = function(callback) {
   }.bind(this);
 };
 
+CountdownManager.prototype.hasDatePassed = function() {
+  return moment(this.countdownDate()).isBefore(moment());
+};
+
 CountdownManager.prototype.countdownDate = function(callback) {
   return (typeof callback === 'function') ? callback(this.date.startDate) : this.date.startDate;
 };

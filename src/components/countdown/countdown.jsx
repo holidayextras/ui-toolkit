@@ -42,6 +42,9 @@ module.exports = React.createClass({
   },
 
   onCountdown: function(time) {
+    if(this.state.countdownManager.hasDatePassed()) {
+      this.state.countdownManager.stop();
+    }
     this.setState({ time: time });
   },
 

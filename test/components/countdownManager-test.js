@@ -8,16 +8,13 @@ var sinon = require('sinon');
 
 describe('Countdown Manager', function() {
 
-  var timer = null;
+  var clock = null;
   var date = null;
   var countdownManager = null;
   var callbackSpy = null;
 
-  before(function() {
-    timer = sinon.useFakeTimers();
-  });
-
   beforeEach(function() {
+    clock = sinon.useFakeTimers();
     date = {
       startDate: '2016-07-27'
     };
@@ -25,15 +22,15 @@ describe('Countdown Manager', function() {
     callbackSpy = sinon.spy();
   });
 
-  after(function() {
-    timer.restore();
+  afterEach(function() {
+    clock.restore();
   });
 
   describe('start', function() {
 
     beforeEach(function() {
       countdownManager.start(callbackSpy);
-      timer.tick(CountdownManager.countdownInterval);
+      clock.tick(CountdownManager.countdownInterval);
     });
 
     it('sets interval countdown', function() {
@@ -46,7 +43,7 @@ describe('Countdown Manager', function() {
 
     beforeEach(function() {
       countdownManager.stop(callbackSpy);
-      timer.tick(CountdownManager.countdownInterval);
+      clock.tick(CountdownManager.countdownInterval);
     });
 
     it('clears interval countdown', function() {
@@ -123,9 +120,45 @@ describe('Countdown Manager', function() {
       countdownManager.time(currentMoment);
     });
 
+    afterEach(function() {
+      countdownManager.countdownDate.restore();
+    });
+
     it('calls countdown until with countdownDate & currentMoment', function() {
       assert.ok(countdownUntilStub.calledWith(countdownDateValue, currentMoment));
     });
+  });
+
+  describe('hasDatePassed', function() {
+
+    describe('when the start date has passed', function() {
+      beforeEach(function() {
+        sinon.stub(countdownManager, 'countdownDate').returns('1969-12-31T23:59');
+      });
+
+      afterEach(function() {
+        countdownManager.countdownDate.restore();
+      });
+
+      it('should return true', function() {
+        assert.isTrue(countdownManager.hasDatePassed());
+      });
+    });
+    
+    describe('when the start date is in the future', function() {
+      beforeEach(function() {
+        sinon.stub(countdownManager, 'countdownDate').returns('1970-01-01T00:01');
+      });
+
+      afterEach(function() {
+        countdownManager.countdownDate.restore();
+      });
+
+      it('should return false', function() {
+        assert.isFalse(countdownManager.hasDatePassed());
+      });
+    });
+    
   });
 
 });
