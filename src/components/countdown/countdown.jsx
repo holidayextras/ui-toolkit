@@ -16,7 +16,7 @@ module.exports = React.createClass({
     this.countdownManager = new CountdownManager(date);
     return {
       time: this.countdownManager.time()
-    }
+    };
   },
 
   componentDidMount: function() {

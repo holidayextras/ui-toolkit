@@ -60,7 +60,7 @@ describe('Countdown Manager', function() {
     var countdownStartStub;
     var countdownStopStub;
     var dateToPass = '1970-01-01T13:00';
-    
+
     beforeEach(function() {
       countdownStartStub = sinon.stub(countdownManager, 'start');
       countdownStopStub = sinon.stub(countdownManager, 'stop');
@@ -93,10 +93,10 @@ describe('Countdown Manager', function() {
         countdownManager.restart();
       });
 
-      it('should update the date property', function () {
+      it('should update the date property', function() {
         assert(countdownManager.date, dateToPass);
       });
-      
+
     });
   });
 

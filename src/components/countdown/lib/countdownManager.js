@@ -21,7 +21,7 @@ CountdownManager.prototype.stop = function() {
 
 CountdownManager.prototype.restart = function(date) {
   this.stop();
-  if(date) {
+  if (date) {
     this.date = date;
   }
   this.start();
