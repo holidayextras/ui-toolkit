@@ -56,6 +56,50 @@ describe('Countdown Manager', function() {
 
   });
 
+  describe('restart', function() {
+    var countdownStartStub;
+    var countdownStopStub;
+    var dateToPass = '1970-01-01T13:00';
+    
+    beforeEach(function() {
+      countdownStartStub = sinon.stub(countdownManager, 'start');
+      countdownStopStub = sinon.stub(countdownManager, 'stop');
+    });
+
+    afterEach(function() {
+      countdownManager.start.restore();
+      countdownManager.stop.restore();
+    });
+
+    describe('with no date passed', function() {
+
+      beforeEach(function() {
+        countdownManager.restart();
+      });
+
+      it('should call stop', function() {
+        assert.ok(countdownStopStub.calledOnce);
+      });
+
+      it('should call start', function() {
+        assert.ok(countdownStartStub.calledOnce);
+      });
+
+    });
+
+    describe('with a date passed', function() {
+
+      beforeEach(function() {
+        countdownManager.restart();
+      });
+
+      it('should update the date property', function () {
+        assert(countdownManager.date, dateToPass);
+      });
+      
+    });
+  });
+
   describe('intervalCounter', function() {
 
     var intervalFunction = null;

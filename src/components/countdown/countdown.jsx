@@ -12,16 +12,11 @@ module.exports = React.createClass({
   },
 
   getInitialState: function() {
-    return this.countdownManagerState();
-  },
-
-  countdownManagerState: function(dateUpdate) {
-    var date = { startDate: (dateUpdate || this.props.until) };
-    var countdownManager = new CountdownManager(date);
+    var date = { startDate: this.props.until };
+    this.countdownManager = new CountdownManager(date);
     return {
-      countdownManager: countdownManager,
-      time: countdownManager.time()
-    };
+      time: this.countdownManager.time()
+    }
   },
 
   componentDidMount: function() {
@@ -34,22 +29,23 @@ module.exports = React.createClass({
 
   componentWillReceiveProps: function(nextProps) {
     this.stopCountdownManager();
-    this.setState(this.countdownManagerState(nextProps.date), this.startCountdownManager);
+    this.countdownManager.restart(nextProps.date);
+    this.setState({ time: this.countdownManager.time() });
   },
 
   startCountdownManager: function() {
-    this.state.countdownManager.start(this.onCountdown);
+    this.countdownManager.start(this.onCountdown);
   },
 
   onCountdown: function(time) {
-    if (this.state.countdownManager.hasDatePassed()) {
-      this.state.countdownManager.stop();
+    if (this.countdownManager.hasDatePassed()) {
+      this.countdownManager.stop();
     }
     this.setState({ time: time });
   },
 
   stopCountdownManager: function() {
-    return this.state.countdownManager.stop();
+    return this.countdownManager.stop();
   },
 
   render: function() {
