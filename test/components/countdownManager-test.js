@@ -8,32 +8,31 @@ var sinon = require('sinon');
 
 describe('Countdown Manager', function() {
 
-  var timer = null;
-  var date = null;
-  var countdownManager = null;
-  var callbackSpy = null;
-
-  before(function() {
-    timer = sinon.useFakeTimers();
-  });
+  var sandbox;
+  var clock;
+  var date;
+  var countdownManager;
+  var callbackSpy;
 
   beforeEach(function() {
+    sandbox = sinon.sandbox.create();
+    clock = sandbox.useFakeTimers();
     date = {
       startDate: '2016-07-27'
     };
     countdownManager = new CountdownManager(date);
-    callbackSpy = sinon.spy();
+    callbackSpy = sandbox.spy();
   });
 
-  after(function() {
-    timer.restore();
+  afterEach(function() {
+    sandbox.restore();
   });
 
   describe('start', function() {
 
     beforeEach(function() {
       countdownManager.start(callbackSpy);
-      timer.tick(CountdownManager.countdownInterval);
+      clock.tick(CountdownManager.countdownInterval);
     });
 
     it('sets interval countdown', function() {
@@ -46,7 +45,7 @@ describe('Countdown Manager', function() {
 
     beforeEach(function() {
       countdownManager.stop(callbackSpy);
-      timer.tick(CountdownManager.countdownInterval);
+      clock.tick(CountdownManager.countdownInterval);
     });
 
     it('clears interval countdown', function() {
@@ -59,12 +58,51 @@ describe('Countdown Manager', function() {
 
   });
 
+  describe('restart', function() {
+    var countdownStartStub;
+    var countdownStopStub;
+    var dateToPass = '1970-01-01T13:00';
+
+    beforeEach(function() {
+      countdownStartStub = sandbox.stub(countdownManager, 'start');
+      countdownStopStub = sandbox.stub(countdownManager, 'stop');
+    });
+
+    describe('with no date passed', function() {
+
+      beforeEach(function() {
+        countdownManager.restart();
+      });
+
+      it('should call stop', function() {
+        assert.ok(countdownStopStub.calledOnce);
+      });
+
+      it('should call start', function() {
+        assert.ok(countdownStartStub.calledOnce);
+      });
+
+    });
+
+    describe('with a date passed', function() {
+
+      beforeEach(function() {
+        countdownManager.restart();
+      });
+
+      it('should update the date property', function() {
+        assert(countdownManager.date, dateToPass);
+      });
+
+    });
+  });
+
   describe('intervalCounter', function() {
 
     var intervalFunction = null;
 
     beforeEach(function() {
-      sinon.stub(countdownManager, 'time').returns('test');
+      sandbox.stub(countdownManager, 'time').returns('test');
       intervalFunction = countdownManager.intervalCounter(callbackSpy);
       intervalFunction();
     });
@@ -117,7 +155,7 @@ describe('Countdown Manager', function() {
 
     beforeEach(function() {
       countdownUntilStub = sinon.stub(countdown, 'until');
-      sinon.stub(countdownManager, 'countdownDate').returns(countdownDateValue);
+      sandbox.stub(countdownManager, 'countdownDate').returns(countdownDateValue);
 
       currentMoment = 'test';
       countdownManager.time(currentMoment);
@@ -126,6 +164,30 @@ describe('Countdown Manager', function() {
     it('calls countdown until with countdownDate & currentMoment', function() {
       assert.ok(countdownUntilStub.calledWith(countdownDateValue, currentMoment));
     });
+  });
+
+  describe('hasDatePassed', function() {
+
+    describe('when the start date has passed', function() {
+      beforeEach(function() {
+        sandbox.stub(countdownManager, 'countdownDate').returns('1969-12-31T23:59');
+      });
+
+      it('should return true', function() {
+        assert.isTrue(countdownManager.hasDatePassed());
+      });
+    });
+
+    describe('when the start date is in the future', function() {
+      beforeEach(function() {
+        sandbox.stub(countdownManager, 'countdownDate').returns('1970-01-01T00:01');
+      });
+
+      it('should return false', function() {
+        assert.isFalse(countdownManager.hasDatePassed());
+      });
+    });
+
   });
 
 });

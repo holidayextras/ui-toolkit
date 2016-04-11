@@ -19,10 +19,22 @@ CountdownManager.prototype.stop = function() {
   return moment();
 };
 
+CountdownManager.prototype.restart = function(date) {
+  this.stop();
+  if (date) {
+    this.date = date;
+  }
+  this.start();
+};
+
 CountdownManager.prototype.intervalCounter = function(callback) {
   return function() {
     callback(this.time());
   }.bind(this);
+};
+
+CountdownManager.prototype.hasDatePassed = function() {
+  return moment(this.countdownDate()).isBefore(moment());
 };
 
 CountdownManager.prototype.countdownDate = function(callback) {
