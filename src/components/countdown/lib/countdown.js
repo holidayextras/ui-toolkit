@@ -25,11 +25,9 @@ countdown.untilString = function(untilDate) {
 
 // Private functions from here
 countdown._pad = function(number) {
+  var prefix = number < 0 ? '-' : '';
   number = Math.abs(Math.floor(number));
-  if (number > 9) {
-    return '' + number;
-  }
-  return '0' + number;
+  return prefix + (number > 9 ? '' : '0') + number;
 };
 
 countdown._roundTowardsZero = function(number) {
@@ -39,16 +37,9 @@ countdown._roundTowardsZero = function(number) {
   return '' + Math.ceil(number);
 };
 
-countdown._isSameDay = function(moment1, moment2) {
-  return moment(moment1).isSame(moment2, 'day');
-};
-
 countdown._durationFromNow = function(untilDate) {
   var until = moment(untilDate);
   var now = moment();
-  if (this._isSameDay(until, now)) {
-    return moment.duration();
-  }
   var seconds = until.diff(now, 'seconds');
   return moment.duration(seconds, 'seconds');
 };

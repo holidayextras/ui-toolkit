@@ -1,3 +1,35 @@
+### 1.0.0 - 2016-03-23
+- Updating Payment Card to be more flexible with accepted props
+- Bug fix, adding build task prior to release and s3 deploy
+- Ignoring built docs bundle file
+
+### 0.29.3 - 2016-03-07
+- Bug fix, allow inclusion into other code bases, by installing reactify.
+
+### 0.29.2 - 2016-03-07
+- Moved non essential dependencies to dev dependencies.
+
+### 0.29.1 - 2016-02-22
+- Removed post install task.
+
+### 0.28.1 - 2016-02-17
+- Fix bug with weather component that stopped it from displaying 0 temperature values
+
+### 0.28.0 - 2016-02-01
+ - Updating tile to enable more flexibiloty with title being optional
+
+### 0.27.0 - 2016-02-01
+ - Updating tile to enable more flexibiloty with title being optional
+
+### 0.26.20 - 2016-02-01
+ - Updating tile to enable more flexibiloty with title being optional
+
+### 0.26.20 - 2016-02-01
+ - 
+
+### 0.26.20 - 2016-02-01
+ - Updating tile to enable more flexibiloty with title being optional
+
 ### 0.26.7 - 2015-12-03
  - fixing the stepper component, to remove random word
 

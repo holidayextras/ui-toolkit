@@ -40,16 +40,6 @@ describe('Countdown tests', function() {
       });
     });
 
-    it('returns 0s for the same day', function() {
-      var sameDay = moment().add(20, 'seconds').format(dateFormat);
-      assert.deepEqual(countdown.until(sameDay), {
-        days: '0',
-        hours: '00',
-        minutes: '00',
-        seconds: '00'
-      });
-    });
-
     it('returns negative day for the past', function() {
       var pastDay = moment().subtract(2, 'days').format(dateFormat);
       assert.ok(countdown.until(pastDay).days < 0);
@@ -97,6 +87,15 @@ describe('Countdown tests', function() {
 
     });
 
+    describe('when the number is a negative integer', function() {
+
+      it('returns the number with a negation prefix', function() {
+        assert.equal(countdown._pad(-5), '-05');
+        assert.equal(countdown._pad(-20), '-20');
+      });
+
+    });
+
   });
 
   describe('_roundTowardsZero', function() {
@@ -113,39 +112,6 @@ describe('Countdown tests', function() {
 
       it('ceils the number', function() {
         assert.equal(countdown._roundTowardsZero(-1.9), -1);
-      });
-
-    });
-
-  });
-
-  describe('_isSameDay', function() {
-
-    var moment1 = null;
-    var moment2 = null;
-
-    describe('when the two dates are not the same day', function() {
-
-      beforeEach(function() {
-        moment1 = moment('2015-01-01');
-        moment2 = moment('2015-01-02');
-      });
-
-      it('is false', function() {
-        assert.equal(countdown._isSameDay(moment1, moment2), false);
-      });
-
-    });
-
-    describe('when the two dates are the same day', function() {
-
-      beforeEach(function() {
-        moment1 = moment('2015-01-02');
-        moment2 = moment('2015-01-02');
-      });
-
-      it('is true', function() {
-        assert.equal(countdown._isSameDay(moment1, moment2), true);
       });
 
     });
@@ -192,7 +158,7 @@ describe('Countdown tests', function() {
     });
 
     describe('when the untilDate is after today', function() {
-      var clock;
+
       beforeEach(function() {
         clock = sinon.useFakeTimers(new Date(2015, 1, 1).getTime());
         untilDate = moment().add('10', 'days');

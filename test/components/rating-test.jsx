@@ -26,15 +26,12 @@ describe('Rating', function() {
     describe('with a blank icon prop', function() {
       it('is an element', function() {
         var component = TestUtils.renderIntoDocument(
-          <Rating rating={4} outOf={5} blankIcon='X' />
+          <Rating rating={4} outOf={5} blankIcon="X" />
         );
         assert.isDefined(component);
       });
     });
 
-
   });
-
-  
 
 });
