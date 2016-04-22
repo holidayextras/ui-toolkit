@@ -9,14 +9,7 @@ module.exports = {
   },
   less: {
     files: ['src/**/*.less'],
-    tasks: ['less', 'copy:less_css'],
-    options: {
-      livereload: true
-    }
-  },
-  sass: {
-    files: ['src/**/*.scss'],
-    tasks: ['sass', 'copy:sass_css'],
+    tasks: ['less', 'copy:css'],
     options: {
       livereload: true
     }
