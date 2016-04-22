@@ -225,6 +225,16 @@ var Components = React.createClass({
             </ul>
           </article>
 
+          <article id="button-dropdown">
+            <h3>Button Dropdown</h3>
+            <p>You can use Button dropdown as a way to store options in a list and for them to be clickable as well as the default button.</p>
+            <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/buttonDropdown.jsx', 'utf8')} />
+            <h4>Attributes</h4>
+            <ul>
+              <li><code>position</code> oneOf - Can either pass top or bottom as a string and it will format the position</li>
+            </ul>
+          </article>
+
           <article id="countdown">
             <h3>Countdown</h3>
             <p>Countdowns allow you to find the time difference between the current date and a date in the future. To do this you pass in a <code>until</code> value of any date format.</p>

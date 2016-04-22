@@ -1,0 +1,65 @@
+/*------------------------------------*\
+    #button-dropdown
+\*------------------------------------*/
+.component-button-dropdown {
+  position: relative;
+  max-width: 160px;
+  .component-button {
+    margin: 0;
+    &:first-of-type {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    &:last-of-type {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      .component-icon {
+        line-height: @line-height-body;
+      }
+    }
+  }
+
+  .component-unordered-list {
+    position: absolute;
+    left: 0;
+    margin: 0;
+    min-width: 160px;
+    display: none;
+    list-style: none;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    background-color: @background-color;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  }
+
+  .visible {
+    position:relative;
+    display: block;
+  }
+
+  .component-list-item {
+    padding: 0.25em 1em;
+    white-space: nowrap;
+  }
+}
+
+//
+// == Position ==
+//
+
+.component-button-dropdown {
+  &.bottom {
+    .component-unordered-list {
+      position:absolute;
+      left: 0;
+    }
+  }
+  &.top {
+    .component-unordered-list {
+      position:absolute;
+      top: auto;
+      bottom: 100%;
+    }
+  }
+}
