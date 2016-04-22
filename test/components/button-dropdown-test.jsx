@@ -1,7 +1,6 @@
 'use strict';
 var React = require('react');
 var TestUtils = require('react-addons-test-utils');
-var sinon = require('sinon');
 var expect = require('chai')
 .use(require('dirty-chai')).expect;
 var ButtonDropdown = require('../../src/components/button-dropdown/button-dropdown.jsx');
@@ -20,11 +19,11 @@ describe('ButtonDropdown', function() {
 
   it('should be a valid dom component', function() {
     var buttonDropdown = TestUtils.renderIntoDocument(<ButtonDropdown/>);
-    var renderedButtonComponent = TestUtils.findRenderedDOMComponentWithClass(buttonDropdown, 'component-button-dropdown')
+    var renderedButtonComponent = TestUtils.findRenderedDOMComponentWithClass(buttonDropdown, 'component-button-dropdown');
     expect(TestUtils.isDOMComponent(renderedButtonComponent)).to.be.true();
   });
 
-  it('should be able to have position of top passed to the component', function(){
+  it('should be able to have position of top passed to the component', function() {
     props.position = 'top';
     var buttonDropdown = TestUtils.renderIntoDocument(<ButtonDropdown {...props}/>);
     expect(TestUtils.findRenderedDOMComponentWithClass(buttonDropdown, 'top')).to.be.ok();
@@ -42,13 +41,6 @@ describe('ButtonDropdown', function() {
   });
 
   context('when rendering into document', function() {
-
-    it('should render a div containing the classnames', function() {
-      var buttonDropdown = TestUtils.renderIntoDocument(<ButtonDropdown {...props}/>);
-      var tag = TestUtils.findRenderedDOMComponentWithTag(buttonDropdown, 'div');
-      console.log('tag', tag)
-      expect(tag.getAttribute('classname')).to.equal('component-button-dropdown');
-    });
 
     it('should be able to take a number of children', function() {
       var buttonDropdown = TestUtils.renderIntoDocument(
