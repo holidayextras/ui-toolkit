@@ -10,8 +10,10 @@ describe('ImageComponent', function() {
   var src = null;
   var alt = null;
   var handleClick = null;
+  var handleLoad = null;
   var imageInstance = null;
   var renderedImage = null;
+  var anchorDOMNode = null;
   var imageDOMNode = null;
   var srcSet = null;
   var sizes = null;
@@ -22,6 +24,7 @@ describe('ImageComponent', function() {
     srcSet = '2000w.jpg 2000w, 1500w.jpg 1500w, 1000w.jpg 1000w, 500w.jpg 500w';
     sizes = '100vw';
     handleClick = sinon.spy();
+    handleLoad = sinon.spy();
   });
 
   it('is an element', function() {
@@ -35,40 +38,45 @@ describe('ImageComponent', function() {
     beforeEach(function() {
       href = 'http://this.isa.link';
       imageInstance = TestUtils.renderIntoDocument(
-        <ImageComponent src={src} alt={alt} handleClick={handleClick} href={href} />
+        <ImageComponent src={src} alt={alt} handleClick={handleClick} handleLoad={handleLoad} href={href} />
       );
       renderedImage = TestUtils.findRenderedDOMComponentWithClass(imageInstance, 'component-image');
-      imageDOMNode = renderedImage;
+      anchorDOMNode = renderedImage;
     });
 
     it('should render as an anchor', function() {
-      assert.equal(imageDOMNode.nodeName, 'A');
+      assert.equal(anchorDOMNode.nodeName, 'A');
     });
 
     it('should call handleClick prop when clicked', function() {
-      TestUtils.Simulate.click(imageDOMNode);
+      TestUtils.Simulate.click(anchorDOMNode);
       assert.ok(handleClick.calledOnce);
     });
 
+    it('the image should call handleLoad when img is loaded', function() {
+      imageDOMNode = TestUtils.findRenderedDOMComponentWithTag(imageInstance, 'img');
+      TestUtils.Simulate.load(imageDOMNode);
+      assert.ok(handleLoad.calledOnce);
+    });
+
     it('should render an img tag inside the anchor', function() {
-      assert.equal(imageDOMNode.firstChild.nodeName, 'IMG');
+      assert.equal(anchorDOMNode.firstChild.nodeName, 'IMG');
     });
 
     it('the img should have the correct src attribute from props', function() {
-      assert.equal(imageDOMNode.firstChild.getAttribute('src'), 'foo');
+      assert.equal(anchorDOMNode.firstChild.getAttribute('src'), 'foo');
     });
 
     it('the img should have the correct alt attribute from props', function() {
-      assert.equal(imageDOMNode.firstChild.getAttribute('alt'), 'bar');
+      assert.equal(anchorDOMNode.firstChild.getAttribute('alt'), 'bar');
     });
-
   });
 
   describe('when an href is not passed in', function() {
 
     beforeEach(function() {
       imageInstance = TestUtils.renderIntoDocument(
-        <ImageComponent src={src} alt={alt} handleClick={handleClick} sizes={sizes} srcSet={srcSet} />
+        <ImageComponent src={src} alt={alt} handleClick={handleClick} handleLoad={handleLoad} sizes={sizes} srcSet={srcSet} />
       );
       renderedImage = TestUtils.findRenderedDOMComponentWithClass(imageInstance, 'component-image');
       imageDOMNode = renderedImage;
@@ -91,6 +99,11 @@ describe('ImageComponent', function() {
       assert.ok(handleClick.calledOnce);
     });
 
+    it('should call handleLoad when img is loaded', function() {
+      TestUtils.Simulate.load(imageDOMNode);
+      assert.ok(handleLoad.calledOnce);
+    });
+
     it('should render multiple responsive images', function() {
       assert.equal(imageDOMNode.getAttribute('srcset'), '2000w.jpg 2000w, 1500w.jpg 1500w, 1000w.jpg 1000w, 500w.jpg 500w');
     });
@@ -98,6 +111,5 @@ describe('ImageComponent', function() {
     it('should render a specified start image size', function() {
       assert.equal(imageDOMNode.getAttribute('sizes'), '100vw');
     });
-
   });
 });
