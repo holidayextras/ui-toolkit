@@ -12,6 +12,7 @@ module.exports = React.createClass({
     handleClick: React.PropTypes.func,
     handleLoad: React.PropTypes.func,
     href: React.PropTypes.string,
+    target: React.PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
     srcSet: React.PropTypes.string,
     sizes: React.PropTypes.string
   },
@@ -21,7 +22,7 @@ module.exports = React.createClass({
     var sizes = this.props.sizes || '100vw';
     if (this.props.href) {
       return (
-        <a className="component-image" href={this.props.href} onClick={this.props.handleClick} {...dataAttributes} >
+        <a className="component-image" href={this.props.href} target={this.props.target} onClick={this.props.handleClick} {...dataAttributes} >
           <img src={this.props.src} srcSet={this.props.srcSet} alt={this.props.alt} sizes={sizes} onLoad={this.props.handleLoad} />
         </a>
       );

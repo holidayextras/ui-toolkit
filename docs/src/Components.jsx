@@ -94,6 +94,7 @@ var Components = React.createClass({
               <li><code>handleLoad</code> Function - handle the onload event of the image</li>
               <li><code>src</code> String - Image src attribute</li>
               <li><code>href</code> String - an href that wraps the image in an anchor</li>
+              <li><code>target</code> String (optional) - passed through to a wrapping anchor if href is provided. See the <a href="#anchor">Anchor</a> component for the set of valid values.</li>
               <li><code>data</code> Object - Where <code>keys</code> will be data attributes and <code>values</code> will be their values (uses <a href="https://github.com/holidayextras/react-data-attributes-mixin" alt="React Data Attributes Mixin">React Data Attributes Mixin</a>)</li>
               <li><code>srcset</code> String - a comma separated list of images and their file size, perfect for responsive images</li>
               <li><code>sizes</code> String (optional) - A rough start size for your image. To be used in conjunction with srcset when implementing responsive images. Please note that this is an optimisation only and its default is set to <code>100vw</code></li>
