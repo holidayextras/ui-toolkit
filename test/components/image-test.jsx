@@ -70,6 +70,33 @@ describe('ImageComponent', function() {
     it('the img should have the correct alt attribute from props', function() {
       assert.equal(anchorDOMNode.firstChild.getAttribute('alt'), 'bar');
     });
+
+    describe('without a target', function() {
+
+      it('should not include a target in the rendered anchor', function() {
+        assert.isNull(imageDOMNode.getAttribute('target'));
+      });
+
+    });
+
+  });
+
+  describe('when a target is passed in', function() {
+
+    beforeEach(function() {
+      var href = 'http://this.isa.link';
+      var target = '_blank';
+      imageInstance = TestUtils.renderIntoDocument(
+        <ImageComponent src={src} alt={alt} handleClick={handleClick} href={href} target={target} />
+      );
+      renderedImage = TestUtils.findRenderedDOMComponentWithClass(imageInstance, 'component-image');
+      imageDOMNode = renderedImage;
+    });
+
+    it('should include the target in the rendered anchor', function() {
+      assert.equal(imageDOMNode.getAttribute('target'), '_blank');
+    });
+
   });
 
   describe('when an href is not passed in', function() {
