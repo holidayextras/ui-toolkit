@@ -284,7 +284,6 @@ var Components = React.createClass({
             <h4>Attributes</h4>
             <ul>
               <li><code>image</code> Object - Containing <code>src</code> and <code>alt</code> keys</li>
-              <li><code>title</code> String - The title of the tile</li>
             </ul>
           </article>
 
