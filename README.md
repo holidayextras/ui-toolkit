@@ -158,60 +158,8 @@ You will only need to upload the following static assets once generated:
 + vendor/
 + index.html
 
-Grunt Terminal Commands:
+Creating a release:
 ---
 
-#### THIS SECTION IS A WORK IN PROGRESS
+To create a new release of the ui-toolkit you need to bump the version number in the package.json file, once you PR is merged in this will create a new release on github and push the changes to aws automatically. You will then have to manually publish the changes to npm. This procedure is the same for both minor and major releases.
 
-You can use the following build commands via terminal:
-
-#### Build for Distribution:
-
-The following command will compile Less Styles into a CSS and Concat JS files for Distribution.
-
-This is the most common command you will want to use and is required to view any changed you made in a browser or simulator.
-
-```bash
-npm run build
-```
-
-#### Create a Major Release:
-
-The following will:
-
-1. Increase the build's major number ( e.g. v __1__.2.3 => v __2__.0.0 )
-2. Build & Package Distribution Files
-3. Create Tag Branch & Perform a git commit
-4. Generated Documentation will be merged into `gh-pages`
-
-```bash
-grunt release-major --changelogtxt="Some changes happened"
-```
-
-#### Create a Minor Release:
-
-Once you have merged your work into master, ensure you build the standalone assets (`npm run build` and `npm run docs`) commit these compiled files to master then release as below...
-
-The following will:
-
-1. Increase the build's minor number ( e.g. v 1.__2__.3 => v 1.__3__.0 )
-2. Build & Package Distribution Files
-3. Create Tag Branch & Perform a git commit
-4. Generated Documentation will be merged into `gh-pages`
-
-```bash
-grunt release-minor --changelogtxt="Some changes happened"
-```
-
-#### Create a Release Patch:
-
-The following will:
-
-1. Increase the build's patch number ( e.g. v 1.2.__3__ => v 1.2.__4__ )
-2. Build & Package Distribution Files
-3. Create Tag Branch & Perform a git commit
-4. Generated Documentation will be merged into `gh-pages`
-
-```bash
-grunt release-patch --changelogtxt="Some changes happened"
-```
