@@ -39,13 +39,4 @@ describe('TileComponent', function() {
     assert.isDefined(renderedTile);
   });
 
-  it('should render a tile/card with a title', function() {
-    var tile = TestUtils.renderIntoDocument(
-      <TileComponent image={img} title="foo" >bar</TileComponent>
-    );
-    var h4s = TestUtils.scryRenderedDOMComponentsWithTag(tile, 'h4');
-    assert.equal(h4s.length, 1);
-    assert.equal(h4s[0].textContent, 'foo');
-  });
-
 });
