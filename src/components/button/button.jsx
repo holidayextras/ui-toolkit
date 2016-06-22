@@ -2,6 +2,11 @@
 var React = require('react');
 var DataAttributesMixin = require('react-data-attributes-mixin');
 var classNames = require('classnames');
+
+var _ = {
+  omit: require('lodash/object/omit')
+};
+
 module.exports = React.createClass({
 
   mixins: [DataAttributesMixin],
@@ -24,13 +29,9 @@ module.exports = React.createClass({
   },
 
   renderAnchor: function() {
-    var props = {
-      id: this.props.id,
-      className: classNames('component-button', this.props.size, this.props.purpose),
-      href: this.props.href,
-      target: this.props.target,
-      onClick: this.props.handleClick
-    };
+    const props = _.omit(this.props, 'children');
+    props.className = classNames('component-button', this.props.size, this.props.purpose);
+
     var dataAttributes = this.getDataAttributesFromProps();
 
     return (
@@ -41,13 +42,9 @@ module.exports = React.createClass({
   },
 
   renderButton: function() {
-    var props = {
-      id: this.props.id,
-      className: classNames('component-button', this.props.size, this.props.purpose),
-      disabled: this.props.disabled,
-      type: this.props.type,
-      onClick: this.props.handleClick
-    };
+    const props = _.omit(this.props, 'children');
+    props.className = classNames('component-button', this.props.size, this.props.purpose);
+
     var dataAttributes = this.getDataAttributesFromProps();
 
     return (
