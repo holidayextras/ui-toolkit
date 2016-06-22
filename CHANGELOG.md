@@ -1,3 +1,6 @@
+### 2.1.0 - 2016-06-22
+- Adding spread operator to Tile component
+
 ### 1.0.0 - 2016-03-23
 - Updating Payment Card to be more flexible with accepted props
 - Bug fix, adding build task prior to release and s3 deploy
