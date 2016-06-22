@@ -1,3 +1,6 @@
+### 2.2.0 2016-06-22
+- Adding spread operator to Button component
+
 ### 2.1.0 - 2016-06-22
 - Adding spread operator to Tile component
 
