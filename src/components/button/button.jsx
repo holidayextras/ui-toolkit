@@ -4,6 +4,7 @@ var DataAttributesMixin = require('react-data-attributes-mixin');
 var classNames = require('classnames');
 
 var _ = {
+  extend: require('lodash/object/extend'),
   omit: require('lodash/object/omit')
 };
 
@@ -24,34 +25,20 @@ module.exports = React.createClass({
     id: React.PropTypes.string
   },
 
-  render: function() {
-    return this.props.href ? this.renderAnchor() : this.renderButton();
-  },
-
-  renderAnchor: function() {
-    const props = _.omit(this.props, 'children');
+  _getProps() {
+    const props = _.omit(this.props, ['data', 'size', 'purpose']);
     props.className = classNames('component-button', this.props.size, this.props.purpose);
 
-    var dataAttributes = this.getDataAttributesFromProps();
+    // this is for legacy usage whilst we deprepecate handleClick
+    if (!props.onClick && props.handleClick) {
+      props.onClick = props.handleClick
+    }
 
-    return (
-      <a {...props} {...dataAttributes}>
-        {this.props.children}
-      </a>
-    );
+    return _.extend({}, props, this.getDataAttributesFromProps());
   },
 
-  renderButton: function() {
-    const props = _.omit(this.props, 'children');
-    props.className = classNames('component-button', this.props.size, this.props.purpose);
-
-    var dataAttributes = this.getDataAttributesFromProps();
-
-    return (
-      <button {...props} {...dataAttributes}>
-        {this.props.children}
-      </button>
-    );
+  render() {
+    return this.props.href ? <a {...this._getProps()} /> : <button {...this._getProps()} />;
   }
 
 });
