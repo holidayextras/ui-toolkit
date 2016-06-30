@@ -31,7 +31,7 @@ module.exports = React.createClass({
 
     // this is for legacy usage whilst we deprepecate handleClick
     if (!props.onClick && props.handleClick) {
-      props.onClick = props.handleClick
+      props.onClick = props.handleClick;
     }
 
     return _.extend({}, props, this.getDataAttributesFromProps());

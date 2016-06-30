@@ -121,7 +121,7 @@ describe('ButtonComponent', function() {
       var renderedButton = TestUtils.findRenderedDOMComponentWithClass(button, 'component-button');
       TestUtils.Simulate.click(renderedButton);
       assert(handleClick.called);
-    })
+    });
 
   });
 
