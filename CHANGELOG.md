@@ -1,3 +1,7 @@
+### 2.2.1 2016-06-22
+- Adding legacy fallback for handleClick on Button component
+- Regression test added
+
 ### 2.2.0 2016-06-22
 - Adding spread operator to Button component
 
