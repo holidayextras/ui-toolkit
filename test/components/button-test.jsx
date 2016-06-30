@@ -97,4 +97,33 @@ describe('ButtonComponent', function() {
     assert(onMouseOverHandler.called);
   });
 
+  context('click events', function() {
+
+    it('should add click event when onClick passed to it', function() {
+      const onClick = sinon.stub();
+
+      var button = TestUtils.renderIntoDocument(
+        <ButtonView onClick={onClick}>Book Now</ButtonView>
+      );
+
+      var renderedButton = TestUtils.findRenderedDOMComponentWithClass(button, 'component-button');
+      TestUtils.Simulate.click(renderedButton);
+      assert(onClick.called);
+    });
+
+    it('should add click event when legacy handleClick passed to it', function() {
+      const handleClick = sinon.stub();
+
+      var button = TestUtils.renderIntoDocument(
+        <ButtonView handleClick={handleClick}>Book Now</ButtonView>
+      );
+
+      var renderedButton = TestUtils.findRenderedDOMComponentWithClass(button, 'component-button');
+      TestUtils.Simulate.click(renderedButton);
+      assert(handleClick.called);
+    });
+
+  });
+
+
 });
