@@ -227,10 +227,16 @@ var Components = React.createClass({
             </ul>
           </article>
 
+          <article id="button-group">
+            <h3>Button Group</h3>
+            <p>Buttons can be grouped together to make combined buttons, eg split buttons for a dropdown or a toolbar</p>
+            <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/ButtonGroup.jsx', 'utf8')} />
+          </article>
+
           <article id="button-dropdown">
             <h3>Button Dropdown</h3>
             <p>You can use Button dropdown as a way to store options in a list and for them to be clickable as well as the default button.</p>
-            <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/buttonDropdown.jsx', 'utf8')} />
+            <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/ButtonDropdown.jsx', 'utf8')} />
             <h4>Attributes</h4>
             <ul>
               <li><code>position</code> oneOf - Can either pass top or bottom as a string and it will format the position</li>
