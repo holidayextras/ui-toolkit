@@ -1,3 +1,8 @@
+# Changelog
+
+### 2.2.2 2016-09-12
+- Updated moment and make-up dependencies.
+
 ### 2.2.1 2016-06-22
 - Adding legacy fallback for handleClick on Button component
 - Regression test added
