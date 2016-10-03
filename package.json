@@ -47,15 +47,17 @@
     "node": ">0.10 <=0.12",
     "npm": "^2.14.8"
   },
+  "peerDependencies": {
+    "moment": ">= 2.0.0",
+    "react-dom": "^0.14.2",
+    "react": "^0.14.2"
+  },
   "dependencies": {
     "classnames": "^2.1.0",
     "font-awesome": "^4.3.0",
     "lodash": "^3.10.0",
-    "moment": "^2.14.1",
-    "react": "^0.14.2",
-    "react-data-attributes-mixin": "git://github.com/holidayextras/react-data-attributes-mixin",
-    "react-dom": "^0.14.2",
-    "reactify": "^1.1.1"
+    "reactify": "^1.1.1",
+    "react-data-attributes-mixin": "git://github.com/holidayextras/react-data-attributes-mixin"
   },
   "devDependencies": {
     "babel": "^5.8.20",
