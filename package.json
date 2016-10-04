@@ -44,8 +44,8 @@
   },
   "homepage": "https://github.com/holidayextras/ui-toolkit",
   "engines": {
-    "node": ">0.10 <=0.12",
-    "npm": "^2.14.8"
+    "node": ">= 6.7.0",
+    "npm": ">= 3.10.0"
   },
   "dependencies": {
     "classnames": "^2.1.0",
