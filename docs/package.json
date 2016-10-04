@@ -16,16 +16,16 @@
     ]
   },
   "devDependencies": {
-    "brfs": "~1.0.0",
-    "browserify": "11.0.1",
-    "classnames": "^1.2.0",
-    "envify": "~1.2.0",
-    "express": "~3.4.8",
+    "brfs": "^1.4.3",
+    "browserify": "^13.1.0",
+    "classnames": "^2.2.5",
+    "envify": "^3.4.1",
+    "express": "^4.14.0",
     "node-fs": "^0.1.7",
-    "node-jsx": "~0.12.0",
+    "node-jsx": "^0.13.3",
     "open": "^0.0.5",
     "reactify": "^1.1.0",
-    "uglify-js": "^2.3.6",
+    "uglify-js": "^2.7.3",
     "watchify": "^3.1.0"
   },
   "scripts": {
