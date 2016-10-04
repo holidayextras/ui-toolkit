@@ -2,7 +2,7 @@
 var React = require('react');
 var Image = require('../image');
 var _ = {
-  omit: require('lodash/object/omit')
+  omit: require('lodash/omit')
 };
 
 module.exports = React.createClass({
