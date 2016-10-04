@@ -4,8 +4,8 @@ var DataAttributesMixin = require('react-data-attributes-mixin');
 var classNames = require('classnames');
 
 var _ = {
-  extend: require('lodash/object/extend'),
-  omit: require('lodash/object/omit')
+  extend: require('lodash/extend'),
+  omit: require('lodash/omit')
 };
 
 module.exports = React.createClass({
