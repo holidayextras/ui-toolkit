@@ -1,5 +1,10 @@
 # Changelog
 
+### 3.0.0 2016-10-05
+- Update to lodash v4
+- Update to Node 6
+- Update to Babel 6
+
 ### 2.2.2 2016-09-12
 - Updated moment and make-up dependencies.
 
@@ -40,7 +45,7 @@
  - Updating tile to enable more flexibiloty with title being optional
 
 ### 0.26.20 - 2016-02-01
- - 
+ -
 
 ### 0.26.20 - 2016-02-01
  - Updating tile to enable more flexibiloty with title being optional
