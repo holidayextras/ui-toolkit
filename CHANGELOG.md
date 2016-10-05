@@ -1,18 +1,21 @@
 # Changelog
 
-### 3.0.0 2016-10-05
+### 3.0.1 - 2016-10-05
+- Ensure that components are transpiled to es5 with babel
+
+### 3.0.0 - 2016-10-05
 - Update to lodash v4
 - Update to Node 6
 - Update to Babel 6
 
-### 2.2.2 2016-09-12
+### 2.2.2 - 2016-09-12
 - Updated moment and make-up dependencies.
 
-### 2.2.1 2016-06-22
+### 2.2.1 - 2016-06-22
 - Adding legacy fallback for handleClick on Button component
 - Regression test added
 
-### 2.2.0 2016-06-22
+### 2.2.0 - 2016-06-22
 - Adding spread operator to Button component
 
 ### 2.1.0 - 2016-06-22
