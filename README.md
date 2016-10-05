@@ -12,7 +12,7 @@
 Requirements:
 ---
 
-* [Node.js v10+](http://nodejs.org/) ( For Application Development )
+* [Node.js v6+](http://nodejs.org/) ( For Application Development )
 
 UI Toolkit Usage
 ---
@@ -162,4 +162,3 @@ Creating a release:
 ---
 
 To create a new release of the ui-toolkit you need to bump the version number in the package.json file, once you PR is merged in this will create a new release on github and push the changes to aws automatically. You will then have to manually publish the changes to npm. This procedure is the same for both minor and major releases.
-

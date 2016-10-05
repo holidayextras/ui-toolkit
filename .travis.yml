@@ -1,5 +1,17 @@
 sudo: false
 language: node_js
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-4.8
+
+env:
+  global:
+  # Required to compile native modules against node > 4.x
+  - CXX=g++-4.8
+
 script: "npm run ci_travis"
 
 deploy:
