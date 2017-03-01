@@ -1,5 +1,8 @@
 # Changelog
 
+### 3.0.2 - 2017-03-01
+- Changing the Button component to accept multiple class names for its size prop
+
 ### 3.0.1 - 2016-10-05
 - Ensure that components are transpiled to es5 with babel
 
