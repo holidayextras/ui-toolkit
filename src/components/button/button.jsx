@@ -19,7 +19,7 @@ module.exports = React.createClass({
       // expects a string with any combination of the following class names
       const propValue = props[propName];
       const expectedValues = ['default', 'small', 'medium', 'large', 'extra-large', 'block'];
-      const pattern = new RegExp('^(' + expectedValues.join('|') + '|\s)*$');
+      const pattern = new RegExp('^(' + expectedValues.join('|') + '|\\s)*$');
       if (propValue && !pattern.test(propValue)) {
         return new Error('Invalid prop `' + propName + '` of value `' + propValue
           + '` supplied to `' + componentName + '`, expected any of ["'
