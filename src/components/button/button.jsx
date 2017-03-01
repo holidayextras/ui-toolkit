@@ -15,7 +15,15 @@ module.exports = React.createClass({
   propTypes: {
     children: React.PropTypes.any,
     purpose: React.PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
-    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large', 'block']),
+    size: function(props, propName, componentName) {
+      // expects a string with any combination of the following class names
+      const pattern = /^(default|small|medium|large|extra-large|block|\s)*$/;
+      if (props[propName] && !pattern.test(props[propName])) {
+        return new Error('Invalid prop ' + propName + ' supplied to ' +
+          componentName + '. Validation failed.');
+      }
+      return undefined;
+    },
     disabled: React.PropTypes.bool,
     href: React.PropTypes.string,
     type: React.PropTypes.string,
