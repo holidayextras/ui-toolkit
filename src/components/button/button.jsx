@@ -17,10 +17,13 @@ module.exports = React.createClass({
     purpose: React.PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
     size: function(props, propName, componentName) {
       // expects a string with any combination of the following class names
-      const pattern = /^(default|small|medium|large|extra-large|block|\s)*$/;
-      if (props[propName] && !pattern.test(props[propName])) {
-        return new Error('Invalid prop ' + propName + ' supplied to ' +
-          componentName + '. Validation failed.');
+      const propValue = props[propName];
+      const expectedValues = ['default', 'small', 'medium', 'large', 'extra-large', 'block'];
+      const pattern = new RegExp('^(' + expectedValues.join('|') + '|\s)*$');
+      if (propValue && !pattern.test(propValue)) {
+        return new Error('Invalid prop `' + propName + '` of value `' + propValue
+          + '` supplied to `' + componentName + '`, expected any of ["'
+          + expectedValues.join('", "') + '"]. Validation failed.');
       }
       return undefined;
     },
