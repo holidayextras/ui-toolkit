@@ -119,6 +119,7 @@ var Components = React.createClass({
               <li><code>readOnly</code> Boolean - Whether to set the Input Field to Read Only</li>
               <li><code>required</code> Boolean - Whether to set the Input Field to be Required</li>
               <li><code>handleChange</code> Function - Optional Function which is called onChange</li>
+              <li><code>handleBlur</code> Function - Optional Function which is called onBlur</li>
             </ul>
           </article>
 

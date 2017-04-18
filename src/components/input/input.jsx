@@ -24,6 +24,7 @@ module.exports = React.createClass({
     validator: React.PropTypes.instanceOf(RegExp),
     errorMessage: React.PropTypes.string,
     children: React.PropTypes.string,
+    handleBlur: React.PropTypes.func,
     handleChange: React.PropTypes.func,
     data: React.PropTypes.object
   },
@@ -123,6 +124,7 @@ module.exports = React.createClass({
           aria-labelledby={this.props.label}
           id={this.props.id}
           placeholder={this.props.placeholder}
+          onBlur={this.props.handleBlur}
           onChange={this.handleChange}
           disabled={this.props.disabled}
           readOnly={this.props.readOnly}
