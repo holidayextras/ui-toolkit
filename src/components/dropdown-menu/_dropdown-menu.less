@@ -1,0 +1,42 @@
+/*------------------------------------*\
+    #Dropdown Menu
+\*------------------------------------*/
+.component-dropdown-menu {
+  position: absolute;
+  min-width: 160px;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 4px;
+  box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  background-color: @background-color;
+  box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  z-index: 1;
+
+  .component-unordered-list {
+    margin: 0;
+    list-style: none;
+  }
+
+  .component-list-item {
+    padding: 0.25em 1em;
+    white-space: nowrap;
+  }
+
+}
+
+//
+// == Position ==
+//
+
+.component-dropdown-menu {
+
+  &.right {
+    left: auto;
+    right: 0;
+  }
+
+  &.left {
+    left: 0;
+    right: auto;
+  }
+
+}

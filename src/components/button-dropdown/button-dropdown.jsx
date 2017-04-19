@@ -2,20 +2,50 @@
 var React = require('react');
 var classNames = require('classnames');
 
-module.exports = React.createClass({
+class ButtonDropdown extends React.Component {
 
-  propTypes: {
-    children: React.PropTypes.any,
-    position: React.PropTypes.oneOf(['top', 'bottom'])
-  },
+  constructor(props) {
+    super(props);
 
-  render: function() {
+    this.handleClick = this.handleClick.bind(this);
 
-    var classes = classNames('component-button-dropdown', this.props.position);
+    this.state = {
+      open: false
+    };
+
+    this.extractChildren();
+  }
+
+  handleClick() {
+    this.setState({ open: !this.state.open });
+  }
+
+  extractChildren() {
+    this.props.children.map((child, index) => {
+      if (index===0) {
+        this.button = React.cloneElement(child, { handleClick: this.handleClick });
+        return this.button;
+      }
+      if (index===1) {
+        this.menu = React.cloneElement(child, { handleClickOutside: this.handleClick, type: 'unordered' });
+        return this.menu;
+      }
+    });
+  }
+
+  render() {
     return (
-      <div className={classes}>
-        {this.props.children}
+      <div className="component-button-dropdown">
+        {this.button}
+        {this.state.open && this.menu}
       </div>
     );
   }
-});
+
+};
+
+ButtonDropdown.propTypes = {
+  children: React.PropTypes.any
+};
+
+module.exports = ButtonDropdown;

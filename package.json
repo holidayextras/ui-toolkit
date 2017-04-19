@@ -15,7 +15,7 @@
     "deploy": "scripts/deploy.sh",
     "prepublish": "npm run build",
     "coverage": "istanbul cover -x dist _mocha -- test/**/*-test.*",
-    "predocs": "cd docs && npm install && cd - && npm run build",
+    "predocs": "(cd docs && npm install) && npm run build",
     "docs": "grunt docs",
     "test-xunit": "mocha --recursive test/**/*-test.js* src/**/*-test.js* -R xunit > $CIRCLE_TEST_REPORTS/results.xml",
     "test": "mocha --recursive test/**/*-test.js* src/**/*-test.js*",

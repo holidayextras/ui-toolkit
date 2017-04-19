@@ -1,0 +1,23 @@
+/*------------------------------------*\
+    #Button Group
+\*------------------------------------*/
+
+.component-button-group {
+  display: inline-block;
+
+  > .component-button:not(:last-child),
+  > .component-button-dropdown:not(:last-child) .component-button {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-right: 0;
+    border-right: 0;
+  }
+
+  > .component-button:not(:first-child),
+  > .component-button-dropdown:not(:first-child) .component-button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: 0;
+  }
+
+}

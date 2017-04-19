@@ -1,15 +1,28 @@
 var example = (
-  <UIToolkit.ButtonDropdown>
-    <UIToolkit.Button>Hello</UIToolkit.Button>
-    <UIToolkit.Button handleClick={function() {document.getElementsByClassName('component-unordered-list')[1].classList.toggle("visible");}}>
-      <UIToolkit.Icon icon="caret-down"/>
-    </UIToolkit.Button>
-    <UIToolkit.List type="unordered">
-      <UIToolkit.ListItem>List 1</UIToolkit.ListItem>
-      <UIToolkit.ListItem>List 2</UIToolkit.ListItem>
-      <UIToolkit.ListItem>List 3</UIToolkit.ListItem>
-    </UIToolkit.List>
-  </UIToolkit.ButtonDropdown>
-
+  <div>
+    <UIToolkit.ButtonDropdown>
+      <UIToolkit.Button>
+        Dropdown <UIToolkit.Icon icon="caret-down"/>
+      </UIToolkit.Button>
+      <UIToolkit.DropdownMenu>
+        <UIToolkit.DropdownMenuItem>Item 1</UIToolkit.DropdownMenuItem>
+        <UIToolkit.DropdownMenuItem>Item 2</UIToolkit.DropdownMenuItem>
+        <UIToolkit.DropdownMenuItem>Item 3</UIToolkit.DropdownMenuItem>
+      </UIToolkit.DropdownMenu>
+    </UIToolkit.ButtonDropdown>
+    <UIToolkit.ButtonGroup>
+      <UIToolkit.Button>Hello</UIToolkit.Button>
+      <UIToolkit.ButtonDropdown>
+        <UIToolkit.Button>
+          <UIToolkit.Icon icon="caret-down"/>
+        </UIToolkit.Button>
+        <UIToolkit.DropdownMenu position="right">
+          <UIToolkit.DropdownMenuItem>Item 1</UIToolkit.DropdownMenuItem>
+          <UIToolkit.DropdownMenuItem>Item 2</UIToolkit.DropdownMenuItem>
+          <UIToolkit.DropdownMenuItem>Item 3</UIToolkit.DropdownMenuItem>
+        </UIToolkit.DropdownMenu>
+      </UIToolkit.ButtonDropdown>
+    </UIToolkit.ButtonGroup>
+  </div>
 );
 ReactDOM.render(example, mountNode);
