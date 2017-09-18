@@ -13,13 +13,21 @@ module.exports = React.createClass({
     var $rating = [];
     var $blankRating = [];
 
+    var ratingIcon = this.props.children || <span className="rating-icon" />;
     for (var i = 0; i < this.props.rating; i++) {
-      $rating.push( this.props.children ? this.props.children : <span className="rating-icon" /> );
+      $rating.push(ratingIcon.type
+        ? React.cloneElement(ratingIcon, { key: i })
+        : ratingIcon
+      );
     }
 
-    if (this.props.outOf && this.props.blankIcon) {
+    var blankRatingIcon = this.props.blankIcon;
+    if (this.props.outOf && blankRatingIcon) {
       for (var j = 0; j < ( this.props.outOf - this.props.rating ); j++) {
-        $blankRating.push( this.props.blankIcon );
+        $blankRating.push(blankRatingIcon.type
+          ? React.cloneElement(blankRatingIcon, { key: j })
+          : blankRatingIcon
+        );
       }
     }
 
