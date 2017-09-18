@@ -1,5 +1,8 @@
 # Changelog
 
+### 3.0.3 - 2017-09-18
+- Updating the Rating component to provide key props to its rating icons
+
 ### 3.0.2 - 2017-03-01
 - Changing the Button component to accept multiple class names for its size prop
 
