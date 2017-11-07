@@ -1,7 +1,7 @@
 'use strict'
 
-var React = require('react')
-var classNames = require('classnames')
+const React = require('react')
+const classNames = require('classnames')
 
 module.exports = React.createClass({
 
@@ -17,7 +17,7 @@ module.exports = React.createClass({
   },
 
   render: function () {
-    var classes = classNames('component-quote', this.props.size, this.props.purpose, this.props.type)
+    const classes = classNames('component-quote', this.props.size, this.props.purpose, this.props.type)
     if (this.props.type === 'inline') {
       return (
         <q className={classes} cite={this.props.cite} itemScope itemType='http://schema.org/CreativeWork' itemProp='text'>

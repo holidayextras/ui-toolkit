@@ -1,14 +1,14 @@
 'use strict'
-var countdown = require('../../src/components/countdown/lib/countdown')
-var moment = require('moment')
-var assert = require('chai').assert
-var sinon = require('sinon')
+const countdown = require('../../src/components/countdown/lib/countdown')
+const moment = require('moment')
+const assert = require('chai').assert
+const sinon = require('sinon')
 
-var dateFormat = 'YYYY-MM-DD'
+const dateFormat = 'YYYY-MM-DD'
 
 describe('Countdown tests', function () {
-  var futureSeconds = null
-  var date = null
+  let futureSeconds = null
+  let date = null
 
   beforeEach(function () {
     futureSeconds = 999999
@@ -18,19 +18,19 @@ describe('Countdown tests', function () {
   describe('until', function () {
     describe('future dates', function () {
       it('returns a formatted date structure', function () {
-        var formatted = countdown.until(date)
-        var formattedKeys = ['days', 'hours', 'minutes', 'seconds']
+        const formatted = countdown.until(date)
+        const formattedKeys = ['days', 'hours', 'minutes', 'seconds']
         assert.deepEqual(Object.keys(formatted), formattedKeys)
       })
 
       it('has integer days', function () {
-        var days = countdown.until(date).days
+        const days = countdown.until(date).days
         assert.equal(days % 1, 0)
       })
 
       it('pads hours, minutes, seconds', function () {
-        var padded = countdown.until(date)
-        var paddedKeys = ['hours', 'minutes', 'seconds']
+        const padded = countdown.until(date)
+        const paddedKeys = ['hours', 'minutes', 'seconds']
         paddedKeys.forEach(function (key) {
           assert.equal(padded[key].toString().length, 2)
         })
@@ -38,7 +38,7 @@ describe('Countdown tests', function () {
     })
 
     it('returns negative day for the past', function () {
-      var pastDay = moment().subtract(2, 'days').format(dateFormat)
+      const pastDay = moment().subtract(2, 'days').format(dateFormat)
       assert.ok(countdown.until(pastDay).days < 0)
     })
   })
@@ -61,7 +61,7 @@ describe('Countdown tests', function () {
     })
 
     it('returns a string of time left starting with number of days', function () {
-      var timeString = countdown.untilString(date)
+      const timeString = countdown.untilString(date)
       assert.equal(timeString, '1 days, 2 hours, 3 minutes & 4 seconds')
     })
   })
@@ -102,9 +102,9 @@ describe('Countdown tests', function () {
   })
 
   describe('_durationFromNow', function () {
-    var untilDate = null
-    var duration = null
-    var clock
+    let untilDate = null
+    let duration = null
+    let clock
 
     beforeEach(function () {
       clock = sinon.useFakeTimers(new Date(2015, 1, 1).getTime())

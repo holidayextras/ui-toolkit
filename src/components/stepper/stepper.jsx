@@ -1,8 +1,8 @@
 'use strict'
 
-var React = require('react')
-var Button = require('../button')
-var Input = require('../input')
+const React = require('react')
+const Button = require('../button')
+const Input = require('../input')
 
 module.exports = React.createClass({
 
@@ -50,7 +50,7 @@ module.exports = React.createClass({
   },
 
   render: function () {
-    var valueText = this.props.valueText || this.props.value
+    const valueText = this.props.valueText || this.props.value
     return (
       <div className='component-stepper'>
         <label className='component-stepper-label' htmlFor={this.props.id}>{this.props.label}</label>

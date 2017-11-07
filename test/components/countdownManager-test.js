@@ -1,17 +1,17 @@
 'use strict'
-var CountdownManager = require('../../src/components/countdown/lib/countdownManager')
-var countdown = require('../../src/components/countdown/lib/countdown')
-var assert = require('chai').assert
-var moment = require('moment')
-var Moment = moment().constructor
-var sinon = require('sinon')
+const CountdownManager = require('../../src/components/countdown/lib/countdownManager')
+const countdown = require('../../src/components/countdown/lib/countdown')
+const assert = require('chai').assert
+const moment = require('moment')
+const Moment = moment().constructor
+const sinon = require('sinon')
 
 describe('Countdown Manager', function () {
-  var sandbox
-  var clock
-  var date
-  var countdownManager
-  var callbackSpy
+  let sandbox
+  let clock
+  let date
+  let countdownManager
+  let callbackSpy
 
   beforeEach(function () {
     sandbox = sinon.sandbox.create()
@@ -54,9 +54,9 @@ describe('Countdown Manager', function () {
   })
 
   describe('restart', function () {
-    var countdownStartStub
-    var countdownStopStub
-    var dateToPass = '1970-01-01T13:00'
+    let countdownStartStub
+    let countdownStopStub
+    const dateToPass = '1970-01-01T13:00'
 
     beforeEach(function () {
       countdownStartStub = sandbox.stub(countdownManager, 'start')
@@ -89,7 +89,7 @@ describe('Countdown Manager', function () {
   })
 
   describe('intervalCounter', function () {
-    var intervalFunction = null
+    let intervalFunction = null
 
     beforeEach(function () {
       sandbox.stub(countdownManager, 'time').returns('test')
@@ -118,7 +118,7 @@ describe('Countdown Manager', function () {
     })
 
     describe('when no callback is provided', function () {
-      var result = null
+      let result = null
 
       beforeEach(function () {
         result = countdownManager.countdownDate()
@@ -131,9 +131,9 @@ describe('Countdown Manager', function () {
   })
 
   describe('time', function () {
-    var countdownUntilStub = null
-    var countdownDateValue = null
-    var currentMoment = null
+    let countdownUntilStub = null
+    const countdownDateValue = null
+    let currentMoment = null
 
     beforeEach(function () {
       countdownUntilStub = sinon.stub(countdown, 'until')

@@ -1,7 +1,7 @@
 'use strict'
 
-var React = require('react')
-var moment = require('moment')
+const React = require('react')
+const moment = require('moment')
 module.exports = React.createClass({
 
   propTypes: {
@@ -13,21 +13,21 @@ module.exports = React.createClass({
   },
 
   render: function () {
-    var expectedFormat = ['YYYY-MM-DD', 'YYYY-MM-DDTHH:mm']
-    var displayFormat = this.props.format || 'ddd'
-    var date = this.props.date
-    var unit = this.props.unit
+    const expectedFormat = ['YYYY-MM-DD', 'YYYY-MM-DDTHH:mm']
+    const displayFormat = this.props.format || 'ddd'
+    const date = this.props.date
+    let unit = this.props.unit
     if (this.props.unit !== 'K') {
       unit = '°' + unit
     }
 
-    var unitNames = {
+    const unitNames = {
       'C': 'Degrees Celsuis',
       'F': 'Degrees Farenheit',
       'K': 'Kelvin',
       'R': 'Degrees Rankine'
     }
-    var unitName = unitNames[this.props.unit]
+    const unitName = unitNames[this.props.unit]
 
     return (
       <div className='component-weather'>

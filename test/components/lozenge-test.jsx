@@ -1,8 +1,8 @@
 'use strict'
-var React = require('react')
-var TestUtils = require('react-addons-test-utils')
-var assert = require('chai').assert
-var Lozenge = require('../../src/components/lozenge/lozenge.jsx')
+const React = require('react')
+const TestUtils = require('react-addons-test-utils')
+const assert = require('chai').assert
+const Lozenge = require('../../src/components/lozenge/lozenge.jsx')
 
 describe('Lozenge', function () {
   it('is an element', function () {
@@ -10,12 +10,12 @@ describe('Lozenge', function () {
   })
 
   it('renders a span', function () {
-    var instance = TestUtils.renderIntoDocument(<Lozenge tip='foo'>bar</Lozenge>)
+    const instance = TestUtils.renderIntoDocument(<Lozenge tip='foo'>bar</Lozenge>)
     assert.ok(TestUtils.findRenderedDOMComponentWithTag(instance, 'span'))
   })
 
   it('renders the children', function () {
-    var rendered = TestUtils.renderIntoDocument(<Lozenge tip='foo'>bar</Lozenge>)
+    const rendered = TestUtils.renderIntoDocument(<Lozenge tip='foo'>bar</Lozenge>)
     assert.equal(TestUtils.findRenderedDOMComponentWithTag(rendered, 'span').innerHTML, 'bar')
   })
 
@@ -25,7 +25,7 @@ describe('Lozenge', function () {
     })
 
     it('sets the tip as the title', function () {
-      var el = TestUtils.findRenderedDOMComponentWithClass(this.instance, 'component-lozenge')
+      const el = TestUtils.findRenderedDOMComponentWithClass(this.instance, 'component-lozenge')
       assert.equal(el.getAttribute('title'), 'foo')
     })
   })
@@ -36,7 +36,7 @@ describe('Lozenge', function () {
     })
 
     it('should not set a tip as the title', function () {
-      var el = TestUtils.findRenderedDOMComponentWithClass(this.instance, 'component-lozenge')
+      const el = TestUtils.findRenderedDOMComponentWithClass(this.instance, 'component-lozenge')
       assert.equal(el.getAttribute('title'), null)
     })
   })

@@ -1,6 +1,6 @@
 'use strict'
 
-var React = require('react')
+const React = require('react')
 
 module.exports = React.createClass({
 
@@ -16,7 +16,7 @@ module.exports = React.createClass({
   },
 
   getIconFamily: function () {
-    var iconFamily = this.props.iconFamily
+    let iconFamily = this.props.iconFamily
     if (this.props.iconFamily === 'font-awesome') {
       iconFamily = 'fa'
     }

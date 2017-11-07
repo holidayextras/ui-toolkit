@@ -1,21 +1,21 @@
 'use strict'
-var React = require('react')
-var TestUtils = require('react-addons-test-utils')
-var assert = require('chai').assert
-var ImageComponent = require('../../src/components/image/image.jsx')
-var sinon = require('sinon')
+const React = require('react')
+const TestUtils = require('react-addons-test-utils')
+const assert = require('chai').assert
+const ImageComponent = require('../../src/components/image/image.jsx')
+const sinon = require('sinon')
 
 describe('ImageComponent', function () {
-  var src = null
-  var alt = null
-  var handleClick = null
-  var handleLoad = null
-  var imageInstance = null
-  var renderedImage = null
-  var anchorDOMNode = null
-  var imageDOMNode = null
-  var srcSet = null
-  var sizes = null
+  let src = null
+  let alt = null
+  let handleClick = null
+  let handleLoad = null
+  let imageInstance = null
+  let renderedImage = null
+  let anchorDOMNode = null
+  let imageDOMNode = null
+  let srcSet = null
+  let sizes = null
 
   beforeEach(function () {
     src = 'foo'
@@ -31,7 +31,7 @@ describe('ImageComponent', function () {
   })
 
   describe('when an href is passed in', function () {
-    var href = null
+    let href = null
 
     beforeEach(function () {
       href = 'http://this.isa.link'
@@ -78,8 +78,8 @@ describe('ImageComponent', function () {
 
   describe('when a target is passed in', function () {
     beforeEach(function () {
-      var href = 'http://this.isa.link'
-      var target = '_blank'
+      const href = 'http://this.isa.link'
+      const target = '_blank'
       imageInstance = TestUtils.renderIntoDocument(
         <ImageComponent src={src} alt={alt} handleClick={handleClick} href={href} target={target} />
       )

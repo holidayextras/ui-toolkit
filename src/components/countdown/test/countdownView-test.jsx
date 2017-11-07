@@ -1,14 +1,14 @@
 'use strict'
 
-var React = require('react')
-var sinon = require('sinon')
-var assert = require('chai').assert
-var CountdownComponent = require('../countdown.jsx')
-var CountdownManager = require('../lib/countdownManager')
-var TestUtils = require('react-addons-test-utils')
+const React = require('react')
+const sinon = require('sinon')
+const assert = require('chai').assert
+const CountdownComponent = require('../countdown.jsx')
+const CountdownManager = require('../lib/countdownManager')
+const TestUtils = require('react-addons-test-utils')
 
 describe('CountdownComponent', function () {
-  var clock = null
+  let clock = null
 
   beforeEach(function () {
     clock = sinon.useFakeTimers()
@@ -20,15 +20,15 @@ describe('CountdownComponent', function () {
   })
 
   it('should render a countdown timer', function () {
-    var countdown = TestUtils.renderIntoDocument(
+    const countdown = TestUtils.renderIntoDocument(
       <CountdownComponent until='2016-07-27' />
     )
     assert.equal(countdown.props.until, '2016-07-27')
   })
 
   it('check the countdown manager states time is set correctly', function () {
-    var date = '2016-07-27'
-    var countdown = TestUtils.renderIntoDocument(
+    const date = '2016-07-27'
+    const countdown = TestUtils.renderIntoDocument(
       <CountdownComponent until={date} />
     )
     assert.equal(countdown.state.time, 123)
@@ -36,11 +36,11 @@ describe('CountdownComponent', function () {
 
   describe('ARIA', function () {
     it('should include a timer role', function () {
-      var date = '2016-07-27'
-      var countdown = TestUtils.renderIntoDocument(
+      const date = '2016-07-27'
+      const countdown = TestUtils.renderIntoDocument(
         <CountdownComponent until={date} />
       )
-      var renderedCountdown = TestUtils.findRenderedDOMComponentWithClass(countdown, 'component-countdown')
+      const renderedCountdown = TestUtils.findRenderedDOMComponentWithClass(countdown, 'component-countdown')
       assert.equal(renderedCountdown.getAttribute('role'), 'timer')
     })
   })

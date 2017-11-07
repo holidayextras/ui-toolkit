@@ -1,8 +1,8 @@
 'use strict'
 
-var React = require('react')
-var CountdownManager = require('../../../src/components/countdown/lib/countdownManager')
-var classNames = require('classnames')
+const React = require('react')
+const CountdownManager = require('../../../src/components/countdown/lib/countdownManager')
+const classNames = require('classnames')
 
 module.exports = React.createClass({
 
@@ -13,7 +13,7 @@ module.exports = React.createClass({
   },
 
   getInitialState: function () {
-    var date = { startDate: this.props.until }
+    const date = { startDate: this.props.until }
     this.countdownManager = new CountdownManager(date)
     return {
       time: this.countdownManager.time()
@@ -50,7 +50,7 @@ module.exports = React.createClass({
   },
 
   render: function () {
-    var classes = classNames('component-countdown', this.props.size, this.props.purpose)
+    const classes = classNames('component-countdown', this.props.size, this.props.purpose)
     return (
       <div className={classes} role='timer'>
         <div>{this.state.time.days} <small>Days</small></div>

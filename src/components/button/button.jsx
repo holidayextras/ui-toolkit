@@ -1,10 +1,10 @@
 'use strict'
 
-var React = require('react')
-var DataAttributesMixin = require('react-data-attributes-mixin')
-var classNames = require('classnames')
+const React = require('react')
+const DataAttributesMixin = require('react-data-attributes-mixin')
+const classNames = require('classnames')
 
-var _ = {
+const _ = {
   extend: require('lodash/extend'),
   omit: require('lodash/omit')
 }

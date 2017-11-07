@@ -1,9 +1,9 @@
 'use strict'
 
-var countdown = require('./countdown.js')
-var moment = require('moment')
+const countdown = require('./countdown.js')
+const moment = require('moment')
 
-var CountdownManager = function (date) {
+const CountdownManager = function (date) {
   this.date = date
 }
 

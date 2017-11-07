@@ -1,8 +1,8 @@
 'use strict'
-var React = require('react/addons')
-var TestUtils = React.addons.TestUtils
-var assert = require('chai').assert
-var ListDescription = require('../../src/components/list-description/list-description.jsx')
+const React = require('react/addons')
+const TestUtils = React.addons.TestUtils
+const assert = require('chai').assert
+const ListDescription = require('../../src/components/list-description/list-description.jsx')
 
 describe('ListDescriptionComponent ', function () {
   it('is an element', function () {
@@ -10,11 +10,11 @@ describe('ListDescriptionComponent ', function () {
   })
 
   it('should render an description list item with a class of component-list-description', function () {
-    var ListInstance = TestUtils.renderIntoDocument(
+    const ListInstance = TestUtils.renderIntoDocument(
       <ListDescription />
     )
 
-    var renderedListDescription = TestUtils.findRenderedDOMComponentWithClass(ListInstance, 'component-list-description')
+    const renderedListDescription = TestUtils.findRenderedDOMComponentWithClass(ListInstance, 'component-list-description')
     assert.equal(renderedListDescription.nodeName, 'DD')
   })
 })

@@ -1,8 +1,8 @@
 'use strict'
 
-var React = require('react')
-var Image = require('../image')
-var _ = {
+const React = require('react')
+const Image = require('../image')
+const _ = {
   omit: require('lodash/omit')
 }
 
@@ -13,8 +13,8 @@ module.exports = React.createClass({
   },
 
   render: function () {
-    var { image, children } = this.props
-    var tileProps = _.omit(this.props, 'image', 'children')
+    const { image, children } = this.props
+    const tileProps = _.omit(this.props, 'image', 'children')
 
     return (
       <div className='component-tile' {...tileProps}>

@@ -1,19 +1,19 @@
 'use strict'
-var React = require('react')
-var TestUtils = require('react-addons-test-utils')
-var sinon = require('sinon')
-var assert = require('chai').assert
+const React = require('react')
+const TestUtils = require('react-addons-test-utils')
+const sinon = require('sinon')
+const assert = require('chai').assert
 
-var Anchor = require('../../src/components/anchor/anchor.jsx')
+const Anchor = require('../../src/components/anchor/anchor.jsx')
 
 describe('Anchor', function () {
-  var data = null
-  var title = null
-  var href = null
-  var clickHandler = null
-  var target = null
-  var instance = null
-  var anchorDomNode = null
+  let data = null
+  let title = null
+  let href = null
+  let clickHandler = null
+  let target = null
+  let instance = null
+  let anchorDomNode = null
 
   beforeEach(function () {
     data = {
@@ -29,7 +29,7 @@ describe('Anchor', function () {
       <Anchor data={data} title={title} href={href} handleClick={clickHandler} target={target} foo='bar'>test anchor</Anchor>
     )
 
-    var renderedAnchor = TestUtils.findRenderedDOMComponentWithTag(instance, 'a')
+    const renderedAnchor = TestUtils.findRenderedDOMComponentWithTag(instance, 'a')
     anchorDomNode = renderedAnchor
   })
 
@@ -86,7 +86,7 @@ describe('Anchor', function () {
       instance = TestUtils.renderIntoDocument(
         <Anchor data={data} title={title} handleClick={clickHandler} >Content</Anchor>
       )
-      var renderedAnchor = TestUtils.findRenderedDOMComponentWithTag(instance, 'a')
+      const renderedAnchor = TestUtils.findRenderedDOMComponentWithTag(instance, 'a')
       anchorDomNode = renderedAnchor
     })
     it('defaults to #', function () {

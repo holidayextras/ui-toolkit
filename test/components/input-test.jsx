@@ -1,163 +1,163 @@
 'use strict'
-var React = require('react')
-var TestUtils = require('react-addons-test-utils')
-var assert = require('chai').assert
-var sinon = require('sinon')
-var InputView = require('../../src/components/input/input.jsx')
+const React = require('react')
+const TestUtils = require('react-addons-test-utils')
+const assert = require('chai').assert
+const sinon = require('sinon')
+const InputView = require('../../src/components/input/input.jsx')
 
 describe('InputComponent', function () {
   it('should render text input', function () {
-    var input = TestUtils.renderIntoDocument(
+    const input = TestUtils.renderIntoDocument(
       <InputView type='text' />
     )
 
-    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field')
+    const renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field')
     assert.equal(renderedInput.type, 'text')
   })
 
   it('should render tel input', function () {
-    var input = TestUtils.renderIntoDocument(
+    const input = TestUtils.renderIntoDocument(
       <InputView type='tel' />
     )
 
-    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field')
+    const renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field')
     assert.equal(renderedInput.type, 'tel')
   })
 
   it('should render email input', function () {
-    var input = TestUtils.renderIntoDocument(
+    const input = TestUtils.renderIntoDocument(
       <InputView type='email' />
     )
 
-    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field')
+    const renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field')
     assert.equal(renderedInput.type, 'email')
   })
 
   it('should render number input', function () {
-    var input = TestUtils.renderIntoDocument(
+    const input = TestUtils.renderIntoDocument(
       <InputView type='number' />
     )
 
-    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field')
+    const renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field')
     assert.equal(renderedInput.type, 'number')
   })
 
   it('should call handleChange prop when value changes', function () {
-    var handleChange = sinon.spy()
-    var input = TestUtils.renderIntoDocument(
+    const handleChange = sinon.spy()
+    const input = TestUtils.renderIntoDocument(
       <InputView type='text' label='Full Name' handleChange={handleChange} />
     )
 
-    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field')
+    const renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field')
 
     TestUtils.Simulate.change(renderedInput, { target: { value: 'changed value' } })
     assert.ok(handleChange.calledOnce)
   })
 
   it('should render input with label', function () {
-    var input = TestUtils.renderIntoDocument(
+    const input = TestUtils.renderIntoDocument(
       <InputView type='text' label='Full Name' />
     )
 
-    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-label')
+    const renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-label')
     assert.isDefined(renderedInput)
   })
 
   it('should render input as disabled', function () {
-    var input = TestUtils.renderIntoDocument(
+    const input = TestUtils.renderIntoDocument(
       <InputView type='text' disabled />
     )
 
-    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field')
+    const renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field')
     assert.equal(renderedInput.getAttribute('disabled'), '')
   })
 
   it('should render input as readonly', function () {
-    var input = TestUtils.renderIntoDocument(
+    const input = TestUtils.renderIntoDocument(
       <InputView type='text' readOnly />
     )
 
-    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field')
+    const renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field')
     assert.equal(renderedInput.getAttribute('readonly'), '')
   })
 
   it('should not have default value', function () {
-    var input = TestUtils.renderIntoDocument(
+    const input = TestUtils.renderIntoDocument(
       <InputView />
     )
 
-    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field')
+    const renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field')
     assert.equal(renderedInput.value, '')
   })
 
   it('should have default ID', function () {
-    var input = TestUtils.renderIntoDocument(
+    const input = TestUtils.renderIntoDocument(
       <InputView />
     )
 
-    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field')
+    const renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field')
     assert.equal(renderedInput.id, 'component-input')
   })
 
   it('should have default name', function () {
-    var input = TestUtils.renderIntoDocument(
+    const input = TestUtils.renderIntoDocument(
       <InputView />
     )
 
-    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field')
+    const renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field')
     assert.equal(renderedInput.name, 'component-input')
   })
 
   it('should have custom value', function () {
-    var input = TestUtils.renderIntoDocument(
+    const input = TestUtils.renderIntoDocument(
       <InputView >Jane Doe</InputView>
     )
 
-    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field')
+    const renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field')
     assert.equal(renderedInput.value, 'Jane Doe')
   })
 
   it('should have custom placeholder', function () {
-    var input = TestUtils.renderIntoDocument(
+    const input = TestUtils.renderIntoDocument(
       <InputView placeholder='Enter Name' />
     )
 
-    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field')
+    const renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field')
     assert.equal(renderedInput.getAttribute('placeholder'), 'Enter Name')
   })
 
   it('should have custom ID', function () {
-    var input = TestUtils.renderIntoDocument(
+    const input = TestUtils.renderIntoDocument(
       <InputView id='test-input-id' />
     )
 
-    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field')
+    const renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field')
     assert.equal(renderedInput.id, 'test-input-id')
   })
 
   it('should have custom name', function () {
-    var input = TestUtils.renderIntoDocument(
+    const input = TestUtils.renderIntoDocument(
       <InputView name='test-input-name' />
     )
 
-    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field')
+    const renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field')
     assert.equal(renderedInput.name, 'test-input-name')
   })
 
   it('should have data attributes', function () {
-    var data = {
+    const data = {
       attr: 'test'
     }
-    var input = TestUtils.renderIntoDocument(
+    const input = TestUtils.renderIntoDocument(
       <InputView data={data} />
     )
 
-    var renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field')
+    const renderedInput = TestUtils.findRenderedDOMComponentWithClass(input, 'component-input-field')
     assert.equal(renderedInput.getAttribute('data-attr'), 'test')
   })
 
   describe('getDefaultProps', function () {
-    var elem = TestUtils.renderIntoDocument(
+    const elem = TestUtils.renderIntoDocument(
       <InputView />
     )
 
@@ -196,7 +196,7 @@ describe('InputComponent', function () {
 
   describe('validate', function () {
     it('sets state correctly when no validator is set', function () {
-      var elem = TestUtils.renderIntoDocument(
+      const elem = TestUtils.renderIntoDocument(
         <InputView />
       )
 
@@ -210,7 +210,7 @@ describe('InputComponent', function () {
     })
 
     it('sets error message when validator fails', function () {
-      var elem = TestUtils.renderIntoDocument(
+      const elem = TestUtils.renderIntoDocument(
         <InputView validator={/[a-b]+/} errorMessage='Boom' />
       )
 
@@ -225,9 +225,9 @@ describe('InputComponent', function () {
 })
 
 describe('InputComponent Error with Default Message', function () {
-  var input
-  var renderedInput
-  var emailValidator = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
+  let input
+  let renderedInput
+  const emailValidator = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
 
   beforeEach(function () {
     input = TestUtils.renderIntoDocument(
@@ -246,10 +246,10 @@ describe('InputComponent Error with Default Message', function () {
 })
 
 describe('InputComponent Error with Custom Message', function () {
-  var input
-  var renderedInput
-  var emailValidator = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
-  var emailErrorMessage = 'Invalid Email'
+  let input
+  let renderedInput
+  const emailValidator = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
+  const emailErrorMessage = 'Invalid Email'
 
   beforeEach(function () {
     input = TestUtils.renderIntoDocument(

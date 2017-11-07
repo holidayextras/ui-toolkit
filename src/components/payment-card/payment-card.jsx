@@ -1,7 +1,7 @@
 'use strict'
 
-var React = require('react')
-var classNames = require('classnames')
+const React = require('react')
+const classNames = require('classnames')
 
 module.exports = React.createClass({
   propTypes: {
@@ -11,10 +11,10 @@ module.exports = React.createClass({
   },
 
   render: function () {
-    var classes = classNames('component-payment-card', this.props.type, this.props.size, this.props.className)
+    const classes = classNames('component-payment-card', this.props.type, this.props.size, this.props.className)
 
-    var spreadProps = {}
-    for (var key in this.props) {
+    const spreadProps = {}
+    for (const key in this.props) {
       if (['type', 'size', 'className', 'children'].indexOf(key) !== -1) continue
       spreadProps[key] = this.props[key]
     }

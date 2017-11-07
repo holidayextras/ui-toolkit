@@ -1,7 +1,7 @@
 'use strict'
 
-var React = require('react')
-var DataAttributesMixin = require('react-data-attributes-mixin')
+const React = require('react')
+const DataAttributesMixin = require('react-data-attributes-mixin')
 
 module.exports = React.createClass({
 
@@ -28,7 +28,7 @@ module.exports = React.createClass({
     if (!this.props.children) {
       return null
     }
-    var dataAttributes = this.getDataAttributesFromProps()
+    const dataAttributes = this.getDataAttributesFromProps()
     return (
       <a className='component-anchor' {...dataAttributes} title={this.props.title} role={this.props.role} href={this.props.href} onClick={this.props.handleClick} target={this.props.target}>
         {this.props.children}

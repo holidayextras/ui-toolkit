@@ -1,8 +1,8 @@
 'use strict'
 
-var React = require('react')
-var DataAttributesMixin = require('react-data-attributes-mixin')
-var classNames = require('classnames')
+const React = require('react')
+const DataAttributesMixin = require('react-data-attributes-mixin')
+const classNames = require('classnames')
 
 module.exports = React.createClass({
 
@@ -51,9 +51,9 @@ module.exports = React.createClass({
   },
 
   validate: function (value) {
-    var self = this
-    var isValid = true
-    var error = null
+    const self = this
+    let isValid = true
+    let error = null
 
     if (value !== '' && typeof self.props.validator !== 'undefined') {
       isValid = self.props.validator.test(value)
@@ -70,8 +70,8 @@ module.exports = React.createClass({
   },
 
   handleChange: function (e) {
-    var self = this
-    var value = (e.target) ? e.target.value : null
+    const self = this
+    const value = (e.target) ? e.target.value : null
 
     self.setState({
       value: value
@@ -88,15 +88,15 @@ module.exports = React.createClass({
   },
 
   render: function () {
-    var classes = classNames({
+    const classes = classNames({
       'component-input': true,
       'error': this.state.error || false,
       'disabled': this.props.disabled || false
     })
-    var dataAttributes = this.getDataAttributesFromProps()
+    const dataAttributes = this.getDataAttributesFromProps()
 
     // the form label
-    var label
+    let label
 
     if (this.props.label) {
       label = (<label className='component-input-label' aria-label={this.props.id} htmlFor={this.props.id}>{this.props.label}</label >)
@@ -106,7 +106,7 @@ module.exports = React.createClass({
      * Create the span element used for containing messages
      * related to the element.
      */
-    var span
+    let span
 
     if (this.state.error) {
       span = (<span className='component-input-error'>{this.state.error}</span>)

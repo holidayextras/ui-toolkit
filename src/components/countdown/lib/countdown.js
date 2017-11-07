@@ -1,11 +1,11 @@
 'use strict'
 
-var moment = require('moment')
-var countdown = {}
+const moment = require('moment')
+const countdown = {}
 module.exports = countdown
 
 countdown.until = function (untilDate) {
-  var duration = this._durationFromNow(untilDate)
+  const duration = this._durationFromNow(untilDate)
 
   return {
     days: this._roundTowardsZero(duration.asDays()),
@@ -16,8 +16,8 @@ countdown.until = function (untilDate) {
 }
 
 countdown.untilString = function (untilDate) {
-  var timeLeft = this.until(untilDate)
-  var out = timeLeft.days + ' days'
+  const timeLeft = this.until(untilDate)
+  let out = timeLeft.days + ' days'
   out += ', ' + (timeLeft.hours / 1) + ' hours'
   out += ', ' + (timeLeft.minutes / 1) + ' minutes'
   out += ' & ' + (timeLeft.seconds / 1) + ' seconds'
@@ -26,7 +26,7 @@ countdown.untilString = function (untilDate) {
 
 // Private functions from here
 countdown._pad = function (number) {
-  var prefix = number < 0 ? '-' : ''
+  const prefix = number < 0 ? '-' : ''
   number = Math.abs(Math.floor(number))
   return prefix + (number > 9 ? '' : '0') + number
 }
@@ -39,8 +39,8 @@ countdown._roundTowardsZero = function (number) {
 }
 
 countdown._durationFromNow = function (untilDate) {
-  var until = moment(untilDate)
-  var now = moment()
-  var seconds = until.diff(now, 'seconds')
+  const until = moment(untilDate)
+  const now = moment()
+  const seconds = until.diff(now, 'seconds')
   return moment.duration(seconds, 'seconds')
 }

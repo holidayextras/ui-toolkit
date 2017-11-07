@@ -1,7 +1,7 @@
 'use strict'
 
-var React = require('react')
-var Anchor = require('../anchor')
+const React = require('react')
+const Anchor = require('../anchor')
 
 module.exports = React.createClass({
   propTypes: {
@@ -42,8 +42,8 @@ module.exports = React.createClass({
     )
   },
   render: function () {
-    var titleNode = this.titleNode()
-    var descriptionStyle = {
+    const titleNode = this.titleNode()
+    const descriptionStyle = {
       'display': (this.state.descriptionVisibility || titleNode === null) ? 'block' : 'none'
     }
     return (

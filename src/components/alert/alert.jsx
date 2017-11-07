@@ -1,7 +1,7 @@
 'use strict'
 
-var React = require('react')
-var classNames = require('classnames')
+const React = require('react')
+const classNames = require('classnames')
 
 module.exports = React.createClass({
 
@@ -13,7 +13,7 @@ module.exports = React.createClass({
   },
 
   render: function () {
-    var classes = classNames('component-alert', this.props.size, this.props.purpose)
+    const classes = classNames('component-alert', this.props.size, this.props.purpose)
     return (
       <div className={classes} role='alert'>
         {this.props.title ? <h4>{this.props.title}</h4> : ''}

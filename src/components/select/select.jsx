@@ -1,7 +1,7 @@
 'use strict'
 
-var React = require('react')
-var DataAttributesMixin = require('react-data-attributes-mixin')
+const React = require('react')
+const DataAttributesMixin = require('react-data-attributes-mixin')
 
 module.exports = React.createClass({
 
@@ -32,10 +32,10 @@ module.exports = React.createClass({
   },
 
   render: function () {
-    var classes = 'component-select'
-    var dataAttributes = this.getDataAttributesFromProps()
+    let classes = 'component-select'
+    const dataAttributes = this.getDataAttributesFromProps()
 
-    var label
+    let label
     if (this.props.label) {
       label = (<label className='component-select-label' htmlFor={this.props.id}>{this.props.label}</label >)
     }
