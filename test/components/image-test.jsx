@@ -1,4 +1,5 @@
 'use strict'
+
 const React = require('react')
 const TestUtils = require('react-addons-test-utils')
 const assert = require('chai').assert

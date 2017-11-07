@@ -3,17 +3,16 @@
 const React = require('react')
 const PropTypes = require('prop-types')
 
-module.exports = React.createClass({
+const ListDescription = ({
+  children
+}) => (
+  <dd className='component-list-description'>
+    {children}
+  </dd>
+)
 
-  propTypes: {
-    children: PropTypes.any
-  },
+ListDescription.propTypes = {
+  children: PropTypes.any
+}
 
-  render: function () {
-    return (
-      <dd className='component-list-description'>
-        {this.props.children}
-      </dd>
-    )
-  }
-})
+module.exports = ListDescription

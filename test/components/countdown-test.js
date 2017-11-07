@@ -1,4 +1,5 @@
 'use strict'
+
 const countdown = require('../../src/components/countdown/lib/countdown')
 const moment = require('moment')
 const assert = require('chai').assert

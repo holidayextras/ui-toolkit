@@ -1,13 +1,17 @@
 'use strict'
+
 const React = require('react')
 const TestUtils = require('react-addons-test-utils')
 const assert = require('chai').assert
 const QuoteComponent = require('../../src/components/quote/quote.jsx')
+const Wrapper = require('../helpers/wrapper')
 
 describe('QuoteComponent', function () {
   it('should render an Quote', function () {
     const quote = TestUtils.renderIntoDocument(
-      <QuoteComponent>I am content</QuoteComponent>
+      <Wrapper>
+        <QuoteComponent>I am content</QuoteComponent>
+      </Wrapper>
     )
 
     const renderedQuote = TestUtils.findRenderedDOMComponentWithClass(quote, 'component-quote')
@@ -16,7 +20,9 @@ describe('QuoteComponent', function () {
 
   it('should render a danger quote', function () {
     const dangerQuote = TestUtils.renderIntoDocument(
-      <QuoteComponent purpose='danger'>This is dangerous</QuoteComponent>
+      <Wrapper>
+        <QuoteComponent purpose='danger'>This is dangerous</QuoteComponent>
+      </Wrapper>
     )
 
     const renderedQuote = TestUtils.findRenderedDOMComponentWithClass(dangerQuote, 'danger')
@@ -25,7 +31,9 @@ describe('QuoteComponent', function () {
 
   it('should render a success quote', function () {
     const successQuote = TestUtils.renderIntoDocument(
-      <QuoteComponent purpose='success'>This is information</QuoteComponent>
+      <Wrapper>
+        <QuoteComponent purpose='success'>This is information</QuoteComponent>
+      </Wrapper>
     )
 
     const renderedQuote = TestUtils.findRenderedDOMComponentWithClass(successQuote, 'success')
@@ -34,7 +42,9 @@ describe('QuoteComponent', function () {
 
   it('should render a quote with a cite', function () {
     const citeQuote = TestUtils.renderIntoDocument(
-      <QuoteComponent cite='Twitter' />
+      <Wrapper>
+        <QuoteComponent cite='Twitter' />
+      </Wrapper>
     )
 
     const renderedQuote = TestUtils.findRenderedDOMComponentWithClass(citeQuote, 'component-quote')
@@ -43,7 +53,9 @@ describe('QuoteComponent', function () {
 
   it('should render a quote with an author', function () {
     const authorQuote = TestUtils.renderIntoDocument(
-      <QuoteComponent author='Timmy Test' />
+      <Wrapper>
+        <QuoteComponent author='Timmy Test' />
+      </Wrapper>
     )
 
     const renderedQuote = TestUtils.findRenderedDOMComponentWithClass(authorQuote, 'component-quote')
@@ -52,7 +64,9 @@ describe('QuoteComponent', function () {
 
   it('should render a quote with a role', function () {
     const roleQuote = TestUtils.renderIntoDocument(
-      <QuoteComponent role='Developer' />
+      <Wrapper>
+        <QuoteComponent role='Developer' />
+      </Wrapper>
     )
 
     const renderedQuote = TestUtils.findRenderedDOMComponentWithClass(roleQuote, 'component-quote')
@@ -61,7 +75,9 @@ describe('QuoteComponent', function () {
 
   it('should render a quote with a role', function () {
     const inlineQuote = TestUtils.renderIntoDocument(
-      <QuoteComponent type='inline'>Inline Quote</QuoteComponent>
+      <Wrapper>
+        <QuoteComponent type='inline'>Inline Quote</QuoteComponent>
+      </Wrapper>
     )
 
     const renderedQuote = TestUtils.findRenderedDOMComponentWithClass(inlineQuote, 'inline')

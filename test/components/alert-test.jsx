@@ -1,13 +1,15 @@
 'use strict'
+
 const React = require('react')
 const TestUtils = require('react-addons-test-utils')
 const assert = require('chai').assert
 const AlertComponent = require('../../src/components/alert/alert.jsx')
+const Wrapper = require('../helpers/wrapper')
 
 describe('AlertComponent', function () {
   it('should render an Alert', function () {
     const alert = TestUtils.renderIntoDocument(
-      <AlertComponent>I am content</AlertComponent>
+      <Wrapper><AlertComponent>I am content</AlertComponent></Wrapper>
     )
 
     const renderedAlert = TestUtils.findRenderedDOMComponentWithClass(alert, 'component-alert')
@@ -16,7 +18,7 @@ describe('AlertComponent', function () {
 
   it('should render an alert without a H4 if title is no passed in', function () {
     const successAlert = TestUtils.renderIntoDocument(
-      <AlertComponent purpose='success' title='title'>You have been successful</AlertComponent>
+      <Wrapper><AlertComponent purpose='success' title='title'>You have been successful</AlertComponent></Wrapper>
     )
     const h4 = TestUtils.scryRenderedDOMComponentsWithTag(successAlert, 'h4')
     assert.equal(h4.length, 1)
@@ -24,7 +26,7 @@ describe('AlertComponent', function () {
 
   it('should render an alert with a H4 if title is passed in', function () {
     const successAlert = TestUtils.renderIntoDocument(
-      <AlertComponent purpose='success'>You have been successful</AlertComponent>
+      <Wrapper><AlertComponent purpose='success'>You have been successful</AlertComponent></Wrapper>
     )
     const h4 = TestUtils.scryRenderedDOMComponentsWithTag(successAlert, 'h4')
     assert.equal(h4.length, 0)
@@ -32,7 +34,7 @@ describe('AlertComponent', function () {
 
   it('should render a success alert', function () {
     const successAlert = TestUtils.renderIntoDocument(
-      <AlertComponent purpose='success'>You have been successful</AlertComponent>
+      <Wrapper><AlertComponent purpose='success'>You have been successful</AlertComponent></Wrapper>
     )
 
     const renderedAlert = TestUtils.findRenderedDOMComponentWithClass(successAlert, 'success')
@@ -41,7 +43,7 @@ describe('AlertComponent', function () {
 
   it('should render a danger alert', function () {
     const dangerAlert = TestUtils.renderIntoDocument(
-      <AlertComponent purpose='danger'>This is dangerous</AlertComponent>
+      <Wrapper><AlertComponent purpose='danger'>This is dangerous</AlertComponent></Wrapper>
     )
 
     const renderedAlert = TestUtils.findRenderedDOMComponentWithClass(dangerAlert, 'danger')
@@ -50,7 +52,7 @@ describe('AlertComponent', function () {
 
   it('should render a info alert', function () {
     const infoAlert = TestUtils.renderIntoDocument(
-      <AlertComponent purpose='info'>This is information</AlertComponent>
+      <Wrapper><AlertComponent purpose='info'>This is information</AlertComponent></Wrapper>
     )
 
     const renderedAlert = TestUtils.findRenderedDOMComponentWithClass(infoAlert, 'info')
@@ -59,7 +61,7 @@ describe('AlertComponent', function () {
 
   it('should render a warning alert', function () {
     const warningAlert = TestUtils.renderIntoDocument(
-      <AlertComponent purpose='warning'>You have been warned</AlertComponent>
+      <Wrapper><AlertComponent purpose='warning'>You have been warned</AlertComponent></Wrapper>
     )
 
     const renderedAlert = TestUtils.findRenderedDOMComponentWithClass(warningAlert, 'warning')
@@ -68,7 +70,7 @@ describe('AlertComponent', function () {
 
   it('should render a large default alert', function () {
     const largeAlert = TestUtils.renderIntoDocument(
-      <AlertComponent size='large'>I am large</AlertComponent>
+      <Wrapper><AlertComponent size='large'>I am large</AlertComponent></Wrapper>
     )
 
     const renderedAlert = TestUtils.findRenderedDOMComponentWithClass(largeAlert, 'large')
@@ -77,7 +79,7 @@ describe('AlertComponent', function () {
 
   it('should render an alert with a header', function () {
     const alert = TestUtils.renderIntoDocument(
-      <AlertComponent title='Header' />
+      <Wrapper><AlertComponent title='Header' /></Wrapper>
     )
 
     const renderedAlert = TestUtils.findRenderedDOMComponentWithClass(alert, 'component-alert')

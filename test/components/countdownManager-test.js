@@ -1,4 +1,5 @@
 'use strict'
+
 const CountdownManager = require('../../src/components/countdown/lib/countdownManager')
 const countdown = require('../../src/components/countdown/lib/countdown')
 const assert = require('chai').assert

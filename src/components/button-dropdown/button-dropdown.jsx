@@ -4,19 +4,18 @@ const React = require('react')
 const classNames = require('classnames')
 const PropTypes = require('prop-types')
 
-module.exports = React.createClass({
+const ButtonDropdown = ({
+  children,
+  position
+}) => (
+  <div className={classNames('component-button-dropdown', position)}>
+    {children}
+  </div>
+)
 
-  propTypes: {
-    children: PropTypes.any,
-    position: PropTypes.oneOf(['top', 'bottom'])
-  },
+ButtonDropdown.propTypes = {
+  children: PropTypes.any,
+  position: PropTypes.oneOf(['top', 'bottom'])
+}
 
-  render: function () {
-    const classes = classNames('component-button-dropdown', this.props.position)
-    return (
-      <div className={classes}>
-        {this.props.children}
-      </div>
-    )
-  }
-})
+module.exports = ButtonDropdown

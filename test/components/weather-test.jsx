@@ -1,9 +1,10 @@
 'use strict'
+
 const React = require('react')
 const TestUtils = require('react-addons-test-utils')
 const assert = require('chai').assert
-
 const WeatherComponent = require('../../src/components/weather/weather.jsx')
+const Wrapper = require('../helpers/wrapper')
 
 let type = null
 let temperature = null
@@ -13,7 +14,7 @@ describe('WeatherComponent', function () {
   temperature = 20
 
   it('is an element', function () {
-    assert.ok(TestUtils.isElement(<WeatherComponent type={type} temperature={temperature} />))
+    assert.ok(TestUtils.isElement(<Wrapper><WeatherComponent type={type} temperature={temperature} /></Wrapper>))
   })
 
   describe('Can accept all types of weather', function () {
@@ -25,7 +26,9 @@ describe('WeatherComponent', function () {
       type = 'cloudy'
 
       const weatherType = TestUtils.renderIntoDocument(
-        <WeatherComponent type={type} temperature={temperature} />
+        <Wrapper>
+          <WeatherComponent type={type} temperature={temperature} />
+        </Wrapper>
       )
 
       const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1]
@@ -36,7 +39,9 @@ describe('WeatherComponent', function () {
       type = 'fog'
 
       const weatherType = TestUtils.renderIntoDocument(
-        <WeatherComponent type={type} temperature={temperature} />
+        <Wrapper>
+          <WeatherComponent type={type} temperature={temperature} />
+        </Wrapper>
       )
 
       const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1]
@@ -47,7 +52,9 @@ describe('WeatherComponent', function () {
       type = 'hail'
 
       const weatherType = TestUtils.renderIntoDocument(
-        <WeatherComponent type={type} temperature={temperature} />
+        <Wrapper>
+          <WeatherComponent type={type} temperature={temperature} />
+        </Wrapper>
       )
 
       const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1]
@@ -58,7 +65,9 @@ describe('WeatherComponent', function () {
       type = 'heavy-rain'
 
       const weatherType = TestUtils.renderIntoDocument(
-        <WeatherComponent type={type} temperature={temperature} />
+        <Wrapper>
+          <WeatherComponent type={type} temperature={temperature} />
+        </Wrapper>
       )
 
       const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1]
@@ -69,7 +78,9 @@ describe('WeatherComponent', function () {
       type = 'heavy-snow'
 
       const weatherType = TestUtils.renderIntoDocument(
-        <WeatherComponent type={type} temperature={temperature} />
+        <Wrapper>
+          <WeatherComponent type={type} temperature={temperature} />
+        </Wrapper>
       )
 
       const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1]
@@ -80,7 +91,9 @@ describe('WeatherComponent', function () {
       type = 'light-rain'
 
       const weatherType = TestUtils.renderIntoDocument(
-        <WeatherComponent type={type} temperature={temperature} />
+        <Wrapper>
+          <WeatherComponent type={type} temperature={temperature} />
+        </Wrapper>
       )
 
       const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1]
@@ -91,7 +104,9 @@ describe('WeatherComponent', function () {
       type = 'light-snow'
 
       const weatherType = TestUtils.renderIntoDocument(
-        <WeatherComponent type={type} temperature={temperature} />
+        <Wrapper>
+          <WeatherComponent type={type} temperature={temperature} />
+        </Wrapper>
       )
 
       const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1]
@@ -102,7 +117,9 @@ describe('WeatherComponent', function () {
       type = 'night-clear'
 
       const weatherType = TestUtils.renderIntoDocument(
-        <WeatherComponent type={type} temperature={temperature} />
+        <Wrapper>
+          <WeatherComponent type={type} temperature={temperature} />
+        </Wrapper>
       )
 
       const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1]
@@ -113,7 +130,9 @@ describe('WeatherComponent', function () {
       type = 'night-partly-cloudy'
 
       const weatherType = TestUtils.renderIntoDocument(
-        <WeatherComponent type={type} temperature={temperature} />
+        <Wrapper>
+          <WeatherComponent type={type} temperature={temperature} />
+        </Wrapper>
       )
 
       const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1]
@@ -124,7 +143,9 @@ describe('WeatherComponent', function () {
       type = 'partly-cloudy'
 
       const weatherType = TestUtils.renderIntoDocument(
-        <WeatherComponent type={type} temperature={temperature} />
+        <Wrapper>
+          <WeatherComponent type={type} temperature={temperature} />
+        </Wrapper>
       )
 
       const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1]
@@ -135,7 +156,9 @@ describe('WeatherComponent', function () {
       type = 'storm'
 
       const weatherType = TestUtils.renderIntoDocument(
-        <WeatherComponent type={type} temperature={temperature} />
+        <Wrapper>
+          <WeatherComponent type={type} temperature={temperature} />
+        </Wrapper>
       )
 
       const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1]
@@ -146,7 +169,9 @@ describe('WeatherComponent', function () {
       type = 'sunny'
 
       const weatherType = TestUtils.renderIntoDocument(
-        <WeatherComponent type={type} temperature={temperature} />
+        <Wrapper>
+          <WeatherComponent type={type} temperature={temperature} />
+        </Wrapper>
       )
 
       const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1]
@@ -161,7 +186,9 @@ describe('WeatherComponent', function () {
     describe('is a perfectly valid date', function () {
       it('displays date in full day of week format', function () {
         const weatherDate = TestUtils.renderIntoDocument(
-          <WeatherComponent type={type} date='2017-07-27' format='dddd' />
+          <Wrapper>
+            <WeatherComponent type={type} date='2017-07-27' format='dddd' />
+          </Wrapper>
         )
 
         const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherDate, 'div')[2]
@@ -172,7 +199,9 @@ describe('WeatherComponent', function () {
     describe('is an invalid date', function () {
       it('fails to display date instead throws invalid date error', function () {
         const weatherDate = TestUtils.renderIntoDocument(
-          <WeatherComponent type={type} date='20027-07-2017' format='dddd' />
+          <Wrapper>
+            <WeatherComponent type={type} date='20027-07-2017' format='dddd' />
+          </Wrapper>
         )
 
         const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherDate, 'div')[2]
@@ -188,7 +217,9 @@ describe('WeatherComponent', function () {
 
     it('displays temperature in Celsius', function () {
       const weatherTemp = TestUtils.renderIntoDocument(
-        <WeatherComponent type={type} temperature={temperature} unit='C' />
+        <Wrapper>
+          <WeatherComponent type={type} temperature={temperature} unit='C' />
+        </Wrapper>
       )
 
       const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherTemp, 'div')[2]
@@ -197,7 +228,9 @@ describe('WeatherComponent', function () {
 
     it('displays temperature in Fahrenheit', function () {
       const weatherTemp = TestUtils.renderIntoDocument(
-        <WeatherComponent type={type} temperature={temperature} unit='F' />
+        <Wrapper>
+          <WeatherComponent type={type} temperature={temperature} unit='F' />
+        </Wrapper>
       )
 
       const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherTemp, 'div')[2]
@@ -206,7 +239,9 @@ describe('WeatherComponent', function () {
 
     it('displays temperature in Rankine', function () {
       const weatherTemp = TestUtils.renderIntoDocument(
-        <WeatherComponent type={type} temperature={temperature} unit='R' />
+        <Wrapper>
+          <WeatherComponent type={type} temperature={temperature} unit='R' />
+        </Wrapper>
       )
 
       const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherTemp, 'div')[2]
@@ -215,7 +250,9 @@ describe('WeatherComponent', function () {
 
     it('displays temperature in Kelvin', function () {
       const weatherTemp = TestUtils.renderIntoDocument(
-        <WeatherComponent type={type} temperature={temperature} unit='K' />
+        <Wrapper>
+          <WeatherComponent type={type} temperature={temperature} unit='K' />
+        </Wrapper>
       )
 
       const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherTemp, 'div')[2]
@@ -224,7 +261,9 @@ describe('WeatherComponent', function () {
 
     it('displays a temperature at 0', function () {
       const weatherTemp = TestUtils.renderIntoDocument(
-        <WeatherComponent type={type} temperature={0} unit='C' />
+        <Wrapper>
+          <WeatherComponent type={type} temperature={0} unit='C' />
+        </Wrapper>
       )
 
       const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherTemp, 'div')[2]
