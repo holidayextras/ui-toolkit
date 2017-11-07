@@ -1,5 +1,6 @@
-'use strict';
-var React = require('react');
+'use strict'
+
+var React = require('react')
 
 module.exports = React.createClass({
 
@@ -7,11 +8,11 @@ module.exports = React.createClass({
     children: React.PropTypes.any
   },
 
-  render: function() {
+  render: function () {
     return (
-      <dt className="component-list-term">
+      <dt className='component-list-term'>
         {this.props.children}
       </dt>
-    );
+    )
   }
-});
+})

@@ -1,2 +1,3 @@
-'use strict';
-module.exports = require('./reviews.jsx');
+'use strict'
+
+module.exports = require('./reviews.jsx')

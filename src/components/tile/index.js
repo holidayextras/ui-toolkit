@@ -1,2 +1,3 @@
-'use strict';
-module.exports = require('./tile.jsx');
+'use strict'
+
+module.exports = require('./tile.jsx')

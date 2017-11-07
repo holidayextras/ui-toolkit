@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-var version = require('../package.json').version;
+var version = require('../package.json').version
 
 module.exports = {
   options: {
@@ -15,4 +15,4 @@ module.exports = {
       { expand: true, cwd: 'dist', src: ['*.css'], dest: 'ui-toolkit/' + version, params: { ContentType: 'text/css' } }
     ]
   }
-};
+}

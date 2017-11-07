@@ -1,16 +1,17 @@
-'use strict';
-var React = require('react');
-var DataAttributesMixin = require('react-data-attributes-mixin');
+'use strict'
+
+var React = require('react')
+var DataAttributesMixin = require('react-data-attributes-mixin')
 
 module.exports = React.createClass({
 
   mixins: [DataAttributesMixin],
 
-  getDefaultProps: function() {
+  getDefaultProps: function () {
     return {
       href: '#',
       role: 'link'
-    };
+    }
   },
 
   propTypes: {
@@ -23,15 +24,15 @@ module.exports = React.createClass({
     role: React.PropTypes.string
   },
 
-  render: function() {
+  render: function () {
     if (!this.props.children) {
-      return null;
+      return null
     }
-    var dataAttributes = this.getDataAttributesFromProps();
+    var dataAttributes = this.getDataAttributesFromProps()
     return (
-      <a className="component-anchor" {...dataAttributes} title={this.props.title} role={this.props.role} href={this.props.href} onClick={this.props.handleClick} target={this.props.target}>
+      <a className='component-anchor' {...dataAttributes} title={this.props.title} role={this.props.role} href={this.props.href} onClick={this.props.handleClick} target={this.props.target}>
         {this.props.children}
       </a>
-    );
+    )
   }
-});
+})

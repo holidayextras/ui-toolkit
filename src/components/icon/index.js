@@ -1,2 +1,3 @@
-'use strict';
-module.exports = require('./icon.jsx');
+'use strict'
+
+module.exports = require('./icon.jsx')

@@ -1,2 +1,3 @@
-'use strict';
-module.exports = require('./input.jsx');
+'use strict'
+
+module.exports = require('./input.jsx')

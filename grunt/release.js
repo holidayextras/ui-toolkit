@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 module.exports = {
   options: {
     bump: false,
@@ -12,4 +12,4 @@ module.exports = {
       accessTokenVar: 'GITHUB_ACCESS_TOKEN'
     }
   }
-};
+}

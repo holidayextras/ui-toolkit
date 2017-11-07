@@ -1,6 +1,7 @@
-'use strict';
-var React = require('react');
-var DataAttributesMixin = require('react-data-attributes-mixin');
+'use strict'
+
+var React = require('react')
+var DataAttributesMixin = require('react-data-attributes-mixin')
 
 module.exports = React.createClass({
 
@@ -17,18 +18,18 @@ module.exports = React.createClass({
     sizes: React.PropTypes.string
   },
 
-  render: function() {
-    var dataAttributes = this.getDataAttributesFromProps();
-    var sizes = this.props.sizes || '100vw';
+  render: function () {
+    var dataAttributes = this.getDataAttributesFromProps()
+    var sizes = this.props.sizes || '100vw'
     if (this.props.href) {
       return (
-        <a className="component-image" href={this.props.href} target={this.props.target} onClick={this.props.handleClick} {...dataAttributes} >
+        <a className='component-image' href={this.props.href} target={this.props.target} onClick={this.props.handleClick} {...dataAttributes} >
           <img src={this.props.src} srcSet={this.props.srcSet} alt={this.props.alt} sizes={sizes} onLoad={this.props.handleLoad} />
         </a>
-      );
+      )
     }
     return (
-      <img className="component-image" src={this.props.src} srcSet={this.props.srcSet} alt={this.props.alt} sizes={sizes} onClick={this.props.handleClick} onLoad={this.props.handleLoad} {...dataAttributes} />
-    );
+      <img className='component-image' src={this.props.src} srcSet={this.props.srcSet} alt={this.props.alt} sizes={sizes} onClick={this.props.handleClick} onLoad={this.props.handleLoad} {...dataAttributes} />
+    )
   }
-});
+})

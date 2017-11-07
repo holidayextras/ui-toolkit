@@ -1,7 +1,8 @@
-'use strict';
-var React = require('react');
-var DataAttributesMixin = require('react-data-attributes-mixin');
-var classNames = require('classnames');
+'use strict'
+
+var React = require('react')
+var DataAttributesMixin = require('react-data-attributes-mixin')
+var classNames = require('classnames')
 
 module.exports = React.createClass({
 
@@ -28,15 +29,15 @@ module.exports = React.createClass({
     data: React.PropTypes.object
   },
 
-  getInitialState: function() {
+  getInitialState: function () {
     return {
       value: this.props.children,
       error: null,
       valid: true
-    };
+    }
   },
 
-  getDefaultProps: function() {
+  getDefaultProps: function () {
     return {
       type: 'text',
       disabled: false,
@@ -46,77 +47,76 @@ module.exports = React.createClass({
       id: 'component-input',
       name: 'component-input',
       placeHolder: ''
-    };
+    }
   },
 
-  validate: function(value) {
-    var self = this;
-    var isValid = true;
-    var error = null;
+  validate: function (value) {
+    var self = this
+    var isValid = true
+    var error = null
 
     if (value !== '' && typeof self.props.validator !== 'undefined') {
-      isValid = self.props.validator.test(value);
+      isValid = self.props.validator.test(value)
     }
 
     if (!isValid) {
-      error = self.props.errorMessage;
+      error = self.props.errorMessage
     }
 
     self.setState({
       valid: isValid,
       error: error
-    });
+    })
   },
 
-  handleChange: function(e) {
-    var self = this;
-    var value = (e.target) ? e.target.value : null;
+  handleChange: function (e) {
+    var self = this
+    var value = (e.target) ? e.target.value : null
 
     self.setState({
       value: value
-    });
+    })
 
-    clearTimeout(this.intent);
-    this.intent = setTimeout(function() {
-      self.validate(value);
-    }, 500);
+    clearTimeout(this.intent)
+    this.intent = setTimeout(function () {
+      self.validate(value)
+    }, 500)
 
     if (self.props.handleChange) {
-      self.props.handleChange.apply(this, arguments);
+      self.props.handleChange.apply(this, arguments)
     }
-
   },
 
-  render: function() {
+  render: function () {
     var classes = classNames({
       'component-input': true,
       'error': this.state.error || false,
       'disabled': this.props.disabled || false
-    });
-    var dataAttributes = this.getDataAttributesFromProps();
+    })
+    var dataAttributes = this.getDataAttributesFromProps()
 
     // the form label
-    var label;
+    var label
 
     if (this.props.label) {
-      label = ( <label className="component-input-label" aria-label={this.props.id} htmlFor={this.props.id}>{this.props.label}</label > );
+      label = (<label className='component-input-label' aria-label={this.props.id} htmlFor={this.props.id}>{this.props.label}</label >)
     }
 
     /**
      * Create the span element used for containing messages
      * related to the element.
      */
-    var span;
+    var span
 
     if (this.state.error) {
-      span = ( <span className="component-input-error">{this.state.error}</span> );
+      span = (<span className='component-input-error'>{this.state.error}</span>)
     }
 
     return (
       <div className={classes} ref={this.props.ref}>
         {label}
         <input
-          className="component-input-field"
+          className='component-input-field'
           type={this.props.type}
           name={this.props.name}
           value={this.state.value}
@@ -131,6 +131,6 @@ module.exports = React.createClass({
         />
         {span}
       </div>
-    );
+    )
   }
-});
+})

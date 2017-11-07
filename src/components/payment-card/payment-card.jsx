@@ -1,6 +1,7 @@
-'use strict';
-var React = require('react');
-var classNames = require('classnames');
+'use strict'
+
+var React = require('react')
+var classNames = require('classnames')
 
 module.exports = React.createClass({
   propTypes: {
@@ -9,17 +10,17 @@ module.exports = React.createClass({
     className: React.PropTypes.string
   },
 
-  render: function() {
-    var classes = classNames('component-payment-card', this.props.type, this.props.size, this.props.className);
+  render: function () {
+    var classes = classNames('component-payment-card', this.props.type, this.props.size, this.props.className)
 
-    var spreadProps = {};
+    var spreadProps = {}
     for (var key in this.props) {
-      if (['type', 'size', 'className', 'children'].indexOf(key) !== -1) continue;
-      spreadProps[key] = this.props[key];
+      if (['type', 'size', 'className', 'children'].indexOf(key) !== -1) continue
+      spreadProps[key] = this.props[key]
     }
 
     return (
-        <div className={classes} {...spreadProps} />
-    );
+      <div className={classes} {...spreadProps} />
+    )
   }
-});
+})

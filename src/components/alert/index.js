@@ -1,2 +1,3 @@
-'use strict';
-module.exports = require('./alert.jsx');
+'use strict'
+
+module.exports = require('./alert.jsx')

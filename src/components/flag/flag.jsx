@@ -1,6 +1,7 @@
-'use strict';
-var React = require('react');
-var classNames = require('classnames');
+'use strict'
+
+var React = require('react')
+var classNames = require('classnames')
 
 module.exports = React.createClass({
 
@@ -26,12 +27,12 @@ module.exports = React.createClass({
     ])
   },
 
-  render: function() {
-    var classes = classNames('component-flag', this.props.size, this.props.purpose, this.props.position);
+  render: function () {
+    var classes = classNames('component-flag', this.props.size, this.props.purpose, this.props.position)
     return (
       <span className={classes}>
         {this.props.children}
       </span>
-    );
+    )
   }
-});
+})

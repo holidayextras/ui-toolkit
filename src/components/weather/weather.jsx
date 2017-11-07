@@ -1,6 +1,7 @@
-'use strict';
-var React = require('react');
-var moment = require('moment');
+'use strict'
+
+var React = require('react')
+var moment = require('moment')
 module.exports = React.createClass({
 
   propTypes: {
@@ -11,13 +12,13 @@ module.exports = React.createClass({
     unit: React.PropTypes.oneOf(['C', 'F', 'K', 'R'])
   },
 
-  render: function() {
-    var expectedFormat = ['YYYY-MM-DD', 'YYYY-MM-DDTHH:mm'];
-    var displayFormat = this.props.format || 'ddd';
-    var date = this.props.date;
-    var unit = this.props.unit;
+  render: function () {
+    var expectedFormat = ['YYYY-MM-DD', 'YYYY-MM-DDTHH:mm']
+    var displayFormat = this.props.format || 'ddd'
+    var date = this.props.date
+    var unit = this.props.unit
     if (this.props.unit !== 'K') {
-      unit = '°' + unit;
+      unit = '°' + unit
     }
 
     var unitNames = {
@@ -25,15 +26,15 @@ module.exports = React.createClass({
       'F': 'Degrees Farenheit',
       'K': 'Kelvin',
       'R': 'Degrees Rankine'
-    };
-    var unitName = unitNames[this.props.unit];
+    }
+    var unitName = unitNames[this.props.unit]
 
     return (
-      <div className="component-weather">
+      <div className='component-weather'>
         <div className={this.props.type}><span>{this.props.type}</span></div>
         {(this.props.temperature || this.props.temperature === 0) ? <div>{this.props.temperature}<abbr title={unitName}>{unit}</abbr></div> : null}
         {(this.props.date) ? <div>{moment(date, expectedFormat, true).format(displayFormat)}</div> : null}
       </div>
-    );
+    )
   }
-});
+})

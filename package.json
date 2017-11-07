@@ -19,7 +19,7 @@
     "docs": "grunt docs",
     "test-xunit": "mocha --recursive test/**/*-test.js* src/**/*-test.js* -R xunit > $CIRCLE_TEST_REPORTS/results.xml",
     "test": "mocha --recursive test/**/*-test.js* src/**/*-test.js*",
-    "lint": "make-up grunt src test"
+    "lint": "standard 'src/**/*.js*' 'test/**/*.js*'"
   },
   "keywords": [
     "ui",
@@ -85,7 +85,6 @@
     "gruntfile-gtx": "^0.3.0",
     "istanbul": "^0.4.5",
     "jsdom": "^9.6.0",
-    "make-up": "^9.3.1",
     "mocha": "^3.1.0",
     "mocha-jsdom": "^1.1.0",
     "mocha-lcov-reporter": "^1.2.0",
@@ -94,11 +93,24 @@
     "react-tests-globals-setup": "^1.0.0",
     "require-directory": "^2.0.0",
     "requirejs": "^2.3.2",
-    "sinon": "^1.17.6"
+    "sinon": "^1.17.6",
+    "standard": "^10.0.3"
   },
   "browserify": {
     "transform": [
       "reactify"
+    ]
+  },
+  "standard": {
+    "globals": [
+      "expect",
+      "it",
+      "describe",
+      "context",
+      "beforeEach",
+      "afterEach",
+      "before",
+      "after"
     ]
   }
 }

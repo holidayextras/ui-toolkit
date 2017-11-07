@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 module.exports = {
   all: {
     options: {
@@ -8,4 +8,4 @@ module.exports = {
       'dist/toolkit.css': 'src/less/toolkit.less'
     }
   }
-};
+}

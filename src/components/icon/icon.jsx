@@ -1,5 +1,6 @@
-'use strict';
-var React = require('react');
+'use strict'
+
+var React = require('react')
 
 module.exports = React.createClass({
 
@@ -8,28 +9,27 @@ module.exports = React.createClass({
     iconFamily: React.PropTypes.oneOf(['font-awesome', 'glyphicon'])
   },
 
-  getDefaultProps: function() {
+  getDefaultProps: function () {
     return {
       iconFamily: 'font-awesome'
-    };
-  },
-
-  getIconFamily: function() {
-    var iconFamily = this.props.iconFamily;
-    if (this.props.iconFamily === 'font-awesome') {
-      iconFamily = 'fa';
     }
-    return iconFamily;
   },
 
-  getIcon: function() {
-    return this.getIconFamily() + '-' + this.props.icon;
+  getIconFamily: function () {
+    var iconFamily = this.props.iconFamily
+    if (this.props.iconFamily === 'font-awesome') {
+      iconFamily = 'fa'
+    }
+    return iconFamily
   },
 
-  render: function() {
+  getIcon: function () {
+    return this.getIconFamily() + '-' + this.props.icon
+  },
 
+  render: function () {
     return (
-      <i className={'component-icon ' + this.getIconFamily() + ' ' + this.getIcon()} aria-hidden="true" />
-    );
+      <i className={'component-icon ' + this.getIconFamily() + ' ' + this.getIcon()} aria-hidden='true' />
+    )
   }
-});
+})

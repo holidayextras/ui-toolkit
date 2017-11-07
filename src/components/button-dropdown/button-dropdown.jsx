@@ -1,6 +1,7 @@
-'use strict';
-var React = require('react');
-var classNames = require('classnames');
+'use strict'
+
+var React = require('react')
+var classNames = require('classnames')
 
 module.exports = React.createClass({
 
@@ -9,13 +10,12 @@ module.exports = React.createClass({
     position: React.PropTypes.oneOf(['top', 'bottom'])
   },
 
-  render: function() {
-
-    var classes = classNames('component-button-dropdown', this.props.position);
+  render: function () {
+    var classes = classNames('component-button-dropdown', this.props.position)
     return (
       <div className={classes}>
         {this.props.children}
       </div>
-    );
+    )
   }
-});
+})

@@ -1,2 +1,3 @@
-'use strict';
-module.exports = require('./lozenge.jsx');
+'use strict'
+
+module.exports = require('./lozenge.jsx')
