@@ -2,12 +2,13 @@
 
 const React = require('react')
 const classNames = require('classnames')
+const PropTypes = require('prop-types')
 
 module.exports = React.createClass({
 
   propTypes: {
-    children: React.PropTypes.any,
-    position: React.PropTypes.oneOf(['top', 'bottom'])
+    children: PropTypes.any,
+    position: PropTypes.oneOf(['top', 'bottom'])
   },
 
   render: function () {

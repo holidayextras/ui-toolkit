@@ -2,19 +2,20 @@
 
 const React = require('react')
 const DataAttributesMixin = require('react-data-attributes-mixin')
+const PropTypes = require('prop-types')
 
 module.exports = React.createClass({
 
   mixins: [DataAttributesMixin],
 
   propTypes: {
-    label: React.PropTypes.string,
-    name: React.PropTypes.string,
-    id: React.PropTypes.string,
-    children: React.PropTypes.array,
-    handleChange: React.PropTypes.func,
-    data: React.PropTypes.object,
-    multiple: React.PropTypes.bool
+    label: PropTypes.string,
+    name: PropTypes.string,
+    id: PropTypes.string,
+    children: PropTypes.array,
+    handleChange: PropTypes.func,
+    data: PropTypes.object,
+    multiple: PropTypes.bool
   },
 
   getDefaultProps: function () {

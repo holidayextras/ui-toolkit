@@ -1,6 +1,7 @@
 'use strict'
 
 const React = require('react')
+const PropTypes = require('prop-types')
 const Image = require('../image')
 const _ = {
   omit: require('lodash/omit')
@@ -8,8 +9,8 @@ const _ = {
 
 module.exports = React.createClass({
   propTypes: {
-    children: React.PropTypes.any,
-    image: React.PropTypes.object.isRequired
+    children: PropTypes.any,
+    image: PropTypes.object.isRequired
   },
 
   render: function () {

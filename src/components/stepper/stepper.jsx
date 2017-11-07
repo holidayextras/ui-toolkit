@@ -1,23 +1,24 @@
 'use strict'
 
 const React = require('react')
+const PropTypes = require('prop-types')
 const Button = require('../button')
 const Input = require('../input')
 
 module.exports = React.createClass({
 
   propTypes: {
-    value: React.PropTypes.number,
-    valueText: React.PropTypes.string,
-    onChange: React.PropTypes.func.isRequired,
-    minValue: React.PropTypes.number,
-    maxValue: React.PropTypes.number,
-    stepValue: React.PropTypes.number,
-    incrementDisplayString: React.PropTypes.string,
-    decrementDisplayString: React.PropTypes.string,
-    id: React.PropTypes.string,
-    label: React.PropTypes.string,
-    readOnly: React.PropTypes.bool
+    value: PropTypes.number,
+    valueText: PropTypes.string,
+    onChange: PropTypes.func.isRequired,
+    minValue: PropTypes.number,
+    maxValue: PropTypes.number,
+    stepValue: PropTypes.number,
+    incrementDisplayString: PropTypes.string,
+    decrementDisplayString: PropTypes.string,
+    id: PropTypes.string,
+    label: PropTypes.string,
+    readOnly: PropTypes.bool
   },
 
   getDefaultProps: function () {

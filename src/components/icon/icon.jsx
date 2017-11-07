@@ -1,12 +1,13 @@
 'use strict'
 
 const React = require('react')
+const PropTypes = require('prop-types')
 
 module.exports = React.createClass({
 
   propTypes: {
-    icon: React.PropTypes.string.isRequired,
-    iconFamily: React.PropTypes.oneOf(['font-awesome', 'glyphicon'])
+    icon: PropTypes.string.isRequired,
+    iconFamily: PropTypes.oneOf(['font-awesome', 'glyphicon'])
   },
 
   getDefaultProps: function () {

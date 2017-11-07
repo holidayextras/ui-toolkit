@@ -1,12 +1,13 @@
 'use strict'
 
 const React = require('react')
+const PropTypes = require('prop-types')
 
 module.exports = React.createClass({
 
   propTypes: {
-    children: React.PropTypes.any,
-    type: React.PropTypes.oneOf(['ordered', 'unordered', 'description', 'icon'])
+    children: PropTypes.any,
+    type: PropTypes.oneOf(['ordered', 'unordered', 'description', 'icon'])
   },
 
   render: function () {

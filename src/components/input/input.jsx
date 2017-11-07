@@ -3,6 +3,7 @@
 const React = require('react')
 const DataAttributesMixin = require('react-data-attributes-mixin')
 const classNames = require('classnames')
+const PropTypes = require('prop-types')
 
 module.exports = React.createClass({
 
@@ -11,22 +12,22 @@ module.exports = React.createClass({
   intent: null,
 
   propTypes: {
-    label: React.PropTypes.string,
-    type: React.PropTypes.oneOf(['text', 'email', 'number', 'tel']),
-    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large']),
-    placeHolder: React.PropTypes.string,
-    name: React.PropTypes.string,
-    id: React.PropTypes.string,
-    placeholder: React.PropTypes.string,
-    ref: React.PropTypes.string,
-    disabled: React.PropTypes.bool,
-    readOnly: React.PropTypes.bool,
-    required: React.PropTypes.bool,
-    validator: React.PropTypes.instanceOf(RegExp),
-    errorMessage: React.PropTypes.string,
-    children: React.PropTypes.string,
-    handleChange: React.PropTypes.func,
-    data: React.PropTypes.object
+    label: PropTypes.string,
+    type: PropTypes.oneOf(['text', 'email', 'number', 'tel']),
+    size: PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large']),
+    placeHolder: PropTypes.string,
+    name: PropTypes.string,
+    id: PropTypes.string,
+    placeholder: PropTypes.string,
+    ref: PropTypes.string,
+    disabled: PropTypes.bool,
+    readOnly: PropTypes.bool,
+    required: PropTypes.bool,
+    validator: PropTypes.instanceOf(RegExp),
+    errorMessage: PropTypes.string,
+    children: PropTypes.string,
+    handleChange: PropTypes.func,
+    data: PropTypes.object
   },
 
   getInitialState: function () {

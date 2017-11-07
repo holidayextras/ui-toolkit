@@ -1,11 +1,12 @@
 'use strict'
 
 const React = require('react')
+const PropTypes = require('prop-types')
 
 module.exports = React.createClass({
   propTypes: {
-    reviewPercentage: React.PropTypes.number.isRequired,
-    reviewCount: React.PropTypes.number.isRequired
+    reviewPercentage: PropTypes.number.isRequired,
+    reviewCount: PropTypes.number.isRequired
   },
   render: function () {
     return (

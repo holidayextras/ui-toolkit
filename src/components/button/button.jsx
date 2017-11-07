@@ -3,6 +3,7 @@
 const React = require('react')
 const DataAttributesMixin = require('react-data-attributes-mixin')
 const classNames = require('classnames')
+const PropTypes = require('prop-types')
 
 const _ = {
   extend: require('lodash/extend'),
@@ -14,8 +15,8 @@ module.exports = React.createClass({
   mixins: [DataAttributesMixin],
 
   propTypes: {
-    children: React.PropTypes.any,
-    purpose: React.PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
+    children: PropTypes.any,
+    purpose: PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
     size: function (props, propName, componentName) {
       // expects a string with any combination of the following class names
       const propValue = props[propName]
@@ -28,13 +29,13 @@ module.exports = React.createClass({
       }
       return undefined
     },
-    disabled: React.PropTypes.bool,
-    href: React.PropTypes.string,
-    type: React.PropTypes.string,
-    target: React.PropTypes.string,
-    handleClick: React.PropTypes.func,
-    data: React.PropTypes.object,
-    id: React.PropTypes.string
+    disabled: PropTypes.bool,
+    href: PropTypes.string,
+    type: PropTypes.string,
+    target: PropTypes.string,
+    handleClick: PropTypes.func,
+    data: PropTypes.object,
+    id: PropTypes.string
   },
 
   _getProps () {

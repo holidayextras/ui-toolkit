@@ -2,14 +2,15 @@
 
 const React = require('react')
 const Anchor = require('../anchor')
+const PropTypes = require('prop-types')
 
 module.exports = React.createClass({
   propTypes: {
-    price: React.PropTypes.node,
-    title: React.PropTypes.node,
-    toggleDescription: React.PropTypes.bool,
-    handleRemove: React.PropTypes.func,
-    children: React.PropTypes.node
+    price: PropTypes.node,
+    title: PropTypes.node,
+    toggleDescription: PropTypes.bool,
+    handleRemove: PropTypes.func,
+    children: PropTypes.node
   },
   getInitialState: function () {
     return {

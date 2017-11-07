@@ -52,6 +52,7 @@
     "font-awesome": "^4.3.0",
     "lodash": "^4.12.0",
     "moment": "^2.14.1",
+    "prop-types": "^15.6.0",
     "react": "^0.14.8",
     "react-data-attributes-mixin": "git://github.com/holidayextras/react-data-attributes-mixin",
     "react-dom": "^0.14.8",

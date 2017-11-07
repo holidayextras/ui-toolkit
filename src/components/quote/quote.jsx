@@ -2,18 +2,19 @@
 
 const React = require('react')
 const classNames = require('classnames')
+const PropTypes = require('prop-types')
 
 module.exports = React.createClass({
 
   propTypes: {
-    children: React.PropTypes.any,
-    cite: React.PropTypes.string,
-    author: React.PropTypes.string,
-    role: React.PropTypes.string,
-    purpose: React.PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
-    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large']),
-    orientation: React.PropTypes.oneOf(['default', 'horizontal', 'vertical']),
-    type: React.PropTypes.oneOf(['block', 'inline'])
+    children: PropTypes.any,
+    cite: PropTypes.string,
+    author: PropTypes.string,
+    role: PropTypes.string,
+    purpose: PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
+    size: PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large']),
+    orientation: PropTypes.oneOf(['default', 'horizontal', 'vertical']),
+    type: PropTypes.oneOf(['block', 'inline'])
   },
 
   render: function () {

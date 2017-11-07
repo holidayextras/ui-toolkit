@@ -1,13 +1,14 @@
 'use strict'
 
 const React = require('react')
+const PropTypes = require('prop-types')
 
 module.exports = React.createClass({
   propTypes: {
-    children: React.PropTypes.any,
-    rating: React.PropTypes.number.isRequired,
-    outOf: React.PropTypes.number,
-    blankIcon: React.PropTypes.node
+    children: PropTypes.any,
+    rating: PropTypes.number.isRequired,
+    outOf: PropTypes.number,
+    blankIcon: PropTypes.node
   },
 
   render: function () {

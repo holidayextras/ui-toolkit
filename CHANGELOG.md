@@ -4,6 +4,7 @@
 - Use standard for linting
 - Use const & let
 - Bump dev dependencies
+- Use prop-types package in advance of React 16
 
 ### 3.0.3 - 2017-09-18
 - Updating the Rating component to provide key props to its rating icons

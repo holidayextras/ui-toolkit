@@ -2,14 +2,15 @@
 
 const React = require('react')
 const classNames = require('classnames')
+const PropTypes = require('prop-types')
 
 module.exports = React.createClass({
 
   propTypes: {
-    tip: React.PropTypes.string,
-    children: React.PropTypes.any,
-    purpose: React.PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
-    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large', 'block'])
+    tip: PropTypes.string,
+    children: PropTypes.any,
+    purpose: PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
+    size: PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large', 'block'])
   },
 
   render: function () {

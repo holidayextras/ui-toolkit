@@ -2,12 +2,13 @@
 
 const React = require('react')
 const classNames = require('classnames')
+const PropTypes = require('prop-types')
 
 module.exports = React.createClass({
   propTypes: {
-    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large']),
-    type: React.PropTypes.oneOf(['amazon', 'amex', 'apple', 'cirrus', 'delta', 'directdebit', 'discover', 'electron', 'google', 'maestro', 'mastercard', 'paym', 'paypal', 'sage', 'sepa', 'solo', 'switch', 'ukash', 'visa', 'visadebit', 'westernunion']),
-    className: React.PropTypes.string
+    size: PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large']),
+    type: PropTypes.oneOf(['amazon', 'amex', 'apple', 'cirrus', 'delta', 'directdebit', 'discover', 'electron', 'google', 'maestro', 'mastercard', 'paym', 'paypal', 'sage', 'sepa', 'solo', 'switch', 'ukash', 'visa', 'visadebit', 'westernunion']),
+    className: PropTypes.string
   },
 
   render: function () {

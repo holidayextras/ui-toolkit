@@ -1,15 +1,17 @@
 'use strict'
 
 const React = require('react')
+const PropTypes = require('prop-types')
 const moment = require('moment')
+
 module.exports = React.createClass({
 
   propTypes: {
-    format: React.PropTypes.string,
-    type: React.PropTypes.oneOf(['cloudy', 'fog', 'hail', 'heavy-rain', 'heavy-snow', 'light-rain', 'light-snow', 'night-clear', 'night-partly-cloudy', 'partly-cloudy', 'storm', 'sunny', 'windy']).isRequired,
-    temperature: React.PropTypes.number,
-    date: React.PropTypes.string,
-    unit: React.PropTypes.oneOf(['C', 'F', 'K', 'R'])
+    format: PropTypes.string,
+    type: PropTypes.oneOf(['cloudy', 'fog', 'hail', 'heavy-rain', 'heavy-snow', 'light-rain', 'light-snow', 'night-clear', 'night-partly-cloudy', 'partly-cloudy', 'storm', 'sunny', 'windy']).isRequired,
+    temperature: PropTypes.number,
+    date: PropTypes.string,
+    unit: PropTypes.oneOf(['C', 'F', 'K', 'R'])
   },
 
   render: function () {
