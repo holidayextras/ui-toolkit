@@ -1,2 +1,3 @@
-'use strict';
-module.exports = require('./weather.jsx');
+'use strict'
+
+module.exports = require('./weather.jsx')

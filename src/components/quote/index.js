@@ -1,2 +1,3 @@
-'use strict';
-module.exports = require('./quote.jsx');
+'use strict'
+
+module.exports = require('./quote.jsx')

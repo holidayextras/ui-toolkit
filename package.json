@@ -1,6 +1,6 @@
 {
   "name": "@holidayextras/ui-toolkit",
-  "version": "3.0.3",
+  "version": "3.1.0",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "index.js",
@@ -19,7 +19,7 @@
     "docs": "grunt docs",
     "test-xunit": "mocha --recursive test/**/*-test.js* src/**/*-test.js* -R xunit > $CIRCLE_TEST_REPORTS/results.xml",
     "test": "mocha --recursive test/**/*-test.js* src/**/*-test.js*",
-    "lint": "make-up grunt src test"
+    "lint": "standard 'src/**/*.js*' 'test/**/*.js*'"
   },
   "keywords": [
     "ui",
@@ -52,6 +52,7 @@
     "font-awesome": "^4.3.0",
     "lodash": "^4.12.0",
     "moment": "^2.14.1",
+    "prop-types": "^15.6.0",
     "react": "^0.14.8",
     "react-data-attributes-mixin": "git://github.com/holidayextras/react-data-attributes-mixin",
     "react-dom": "^0.14.8",
@@ -65,11 +66,11 @@
     "babel-runtime": "^6.11.6",
     "babelify": "^7.3.0",
     "browserify": "^13.1.0",
-    "chai": "^3.5.0",
-    "dirty-chai": "^1.2.2",
+    "chai": "^4.1.2",
+    "dirty-chai": "^2.0.1",
     "enzyme": "^2.4.1",
-    "eslint": "^2.13.1",
-    "eslint-plugin-react": "^5.2.2",
+    "eslint": "^4.10.0",
+    "eslint-plugin-react": "^7.4.0",
     "glob": "^7.1.0",
     "grunt": "^1.0.1",
     "grunt-aws-s3": "^0.14.3",
@@ -85,8 +86,7 @@
     "gruntfile-gtx": "^0.3.0",
     "istanbul": "^0.4.5",
     "jsdom": "^9.6.0",
-    "make-up": "^9.3.1",
-    "mocha": "^3.1.0",
+    "mocha": "^4.0.1",
     "mocha-jsdom": "^1.1.0",
     "mocha-lcov-reporter": "^1.2.0",
     "react-a11y": "^0.3.3",
@@ -94,11 +94,24 @@
     "react-tests-globals-setup": "^1.0.0",
     "require-directory": "^2.0.0",
     "requirejs": "^2.3.2",
-    "sinon": "^1.17.6"
+    "sinon": "^4.1.1",
+    "standard": "^10.0.3"
   },
   "browserify": {
     "transform": [
       "reactify"
+    ]
+  },
+  "standard": {
+    "globals": [
+      "expect",
+      "it",
+      "describe",
+      "context",
+      "beforeEach",
+      "afterEach",
+      "before",
+      "after"
     ]
   }
 }

@@ -1,2 +1,3 @@
-'use strict';
-module.exports = require('./flag.jsx');
+'use strict'
+
+module.exports = require('./flag.jsx')

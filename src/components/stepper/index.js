@@ -1,2 +1,3 @@
-'use strict';
-module.exports = require('./stepper.jsx');
+'use strict'
+
+module.exports = require('./stepper.jsx')

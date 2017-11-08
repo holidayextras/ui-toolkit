@@ -1,2 +1,3 @@
-'use strict';
-module.exports = require('./rating.jsx');
+'use strict'
+
+module.exports = require('./rating.jsx')

@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 module.exports = {
   docs: {
     tasks: ['docs-start', 'watch', 'docs-view'],
@@ -6,4 +6,4 @@ module.exports = {
       logConcurrentOutput: true
     }
   }
-};
+}

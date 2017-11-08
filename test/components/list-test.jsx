@@ -1,68 +1,65 @@
-'use strict';
-var React = require('react/addons');
-var TestUtils = React.addons.TestUtils;
-var assert = require('chai').assert;
-var List = require('../../src/components/list/list.jsx');
+'use strict'
+const React = require('react/addons')
+const TestUtils = React.addons.TestUtils
+const assert = require('chai').assert
+const List = require('../../src/components/list/list.jsx')
 
-describe('ListComponent ', function() {
+describe('ListComponent ', function () {
+  it('is an element', function () {
+    assert.ok(TestUtils.isElement(<List />))
+  })
 
-  it('is an element', function() {
-    assert.ok(TestUtils.isElement(<List />));
-  });
+  it('should render an unordered list with a class of component-unordered-list', function () {
+    const ListInstance = TestUtils.renderIntoDocument(
+      <List type='unordered' />
+    )
 
+    const renderedList = TestUtils.findRenderedDOMComponentWithClass(ListInstance, 'component-unordered-list')
+    assert.equal(renderedList.nodeName, 'UL')
+  })
 
-  it('should render an unordered list with a class of component-unordered-list', function() {
-    var ListInstance = TestUtils.renderIntoDocument(
-      <List type="unordered"/>
-    );
+  it('should render an ordered list with a class of component-ordered-list', function () {
+    const ListInstance = TestUtils.renderIntoDocument(
+      <List type='ordered' />
+    )
 
-    var renderedList = TestUtils.findRenderedDOMComponentWithClass(ListInstance, 'component-unordered-list');
-    assert.equal(renderedList.nodeName, 'UL');
-  });
+    const renderedList = TestUtils.findRenderedDOMComponentWithClass(ListInstance, 'component-ordered-list')
+    assert.equal(renderedList.nodeName, 'OL')
+  })
 
-  it('should render an ordered list with a class of component-ordered-list', function() {
-    var ListInstance = TestUtils.renderIntoDocument(
-      <List type="ordered"/>
-    );
+  it('should render an description list with a class of component-description-list', function () {
+    const ListInstance = TestUtils.renderIntoDocument(
+      <List type='description' />
+    )
 
-    var renderedList = TestUtils.findRenderedDOMComponentWithClass(ListInstance, 'component-ordered-list');
-    assert.equal(renderedList.nodeName, 'OL');
-  });
+    const renderedList = TestUtils.findRenderedDOMComponentWithClass(ListInstance, 'component-description-list')
+    assert.equal(renderedList.nodeName, 'DL')
+  })
 
-  it('should render an description list with a class of component-description-list', function() {
-    var ListInstance = TestUtils.renderIntoDocument(
-      <List type="description"/>
-    );
+  it('should render an icon list with a class of component-icon-list', function () {
+    const ListInstance = TestUtils.renderIntoDocument(
+      <List type='icon' />
+    )
 
-    var renderedList = TestUtils.findRenderedDOMComponentWithClass(ListInstance, 'component-description-list');
-    assert.equal(renderedList.nodeName, 'DL');
-  });
+    const renderedList = TestUtils.findRenderedDOMComponentWithClass(ListInstance, 'component-icon-list')
+    assert.equal(renderedList.nodeName, 'UL')
+  })
 
-  it('should render an icon list with a class of component-icon-list', function() {
-    var ListInstance = TestUtils.renderIntoDocument(
-      <List type="icon"/>
-    );
+  it('should render an unordered list with a class of component-unordered-list if type is undefined', function () {
+    const ListInstance = TestUtils.renderIntoDocument(
+      <List />
+    )
 
-    var renderedList = TestUtils.findRenderedDOMComponentWithClass(ListInstance, 'component-icon-list');
-    assert.equal(renderedList.nodeName, 'UL');
-  });
+    const renderedList = TestUtils.findRenderedDOMComponentWithClass(ListInstance, 'component-unordered-list')
+    assert.equal(renderedList.nodeName, 'UL')
+  })
 
-  it('should render an unordered list with a class of component-unordered-list if type is undefined', function() {
-    var ListInstance = TestUtils.renderIntoDocument(
-      <List/>
-    );
+  it('should render an unordered list with a class of component-unordered-list if type is unrecognised', function () {
+    const ListInstance = TestUtils.renderIntoDocument(
+      <List type='gibberish' />
+    )
 
-    var renderedList = TestUtils.findRenderedDOMComponentWithClass(ListInstance, 'component-unordered-list');
-    assert.equal(renderedList.nodeName, 'UL');
-  });
-
-  it('should render an unordered list with a class of component-unordered-list if type is unrecognised', function() {
-    var ListInstance = TestUtils.renderIntoDocument(
-      <List type="gibberish"/>
-    );
-
-    var renderedList = TestUtils.findRenderedDOMComponentWithClass(ListInstance, 'component-unordered-list');
-    assert.equal(renderedList.nodeName, 'UL');
-  });
-
-});
+    const renderedList = TestUtils.findRenderedDOMComponentWithClass(ListInstance, 'component-unordered-list')
+    assert.equal(renderedList.nodeName, 'UL')
+  })
+})

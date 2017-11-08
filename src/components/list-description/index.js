@@ -1,2 +1,3 @@
-'use strict';
-module.exports = require('./list-description.jsx');
+'use strict'
+
+module.exports = require('./list-description.jsx')

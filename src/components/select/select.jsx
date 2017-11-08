@@ -1,53 +1,55 @@
-'use strict';
-var React = require('react');
-var DataAttributesMixin = require('react-data-attributes-mixin');
+'use strict'
+
+const React = require('react')
+const DataAttributesMixin = require('react-data-attributes-mixin')
+const PropTypes = require('prop-types')
 
 module.exports = React.createClass({
 
   mixins: [DataAttributesMixin],
 
   propTypes: {
-    label: React.PropTypes.string,
-    name: React.PropTypes.string,
-    id: React.PropTypes.string,
-    children: React.PropTypes.array,
-    handleChange: React.PropTypes.func,
-    data: React.PropTypes.object,
-    multiple: React.PropTypes.bool
+    label: PropTypes.string,
+    name: PropTypes.string,
+    id: PropTypes.string,
+    children: PropTypes.array,
+    handleChange: PropTypes.func,
+    data: PropTypes.object,
+    multiple: PropTypes.bool
   },
 
-  getDefaultProps: function() {
+  getDefaultProps: function () {
     return {
       id: 'component-select',
       name: 'component-select',
       multiple: false
-    };
-  },
-
-  handleChange: function() {
-    if (this.props.handleChange) {
-      this.props.handleChange.apply(this, arguments);
     }
   },
 
-  render: function() {
-    var classes = 'component-select';
-    var dataAttributes = this.getDataAttributesFromProps();
+  handleChange: function () {
+    if (this.props.handleChange) {
+      this.props.handleChange.apply(this, arguments)
+    }
+  },
 
-    var label;
+  render: function () {
+    let classes = 'component-select'
+    const dataAttributes = this.getDataAttributesFromProps()
+
+    let label
     if (this.props.label) {
-      label = ( <label className="component-select-label" htmlFor={this.props.id}>{this.props.label}</label > );
+      label = (<label className='component-select-label' htmlFor={this.props.id}>{this.props.label}</label >)
     }
 
     if (this.props.multiple) {
-      classes += ' multiple';
+      classes += ' multiple'
     }
 
     return (
       <div className={classes}>
         {label}
         <select
-          className="component-select-field"
+          className='component-select-field'
           name={this.props.name}
           id={this.props.id}
           onChange={this.handleChange}
@@ -57,6 +59,6 @@ module.exports = React.createClass({
           {this.props.children}
         </select>
       </div>
-    );
+    )
   }
-});
+})

@@ -1,78 +1,70 @@
-'use strict';
-var React = require('react');
-var TestUtils = require('react-addons-test-utils');
-var assert = require('chai').assert;
-var FlagComponent = require('../../src/components/flag/flag.jsx');
+'use strict'
+const React = require('react')
+const TestUtils = require('react-addons-test-utils')
+const assert = require('chai').assert
+const FlagComponent = require('../../src/components/flag/flag.jsx')
 
-describe('FlagComponent', function() {
-
-  it('should render a Flag', function() {
-    var flag = TestUtils.renderIntoDocument(
+describe('FlagComponent', function () {
+  it('should render a Flag', function () {
+    const flag = TestUtils.renderIntoDocument(
       <FlagComponent>Special Offer</FlagComponent>
-    );
+    )
 
-    var renderedFlag = TestUtils.findRenderedDOMComponentWithClass(flag, 'component-flag');
-    assert.equal(renderedFlag.textContent, 'Special Offer');
+    const renderedFlag = TestUtils.findRenderedDOMComponentWithClass(flag, 'component-flag')
+    assert.equal(renderedFlag.textContent, 'Special Offer')
+  })
 
-  });
+  it('should render a default flag', function () {
+    const defaultFlag = TestUtils.renderIntoDocument(
+      <FlagComponent size='default'>Special Offer</FlagComponent>
+    )
 
-  it('should render a default flag', function() {
-    var defaultFlag = TestUtils.renderIntoDocument(
-      <FlagComponent size="default">Special Offer</FlagComponent>
-    );
+    const renderedFlag = TestUtils.findRenderedDOMComponentWithClass(defaultFlag, 'default')
+    assert.isDefined(renderedFlag)
+  })
 
-    var renderedFlag = TestUtils.findRenderedDOMComponentWithClass(defaultFlag, 'default');
-    assert.isDefined(renderedFlag);
+  it('should render a danger flag', function () {
+    const dangerFlag = TestUtils.renderIntoDocument(
+      <FlagComponent purpose='danger'>Special Offer</FlagComponent>
+    )
 
-  });
+    const renderedFlag = TestUtils.findRenderedDOMComponentWithClass(dangerFlag, 'danger')
+    assert.isDefined(renderedFlag)
+  })
 
-  it('should render a danger flag', function() {
-    var dangerFlag = TestUtils.renderIntoDocument(
-      <FlagComponent purpose="danger">Special Offer</FlagComponent>
-    );
+  it('should render a medium flag', function () {
+    const mediumFlag = TestUtils.renderIntoDocument(
+      <FlagComponent size='medium'>Special Offer</FlagComponent>
+    )
 
-    var renderedFlag = TestUtils.findRenderedDOMComponentWithClass(dangerFlag, 'danger');
-    assert.isDefined(renderedFlag);
+    const renderedFlag = TestUtils.findRenderedDOMComponentWithClass(mediumFlag, 'medium')
+    assert.isDefined(renderedFlag)
+  })
 
-  });
+  it('should render a large flag', function () {
+    const largeFlag = TestUtils.renderIntoDocument(
+      <FlagComponent size='large'>Special Offer</FlagComponent>
+    )
 
-  it('should render a medium flag', function() {
-    var mediumFlag = TestUtils.renderIntoDocument(
-      <FlagComponent size="medium">Special Offer</FlagComponent>
-    );
+    const renderedFlag = TestUtils.findRenderedDOMComponentWithClass(largeFlag, 'large')
+    assert.isDefined(renderedFlag)
+  })
 
-    var renderedFlag = TestUtils.findRenderedDOMComponentWithClass(mediumFlag, 'medium');
-    assert.isDefined(renderedFlag);
+  it('should render a flag on the right', function () {
+    const rightFlag = TestUtils.renderIntoDocument(
+      <FlagComponent position='right'>Special Offer</FlagComponent>
+    )
 
-  });
+    const renderedFlag = TestUtils.findRenderedDOMComponentWithClass(rightFlag, 'right')
+    assert.isDefined(renderedFlag)
+  })
 
-  it('should render a large flag', function() {
-    var largeFlag = TestUtils.renderIntoDocument(
-      <FlagComponent size="large">Special Offer</FlagComponent>
-    );
+  it('should render a small secondary right flag', function () {
+    const smallSecondaryRightFlag = TestUtils.renderIntoDocument(
+      <FlagComponent size='small' purpose='secondary' position='right'>Book Now</FlagComponent>
+    )
 
-    var renderedFlag = TestUtils.findRenderedDOMComponentWithClass(largeFlag, 'large');
-    assert.isDefined(renderedFlag);
-
-  });
-
-  it('should render a flag on the right', function() {
-    var rightFlag = TestUtils.renderIntoDocument(
-      <FlagComponent position="right">Special Offer</FlagComponent>
-    );
-
-    var renderedFlag = TestUtils.findRenderedDOMComponentWithClass(rightFlag, 'right');
-    assert.isDefined(renderedFlag);
-
-  });
-
-  it('should render a small secondary right flag', function() {
-    var smallSecondaryRightFlag = TestUtils.renderIntoDocument(
-      <FlagComponent size="small" purpose="secondary" position="right">Book Now</FlagComponent>
-    );
-
-    var renderedFlag = TestUtils.findRenderedDOMComponentWithClass(smallSecondaryRightFlag, 'small secondary right');
-    assert.isDefined(renderedFlag);
-
-  });
-});
+    const renderedFlag = TestUtils.findRenderedDOMComponentWithClass(smallSecondaryRightFlag, 'small secondary right')
+    assert.isDefined(renderedFlag)
+  })
+})

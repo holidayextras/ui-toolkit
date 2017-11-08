@@ -1,248 +1,234 @@
-'use strict';
-var React = require('react');
-var TestUtils = require('react-addons-test-utils');
-var assert = require('chai').assert;
+'use strict'
+const React = require('react')
+const TestUtils = require('react-addons-test-utils')
+const assert = require('chai').assert
 
-var WeatherComponent = require('../../src/components/weather/weather.jsx');
+const WeatherComponent = require('../../src/components/weather/weather.jsx')
 
-var type = null;
-var temperature = null;
+let type = null
+let temperature = null
 
-describe('WeatherComponent', function() {
-  type = 'sunny';
-  temperature = 20;
+describe('WeatherComponent', function () {
+  type = 'sunny'
+  temperature = 20
 
-  it('is an element', function() {
-    assert.ok(TestUtils.isElement(<WeatherComponent type={type} temperature={temperature} />));
-  });
+  it('is an element', function () {
+    assert.ok(TestUtils.isElement(<WeatherComponent type={type} temperature={temperature} />))
+  })
 
-  describe('Can accept all types of weather', function() {
+  describe('Can accept all types of weather', function () {
+    beforeEach(function () {
+      temperature = 20
+    })
 
-    beforeEach(function() {
-      temperature = 20;
-    });
+    it('is cloudy', function () {
+      type = 'cloudy'
 
-    it('is cloudy', function() {
-      type = 'cloudy';
-
-      var weatherType = TestUtils.renderIntoDocument(
+      const weatherType = TestUtils.renderIntoDocument(
         <WeatherComponent type={type} temperature={temperature} />
-      );
+      )
 
-      var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1];
-      assert.equal(renderedWeather.textContent, 'cloudy');
-    });
+      const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1]
+      assert.equal(renderedWeather.textContent, 'cloudy')
+    })
 
-    it('is foggy', function() {
-      type = 'fog';
+    it('is foggy', function () {
+      type = 'fog'
 
-      var weatherType = TestUtils.renderIntoDocument(
+      const weatherType = TestUtils.renderIntoDocument(
         <WeatherComponent type={type} temperature={temperature} />
-      );
+      )
 
-      var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1];
-      assert.equal(renderedWeather.textContent, 'fog');
-    });
+      const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1]
+      assert.equal(renderedWeather.textContent, 'fog')
+    })
 
-    it('is hailing', function() {
-      type = 'hail';
+    it('is hailing', function () {
+      type = 'hail'
 
-      var weatherType = TestUtils.renderIntoDocument(
+      const weatherType = TestUtils.renderIntoDocument(
         <WeatherComponent type={type} temperature={temperature} />
-      );
+      )
 
-      var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1];
-      assert.equal(renderedWeather.textContent, 'hail');
-    });
+      const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1]
+      assert.equal(renderedWeather.textContent, 'hail')
+    })
 
-    it('is raining heavily', function() {
-      type = 'heavy-rain';
+    it('is raining heavily', function () {
+      type = 'heavy-rain'
 
-      var weatherType = TestUtils.renderIntoDocument(
+      const weatherType = TestUtils.renderIntoDocument(
         <WeatherComponent type={type} temperature={temperature} />
-      );
+      )
 
-      var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1];
-      assert.equal(renderedWeather.textContent, 'heavy-rain');
-    });
+      const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1]
+      assert.equal(renderedWeather.textContent, 'heavy-rain')
+    })
 
-    it('is snowing heavily', function() {
-      type = 'heavy-snow';
+    it('is snowing heavily', function () {
+      type = 'heavy-snow'
 
-      var weatherType = TestUtils.renderIntoDocument(
+      const weatherType = TestUtils.renderIntoDocument(
         <WeatherComponent type={type} temperature={temperature} />
-      );
+      )
 
-      var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1];
-      assert.equal(renderedWeather.textContent, 'heavy-snow');
-    });
+      const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1]
+      assert.equal(renderedWeather.textContent, 'heavy-snow')
+    })
 
-    it('is raining lightly', function() {
-      type = 'light-rain';
+    it('is raining lightly', function () {
+      type = 'light-rain'
 
-      var weatherType = TestUtils.renderIntoDocument(
+      const weatherType = TestUtils.renderIntoDocument(
         <WeatherComponent type={type} temperature={temperature} />
-      );
+      )
 
-      var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1];
-      assert.equal(renderedWeather.textContent, 'light-rain');
-    });
+      const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1]
+      assert.equal(renderedWeather.textContent, 'light-rain')
+    })
 
-    it('is snowing lightly', function() {
-      type = 'light-snow';
+    it('is snowing lightly', function () {
+      type = 'light-snow'
 
-      var weatherType = TestUtils.renderIntoDocument(
+      const weatherType = TestUtils.renderIntoDocument(
         <WeatherComponent type={type} temperature={temperature} />
-      );
+      )
 
-      var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1];
-      assert.equal(renderedWeather.textContent, 'light-snow');
-    });
+      const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1]
+      assert.equal(renderedWeather.textContent, 'light-snow')
+    })
 
-    it('is a clear night', function() {
-      type = 'night-clear';
+    it('is a clear night', function () {
+      type = 'night-clear'
 
-      var weatherType = TestUtils.renderIntoDocument(
+      const weatherType = TestUtils.renderIntoDocument(
         <WeatherComponent type={type} temperature={temperature} />
-      );
+      )
 
-      var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1];
-      assert.equal(renderedWeather.textContent, 'night-clear');
-    });
+      const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1]
+      assert.equal(renderedWeather.textContent, 'night-clear')
+    })
 
-    it('is a partly cloudy night', function() {
-      type = 'night-partly-cloudy';
+    it('is a partly cloudy night', function () {
+      type = 'night-partly-cloudy'
 
-      var weatherType = TestUtils.renderIntoDocument(
+      const weatherType = TestUtils.renderIntoDocument(
         <WeatherComponent type={type} temperature={temperature} />
-      );
+      )
 
-      var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1];
-      assert.equal(renderedWeather.textContent, 'night-partly-cloudy');
-    });
+      const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1]
+      assert.equal(renderedWeather.textContent, 'night-partly-cloudy')
+    })
 
-    it('is partly cloudy', function() {
-      type = 'partly-cloudy';
+    it('is partly cloudy', function () {
+      type = 'partly-cloudy'
 
-      var weatherType = TestUtils.renderIntoDocument(
+      const weatherType = TestUtils.renderIntoDocument(
         <WeatherComponent type={type} temperature={temperature} />
-      );
+      )
 
-      var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1];
-      assert.equal(renderedWeather.textContent, 'partly-cloudy');
-    });
+      const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1]
+      assert.equal(renderedWeather.textContent, 'partly-cloudy')
+    })
 
-    it('is stormy', function() {
-      type = 'storm';
+    it('is stormy', function () {
+      type = 'storm'
 
-      var weatherType = TestUtils.renderIntoDocument(
+      const weatherType = TestUtils.renderIntoDocument(
         <WeatherComponent type={type} temperature={temperature} />
-      );
+      )
 
-      var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1];
-      assert.equal(renderedWeather.textContent, 'storm');
-    });
+      const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1]
+      assert.equal(renderedWeather.textContent, 'storm')
+    })
 
-    it('is sunny', function() {
-      type = 'sunny';
+    it('is sunny', function () {
+      type = 'sunny'
 
-      var weatherType = TestUtils.renderIntoDocument(
+      const weatherType = TestUtils.renderIntoDocument(
         <WeatherComponent type={type} temperature={temperature} />
-      );
+      )
 
-      var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1];
-      assert.equal(renderedWeather.textContent, 'sunny');
-    });
-  });
-  describe('dates', function() {
+      const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherType, 'div')[1]
+      assert.equal(renderedWeather.textContent, 'sunny')
+    })
+  })
+  describe('dates', function () {
+    beforeEach(function () {
+      type = 'sunny'
+    })
 
-    beforeEach(function() {
-      type = 'sunny';
-    });
+    describe('is a perfectly valid date', function () {
+      it('displays date in full day of week format', function () {
+        const weatherDate = TestUtils.renderIntoDocument(
+          <WeatherComponent type={type} date='2017-07-27' format='dddd' />
+        )
 
-    describe('is a perfectly valid date', function() {
-      it('displays date in full day of week format', function() {
+        const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherDate, 'div')[2]
+        assert.equal(renderedWeather.textContent, 'Thursday')
+      })
+    })
 
-        var weatherDate = TestUtils.renderIntoDocument(
-          <WeatherComponent type={type} date="2017-07-27" format="dddd" />
-        );
+    describe('is an invalid date', function () {
+      it('fails to display date instead throws invalid date error', function () {
+        const weatherDate = TestUtils.renderIntoDocument(
+          <WeatherComponent type={type} date='20027-07-2017' format='dddd' />
+        )
 
-        var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherDate, 'div')[2];
-        assert.equal(renderedWeather.textContent, 'Thursday');
+        const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherDate, 'div')[2]
+        assert.equal(renderedWeather.textContent, 'Invalid date')
+      })
+    })
+  })
+  describe('valid temperature', function () {
+    beforeEach(function () {
+      temperature = 20
+      type = 'sunny'
+    })
 
-      });
-    });
+    it('displays temperature in Celsius', function () {
+      const weatherTemp = TestUtils.renderIntoDocument(
+        <WeatherComponent type={type} temperature={temperature} unit='C' />
+      )
 
-    describe('is an invalid date', function() {
-      it('fails to display date instead throws invalid date error', function() {
+      const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherTemp, 'div')[2]
+      assert.equal(renderedWeather.textContent, '20°C')
+    })
 
-        var weatherDate = TestUtils.renderIntoDocument(
-          <WeatherComponent type={type} date="20027-07-2017" format="dddd" />
-        );
+    it('displays temperature in Fahrenheit', function () {
+      const weatherTemp = TestUtils.renderIntoDocument(
+        <WeatherComponent type={type} temperature={temperature} unit='F' />
+      )
 
-        var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherDate, 'div')[2];
-        assert.equal(renderedWeather.textContent, 'Invalid date');
+      const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherTemp, 'div')[2]
+      assert.equal(renderedWeather.textContent, '20°F')
+    })
 
-      });
-    });
-  });
-  describe('valid temperature', function() {
+    it('displays temperature in Rankine', function () {
+      const weatherTemp = TestUtils.renderIntoDocument(
+        <WeatherComponent type={type} temperature={temperature} unit='R' />
+      )
 
-    beforeEach(function() {
-      temperature = 20;
-      type = 'sunny';
-    });
+      const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherTemp, 'div')[2]
+      assert.equal(renderedWeather.textContent, '20°R')
+    })
 
-    it('displays temperature in Celsius', function() {
+    it('displays temperature in Kelvin', function () {
+      const weatherTemp = TestUtils.renderIntoDocument(
+        <WeatherComponent type={type} temperature={temperature} unit='K' />
+      )
 
-      var weatherTemp = TestUtils.renderIntoDocument(
-        <WeatherComponent type={type} temperature={temperature} unit="C"/>
-      );
+      const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherTemp, 'div')[2]
+      assert.equal(renderedWeather.textContent, '20K')
+    })
 
-      var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherTemp, 'div')[2];
-      assert.equal(renderedWeather.textContent, '20°C');
+    it('displays a temperature at 0', function () {
+      const weatherTemp = TestUtils.renderIntoDocument(
+        <WeatherComponent type={type} temperature={0} unit='C' />
+      )
 
-    });
-
-    it('displays temperature in Fahrenheit', function() {
-
-      var weatherTemp = TestUtils.renderIntoDocument(
-        <WeatherComponent type={type} temperature={temperature} unit="F"/>
-      );
-
-      var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherTemp, 'div')[2];
-      assert.equal(renderedWeather.textContent, '20°F');
-    });
-
-    it('displays temperature in Rankine', function() {
-
-      var weatherTemp = TestUtils.renderIntoDocument(
-        <WeatherComponent type={type} temperature={temperature} unit="R"/>
-      );
-
-      var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherTemp, 'div')[2];
-      assert.equal(renderedWeather.textContent, '20°R');
-    });
-
-    it('displays temperature in Kelvin', function() {
-
-      var weatherTemp = TestUtils.renderIntoDocument(
-        <WeatherComponent type={type} temperature={temperature} unit="K"/>
-      );
-
-      var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherTemp, 'div')[2];
-      assert.equal(renderedWeather.textContent, '20K');
-    });
-
-    it('displays a temperature at 0', function() {
-      var weatherTemp = TestUtils.renderIntoDocument(
-        <WeatherComponent type={type} temperature={0} unit="C"/>
-      );
-
-      var renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherTemp, 'div')[2];
-      assert.equal(renderedWeather.textContent, '0°C');
-    });
-
-  });
-
-});
+      const renderedWeather = TestUtils.scryRenderedDOMComponentsWithTag(weatherTemp, 'div')[2]
+      assert.equal(renderedWeather.textContent, '0°C')
+    })
+  })
+})

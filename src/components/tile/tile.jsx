@@ -1,27 +1,29 @@
-'use strict';
-var React = require('react');
-var Image = require('../image');
-var _ = {
+'use strict'
+
+const React = require('react')
+const PropTypes = require('prop-types')
+const Image = require('../image')
+const _ = {
   omit: require('lodash/omit')
-};
+}
 
 module.exports = React.createClass({
   propTypes: {
-    children: React.PropTypes.any,
-    image: React.PropTypes.object.isRequired
+    children: PropTypes.any,
+    image: PropTypes.object.isRequired
   },
 
-  render: function() {
-    var { image, children } = this.props;
-    var tileProps = _.omit(this.props, 'image', 'children');
+  render: function () {
+    const { image, children } = this.props
+    const tileProps = _.omit(this.props, 'image', 'children')
 
     return (
-      <div className="component-tile" {...tileProps}>
+      <div className='component-tile' {...tileProps}>
         <Image {...image} />
-        <div className="component-tile-block">
+        <div className='component-tile-block'>
           {children}
         </div>
       </div>
-    );
+    )
   }
-});
+})

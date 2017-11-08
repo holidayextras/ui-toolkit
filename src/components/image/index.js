@@ -1,2 +1,3 @@
-'use strict';
-module.exports = require('./image.jsx');
+'use strict'
+
+module.exports = require('./image.jsx')

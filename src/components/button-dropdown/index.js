@@ -1,2 +1,3 @@
-'use strict';
-module.exports = require('./button-dropdown.jsx');
+'use strict'
+
+module.exports = require('./button-dropdown.jsx')

@@ -1,17 +1,19 @@
-'use strict';
-var React = require('react');
+'use strict'
+
+const React = require('react')
+const PropTypes = require('prop-types')
 
 module.exports = React.createClass({
 
   propTypes: {
-    children: React.PropTypes.any
+    children: PropTypes.any
   },
 
-  render: function() {
+  render: function () {
     return (
-      <li className="component-list-item">
+      <li className='component-list-item'>
         {this.props.children}
       </li>
-    );
+    )
   }
-});
+})

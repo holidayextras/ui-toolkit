@@ -1,53 +1,52 @@
-'use strict';
-var React = require('react');
-var TestUtils = require('react-addons-test-utils');
-var assert = require('chai').assert;
-var TileComponent = require('../../src/components/tile/tile.jsx');
-var sinon = require('sinon');
+'use strict'
+const React = require('react')
+const TestUtils = require('react-addons-test-utils')
+const assert = require('chai').assert
+const TileComponent = require('../../src/components/tile/tile.jsx')
+const sinon = require('sinon')
 
-describe('TileComponent', function() {
+describe('TileComponent', function () {
+  let img
 
-  var img;
-
-  beforeEach(function() {
+  beforeEach(function () {
     img = {
       src: 'foo',
       alt: 'bar'
-    };
-  });
+    }
+  })
 
-  it('is an element', function() {
-    var component = TestUtils.renderIntoDocument(
+  it('is an element', function () {
+    const component = TestUtils.renderIntoDocument(
       <TileComponent image={img} />
-    );
+    )
 
-    assert.isDefined(component);
-  });
+    assert.isDefined(component)
+  })
 
-  it('should render an img', function() {
-    var tile = TestUtils.renderIntoDocument(
+  it('should render an img', function () {
+    const tile = TestUtils.renderIntoDocument(
       <TileComponent image={img}>bar</TileComponent>
-    );
-    var renderedImg = TestUtils.scryRenderedDOMComponentsWithTag(tile, 'img');
-    assert.equal(renderedImg.length, 1);
-  });
+    )
+    const renderedImg = TestUtils.scryRenderedDOMComponentsWithTag(tile, 'img')
+    assert.equal(renderedImg.length, 1)
+  })
 
-  it('should render a tile-block', function() {
-    var tile = TestUtils.renderIntoDocument(
+  it('should render a tile-block', function () {
+    const tile = TestUtils.renderIntoDocument(
       <TileComponent image={img}>bar</TileComponent>
-    );
-    var renderedTile = TestUtils.findRenderedDOMComponentWithClass(tile, 'component-tile-block');
-    assert.isDefined(renderedTile);
-  });
+    )
+    const renderedTile = TestUtils.findRenderedDOMComponentWithClass(tile, 'component-tile-block')
+    assert.isDefined(renderedTile)
+  })
 
-  it('should render any extra props passed to it on the containing div', function() {
-    var onClickHandler = sinon.stub();
-    var tile = TestUtils.renderIntoDocument(
-      <TileComponent image={img} title="foo" onClick={onClickHandler}/>
-    );
-    var renderedTile = TestUtils.findRenderedDOMComponentWithClass(tile, 'component-tile');
-    TestUtils.Simulate.click(renderedTile);
+  it('should render any extra props passed to it on the containing div', function () {
+    const onClickHandler = sinon.stub()
+    const tile = TestUtils.renderIntoDocument(
+      <TileComponent image={img} title='foo' onClick={onClickHandler} />
+    )
+    const renderedTile = TestUtils.findRenderedDOMComponentWithClass(tile, 'component-tile')
+    TestUtils.Simulate.click(renderedTile)
 
-    assert(onClickHandler.called);
-  });
-});
+    assert(onClickHandler.called)
+  })
+})

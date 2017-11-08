@@ -1,2 +1,3 @@
-'use strict';
-module.exports = require('./countdown.jsx');
+'use strict'
+
+module.exports = require('./countdown.jsx')

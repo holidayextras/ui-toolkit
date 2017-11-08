@@ -1,2 +1,3 @@
-'use strict';
-module.exports = require('./select.jsx');
+'use strict'
+
+module.exports = require('./select.jsx')

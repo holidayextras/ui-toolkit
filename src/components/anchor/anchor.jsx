@@ -1,37 +1,39 @@
-'use strict';
-var React = require('react');
-var DataAttributesMixin = require('react-data-attributes-mixin');
+'use strict'
+
+const React = require('react')
+const DataAttributesMixin = require('react-data-attributes-mixin')
+const PropTypes = require('prop-types')
 
 module.exports = React.createClass({
 
   mixins: [DataAttributesMixin],
 
-  getDefaultProps: function() {
+  getDefaultProps: function () {
     return {
       href: '#',
       role: 'link'
-    };
+    }
   },
 
   propTypes: {
-    handleClick: React.PropTypes.func,
-    children: React.PropTypes.node,
-    data: React.PropTypes.object,
-    href: React.PropTypes.string,
-    target: React.PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
-    title: React.PropTypes.string,
-    role: React.PropTypes.string
+    handleClick: PropTypes.func,
+    children: PropTypes.node,
+    data: PropTypes.object,
+    href: PropTypes.string,
+    target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
+    title: PropTypes.string,
+    role: PropTypes.string
   },
 
-  render: function() {
+  render: function () {
     if (!this.props.children) {
-      return null;
+      return null
     }
-    var dataAttributes = this.getDataAttributesFromProps();
+    const dataAttributes = this.getDataAttributesFromProps()
     return (
-      <a className="component-anchor" {...dataAttributes} title={this.props.title} role={this.props.role} href={this.props.href} onClick={this.props.handleClick} target={this.props.target}>
+      <a className='component-anchor' {...dataAttributes} title={this.props.title} role={this.props.role} href={this.props.href} onClick={this.props.handleClick} target={this.props.target}>
         {this.props.children}
       </a>
-    );
+    )
   }
-});
+})
