@@ -1,5 +1,8 @@
 # Changelog
 
+### 3.1.1 - 2017-11-08
+- Fix build error where countdown component libs weren't transpiled
+
 ### 3.1.0 - 2017-11-07
 - Use standard for linting
 - Use const & let

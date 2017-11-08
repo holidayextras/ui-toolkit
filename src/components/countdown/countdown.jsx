@@ -1,7 +1,7 @@
 'use strict'
 
 const React = require('react')
-const CountdownManager = require('../../../src/components/countdown/lib/countdownManager')
+const CountdownManager = require('./lib/countdownManager')
 const classNames = require('classnames')
 const PropTypes = require('prop-types')
 
