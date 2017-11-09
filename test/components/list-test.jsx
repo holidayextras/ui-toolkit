@@ -3,6 +3,7 @@ const React = require('react/addons')
 const TestUtils = React.addons.TestUtils
 const assert = require('chai').assert
 const List = require('../../src/components/list/list.jsx')
+const Wrapper = require('../helpers/wrapper')
 
 describe('ListComponent ', function () {
   it('is an element', function () {
@@ -11,7 +12,9 @@ describe('ListComponent ', function () {
 
   it('should render an unordered list with a class of component-unordered-list', function () {
     const ListInstance = TestUtils.renderIntoDocument(
-      <List type='unordered' />
+      <Wrapper>
+        <List type='unordered' />
+      </Wrapper>
     )
 
     const renderedList = TestUtils.findRenderedDOMComponentWithClass(ListInstance, 'component-unordered-list')
@@ -20,7 +23,9 @@ describe('ListComponent ', function () {
 
   it('should render an ordered list with a class of component-ordered-list', function () {
     const ListInstance = TestUtils.renderIntoDocument(
-      <List type='ordered' />
+      <Wrapper>
+        <List type='ordered' />
+      </Wrapper>
     )
 
     const renderedList = TestUtils.findRenderedDOMComponentWithClass(ListInstance, 'component-ordered-list')
@@ -29,7 +34,9 @@ describe('ListComponent ', function () {
 
   it('should render an description list with a class of component-description-list', function () {
     const ListInstance = TestUtils.renderIntoDocument(
-      <List type='description' />
+      <Wrapper>
+        <List type='description' />
+      </Wrapper>
     )
 
     const renderedList = TestUtils.findRenderedDOMComponentWithClass(ListInstance, 'component-description-list')
@@ -38,7 +45,9 @@ describe('ListComponent ', function () {
 
   it('should render an icon list with a class of component-icon-list', function () {
     const ListInstance = TestUtils.renderIntoDocument(
-      <List type='icon' />
+      <Wrapper>
+        <List type='icon' />
+      </Wrapper>
     )
 
     const renderedList = TestUtils.findRenderedDOMComponentWithClass(ListInstance, 'component-icon-list')
@@ -47,7 +56,9 @@ describe('ListComponent ', function () {
 
   it('should render an unordered list with a class of component-unordered-list if type is undefined', function () {
     const ListInstance = TestUtils.renderIntoDocument(
-      <List />
+      <Wrapper>
+        <List />
+      </Wrapper>
     )
 
     const renderedList = TestUtils.findRenderedDOMComponentWithClass(ListInstance, 'component-unordered-list')
@@ -56,7 +67,9 @@ describe('ListComponent ', function () {
 
   it('should render an unordered list with a class of component-unordered-list if type is unrecognised', function () {
     const ListInstance = TestUtils.renderIntoDocument(
-      <List type='gibberish' />
+      <Wrapper>
+        <List type='gibberish' />
+      </Wrapper>
     )
 
     const renderedList = TestUtils.findRenderedDOMComponentWithClass(ListInstance, 'component-unordered-list')

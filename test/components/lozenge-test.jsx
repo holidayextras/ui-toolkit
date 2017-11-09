@@ -1,27 +1,41 @@
 'use strict'
+
 const React = require('react')
 const TestUtils = require('react-addons-test-utils')
 const assert = require('chai').assert
 const Lozenge = require('../../src/components/lozenge/lozenge.jsx')
+const Wrapper = require('../helpers/wrapper')
 
 describe('Lozenge', function () {
   it('is an element', function () {
-    assert.ok(TestUtils.isElement(<Lozenge />))
+    assert.ok(TestUtils.isElement(<Wrapper><Lozenge /></Wrapper>))
   })
 
   it('renders a span', function () {
-    const instance = TestUtils.renderIntoDocument(<Lozenge tip='foo'>bar</Lozenge>)
+    const instance = TestUtils.renderIntoDocument(
+      <Wrapper>
+        <Lozenge tip='foo'>bar</Lozenge>
+      </Wrapper>
+    )
     assert.ok(TestUtils.findRenderedDOMComponentWithTag(instance, 'span'))
   })
 
   it('renders the children', function () {
-    const rendered = TestUtils.renderIntoDocument(<Lozenge tip='foo'>bar</Lozenge>)
+    const rendered = TestUtils.renderIntoDocument(
+      <Wrapper>
+        <Lozenge tip='foo'>bar</Lozenge>
+      </Wrapper>
+    )
     assert.equal(TestUtils.findRenderedDOMComponentWithTag(rendered, 'span').innerHTML, 'bar')
   })
 
   describe('with tip', function () {
     beforeEach(function () {
-      this.instance = TestUtils.renderIntoDocument(<Lozenge tip='foo'>bar</Lozenge>)
+      this.instance = TestUtils.renderIntoDocument(
+        <Wrapper>
+          <Lozenge tip='foo'>bar</Lozenge>
+        </Wrapper>
+      )
     })
 
     it('sets the tip as the title', function () {
@@ -32,7 +46,11 @@ describe('Lozenge', function () {
 
   describe('without tip', function () {
     beforeEach(function () {
-      this.instance = TestUtils.renderIntoDocument(<Lozenge>bar</Lozenge>)
+      this.instance = TestUtils.renderIntoDocument(
+        <Wrapper>
+          <Lozenge>bar</Lozenge>
+        </Wrapper>
+      )
     })
 
     it('should not set a tip as the title', function () {
@@ -44,7 +62,11 @@ describe('Lozenge', function () {
   describe('with purpose attribute', function () {
     describe('primary', function () {
       beforeEach(function () {
-        this.instance = TestUtils.renderIntoDocument(<Lozenge purpose='primary'>foo</Lozenge>)
+        this.instance = TestUtils.renderIntoDocument(
+          <Wrapper>
+            <Lozenge purpose='primary'>foo</Lozenge>
+          </Wrapper>
+        )
       })
 
       it('renders primary class', function () {
@@ -54,7 +76,11 @@ describe('Lozenge', function () {
 
     describe('success', function () {
       beforeEach(function () {
-        this.instance = TestUtils.renderIntoDocument(<Lozenge purpose='success'>foo</Lozenge>)
+        this.instance = TestUtils.renderIntoDocument(
+          <Wrapper>
+            <Lozenge purpose='success'>foo</Lozenge>
+          </Wrapper>
+        )
       })
 
       it('renders success class', function () {
@@ -64,7 +90,11 @@ describe('Lozenge', function () {
 
     describe('info', function () {
       beforeEach(function () {
-        this.instance = TestUtils.renderIntoDocument(<Lozenge purpose='info'>foo</Lozenge>)
+        this.instance = TestUtils.renderIntoDocument(
+          <Wrapper>
+            <Lozenge purpose='info'>foo</Lozenge>
+          </Wrapper>
+        )
       })
 
       it('renders info class', function () {
@@ -74,7 +104,11 @@ describe('Lozenge', function () {
 
     describe('warning', function () {
       beforeEach(function () {
-        this.instance = TestUtils.renderIntoDocument(<Lozenge purpose='warning'>foo</Lozenge>)
+        this.instance = TestUtils.renderIntoDocument(
+          <Wrapper>
+            <Lozenge purpose='warning'>foo</Lozenge>
+          </Wrapper>
+        )
       })
 
       it('renders warning class', function () {
@@ -84,7 +118,11 @@ describe('Lozenge', function () {
 
     describe('danger', function () {
       beforeEach(function () {
-        this.instance = TestUtils.renderIntoDocument(<Lozenge purpose='danger'>foo</Lozenge>)
+        this.instance = TestUtils.renderIntoDocument(
+          <Wrapper>
+            <Lozenge purpose='danger'>foo</Lozenge>
+          </Wrapper>
+        )
       })
 
       it('renders danger class', function () {
@@ -95,7 +133,11 @@ describe('Lozenge', function () {
   describe('with size attribute', function () {
     describe('small', function () {
       beforeEach(function () {
-        this.instance = TestUtils.renderIntoDocument(<Lozenge size='small'>foo</Lozenge>)
+        this.instance = TestUtils.renderIntoDocument(
+          <Wrapper>
+            <Lozenge size='small'>foo</Lozenge>
+          </Wrapper>
+        )
       })
 
       it('renders small class', function () {
@@ -104,7 +146,11 @@ describe('Lozenge', function () {
     })
     describe('medium', function () {
       beforeEach(function () {
-        this.instance = TestUtils.renderIntoDocument(<Lozenge size='medium'>foo</Lozenge>)
+        this.instance = TestUtils.renderIntoDocument(
+          <Wrapper>
+            <Lozenge size='medium'>foo</Lozenge>
+          </Wrapper>
+        )
       })
 
       it('renders medium class', function () {
@@ -113,7 +159,11 @@ describe('Lozenge', function () {
     })
     describe('large', function () {
       beforeEach(function () {
-        this.instance = TestUtils.renderIntoDocument(<Lozenge size='large'>foo</Lozenge>)
+        this.instance = TestUtils.renderIntoDocument(
+          <Wrapper>
+            <Lozenge size='large'>foo</Lozenge>
+          </Wrapper>
+        )
       })
 
       it('renders large class', function () {
@@ -122,7 +172,11 @@ describe('Lozenge', function () {
     })
     describe('extra-large', function () {
       beforeEach(function () {
-        this.instance = TestUtils.renderIntoDocument(<Lozenge size='extra-large'>foo</Lozenge>)
+        this.instance = TestUtils.renderIntoDocument(
+          <Wrapper>
+            <Lozenge size='extra-large'>foo</Lozenge>
+          </Wrapper>
+        )
       })
 
       it('renders extra-large class', function () {
@@ -131,7 +185,11 @@ describe('Lozenge', function () {
     })
     describe('block', function () {
       beforeEach(function () {
-        this.instance = TestUtils.renderIntoDocument(<Lozenge size='block'>foo</Lozenge>)
+        this.instance = TestUtils.renderIntoDocument(
+          <Wrapper>
+            <Lozenge size='block'>foo</Lozenge>
+          </Wrapper>
+        )
       })
 
       it('renders block class', function () {

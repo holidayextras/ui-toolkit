@@ -1,14 +1,18 @@
 'use strict'
+
 const React = require('react')
 const TestUtils = require('react-addons-test-utils')
 const assert = require('chai').assert
 const PaymentCardView = require('../../src/components/payment-card/payment-card.jsx')
 const sinon = require('sinon')
+const Wrapper = require('../helpers/wrapper')
 
 describe('PaymentCardComponent', function () {
   it('should render an Amazon card', function () {
     const amazonPaymentCard = TestUtils.renderIntoDocument(
-      <PaymentCardView type='amazon' />
+      <Wrapper>
+        <PaymentCardView type='amazon' />
+      </Wrapper>
     )
 
     const renderedAmazon = TestUtils.findRenderedDOMComponentWithClass(amazonPaymentCard, 'amazon')
@@ -17,7 +21,9 @@ describe('PaymentCardComponent', function () {
 
   it('should render an Amex card', function () {
     const amexPaymentCard = TestUtils.renderIntoDocument(
-      <PaymentCardView type='amex' />
+      <Wrapper>
+        <PaymentCardView type='amex' />
+      </Wrapper>
     )
 
     const renderedAmex = TestUtils.findRenderedDOMComponentWithClass(amexPaymentCard, 'amex')
@@ -26,7 +32,9 @@ describe('PaymentCardComponent', function () {
 
   it('should render an Apple card', function () {
     const applePaymentCard = TestUtils.renderIntoDocument(
-      <PaymentCardView type='apple' />
+      <Wrapper>
+        <PaymentCardView type='apple' />
+      </Wrapper>
     )
 
     const renderedApple = TestUtils.findRenderedDOMComponentWithClass(applePaymentCard, 'apple')
@@ -35,7 +43,9 @@ describe('PaymentCardComponent', function () {
 
   it('should render an Cirrus card', function () {
     const cirrusPaymentCard = TestUtils.renderIntoDocument(
-      <PaymentCardView type='cirrus' />
+      <Wrapper>
+        <PaymentCardView type='cirrus' />
+      </Wrapper>
     )
 
     const renderedCirrus = TestUtils.findRenderedDOMComponentWithClass(cirrusPaymentCard, 'cirrus')
@@ -44,7 +54,9 @@ describe('PaymentCardComponent', function () {
 
   it('should render an Delta card', function () {
     const deltaPaymentCard = TestUtils.renderIntoDocument(
-      <PaymentCardView type='delta' />
+      <Wrapper>
+        <PaymentCardView type='delta' />
+      </Wrapper>
     )
 
     const renderedDelta = TestUtils.findRenderedDOMComponentWithClass(deltaPaymentCard, 'delta')
@@ -53,7 +65,9 @@ describe('PaymentCardComponent', function () {
 
   it('should render an Direct Debit card', function () {
     const directDebitPaymentCard = TestUtils.renderIntoDocument(
-      <PaymentCardView type='directdebit' />
+      <Wrapper>
+        <PaymentCardView type='directdebit' />
+      </Wrapper>
     )
 
     const renderedDirectDebit = TestUtils.findRenderedDOMComponentWithClass(directDebitPaymentCard, 'directdebit')
@@ -62,7 +76,9 @@ describe('PaymentCardComponent', function () {
 
   it('should render an Discover card', function () {
     const discoverPaymentCard = TestUtils.renderIntoDocument(
-      <PaymentCardView type='discover' />
+      <Wrapper>
+        <PaymentCardView type='discover' />
+      </Wrapper>
     )
 
     const renderedDiscover = TestUtils.findRenderedDOMComponentWithClass(discoverPaymentCard, 'discover')
@@ -71,7 +87,9 @@ describe('PaymentCardComponent', function () {
 
   it('should render an Electron card', function () {
     const electronPaymentCard = TestUtils.renderIntoDocument(
-      <PaymentCardView type='electron' />
+      <Wrapper>
+        <PaymentCardView type='electron' />
+      </Wrapper>
     )
 
     const renderedElectron = TestUtils.findRenderedDOMComponentWithClass(electronPaymentCard, 'electron')
@@ -80,7 +98,9 @@ describe('PaymentCardComponent', function () {
 
   it('should render an Google card', function () {
     const googlePaymentCard = TestUtils.renderIntoDocument(
-      <PaymentCardView type='google' />
+      <Wrapper>
+        <PaymentCardView type='google' />
+      </Wrapper>
     )
 
     const renderedGoogle = TestUtils.findRenderedDOMComponentWithClass(googlePaymentCard, 'google')
@@ -89,7 +109,9 @@ describe('PaymentCardComponent', function () {
 
   it('should render an Maestro card', function () {
     const maestroPaymentCard = TestUtils.renderIntoDocument(
-      <PaymentCardView type='maestro' />
+      <Wrapper>
+        <PaymentCardView type='maestro' />
+      </Wrapper>
     )
 
     const renderedMaestro = TestUtils.findRenderedDOMComponentWithClass(maestroPaymentCard, 'maestro')
@@ -98,7 +120,9 @@ describe('PaymentCardComponent', function () {
 
   it('should render an Mastercard card', function () {
     const mastercardPaymentCard = TestUtils.renderIntoDocument(
-      <PaymentCardView type='mastercard' />
+      <Wrapper>
+        <PaymentCardView type='mastercard' />
+      </Wrapper>
     )
 
     const renderedMastercard = TestUtils.findRenderedDOMComponentWithClass(mastercardPaymentCard, 'mastercard')
@@ -107,7 +131,9 @@ describe('PaymentCardComponent', function () {
 
   it('should render an Paym card', function () {
     const paymPaymentCard = TestUtils.renderIntoDocument(
-      <PaymentCardView type='paym' />
+      <Wrapper>
+        <PaymentCardView type='paym' />
+      </Wrapper>
     )
 
     const renderedPaym = TestUtils.findRenderedDOMComponentWithClass(paymPaymentCard, 'paym')
@@ -116,7 +142,9 @@ describe('PaymentCardComponent', function () {
 
   it('should render an Paypal card', function () {
     const paypalPaymentCard = TestUtils.renderIntoDocument(
-      <PaymentCardView type='paypal' />
+      <Wrapper>
+        <PaymentCardView type='paypal' />
+      </Wrapper>
     )
 
     const renderedPaypal = TestUtils.findRenderedDOMComponentWithClass(paypalPaymentCard, 'paypal')
@@ -125,7 +153,9 @@ describe('PaymentCardComponent', function () {
 
   it('should render an Sage card', function () {
     const sagePaymentCard = TestUtils.renderIntoDocument(
-      <PaymentCardView type='sage' />
+      <Wrapper>
+        <PaymentCardView type='sage' />
+      </Wrapper>
     )
 
     const renderedSage = TestUtils.findRenderedDOMComponentWithClass(sagePaymentCard, 'sage')
@@ -134,7 +164,9 @@ describe('PaymentCardComponent', function () {
 
   it('should render an Sepa card', function () {
     const sepaPaymentCard = TestUtils.renderIntoDocument(
-      <PaymentCardView type='sepa' />
+      <Wrapper>
+        <PaymentCardView type='sepa' />
+      </Wrapper>
     )
 
     const renderedSepa = TestUtils.findRenderedDOMComponentWithClass(sepaPaymentCard, 'sepa')
@@ -143,7 +175,9 @@ describe('PaymentCardComponent', function () {
 
   it('should render an Solo card', function () {
     const soloPaymentCard = TestUtils.renderIntoDocument(
-      <PaymentCardView type='solo' />
+      <Wrapper>
+        <PaymentCardView type='solo' />
+      </Wrapper>
     )
 
     const renderedSolo = TestUtils.findRenderedDOMComponentWithClass(soloPaymentCard, 'solo')
@@ -152,7 +186,9 @@ describe('PaymentCardComponent', function () {
 
   it('should render an Switch card', function () {
     const switchPaymentCard = TestUtils.renderIntoDocument(
-      <PaymentCardView type='switch' />
+      <Wrapper>
+        <PaymentCardView type='switch' />
+      </Wrapper>
     )
 
     const renderedSwitch = TestUtils.findRenderedDOMComponentWithClass(switchPaymentCard, 'switch')
@@ -161,7 +197,9 @@ describe('PaymentCardComponent', function () {
 
   it('should render an Ukash card', function () {
     const ukashPaymentCard = TestUtils.renderIntoDocument(
-      <PaymentCardView type='ukash' />
+      <Wrapper>
+        <PaymentCardView type='ukash' />
+      </Wrapper>
     )
 
     const renderedUkash = TestUtils.findRenderedDOMComponentWithClass(ukashPaymentCard, 'ukash')
@@ -170,7 +208,9 @@ describe('PaymentCardComponent', function () {
 
   it('should render an Visa card', function () {
     const visaPaymentCard = TestUtils.renderIntoDocument(
-      <PaymentCardView type='visa' />
+      <Wrapper>
+        <PaymentCardView type='visa' />
+      </Wrapper>
     )
 
     const renderedVisa = TestUtils.findRenderedDOMComponentWithClass(visaPaymentCard, 'visa')
@@ -179,7 +219,9 @@ describe('PaymentCardComponent', function () {
 
   it('should render an Visa Debit card', function () {
     const visadebitPaymentCard = TestUtils.renderIntoDocument(
-      <PaymentCardView type='visadebit' />
+      <Wrapper>
+        <PaymentCardView type='visadebit' />
+      </Wrapper>
     )
 
     const renderedVisaDebit = TestUtils.findRenderedDOMComponentWithClass(visadebitPaymentCard, 'visadebit')
@@ -188,7 +230,9 @@ describe('PaymentCardComponent', function () {
 
   it('should render an Western Union card', function () {
     const westernUnionPaymentCard = TestUtils.renderIntoDocument(
-      <PaymentCardView type='westernunion' />
+      <Wrapper>
+        <PaymentCardView type='westernunion' />
+      </Wrapper>
     )
 
     const renderedWesternUnion = TestUtils.findRenderedDOMComponentWithClass(westernUnionPaymentCard, 'westernunion')
@@ -201,7 +245,9 @@ describe('PaymentCardComponent', function () {
     beforeEach(function () {
       handler = sinon.stub()
       const card = TestUtils.renderIntoDocument(
-        <PaymentCardView onClick={handler} />
+        <Wrapper>
+          <PaymentCardView onClick={handler} />
+        </Wrapper>
       )
 
       const cardElement = TestUtils.findRenderedDOMComponentWithClass(card, 'component-payment-card')
@@ -215,7 +261,9 @@ describe('PaymentCardComponent', function () {
 
   it('should allow other attributes', function () {
     const card = TestUtils.renderIntoDocument(
-      <PaymentCardView id='foo' />
+      <Wrapper>
+        <PaymentCardView id='foo' />
+      </Wrapper>
     )
 
     const cardElement = TestUtils.findRenderedDOMComponentWithClass(card, 'component-payment-card')
