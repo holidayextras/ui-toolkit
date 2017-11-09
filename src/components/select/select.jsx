@@ -1,13 +1,10 @@
 'use strict'
 
 const React = require('react')
-const DataAttributesMixin = require('react-data-attributes-mixin')
 const PropTypes = require('prop-types')
+const { flatten } = require('../helpers')
 
 module.exports = React.createClass({
-
-  mixins: [DataAttributesMixin],
-
   propTypes: {
     label: PropTypes.string,
     name: PropTypes.string,
@@ -34,7 +31,7 @@ module.exports = React.createClass({
 
   render: function () {
     let classes = 'component-select'
-    const dataAttributes = this.getDataAttributesFromProps()
+    const dataAttributes = flatten(this.props.data)
 
     let label
     if (this.props.label) {

@@ -17,7 +17,7 @@ var Components = React.createClass({
             <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Anchor.jsx', 'utf8')} />
             <h4>Attributes</h4>
             <ul>
-              <li><code>data</code> Object - Where <code>keys</code> will be data attributes and <code>values</code> will be their values (uses <a href="https://github.com/holidayextras/react-data-attributes-mixin" alt="React Data Attributes Mixin">React Data Attributes Mixin</a>)</li>
+              <li><code>data</code> Object - Where <code>keys</code> will be data attributes and <code>values</code> will be their values</li>
               <li><code>handleClick</code> Function - handle click events on the anchor</li>
               <li><code>href</code> String - The location you want to anchor to</li>
               <li><code>target</code> String - This attribute specifies where to display the linked resource. Can be <code>_self</code>, <code>_blank</code>, <code>_parent</code> or <code>_top</code></li>
@@ -38,7 +38,7 @@ var Components = React.createClass({
             <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/ButtonBlock.jsx', 'utf8')} />
             <h4>Attributes</h4>
             <ul>
-              <li><code>data</code> Object - Where <code>keys</code> will be data attributes and <code>values</code> will be their values (uses <a href="https://github.com/holidayextras/react-data-attributes-mixin" alt="React Data Attributes Mixin">React Data Attributes Mixin</a>)</li>
+              <li><code>data</code> Object - Where <code>keys</code> will be data attributes and <code>values</code> will be their values</li>
               <li><code>disabled</code> Boolean - Determines the state of the button</li>
               <li><code>href</code> String - If an href is passed to a button, it changes to an anchor with button styling</li>
               <li><code>purpose</code> String - default, primary, secondary, success, info, warning, danger</li>
@@ -95,7 +95,7 @@ var Components = React.createClass({
               <li><code>src</code> String - Image src attribute</li>
               <li><code>href</code> String - an href that wraps the image in an anchor</li>
               <li><code>target</code> String (optional) - passed through to a wrapping anchor if href is provided. See the <a href="#anchor">Anchor</a> component for the set of valid values.</li>
-              <li><code>data</code> Object - Where <code>keys</code> will be data attributes and <code>values</code> will be their values (uses <a href="https://github.com/holidayextras/react-data-attributes-mixin" alt="React Data Attributes Mixin">React Data Attributes Mixin</a>)</li>
+              <li><code>data</code> Object - Where <code>keys</code> will be data attributes and <code>values</code> will be their values</li>
               <li><code>srcset</code> String - a comma separated list of images and their file size, perfect for responsive images</li>
               <li><code>sizes</code> String (optional) - A rough start size for your image. To be used in conjunction with srcset when implementing responsive images. Please note that this is an optimisation only and its default is set to <code>100vw</code></li>
             </ul>
@@ -107,7 +107,7 @@ var Components = React.createClass({
             <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Input.jsx', 'utf8')} />
             <h4>Attributes</h4>
             <ul>
-              <li><code>data</code> Object - Where <code>keys</code> will be data attributes and <code>values</code> will be their values (uses <a href="https://github.com/holidayextras/react-data-attributes-mixin" alt="React Data Attributes Mixin">React Data Attributes Mixin</a>)</li>
+              <li><code>data</code> Object - Where <code>keys</code> will be data attributes and <code>values</code> will be their values</li>
               <li><code>type</code> String - Type of Input Field can be <code>text</code>, <code>email</code>, <code>tel</code> or <code>number</code></li>
               <li><code>name</code> String - Optional Name for Input Field</li>
               <li><code>id</code> String - Optional ID for Input Field</li>
@@ -132,7 +132,7 @@ var Components = React.createClass({
               <li><code>id</code> String - Optional ID for Input Field</li>
               <li><code>label</code> String - Optional Label in front of Input Field</li>
               <li><code>handleChange</code> Function - Optional Function which is called onChange</li>
-              <li><code>data</code> Object - Where <code>keys</code> will be data attributes and <code>values</code> will be their values (uses <a href="https://github.com/holidayextras/react-data-attributes-mixin" alt="React Data Attributes Mixin">React Data Attributes Mixin</a>)</li>
+              <li><code>data</code> Object - Where <code>keys</code> will be data attributes and <code>values</code> will be their values</li>
               <li><code>name</code> String - Optional Boolean for multiple select</li>
             </ul>
           </article>

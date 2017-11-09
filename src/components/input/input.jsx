@@ -1,14 +1,11 @@
 'use strict'
 
 const React = require('react')
-const DataAttributesMixin = require('react-data-attributes-mixin')
 const classNames = require('classnames')
 const PropTypes = require('prop-types')
+const { flatten } = require('../helpers')
 
 module.exports = React.createClass({
-
-  mixins: [DataAttributesMixin],
-
   intent: null,
 
   propTypes: {
@@ -94,7 +91,7 @@ module.exports = React.createClass({
       'error': this.state.error || false,
       'disabled': this.props.disabled || false
     })
-    const dataAttributes = this.getDataAttributesFromProps()
+    const dataAttributes = flatten(this.props.data)
 
     // the form label
     let label

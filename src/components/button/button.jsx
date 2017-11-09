@@ -1,9 +1,9 @@
 'use strict'
 
 const React = require('react')
-const DataAttributesMixin = require('react-data-attributes-mixin')
 const classNames = require('classnames')
 const PropTypes = require('prop-types')
+const { flatten } = require('../helpers')
 
 const _ = {
   extend: require('lodash/extend'),
@@ -11,9 +11,6 @@ const _ = {
 }
 
 module.exports = React.createClass({
-
-  mixins: [DataAttributesMixin],
-
   propTypes: {
     children: PropTypes.any,
     purpose: PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
@@ -47,7 +44,7 @@ module.exports = React.createClass({
       props.onClick = props.handleClick
     }
 
-    return _.extend({}, props, this.getDataAttributesFromProps())
+    return _.extend({}, props, flatten(this.props.data))
   },
 
   render () {
