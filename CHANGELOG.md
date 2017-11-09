@@ -1,5 +1,8 @@
 # Changelog
 
+### 3.2.0 - 2017-11-09
+- Make components not using mixins or state functional
+
 ### 3.1.1 - 2017-11-08
 - Fix build error where countdown component libs weren't transpiled
 
