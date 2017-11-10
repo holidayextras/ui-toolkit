@@ -1,5 +1,9 @@
 # Changelog
 
+### 3.3.0 - 2017-11-10
+- Remove all use of mixins
+- Convert more components to es2015 classes or functional components
+
 ### 3.2.0 - 2017-11-09
 - Make components not using mixins or state functional
 

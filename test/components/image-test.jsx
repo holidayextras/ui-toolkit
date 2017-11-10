@@ -5,6 +5,7 @@ const TestUtils = require('react-addons-test-utils')
 const assert = require('chai').assert
 const ImageComponent = require('../../src/components/image/image.jsx')
 const sinon = require('sinon')
+const Wrapper = require('../helpers/wrapper')
 
 describe('ImageComponent', function () {
   let src = null
@@ -28,7 +29,7 @@ describe('ImageComponent', function () {
   })
 
   it('is an element', function () {
-    assert.ok(TestUtils.isElement(<ImageComponent src={src} alt={alt} />))
+    assert.ok(TestUtils.isElement(<Wrapper><ImageComponent src={src} alt={alt} /></Wrapper>))
   })
 
   describe('when an href is passed in', function () {
@@ -37,7 +38,9 @@ describe('ImageComponent', function () {
     beforeEach(function () {
       href = 'http://this.isa.link'
       imageInstance = TestUtils.renderIntoDocument(
-        <ImageComponent src={src} alt={alt} handleClick={handleClick} handleLoad={handleLoad} href={href} />
+        <Wrapper>
+          <ImageComponent src={src} alt={alt} handleClick={handleClick} handleLoad={handleLoad} href={href} />
+        </Wrapper>
       )
       renderedImage = TestUtils.findRenderedDOMComponentWithClass(imageInstance, 'component-image')
       anchorDOMNode = renderedImage
@@ -82,7 +85,9 @@ describe('ImageComponent', function () {
       const href = 'http://this.isa.link'
       const target = '_blank'
       imageInstance = TestUtils.renderIntoDocument(
-        <ImageComponent src={src} alt={alt} handleClick={handleClick} href={href} target={target} />
+        <Wrapper>
+          <ImageComponent src={src} alt={alt} handleClick={handleClick} href={href} target={target} />
+        </Wrapper>
       )
       renderedImage = TestUtils.findRenderedDOMComponentWithClass(imageInstance, 'component-image')
       imageDOMNode = renderedImage
@@ -96,7 +101,9 @@ describe('ImageComponent', function () {
   describe('when an href is not passed in', function () {
     beforeEach(function () {
       imageInstance = TestUtils.renderIntoDocument(
-        <ImageComponent src={src} alt={alt} handleClick={handleClick} handleLoad={handleLoad} sizes={sizes} srcSet={srcSet} />
+        <Wrapper>
+          <ImageComponent src={src} alt={alt} handleClick={handleClick} handleLoad={handleLoad} sizes={sizes} srcSet={srcSet} />
+        </Wrapper>
       )
       renderedImage = TestUtils.findRenderedDOMComponentWithClass(imageInstance, 'component-image')
       imageDOMNode = renderedImage

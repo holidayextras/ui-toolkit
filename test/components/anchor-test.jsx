@@ -4,6 +4,7 @@ const React = require('react')
 const TestUtils = require('react-addons-test-utils')
 const sinon = require('sinon')
 const assert = require('chai').assert
+const Wrapper = require('../helpers/wrapper')
 
 const Anchor = require('../../src/components/anchor/anchor.jsx')
 
@@ -19,7 +20,8 @@ describe('Anchor', function () {
   beforeEach(function () {
     data = {
       'foo': 'bar',
-      'x-y-z': 'zyx'
+      'x-y-z': 'zyx',
+      'mooCow': 'baa'
     }
     title = 'test'
     href = 'google.com'
@@ -27,7 +29,9 @@ describe('Anchor', function () {
     target = '_blank'
 
     instance = TestUtils.renderIntoDocument(
-      <Anchor data={data} title={title} href={href} handleClick={clickHandler} target={target} foo='bar'>test anchor</Anchor>
+      <Wrapper>
+        <Anchor data={data} title={title} href={href} handleClick={clickHandler} target={target} foo='bar'>test anchor</Anchor>
+      </Wrapper>
     )
 
     const renderedAnchor = TestUtils.findRenderedDOMComponentWithTag(instance, 'a')
@@ -47,6 +51,7 @@ describe('Anchor', function () {
       it('spreads them and prefixes with \'data\'', function () {
         assert.equal(anchorDomNode.getAttribute('data-foo'), 'bar')
         assert.equal(anchorDomNode.getAttribute('data-x-y-z'), 'zyx')
+        assert.equal(anchorDomNode.getAttribute('data-moo-cow'), 'baa')
       })
     })
 
@@ -74,7 +79,9 @@ describe('Anchor', function () {
   describe('without content', function () {
     beforeEach(function () {
       instance = TestUtils.renderIntoDocument(
-        <Anchor data={data} title={title} href={href} handleClick={clickHandler} />
+        <Wrapper>
+          <Anchor data={data} title={title} href={href} handleClick={clickHandler} />
+        </Wrapper>
       )
     })
     it('does not render', function () {
@@ -85,7 +92,9 @@ describe('Anchor', function () {
   describe('without a href', function () {
     beforeEach(function () {
       instance = TestUtils.renderIntoDocument(
-        <Anchor data={data} title={title} handleClick={clickHandler} >Content</Anchor>
+        <Wrapper>
+          <Anchor data={data} title={title} handleClick={clickHandler} >Content</Anchor>
+        </Wrapper>
       )
       const renderedAnchor = TestUtils.findRenderedDOMComponentWithTag(instance, 'a')
       anchorDomNode = renderedAnchor
