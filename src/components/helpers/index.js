@@ -1,12 +1,3 @@
-const _ = {
-  mapKeys: require('lodash/mapKeys'),
-  kebabCase: require('lodash/kebabCase')
-}
+'use strict'
 
-const flatten = (data) => {
-  return _.mapKeys(data, (value, key) => 'data-' + _.kebabCase(key))
-}
-
-module.exports = {
-  flatten
-}
+module.exports = require('./helpers.jsx')
