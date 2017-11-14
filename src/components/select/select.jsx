@@ -4,32 +4,19 @@ const React = require('react')
 const PropTypes = require('prop-types')
 const { flatten } = require('../helpers')
 
-module.exports = React.createClass({
-  propTypes: {
-    label: PropTypes.string,
-    name: PropTypes.string,
-    id: PropTypes.string,
-    children: PropTypes.array,
-    handleChange: PropTypes.func,
-    data: PropTypes.object,
-    multiple: PropTypes.bool
-  },
+class Select extends React.Component {
+  constructor (props) {
+    super(props)
+    this.handleChange = this.handleChange.bind(this)
+  }
 
-  getDefaultProps: function () {
-    return {
-      id: 'component-select',
-      name: 'component-select',
-      multiple: false
-    }
-  },
-
-  handleChange: function () {
+  handleChange () {
     if (this.props.handleChange) {
       this.props.handleChange.apply(this, arguments)
     }
-  },
+  }
 
-  render: function () {
+  render () {
     let classes = 'component-select'
     const dataAttributes = flatten(this.props.data)
 
@@ -44,18 +31,36 @@ module.exports = React.createClass({
 
     return (
       <div className={classes}>
-        {label}
+        { label }
         <select
           className='component-select-field'
           name={this.props.name}
           id={this.props.id}
           onChange={this.handleChange}
           multiple={this.props.multiple}
-          {...dataAttributes}
-          >
-          {this.props.children}
+          { ...dataAttributes }
+        >
+          { this.props.children }
         </select>
       </div>
     )
   }
-})
+}
+
+Select.propTypes = {
+  label: PropTypes.string,
+  name: PropTypes.string,
+  id: PropTypes.string,
+  children: PropTypes.array,
+  handleChange: PropTypes.func,
+  data: PropTypes.object,
+  multiple: PropTypes.bool
+}
+
+Select.defaultProps = {
+  id: 'component-select',
+  name: 'component-select',
+  multiple: false
+}
+
+module.exports = Select

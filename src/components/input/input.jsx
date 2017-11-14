@@ -5,87 +5,54 @@ const classNames = require('classnames')
 const PropTypes = require('prop-types')
 const { flatten } = require('../helpers')
 
-module.exports = React.createClass({
-  intent: null,
+class Input extends React.Component {
+  constructor (props) {
+    super(props)
 
-  propTypes: {
-    label: PropTypes.string,
-    type: PropTypes.oneOf(['text', 'email', 'number', 'tel']),
-    size: PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large']),
-    placeHolder: PropTypes.string,
-    name: PropTypes.string,
-    id: PropTypes.string,
-    placeholder: PropTypes.string,
-    ref: PropTypes.string,
-    disabled: PropTypes.bool,
-    readOnly: PropTypes.bool,
-    required: PropTypes.bool,
-    validator: PropTypes.instanceOf(RegExp),
-    errorMessage: PropTypes.string,
-    children: PropTypes.string,
-    handleChange: PropTypes.func,
-    data: PropTypes.object
-  },
-
-  getInitialState: function () {
-    return {
+    this.intent = null
+    this.state = {
       value: this.props.children,
       error: null,
       valid: true
     }
-  },
 
-  getDefaultProps: function () {
-    return {
-      type: 'text',
-      disabled: false,
-      readOnly: false,
-      required: false,
-      errorMessage: 'Invalid Input',
-      id: 'component-input',
-      name: 'component-input',
-      placeHolder: ''
-    }
-  },
+    this.handleChange = this.handleChange.bind(this)
+  }
 
-  validate: function (value) {
-    const self = this
+  validate (value) {
     let isValid = true
     let error = null
 
-    if (value !== '' && typeof self.props.validator !== 'undefined') {
-      isValid = self.props.validator.test(value)
+    if (value !== '' && typeof this.props.validator !== 'undefined') {
+      isValid = this.props.validator.test(value)
     }
 
     if (!isValid) {
-      error = self.props.errorMessage
+      error = this.props.errorMessage
     }
 
-    self.setState({
+    this.setState({
       valid: isValid,
-      error: error
+      error
     })
-  },
+  }
 
-  handleChange: function (e) {
-    const self = this
+  handleChange (e) {
     const value = (e.target) ? e.target.value : null
 
-    self.setState({
-      value: value
+    this.setState({
+      value
     })
 
     clearTimeout(this.intent)
-    this.intent = setTimeout(function () {
-      self.validate(value)
-    }, 500)
+    this.intent = setTimeout(() => this.validate(value), 500)
 
-    if (self.props.handleChange) {
-      self.props.handleChange.apply(this, arguments)
+    if (this.props.handleChange) {
+      this.props.handleChange.apply(this, arguments)
     }
-  },
+  }
 
-  render: function () {
+  render () {
     const classes = classNames({
       'component-input': true,
       'error': this.state.error || false,
@@ -110,25 +77,57 @@ module.exports = React.createClass({
       span = (<span className='component-input-error'>{this.state.error}</span>)
     }
 
-    return (
+    return(
       <div className={classes} ref={this.props.ref}>
-        {label}
+        { label }
         <input
-          className='component-input-field'
-          type={this.props.type}
-          name={this.props.name}
-          value={this.state.value}
-          aria-labelledby={this.props.label}
-          id={this.props.id}
-          placeholder={this.props.placeholder}
-          onChange={this.handleChange}
-          disabled={this.props.disabled}
-          readOnly={this.props.readOnly}
-          required={this.props.required}
-          {...dataAttributes}
+          className = 'component-input-field'
+          type = { this.props.type }
+          name = { this.props.name }
+          value = { this.state.value }
+          aria-labelledby={ this.props.label }
+          id = { this.props.id }
+          placeholder = { this.props.placeholder }
+          onChange = { this.handleChange }
+          disabled = { this.props.disabled }
+          readOnly = { this.props.readOnly }
+          required = { this.props.required }
+          { ...dataAttributes }
         />
-        {span}
+        { span }
       </div>
     )
   }
-})
+}
+
+Input.propTypes = {
+  label: PropTypes.string,
+  type: PropTypes.oneOf(['text', 'email', 'number', 'tel']),
+  size: PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large']),
+  placeHolder: PropTypes.string,
+  name: PropTypes.string,
+  id: PropTypes.string,
+  placeholder: PropTypes.string,
+  ref: PropTypes.string,
+  disabled: PropTypes.bool,
+  readOnly: PropTypes.bool,
+  required: PropTypes.bool,
+  validator: PropTypes.instanceOf(RegExp),
+  errorMessage: PropTypes.string,
+  children: PropTypes.string,
+  handleChange: PropTypes.func,
+  data: PropTypes.object
+}
+
+Input.defaultProps = {
+  type: 'text',
+  disabled: false,
+  readOnly: false,
+  required: false,
+  errorMessage: 'Invalid Input',
+  id: 'component-input',
+  name: 'component-input',
+  placeHolder: ''
+}
+
+module.exports = Input
