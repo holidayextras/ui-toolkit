@@ -5,11 +5,14 @@ const TestUtils = require('react-addons-test-utils')
 const assert = require('chai').assert
 const sinon = require('sinon')
 const ButtonView = require('../../src/components/button/button.jsx')
+const Wrapper = require('../helpers/wrapper')
 
 describe('ButtonComponent', function () {
   it('should render button', function () {
     const button = TestUtils.renderIntoDocument(
-      <ButtonView>Book Now</ButtonView>
+      <Wrapper>
+        <ButtonView>Book Now</ButtonView>
+      </Wrapper>
     )
 
     const renderedButton = TestUtils.findRenderedDOMComponentWithClass(button, 'component-button')
@@ -18,7 +21,9 @@ describe('ButtonComponent', function () {
 
   it('should render a primary button', function () {
     const primaryButton = TestUtils.renderIntoDocument(
-      <ButtonView purpose='primary'>Book Now</ButtonView>
+      <Wrapper>
+        <ButtonView purpose='primary'>Book Now</ButtonView>
+      </Wrapper>
     )
 
     const renderedButton = TestUtils.findRenderedDOMComponentWithClass(primaryButton, 'primary')
@@ -27,7 +32,9 @@ describe('ButtonComponent', function () {
 
   it('should render a default button', function () {
     const defaultButton = TestUtils.renderIntoDocument(
-      <ButtonView size='default'>Book Now</ButtonView>
+      <Wrapper>
+        <ButtonView size='default'>Book Now</ButtonView>
+      </Wrapper>
     )
 
     const renderedButton = TestUtils.findRenderedDOMComponentWithClass(defaultButton, 'default')
@@ -36,7 +43,9 @@ describe('ButtonComponent', function () {
 
   it('should render a medium button', function () {
     const mediumButton = TestUtils.renderIntoDocument(
-      <ButtonView size='medium'>Book Now</ButtonView>
+      <Wrapper>
+        <ButtonView size='medium'>Book Now</ButtonView>
+      </Wrapper>
     )
 
     const renderedButton = TestUtils.findRenderedDOMComponentWithClass(mediumButton, 'medium')
@@ -45,7 +54,9 @@ describe('ButtonComponent', function () {
 
   it('should render a large button', function () {
     const largeButton = TestUtils.renderIntoDocument(
-      <ButtonView size='large'>Book Now</ButtonView>
+      <Wrapper>
+        <ButtonView size='large'>Book Now</ButtonView>
+      </Wrapper>
     )
 
     const renderedButton = TestUtils.findRenderedDOMComponentWithClass(largeButton, 'large')
@@ -54,7 +65,9 @@ describe('ButtonComponent', function () {
 
   it('should render a small secondary button', function () {
     const smallSecondaryButton = TestUtils.renderIntoDocument(
-      <ButtonView size='small' purpose='secondary'>Book Now</ButtonView>
+      <Wrapper>
+        <ButtonView size='small' purpose='secondary'>Book Now</ButtonView>
+      </Wrapper>
     )
 
     const renderedButton = TestUtils.findRenderedDOMComponentWithClass(smallSecondaryButton, 'small secondary')
@@ -63,7 +76,9 @@ describe('ButtonComponent', function () {
 
   it('should render as an anchor if href is present', function () {
     const anchor = TestUtils.renderIntoDocument(
-      <ButtonView href='http://www.ui-toolkit.com'>Go to Toolkit</ButtonView>
+      <Wrapper>
+        <ButtonView href='http://www.ui-toolkit.com'>Go to Toolkit</ButtonView>
+      </Wrapper>
     )
 
     const renderedButton = TestUtils.findRenderedDOMComponentWithTag(anchor, 'a')
@@ -72,7 +87,9 @@ describe('ButtonComponent', function () {
 
   it('should render with an id if present', function () {
     const buttonWithID = TestUtils.renderIntoDocument(
-      <ButtonView id='my-id'>Book Now</ButtonView>
+      <Wrapper>
+        <ButtonView id='my-id'>Book Now</ButtonView>
+      </Wrapper>
     )
 
     const renderedButton = TestUtils.findRenderedDOMComponentWithClass(buttonWithID, 'component-button')
@@ -83,7 +100,9 @@ describe('ButtonComponent', function () {
     const onMouseOverHandler = sinon.stub()
 
     const button = TestUtils.renderIntoDocument(
-      <ButtonView onMouseOver={onMouseOverHandler}>Book Now</ButtonView>
+      <Wrapper>
+        <ButtonView onMouseOver={onMouseOverHandler}>Book Now</ButtonView>
+      </Wrapper>
     )
 
     const renderedButton = TestUtils.findRenderedDOMComponentWithClass(button, 'component-button')
@@ -96,7 +115,9 @@ describe('ButtonComponent', function () {
       const onClick = sinon.stub()
 
       const button = TestUtils.renderIntoDocument(
-        <ButtonView onClick={onClick}>Book Now</ButtonView>
+        <Wrapper>
+          <ButtonView onClick={onClick}>Book Now</ButtonView>
+        </Wrapper>
       )
 
       const renderedButton = TestUtils.findRenderedDOMComponentWithClass(button, 'component-button')
@@ -108,7 +129,9 @@ describe('ButtonComponent', function () {
       const handleClick = sinon.stub()
 
       const button = TestUtils.renderIntoDocument(
-        <ButtonView handleClick={handleClick}>Book Now</ButtonView>
+        <Wrapper>
+          <ButtonView handleClick={handleClick}>Book Now</ButtonView>
+        </Wrapper>
       )
 
       const renderedButton = TestUtils.findRenderedDOMComponentWithClass(button, 'component-button')

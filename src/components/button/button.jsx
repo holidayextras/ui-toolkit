@@ -10,24 +10,22 @@ const _ = {
   omit: require('lodash/omit')
 }
 
-class Button extends React.Component {
-  _getProps () {
-    const props = _.omit(this.props, ['data', 'size', 'purpose'])
-    props.className = classNames('component-button', this.props.size, this.props.purpose)
+const Button = (props) => {
+  // this is for legacy usage whilst we deprecate handleClick
+  const onClick = props.onClick || props.handleClick
+  const className = classNames('component-button', props.size, props.purpose)
 
-    // this is for legacy usage whilst we deprecate handleClick
-    if (!props.onClick && props.handleClick) {
-      props.onClick = props.handleClick
+  const fixedProps = _.extend(
+    {},
+    _.omit(props, ['data', 'size', 'purpose']),
+    _.extend({}, props, flatten(props.data)),
+    {
+      onClick,
+      className
     }
+  )
 
-    return _.extend({}, props, flatten(this.props.data))
-  }
-
-  render () {
-    return this.props.href
-      ? <a {...this._getProps()} />
-      : <button {...this._getProps()} />
-  }
+  return props.href ? <a {...fixedProps} /> : <button {...fixedProps} />
 }
 
 Button.propTypes = {
