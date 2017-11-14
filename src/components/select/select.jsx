@@ -38,7 +38,7 @@ class Select extends React.Component {
           id={this.props.id}
           onChange={this.handleChange}
           multiple={this.props.multiple}
-          { ...dataAttributes }
+          {...dataAttributes}
         >
           { this.props.children }
         </select>

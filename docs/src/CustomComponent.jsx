@@ -15,7 +15,7 @@ var IS_MOBILE = typeof navigator !== 'undefined' && (
   navigator.userAgent.match(/Windows Phone/i)
 )
 
-var CodeMirrorEditor extends React.Component {
+class CodeMirrorEditor extends React.Component {
   constructor (props) {
     super(props)
     this.handleChange = this.handleChange.bind(this)

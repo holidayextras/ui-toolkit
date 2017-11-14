@@ -15,7 +15,7 @@ class Button extends React.Component {
     const props = _.omit(this.props, ['data', 'size', 'purpose'])
     props.className = classNames('component-button', this.props.size, this.props.purpose)
 
-    // this is for legacy usage whilst we deprepecate handleClick
+    // this is for legacy usage whilst we deprecate handleClick
     if (!props.onClick && props.handleClick) {
       props.onClick = props.handleClick
     }
@@ -25,8 +25,8 @@ class Button extends React.Component {
 
   render () {
     return this.props.href
-      ? <a {...this._getProps() } />
-      : <button {...this._getProps() } />
+      ? <a {...this._getProps()} />
+      : <button {...this._getProps()} />
   }
 }
 

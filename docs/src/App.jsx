@@ -1,4 +1,5 @@
 var React = require('react')
+var ReactDOM = require('react-dom')
 
 var HomePage = require('./HomePage.jsx')
 
@@ -6,42 +7,28 @@ var a11y = require('react-a11y')
 // a11y(React, {includeSrcNode: true })
 a11y(React)
 
-var App = React.createClass({
-  statics: {
+var App = () => (
+  <div className='wrapper'>
+    <HomePage />
+  </div>
+)
 
-    /**
-     * Get the doctype the page expects to be rendered with
-     *
-     * @returns {string}
-     */
-    getDoctype: function () {
-      return '<!doctype html>'
-    },
+/**
+ * Get the doctype the page expects to be rendered with
+ * @returns {string}
+ */
+App.getDoctype = () => '<!doctype html>'
 
-    renderToString: function (props) {
-      return App.getDoctype() +
-        React.renderToString(<App {...props} />)
-    },
+/**
+ * Render the application to a string
+ * @returns {string}
+ */
+App.renderToString = (props) => App.getDoctype() + ReactDOM.renderToString(<App {...props} />)
 
-    /**
-     * Get the list of pages that are renderable
-     *
-     * @returns {Array}
-     */
-    getPages: function () {
-      return ['index.html']
-    }
-
-  },
-
-  render: function () {
-
-    return (
-      <div className="wrapper">
-        <HomePage />
-      </div>
-    )
-  }
-})
+/**
+ * Get the list of pages that are renderable
+ * @returns {Array}
+ */
+App.getPages = () => ['index.html']
 
 module.exports = App

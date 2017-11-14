@@ -77,22 +77,22 @@ class Input extends React.Component {
       span = (<span className='component-input-error'>{this.state.error}</span>)
     }
 
-    return(
+    return (
       <div className={classes} ref={this.props.ref}>
         { label }
         <input
-          className = 'component-input-field'
-          type = { this.props.type }
-          name = { this.props.name }
-          value = { this.state.value }
-          aria-labelledby={ this.props.label }
-          id = { this.props.id }
-          placeholder = { this.props.placeholder }
-          onChange = { this.handleChange }
-          disabled = { this.props.disabled }
-          readOnly = { this.props.readOnly }
-          required = { this.props.required }
-          { ...dataAttributes }
+          className='component-input-field'
+          type={this.props.type}
+          name={this.props.name}
+          value={this.state.value}
+          aria-labelledby={this.props.label}
+          id={this.props.id}
+          placeholder={this.props.placeholder}
+          onChange={this.handleChange}
+          disabled={this.props.disabled}
+          readOnly={this.props.readOnly}
+          required={this.props.required}
+          {...dataAttributes}
         />
         { span }
       </div>
