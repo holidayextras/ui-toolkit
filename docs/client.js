@@ -1,13 +1,13 @@
-'use strict';
+'use strict'
 
-var React = require('react');
-var ReactDOM = require('react-dom');
-var App = require('./src/App.jsx');
+var React = require('react')
+var ReactDOM = require('react-dom')
+var App = require('./src/App.jsx')
 
 // For React devtools
-window.React = React;
+window.React = React
 
 // For Rendering
-window.ReactDOM = ReactDOM;
+window.ReactDOM = ReactDOM
 
-ReactDOM.render(<App />, document.getElementById('application'));
+ReactDOM.render(<App />, document.getElementById('application'))

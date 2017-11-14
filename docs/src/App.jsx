@@ -1,10 +1,10 @@
-var React = require('react');
+var React = require('react')
 
-var HomePage = require('./HomePage.jsx');
+var HomePage = require('./HomePage.jsx')
 
-var a11y = require('react-a11y');
-// a11y(React, {includeSrcNode: true });
-a11y(React);
+var a11y = require('react-a11y')
+// a11y(React, {includeSrcNode: true })
+a11y(React)
 
 var App = React.createClass({
   statics: {
@@ -15,12 +15,12 @@ var App = React.createClass({
      * @returns {string}
      */
     getDoctype: function () {
-      return '<!doctype html>';
+      return '<!doctype html>'
     },
 
     renderToString: function (props) {
       return App.getDoctype() +
-        React.renderToString(<App {...props} />);
+        React.renderToString(<App {...props} />)
     },
 
     /**
@@ -29,7 +29,7 @@ var App = React.createClass({
      * @returns {Array}
      */
     getPages: function () {
-      return ['index.html'];
+      return ['index.html']
     }
 
   },
@@ -40,8 +40,8 @@ var App = React.createClass({
       <div className="wrapper">
         <HomePage />
       </div>
-    );
+    )
   }
-});
+})
 
-module.exports = App;
+module.exports = App
