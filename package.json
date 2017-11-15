@@ -1,6 +1,6 @@
 {
   "name": "@holidayextras/ui-toolkit",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "index.js",
@@ -63,8 +63,8 @@
     "babel-preset-es2015": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "babel-runtime": "^6.11.6",
-    "babelify": "^7.3.0",
-    "browserify": "^13.1.0",
+    "babelify": "^8.0.0",
+    "browserify": "^14.5.0",
     "chai": "^4.1.2",
     "dirty-chai": "^2.0.1",
     "enzyme": "^2.4.1",

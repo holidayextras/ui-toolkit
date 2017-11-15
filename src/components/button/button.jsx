@@ -10,45 +10,46 @@ const _ = {
   omit: require('lodash/omit')
 }
 
-module.exports = React.createClass({
-  propTypes: {
-    children: PropTypes.any,
-    purpose: PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
-    size: function (props, propName, componentName) {
-      // expects a string with any combination of the following class names
-      const propValue = props[propName]
-      const expectedValues = ['default', 'small', 'medium', 'large', 'extra-large', 'block']
-      const pattern = new RegExp('^(' + expectedValues.join('|') + '|\\s)*$')
-      if (propValue && !pattern.test(propValue)) {
-        return new Error('Invalid prop `' + propName + '` of value `' + propValue +
-          '` supplied to `' + componentName + '`, expected any of ["' +
-          expectedValues.join('", "') + '"]. Validation failed.')
-      }
-      return undefined
-    },
-    disabled: PropTypes.bool,
-    href: PropTypes.string,
-    type: PropTypes.string,
-    target: PropTypes.string,
-    handleClick: PropTypes.func,
-    data: PropTypes.object,
-    id: PropTypes.string
-  },
+const Button = (props) => {
+  // this is for legacy usage whilst we deprecate handleClick
+  const onClick = props.onClick || props.handleClick
+  const className = classNames('component-button', props.size, props.purpose)
 
-  _getProps () {
-    const props = _.omit(this.props, ['data', 'size', 'purpose'])
-    props.className = classNames('component-button', this.props.size, this.props.purpose)
-
-    // this is for legacy usage whilst we deprepecate handleClick
-    if (!props.onClick && props.handleClick) {
-      props.onClick = props.handleClick
+  const fixedProps = _.extend(
+    {},
+    _.omit(props, ['data', 'size', 'purpose']),
+    _.extend({}, props, flatten(props.data)),
+    {
+      onClick,
+      className
     }
+  )
 
-    return _.extend({}, props, flatten(this.props.data))
+  return props.href ? <a {...fixedProps} /> : <button {...fixedProps} />
+}
+
+Button.propTypes = {
+  children: PropTypes.any,
+  purpose: PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
+  size: function (props, propName, componentName) {
+    // expects a string with any combination of the following class names
+    const propValue = props[propName]
+    const expectedValues = ['default', 'small', 'medium', 'large', 'extra-large', 'block']
+    const pattern = new RegExp('^(' + expectedValues.join('|') + '|\\s)*$')
+    if (propValue && !pattern.test(propValue)) {
+      return new Error('Invalid prop `' + propName + '` of value `' + propValue +
+        '` supplied to `' + componentName + '`, expected any of ["' +
+        expectedValues.join('", "') + '"]. Validation failed.')
+    }
+    return undefined
   },
+  disabled: PropTypes.bool,
+  href: PropTypes.string,
+  type: PropTypes.string,
+  target: PropTypes.string,
+  handleClick: PropTypes.func,
+  data: PropTypes.object,
+  id: PropTypes.string
+}
 
-  render () {
-    return this.props.href ? <a {...this._getProps()} /> : <button {...this._getProps()} />
-  }
-
-})
+module.exports = Button

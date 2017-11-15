@@ -1,5 +1,10 @@
 # Changelog
 
+### 3.4.0 - 2017-11-14
+- Convert remaining components to es2015 classes
+- Update docs site to use es2015 classes or functional components
+- Update build dependencies
+
 ### 3.3.0 - 2017-11-10
 - Remove all use of mixins
 - Convert more components to es2015 classes or functional components

@@ -10,23 +10,26 @@
   "browser": "./client.js",
   "browserify": {
     "transform": [
-      "reactify",
+      "babelify",
       "brfs",
       "envify"
     ]
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babelify": "^8.0.0",
     "brfs": "^1.4.3",
-    "browserify": "^13.1.0",
+    "browserify": "^14.5.0",
     "classnames": "^2.2.5",
-    "envify": "^3.4.1",
+    "envify": "^4.1.0",
     "express": "^4.14.0",
     "node-fs": "^0.1.7",
     "node-jsx": "^0.13.3",
     "open": "^0.0.5",
-    "reactify": "^1.1.0",
     "uglify-js": "^2.7.3",
-    "watchify": "^3.1.0"
+    "watchify": "^3.9.0"
   },
   "scripts": {
     "test": "./scripts/test.sh",
