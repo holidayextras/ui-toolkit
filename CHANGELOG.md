@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.4.2 - 2017-12-15
+- Don't assign data, size, purpose props to button that causes a react warning
+
+### 3.4.1 - 2017-11-14
+- Fix for broken release v3.4.0 where `npm publish` partly failed
+
 ### 3.4.0 - 2017-11-14
 - Convert remaining components to es2015 classes
 - Update docs site to use es2015 classes or functional components
