@@ -17,7 +17,7 @@ const Button = (props) => {
 
   const fixedProps = _.extend(
     {},
-    _.omit(props, ['data', 'size', 'purpose']),
+    _.omit(props, ['data', 'size', 'purpose', 'onClick', 'handleClick']),
     flatten(props.data),
     {
       onClick,

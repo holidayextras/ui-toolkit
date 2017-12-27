@@ -1,5 +1,8 @@
 # Changelog
 
+### 3.4.3 - 2017-12-27
+- Don't add handleClick as a prop to the button's underlying anchor or button
+
 ### 3.4.2 - 2017-12-15
 - Don't assign data, size, purpose props to button that causes a react warning
 
