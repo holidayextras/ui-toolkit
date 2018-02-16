@@ -11,6 +11,7 @@ describe('ImageComponent', function () {
   let src = null
   let alt = null
   let handleClick = null
+  let handleError = null
   let handleLoad = null
   let imageInstance = null
   let renderedImage = null
@@ -26,6 +27,7 @@ describe('ImageComponent', function () {
     sizes = '100vw'
     handleClick = sinon.spy()
     handleLoad = sinon.spy()
+    handleError = sinon.spy()
   })
 
   it('is an element', function () {
@@ -39,7 +41,7 @@ describe('ImageComponent', function () {
       href = 'http://this.isa.link'
       imageInstance = TestUtils.renderIntoDocument(
         <Wrapper>
-          <ImageComponent src={src} alt={alt} handleClick={handleClick} handleLoad={handleLoad} href={href} />
+          <ImageComponent src={src} alt={alt} handleClick={handleClick}  handleLoad={handleLoad} href={href} />
         </Wrapper>
       )
       renderedImage = TestUtils.findRenderedDOMComponentWithClass(imageInstance, 'component-image')
@@ -102,7 +104,7 @@ describe('ImageComponent', function () {
     beforeEach(function () {
       imageInstance = TestUtils.renderIntoDocument(
         <Wrapper>
-          <ImageComponent src={src} alt={alt} handleClick={handleClick} handleLoad={handleLoad} sizes={sizes} srcSet={srcSet} />
+          <ImageComponent src={src} alt={alt} handleClick={handleClick} handleError={handleError} handleLoad={handleLoad} sizes={sizes} srcSet={srcSet} />
         </Wrapper>
       )
       renderedImage = TestUtils.findRenderedDOMComponentWithClass(imageInstance, 'component-image')
@@ -111,6 +113,10 @@ describe('ImageComponent', function () {
 
     it('should render an img tag', function () {
       assert.equal(imageDOMNode.nodeName, 'IMG')
+    })
+
+    it('should render an img tag and call the onError handler', function () {
+      assert.ok(handleError.calledOnce)
     })
 
     it('should have the correct src attribute from props', function () {
