@@ -41,7 +41,7 @@ describe('ImageComponent', function () {
       href = 'http://this.isa.link'
       imageInstance = TestUtils.renderIntoDocument(
         <Wrapper>
-          <ImageComponent src={src} alt={alt} handleClick={handleClick}  handleLoad={handleLoad} href={href} />
+          <ImageComponent src={src} alt={alt} handleClick={handleClick} handleLoad={handleLoad} href={href} />
         </Wrapper>
       )
       renderedImage = TestUtils.findRenderedDOMComponentWithClass(imageInstance, 'component-image')
