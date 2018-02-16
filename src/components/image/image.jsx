@@ -9,6 +9,7 @@ const Image = ({
   alt,
   handleClick,
   handleLoad,
+  handleError,
   href,
   target,
   srcSet,
@@ -32,6 +33,7 @@ const Image = ({
           alt={alt}
           sizes={imageSizes}
           onLoad={handleLoad}
+          onError={handleError}
         />
       </a>
     )
@@ -45,6 +47,7 @@ const Image = ({
       sizes={imageSizes}
       onClick={handleClick}
       onLoad={handleLoad}
+      onError={handleError}
       {...dataAttributes}
     />
   )
@@ -55,6 +58,7 @@ Image.propTypes = {
   alt: PropTypes.string.isRequired,
   handleClick: PropTypes.func,
   handleLoad: PropTypes.func,
+  handleError: PropTypes.func,
   href: PropTypes.string,
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
   srcSet: PropTypes.string,
