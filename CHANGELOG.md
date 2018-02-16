@@ -1,5 +1,8 @@
 # Changelog
 
+### 3.4.4 - 2018-02-15
+- Custom onError event handler for image components
+
 ### 3.4.3 - 2017-12-27
 - Don't add handleClick as a prop to the button's underlying anchor or button
 
